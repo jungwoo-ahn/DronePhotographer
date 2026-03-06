@@ -1,0 +1,1 @@
+blender -b --python-expr "import sys, subprocess; subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'torchvision', 'transformers', 'pyiqa'])"

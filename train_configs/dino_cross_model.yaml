@@ -1,0 +1,31 @@
+run:
+  run_root: runs
+  run_name: dino_cross_q_model
+  save_every_steps: 2000
+
+data:
+  data_root: outputs/DogWalk_260215_092109
+  distance_threshold: 3
+  batch_size: 256
+  num_workers: 0
+  image_size: 224
+  pair_cache_path: null
+
+train:
+  max_steps: 100000
+  lr: 1e-4
+  device: auto
+
+model:
+  name: dino_cross
+  action_dim: 6
+  num_outputs: 5
+  dino_cross:
+    dino_model_name: facebook/dinov2-base
+    image_size: 224
+    embed_dim: 256
+    depth: 3
+    num_heads: 8
+    mlp_dim: 512
+    dropout: 0.0
+    head_hidden_dim: 256

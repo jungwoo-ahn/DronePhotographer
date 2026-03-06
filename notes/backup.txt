@@ -1,0 +1,2 @@
+# zip except assets/, outputs/
+zip -r RoboCam_backup.zip . -x "assets/*" "outputs/*" "*/__pycache__/*" ".git/*" "*.zip"

@@ -1,0 +1,12 @@
+1. 
+BLENDER="/home/nas3_userM/minhopark/repos/repos4students/jungwooahn/RoboticCameraControl/blender-4.5.2-linux-x64/blender"
+GDD="/home/minhopark/repos/repos4students/jungwooahn/DroneCameraAgent/repos/GroundingDINO"
+
+2.
+"$BLENDER" -b --python-expr "import sys,subprocess; subprocess.check_call([sys.executable,'-m','ensurepip','--upgrade']); subprocess.check_call([sys.executable,'-m','pip','install','-U','pip','setuptools','wheel'])"
+
+3. 
+"$BLENDER" -b --python-expr "import sys,subprocess; subprocess.check_call([sys.executable,'-m','pip','install','-e',r'$GDD'])"
+
+4.
+"$BLENDER" -b --python-expr "import groundingdino,inspect; print('groundingdino:', groundingdino.__file__)"

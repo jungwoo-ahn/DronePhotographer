@@ -1,0 +1,7 @@
+Why does the black image score higher?
+This is a known phenomenon with CLIP/SigLIP models called "adversarial examples" or "out-of-distribution behavior."
+
+The "Void" Problem: A completely black image contains zero information. When the model tries to project this "void" into its semantic space, it often lands in a generic, undefined region.
+The "Man" Image: The image of the man you provided is quite complex. It has a specific lighting, a specific background (shelves, gold circle), and the man is standing in a specific pose.
+If the model's training data for "a man" usually looks like a close-up face or a different style of photo, your specific 3D-rendered image might actually be further away in vector space than the generic "void" of the black image.
+The model might be penalizing the "man" image for the "distracting" background elements (bottles, gold circle) which don't match its pure concept of "a man".

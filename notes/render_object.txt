@@ -1,0 +1,98 @@
+Organized spec 
+
+CLI Options
+
+Core I/O
+	•	--input_scene (str)
+Default: assets/scenes/Koky_LuxuryHouse_0.blend
+Naming convention: {ObjectName}_{SceneName}_{Variation}.blend
+	•	--output_dir (str)
+Default: outputs
+	•	--run_name (str | None)
+Default: None
+
+Environment lighting
+	•	--sky_strength (float)
+Default: 1.0
+If 0: don’t add sky.
+If >0: add sky with that strength.
+
+Object target
+	•	--object_position (3 floats | None)
+Default: None
+If None:
+	1.	parse object name from input_scene filename (e.g., Koky)
+	2.	find object in the scene
+	3.	use its world location (x,y,z)
+
+Camera sampling
+	•	--hemisphere (bool)
+Default: False
+If True: sample only the northern hemisphere (z > 0 relative to object center)
+	•	--camera_radius_range (2 floats)
+Default: 1 10 (meters)
+	•	--camera_direction_offsets (3 floats)
+Default: 30 30 30 degrees for yaw/pitch/roll
+Interpretation: start from a canonical “look-at” camera (camera points to object, camera up is aligned so left/right is parallel to XY plane). Then apply random yaw/pitch/roll in [-offset, +offset].
+If 0 0 0: deterministic (no perturbation)
+	•	--num_images (int)
+Default: 200
+
+Camera intrinsics & render
+	•	--focal_length (float | None)
+	•	--sensor_width (float | None)
+	•	--sensor_height (float | None)
+(If not provided, keep whatever is in the .blend camera.)
+	•	--resolution (2 ints)
+Default: 512 512
+
+⸻
+
+Output layout
+
+Create a run folder inside output_dir/:
+	•	If run_name is None
+output_dir/{Object_Scene_Var}_[YYMMDD_HHMMSS]/
+	•	Else
+output_dir/{Object_Scene_Var}_{run_name}_[YYMMDD_HHMMSS]/
+
+Inside:
+	•	images/000000.png ...
+	•	run_info.json (all options + derived info)
+	•	annotations.jsonl (one JSON per image; easier to stream/write)
+	•	Optional: stats.json, viz/ (if you later add plots)
+
+⸻
+
+Per-image annotations (recommended fields)
+
+For each index i:
+	•	image_path
+	•	camera_position_world (x,y,z)
+	•	target_object_name
+	•	object_position_world (x,y,z)
+	•	radius
+	•	base_lookat_rotation (e.g., quaternion or Euler)
+	•	offset_yaw_pitch_roll_deg (applied)
+	•	final_camera_rotation (quaternion/Euler)
+	•	camera_forward_world, camera_up_world (nice for debugging)
+	•	intrinsics used (focal_length, sensor_width, sensor_height)
+	•	render settings used (resolution, engine)
+
+⸻
+
+Execution flow
+	1.	Load .blend
+	2.	If sky_strength > 0: set world background to Nishita sky (or a simple sky setup) with that strength
+	3.	Determine object_position (parse object name from filename if needed)
+	4.	For num_images:
+	•	sample radius r ~ U(r_min, r_max)
+	•	sample direction uniformly on sphere (or hemisphere z>0)
+	•	set camera location = object_position + r * direction
+	•	compute base “look-at” rotation (camera points to object)
+	•	sample yaw/pitch/roll perturbations within offsets and apply
+	•	render to images/{i:06d}.png
+	•	append annotation row
+	5.	Save run_info.json and annotations.jsonl
+
+⸻
