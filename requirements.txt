@@ -1,20 +1,19 @@
-# Core training stack
+# Qwen2.5-VL training stack
 torch
-torchvision
+transformers
+accelerate
+deepspeed
 tensorboard
 tqdm
 PyYAML
 Pillow
 numpy
-transformers
 
-# Detection/visualization stack
+# Keep these only if you still run scoring/detection scripts
 opencv-python
 supervision
 matplotlib
 addict
 yapf
 pycocotools
-
-# Local GroundingDINO repo (required by src/detectors/detector.py)
 -e ./repos/GroundingDINO
