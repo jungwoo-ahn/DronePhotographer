@@ -5,6 +5,7 @@ import json
 import random
 from datetime import datetime
 from pathlib import Path
+import sys
 
 import torch
 import yaml
@@ -16,6 +17,10 @@ from transformers import (
     TrainingArguments,
     set_seed,
 )
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from src.vlm_qwen25.collator import QwenVLScoreCollator
 from src.vlm_qwen25.dataset import DroneActionScoreDataset

@@ -4,12 +4,17 @@ import argparse
 import json
 import random
 from pathlib import Path
+import sys
 
 import torch
 import yaml
 from torch.utils.data import Subset
 from tqdm import tqdm
 from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from src.vlm_qwen25.dataset import DroneActionScoreDataset
 from src.vlm_qwen25.prompt import build_user_prompt

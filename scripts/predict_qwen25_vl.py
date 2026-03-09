@@ -2,10 +2,16 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
+import sys
 
 import torch
 from PIL import Image
 from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from src.scoring import DEFAULT_TARGET_SCORE_KEYS
 from src.vlm_qwen25.prompt import build_user_prompt

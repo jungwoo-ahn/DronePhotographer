@@ -10,6 +10,7 @@ from PIL import Image
 from torch.utils.data import Dataset
 
 from .prompt import action_vector_to_text
+from .rotation_utils import relative_rotation_rotvec
 from .schema import SCORE_KEYS, extract_scores_from_annotation, scores_to_canonical_json
 
 
@@ -30,63 +31,6 @@ class ViewRecord:
     camera_forward: np.ndarray
     camera_up: np.ndarray
     scores: dict[str, float]
-
-
-def _normalize(vec: np.ndarray, eps: float = 1e-8) -> np.ndarray:
-    return vec / (np.linalg.norm(vec) + eps)
-
-
-def _make_basis(forward: np.ndarray, up: np.ndarray) -> np.ndarray:
-    # Build camera-to-world rotation basis with Blender camera axes:
-    # +X right, +Y up, -Z forward.
-    fwd = _normalize(forward)
-    upn = _normalize(up)
-    right = _normalize(np.cross(fwd, upn))
-    upn = _normalize(np.cross(right, fwd))
-    return np.stack([right, upn, -fwd], axis=1)
-
-
-def _rotation_matrix_to_axis_angle(rotation: np.ndarray) -> np.ndarray:
-    # Convert a proper rotation matrix (SO(3)) to axis-angle vector (rotvec, radians).
-    trace = float(np.trace(rotation))
-    cos_theta = (trace - 1.0) / 2.0
-    cos_theta = np.clip(cos_theta, -1.0, 1.0)
-    theta = float(np.arccos(cos_theta))
-    if theta < 1e-5:
-        return np.zeros(3, dtype=np.float32)
-
-    sin_theta = float(np.sin(theta))
-    if abs(sin_theta) < 1e-6:
-        # Near-pi case: use diagonal-based axis extraction.
-        diag = np.diag(rotation)
-        axis = np.sqrt(np.maximum((diag + 1.0) * 0.5, 0.0)).astype(np.float32)
-        axis[0] = np.copysign(axis[0], rotation[2, 1] - rotation[1, 2])
-        axis[1] = np.copysign(axis[1], rotation[0, 2] - rotation[2, 0])
-        axis[2] = np.copysign(axis[2], rotation[1, 0] - rotation[0, 1])
-        axis_norm = float(np.linalg.norm(axis))
-        if axis_norm < 1e-6:
-            axis = np.array([1.0, 0.0, 0.0], dtype=np.float32)
-        else:
-            axis = axis / axis_norm
-        return axis * theta
-
-    rx = rotation[2, 1] - rotation[1, 2]
-    ry = rotation[0, 2] - rotation[2, 0]
-    rz = rotation[1, 0] - rotation[0, 1]
-    axis = np.array([rx, ry, rz], dtype=np.float32) / (2.0 * sin_theta)
-    return axis * theta
-
-
-def relative_rotation_vector(
-    forward_i: np.ndarray,
-    up_i: np.ndarray,
-    forward_j: np.ndarray,
-    up_j: np.ndarray,
-) -> np.ndarray:
-    basis_i = _make_basis(forward_i, up_i)
-    basis_j = _make_basis(forward_j, up_j)
-    rel = basis_j @ basis_i.T
-    return _rotation_matrix_to_axis_angle(rel).astype(np.float32)
 
 
 class DroneActionScoreDataset(Dataset):
@@ -168,7 +112,7 @@ class DroneActionScoreDataset(Dataset):
                 view_j = self.views[j]
 
                 delta_position = tuple((view_j.camera_position - view_i.camera_position).tolist())
-                delta_rotation_np = relative_rotation_vector(
+                delta_rotation_np = relative_rotation_rotvec(
                     view_i.camera_forward,
                     view_i.camera_up,
                     view_j.camera_forward,

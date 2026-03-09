@@ -468,9 +468,10 @@ def look_at_matrix(cam_pos, target, world_up=Vector((0.0, 0.0, 1.0))):
     # Blender camera convention:
     # local +X: right, local +Y: up, local -Z: forward (view direction)
     forward = (target - cam_pos).normalized()
-    right = world_up.cross(forward)
+    # Choose right as forward x up so image stays upright to world_up.
+    right = forward.cross(world_up)
     if right.length < 1e-6:
-        right = Vector((0.0, 1.0, 0.0)).cross(forward)
+        right = forward.cross(Vector((0.0, 1.0, 0.0)))
     right.normalize()
     up = right.cross(forward).normalized()
     return Matrix(

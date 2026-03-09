@@ -47,6 +47,16 @@ python scripts/score_annotations.py \
 bash scripts/smoke_render_object.sh
 ```
 
+## Rotation Consistency Check
+
+```bash
+python scripts/check_rotation_consistency.py \
+  --annotations_path "outputs/DogWalk_260215_092109/annotations copy.json" \
+  --max_views 1000 \
+  --pair_samples 500 \
+  --strict
+```
+
 ## Evaluate
 
 ```bash
