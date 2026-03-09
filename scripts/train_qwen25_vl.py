@@ -72,6 +72,7 @@ def main() -> None:
         distance_threshold=float(cfg["data"]["distance_threshold"]),
         max_pairs_per_image=int(cfg["data"]["max_pairs_per_image"]),
         seed=seed,
+        target_score_keys=cfg["data"].get("target_score_keys"),
     )
 
     train_indices, eval_indices = split_dataset_indices(
@@ -144,6 +145,7 @@ def main() -> None:
     collator = QwenVLScoreCollator(
         processor=processor,
         max_length=int(train_cfg["max_length"]),
+        target_score_keys=dataset.target_score_keys,
     )
 
     trainer = Trainer(
@@ -166,6 +168,7 @@ def main() -> None:
         "dataset_pairs_train": len(train_dataset),
         "dataset_pairs_eval": 0 if eval_dataset is None else len(eval_dataset),
         "views_total": len(dataset.views),
+        "target_score_keys": dataset.target_score_keys,
     }
     with (run_dir / "summary.json").open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)

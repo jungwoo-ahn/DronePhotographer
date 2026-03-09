@@ -6,6 +6,14 @@ model:
 data:
   annotations_path: outputs/DogWalk_260215_092109/annotations.json
   image_root: outputs/DogWalk_260215_092109
+  target_score_keys:
+    - bbox_occupancy_ratio
+    - bbox_margin_top
+    - bbox_margin_bottom
+    - bbox_margin_left
+    - bbox_margin_right
+    - bbox_aspect_ratio
+    - bbox_centroid_offset
   distance_threshold: 1.5
   max_pairs_per_image: 32
   eval_ratio: 0.02

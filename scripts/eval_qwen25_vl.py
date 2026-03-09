@@ -13,7 +13,7 @@ from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
 
 from src.vlm_qwen25.dataset import DroneActionScoreDataset
 from src.vlm_qwen25.prompt import build_user_prompt
-from src.vlm_qwen25.schema import SCORE_KEYS, parse_scores_from_text
+from src.vlm_qwen25.schema import parse_scores_from_text
 
 
 def parse_args() -> argparse.Namespace:
@@ -71,6 +71,7 @@ def main() -> None:
         distance_threshold=float(data_cfg["distance_threshold"]),
         max_pairs_per_image=int(data_cfg["max_pairs_per_image"]),
         seed=int(data_cfg["seed"]),
+        target_score_keys=data_cfg.get("target_score_keys"),
     )
 
     _, eval_indices = split_dataset_indices(
@@ -92,12 +93,16 @@ def main() -> None:
     )
     model.eval()
 
-    abs_errors = {k: [] for k in SCORE_KEYS}
-    sq_errors = {k: [] for k in SCORE_KEYS}
+    score_keys = list(dataset.target_score_keys)
+    abs_errors = {k: [] for k in score_keys}
+    sq_errors = {k: [] for k in score_keys}
     parse_failures = 0
 
     for sample in tqdm(samples, desc="eval"):
-        user_prompt = build_user_prompt(str(sample["action_text"]))
+        user_prompt = build_user_prompt(
+            str(sample["action_text"]),
+            target_score_keys=score_keys,
+        )
         messages = [
             {
                 "role": "user",
@@ -132,13 +137,13 @@ def main() -> None:
             skip_special_tokens=True,
         )[0]
 
-        pred_scores = parse_scores_from_text(generated_text)
+        pred_scores = parse_scores_from_text(generated_text, score_keys=score_keys)
         if pred_scores is None:
             parse_failures += 1
             continue
 
         gt_scores = sample["target_scores"]
-        for key in SCORE_KEYS:
+        for key in score_keys:
             err = abs(float(pred_scores[key]) - float(gt_scores[key]))
             abs_errors[key].append(err)
             sq_errors[key].append(err * err)
@@ -148,10 +153,11 @@ def main() -> None:
         "num_samples": len(samples),
         "parse_failures": parse_failures,
         "parse_failure_rate": 0.0 if len(samples) == 0 else parse_failures / len(samples),
+        "score_keys": score_keys,
         "metrics": {},
     }
 
-    for key in SCORE_KEYS:
+    for key in score_keys:
         mae = sum(abs_errors[key]) / len(abs_errors[key]) if abs_errors[key] else None
         rmse = (sum(sq_errors[key]) / len(sq_errors[key])) ** 0.5 if sq_errors[key] else None
         report["metrics"][key] = {"mae": mae, "rmse": rmse}

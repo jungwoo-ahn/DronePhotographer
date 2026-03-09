@@ -3,13 +3,14 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Sequence
 
 import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 
 from .prompt import action_vector_to_text
-from .schema import extract_scores, scores_to_canonical_json
+from .schema import SCORE_KEYS, extract_scores_from_annotation, scores_to_canonical_json
 
 
 @dataclass(frozen=True)
@@ -78,12 +79,14 @@ class DroneActionScoreDataset(Dataset):
         distance_threshold: float = 1.5,
         max_pairs_per_image: int = 32,
         seed: int = 721,
+        target_score_keys: Sequence[str] | None = None,
     ) -> None:
         self.annotations_path = Path(annotations_path)
         self.image_root = Path(image_root) if image_root is not None else self.annotations_path.parent
         self.distance_threshold = float(distance_threshold)
         self.max_pairs_per_image = int(max_pairs_per_image)
         self.seed = int(seed)
+        self.target_score_keys = list(SCORE_KEYS if target_score_keys is None else target_score_keys)
 
         with self.annotations_path.open("r", encoding="utf-8") as f:
             raw = json.load(f)
@@ -97,10 +100,18 @@ class DroneActionScoreDataset(Dataset):
             if not item.get("detections"):
                 continue
 
-            scores = extract_scores(item)
             image_path = self.image_root / str(item["image"])
             if not image_path.exists():
                 raise FileNotFoundError(f"image missing: {image_path}")
+            with Image.open(image_path) as image:
+                image_width, image_height = image.size
+
+            scores = extract_scores_from_annotation(
+                annotation=item,
+                image_width=image_width,
+                image_height=image_height,
+                score_keys=self.target_score_keys,
+            )
 
             views.append(
                 ViewRecord(
@@ -149,7 +160,10 @@ class DroneActionScoreDataset(Dataset):
 
                 action_text = action_vector_to_text(delta_position, delta_rotation)
                 target_scores = view_j.scores
-                target_text = scores_to_canonical_json(target_scores)
+                target_text = scores_to_canonical_json(
+                    target_scores,
+                    score_keys=self.target_score_keys,
+                )
 
                 pair_records.append(
                     PairRecord(

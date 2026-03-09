@@ -1,12 +1,21 @@
 from __future__ import annotations
 
+from typing import Sequence
+
 from .prompt import build_user_prompt
+from .schema import SCORE_KEYS
 
 
 class QwenVLScoreCollator:
-    def __init__(self, processor, max_length: int = 2048) -> None:
+    def __init__(
+        self,
+        processor,
+        max_length: int = 2048,
+        target_score_keys: Sequence[str] | None = None,
+    ) -> None:
         self.processor = processor
         self.max_length = int(max_length)
+        self.target_score_keys = list(SCORE_KEYS if target_score_keys is None else target_score_keys)
 
     def __call__(self, batch: list[dict[str, object]]) -> dict[str, object]:
         images = [sample["image"] for sample in batch]
@@ -17,7 +26,10 @@ class QwenVLScoreCollator:
         for sample in batch:
             action_text = str(sample["action_text"])
             target_text = str(sample["target_text"])
-            user_prompt = build_user_prompt(action_text)
+            user_prompt = build_user_prompt(
+                action_text,
+                target_score_keys=self.target_score_keys,
+            )
 
             full_messages = [
                 {

@@ -1,48 +1,34 @@
 from __future__ import annotations
 
 import json
-from typing import Mapping
+from typing import Mapping, Sequence
 
-SCORE_KEYS = [
-    "rule_of_thirds_line",
-    "breathing_space",
-    "centeredness",
-    "subject_size_20",
-    "subject_size_80",
-]
+from src.scoring.evaluator import (
+    DEFAULT_TARGET_SCORE_KEYS,
+    ALL_SUPPORTED_SCORE_KEYS,
+    extract_target_scores,
+    normalize_score_value,
+)
 
-ANNOTATION_SCORE_FIELDS = {
-    "rule_of_thirds_line": "score_rule_of_thirds_line",
-    "breathing_space": "score_breathing_space",
-    "centeredness": "score_centeredness",
-    "subject_size_20": "score_subject_size_20",
-    "subject_size_80": "score_subject_size_80",
-}
+SCORE_KEYS = list(DEFAULT_TARGET_SCORE_KEYS)
 
 
-def clamp01(value: float) -> float:
-    if value < 0.0:
-        return 0.0
-    if value > 1.0:
-        return 1.0
-    return float(value)
-
-
-def extract_scores(annotation: Mapping[str, object]) -> dict[str, float]:
-    scores: dict[str, float] = {}
-    for key in SCORE_KEYS:
-        field = ANNOTATION_SCORE_FIELDS[key]
-        value = annotation[field]
-        scores[key] = clamp01(float(value))
-    return scores
-
-
-def scores_to_canonical_json(scores: Mapping[str, float], decimals: int = 6) -> str:
-    ordered = {key: round(float(scores[key]), decimals) for key in SCORE_KEYS}
+def scores_to_canonical_json(
+    scores: Mapping[str, float],
+    score_keys: Sequence[str] | None = None,
+    decimals: int = 6,
+) -> str:
+    ordered_keys = list(SCORE_KEYS if score_keys is None else score_keys)
+    ordered = {key: round(float(scores[key]), decimals) for key in ordered_keys}
     return json.dumps(ordered, ensure_ascii=True, separators=(",", ":"))
 
 
-def parse_scores_from_text(text: str) -> dict[str, float] | None:
+def parse_scores_from_text(
+    text: str,
+    score_keys: Sequence[str] | None = None,
+) -> dict[str, float] | None:
+    ordered_keys = list(SCORE_KEYS if score_keys is None else score_keys)
+
     start = text.find("{")
     end = text.rfind("}")
     if start < 0 or end < 0 or end <= start:
@@ -55,8 +41,25 @@ def parse_scores_from_text(text: str) -> dict[str, float] | None:
         return None
 
     scores: dict[str, float] = {}
-    for key in SCORE_KEYS:
+    for key in ordered_keys:
         if key not in payload:
             return None
-        scores[key] = clamp01(float(payload[key]))
+        if key not in ALL_SUPPORTED_SCORE_KEYS:
+            return None
+        scores[key] = normalize_score_value(key, float(payload[key]))
     return scores
+
+
+def extract_scores_from_annotation(
+    annotation: Mapping[str, object],
+    image_width: int,
+    image_height: int,
+    score_keys: Sequence[str] | None = None,
+) -> dict[str, float]:
+    ordered_keys = list(SCORE_KEYS if score_keys is None else score_keys)
+    return extract_target_scores(
+        annotation=dict(annotation),
+        image_width=image_width,
+        image_height=image_height,
+        target_keys=ordered_keys,
+    )

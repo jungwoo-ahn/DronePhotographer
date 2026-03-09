@@ -6,18 +6,33 @@ This repository is focused on one workflow:
 - output: composition score JSON of `image_j`
 - model: `Qwen/Qwen2.5-VL-7B-Instruct`
 
-## Score Keys
+## Score Families
 
-The model predicts this fixed JSON schema:
+Two scoring methods are supported:
+
+1. `subject-aware` (VLM-scored aesthetic/composition criteria)
+2. `rule-based bbox controllability` (computed from GroundingDINO detections)
+
+Current default training uses the rule-based controllability keys:
 
 ```json
-{"rule_of_thirds_line":0.0,"breathing_space":0.0,"centeredness":0.0,"subject_size_20":0.0,"subject_size_80":0.0}
+{"bbox_occupancy_ratio":0.0,"bbox_margin_top":0.0,"bbox_margin_bottom":0.0,"bbox_margin_left":0.0,"bbox_margin_right":0.0,"bbox_aspect_ratio":1.2,"bbox_centroid_offset":0.3}
 ```
+
+The key order is controlled by `data.target_score_keys` in config.
 
 ## Train
 
 ```bash
 python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
+```
+
+## Compute Rule-Based Scores into Annotations
+
+```bash
+python scripts/score_annotations.py \
+  --annotations_path outputs/DogWalk_260215_092109/annotations.json \
+  --image_root outputs/DogWalk_260215_092109
 ```
 
 ## Evaluate
