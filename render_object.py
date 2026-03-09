@@ -19,7 +19,7 @@ from src.scenes.scene import open_scene, set_nishita_sky
 
 def parse_args(argv):
     parser = argparse.ArgumentParser(description="Render random views of an object in a Blender scene.")
-    parser.add_argument("--input_scene", default="assets/Koky_LuxuryHouse_0.blend")
+    parser.add_argument("--input_scene", default="assets/Koky_LuxuryHouse_0.blend")     #ahn, 260309: all assets moved to /home/nas5/jungwooahn/datasets/DronePhotos
     parser.add_argument("--output_dir", default="outputs")
     parser.add_argument("--run_name")
     parser.add_argument("--sky_strength", type=float, default=0.1)
