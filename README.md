@@ -21,6 +21,12 @@ Current default training uses the rule-based controllability keys:
 
 The key order is controlled by `data.target_score_keys` in config.
 
+## Rotation Convention
+
+- Camera local axes follow Blender: `+X right, +Y up, -Z forward`.
+- Stored `final_forward` and `final_up` are world-frame unit vectors.
+- Action rotation text is axis-angle vector in world frame, radians.
+
 ## Train
 
 ```bash
@@ -49,5 +55,5 @@ python scripts/eval_qwen25_vl.py \
 python scripts/predict_qwen25_vl.py \
   --model_path runs/<run_dir>/final \
   --image_path outputs/DogWalk_260215_092109/images/img_0000.png \
-  --action_text "move(x=0.2, y=-0.1, z=0.0); rotate_axis_angle(rx=0.0, ry=0.1, rz=-0.1)"
+  --action_text "move_world_m(x=0.2, y=-0.1, z=0.0); rotate_world_axis_angle_rad(rx=0.0, ry=0.1, rz=-0.1)"
 ```

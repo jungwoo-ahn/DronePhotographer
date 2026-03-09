@@ -465,12 +465,14 @@ def random_direction(hemisphere):
 
 
 def look_at_matrix(cam_pos, target, world_up=Vector((0.0, 0.0, 1.0))):
+    # Blender camera convention:
+    # local +X: right, local +Y: up, local -Z: forward (view direction)
     forward = (target - cam_pos).normalized()
     right = world_up.cross(forward)
     if right.length < 1e-6:
         right = Vector((0.0, 1.0, 0.0)).cross(forward)
     right.normalize()
-    up = forward.cross(right).normalized()
+    up = right.cross(forward).normalized()
     return Matrix(
         (
             (right.x, up.x, -forward.x),
@@ -698,7 +700,7 @@ auto_place 기준: blender -b -P render_object.py -- --input_scene Koky_LuxuryHo
 
 # Single Blender process, use all OPTIX GPUs, faster settings
 blender/blender -b -P render_object.py -- \
-  --input_scene assets/scenes/DogWalk.blend \
+  --input_scene /home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/DogWalk.blend \
   --object_position -0.011 0.0364 0.8 \
   --num_images 10000 \
   --gpu_backend OPTIX \
@@ -709,6 +711,5 @@ blender/blender -b -P render_object.py -- \
   --adaptive_sampling --adaptive_threshold 0.02 \
   --max_bounces 2 --diffuse_bounces 1 --glossy_bounces 1 --transmission_bounces 1 \
   --persistent_data
-  --gpu_devices 3 4 5 6 7
-
+  --gpu_devices 6 7
 """

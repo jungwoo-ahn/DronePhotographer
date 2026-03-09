@@ -37,25 +37,43 @@ def _normalize(vec: np.ndarray, eps: float = 1e-8) -> np.ndarray:
 
 
 def _make_basis(forward: np.ndarray, up: np.ndarray) -> np.ndarray:
+    # Build camera-to-world rotation basis with Blender camera axes:
+    # +X right, +Y up, -Z forward.
     fwd = _normalize(forward)
     upn = _normalize(up)
     right = _normalize(np.cross(fwd, upn))
     upn = _normalize(np.cross(right, fwd))
-    return np.stack([right, upn, fwd], axis=1)
+    return np.stack([right, upn, -fwd], axis=1)
 
 
 def _rotation_matrix_to_axis_angle(rotation: np.ndarray) -> np.ndarray:
+    # Convert a proper rotation matrix (SO(3)) to axis-angle vector (rotvec, radians).
     trace = float(np.trace(rotation))
     cos_theta = (trace - 1.0) / 2.0
-    cos_theta = np.clip(cos_theta, -1.0 + 1e-6, 1.0 - 1e-6)
+    cos_theta = np.clip(cos_theta, -1.0, 1.0)
     theta = float(np.arccos(cos_theta))
     if theta < 1e-5:
         return np.zeros(3, dtype=np.float32)
 
+    sin_theta = float(np.sin(theta))
+    if abs(sin_theta) < 1e-6:
+        # Near-pi case: use diagonal-based axis extraction.
+        diag = np.diag(rotation)
+        axis = np.sqrt(np.maximum((diag + 1.0) * 0.5, 0.0)).astype(np.float32)
+        axis[0] = np.copysign(axis[0], rotation[2, 1] - rotation[1, 2])
+        axis[1] = np.copysign(axis[1], rotation[0, 2] - rotation[2, 0])
+        axis[2] = np.copysign(axis[2], rotation[1, 0] - rotation[0, 1])
+        axis_norm = float(np.linalg.norm(axis))
+        if axis_norm < 1e-6:
+            axis = np.array([1.0, 0.0, 0.0], dtype=np.float32)
+        else:
+            axis = axis / axis_norm
+        return axis * theta
+
     rx = rotation[2, 1] - rotation[1, 2]
     ry = rotation[0, 2] - rotation[2, 0]
     rz = rotation[1, 0] - rotation[0, 1]
-    axis = np.array([rx, ry, rz], dtype=np.float32) / (2.0 * np.sin(theta))
+    axis = np.array([rx, ry, rz], dtype=np.float32) / (2.0 * sin_theta)
     return axis * theta
 
 
