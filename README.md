@@ -41,6 +41,12 @@ python scripts/score_annotations.py \
   --image_root outputs/DogWalk_260215_092109
 ```
 
+## Render Smoke Test (20 Images)
+
+```bash
+bash scripts/smoke_render_object.sh
+```
+
 ## Evaluate
 
 ```bash
