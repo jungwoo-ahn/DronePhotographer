@@ -23,15 +23,21 @@ The key order is controlled by `data.target_score_keys` in config.
 
 ## Rotation Convention
 
-- Camera local axes follow Blender: `+X right, +Y up, -Z forward`.
+- Camera local axes for commands: `+right, +up, +forward(view direction)`.
 - Stored `final_forward` and `final_up` are world-frame unit vectors.
-- Action rotation text is axis-angle vector in world frame, radians.
+- Default action frame is camera-local (`data.action_frame: camera_local`).
+- Action rotation text is camera-local axis-angle vector (radians).
+- `world` frame is still supported as a compatibility option.
 
 ## Train
 
 ```bash
 python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
 ```
+
+`data.zero_action_ratio` controls no-action self-pairs (`image_i`, no move/no rotate action, target = `score(image_i)`).
+For example, `zero_action_ratio: 0.1` targets about 10% no-action samples in the final dataset.
+`data.action_frame` controls action representation (`camera_local` or `world`).
 
 ## Annotate Detections and Compute Rule-Based Scores
 
@@ -81,5 +87,6 @@ python scripts/eval_qwen25_vl.py \
 python scripts/predict_qwen25_vl.py \
   --model_path runs/<run_dir>/final \
   --image_path outputs/DogWalk_260215_092109/images/img_0000.png \
-  --action_text "move_world_m(x=0.2, y=-0.1, z=0.0); rotate_world_axis_angle_rad(rx=0.0, ry=0.1, rz=-0.1)"
+  --action_frame camera_local \
+  --action_text "move_camera_local_m(right=0.2, up=-0.1, forward=0.0); rotate_camera_local_axis_angle_rad(rx=0.0, ry=0.1, rz=-0.1)"
 ```

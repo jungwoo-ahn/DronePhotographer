@@ -23,6 +23,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model_path", type=str, required=True)
     parser.add_argument("--image_path", type=str, required=True)
     parser.add_argument("--action_text", type=str, required=True)
+    parser.add_argument(
+        "--action_frame",
+        type=str,
+        default="camera_local",
+        choices=["camera_local", "world"],
+    )
     parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument(
         "--score_keys",
@@ -46,7 +52,11 @@ def main() -> None:
     model.eval()
 
     image = Image.open(args.image_path).convert("RGB")
-    user_prompt = build_user_prompt(args.action_text, target_score_keys=score_keys)
+    user_prompt = build_user_prompt(
+        args.action_text,
+        target_score_keys=score_keys,
+        action_frame=args.action_frame,
+    )
     messages = [
         {
             "role": "user",
@@ -78,6 +88,7 @@ def main() -> None:
     output = {
         "generated_text": generated_text,
         "score_keys": score_keys,
+        "action_frame": args.action_frame,
         "parsed_scores": parsed_scores,
     }
     print(json.dumps(output, indent=2))

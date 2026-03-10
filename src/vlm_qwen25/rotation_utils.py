@@ -7,6 +7,15 @@ def normalize(vec: np.ndarray, eps: float = 1e-8) -> np.ndarray:
     return vec / (np.linalg.norm(vec) + eps)
 
 
+def make_camera_basis_from_forward_up(forward: np.ndarray, up: np.ndarray) -> np.ndarray:
+    """Build camera basis in world frame (3x3, columns = right/up/forward)."""
+    fwd = normalize(forward)
+    upn = normalize(up)
+    right = normalize(np.cross(fwd, upn))
+    upn = normalize(np.cross(right, fwd))
+    return np.stack([right, upn, fwd], axis=1)
+
+
 def make_camera_rotation_from_forward_up(forward: np.ndarray, up: np.ndarray) -> np.ndarray:
     """Build camera-to-world rotation matrix (3x3).
 
@@ -15,11 +24,42 @@ def make_camera_rotation_from_forward_up(forward: np.ndarray, up: np.ndarray) ->
     - local +Y: up
     - local -Z: forward (view direction)
     """
-    fwd = normalize(forward)
-    upn = normalize(up)
-    right = normalize(np.cross(fwd, upn))
-    upn = normalize(np.cross(right, fwd))
+    basis = make_camera_basis_from_forward_up(forward, up)
+    right = basis[:, 0]
+    upn = basis[:, 1]
+    fwd = basis[:, 2]
     return np.stack([right, upn, -fwd], axis=1)
+
+
+def translation_world_to_camera_local(
+    delta_world: np.ndarray,
+    forward: np.ndarray,
+    up: np.ndarray,
+) -> np.ndarray:
+    """World translation -> camera-local components (right, up, forward)."""
+    basis = make_camera_basis_from_forward_up(forward, up)
+    return (basis.T @ np.asarray(delta_world, dtype=np.float32)).astype(np.float32)
+
+
+def translation_camera_local_to_world(
+    delta_local: np.ndarray,
+    forward: np.ndarray,
+    up: np.ndarray,
+) -> np.ndarray:
+    """Camera-local translation (right, up, forward) -> world vector."""
+    basis = make_camera_basis_from_forward_up(forward, up)
+    return (basis @ np.asarray(delta_local, dtype=np.float32)).astype(np.float32)
+
+
+def relative_translation_camera_local(
+    position_i: np.ndarray,
+    position_j: np.ndarray,
+    forward_i: np.ndarray,
+    up_i: np.ndarray,
+) -> np.ndarray:
+    """Camera-local translation from pose i to pose j."""
+    delta_world = np.asarray(position_j, dtype=np.float32) - np.asarray(position_i, dtype=np.float32)
+    return translation_world_to_camera_local(delta_world, forward_i, up_i)
 
 
 def relative_rotation_matrix(
@@ -31,6 +71,18 @@ def relative_rotation_matrix(
     r_i = make_camera_rotation_from_forward_up(forward_i, up_i)
     r_j = make_camera_rotation_from_forward_up(forward_j, up_j)
     return r_j @ r_i.T
+
+
+def relative_rotation_matrix_camera_local(
+    forward_i: np.ndarray,
+    up_i: np.ndarray,
+    forward_j: np.ndarray,
+    up_j: np.ndarray,
+) -> np.ndarray:
+    """Relative rotation represented in camera-i local basis (right/up/forward)."""
+    basis_i = make_camera_basis_from_forward_up(forward_i, up_i)
+    basis_j = make_camera_basis_from_forward_up(forward_j, up_j)
+    return basis_i.T @ basis_j
 
 
 def rotation_matrix_to_rotvec(rotation: np.ndarray) -> np.ndarray:
@@ -113,6 +165,16 @@ def relative_rotation_rotvec(
     up_j: np.ndarray,
 ) -> np.ndarray:
     rel = relative_rotation_matrix(forward_i, up_i, forward_j, up_j)
+    return rotation_matrix_to_rotvec(rel).astype(np.float32)
+
+
+def relative_rotation_rotvec_camera_local(
+    forward_i: np.ndarray,
+    up_i: np.ndarray,
+    forward_j: np.ndarray,
+    up_j: np.ndarray,
+) -> np.ndarray:
+    rel = relative_rotation_matrix_camera_local(forward_i, up_i, forward_j, up_j)
     return rotation_matrix_to_rotvec(rel).astype(np.float32)
 
 

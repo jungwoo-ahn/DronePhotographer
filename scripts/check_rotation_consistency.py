@@ -14,7 +14,9 @@ if str(REPO_ROOT) not in sys.path:
 
 from src.vlm_qwen25.rotation_utils import (
     make_camera_rotation_from_forward_up,
+    relative_rotation_matrix_camera_local,
     relative_rotation_matrix,
+    relative_rotation_rotvec_camera_local,
     relative_rotation_rotvec,
     rotation_quality,
     rotvec_to_rotation_matrix,
@@ -73,7 +75,8 @@ def main() -> None:
         orth_errors.append(orth_err)
 
     pair_count = min(args.pair_samples, len(rotations) * (len(rotations) - 1))
-    recon_errors: list[float] = []
+    recon_errors_world: list[float] = []
+    recon_errors_local: list[float] = []
 
     if pair_count > 0:
         for _ in range(pair_count):
@@ -85,23 +88,34 @@ def main() -> None:
             fi, ui = _get_forward_up(items[i])
             fj, uj = _get_forward_up(items[j])
 
-            rel_matrix = relative_rotation_matrix(fi, ui, fj, uj)
-            rel_rotvec = relative_rotation_rotvec(fi, ui, fj, uj)
-            rel_matrix_from_rotvec = rotvec_to_rotation_matrix(rel_rotvec)
+            rel_matrix_world = relative_rotation_matrix(fi, ui, fj, uj)
+            rel_rotvec_world = relative_rotation_rotvec(fi, ui, fj, uj)
+            rel_matrix_world_from_rotvec = rotvec_to_rotation_matrix(rel_rotvec_world)
+            err_world = float(np.linalg.norm(rel_matrix_world - rel_matrix_world_from_rotvec, ord="fro"))
+            recon_errors_world.append(err_world)
 
-            err = float(np.linalg.norm(rel_matrix - rel_matrix_from_rotvec, ord="fro"))
-            recon_errors.append(err)
+            rel_matrix_local = relative_rotation_matrix_camera_local(fi, ui, fj, uj)
+            rel_rotvec_local = relative_rotation_rotvec_camera_local(fi, ui, fj, uj)
+            rel_matrix_local_from_rotvec = rotvec_to_rotation_matrix(rel_rotvec_local)
+            err_local = float(np.linalg.norm(rel_matrix_local - rel_matrix_local_from_rotvec, ord="fro"))
+            recon_errors_local.append(err_local)
 
     report = {
         "annotations_path": str(annotations_path),
         "num_views_checked": len(rotations),
-        "num_pairs_checked": len(recon_errors),
+        "num_pairs_checked": len(recon_errors_world),
         "max_det_error": float(max(det_errors)),
         "max_orth_error": float(max(orth_errors)),
-        "max_rel_recon_error": 0.0 if not recon_errors else float(max(recon_errors)),
+        "max_rel_recon_error_world": 0.0 if not recon_errors_world else float(max(recon_errors_world)),
+        "max_rel_recon_error_local": 0.0 if not recon_errors_local else float(max(recon_errors_local)),
         "mean_det_error": float(sum(det_errors) / len(det_errors)),
         "mean_orth_error": float(sum(orth_errors) / len(orth_errors)),
-        "mean_rel_recon_error": 0.0 if not recon_errors else float(sum(recon_errors) / len(recon_errors)),
+        "mean_rel_recon_error_world": 0.0
+        if not recon_errors_world
+        else float(sum(recon_errors_world) / len(recon_errors_world)),
+        "mean_rel_recon_error_local": 0.0
+        if not recon_errors_local
+        else float(sum(recon_errors_local) / len(recon_errors_local)),
         "tolerances": {
             "det_tol": float(args.det_tol),
             "orth_tol": float(args.orth_tol),
@@ -112,7 +126,8 @@ def main() -> None:
     passes = (
         report["max_det_error"] <= args.det_tol
         and report["max_orth_error"] <= args.orth_tol
-        and report["max_rel_recon_error"] <= args.recon_tol
+        and report["max_rel_recon_error_world"] <= args.recon_tol
+        and report["max_rel_recon_error_local"] <= args.recon_tol
     )
     report["pass"] = bool(passes)
 

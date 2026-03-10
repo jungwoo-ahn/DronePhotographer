@@ -70,12 +70,15 @@ def main() -> None:
 
     seed = int(cfg["data"]["seed"])
     set_seed(seed)
+    action_frame = str(cfg["data"].get("action_frame", "camera_local"))
 
     dataset = DroneActionScoreDataset(
         annotations_path=cfg["data"]["annotations_path"],
         image_root=cfg["data"].get("image_root"),
+        action_frame=action_frame,
         distance_threshold=float(cfg["data"]["distance_threshold"]),
         max_pairs_per_image=int(cfg["data"]["max_pairs_per_image"]),
+        zero_action_ratio=float(cfg["data"].get("zero_action_ratio", 0.0)),
         seed=seed,
         target_score_keys=cfg["data"].get("target_score_keys"),
     )
@@ -151,6 +154,7 @@ def main() -> None:
         processor=processor,
         max_length=int(train_cfg["max_length"]),
         target_score_keys=dataset.target_score_keys,
+        action_frame=dataset.action_frame,
     )
 
     trainer = Trainer(
@@ -173,6 +177,8 @@ def main() -> None:
         "dataset_pairs_train": len(train_dataset),
         "dataset_pairs_eval": 0 if eval_dataset is None else len(eval_dataset),
         "views_total": len(dataset.views),
+        "zero_action_pairs_total": int(dataset.zero_action_pairs_count),
+        "action_frame": dataset.action_frame,
         "target_score_keys": dataset.target_score_keys,
     }
     with (run_dir / "summary.json").open("w", encoding="utf-8") as f:

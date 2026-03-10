@@ -77,3 +77,25 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+"""
+Example usage:
+
+# Full detection annotation (all images)
+
+CUDA_VISIBLE_DEVICES=7 python scripts/annotate_detections.py \
+  --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations.json \
+  --image_root outputs/DogWalk_v2_10k_260309_101152 \
+  --caption "a snowman" \
+  --device cuda \
+  --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json
+
+# Quick preview (first 20 images only)
+python scripts/annotate_detections.py \
+  --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations.json \
+  --image_root outputs/DogWalk_v2_10k_260309_101152 \
+  --caption "a snowman" \
+  --device cuda \
+  --limit 20 \
+  --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected_preview.json
+"""

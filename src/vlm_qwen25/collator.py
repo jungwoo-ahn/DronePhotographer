@@ -12,10 +12,14 @@ class QwenVLScoreCollator:
         processor,
         max_length: int = 2048,
         target_score_keys: Sequence[str] | None = None,
+        action_frame: str = "camera_local",
     ) -> None:
         self.processor = processor
         self.max_length = int(max_length)
         self.target_score_keys = list(SCORE_KEYS if target_score_keys is None else target_score_keys)
+        self.action_frame = str(action_frame)
+        if self.action_frame not in {"camera_local", "world"}:
+            raise ValueError("action_frame must be 'camera_local' or 'world'")
 
     def __call__(self, batch: list[dict[str, object]]) -> dict[str, object]:
         images = [sample["image"] for sample in batch]
@@ -29,6 +33,7 @@ class QwenVLScoreCollator:
             user_prompt = build_user_prompt(
                 action_text,
                 target_score_keys=self.target_score_keys,
+                action_frame=self.action_frame,
             )
 
             full_messages = [
