@@ -81,7 +81,6 @@ if __name__ == "__main__":
 """
 Example usage:
 
-# Full detection annotation (all images)
 
 CUDA_VISIBLE_DEVICES=7 python scripts/annotate_detections.py \
   --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations.json \
@@ -90,12 +89,13 @@ CUDA_VISIBLE_DEVICES=7 python scripts/annotate_detections.py \
   --device cuda \
   --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json
 
-# Quick preview (first 20 images only)
-python scripts/annotate_detections.py \
-  --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations.json \
+check visualization with:
+conda activate drone
+
+python scripts/visualize_detections.py \
+  --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json \
   --image_root outputs/DogWalk_v2_10k_260309_101152 \
-  --caption "a snowman" \
-  --device cuda \
-  --limit 20 \
-  --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected_preview.json
+  --output_dir outputs/DogWalk_v2_10k_260309_101152/detection_viz \
+  --limit 20
+
 """

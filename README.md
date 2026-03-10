@@ -35,6 +35,14 @@ The key order is controlled by `data.target_score_keys` in config.
 python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
 ```
 
+2xH200 example (GPU indices `3,4`):
+
+```bash
+CUDA_VISIBLE_DEVICES=3,4 \
+torchrun --nproc_per_node=2 scripts/train_qwen25_vl.py \
+  --config configs/qwen25_vl_7b_2xh200.yaml
+```
+
 `data.zero_action_ratio` controls no-action self-pairs (`image_i`, no move/no rotate action, target = `score(image_i)`).
 For example, `zero_action_ratio: 0.1` targets about 10% no-action samples in the final dataset.
 `data.action_frame` controls action representation (`camera_local` or `world`).

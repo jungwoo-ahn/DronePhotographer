@@ -23,21 +23,21 @@ data:
 
 training:
   output_root: runs
-  run_name: qwen25_vl_7b_full
+  run_name: qwen25_vl_7b_2xh200
   num_train_epochs: 1
   per_device_train_batch_size: 1
   per_device_eval_batch_size: 1
-  gradient_accumulation_steps: 16
+  gradient_accumulation_steps: 8
   learning_rate: 2.0e-5
   weight_decay: 0.01
   warmup_ratio: 0.03
   max_length: 2048
-  logging_steps: 10
-  save_steps: 100
-  eval_steps: 100
-  dataloader_num_workers: 4
+  logging_steps: 20
+  save_steps: 500
+  eval_steps: 500
+  dataloader_num_workers: 8
   gradient_checkpointing: true
   bf16: true
   fp16: false
-  deepspeed_config: configs/deepspeed_zero3.json
+  deepspeed_config: configs/deepspeed_zero3_2xh200.json
   resume_from_checkpoint: null

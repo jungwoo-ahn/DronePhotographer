@@ -53,3 +53,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+"""example usage:
+
+CUDA_VISIBLE_DEVICES=7 python scripts/score_annotations.py   --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json   --image_root outputs/DogWalk_v2_10k_260309_101152   --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_scored.json
+"""

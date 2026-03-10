@@ -189,3 +189,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+"""example usage:
+python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
+"""
+
