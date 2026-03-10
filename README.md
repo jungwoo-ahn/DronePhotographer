@@ -33,12 +33,22 @@ The key order is controlled by `data.target_score_keys` in config.
 python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
 ```
 
-## Compute Rule-Based Scores into Annotations
+## Annotate Detections and Compute Rule-Based Scores
 
 ```bash
+# 1) add GroundingDINO detections into annotations.json
+python scripts/annotate_detections.py \
+  --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations.json \
+  --image_root outputs/DogWalk_v2_10k_260309_101152 \
+  --caption "a snowman" \
+  --device cuda \
+  --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json
+
+# 2) compute bbox-based score_* fields from detections
 python scripts/score_annotations.py \
-  --annotations_path outputs/DogWalk_260215_092109/annotations.json \
-  --image_root outputs/DogWalk_260215_092109
+  --annotations_path outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json \
+  --image_root outputs/DogWalk_v2_10k_260309_101152 \
+  --output_path outputs/DogWalk_v2_10k_260309_101152/annotations_scored.json
 ```
 
 ## Render Smoke Test (20 Images)
