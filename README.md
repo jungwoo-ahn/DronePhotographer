@@ -47,6 +47,18 @@ Qwen3.5-VL-9B on 2xH200:
 bash scripts/train_qwen35_vl_9b_2_h200.sh
 ```
 
+Qwen3.5-VL-9B on 1xH200:
+
+```bash
+bash scripts/train_qwen35_vl_9b_1_h200.sh
+```
+
+To select another single GPU:
+
+```bash
+GPU_ID=4 bash scripts/train_qwen35_vl_9b_1_h200.sh
+```
+
 The launcher auto-selects a free `torchrun` master port. To force a fixed port instead:
 
 ```bash

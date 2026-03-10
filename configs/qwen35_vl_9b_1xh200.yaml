@@ -1,0 +1,44 @@
+model:
+  name_or_path: Qwen/Qwen3.5-VL-9B-Instruct
+  torch_dtype: bfloat16
+  attn_implementation: null
+  trust_remote_code: true
+
+data:
+  annotations_path: outputs/DogWalk_v2_10k_260309_101152/annotations_detected.json
+  image_root: outputs/DogWalk_v2_10k_260309_101152
+  action_frame: camera_local
+  target_score_keys:
+    - bbox_occupancy_ratio
+    - bbox_margin_top
+    - bbox_margin_bottom
+    - bbox_margin_left
+    - bbox_margin_right
+    - bbox_aspect_ratio
+    - bbox_centroid_offset
+  distance_threshold: 1.5
+  max_pairs_per_image: 32
+  zero_action_ratio: 0.1
+  eval_ratio: 0.02
+  seed: 721
+
+training:
+  output_root: runs
+  run_name: qwen35_vl_9b_1xh200
+  num_train_epochs: 1
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 16
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  max_length: 2048
+  logging_steps: 20
+  save_steps: 500
+  eval_steps: 500
+  dataloader_num_workers: 8
+  gradient_checkpointing: true
+  bf16: true
+  fp16: false
+  deepspeed_config: null
+  resume_from_checkpoint: null
