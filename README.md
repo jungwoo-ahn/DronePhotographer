@@ -38,10 +38,22 @@ python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
 2xH200 example (GPU indices `3,4`):
 
 ```bash
-CUDA_VISIBLE_DEVICES=3,4 \
-torchrun --nproc_per_node=2 scripts/train_qwen25_vl.py \
-  --config configs/qwen25_vl_7b_2xh200.yaml
+bash scripts/train_qwen25_vl_2_h200.sh
 ```
+
+Qwen3.5-VL-9B on 2xH200:
+
+```bash
+bash scripts/train_qwen35_vl_9b_2_h200.sh
+```
+
+The launcher auto-selects a free `torchrun` master port. To force a fixed port instead:
+
+```bash
+MASTER_PORT=29601 bash scripts/train_qwen25_vl_2_h200.sh
+```
+
+If Qwen3.5-VL loading fails, upgrade `transformers` in the training environment (newer HF may be required).
 
 `data.zero_action_ratio` controls no-action self-pairs (`image_i`, no move/no rotate action, target = `score(image_i)`).
 For example, `zero_action_ratio: 0.1` targets about 10% no-action samples in the final dataset.

@@ -10,7 +10,7 @@ import torch
 import yaml
 from torch.utils.data import Subset
 from tqdm import tqdm
-from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
+from transformers import AutoModelForImageTextToText, AutoProcessor
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -69,6 +69,7 @@ def main() -> None:
 
     data_cfg = cfg["data"]
     model_cfg = cfg["model"]
+    trust_remote_code = bool(model_cfg.get("trust_remote_code", False))
 
     dataset = DroneActionScoreDataset(
         annotations_path=data_cfg["annotations_path"],
@@ -92,11 +93,15 @@ def main() -> None:
     samples = [eval_source[i] for i in range(max_samples)]
 
     torch_dtype = torch_dtype_from_name(model_cfg.get("torch_dtype", "bfloat16"))
-    processor = AutoProcessor.from_pretrained(args.model_path)
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    processor = AutoProcessor.from_pretrained(
+        args.model_path,
+        trust_remote_code=trust_remote_code,
+    )
+    model = AutoModelForImageTextToText.from_pretrained(
         args.model_path,
         torch_dtype=torch_dtype,
         device_map="auto",
+        trust_remote_code=trust_remote_code,
     )
     model.eval()
 

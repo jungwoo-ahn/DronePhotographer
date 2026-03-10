@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 import random
 from datetime import datetime
@@ -11,8 +12,8 @@ import torch
 import yaml
 from torch.utils.data import Subset
 from transformers import (
+    AutoModelForImageTextToText,
     AutoProcessor,
-    Qwen2_5_VLForConditionalGeneration,
     Trainer,
     TrainingArguments,
     set_seed,
@@ -99,12 +100,21 @@ def main() -> None:
     model_name = model_cfg["name_or_path"]
     torch_dtype = torch_dtype_from_name(model_cfg.get("torch_dtype", "bfloat16"))
     attn_implementation = model_cfg.get("attn_implementation", None)
+    trust_remote_code = bool(model_cfg.get("trust_remote_code", False))
 
-    processor = AutoProcessor.from_pretrained(model_name)
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    processor = AutoProcessor.from_pretrained(
         model_name,
-        torch_dtype=torch_dtype,
-        attn_implementation=attn_implementation,
+        trust_remote_code=trust_remote_code,
+    )
+    model_load_kwargs = {
+        "torch_dtype": torch_dtype,
+        "trust_remote_code": trust_remote_code,
+    }
+    if attn_implementation is not None:
+        model_load_kwargs["attn_implementation"] = attn_implementation
+    model = AutoModelForImageTextToText.from_pretrained(
+        model_name,
+        **model_load_kwargs,
     )
 
     if bool(train_cfg.get("gradient_checkpointing", True)):
@@ -128,7 +138,7 @@ def main() -> None:
     if deepspeed_cfg:
         deepspeed_cfg = str(deepspeed_cfg)
 
-    training_args = TrainingArguments(
+    training_kwargs = dict(
         output_dir=str(ckpt_dir),
         num_train_epochs=float(train_cfg["num_train_epochs"]),
         per_device_train_batch_size=int(train_cfg["per_device_train_batch_size"]),
@@ -140,7 +150,6 @@ def main() -> None:
         logging_steps=int(train_cfg["logging_steps"]),
         save_steps=int(train_cfg["save_steps"]),
         eval_steps=int(train_cfg["eval_steps"]),
-        evaluation_strategy="steps" if eval_dataset is not None else "no",
         save_strategy="steps",
         bf16=bool(train_cfg.get("bf16", True)),
         fp16=bool(train_cfg.get("fp16", False)),
@@ -149,6 +158,13 @@ def main() -> None:
         report_to=["tensorboard"],
         deepspeed=deepspeed_cfg,
     )
+    eval_strategy_value = "steps" if eval_dataset is not None else "no"
+    training_arg_names = inspect.signature(TrainingArguments.__init__).parameters
+    if "evaluation_strategy" in training_arg_names:
+        training_kwargs["evaluation_strategy"] = eval_strategy_value
+    else:
+        training_kwargs["eval_strategy"] = eval_strategy_value
+    training_args = TrainingArguments(**training_kwargs)
 
     collator = QwenVLScoreCollator(
         processor=processor,
@@ -194,4 +210,3 @@ if __name__ == "__main__":
 """example usage:
 python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
 """
-

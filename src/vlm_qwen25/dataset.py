@@ -228,3 +228,15 @@ class DroneActionScoreDataset(Dataset):
             "index_j": pair.index_j,
             "image_path": str(pair.image_i),
         }
+
+
+"""
+ex)
+- total views: 10,000
+- pairs before filtering: 100M 
+- nearby pairs: 1.78M
+- nearby + detected target: 319K
+- zero-action pairs (10% ratio): 35K
+- total: 355K
+- eval (2%): 7K
+"""

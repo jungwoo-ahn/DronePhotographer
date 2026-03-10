@@ -7,7 +7,7 @@ import sys
 
 import torch
 from PIL import Image
-from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
+from transformers import AutoModelForImageTextToText, AutoProcessor
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -36,6 +36,7 @@ def parse_args() -> argparse.Namespace:
         default=",".join(DEFAULT_TARGET_SCORE_KEYS),
         help="comma separated keys in target JSON order",
     )
+    parser.add_argument("--trust_remote_code", action="store_true")
     return parser.parse_args()
 
 
@@ -43,11 +44,15 @@ def main() -> None:
     args = parse_args()
     score_keys = [key.strip() for key in args.score_keys.split(",") if key.strip()]
 
-    processor = AutoProcessor.from_pretrained(args.model_path)
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    processor = AutoProcessor.from_pretrained(
+        args.model_path,
+        trust_remote_code=bool(args.trust_remote_code),
+    )
+    model = AutoModelForImageTextToText.from_pretrained(
         args.model_path,
         torch_dtype=torch.bfloat16,
         device_map="auto",
+        trust_remote_code=bool(args.trust_remote_code),
     )
     model.eval()
 
