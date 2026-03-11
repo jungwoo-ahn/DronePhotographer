@@ -50,7 +50,7 @@ def main() -> None:
     )
     model = AutoModelForImageTextToText.from_pretrained(
         args.model_path,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         device_map="auto",
         trust_remote_code=bool(args.trust_remote_code),
     )

@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import math
 import inspect
 import json
+import os
 import random
 from datetime import datetime
 from pathlib import Path
@@ -63,6 +65,21 @@ def torch_dtype_from_name(name: str) -> torch.dtype:
     raise ValueError(f"unsupported torch dtype: {name}")
 
 
+def compute_warmup_steps(
+    *,
+    train_size: int,
+    per_device_train_batch_size: int,
+    gradient_accumulation_steps: int,
+    num_train_epochs: float,
+    warmup_ratio: float,
+) -> int:
+    world_size = max(1, int(os.environ.get("WORLD_SIZE", "1")))
+    effective_batch_size = per_device_train_batch_size * gradient_accumulation_steps * world_size
+    steps_per_epoch = max(1, math.ceil(train_size / effective_batch_size))
+    total_training_steps = max(1, math.ceil(steps_per_epoch * num_train_epochs))
+    return max(0, round(total_training_steps * warmup_ratio))
+
+
 def main() -> None:
     args = parse_args()
     cfg_path = Path(args.config)
@@ -98,7 +115,7 @@ def main() -> None:
     train_cfg = cfg["training"]
 
     model_name = model_cfg["name_or_path"]
-    torch_dtype = torch_dtype_from_name(model_cfg.get("torch_dtype", "bfloat16"))
+    torch_dtype = torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16")))
     attn_implementation = model_cfg.get("attn_implementation", None)
     trust_remote_code = bool(model_cfg.get("trust_remote_code", False))
 
@@ -107,7 +124,7 @@ def main() -> None:
         trust_remote_code=trust_remote_code,
     )
     model_load_kwargs = {
-        "torch_dtype": torch_dtype,
+        "dtype": torch_dtype,
         "trust_remote_code": trust_remote_code,
     }
     if attn_implementation is not None:
@@ -138,15 +155,29 @@ def main() -> None:
     if deepspeed_cfg:
         deepspeed_cfg = str(deepspeed_cfg)
 
+    per_device_train_batch_size = int(train_cfg["per_device_train_batch_size"])
+    per_device_eval_batch_size = int(train_cfg["per_device_eval_batch_size"])
+    gradient_accumulation_steps = int(train_cfg["gradient_accumulation_steps"])
+    num_train_epochs = float(train_cfg["num_train_epochs"])
+    warmup_steps = int(train_cfg.get("warmup_steps", 0))
+    if warmup_steps <= 0 and "warmup_ratio" in train_cfg:
+        warmup_steps = compute_warmup_steps(
+            train_size=len(train_dataset),
+            per_device_train_batch_size=per_device_train_batch_size,
+            gradient_accumulation_steps=gradient_accumulation_steps,
+            num_train_epochs=num_train_epochs,
+            warmup_ratio=float(train_cfg["warmup_ratio"]),
+        )
+
     training_kwargs = dict(
         output_dir=str(ckpt_dir),
-        num_train_epochs=float(train_cfg["num_train_epochs"]),
-        per_device_train_batch_size=int(train_cfg["per_device_train_batch_size"]),
-        per_device_eval_batch_size=int(train_cfg["per_device_eval_batch_size"]),
-        gradient_accumulation_steps=int(train_cfg["gradient_accumulation_steps"]),
+        num_train_epochs=num_train_epochs,
+        per_device_train_batch_size=per_device_train_batch_size,
+        per_device_eval_batch_size=per_device_eval_batch_size,
+        gradient_accumulation_steps=gradient_accumulation_steps,
         learning_rate=float(train_cfg["learning_rate"]),
         weight_decay=float(train_cfg["weight_decay"]),
-        warmup_ratio=float(train_cfg["warmup_ratio"]),
+        warmup_steps=warmup_steps,
         logging_steps=int(train_cfg["logging_steps"]),
         save_steps=int(train_cfg["save_steps"]),
         eval_steps=int(train_cfg["eval_steps"]),

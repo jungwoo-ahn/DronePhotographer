@@ -92,14 +92,14 @@ def main() -> None:
     max_samples = min(int(args.max_samples), len(eval_source))
     samples = [eval_source[i] for i in range(max_samples)]
 
-    torch_dtype = torch_dtype_from_name(model_cfg.get("torch_dtype", "bfloat16"))
+    torch_dtype = torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16")))
     processor = AutoProcessor.from_pretrained(
         args.model_path,
         trust_remote_code=trust_remote_code,
     )
     model = AutoModelForImageTextToText.from_pretrained(
         args.model_path,
-        torch_dtype=torch_dtype,
+        dtype=torch_dtype,
         device_map="auto",
         trust_remote_code=trust_remote_code,
     )
