@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1180" viewBox="0 0 1800 1180">
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="10" refX="12" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 14 5 L 0 10 z" fill="#506177"/>
+    </marker>
+    <marker id="arrowWarm" markerWidth="14" markerHeight="10" refX="12" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 14 5 L 0 10 z" fill="#c26d1f"/>
+    </marker>
+    <linearGradient id="imgSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d6ecff"/>
+      <stop offset="58%" stop-color="#eef7ff"/>
+      <stop offset="59%" stop-color="#c5dcc6"/>
+      <stop offset="100%" stop-color="#9db888"/>
+    </linearGradient>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 700; fill: #112033; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #556477; }
+      .panel-title { font-family: Arial, Helvetica, sans-serif; font-size: 21px; font-weight: 700; fill: #15273a; }
+      .section-title { font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 700; fill: #15273a; }
+      .body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #2a3948; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #607083; }
+      .tiny { font-family: Arial, Helvetica, sans-serif; font-size: 11px; fill: #6b7a8b; }
+      .code { font-family: "Courier New", Courier, monospace; font-size: 12px; fill: #1c2430; }
+      .code-small { font-family: "Courier New", Courier, monospace; font-size: 11px; fill: #1c2430; }
+      .code-tiny { font-family: "Courier New", Courier, monospace; font-size: 10px; fill: #1c2430; }
+      .panel { fill: #ffffff; stroke: #d5dde7; stroke-width: 2; rx: 22; ry: 22; }
+      .box-blue { fill: #edf5ff; stroke: #8eb5e0; stroke-width: 1.5; rx: 16; ry: 16; }
+      .box-teal { fill: #ecfbf7; stroke: #7cc1b4; stroke-width: 1.5; rx: 16; ry: 16; }
+      .box-gold { fill: #fff8e7; stroke: #d9b35b; stroke-width: 1.5; rx: 16; ry: 16; }
+      .box-rose { fill: #fff0f1; stroke: #d9a0a9; stroke-width: 1.5; rx: 16; ry: 16; }
+      .box-slate { fill: #f5f8fb; stroke: #c5d0dc; stroke-width: 1.5; rx: 16; ry: 16; }
+      .dash { stroke-dasharray: 8 7; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1180" fill="#fbfcfe"/>
+  <rect x="28" y="24" width="1744" height="1132" rx="28" ry="28" fill="#ffffff" stroke="#e5ebf2" stroke-width="2"/>
+
+  <text x="54" y="66" class="title">DronePhotographer: action-conditioned score prediction from a single RGB view</text>
+  <text x="54" y="92" class="subtitle">Implementation-faithful summary of the current repository: Blender rendering, GroundingDINO detections, camera-local pair construction, and Qwen-VL JSON generation.</text>
+
+  <rect x="40" y="120" width="390" height="360" class="panel"/>
+  <rect x="470" y="120" width="390" height="360" class="panel"/>
+  <rect x="900" y="120" width="390" height="360" class="panel"/>
+  <rect x="1330" y="120" width="430" height="360" class="panel"/>
+
+  <line x1="430" y1="300" x2="458" y2="300" stroke="#506177" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="860" y1="300" x2="888" y2="300" stroke="#506177" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1290" y1="300" x2="1318" y2="300" stroke="#506177" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="62" y="160" class="panel-title">A. Render multiview synthetic data</text>
+  <circle cx="371" cy="156" r="16" fill="#d9ebff"/>
+  <text x="366" y="162" class="body" style="font-weight:700;">1</text>
+  <rect x="58" y="180" width="354" height="126" class="box-blue"/>
+  <rect x="78" y="208" width="314" height="76" rx="18" ry="18" fill="#dff0ff" stroke="#a8c7e8"/>
+  <ellipse cx="235" cy="246" rx="22" ry="28" fill="#ffffff" stroke="#91a5b7" stroke-width="2"/>
+  <circle cx="235" cy="225" r="13" fill="#ffffff" stroke="#91a5b7" stroke-width="2"/>
+  <circle cx="165" cy="223" r="12" fill="#8fc0f2" stroke="#4f78a2" stroke-width="2"/>
+  <path d="M 165 223 L 204 238" stroke="#4f78a2" stroke-width="2.5"/>
+  <circle cx="315" cy="229" r="12" fill="#8fc0f2" stroke="#4f78a2" stroke-width="2"/>
+  <path d="M 315 229 L 267 239" stroke="#4f78a2" stroke-width="2.5"/>
+  <text x="104" y="205" class="small">Blender scene + object position / auto-placement</text>
+  <text x="133" y="220" class="tiny">camera pose i</text>
+  <text x="300" y="226" class="tiny">camera pose j</text>
+  <text x="78" y="330" class="body">Randomized per view:</text>
+  <text x="78" y="351" class="small">radius in [2, 8] m, hemisphere sampling, yaw/pitch/roll offsets</text>
+  <text x="78" y="373" class="small">Renderer stores world pose vectors, not just Euler angles.</text>
+
+  <rect x="58" y="392" width="354" height="70" class="box-slate"/>
+  <text x="76" y="417" class="code">annotations.json</text>
+  <text x="76" y="438" class="code-small">image, camera_position, base_forward, base_up,</text>
+  <text x="76" y="454" class="code-small">offsets_deg, final_forward, final_up</text>
+
+  <text x="492" y="160" class="panel-title">B. Add detections and derive score targets</text>
+  <circle cx="801" cy="156" r="16" fill="#d9f5ef"/>
+  <text x="796" y="162" class="body" style="font-weight:700;">2</text>
+  <rect x="490" y="184" width="155" height="118" class="box-teal"/>
+  <rect x="502" y="198" width="131" height="90" rx="12" ry="12" fill="url(#imgSky)" stroke="#9fc8bc"/>
+  <rect x="528" y="216" width="44" height="58" fill="none" stroke="#17a87a" stroke-width="3"/>
+  <circle cx="548" cy="236" r="8" fill="#ffffff" stroke="#9aa9b6"/>
+  <ellipse cx="548" cy="255" rx="12" ry="15" fill="#ffffff" stroke="#9aa9b6"/>
+  <text x="503" y="319" class="small">GroundingDINO per rendered image</text>
+  <text x="503" y="336" class="tiny">caption example: "a snowman"</text>
+
+  <rect x="662" y="184" width="178" height="118" class="box-teal"/>
+  <text x="676" y="208" class="code-small">primary_box = argmax area(box) * score</text>
+  <text x="676" y="231" class="code-small">occupancy = area / (W * H)</text>
+  <text x="676" y="250" class="code-small">margins = top/bottom/left/right</text>
+  <text x="676" y="269" class="code-small">aspect = bbox_w / bbox_h</text>
+  <text x="676" y="288" class="code-small">centroid_offset = dist(center, image_center)</text>
+
+  <rect x="490" y="322" width="350" height="140" class="box-slate"/>
+  <text x="508" y="347" class="body">Two repository paths:</text>
+  <text x="508" y="371" class="code-small">annotate_detections.py -&gt; writes detections into JSON</text>
+  <text x="508" y="392" class="code-small">extract_target_scores() -&gt; computes current 7 bbox</text>
+  <text x="508" y="408" class="code-small">control keys on the fly during dataset loading</text>
+  <text x="508" y="432" class="code-small">score_annotations.py is optional materialization for inspection</text>
+  <text x="508" y="451" class="code-small">or downstream analysis.</text>
+
+  <text x="922" y="160" class="panel-title">C. Build supervised pairs (i, j)</text>
+  <circle cx="1231" cy="156" r="16" fill="#fff0ca"/>
+  <text x="1226" y="162" class="body" style="font-weight:700;">3</text>
+  <rect x="920" y="184" width="350" height="92" class="box-gold"/>
+  <text x="938" y="209" class="code-small">For each source view i, choose nearby targets j:</text>
+  <text x="938" y="232" class="code-small">0 &lt; ||p_j - p_i|| &lt;= distance_threshold</text>
+  <text x="938" y="251" class="code-small">Current default distance_threshold = 1.5 m</text>
+  <text x="938" y="270" class="code-small">Require detections only on target j; keep all sources i</text>
+
+  <rect x="920" y="294" width="168" height="168" class="box-gold"/>
+  <text x="936" y="319" class="code-small">Camera-local action</text>
+  <text x="936" y="343" class="code-tiny">delta_t = world_to_camera_local</text>
+  <text x="936" y="359" class="code-tiny">(p_j - p_i, f_i, u_i)</text>
+  <text x="936" y="383" class="code-tiny">delta_r = rotvec(B_i^T B_j)</text>
+  <text x="936" y="406" class="code-tiny">serialize as</text>
+  <text x="936" y="424" class="code-tiny">move_camera_local_m(...);</text>
+  <text x="936" y="440" class="code-tiny">rotate_camera_local_axis_angle_rad(...)</text>
+
+  <rect x="1102" y="294" width="168" height="168" class="box-gold"/>
+  <text x="1118" y="319" class="code-small">Target JSON</text>
+  <text x="1118" y="343" class="code-tiny">{bbox_occupancy_ratio,</text>
+  <text x="1118" y="359" class="code-tiny">bbox_margin_top,</text>
+  <text x="1118" y="375" class="code-tiny">bbox_margin_bottom,</text>
+  <text x="1118" y="391" class="code-tiny">bbox_margin_left,</text>
+  <text x="1118" y="407" class="code-tiny">bbox_margin_right,</text>
+  <text x="1118" y="423" class="code-tiny">bbox_aspect_ratio,</text>
+  <text x="1118" y="439" class="code-tiny">bbox_centroid_offset}</text>
+
+  <text x="920" y="490" class="small">Optional zero-action self-pairs are added with zero_action_ratio (default config: 0.1).</text>
+
+  <text x="1352" y="160" class="panel-title">D. Train / infer with Qwen-VL</text>
+  <circle cx="1691" cy="156" r="16" fill="#ffe2e6"/>
+  <text x="1686" y="162" class="body" style="font-weight:700;">4</text>
+  <rect x="1350" y="184" width="176" height="108" class="box-rose"/>
+  <text x="1366" y="209" class="code-small">User message</text>
+  <text x="1366" y="232" class="code-tiny">[image_i]</text>
+  <text x="1366" y="251" class="code-tiny">prompt(action_text, ordered keys)</text>
+  <text x="1366" y="270" class="tiny">chat template from processor</text>
+
+  <rect x="1542" y="184" width="198" height="108" class="box-rose"/>
+  <text x="1558" y="209" class="code-small">Assistant target</text>
+  <text x="1558" y="232" class="code-tiny">canonical JSON only</text>
+  <text x="1558" y="251" class="code-tiny">no narration, no units</text>
+  <text x="1558" y="270" class="tiny">prompt tokens masked in labels</text>
+
+  <line x1="1528" y1="238" x2="1540" y2="238" stroke="#506177" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="1427" y="316" width="255" height="74" class="box-rose"/>
+  <text x="1443" y="342" class="body" style="font-weight:700;">AutoModelForImageTextToText</text>
+  <text x="1443" y="363" class="small">Qwen2.5-VL-7B-Instruct or Qwen3.5-9B</text>
+
+  <line x1="1438" y1="292" x2="1520" y2="316" stroke="#506177" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="1640" y1="292" x2="1588" y2="316" stroke="#506177" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="1360" y="414" width="370" height="48" class="box-slate"/>
+  <text x="1378" y="442" class="body">Inference keeps only the left branch: image_i + action_text -&gt; predicted score JSON.</text>
+
+  <rect x="40" y="520" width="1720" height="620" class="panel"/>
+  <text x="62" y="560" class="section-title">Detailed training example extracted from trash/annotations.json</text>
+  <text x="62" y="584" class="subtitle">Real pair used for the figure: source i = 0, target j = 100, image size = 1024 x 768, camera-local action frame.</text>
+
+  <rect x="64" y="610" width="620" height="500" class="box-slate"/>
+  <text x="84" y="640" class="panel-title" style="font-size:18px;">Concrete pair geometry</text>
+
+  <rect x="86" y="668" width="276" height="274" class="box-blue"/>
+  <text x="104" y="693" class="body" style="font-weight:700;">Source view image_i = img_0000.png</text>
+  <rect x="97" y="709" width="254" height="190" rx="12" ry="12" fill="url(#imgSky)" stroke="#9eb7ce"/>
+  <path d="M 97 804 L 351 804" stroke="#7f9876" stroke-width="2"/>
+  <path d="M 122 804 L 166 766 L 198 804" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 236 804 L 280 752 L 331 804" fill="#93ab88" stroke="#758c6b"/>
+  <circle cx="321" cy="776" r="11" fill="#ffffff" stroke="#a1b0bd" stroke-width="1.6"/>
+  <ellipse cx="321" cy="799" rx="16" ry="20" fill="#ffffff" stroke="#a1b0bd" stroke-width="1.6"/>
+  <rect x="293.385" y="757.363" width="58.693" height="110.704" fill="none" stroke="#2166c2" stroke-width="3"/>
+  <text x="104" y="918" class="code-small">p_i = [3.397, 4.943, 3.515]</text>
+  <text x="104" y="936" class="code-small">f_i = [-0.705, -0.596, -0.384]</text>
+  <text x="104" y="954" class="code-small">u_i = [-0.169, -0.385,  0.907]</text>
+  <text x="104" y="976" class="tiny">The model receives the full RGB image only; there is no bbox token input.</text>
+
+  <rect x="386" y="668" width="276" height="274" class="box-gold"/>
+  <text x="404" y="693" class="body" style="font-weight:700;">Target view image_j = img_0100.png</text>
+  <rect x="397" y="709" width="254" height="190" rx="12" ry="12" fill="url(#imgSky)" stroke="#c9b06d"/>
+  <path d="M 397 804 L 651 804" stroke="#7f9876" stroke-width="2"/>
+  <path d="M 421 804 L 462 771 L 492 804" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 520 804 L 559 762 L 603 804" fill="#93ab88" stroke="#758c6b"/>
+  <circle cx="455" cy="779" r="11" fill="#ffffff" stroke="#a1b0bd" stroke-width="1.6"/>
+  <ellipse cx="455" cy="801" rx="16" ry="20" fill="#ffffff" stroke="#a1b0bd" stroke-width="1.6"/>
+  <rect x="418.957" y="764.038" width="70.389" height="96.98" fill="none" stroke="#c26d1f" stroke-width="3"/>
+  <text x="404" y="918" class="code-small">p_j = [3.057, 5.101, 4.752]</text>
+  <text x="404" y="936" class="code-small">bbox_j = [88.36, 222.06, 372.76, 609.98]</text>
+  <text x="404" y="954" class="code-small">primary det score = 0.7471</text>
+  <text x="404" y="976" class="tiny">image_j is not fed to the model; it only provides supervision.</text>
+
+  <path d="M 350 740 C 372 706, 382 700, 404 700" fill="none" stroke="#c26d1f" stroke-width="2.8" marker-end="url(#arrowWarm)"/>
+  <rect x="195" y="612" width="356" height="46" class="box-gold"/>
+  <text x="211" y="640" class="code-tiny">camera-local action from i to j: move right 0.5570 m, up 1.1182 m, forward -0.3289 m,</text>
+  <text x="211" y="652" class="code-tiny">then rotate by rotvec [0.1812, -0.4156, -0.2579] rad in image_i local basis.</text>
+
+  <line x1="662" y1="805" x2="706" y2="805" stroke="#506177" stroke-width="2.8" marker-end="url(#arrow)"/>
+  <line x1="351" y1="804" x2="706" y2="728" stroke="#506177" stroke-width="2.8" marker-end="url(#arrow)"/>
+
+  <rect x="726" y="610" width="488" height="236" class="box-rose"/>
+  <text x="746" y="640" class="panel-title" style="font-size:18px;">Prompt actually seen by Qwen-VL</text>
+  <text x="746" y="670" class="code-small">You are a drone image scorer.</text>
+  <text x="746" y="689" class="code-small">Input is current image_i and an action command in</text>
+  <text x="746" y="705" class="code-small">camera-local frame of image_i (+right, +up, +forward).</text>
+  <text x="746" y="726" class="code-small">Action:</text>
+  <text x="746" y="744" class="code-tiny">move_camera_local_m(right=0.5570, up=1.1182, forward=-0.3289);</text>
+  <text x="746" y="759" class="code-tiny">rotate_camera_local_axis_angle_rad(rx=0.1812, ry=-0.4156, rz=-0.2579)</text>
+  <text x="746" y="781" class="code-small">Return only JSON in this exact key order:</text>
+  <text x="746" y="799" class="code-tiny">bbox_occupancy_ratio, bbox_margin_top, bbox_margin_bottom,</text>
+  <text x="746" y="814" class="code-tiny">bbox_margin_left, bbox_margin_right, bbox_aspect_ratio,</text>
+  <text x="746" y="829" class="code-tiny">bbox_centroid_offset</text>
+
+  <rect x="726" y="868" width="488" height="220" class="box-rose"/>
+  <text x="746" y="898" class="panel-title" style="font-size:18px;">Supervised assistant target</text>
+  <text x="746" y="928" class="code-small">{</text>
+  <text x="768" y="948" class="code-small">"bbox_occupancy_ratio": 0.140283,</text>
+  <text x="768" y="968" class="code-small">"bbox_margin_top": 0.289139,</text>
+  <text x="768" y="988" class="code-small">"bbox_margin_bottom": 0.205755,</text>
+  <text x="768" y="1008" class="code-small">"bbox_margin_left": 0.086291,</text>
+  <text x="768" y="1028" class="code-small">"bbox_margin_right": 0.635980,</text>
+  <text x="768" y="1048" class="code-small">"bbox_aspect_ratio": 0.733124,</text>
+  <text x="768" y="1068" class="code-small">"bbox_centroid_offset": 0.393135</text>
+  <text x="746" y="1088" class="code-small">}</text>
+
+  <line x1="1214" y1="978" x2="1248" y2="978" stroke="#506177" stroke-width="2.8" marker-end="url(#arrow)"/>
+
+  <rect x="1256" y="610" width="484" height="478" class="box-teal"/>
+  <text x="1276" y="640" class="panel-title" style="font-size:18px;">How the target JSON is computed from bbox_j</text>
+  <text x="1276" y="672" class="code-small">Given W = 1024, H = 768, bbox = (x1, y1, x2, y2)</text>
+  <text x="1276" y="700" class="code-small">x1 = 88.36, y1 = 222.06, x2 = 372.76, y2 = 609.98</text>
+  <text x="1276" y="733" class="code-small">bbox_w = x2 - x1 = 284.39</text>
+  <text x="1276" y="753" class="code-small">bbox_h = y2 - y1 = 387.92</text>
+  <text x="1276" y="786" class="code-small">occupancy = (bbox_w * bbox_h) / (W * H) = 0.140283</text>
+  <text x="1276" y="809" class="code-small">margin_top = y1 / H = 0.289139</text>
+  <text x="1276" y="829" class="code-small">margin_bottom = (H - y2) / H = 0.205755</text>
+  <text x="1276" y="849" class="code-small">margin_left = x1 / W = 0.086291</text>
+  <text x="1276" y="869" class="code-small">margin_right = (W - x2) / W = 0.635980</text>
+  <text x="1276" y="892" class="code-small">aspect_ratio = bbox_w / bbox_h = 0.733124</text>
+  <text x="1276" y="924" class="code-small">cx = (x1 + x2) / 2, cy = (y1 + y2) / 2</text>
+  <text x="1276" y="947" class="code-small">centroid_offset = ||((cx / W) - 0.5, (cy / H) - 0.5)||</text>
+  <text x="1276" y="963" class="code-small">                  / (0.5 * sqrt(2)) = 0.393135</text>
+  <line x1="1276" y1="987" x2="1720" y2="987" stroke="#aed7ce" stroke-width="1.5"/>
+  <text x="1276" y="1018" class="body">Training objective:</text>
+  <text x="1276" y="1042" class="small">The collator builds a user message plus assistant JSON, tokenizes both,</text>
+  <text x="1276" y="1060" class="small">then masks prompt tokens with -100 so cross-entropy is applied only to</text>
+  <text x="1276" y="1078" class="small">the assistant JSON tokens.</text>
+
+  <rect x="1248" y="536" width="490" height="52" class="box-gold"/>
+  <text x="1268" y="560" class="body" style="font-weight:700;">Important: the model never observes image_j.</text>
+  <text x="1268" y="577" class="small" style="font-weight:700;">It must infer future score_j from image_i plus the action command alone.</text>
+</svg>

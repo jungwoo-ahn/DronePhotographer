@@ -1,0 +1,495 @@
+{
+  "processor_type": "Qwen2_5_VLProcessor",
+  "tokenizer_type": "Qwen2Tokenizer",
+  "model_name": "Qwen/Qwen2.5-VL-7B-Instruct",
+  "pair_indices": {
+    "i": 0,
+    "j": 1143
+  },
+  "image_path": "outputs/DogWalk_260215_092109/images/img_0000.png",
+  "action_text": "move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333); rotate_camera_local_axis_angle_rad(rx=-0.1879, ry=-0.0718, rz=-0.2098)",
+  "target_text": "{\"bbox_occupancy_ratio\":0.190523,\"bbox_margin_top\":0.24754,\"bbox_margin_bottom\":0.150227,\"bbox_margin_left\":0.681355,\"bbox_margin_right\":0.002285,\"bbox_aspect_ratio\":0.700418,\"bbox_centroid_offset\":0.48508}",
+  "user_prompt": "You are a drone image scorer.\nInput is current image_i and an action command in camera-local frame of image_i (+right, +up, +forward).\nPredict score values of image_j after applying the action.\nAction: move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333); rotate_camera_local_axis_angle_rad(rx=-0.1879, ry=-0.0718, rz=-0.2098)\nReturn only a JSON object with keys exactly in this order: bbox_occupancy_ratio, bbox_margin_top, bbox_margin_bottom, bbox_margin_left, bbox_margin_right, bbox_aspect_ratio, bbox_centroid_offset\nUse numeric values only. No extra text.",
+  "full_chat_template": "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>You are a drone image scorer.\nInput is current image_i and an action command in camera-local frame of image_i (+right, +up, +forward).\nPredict score values of image_j after applying the action.\nAction: move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333); rotate_camera_local_axis_angle_rad(rx=-0.1879, ry=-0.0718, rz=-0.2098)\nReturn only a JSON object with keys exactly in this order: bbox_occupancy_ratio, bbox_margin_top, bbox_margin_bottom, bbox_margin_left, bbox_margin_right, bbox_aspect_ratio, bbox_centroid_offset\nUse numeric values only. No extra text.<|im_end|>\n<|im_start|>assistant\n{\"bbox_occupancy_ratio\":0.190523,\"bbox_margin_top\":0.24754,\"bbox_margin_bottom\":0.150227,\"bbox_margin_left\":0.681355,\"bbox_margin_right\":0.002285,\"bbox_aspect_ratio\":0.700418,\"bbox_centroid_offset\":0.48508}<|im_end|>\n",
+  "prompt_chat_template": "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>You are a drone image scorer.\nInput is current image_i and an action command in camera-local frame of image_i (+right, +up, +forward).\nPredict score values of image_j after applying the action.\nAction: move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333); rotate_camera_local_axis_angle_rad(rx=-0.1879, ry=-0.0718, rz=-0.2098)\nReturn only a JSON object with keys exactly in this order: bbox_occupancy_ratio, bbox_margin_top, bbox_margin_bottom, bbox_margin_left, bbox_margin_right, bbox_aspect_ratio, bbox_centroid_offset\nUse numeric values only. No extra text.<|im_end|>\n<|im_start|>assistant\n",
+  "seq_len": 1276,
+  "prompt_len": 1181,
+  "assistant_token_count": 95,
+  "assistant_start_index": 1181,
+  "assistant_end_index": 1275,
+  "visible_rows": [
+    {
+      "index": 0,
+      "token_id": 151644,
+      "token": "<|im_start|>",
+      "label": -100
+    },
+    {
+      "index": 1,
+      "token_id": 8948,
+      "token": "system",
+      "label": -100
+    },
+    {
+      "index": 2,
+      "token_id": 198,
+      "token": "\u010a",
+      "label": -100
+    },
+    {
+      "index": 3,
+      "token_id": 2610,
+      "token": "You",
+      "label": -100
+    },
+    {
+      "index": 4,
+      "token_id": 525,
+      "token": "\u0120are",
+      "label": -100
+    },
+    {
+      "index": 5,
+      "token_id": 264,
+      "token": "\u0120a",
+      "label": -100
+    },
+    {
+      "index": 6,
+      "token_id": 10950,
+      "token": "\u0120helpful",
+      "label": -100
+    },
+    {
+      "index": 7,
+      "token_id": 17847,
+      "token": "\u0120assistant",
+      "label": -100
+    },
+    {
+      "index": 8,
+      "token_id": 13,
+      "token": ".",
+      "label": -100
+    },
+    {
+      "index": 9,
+      "token_id": 151645,
+      "token": "<|im_end|>",
+      "label": -100
+    },
+    {
+      "index": 10,
+      "token_id": 198,
+      "token": "\u010a",
+      "label": -100
+    },
+    {
+      "index": 11,
+      "token_id": 151644,
+      "token": "<|im_start|>",
+      "label": -100
+    },
+    {
+      "index": 12,
+      "token_id": 872,
+      "token": "user",
+      "label": -100
+    },
+    {
+      "index": 13,
+      "token_id": 198,
+      "token": "\u010a",
+      "label": -100
+    },
+    {
+      "index": 14,
+      "token_id": 151652,
+      "token": "<|vision_start|>",
+      "label": -100
+    },
+    {
+      "index": 15,
+      "token_id": 151655,
+      "token": "<|image_pad|>",
+      "label": -100
+    },
+    {
+      "index": 16,
+      "token_id": 151655,
+      "token": "<|image_pad|>",
+      "label": -100
+    },
+    {
+      "index": 17,
+      "token_id": 151655,
+      "token": "<|image_pad|>",
+      "label": -100
+    },
+    {
+      "index": 18,
+      "token_id": 151655,
+      "token": "<|image_pad|>",
+      "label": -100
+    },
+    {
+      "index": 19,
+      "token_id": 151655,
+      "token": "<|image_pad|>",
+      "label": -100
+    },
+    {
+      "index": 1169,
+      "token_id": 2750,
+      "token": "\u0120values",
+      "label": -100
+    },
+    {
+      "index": 1170,
+      "token_id": 1172,
+      "token": "\u0120only",
+      "label": -100
+    },
+    {
+      "index": 1171,
+      "token_id": 13,
+      "token": ".",
+      "label": -100
+    },
+    {
+      "index": 1172,
+      "token_id": 2308,
+      "token": "\u0120No",
+      "label": -100
+    },
+    {
+      "index": 1173,
+      "token_id": 4960,
+      "token": "\u0120extra",
+      "label": -100
+    },
+    {
+      "index": 1174,
+      "token_id": 1467,
+      "token": "\u0120text",
+      "label": -100
+    },
+    {
+      "index": 1175,
+      "token_id": 13,
+      "token": ".",
+      "label": -100
+    },
+    {
+      "index": 1176,
+      "token_id": 151645,
+      "token": "<|im_end|>",
+      "label": -100
+    },
+    {
+      "index": 1177,
+      "token_id": 198,
+      "token": "\u010a",
+      "label": -100
+    },
+    {
+      "index": 1178,
+      "token_id": 151644,
+      "token": "<|im_start|>",
+      "label": -100
+    },
+    {
+      "index": 1179,
+      "token_id": 77091,
+      "token": "assistant",
+      "label": -100
+    },
+    {
+      "index": 1180,
+      "token_id": 198,
+      "token": "\u010a",
+      "label": -100
+    },
+    {
+      "index": 1181,
+      "token_id": 4913,
+      "token": "{\"",
+      "label": 4913
+    },
+    {
+      "index": 1182,
+      "token_id": 58456,
+      "token": "bbox",
+      "label": 58456
+    },
+    {
+      "index": 1183,
+      "token_id": 62,
+      "token": "_",
+      "label": 62
+    },
+    {
+      "index": 1184,
+      "token_id": 23785,
+      "token": "occup",
+      "label": 23785
+    },
+    {
+      "index": 1185,
+      "token_id": 6572,
+      "token": "ancy",
+      "label": 6572
+    },
+    {
+      "index": 1186,
+      "token_id": 19917,
+      "token": "_ratio",
+      "label": 19917
+    },
+    {
+      "index": 1187,
+      "token_id": 788,
+      "token": "\":",
+      "label": 788
+    },
+    {
+      "index": 1188,
+      "token_id": 15,
+      "token": "0",
+      "label": 15
+    },
+    {
+      "index": 1189,
+      "token_id": 13,
+      "token": ".",
+      "label": 13
+    },
+    {
+      "index": 1190,
+      "token_id": 16,
+      "token": "1",
+      "label": 16
+    },
+    {
+      "index": 1191,
+      "token_id": 24,
+      "token": "9",
+      "label": 24
+    },
+    {
+      "index": 1192,
+      "token_id": 15,
+      "token": "0",
+      "label": 15
+    },
+    {
+      "index": 1193,
+      "token_id": 20,
+      "token": "5",
+      "label": 20
+    },
+    {
+      "index": 1194,
+      "token_id": 17,
+      "token": "2",
+      "label": 17
+    },
+    {
+      "index": 1195,
+      "token_id": 18,
+      "token": "3",
+      "label": 18
+    },
+    {
+      "index": 1196,
+      "token_id": 1335,
+      "token": ",\"",
+      "label": 1335
+    },
+    {
+      "index": 1197,
+      "token_id": 58456,
+      "token": "bbox",
+      "label": 58456
+    },
+    {
+      "index": 1198,
+      "token_id": 42644,
+      "token": "_margin",
+      "label": 42644
+    },
+    {
+      "index": 1199,
+      "token_id": 10426,
+      "token": "_top",
+      "label": 10426
+    },
+    {
+      "index": 1200,
+      "token_id": 788,
+      "token": "\":",
+      "label": 788
+    },
+    {
+      "index": 1201,
+      "token_id": 15,
+      "token": "0",
+      "label": 15
+    },
+    {
+      "index": 1202,
+      "token_id": 13,
+      "token": ".",
+      "label": 13
+    },
+    {
+      "index": 1203,
+      "token_id": 17,
+      "token": "2",
+      "label": 17
+    },
+    {
+      "index": 1204,
+      "token_id": 19,
+      "token": "4",
+      "label": 19
+    },
+    {
+      "index": 1256,
+      "token_id": 15,
+      "token": "0",
+      "label": 15
+    },
+    {
+      "index": 1257,
+      "token_id": 19,
+      "token": "4",
+      "label": 19
+    },
+    {
+      "index": 1258,
+      "token_id": 16,
+      "token": "1",
+      "label": 16
+    },
+    {
+      "index": 1259,
+      "token_id": 23,
+      "token": "8",
+      "label": 23
+    },
+    {
+      "index": 1260,
+      "token_id": 1335,
+      "token": ",\"",
+      "label": 1335
+    },
+    {
+      "index": 1261,
+      "token_id": 58456,
+      "token": "bbox",
+      "label": 58456
+    },
+    {
+      "index": 1262,
+      "token_id": 32591,
+      "token": "_cent",
+      "label": 32591
+    },
+    {
+      "index": 1263,
+      "token_id": 1577,
+      "token": "roid",
+      "label": 1577
+    },
+    {
+      "index": 1264,
+      "token_id": 6917,
+      "token": "_offset",
+      "label": 6917
+    },
+    {
+      "index": 1265,
+      "token_id": 788,
+      "token": "\":",
+      "label": 788
+    },
+    {
+      "index": 1266,
+      "token_id": 15,
+      "token": "0",
+      "label": 15
+    },
+    {
+      "index": 1267,
+      "token_id": 13,
+      "token": ".",
+      "label": 13
+    },
+    {
+      "index": 1268,
+      "token_id": 19,
+      "token": "4",
+      "label": 19
+    },
+    {
+      "index": 1269,
+      "token_id": 23,
+      "token": "8",
+      "label": 23
+    },
+    {
+      "index": 1270,
+      "token_id": 20,
+      "token": "5",
+      "label": 20
+    },
+    {
+      "index": 1271,
+      "token_id": 15,
+      "token": "0",
+      "label": 15
+    },
+    {
+      "index": 1272,
+      "token_id": 23,
+      "token": "8",
+      "label": 23
+    },
+    {
+      "index": 1273,
+      "token_id": 92,
+      "token": "}",
+      "label": 92
+    },
+    {
+      "index": 1274,
+      "token_id": 151645,
+      "token": "<|im_end|>",
+      "label": 151645
+    },
+    {
+      "index": 1275,
+      "token_id": 198,
+      "token": "\u010a",
+      "label": 198
+    }
+  ],
+  "special_tokens": {
+    "bos_token": null,
+    "eos_token": "<|im_end|>",
+    "pad_token": "<|endoftext|>",
+    "bos_token_id": null,
+    "eos_token_id": 151645,
+    "pad_token_id": 151643
+  },
+  "pixel_values_shape": [
+    3996,
+    1176
+  ],
+  "image_grid_thw": [
+    1,
+    54,
+    74
+  ]
+}
