@@ -110,10 +110,11 @@
   <text x="936" y="319" class="code-small">Camera-local action</text>
   <text x="936" y="343" class="code-tiny">delta_t = world_to_camera_local</text>
   <text x="936" y="359" class="code-tiny">(p_j - p_i, f_i, u_i)</text>
-  <text x="936" y="383" class="code-tiny">delta_r = rotvec(B_i^T B_j)</text>
-  <text x="936" y="406" class="code-tiny">serialize as</text>
+  <text x="936" y="383" class="code-tiny">f_j^local = B_i^T f_j</text>
+  <text x="936" y="399" class="code-tiny">u_j^local = B_i^T u_j</text>
+  <text x="936" y="415" class="code-tiny">serialize as</text>
   <text x="936" y="424" class="code-tiny">move_camera_local_m(...);</text>
-  <text x="936" y="440" class="code-tiny">rotate_camera_local_axis_angle_rad(...)</text>
+  <text x="936" y="440" class="code-tiny">orient_camera_local_6d(...)</text>
 
   <rect x="1102" y="294" width="168" height="168" class="box-gold"/>
   <text x="1118" y="319" class="code-small">Target JSON</text>
@@ -146,7 +147,7 @@
 
   <rect x="1427" y="316" width="255" height="74" class="box-rose"/>
   <text x="1443" y="342" class="body" style="font-weight:700;">AutoModelForImageTextToText</text>
-  <text x="1443" y="363" class="small">Qwen2.5-VL-7B-Instruct or Qwen3.5-9B</text>
+  <text x="1443" y="363" class="small">Qwen2.5-VL-7B-Instruct or Qwen3.5-2B / 9B</text>
 
   <line x1="1438" y1="292" x2="1520" y2="316" stroke="#506177" stroke-width="2.5" marker-end="url(#arrow)"/>
   <line x1="1640" y1="292" x2="1588" y2="316" stroke="#506177" stroke-width="2.5" marker-end="url(#arrow)"/>
@@ -192,23 +193,24 @@
   <path d="M 350 740 C 372 706, 382 700, 404 700" fill="none" stroke="#c26d1f" stroke-width="2.8" marker-end="url(#arrowWarm)"/>
   <rect x="195" y="612" width="356" height="46" class="box-gold"/>
   <text x="211" y="640" class="code-tiny">camera-local action from i to j: move right 0.5570 m, up 1.1182 m, forward -0.3289 m,</text>
-  <text x="211" y="652" class="code-tiny">then rotate by rotvec [0.1812, -0.4156, -0.2579] rad in image_i local basis.</text>
+  <text x="211" y="652" class="code-tiny">then encode target forward/up vectors in image_i local basis.</text>
 
   <line x1="662" y1="805" x2="706" y2="805" stroke="#506177" stroke-width="2.8" marker-end="url(#arrow)"/>
   <line x1="351" y1="804" x2="706" y2="728" stroke="#506177" stroke-width="2.8" marker-end="url(#arrow)"/>
 
   <rect x="726" y="610" width="488" height="236" class="box-rose"/>
   <text x="746" y="640" class="panel-title" style="font-size:18px;">Prompt actually seen by Qwen-VL</text>
-  <text x="746" y="670" class="code-small">You are a drone image scorer.</text>
-  <text x="746" y="689" class="code-small">Input is current image_i and an action command in</text>
-  <text x="746" y="705" class="code-small">camera-local frame of image_i (+right, +up, +forward).</text>
-  <text x="746" y="726" class="code-small">Action:</text>
-  <text x="746" y="744" class="code-tiny">move_camera_local_m(right=0.5570, up=1.1182, forward=-0.3289);</text>
-  <text x="746" y="759" class="code-tiny">rotate_camera_local_axis_angle_rad(rx=0.1812, ry=-0.4156, rz=-0.2579)</text>
-  <text x="746" y="781" class="code-small">Return only JSON in this exact key order:</text>
-  <text x="746" y="799" class="code-tiny">bbox_occupancy_ratio, bbox_margin_top, bbox_margin_bottom,</text>
-  <text x="746" y="814" class="code-tiny">bbox_margin_left, bbox_margin_right, bbox_aspect_ratio,</text>
-  <text x="746" y="829" class="code-tiny">bbox_centroid_offset</text>
+  <text x="746" y="670" class="code-tiny">You are a drone image scorer.</text>
+  <text x="746" y="684" class="code-tiny">Input is current image_i and an action command in camera-local frame of image_i</text>
+  <text x="746" y="698" class="code-tiny">(+right, +up, +forward).</text>
+  <text x="746" y="712" class="code-tiny">Predict score values of image_j after applying the action.</text>
+  <text x="746" y="726" class="code-tiny">Action: move_camera_local_m(right=0.5570, up=1.1182, forward=-0.3289);</text>
+  <text x="746" y="740" class="code-tiny">orient_camera_local_6d(fx=..., fy=..., fz=..., ux=..., uy=..., uz=...)</text>
+  <text x="746" y="754" class="code-tiny">Return exactly one JSON object.</text>
+  <text x="746" y="768" class="code-tiny">Use this JSON schema: {"bbox_occupancy_ratio": &lt;float&gt;, "bbox_margin_top": &lt;float&gt;,</text>
+  <text x="746" y="782" class="code-tiny">"bbox_margin_bottom": &lt;float&gt;, "bbox_margin_left": &lt;float&gt;, "bbox_margin_right": &lt;float&gt;,</text>
+  <text x="746" y="796" class="code-tiny">"bbox_aspect_ratio": &lt;float&gt;, "bbox_centroid_offset": &lt;float&gt;}</text>
+  <text x="746" y="810" class="code-tiny">Response must start with `{`, end with `}`, and contain no extra text.</text>
 
   <rect x="726" y="868" width="488" height="220" class="box-rose"/>
   <text x="746" y="898" class="panel-title" style="font-size:18px;">Supervised assistant target</text>

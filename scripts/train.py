@@ -89,11 +89,13 @@ def main() -> None:
     seed = int(cfg["data"]["seed"])
     set_seed(seed)
     action_frame = str(cfg["data"].get("action_frame", "camera_local"))
+    rotation_representation = str(cfg["data"].get("rotation_representation", "orientation_6d"))
 
     dataset = DroneActionScoreDataset(
         annotations_path=cfg["data"]["annotations_path"],
         image_root=cfg["data"].get("image_root"),
         action_frame=action_frame,
+        rotation_representation=rotation_representation,
         distance_threshold=float(cfg["data"]["distance_threshold"]),
         max_pairs_per_image=int(cfg["data"]["max_pairs_per_image"]),
         zero_action_ratio=float(cfg["data"].get("zero_action_ratio", 0.0)),
@@ -202,6 +204,7 @@ def main() -> None:
         max_length=int(train_cfg["max_length"]),
         target_score_keys=dataset.target_score_keys,
         action_frame=dataset.action_frame,
+        rotation_representation=dataset.rotation_representation,
     )
 
     trainer = Trainer(
@@ -226,6 +229,7 @@ def main() -> None:
         "views_total": len(dataset.views),
         "zero_action_pairs_total": int(dataset.zero_action_pairs_count),
         "action_frame": dataset.action_frame,
+        "rotation_representation": dataset.rotation_representation,
         "target_score_keys": dataset.target_score_keys,
     }
     with (run_dir / "summary.json").open("w", encoding="utf-8") as f:
@@ -239,5 +243,5 @@ if __name__ == "__main__":
 
 
 """example usage:
-python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
+python scripts/train.py --config configs/qwen25_vl_7b_full.yaml
 """

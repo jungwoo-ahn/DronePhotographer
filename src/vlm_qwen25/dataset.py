@@ -9,11 +9,13 @@ import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 
-from .prompt import action_vector_to_text, no_action_text
+from .prompt import build_action_text
 from .rotation_utils import (
     relative_rotation_rotvec,
     relative_rotation_rotvec_camera_local,
     relative_translation_camera_local,
+    target_orientation_forward_up_camera_local,
+    target_orientation_forward_up_world,
 )
 from .schema import SCORE_KEYS, extract_scores_from_annotation, scores_to_canonical_json
 
@@ -44,6 +46,7 @@ class DroneActionScoreDataset(Dataset):
         annotations_path: str | Path,
         image_root: str | Path | None = None,
         action_frame: str = "camera_local",
+        rotation_representation: str = "orientation_6d",
         distance_threshold: float = 1.5,
         max_pairs_per_image: int = 32,
         zero_action_ratio: float = 0.0,
@@ -53,6 +56,7 @@ class DroneActionScoreDataset(Dataset):
         self.annotations_path = Path(annotations_path)
         self.image_root = Path(image_root) if image_root is not None else self.annotations_path.parent
         self.action_frame = str(action_frame)
+        self.rotation_representation = str(rotation_representation)
         self.distance_threshold = float(distance_threshold)
         self.max_pairs_per_image = int(max_pairs_per_image)
         self.zero_action_ratio = float(zero_action_ratio)
@@ -60,6 +64,8 @@ class DroneActionScoreDataset(Dataset):
         self.target_score_keys = list(SCORE_KEYS if target_score_keys is None else target_score_keys)
         if self.action_frame not in {"camera_local", "world"}:
             raise ValueError("action_frame must be 'camera_local' or 'world'")
+        if self.rotation_representation not in {"orientation_6d", "rotvec"}:
+            raise ValueError("rotation_representation must be 'orientation_6d' or 'rotvec'")
         if self.zero_action_ratio < 0.0 or self.zero_action_ratio >= 1.0:
             raise ValueError("zero_action_ratio must be in [0.0, 1.0)")
 
@@ -106,6 +112,67 @@ class DroneActionScoreDataset(Dataset):
             )
         return views
 
+    def _build_action_text_for_views(self, view_i: ViewRecord, view_j: ViewRecord) -> str:
+        if self.action_frame == "camera_local":
+            delta_position_np = relative_translation_camera_local(
+                position_i=view_i.camera_position,
+                position_j=view_j.camera_position,
+                forward_i=view_i.camera_forward,
+                up_i=view_i.camera_up,
+            )
+            if self.rotation_representation == "orientation_6d":
+                target_forward_np, target_up_np = target_orientation_forward_up_camera_local(
+                    view_i.camera_forward,
+                    view_i.camera_up,
+                    view_j.camera_forward,
+                    view_j.camera_up,
+                )
+                return build_action_text(
+                    delta_position=tuple(delta_position_np.tolist()),
+                    action_frame=self.action_frame,
+                    rotation_representation=self.rotation_representation,
+                    target_forward=tuple(target_forward_np.tolist()),
+                    target_up=tuple(target_up_np.tolist()),
+                )
+            delta_rotation_np = relative_rotation_rotvec_camera_local(
+                view_i.camera_forward,
+                view_i.camera_up,
+                view_j.camera_forward,
+                view_j.camera_up,
+            )
+            return build_action_text(
+                delta_position=tuple(delta_position_np.tolist()),
+                action_frame=self.action_frame,
+                rotation_representation=self.rotation_representation,
+                delta_rotation=tuple(delta_rotation_np.tolist()),
+            )
+
+        delta_position_np = view_j.camera_position - view_i.camera_position
+        if self.rotation_representation == "orientation_6d":
+            target_forward_np, target_up_np = target_orientation_forward_up_world(
+                view_j.camera_forward,
+                view_j.camera_up,
+            )
+            return build_action_text(
+                delta_position=tuple(delta_position_np.tolist()),
+                action_frame=self.action_frame,
+                rotation_representation=self.rotation_representation,
+                target_forward=tuple(target_forward_np.tolist()),
+                target_up=tuple(target_up_np.tolist()),
+            )
+        delta_rotation_np = relative_rotation_rotvec(
+            view_i.camera_forward,
+            view_i.camera_up,
+            view_j.camera_forward,
+            view_j.camera_up,
+        )
+        return build_action_text(
+            delta_position=tuple(delta_position_np.tolist()),
+            action_frame=self.action_frame,
+            rotation_representation=self.rotation_representation,
+            delta_rotation=tuple(delta_rotation_np.tolist()),
+        )
+
     def _build_pairs(self) -> list[PairRecord]:
         rng = np.random.default_rng(self.seed)
         pair_records: list[PairRecord] = []
@@ -127,36 +194,7 @@ class DroneActionScoreDataset(Dataset):
             for j in valid.tolist():
                 view_i = self.views[i]
                 view_j = self.views[j]
-
-                if self.action_frame == "camera_local":
-                    delta_position_np = relative_translation_camera_local(
-                        position_i=view_i.camera_position,
-                        position_j=view_j.camera_position,
-                        forward_i=view_i.camera_forward,
-                        up_i=view_i.camera_up,
-                    )
-                    delta_rotation_np = relative_rotation_rotvec_camera_local(
-                        view_i.camera_forward,
-                        view_i.camera_up,
-                        view_j.camera_forward,
-                        view_j.camera_up,
-                    )
-                else:
-                    delta_position_np = view_j.camera_position - view_i.camera_position
-                    delta_rotation_np = relative_rotation_rotvec(
-                        view_i.camera_forward,
-                        view_i.camera_up,
-                        view_j.camera_forward,
-                        view_j.camera_up,
-                    )
-                delta_position = tuple(delta_position_np.tolist())
-                delta_rotation = tuple(delta_rotation_np.tolist())
-
-                action_text = action_vector_to_text(
-                    delta_position,
-                    delta_rotation,
-                    action_frame=self.action_frame,
-                )
+                action_text = self._build_action_text_for_views(view_i, view_j)
                 target_scores = view_j.scores
                 target_text = scores_to_canonical_json(
                     target_scores,
@@ -192,10 +230,10 @@ class DroneActionScoreDataset(Dataset):
         replace = zero_count > len(detected_indices)
         sampled_indices = rng.choice(np.asarray(detected_indices, dtype=np.int64), size=zero_count, replace=replace)
 
-        action_text = no_action_text(action_frame=self.action_frame)
         zero_pairs: list[PairRecord] = []
         for idx in sampled_indices.tolist():
             view = self.views[idx]
+            action_text = self._build_action_text_for_views(view, view)
             target_scores = view.scores
             target_text = scores_to_canonical_json(
                 target_scores,

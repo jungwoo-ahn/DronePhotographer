@@ -75,6 +75,7 @@ def main() -> None:
         annotations_path=data_cfg["annotations_path"],
         image_root=data_cfg.get("image_root"),
         action_frame=str(data_cfg.get("action_frame", "camera_local")),
+        rotation_representation=str(data_cfg.get("rotation_representation", "orientation_6d")),
         distance_threshold=float(data_cfg["distance_threshold"]),
         max_pairs_per_image=int(data_cfg["max_pairs_per_image"]),
         zero_action_ratio=float(data_cfg.get("zero_action_ratio", 0.0)),
@@ -115,6 +116,7 @@ def main() -> None:
             str(sample["action_text"]),
             target_score_keys=score_keys,
             action_frame=dataset.action_frame,
+            rotation_representation=dataset.rotation_representation,
         )
         messages = [
             {
@@ -164,6 +166,7 @@ def main() -> None:
     report = {
         "model_path": str(args.model_path),
         "action_frame": dataset.action_frame,
+        "rotation_representation": dataset.rotation_representation,
         "num_samples": len(samples),
         "parse_failures": parse_failures,
         "parse_failure_rate": 0.0 if len(samples) == 0 else parse_failures / len(samples),

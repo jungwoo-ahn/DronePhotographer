@@ -29,6 +29,13 @@ def parse_args() -> argparse.Namespace:
         default="camera_local",
         choices=["camera_local", "world"],
     )
+    parser.add_argument(
+        "--rotation_representation",
+        type=str,
+        default="orientation_6d",
+        choices=["orientation_6d", "rotvec"],
+        help="how the action_text describes camera orientation",
+    )
     parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument(
         "--score_keys",
@@ -61,6 +68,7 @@ def main() -> None:
         args.action_text,
         target_score_keys=score_keys,
         action_frame=args.action_frame,
+        rotation_representation=args.rotation_representation,
     )
     messages = [
         {
@@ -94,6 +102,7 @@ def main() -> None:
         "generated_text": generated_text,
         "score_keys": score_keys,
         "action_frame": args.action_frame,
+        "rotation_representation": args.rotation_representation,
         "parsed_scores": parsed_scores,
     }
     print(json.dumps(output, indent=2))

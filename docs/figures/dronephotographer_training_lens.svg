@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1260" viewBox="0 0 1800 1260">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1340" viewBox="0 0 1800 1340">
   <defs>
     <marker id="arrow" markerWidth="14" markerHeight="10" refX="12" refY="5" orient="auto" markerUnits="strokeWidth">
       <path d="M 0 0 L 14 5 L 0 10 z" fill="#536579"/>
@@ -23,8 +23,8 @@
     </style>
   </defs>
 
-  <rect x="0" y="0" width="1800" height="1260" fill="#fbfcfe"/>
-  <rect x="24" y="22" width="1752" height="1216" rx="28" ry="28" fill="#ffffff" stroke="#e4ebf2" stroke-width="2"/>
+  <rect x="0" y="0" width="1800" height="1340" fill="#fbfcfe"/>
+  <rect x="24" y="22" width="1752" height="1296" rx="28" ry="28" fill="#ffffff" stroke="#e4ebf2" stroke-width="2"/>
 
   <text x="52" y="64" class="title">DronePhotographer training lens: exact Qwen-VL sequence, labels, and loss on one real sample</text>
   <text x="52" y="90" class="subtitle">Measured from the local `drone` environment with `transformers 5.3.0`, `Qwen2_5_VLProcessor`, and `Qwen2Tokenizer` using the repository's current collator logic.</text>
@@ -42,11 +42,11 @@
   <ellipse cx="184" cy="282" rx="9" ry="11" fill="#ffffff" stroke="#9facb8" stroke-width="1.4"/>
   <text x="212" y="240" class="code-small">pair: i = 0, j = 1143</text>
   <text x="212" y="258" class="code-small">image_i: img_0000.png</text>
-  <text x="212" y="276" class="code-small">seq_len = 1276</text>
-  <text x="212" y="294" class="code-small">prompt_len = 1181</text>
+  <text x="212" y="276" class="code-small">seq_len = 1388</text>
+  <text x="212" y="294" class="code-small">prompt_len = 1293</text>
   <text x="80" y="325" class="code-tiny">action_text:</text>
   <text x="80" y="339" class="code-tiny">move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333);</text>
-  <text x="80" y="351" class="code-tiny">rotate_camera_local_axis_angle_rad(rx=-0.1879, ry=-0.0718, rz=-0.2098)</text>
+  <text x="80" y="351" class="code-tiny">orient_camera_local_6d(fx=..., fy=..., fz=..., ux=..., uy=..., uz=...)</text>
 
   <rect x="392" y="176" width="470" height="170" rx="16" ry="16" fill="#fff8e6" stroke="#d7b35c" stroke-width="1.5"/>
   <text x="410" y="202" class="panel-title">Chat template expansion</text>
@@ -61,20 +61,20 @@
 
   <rect x="892" y="176" width="360" height="170" rx="16" ry="16" fill="#ecfbf7" stroke="#7dc1b4" stroke-width="1.5"/>
   <text x="910" y="202" class="panel-title">Processor outputs on this sample</text>
-  <text x="910" y="228" class="code-small">processor_type = Qwen2_5_VLProcessor</text>
-  <text x="910" y="247" class="code-small">tokenizer_type = Qwen2Tokenizer</text>
-  <text x="910" y="266" class="code-small">pixel_values shape = [3996, 1176]</text>
-  <text x="910" y="285" class="code-small">image_grid_thw = [1, 54, 74]</text>
-  <text x="910" y="304" class="code-small">vision_start index = 14</text>
-  <text x="910" y="323" class="code-small">image_pad slots = 999 at indices 15..1013</text>
-  <text x="910" y="342" class="code-small">vision_end index = 1014</text>
+  <text x="910" y="228" class="code-small">orig image size = 1024 x 768</text>
+  <text x="910" y="247" class="code-small">smart_resize -&gt; 756 x 1036</text>
+  <text x="910" y="266" class="code-small">image_grid_thw = [1, 54, 74]</text>
+  <text x="910" y="285" class="code-small">raw patch count = 54 * 74 = 3996</text>
+  <text x="910" y="304" class="code-small">merge_size = 2 -&gt; 3996 / 4 = 999 LLM slots</text>
+  <text x="910" y="323" class="code-small">pixel_values shape = [3996, 1176]</text>
+  <text x="910" y="342" class="code-small">processor = Qwen2_5_VLProcessor / Qwen2Tokenizer</text>
 
   <rect x="1282" y="176" width="458" height="170" rx="16" ry="16" fill="#fff0f1" stroke="#d8a0a9" stroke-width="1.5"/>
   <text x="1300" y="202" class="panel-title">Label construction in the collator</text>
   <text x="1300" y="228" class="code-small">prompt_inputs = processor(prompt_only_text, image_i)</text>
-  <text x="1300" y="247" class="code-small">prompt_len = attention_mask.sum() = 1181</text>
-  <text x="1300" y="270" class="code-small">labels[0:1181] = -100</text>
-  <text x="1300" y="289" class="code-small">labels[1181:1276] = input_ids[1181:1276]</text>
+  <text x="1300" y="247" class="code-small">prompt_len = attention_mask.sum() = 1293</text>
+  <text x="1300" y="270" class="code-small">labels[0:1293] = -100</text>
+  <text x="1300" y="289" class="code-small">labels[1293:1388] = input_ids[1293:1388]</text>
   <text x="1300" y="312" class="code-small">assistant_token_count = 95</text>
   <text x="1300" y="331" class="small">These 95 supervised positions include the JSON body, the closing &lt;|im_end|&gt; token, and the trailing newline.</text>
 
@@ -82,11 +82,11 @@
   <line x1="862" y1="261" x2="882" y2="261" stroke="#536579" stroke-width="2.5" marker-end="url(#arrow)"/>
   <line x1="1252" y1="261" x2="1272" y2="261" stroke="#536579" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-  <rect x="40" y="390" width="1720" height="240" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
+  <rect x="40" y="390" width="1720" height="320" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
   <text x="60" y="426" class="section">2. Exact multimodal sequence layout for this sample</text>
   <text x="60" y="447" class="small">Bar widths below are schematic for readability. The indices and counts are exact.</text>
 
-  <text x="72" y="487" class="panel-title" style="font-size:16px;">input_ids[0..1275]</text>
+  <text x="72" y="487" class="panel-title" style="font-size:16px;">input_ids[0..1387]</text>
   <rect x="70" y="500" width="170" height="42" rx="10" ry="10" fill="#e8eff7" stroke="#bcc9d7"/>
   <rect x="240" y="500" width="820" height="42" rx="10" ry="10" fill="#cfe5ff" stroke="#8fb5e0"/>
   <rect x="1060" y="500" width="95" height="42" rx="10" ry="10" fill="#dff5f0" stroke="#7dc1b4"/>
@@ -99,106 +99,110 @@
   <text x="258" y="531" class="code-tiny">&lt;|image_pad|&gt; x999</text>
   <text x="1070" y="517" class="code-tiny">1014</text>
   <text x="1070" y="531" class="code-tiny">&lt;|vision_end|&gt;</text>
-  <text x="1169" y="517" class="code-tiny">1015..1175</text>
+  <text x="1169" y="517" class="code-tiny">1015..1287</text>
   <text x="1169" y="531" class="code-tiny">exact user prompt text</text>
-  <text x="1451" y="517" class="code-tiny">1176..1180</text>
+  <text x="1451" y="517" class="code-tiny">1288..1292</text>
   <text x="1451" y="531" class="code-tiny">assistant header</text>
-  <text x="1560" y="517" class="code-tiny">1181..1275</text>
+  <text x="1560" y="517" class="code-tiny">1293..1387</text>
   <text x="1560" y="531" class="code-tiny">JSON target + end tokens</text>
 
   <text x="72" y="580" class="panel-title" style="font-size:16px;">labels after masking</text>
   <rect x="70" y="593" width="1475" height="36" rx="10" ry="10" fill="#e6eaef" stroke="#c7d0d9"/>
   <rect x="1545" y="593" width="205" height="36" rx="10" ry="10" fill="#ffccd5" stroke="#d98d98"/>
-  <text x="84" y="616" class="code-small">0..1180 -> -100 (ignored by loss)</text>
-  <text x="1560" y="616" class="code-small">1181..1275 -> copied token ids</text>
+  <text x="84" y="616" class="code-small">0..1292 -> -100 (ignored by loss)</text>
+  <text x="1560" y="616" class="code-small">1293..1387 -> copied token ids</text>
 
-  <text x="72" y="662" class="panel-title" style="font-size:16px;">sequence boundary callouts</text>
+  <text x="72" y="646" class="panel-title" style="font-size:16px;">sequence boundary callouts</text>
   <line x1="240" y1="548" x2="240" y2="565" stroke="#7c8ea1" stroke-width="2"/>
   <line x1="1060" y1="548" x2="1060" y2="565" stroke="#7c8ea1" stroke-width="2"/>
   <line x1="1155" y1="548" x2="1155" y2="565" stroke="#7c8ea1" stroke-width="2"/>
   <line x1="1545" y1="548" x2="1545" y2="565" stroke="#7c8ea1" stroke-width="2"/>
-  <text x="253" y="665" class="small">vision block begins at token 14 and occupies the next 999 positions as &lt;|image_pad|&gt;.</text>
-  <text x="253" y="683" class="small">User text starts immediately after token 1014; post_vision token = "You" at index 1015.</text>
-  <text x="1148" y="665" class="small">assistant header tokens are: &lt;|im_start|&gt;, assistant, newline</text>
-  <text x="1558" y="665" class="small">first supervised token is {" at index 1181</text>
+  <text x="253" y="666" class="small">The `999` image slots are already post-merge language placeholders, not raw vision patches.</text>
+  <text x="253" y="684" class="small">This sample produces `54 x 74 = 3996` patch positions first, then merge_size `2 x 2` reduces them to `3996 / 4 = 999`.</text>
+  <text x="253" y="702" class="small">User text starts at `1015`; assistant header ends at `1292`; the first supervised token `{"` starts at `1293`.</text>
 
-  <rect x="40" y="652" width="840" height="568" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
-  <text x="60" y="688" class="section">3. Exact prompt text given to the tokenizer</text>
-  <text x="60" y="709" class="small">This is the repository's user prompt before chat-template wrappers are injected.</text>
+  <rect x="40" y="732" width="840" height="568" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
+  <text x="60" y="768" class="section">3. Exact prompt text given to the tokenizer</text>
+  <text x="60" y="789" class="small">This is the repository's user prompt before chat-template wrappers are injected.</text>
 
-  <rect x="62" y="728" width="796" height="302" rx="16" ry="16" fill="#fff8e6" stroke="#d7b35c" stroke-width="1.5"/>
-  <text x="82" y="756" class="code-small">You are a drone image scorer.</text>
-  <text x="82" y="777" class="code-small">Input is current image_i and an action command in camera-local frame of image_i</text>
-  <text x="82" y="794" class="code-small">(+right, +up, +forward).</text>
-  <text x="82" y="815" class="code-small">Predict score values of image_j after applying the action.</text>
-  <text x="82" y="836" class="code-small">Action:</text>
-  <text x="82" y="855" class="code-tiny">move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333);</text>
-  <text x="82" y="869" class="code-tiny">rotate_camera_local_axis_angle_rad(rx=-0.1879, ry=-0.0718, rz=-0.2098)</text>
-  <text x="82" y="891" class="code-small">Return only a JSON object with keys exactly in this order:</text>
-  <text x="82" y="910" class="code-tiny">bbox_occupancy_ratio, bbox_margin_top, bbox_margin_bottom, bbox_margin_left,</text>
-  <text x="82" y="924" class="code-tiny">bbox_margin_right, bbox_aspect_ratio, bbox_centroid_offset</text>
-  <text x="82" y="946" class="code-small">Use numeric values only. No extra text.</text>
+  <rect x="62" y="808" width="796" height="302" rx="16" ry="16" fill="#fff8e6" stroke="#d7b35c" stroke-width="1.5"/>
+  <text x="82" y="836" class="code-tiny">You are a drone image scorer.</text>
+  <text x="82" y="850" class="code-tiny">Input is current image_i and an action command in camera-local frame of image_i</text>
+  <text x="82" y="864" class="code-tiny">(+right, +up, +forward).</text>
+  <text x="82" y="878" class="code-tiny">Predict score values of image_j after applying the action.</text>
+  <text x="82" y="892" class="code-tiny">Action: move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333);</text>
+  <text x="82" y="906" class="code-tiny">orient_camera_local_6d(fx=..., fy=..., fz=..., ux=..., uy=..., uz=...)</text>
+  <text x="82" y="920" class="code-tiny">Return exactly one JSON object.</text>
+  <text x="82" y="934" class="code-tiny">Use this JSON schema: {"bbox_occupancy_ratio": &lt;float&gt;, "bbox_margin_top": &lt;float&gt;,</text>
+  <text x="82" y="948" class="code-tiny">"bbox_margin_bottom": &lt;float&gt;, "bbox_margin_left": &lt;float&gt;, "bbox_margin_right": &lt;float&gt;,</text>
+  <text x="82" y="962" class="code-tiny">"bbox_aspect_ratio": &lt;float&gt;, "bbox_centroid_offset": &lt;float&gt;}</text>
+  <text x="82" y="976" class="code-tiny">The first character of your response must be '{' and the last character must be '}'.</text>
+  <text x="82" y="990" class="code-tiny">Use keys exactly once and in this exact order: bbox_occupancy_ratio, bbox_margin_top,</text>
+  <text x="82" y="1004" class="code-tiny">bbox_margin_bottom, bbox_margin_left, bbox_margin_right, bbox_aspect_ratio,</text>
+  <text x="82" y="1018" class="code-tiny">bbox_centroid_offset</text>
+  <text x="82" y="1032" class="code-tiny">Use numeric JSON values only. Do not use strings, null, comments, or trailing commas.</text>
+  <text x="82" y="1046" class="code-tiny">Do not output markdown, code fences, explanations, or any extra text.</text>
 
-  <rect x="62" y="1048" width="796" height="150" rx="16" ry="16" fill="#edf5ff" stroke="#8fb5e0" stroke-width="1.5"/>
-  <text x="82" y="1076" class="panel-title">Observed wrapper tokens around that prompt</text>
-  <text x="82" y="1102" class="code-small">&lt;|im_start|&gt;system  You are a helpful assistant.  &lt;|im_end|&gt;</text>
-  <text x="82" y="1121" class="code-small">&lt;|im_start|&gt;user  &lt;|vision_start|&gt;&lt;|image_pad|&gt;x999&lt;|vision_end|&gt; [prompt text]</text>
-  <text x="82" y="1140" class="code-small">&lt;|im_end|&gt;  &lt;|im_start|&gt;assistant  newline  [target JSON]  &lt;|im_end|&gt;  newline</text>
-  <text x="82" y="1170" class="small">The prompt-only sequence used for masking ends immediately after the assistant header newline, so `prompt_len = 1181` excludes the target JSON itself.</text>
+  <rect x="62" y="1128" width="796" height="150" rx="16" ry="16" fill="#edf5ff" stroke="#8fb5e0" stroke-width="1.5"/>
+  <text x="82" y="1156" class="panel-title">Observed wrapper tokens around that prompt</text>
+  <text x="82" y="1182" class="code-small">&lt;|im_start|&gt;system  You are a helpful assistant.  &lt;|im_end|&gt;</text>
+  <text x="82" y="1201" class="code-small">&lt;|im_start|&gt;user  &lt;|vision_start|&gt;&lt;|image_pad|&gt;x999&lt;|vision_end|&gt; [prompt text]</text>
+  <text x="82" y="1220" class="code-small">&lt;|im_end|&gt;  &lt;|im_start|&gt;assistant  newline  [target JSON]  &lt;|im_end|&gt;  newline</text>
+  <text x="82" y="1250" class="small">The prompt-only sequence used for masking ends immediately after the assistant header newline, so `prompt_len = 1293` excludes the target JSON itself.</text>
 
-  <rect x="900" y="652" width="430" height="568" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
-  <text x="920" y="688" class="section">4. Boundary token table</text>
-  <text x="920" y="709" class="small">Selected indices from the measured input_ids / labels arrays.</text>
+  <rect x="900" y="732" width="430" height="568" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
+  <text x="920" y="768" class="section">4. Boundary token table</text>
+  <text x="920" y="789" class="small">Selected indices from the measured input_ids / labels arrays.</text>
 
-  <rect x="920" y="730" width="390" height="40" rx="10" ry="10" fill="#eef2f6" stroke="#c6d0da"/>
-  <text x="934" y="755" class="code-small">idx</text>
-  <text x="994" y="755" class="code-small">token_id</text>
-  <text x="1126" y="755" class="code-small">token</text>
-  <text x="1246" y="755" class="code-small">label</text>
+  <rect x="920" y="810" width="390" height="40" rx="10" ry="10" fill="#eef2f6" stroke="#c6d0da"/>
+  <text x="934" y="835" class="code-small">idx</text>
+  <text x="994" y="835" class="code-small">token_id</text>
+  <text x="1126" y="835" class="code-small">token</text>
+  <text x="1246" y="835" class="code-small">label</text>
 
   <g class="code-small">
-    <text x="934" y="790">0</text><text x="994" y="790">151644</text><text x="1126" y="790">&lt;|im_start|&gt;</text><text x="1246" y="790">-100</text>
-    <text x="934" y="814">1</text><text x="994" y="814">8948</text><text x="1126" y="814">system</text><text x="1246" y="814">-100</text>
-    <text x="934" y="838">14</text><text x="994" y="838">151652</text><text x="1126" y="838">&lt;|vision_start|&gt;</text><text x="1246" y="838">-100</text>
-    <text x="934" y="862">15</text><text x="994" y="862">151655</text><text x="1126" y="862">&lt;|image_pad|&gt;</text><text x="1246" y="862">-100</text>
-    <text x="934" y="886">1013</text><text x="994" y="886">151655</text><text x="1126" y="886">&lt;|image_pad|&gt;</text><text x="1246" y="886">-100</text>
-    <text x="934" y="910">1014</text><text x="994" y="910">151653</text><text x="1126" y="910">&lt;|vision_end|&gt;</text><text x="1246" y="910">-100</text>
-    <text x="934" y="934">1015</text><text x="994" y="934">2610</text><text x="1126" y="934">You</text><text x="1246" y="934">-100</text>
-    <text x="934" y="958">1178</text><text x="994" y="958">151644</text><text x="1126" y="958">&lt;|im_start|&gt;</text><text x="1246" y="958">-100</text>
-    <text x="934" y="982">1179</text><text x="994" y="982">77091</text><text x="1126" y="982">assistant</text><text x="1246" y="982">-100</text>
-    <text x="934" y="1006">1180</text><text x="994" y="1006">198</text><text x="1126" y="1006">\n</text><text x="1246" y="1006">-100</text>
-    <text x="934" y="1030">1181</text><text x="994" y="1030">4913</text><text x="1126" y="1030">{"</text><text x="1246" y="1030">4913</text>
-    <text x="934" y="1054">1182</text><text x="994" y="1054">58456</text><text x="1126" y="1054">bbox</text><text x="1246" y="1054">58456</text>
-    <text x="934" y="1078">1183</text><text x="994" y="1078">62</text><text x="1126" y="1078">_</text><text x="1246" y="1078">62</text>
-    <text x="934" y="1102">1184</text><text x="994" y="1102">23785</text><text x="1126" y="1102">occup</text><text x="1246" y="1102">23785</text>
-    <text x="934" y="1126">1185</text><text x="994" y="1126">6572</text><text x="1126" y="1126">ancy</text><text x="1246" y="1126">6572</text>
-    <text x="934" y="1150">1186</text><text x="994" y="1150">19917</text><text x="1126" y="1150">_ratio</text><text x="1246" y="1150">19917</text>
-    <text x="934" y="1174">1273</text><text x="994" y="1174">92</text><text x="1126" y="1174">}</text><text x="1246" y="1174">92</text>
-    <text x="934" y="1198">1274</text><text x="994" y="1198">151645</text><text x="1126" y="1198">&lt;|im_end|&gt;</text><text x="1246" y="1198">151645</text>
+    <text x="934" y="870">0</text><text x="994" y="870">151644</text><text x="1126" y="870">&lt;|im_start|&gt;</text><text x="1246" y="870">-100</text>
+    <text x="934" y="894">1</text><text x="994" y="894">8948</text><text x="1126" y="894">system</text><text x="1246" y="894">-100</text>
+    <text x="934" y="918">14</text><text x="994" y="918">151652</text><text x="1126" y="918">&lt;|vision_start|&gt;</text><text x="1246" y="918">-100</text>
+    <text x="934" y="942">15</text><text x="994" y="942">151655</text><text x="1126" y="942">&lt;|image_pad|&gt;</text><text x="1246" y="942">-100</text>
+    <text x="934" y="966">1013</text><text x="994" y="966">151655</text><text x="1126" y="966">&lt;|image_pad|&gt;</text><text x="1246" y="966">-100</text>
+    <text x="934" y="990">1014</text><text x="994" y="990">151653</text><text x="1126" y="990">&lt;|vision_end|&gt;</text><text x="1246" y="990">-100</text>
+    <text x="934" y="1014">1015</text><text x="994" y="1014">2610</text><text x="1126" y="1014">You</text><text x="1246" y="1014">-100</text>
+    <text x="934" y="1038">1290</text><text x="994" y="1038">151644</text><text x="1126" y="1038">&lt;|im_start|&gt;</text><text x="1246" y="1038">-100</text>
+    <text x="934" y="1062">1291</text><text x="994" y="1062">77091</text><text x="1126" y="1062">assistant</text><text x="1246" y="1062">-100</text>
+    <text x="934" y="1086">1292</text><text x="994" y="1086">198</text><text x="1126" y="1086">\n</text><text x="1246" y="1086">-100</text>
+    <text x="934" y="1110">1293</text><text x="994" y="1110">4913</text><text x="1126" y="1110">{"</text><text x="1246" y="1110">4913</text>
+    <text x="934" y="1134">1294</text><text x="994" y="1134">58456</text><text x="1126" y="1134">bbox</text><text x="1246" y="1134">58456</text>
+    <text x="934" y="1158">1295</text><text x="994" y="1158">62</text><text x="1126" y="1158">_</text><text x="1246" y="1158">62</text>
+    <text x="934" y="1182">1296</text><text x="994" y="1182">23785</text><text x="1126" y="1182">occup</text><text x="1246" y="1182">23785</text>
+    <text x="934" y="1206">1297</text><text x="994" y="1206">6572</text><text x="1126" y="1206">ancy</text><text x="1246" y="1206">6572</text>
+    <text x="934" y="1230">1298</text><text x="994" y="1230">19917</text><text x="1126" y="1230">_ratio</text><text x="1246" y="1230">19917</text>
+    <text x="934" y="1254">1385</text><text x="994" y="1254">92</text><text x="1126" y="1254">}</text><text x="1246" y="1254">92</text>
+    <text x="934" y="1278">1386</text><text x="994" y="1278">151645</text><text x="1126" y="1278">&lt;|im_end|&gt;</text><text x="1246" y="1278">151645</text>
   </g>
 
-  <rect x="1350" y="652" width="410" height="568" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
-  <text x="1370" y="688" class="section">5. Loss that is optimized</text>
-  <text x="1370" y="709" class="small">The Trainer passes `labels`; the model computes standard autoregressive CE on non-masked positions only.</text>
+  <rect x="1350" y="732" width="410" height="568" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
+  <text x="1370" y="768" class="section">5. Loss that is optimized</text>
+  <text x="1370" y="789" class="small">The Trainer passes `labels`; the model computes standard autoregressive CE on non-masked positions only.</text>
 
-  <rect x="1372" y="730" width="366" height="174" rx="16" ry="16" fill="#fff0f1" stroke="#d8a0a9" stroke-width="1.5"/>
-  <text x="1392" y="758" class="panel-title">Masking summary</text>
-  <text x="1392" y="784" class="code-small">prompt_len = 1181</text>
-  <text x="1392" y="803" class="code-small">supervised span = 1181..1275</text>
-  <text x="1392" y="822" class="code-small">count = 95 tokens</text>
-  <text x="1392" y="846" class="code-small">93 JSON-body tokens</text>
-  <text x="1392" y="865" class="code-small">+ 1 closing &lt;|im_end|&gt;</text>
-  <text x="1392" y="884" class="code-small">+ 1 trailing newline</text>
+  <rect x="1372" y="810" width="366" height="174" rx="16" ry="16" fill="#fff0f1" stroke="#d8a0a9" stroke-width="1.5"/>
+  <text x="1392" y="838" class="panel-title">Masking summary</text>
+  <text x="1392" y="864" class="code-small">prompt_len = 1293</text>
+  <text x="1392" y="883" class="code-small">supervised span = 1293..1387</text>
+  <text x="1392" y="902" class="code-small">count = 95 tokens</text>
+  <text x="1392" y="926" class="code-small">93 JSON-body tokens</text>
+  <text x="1392" y="945" class="code-small">+ 1 closing &lt;|im_end|&gt;</text>
+  <text x="1392" y="964" class="code-small">+ 1 trailing newline</text>
 
-  <rect x="1372" y="926" width="366" height="156" rx="16" ry="16" fill="#ecfbf7" stroke="#7dc1b4" stroke-width="1.5"/>
-  <text x="1392" y="954" class="panel-title">Per-sample objective</text>
-  <text x="1392" y="982" class="code-small">L = -(1 / 95) * sum log p_theta(x_t | image_i, x_&lt;t)</text>
-  <text x="1392" y="1001" class="code-small">for t in {1181, 1182, ..., 1275}</text>
-  <text x="1392" y="1027" class="small">Equivalent implementation view:</text>
-  <text x="1392" y="1047" class="small">ignore all labels equal to -100, average CE over the rest.</text>
+  <rect x="1372" y="1006" width="366" height="156" rx="16" ry="16" fill="#ecfbf7" stroke="#7dc1b4" stroke-width="1.5"/>
+  <text x="1392" y="1034" class="panel-title">Per-sample objective</text>
+  <text x="1392" y="1062" class="code-small">L = -(1 / 95) * sum log p_theta(x_t | image_i, x_&lt;t)</text>
+  <text x="1392" y="1081" class="code-small">for t in {1293, 1294, ..., 1387}</text>
+  <text x="1392" y="1107" class="small">Equivalent implementation view:</text>
+  <text x="1392" y="1127" class="small">ignore all labels equal to -100, average CE over the rest.</text>
 
-  <rect x="1372" y="1104" width="366" height="94" rx="16" ry="16" fill="#edf5ff" stroke="#8fb5e0" stroke-width="1.5"/>
-  <text x="1392" y="1132" class="panel-title">Why this matters</text>
-  <text x="1392" y="1157" class="small">The model is not trained to recreate the prompt or the image wrappers.</text>
-  <text x="1392" y="1175" class="small">It is trained only to continue the sequence with the target JSON.</text>
+  <rect x="1372" y="1184" width="366" height="94" rx="16" ry="16" fill="#edf5ff" stroke="#8fb5e0" stroke-width="1.5"/>
+  <text x="1392" y="1212" class="panel-title">Why this matters</text>
+  <text x="1392" y="1237" class="small">The model is not trained to recreate the prompt or the image wrappers.</text>
+  <text x="1392" y="1255" class="small">It is trained only to continue the sequence with the target JSON.</text>
 </svg>

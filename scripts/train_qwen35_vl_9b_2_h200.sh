@@ -16,5 +16,5 @@ fi
 export MASTER_PORT
 
 CUDA_VISIBLE_DEVICES=2,6 \
-torchrun --nproc_per_node=2 --master_port "${MASTER_PORT}" scripts/train_qwen25_vl.py \
+torchrun --nproc_per_node=2 --master_port "${MASTER_PORT}" scripts/train.py \
   --config configs/qwen35_vl_9b_2xh200.yaml

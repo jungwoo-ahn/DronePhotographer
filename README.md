@@ -6,7 +6,7 @@ DronePhotographer generates synthetic drone-camera views in Blender, annotates t
 
 The training task is:
 
-- input: `image_i` + action text (`move` + `rotate`)
+- input: `image_i` + action text (`move` + target orientation)
 - output: JSON score prediction for `image_j`
 
 The current configs default to rule-based bbox controllability targets derived from GroundingDINO detections. The codebase also supports subject-aware score keys if those fields are added to the annotations.
@@ -17,10 +17,10 @@ The current configs default to rule-based bbox controllability targets derived f
 - `src/detectors/detector.py`: GroundingDINO wrapper plus optional visualization helpers.
 - `src/scoring/`: score extraction and normalization utilities.
 - `src/vlm_qwen25/`: dataset construction, prompt formatting, rotation math, collator, and JSON parsing.
-- `scripts/train_qwen25_vl.py`: Hugging Face `Trainer` entry point for Qwen image-text models.
+- `scripts/train.py`: Hugging Face `Trainer` entry point for Qwen image-text models.
 - `scripts/eval_qwen25_vl.py`: offline evaluation with MAE/RMSE and JSON parse-failure tracking.
 - `scripts/predict_qwen25_vl.py`: single-image prediction.
-- `configs/`: training configs for Qwen2.5-VL-7B and Qwen3.5-9B variants.
+- `configs/`: training configs for Qwen2.5-VL-7B plus Qwen3.5 2B and 9B variants.
 
 ## End-To-End Workflow
 
@@ -275,18 +275,23 @@ Pair construction rules:
 - `data.eval_ratio` splits the pair list into train and eval subsets
 
 Action text is generated from the relative transform between view `i` and view `j`.
+The default configs now use `data.rotation_representation: orientation_6d`, which encodes the target camera orientation with target `forward` and `up` vectors instead of an axis-angle rotvec.
 
 Camera-local format:
 
 ```text
-move_camera_local_m(right=0.2000, up=-0.1000, forward=0.0000); rotate_camera_local_axis_angle_rad(rx=0.0000, ry=0.1000, rz=-0.1000)
+move_camera_local_m(right=0.2000, up=-0.1000, forward=0.0000); orient_camera_local_6d(fx=0.0000, fy=0.1000, fz=0.9950, ux=0.0000, uy=0.9950, uz=-0.1000)
 ```
 
 World-frame format:
 
 ```text
-move_world_m(x=0.2000, y=-0.1000, z=0.0000); rotate_world_axis_angle_rad(rx=0.0000, ry=0.1000, rz=-0.1000)
+move_world_m(x=0.2000, y=-0.1000, z=0.0000); orient_world_6d(fx=0.0000, fy=0.1000, fz=0.9950, ux=0.0000, uy=0.9950, uz=-0.1000)
 ```
+
+Legacy option:
+
+- `data.rotation_representation: rotvec` keeps the old `rotate_*_axis_angle_rad(rx, ry, rz)` format.
 
 ## Rotation Convention
 
@@ -294,6 +299,7 @@ move_world_m(x=0.2000, y=-0.1000, z=0.0000); rotate_world_axis_angle_rad(rx=0.00
 - Stored `final_forward` and `final_up` vectors are world-frame unit vectors.
 - Blender camera orientation follows local `+X = right`, `+Y = up`, `-Z = forward`.
 - `data.action_frame` can be `camera_local` or `world`.
+- `data.rotation_representation` can be `orientation_6d` or `rotvec`.
 - The default configs use `camera_local`.
 
 Use the consistency checker after rotation-related changes:
@@ -311,7 +317,7 @@ python scripts/check_rotation_consistency.py \
 ### Main Entry Point
 
 ```bash
-python scripts/train_qwen25_vl.py --config configs/qwen25_vl_7b_full.yaml
+python scripts/train.py --config configs/qwen25_vl_7b_full.yaml
 ```
 
 Supported config sections:
@@ -324,6 +330,7 @@ The provided configs are:
 
 - `configs/qwen25_vl_7b_full.yaml`
 - `configs/qwen25_vl_7b_2xh200.yaml`
+- `configs/qwen35_vl_2b_1xh200.yaml`
 - `configs/qwen35_vl_9b_1xh200.yaml`
 - `configs/qwen35_vl_9b_2xh200.yaml`
 
@@ -340,6 +347,12 @@ Qwen2.5-VL on 2xH200:
 bash scripts/train_qwen25_vl_2_h200.sh
 ```
 
+Qwen3.5-2B on 1xH200:
+
+```bash
+bash scripts/train_qwen35_vl_2b_1_h200.sh
+```
+
 Qwen3.5-9B on 2xH200:
 
 ```bash
@@ -354,6 +367,7 @@ bash scripts/train_qwen35_vl_9b_1_h200.sh
 
 Useful overrides:
 
+- `GPU_ID=4 bash scripts/train_qwen35_vl_2b_1_h200.sh`
 - `GPU_ID=4 bash scripts/train_qwen35_vl_9b_1_h200.sh`
 - `MASTER_PORT=29601 bash scripts/train_qwen25_vl_2_h200.sh`
 
@@ -381,6 +395,7 @@ Expected contents:
 - total views
 - zero-action pair count
 - action frame
+- rotation representation
 - target score keys
 
 ## Evaluation
@@ -407,7 +422,8 @@ python scripts/predict_qwen25_vl.py \
   --model_path runs/<run_dir>/final \
   --image_path outputs/DogWalk_v2_10k_260309_101152/images/img_0000.png \
   --action_frame camera_local \
-  --action_text "move_camera_local_m(right=0.2, up=-0.1, forward=0.0); rotate_camera_local_axis_angle_rad(rx=0.0, ry=0.1, rz=-0.1)"
+  --rotation_representation orientation_6d \
+  --action_text "move_camera_local_m(right=0.2, up=-0.1, forward=0.0); orient_camera_local_6d(fx=0.0, fy=0.1, fz=0.9950, ux=0.0, uy=0.9950, uz=-0.1)"
 ```
 
 The script prints:
@@ -423,6 +439,7 @@ The script prints:
 - `data.zero_action_ratio`: fraction of no-op self-pairs added to the final dataset
 - `data.target_score_keys`: output JSON keys and ordering
 - `data.action_frame`: `camera_local` or `world`
+- `data.rotation_representation`: `orientation_6d` or `rotvec`
 - `training.max_length`: token budget for the image-text sequence
 - `training.deepspeed_config`: optional ZeRO-3 config
 - `training.resume_from_checkpoint`: resume path passed to the HF trainer

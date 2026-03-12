@@ -13,13 +13,17 @@ class QwenVLScoreCollator:
         max_length: int = 2048,
         target_score_keys: Sequence[str] | None = None,
         action_frame: str = "camera_local",
+        rotation_representation: str = "orientation_6d",
     ) -> None:
         self.processor = processor
         self.max_length = int(max_length)
         self.target_score_keys = list(SCORE_KEYS if target_score_keys is None else target_score_keys)
         self.action_frame = str(action_frame)
+        self.rotation_representation = str(rotation_representation)
         if self.action_frame not in {"camera_local", "world"}:
             raise ValueError("action_frame must be 'camera_local' or 'world'")
+        if self.rotation_representation not in {"orientation_6d", "rotvec"}:
+            raise ValueError("rotation_representation must be 'orientation_6d' or 'rotvec'")
 
     def __call__(self, batch: list[dict[str, object]]) -> dict[str, object]:
         images = [sample["image"] for sample in batch]
@@ -34,6 +38,7 @@ class QwenVLScoreCollator:
                 action_text,
                 target_score_keys=self.target_score_keys,
                 action_frame=self.action_frame,
+                rotation_representation=self.rotation_representation,
             )
 
             full_messages = [

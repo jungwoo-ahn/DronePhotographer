@@ -31,6 +31,18 @@ def make_camera_rotation_from_forward_up(forward: np.ndarray, up: np.ndarray) ->
     return np.stack([right, upn, -fwd], axis=1)
 
 
+def orthonormalize_forward_up(
+    forward: np.ndarray,
+    up: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return normalized forward/up vectors with camera-style orthogonality."""
+    fwd = normalize(np.asarray(forward, dtype=np.float32))
+    upn = normalize(np.asarray(up, dtype=np.float32))
+    right = normalize(np.cross(fwd, upn))
+    upn = normalize(np.cross(right, fwd))
+    return fwd.astype(np.float32), upn.astype(np.float32)
+
+
 def translation_world_to_camera_local(
     delta_world: np.ndarray,
     forward: np.ndarray,
@@ -60,6 +72,28 @@ def relative_translation_camera_local(
     """Camera-local translation from pose i to pose j."""
     delta_world = np.asarray(position_j, dtype=np.float32) - np.asarray(position_i, dtype=np.float32)
     return translation_world_to_camera_local(delta_world, forward_i, up_i)
+
+
+def target_orientation_forward_up_camera_local(
+    forward_i: np.ndarray,
+    up_i: np.ndarray,
+    forward_j: np.ndarray,
+    up_j: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Target camera-j forward/up vectors expressed in camera-i local basis."""
+    basis_i = make_camera_basis_from_forward_up(forward_i, up_i)
+    forward_jn, up_jn = orthonormalize_forward_up(forward_j, up_j)
+    forward_local = (basis_i.T @ forward_jn).astype(np.float32)
+    up_local = (basis_i.T @ up_jn).astype(np.float32)
+    return orthonormalize_forward_up(forward_local, up_local)
+
+
+def target_orientation_forward_up_world(
+    forward_j: np.ndarray,
+    up_j: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Target camera-j forward/up vectors expressed in world basis."""
+    return orthonormalize_forward_up(forward_j, up_j)
 
 
 def relative_rotation_matrix(
