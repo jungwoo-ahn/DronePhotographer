@@ -3,7 +3,7 @@ set -euo pipefail
 export PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True"
 
 RUN_DIR="outputs/DogWalk_v2_10k_260309_101152"
-MODEL_PATH="runs/20260312_150649_qwen35_vl_2b_1xh200/checkpoints/checkpoint-13000"
+MODEL_PATH="runs/20260312_150649_qwen35_vl_2b_1xh200/checkpoints/checkpoint-13500"
 BLENDER_BIN="blender/blender"
 
 CUDA_VISIBLE_DEVICES=1 python scripts/infer_mpc_blender.py \

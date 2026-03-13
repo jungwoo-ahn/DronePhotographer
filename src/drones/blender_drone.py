@@ -272,8 +272,14 @@ class BlenderDrone:
     def render_rgb(self, output_path: str | Path) -> Path:
         output_path = _to_path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        self.scene.render.filepath = str(output_path)
+        temp_output_path = output_path.with_name(f"{output_path.stem}.rendering{output_path.suffix}")
+        if temp_output_path.exists():
+            temp_output_path.unlink()
+        self.scene.render.filepath = str(temp_output_path)
         bpy.ops.render.render(write_still=True)
+        if not temp_output_path.exists():
+            raise FileNotFoundError(f"Blender did not produce render output: {temp_output_path}")
+        temp_output_path.replace(output_path)
         return output_path
 
     def detect_subject(

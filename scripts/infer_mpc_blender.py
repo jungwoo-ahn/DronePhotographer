@@ -7,6 +7,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 import sys
+import time
 
 import numpy as np
 import yaml
@@ -215,6 +216,22 @@ def run_blender_render(
     return load_json(output_json)
 
 
+def wait_for_image_ready(image_path: str | Path, timeout_sec: float = 15.0, poll_sec: float = 0.25) -> None:
+    image_path = Path(image_path)
+    deadline = time.time() + float(timeout_sec)
+    last_error: Exception | None = None
+    while time.time() < deadline:
+        if image_path.exists() and image_path.stat().st_size > 0:
+            try:
+                with Image.open(image_path) as image:
+                    image.load()
+                return
+            except OSError as exc:
+                last_error = exc
+        time.sleep(float(poll_sec))
+    raise RuntimeError(f"rendered image is not readable after waiting: {image_path}") from last_error
+
+
 def detect_and_score_image(
     *,
     detector,
@@ -404,6 +421,7 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     frames_dir.mkdir(parents=True, exist_ok=True)
     blender_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Saving rollout artifacts under {output_dir}", flush=True)
 
     source_run_info_copy_path = output_dir / "source_run_info.json"
     with source_run_info_copy_path.open("w", encoding="utf-8") as f:
@@ -471,6 +489,7 @@ def main() -> None:
         sample_initial_pose=True,
         seed=args.initial_seed,
     )
+    wait_for_image_ready(initial_image_path)
     current_pose = dict(initial_render["pose"])
     initial_detections = None
     initial_scores = None
@@ -593,6 +612,7 @@ def main() -> None:
             forward=best["target_forward_world"],
             up=best["target_up_world"],
         )
+        wait_for_image_ready(next_image_path)
         next_pose = dict(next_render["pose"])
         next_detections = None
         next_scores = None
@@ -720,8 +740,6 @@ def main() -> None:
     summary_path = output_dir / "trajectory.json"
     with summary_path.open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
-
-    print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":
