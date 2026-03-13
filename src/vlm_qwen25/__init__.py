@@ -1,6 +1,7 @@
 """Qwen VLM training modules for DronePhotographer."""
 
 from .rotation_utils import (
+    apply_camera_local_action,
     make_camera_basis_from_forward_up,
     make_camera_rotation_from_forward_up,
     orthonormalize_forward_up,
@@ -19,6 +20,7 @@ from .rotation_utils import (
 )
 
 __all__ = [
+    "apply_camera_local_action",
     "make_camera_basis_from_forward_up",
     "make_camera_rotation_from_forward_up",
     "orthonormalize_forward_up",

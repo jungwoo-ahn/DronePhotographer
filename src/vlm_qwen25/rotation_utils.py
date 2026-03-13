@@ -63,6 +63,24 @@ def translation_camera_local_to_world(
     return (basis @ np.asarray(delta_local, dtype=np.float32)).astype(np.float32)
 
 
+def apply_camera_local_action(
+    position: np.ndarray,
+    forward: np.ndarray,
+    up: np.ndarray,
+    delta_position_local: np.ndarray,
+    delta_rotation_local: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Apply a local camera-frame translation and local rotvec to a pose."""
+    position = np.asarray(position, dtype=np.float32)
+    basis = make_camera_basis_from_forward_up(forward, up)
+    delta_world = translation_camera_local_to_world(delta_position_local, forward, up)
+    rotation_local = rotvec_to_rotation_matrix(np.asarray(delta_rotation_local, dtype=np.float32))
+    next_basis = basis @ rotation_local
+    next_forward, next_up = orthonormalize_forward_up(next_basis[:, 2], next_basis[:, 1])
+    next_position = position + delta_world
+    return next_position.astype(np.float32), next_forward, next_up
+
+
 def relative_translation_camera_local(
     position_i: np.ndarray,
     position_j: np.ndarray,
