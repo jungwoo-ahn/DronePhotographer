@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import subprocess
 from datetime import datetime
 from pathlib import Path
@@ -44,7 +45,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_translation_norm_m", type=float, default=0.18)
     parser.add_argument("--max_rotation_norm_deg", type=float, default=4.5)
     parser.add_argument("--max_candidates", type=int, default=720)
-    parser.add_argument("--candidate_batch_size", type=int, default=32)
+    parser.add_argument(
+        "--candidate_batch_size",
+        type=int,
+        default=int(os.environ.get("CANDIDATE_BATCH_SIZE", 96)),
+    )
     parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument("--target_preset", type=str, default="centered_50")
     parser.add_argument("--target_json", type=str, default=None)
