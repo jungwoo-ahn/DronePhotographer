@@ -29,6 +29,12 @@ TARGET_PRESETS: dict[str, dict[str, float]] = {
         "occupancy": 0.3,
         "aspect_ratio": 1.0,
     },
+    "centered_square_close": {
+        "center_x": 0.5,
+        "center_y": 0.5,
+        "occupancy": 0.55,
+        "aspect_ratio": 1.0,
+    },
     "top_right_thirds_medium": {
         "center_x": 2.0 / 3.0,
         "center_y": 1.0 / 3.0,
@@ -44,6 +50,30 @@ TARGET_PRESETS: dict[str, dict[str, float]] = {
         "center_y": 0.5,
         "occupancy": 0.35,
         "aspect_ratio": 1.8,
+    },
+    "centered_wide_close_18": {
+        "center_x": 0.5,
+        "center_y": 0.5,
+        "occupancy": 0.48,
+        "aspect_ratio": 1.8,
+    },
+    "centered_portrait_medium": {
+        "center_x": 0.5,
+        "center_y": 0.5,
+        "occupancy": 0.3,
+        "aspect_ratio": 0.67,
+    },
+    "centered_portrait_close": {
+        "center_x": 0.5,
+        "center_y": 0.5,
+        "occupancy": 0.4,
+        "aspect_ratio": 0.67,
+    },
+    "top_right_thirds_portrait_medium": {
+        "center_x": 2.0 / 3.0,
+        "center_y": 1.0 / 3.0,
+        "occupancy": 0.2,
+        "aspect_ratio": 0.67,
     },
 }
 

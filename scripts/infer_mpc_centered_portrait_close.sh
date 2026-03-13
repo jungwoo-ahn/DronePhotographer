@@ -9,7 +9,7 @@ CANDIDATE_BATCH_SIZE="${CANDIDATE_BATCH_SIZE:-96}"
 DEFAULT_SCORE_WEIGHTS='{"bbox_occupancy_ratio":2.0,"bbox_margin_top":1.0,"bbox_margin_bottom":1.0,"bbox_margin_left":1.0,"bbox_margin_right":1.0,"bbox_aspect_ratio":1.0,"bbox_centroid_offset":2.0}'
 SCORE_WEIGHTS_JSON="${SCORE_WEIGHTS_JSON:-$DEFAULT_SCORE_WEIGHTS}"
 
-CUDA_VISIBLE_DEVICES=1 python scripts/infer_mpc_blender.py \
+CUDA_VISIBLE_DEVICES=4 python scripts/infer_mpc_blender.py \
   --run_dir "${RUN_DIR}" \
   --model_path "${MODEL_PATH}" \
   --config configs/qwen35_vl_2b_1xh200.yaml \
@@ -25,4 +25,4 @@ CUDA_VISIBLE_DEVICES=1 python scripts/infer_mpc_blender.py \
   --score_weights_json "${SCORE_WEIGHTS_JSON}" \
   --translation_penalty_weight 0.0 \
   --rotation_penalty_weight 0.0 \
-  --target_json '{"center_x":0.5,"center_y":0.5,"occupancy":0.5,"aspect_ratio":1.8}'
+  --target_json '{"center_x":0.5,"center_y":0.5,"occupancy":0.4,"aspect_ratio":0.67}'

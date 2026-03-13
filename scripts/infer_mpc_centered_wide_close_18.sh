@@ -25,4 +25,4 @@ CUDA_VISIBLE_DEVICES=1 python scripts/infer_mpc_blender.py \
   --score_weights_json "${SCORE_WEIGHTS_JSON}" \
   --translation_penalty_weight 0.0 \
   --rotation_penalty_weight 0.0 \
-  --target_json '{"center_x":0.5,"center_y":0.5,"occupancy":0.5,"aspect_ratio":1.8}'
+  --target_json '{"center_x":0.5,"center_y":0.5,"occupancy":0.48,"aspect_ratio":1.8}'
