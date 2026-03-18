@@ -570,9 +570,13 @@ def main(argv):
         dist = None
         if has_3d_bbox:
             elev, azi, dist = compute_3d_metrics(pose["cam_pos"], obj_pos)
+            # camera_pitch: angle between final_forward and horizontal plane
+            fwd = pose["final_forward"]
+            pitch_deg = degrees(atan2(-fwd.z, sqrt(fwd.x ** 2 + fwd.y ** 2)))
             entry["elevation_deg"] = round(elev, 2)
             entry["azimuth_deg"] = round(azi, 2)
             entry["camera_subject_distance"] = round(dist, 3)
+            entry["camera_pitch_deg"] = round(pitch_deg, 2)
 
         # --- Mask-based tight bbox + all frame metrics ---
         if mask_dir is not None:
