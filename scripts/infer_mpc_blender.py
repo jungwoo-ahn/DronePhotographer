@@ -371,10 +371,18 @@ def main() -> None:
             f"Unsupported keys: {', '.join(unsupported_score_keys)}"
         )
 
+    run_info = load_json(run_info_path)
+    if not isinstance(run_info, dict):
+        raise ValueError(f"invalid run_info payload: {run_info_path}")
+    options = dict(run_info.get("options", {}))
+    resolution = options.get("resolution", [1024, 768])
+    frame_aspect_ratio = float(resolution[0]) / float(resolution[1])
+
     target_objective = build_target_objective(
         preset_name=args.target_preset,
         target_json_text=args.target_json,
         score_weights_json_text=args.score_weights_json,
+        frame_aspect_ratio=frame_aspect_ratio,
     )
     unsupported_targets = sorted(set(target_objective.score_targets) - set(score_keys))
     if unsupported_targets:
@@ -382,11 +390,6 @@ def main() -> None:
             "target objective uses keys not predicted by this model config: "
             + ", ".join(unsupported_targets)
         )
-
-    run_info = load_json(run_info_path)
-    if not isinstance(run_info, dict):
-        raise ValueError(f"invalid run_info payload: {run_info_path}")
-    options = dict(run_info.get("options", {}))
     object_position = np.asarray(options["object_position"], dtype=np.float32)
     camera_radius_range = [float(value) for value in options.get("camera_radius_range", [2.0, 10.0])]
     hemisphere = bool(options.get("hemisphere", False))

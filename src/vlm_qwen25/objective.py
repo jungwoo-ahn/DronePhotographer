@@ -111,6 +111,7 @@ def composition_to_margin_targets(
     center_y: float,
     occupancy: float,
     aspect_ratio: float,
+    frame_aspect_ratio: float = 4.0 / 3.0,
 ) -> dict[str, float]:
     center_x = float(center_x)
     center_y = float(center_y)
@@ -121,11 +122,14 @@ def composition_to_margin_targets(
         raise ValueError("occupancy must be in [0, 1]")
     if aspect_ratio <= 0.0:
         raise ValueError("aspect_ratio must be > 0")
+    if frame_aspect_ratio <= 0.0:
+        raise ValueError("frame_aspect_ratio must be > 0")
     if center_x < 0.0 or center_x > 1.0 or center_y < 0.0 or center_y > 1.0:
         raise ValueError("center_x and center_y must be in [0, 1]")
 
-    width = math.sqrt(occupancy * aspect_ratio)
-    height = math.sqrt(occupancy / aspect_ratio)
+    norm_ar = aspect_ratio / frame_aspect_ratio
+    width = math.sqrt(occupancy * norm_ar)
+    height = math.sqrt(occupancy / norm_ar)
 
     left = center_x - 0.5 * width
     right = 1.0 - center_x - 0.5 * width
@@ -146,7 +150,10 @@ def composition_to_margin_targets(
     return {key: max(0.0, float(value)) for key, value in margins.items()}
 
 
-def compile_score_targets(spec: Mapping[str, float]) -> dict[str, float]:
+def compile_score_targets(
+    spec: Mapping[str, float],
+    frame_aspect_ratio: float = 4.0 / 3.0,
+) -> dict[str, float]:
     raw_spec = {str(key): float(value) for key, value in spec.items()}
     targets: dict[str, float] = {}
 
@@ -175,6 +182,7 @@ def compile_score_targets(spec: Mapping[str, float]) -> dict[str, float]:
                     center_y=center_y,
                     occupancy=float(raw_spec["occupancy"]),
                     aspect_ratio=float(raw_spec["aspect_ratio"]),
+                    frame_aspect_ratio=frame_aspect_ratio,
                 )
             )
         elif not centered:
@@ -232,6 +240,7 @@ def build_target_objective(
     preset_name: str | None = None,
     target_json_text: str | None = None,
     score_weights_json_text: str | None = None,
+    frame_aspect_ratio: float = 4.0 / 3.0,
 ) -> TargetObjective:
     raw_spec: dict[str, float] = {}
     if preset_name:
@@ -243,7 +252,7 @@ def build_target_objective(
     if target_json_text:
         raw_spec.update(_load_json_dict(target_json_text))
 
-    score_targets = compile_score_targets(raw_spec)
+    score_targets = compile_score_targets(raw_spec, frame_aspect_ratio=frame_aspect_ratio)
     weight_spec = _load_json_dict(score_weights_json_text) if score_weights_json_text else None
     score_weights = compile_score_weights(score_targets, weights_spec=weight_spec)
     objective_name = preset_name if preset_name else "custom_target"
