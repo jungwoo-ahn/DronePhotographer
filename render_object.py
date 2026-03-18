@@ -65,6 +65,12 @@ def parse_args(argv):
         action="store_true",
         help="reuse render data across frames to reduce per-frame overhead",
     )
+    parser.add_argument(
+        "--blender_threads",
+        type=int,
+        default=4,
+        help="number of CPU threads for Blender (1-4 recommended for GPU rendering)",
+    )
     
     parser.add_argument("--render_depth", action="store_true", help="render depth map alongside RGB")
     parser.add_argument("--depth_format", choices=["OPEN_EXR", "PNG"], default="PNG", help="depth output format (OPEN_EXR recommended)")
@@ -105,6 +111,10 @@ def set_render_settings(scene, resolution, args):
         cycles.use_adaptive_sampling = bool(args.adaptive_sampling)
     if hasattr(cycles, "adaptive_threshold"):
         cycles.adaptive_threshold = float(args.adaptive_threshold)
+
+    if hasattr(scene.render, "threads_mode"):
+        scene.render.threads_mode = "FIXED"
+        scene.render.threads = max(1, int(args.blender_threads))
 
 
 def configure_depth_output(
@@ -664,6 +674,7 @@ def main(argv):
             "volume_bounces": args.volume_bounces,
             "transparent_max_bounces": args.transparent_max_bounces,
             "persistent_data": args.persistent_data,
+            "blender_threads": args.blender_threads,
             "render_depth": args.render_depth,
             "depth_format": args.depth_format,
             "depth_max": args.depth_max,

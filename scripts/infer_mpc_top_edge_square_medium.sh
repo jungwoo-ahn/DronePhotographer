@@ -3,7 +3,7 @@ set -euo pipefail
 export PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True"
 
 RUN_DIR="outputs/DogWalk_v2_10k_260309_101152"
-MODEL_PATH="runs/20260312_150649_qwen35_vl_2b_1xh200/checkpoints/checkpoint-14000"
+MODEL_PATH="runs/20260312_150649_qwen35_vl_2b_1xh200/checkpoints/checkpoint-19000"
 BLENDER_BIN="blender/blender"
 BLENDER_THREADS="${BLENDER_THREADS:-4}"
 CANDIDATE_BATCH_SIZE="${CANDIDATE_BATCH_SIZE:-96}"
@@ -15,7 +15,7 @@ export OMP_NUM_THREADS="${BLENDER_THREADS}"
 export OPENBLAS_NUM_THREADS="${BLENDER_THREADS}"
 export MKL_NUM_THREADS="${BLENDER_THREADS}"
 
-CUDA_VISIBLE_DEVICES=1 python scripts/infer_mpc_blender.py \
+CUDA_VISIBLE_DEVICES=0 python scripts/infer_mpc_blender.py \
   --run_dir "${RUN_DIR}" \
   --model_path "${MODEL_PATH}" \
   --config configs/qwen35_vl_2b_1xh200.yaml \
@@ -33,4 +33,4 @@ CUDA_VISIBLE_DEVICES=1 python scripts/infer_mpc_blender.py \
   --translation_penalty_weight 0.0 \
   --rotation_penalty_weight 0.0 \
   --blender_threads "${BLENDER_THREADS}" \
-  --target_json '{"center_x":0.5,"center_y":0.5,"occupancy":0.3,"aspect_ratio":0.67}'
+  --target_json '{"bbox_occupancy_ratio":0.25,"bbox_margin_left":0.25,"bbox_margin_right":0.25,"bbox_margin_top":0.02,"bbox_margin_bottom":0.48,"bbox_aspect_ratio":1.0}'

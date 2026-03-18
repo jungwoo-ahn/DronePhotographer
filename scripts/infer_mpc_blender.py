@@ -81,6 +81,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--detector_device", type=str, default="cuda")
     parser.add_argument("--list_target_presets", action="store_true")
     parser.add_argument("--trust_remote_code", action="store_true")
+    parser.add_argument(
+        "--blender_threads",
+        type=int,
+        default=4,
+        help="CPU thread limit for each Blender subprocess (-t flag)",
+    )
     return parser.parse_args()
 
 
@@ -173,6 +179,7 @@ def run_blender_render(
     run_info_path: Path,
     output_image: Path,
     output_json: Path,
+    blender_threads: int = 4,
     sample_initial_pose: bool = False,
     seed: int | None = None,
     position: list[float] | None = None,
@@ -182,6 +189,7 @@ def run_blender_render(
     cmd = [
         blender_bin,
         "-b",
+        "-t", str(max(1, int(blender_threads))),
         "-P",
         str(REPO_ROOT / "scripts" / "blender_render_pose.py"),
         "--",
@@ -443,6 +451,7 @@ def main() -> None:
             "model_path": str(args.model_path),
             "processor_source": str(processor_source),
             "blender_bin": str(args.blender_bin),
+            "blender_threads": int(args.blender_threads),
             "output_dir": str(output_dir),
         },
         "planner": {
@@ -491,6 +500,7 @@ def main() -> None:
         run_info_path=run_info_path,
         output_image=initial_image_path,
         output_json=initial_response_path,
+        blender_threads=args.blender_threads,
         sample_initial_pose=True,
         seed=args.initial_seed,
     )
@@ -613,6 +623,7 @@ def main() -> None:
             run_info_path=run_info_path,
             output_image=next_image_path,
             output_json=next_response_path,
+            blender_threads=args.blender_threads,
             position=best["target_position_world"],
             forward=best["target_forward_world"],
             up=best["target_up_world"],

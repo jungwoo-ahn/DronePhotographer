@@ -109,6 +109,11 @@ def _set_render_settings(scene: bpy.types.Scene, options: dict[str, object]) -> 
     if hasattr(cycles, "adaptive_threshold"):
         cycles.adaptive_threshold = float(options.get("adaptive_threshold", 0.01))
 
+    blender_threads = int(options.get("blender_threads", 4))
+    if hasattr(scene.render, "threads_mode"):
+        scene.render.threads_mode = "FIXED"
+        scene.render.threads = max(1, blender_threads)
+
 
 def _vector_to_list(vector: Vector) -> list[float]:
     return [float(vector.x), float(vector.y), float(vector.z)]

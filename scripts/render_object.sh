@@ -14,11 +14,16 @@ set -euo pipefail
 #   GPU_DEVICES="6 7"
 
 BLENDER_BIN="${BLENDER_BIN:-blender/blender}"
+BLENDER_THREADS="${BLENDER_THREADS:-4}"
 SCENE_PATH="${SCENE_PATH:-/home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/DogWalk.blend}"
 OUTPUT_DIR="${OUTPUT_DIR:-outputs}"
 NUM_IMAGES="${NUM_IMAGES:-20}"
 GPU_BACKEND="${GPU_BACKEND:-OPTIX}"
 GPU_DEVICES="${GPU_DEVICES:-6 7}"
+
+export OMP_NUM_THREADS="${BLENDER_THREADS}"
+export OPENBLAS_NUM_THREADS="${BLENDER_THREADS}"
+export MKL_NUM_THREADS="${BLENDER_THREADS}"
 
 echo "Running render smoke test..."
 echo "  blender: ${BLENDER_BIN}"
@@ -28,7 +33,7 @@ echo "  images:  ${NUM_IMAGES}"
 echo "  backend: ${GPU_BACKEND}"
 echo "  devices: ${GPU_DEVICES}"
 
-"${BLENDER_BIN}" -b -P render_object.py -- \
+"${BLENDER_BIN}" -b -t "${BLENDER_THREADS}" -P render_object.py -- \
   --input_scene "${SCENE_PATH}" \
   --output_dir "${OUTPUT_DIR}" \
   --run_name smoke_rotation_fix \
@@ -42,6 +47,7 @@ echo "  devices: ${GPU_DEVICES}"
   --adaptive_sampling --adaptive_threshold 0.02 \
   --max_bounces 2 --diffuse_bounces 1 --glossy_bounces 1 --transmission_bounces 1 \
   --persistent_data \
+  --blender_threads "${BLENDER_THREADS}" \
   --gpu_devices ${GPU_DEVICES}
 
 echo "Smoke render finished."

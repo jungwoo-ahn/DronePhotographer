@@ -12,9 +12,9 @@ set -euo pipefail
 #   SCENE_PATH=/home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/DogWalk.blend
 #   OUTPUT_DIR=outputs
 #   RUN_NAME=full_10000
-#   NUM_IMAGES=10000
+#   NUM_IMAGES=8000
 #   GPU_BACKEND=OPTIX
-#   GPU_DEVICES="6 7"
+#   GPU_DEVICES="3 4 5"
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
@@ -22,9 +22,9 @@ BLENDER_BIN="${BLENDER_BIN:-${REPO_ROOT}/blender/blender}"
 SCENE_PATH="${SCENE_PATH:-/home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/DogWalk.blend}"
 OUTPUT_DIR="${OUTPUT_DIR:-${REPO_ROOT}/outputs}"
 RUN_NAME="${RUN_NAME:-v2_10k}"
-NUM_IMAGES="${NUM_IMAGES:-10000}"
+NUM_IMAGES="${NUM_IMAGES:-8000}"
 GPU_BACKEND="${GPU_BACKEND:-OPTIX}"
-GPU_DEVICES="${GPU_DEVICES:-6 7}"
+GPU_DEVICES="${GPU_DEVICES:-3 4 5}"
 
 read -r -a GPU_DEVICE_ARRAY <<< "${GPU_DEVICES}"
 
@@ -44,7 +44,7 @@ echo "  devices:  ${GPU_DEVICES}"
   --object_position -0.011 0.0364 0.8 \
   --num_images "${NUM_IMAGES}" \
   --gpu_backend "${GPU_BACKEND}" \
-  --camera_radius_range 2 8 \
+  --camera_radius_range 1 8 \
   --hemisphere \
   --camera_direction_offsets 15 15 0 \
   --samples 32 \
