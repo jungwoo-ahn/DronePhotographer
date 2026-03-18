@@ -306,15 +306,19 @@ def compute_frame_metrics(bbox_tight, mask_stats, resolution,
     cx_obj, cy_obj = mask_stats["centroid"]
     max_dim = max(dimensions.values()) if dimensions else 1.0
 
+    x1, y1, x2, y2 = bbox_tight
+
     return {
         # Mask-based
         "visibility_ratio": round(mask_stats["mask_pixels"] / bbox_area, 4),
-        "truncation": bool(
-            bbox_tight[0] <= 0 or bbox_tight[1] <= 0
-            or bbox_tight[2] >= res_x - 1 or bbox_tight[3] >= res_y - 1
-        ),
+        "truncation": bool(x1 <= 0 or y1 <= 0 or x2 >= res_x - 1 or y2 >= res_y - 1),
         "occupancy_ratio": round(bbox_area / img_area, 4),
         "mask_pixel_ratio": round(mask_stats["mask_pixels"] / img_area, 4),
+        # Margins (compatible with bbox_control.py)
+        "bbox_margin_top": round(max(0.0, y1 / res_y), 4),
+        "bbox_margin_bottom": round(max(0.0, (res_y - y2) / res_y), 4),
+        "bbox_margin_left": round(max(0.0, x1 / res_x), 4),
+        "bbox_margin_right": round(max(0.0, (res_x - x2) / res_x), 4),
         # Composition
         "object_center_pixel": [round(cx_obj, 1), round(cy_obj, 1)],
         "center_offset_normalized": round(sqrt(
@@ -322,6 +326,9 @@ def compute_frame_metrics(bbox_tight, mask_stats, resolution,
             + ((cy_obj - res_y / 2) / (res_y / 2)) ** 2
         ), 4),
         "bbox_aspect_ratio": round(bbox_w / max(1, bbox_h), 4),
+        "bbox_centroid_offset": round(min(1.0, sqrt(
+            ((cx_obj / res_x - 0.5) ** 2 + (cy_obj / res_y - 0.5) ** 2)
+        ) / (0.5 * sqrt(2))), 4),
         # Drone specific
         "gsd": round(distance * sensor_width / (focal_length * res_x), 6),
         "object_angular_size_deg": round(degrees(
