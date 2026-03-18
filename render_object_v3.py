@@ -103,8 +103,12 @@ def compute_object_dimensions(min_v, max_v):
 # Compositor setup (mask + optional depth)
 # ---------------------------------------------------------------------------
 
-def configure_compositor(scene, mask_dir, depth_dir=None, depth_format="PNG", depth_max=15.0):
-    """Set up compositor for Object Index mask output (+ optional depth)."""
+def configure_compositor(scene, mask_dir, depth_dir=None, depth_format="PNG",
+                         depth_max=15.0, depth_exr_dir=None):
+    """Set up compositor for Object Index mask output (+ optional depth).
+
+    depth_exr_dir: if provided, always saves raw depth EXR here (for depth metrics).
+    """
     view_layer = scene.view_layers[0]
     view_layer.use_pass_object_index = True
     scene.use_nodes = True
@@ -127,10 +131,22 @@ def configure_compositor(scene, mask_dir, depth_dir=None, depth_format="PNG", de
     mask_output.format.color_depth = "8"
     tree.links.new(id_mask.outputs["Alpha"], mask_output.inputs[0])
 
-    # Optional depth output
+    # Always enable depth pass for depth metrics
+    view_layer.use_pass_z = True
+
+    # Internal depth EXR (always, for depth metrics)
+    depth_exr_output = None
+    if depth_exr_dir is not None:
+        depth_exr_output = tree.nodes.new("CompositorNodeOutputFile")
+        depth_exr_output.base_path = str(depth_exr_dir)
+        depth_exr_output.format.file_format = "OPEN_EXR"
+        depth_exr_output.format.color_depth = "32"
+        depth_exr_output.format.color_mode = "BW"
+        tree.links.new(rl.outputs["Depth"], depth_exr_output.inputs[0])
+
+    # User-facing depth output (optional, --render_depth)
     depth_output = None
     if depth_dir is not None:
-        view_layer.use_pass_z = True
         depth_output = tree.nodes.new("CompositorNodeOutputFile")
         depth_output.base_path = str(depth_dir)
         depth_output.format.color_mode = "BW"
@@ -152,7 +168,7 @@ def configure_compositor(scene, mask_dir, depth_dir=None, depth_format="PNG", de
             tree.links.new(rl.outputs["Depth"], map_node.inputs["Value"])
             tree.links.new(map_node.outputs["Value"], depth_output.inputs[0])
 
-    return mask_output, depth_output
+    return mask_output, depth_output, depth_exr_output
 
 
 # ---------------------------------------------------------------------------
@@ -221,26 +237,32 @@ def largest_component(mask):
 # Mask-based bbox
 # ---------------------------------------------------------------------------
 
-def compute_mask_bbox(mask_path, resolution, opening_fraction=0.03):
-    """Read mask PNG, apply morphological opening, return (bbox_raw, bbox_tight).
-
-    Returns (None, None) if mask has no foreground pixels.
-    """
+def _load_mask(mask_path):
+    """Load mask PNG via Blender, return (h, w) uint8 array (top-down)."""
     mask_img = bpy.data.images.load(str(mask_path), check_existing=False)
     w, h = mask_img.size
     pixels = np.array(mask_img.pixels[:])
     n_ch = mask_img.channels
     bpy.data.images.remove(mask_img)
-
     mask_2d = pixels.reshape(h, w, n_ch)[:, :, 0]
     mask_2d = np.flipud(mask_2d)  # Blender stores bottom-up
-    mask_bin = (mask_2d > 0.5).astype(np.uint8)
+    return (mask_2d > 0.5).astype(np.uint8)
+
+
+def compute_mask_bbox(mask_path, resolution, opening_fraction=0.03):
+    """Read mask PNG, apply morphological opening.
+
+    Returns (bbox_raw, bbox_tight, mask_stats) or (None, None, None).
+    mask_stats: dict with mask_pixels, mask_pixels_raw, centroid.
+    """
+    mask_bin = _load_mask(mask_path)
 
     # Raw bbox
     ys, xs = np.where(mask_bin > 0)
     if len(xs) == 0:
-        return None, None
+        return None, None, None
     bbox_raw = [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
+    mask_pixels_raw = int(len(xs))
 
     # Morphological opening to remove thin protrusions
     short_dim = min(resolution)
@@ -250,10 +272,113 @@ def compute_mask_bbox(mask_path, resolution, opening_fraction=0.03):
 
     ys, xs = np.where(mask_opened > 0)
     if len(xs) == 0:
-        return bbox_raw, bbox_raw  # opening removed everything, fall back
-    bbox_tight = [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
+        # opening removed everything, fall back to raw
+        ys_raw, xs_raw = np.where(mask_bin > 0)
+        mask_stats = {
+            "mask_pixels": mask_pixels_raw,
+            "mask_pixels_raw": mask_pixels_raw,
+            "centroid": [float(xs_raw.mean()), float(ys_raw.mean())],
+        }
+        return bbox_raw, bbox_raw, mask_stats
 
-    return bbox_raw, bbox_tight
+    bbox_tight = [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
+    mask_stats = {
+        "mask_pixels": int(len(xs)),
+        "mask_pixels_raw": mask_pixels_raw,
+        "centroid": [float(xs.mean()), float(ys.mean())],
+    }
+    return bbox_raw, bbox_tight, mask_stats
+
+
+# ---------------------------------------------------------------------------
+# Frame metrics (mask + composition + drone)
+# ---------------------------------------------------------------------------
+
+def compute_frame_metrics(bbox_tight, mask_stats, resolution,
+                          distance, dimensions, focal_length, sensor_width):
+    """Compute all per-frame metrics from mask/bbox/3D info."""
+    res_x, res_y = resolution
+    bbox_w = bbox_tight[2] - bbox_tight[0]
+    bbox_h = bbox_tight[3] - bbox_tight[1]
+    bbox_area = max(1, bbox_w * bbox_h)
+    img_area = res_x * res_y
+
+    cx_obj, cy_obj = mask_stats["centroid"]
+    max_dim = max(dimensions.values()) if dimensions else 1.0
+
+    return {
+        # Mask-based
+        "visibility_ratio": round(mask_stats["mask_pixels"] / bbox_area, 4),
+        "truncation": bool(
+            bbox_tight[0] <= 0 or bbox_tight[1] <= 0
+            or bbox_tight[2] >= res_x - 1 or bbox_tight[3] >= res_y - 1
+        ),
+        "occupancy_ratio": round(bbox_area / img_area, 4),
+        "mask_pixel_ratio": round(mask_stats["mask_pixels"] / img_area, 4),
+        # Composition
+        "object_center_pixel": [round(cx_obj, 1), round(cy_obj, 1)],
+        "center_offset_normalized": round(sqrt(
+            ((cx_obj - res_x / 2) / (res_x / 2)) ** 2
+            + ((cy_obj - res_y / 2) / (res_y / 2)) ** 2
+        ), 4),
+        "bbox_aspect_ratio": round(bbox_w / max(1, bbox_h), 4),
+        # Drone specific
+        "gsd": round(distance * sensor_width / (focal_length * res_x), 6),
+        "object_angular_size_deg": round(degrees(
+            2 * atan2(max_dim, 2 * distance)
+        ), 2),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Depth metrics
+# ---------------------------------------------------------------------------
+
+def compute_depth_metrics(depth_path, mask_path, resolution):
+    """Read depth EXR, compute stats within mask region.
+
+    Returns dict or None if depth file not found.
+    """
+    depth_path = Path(depth_path)
+    if not depth_path.exists():
+        return None
+
+    mask_bin = _load_mask(mask_path)
+
+    # Load depth via Blender
+    depth_img = bpy.data.images.load(str(depth_path), check_existing=False)
+    w, h = depth_img.size
+    pixels = np.array(depth_img.pixels[:])
+    n_ch = depth_img.channels
+    bpy.data.images.remove(depth_img)
+
+    depth_2d = pixels.reshape(h, w, n_ch)[:, :, 0]
+    depth_2d = np.flipud(depth_2d)
+
+    # Depth within mask
+    mask_pixels = mask_bin > 0
+    if not mask_pixels.any():
+        return None
+
+    depths_in_mask = depth_2d[mask_pixels]
+    # Filter out infinite/invalid depth values
+    valid = depths_in_mask[np.isfinite(depths_in_mask) & (depths_in_mask > 0) & (depths_in_mask < 1e9)]
+    if len(valid) == 0:
+        return None
+
+    # Depth at object center (mask centroid)
+    ys, xs = np.where(mask_pixels)
+    cy, cx = int(round(ys.mean())), int(round(xs.mean()))
+    cy = min(max(cy, 0), h - 1)
+    cx = min(max(cx, 0), w - 1)
+    depth_center = float(depth_2d[cy, cx])
+
+    return {
+        "depth_at_center": round(depth_center, 3),
+        "depth_min": round(float(valid.min()), 3),
+        "depth_max": round(float(valid.max()), 3),
+        "depth_mean": round(float(valid.mean()), 3),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -312,6 +437,8 @@ def main(argv):
     mask_dir = None
     mask_output_node = None
     depth_output_node = None
+    depth_exr_output_node = None
+    depth_exr_dir = None
 
     if args.object_name:
         meshes = collect_object_meshes(args.object_name)
@@ -332,18 +459,21 @@ def main(argv):
         for m in meshes:
             m.pass_index = 1
 
-        # Set up compositor (mask + optional depth)
+        # Set up compositor (mask + depth EXR for metrics + optional user depth)
         mask_dir = run_dir / "masks"
         mask_dir.mkdir(parents=True, exist_ok=True)
+        depth_exr_dir = run_dir / ".depth_exr"
+        depth_exr_dir.mkdir(parents=True, exist_ok=True)
         depth_dir = None
         if args.render_depth:
             depth_dir = run_dir / "depth"
             depth_dir.mkdir(parents=True, exist_ok=True)
-        mask_output_node, depth_output_node = configure_compositor(
+        mask_output_node, depth_output_node, depth_exr_output_node = configure_compositor(
             scene, mask_dir,
             depth_dir=depth_dir,
             depth_format=args.depth_format,
             depth_max=args.depth_max,
+            depth_exr_dir=depth_exr_dir,
         )
 
         if args.object_position is not None:
@@ -407,6 +537,8 @@ def main(argv):
             mask_output_node.file_slots[0].path = "mask_"
         if depth_output_node is not None:
             depth_output_node.file_slots[0].path = "img_"
+        if depth_exr_output_node is not None:
+            depth_exr_output_node.file_slots[0].path = "depth_"
 
         camera.matrix_world = Matrix.Translation(pose["cam_pos"]) @ pose["rot_matrix"].to_4x4()
         scene.render.filepath = str(images_dir / f"img_{idx:04d}.png")
@@ -427,16 +559,24 @@ def main(argv):
             depth_ext = "exr" if args.depth_format == "OPEN_EXR" else "png"
             entry["depth"] = f"depth/img_{idx:04d}.{depth_ext}"
 
-        # --- Mask-based tight bbox ---
+        # --- 3D metrics ---
+        dist = None
+        if has_3d_bbox:
+            elev, azi, dist = compute_3d_metrics(pose["cam_pos"], obj_pos)
+            entry["elevation_deg"] = round(elev, 2)
+            entry["azimuth_deg"] = round(azi, 2)
+            entry["camera_subject_distance"] = round(dist, 3)
+
+        # --- Mask-based tight bbox + all frame metrics ---
         if mask_dir is not None:
             mask_path = mask_dir / f"mask_{idx:04d}.png"
             entry["mask"] = f"masks/mask_{idx:04d}.png"
 
             if mask_path.exists():
-                bbox_raw, bbox_tight = compute_mask_bbox(
+                bbox_raw, bbox_tight, mask_stats = compute_mask_bbox(
                     mask_path, args.resolution, opening_fraction=0.03,
                 )
-                if bbox_tight is not None:
+                if bbox_tight is not None and mask_stats is not None:
                     entry["bbox_2d"] = bbox_tight
                     entry["bbox_2d_raw"] = bbox_raw
                     # Backward compat
@@ -448,12 +588,23 @@ def main(argv):
                         }
                     ]
 
-        # --- 3D metrics ---
-        if has_3d_bbox:
-            elev, azi, dist = compute_3d_metrics(pose["cam_pos"], obj_pos)
-            entry["elevation_deg"] = round(elev, 2)
-            entry["azimuth_deg"] = round(azi, 2)
-            entry["camera_subject_distance"] = round(dist, 3)
+                    # Frame metrics (mask + composition + drone)
+                    if dist is not None and dimensions is not None:
+                        metrics = compute_frame_metrics(
+                            bbox_tight, mask_stats, args.resolution,
+                            dist, dimensions,
+                            camera.data.lens, camera.data.sensor_width,
+                        )
+                        entry.update(metrics)
+
+                    # Depth metrics
+                    if depth_exr_dir is not None:
+                        depth_exr_path = depth_exr_dir / f"depth_{idx:04d}.exr"
+                        depth_metrics = compute_depth_metrics(
+                            depth_exr_path, mask_path, args.resolution,
+                        )
+                        if depth_metrics is not None:
+                            entry.update(depth_metrics)
 
         annotations.append(entry)
 
@@ -526,6 +677,11 @@ def main(argv):
         with (run_dir / "annotations.json").open("w", encoding="utf-8") as f:
             json.dump(annotations, f, indent=2)
         print(f"Saved {len(annotations)} images to {run_dir}")
+
+    # Cleanup internal depth EXR files (metrics already extracted)
+    if depth_exr_dir is not None and depth_exr_dir.exists():
+        import shutil
+        shutil.rmtree(depth_exr_dir, ignore_errors=True)
 
 
 if __name__ == "__main__":
