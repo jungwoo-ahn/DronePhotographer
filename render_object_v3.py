@@ -1,0 +1,538 @@
+
+import json
+import math
+import random
+import sys
+import warnings
+from datetime import datetime
+from math import atan2, degrees, sqrt
+from pathlib import Path
+
+import bpy
+import numpy as np
+from mathutils import Matrix, Vector
+
+sys.path.append(".")
+from render_object import (
+    auto_place_object,
+    configure_gpu,
+    ensure_camera,
+    parse_args,
+    prepare_camera,
+    sample_pose,
+    set_render_settings,
+    set_sky,
+    vec,
+)
+
+
+# ---------------------------------------------------------------------------
+# Object helpers
+# ---------------------------------------------------------------------------
+
+def collect_object_meshes(object_name):
+    """Collect all MESH objects under *object_name* (recursive hierarchy)."""
+    obj = bpy.data.objects.get(object_name)
+    if obj is None:
+        raise RuntimeError(f"Object '{object_name}' not found in the scene.")
+
+    def _descendants(o):
+        yield o
+        for child in o.children:
+            yield from _descendants(child)
+
+    meshes = [o for o in _descendants(obj) if o.type == "MESH"]
+    if not meshes:
+        raise RuntimeError(
+            f"No MESH objects found under '{object_name}' "
+            f"(type={obj.type}, children={len(obj.children)})."
+        )
+    return meshes
+
+
+def get_vertex_bbox(meshes):
+    """Compute tight world-space AABB from actual mesh vertices (not bound_box)."""
+    min_v = Vector((math.inf, math.inf, math.inf))
+    max_v = Vector((-math.inf, -math.inf, -math.inf))
+    found = False
+    for m in meshes:
+        mat = m.matrix_world
+        for v in m.data.vertices:
+            w = mat @ v.co
+            min_v.x = min(min_v.x, w.x)
+            min_v.y = min(min_v.y, w.y)
+            min_v.z = min(min_v.z, w.z)
+            max_v.x = max(max_v.x, w.x)
+            max_v.y = max(max_v.y, w.y)
+            max_v.z = max(max_v.z, w.z)
+            found = True
+    if not found:
+        return None
+    return min_v, max_v
+
+
+def get_aabb_corners(min_v, max_v):
+    """AABB min/max -> 8 world-coordinate vertices."""
+    corners = []
+    for x in (min_v.x, max_v.x):
+        for y in (min_v.y, max_v.y):
+            for z in (min_v.z, max_v.z):
+                corners.append([x, y, z])
+    return corners
+
+
+def compute_3d_metrics(cam_pos, obj_pos):
+    """Camera-object geometry -> elevation, azimuth, distance."""
+    d = cam_pos - obj_pos
+    elevation_deg = degrees(atan2(d.z, sqrt(d.x ** 2 + d.y ** 2)))
+    azimuth_deg = degrees(atan2(d.y, d.x)) % 360
+    distance = d.length
+    return elevation_deg, azimuth_deg, distance
+
+
+def compute_object_dimensions(min_v, max_v):
+    """AABB -> {width, height, depth}."""
+    return {
+        "width": round(float(max_v.x - min_v.x), 4),
+        "height": round(float(max_v.z - min_v.z), 4),  # Z-up
+        "depth": round(float(max_v.y - min_v.y), 4),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Compositor setup (mask + optional depth)
+# ---------------------------------------------------------------------------
+
+def configure_compositor(scene, mask_dir, depth_dir=None, depth_format="PNG", depth_max=15.0):
+    """Set up compositor for Object Index mask output (+ optional depth)."""
+    view_layer = scene.view_layers[0]
+    view_layer.use_pass_object_index = True
+    scene.use_nodes = True
+    tree = scene.node_tree
+    tree.nodes.clear()
+
+    rl = tree.nodes.new("CompositorNodeRLayers")
+    comp = tree.nodes.new("CompositorNodeComposite")
+    tree.links.new(rl.outputs["Image"], comp.inputs["Image"])
+
+    # ID Mask: isolate pass_index=1
+    id_mask = tree.nodes.new("CompositorNodeIDMask")
+    id_mask.index = 1
+    tree.links.new(rl.outputs["IndexOB"], id_mask.inputs["ID value"])
+
+    mask_output = tree.nodes.new("CompositorNodeOutputFile")
+    mask_output.base_path = str(mask_dir)
+    mask_output.format.file_format = "PNG"
+    mask_output.format.color_mode = "BW"
+    mask_output.format.color_depth = "8"
+    tree.links.new(id_mask.outputs["Alpha"], mask_output.inputs[0])
+
+    # Optional depth output
+    depth_output = None
+    if depth_dir is not None:
+        view_layer.use_pass_z = True
+        depth_output = tree.nodes.new("CompositorNodeOutputFile")
+        depth_output.base_path = str(depth_dir)
+        depth_output.format.color_mode = "BW"
+
+        if depth_format == "OPEN_EXR":
+            depth_output.format.file_format = "OPEN_EXR"
+            depth_output.format.color_depth = "32"
+            tree.links.new(rl.outputs["Depth"], depth_output.inputs[0])
+        else:
+            map_node = tree.nodes.new("CompositorNodeMapRange")
+            map_node.inputs["From Min"].default_value = 0.0
+            map_node.inputs["From Max"].default_value = depth_max
+            map_node.inputs["To Min"].default_value = 1.0
+            map_node.inputs["To Max"].default_value = 0.0
+            if hasattr(map_node, "use_clamp"):
+                map_node.use_clamp = True
+            depth_output.format.file_format = "PNG"
+            depth_output.format.color_depth = "16"
+            tree.links.new(rl.outputs["Depth"], map_node.inputs["Value"])
+            tree.links.new(map_node.outputs["Value"], depth_output.inputs[0])
+
+    return mask_output, depth_output
+
+
+# ---------------------------------------------------------------------------
+# Morphological opening (numpy, no cv2/scipy dependency)
+# ---------------------------------------------------------------------------
+
+def _erode_1d(mask, radius, axis):
+    """1D binary erosion along axis using shift-and-AND."""
+    result = mask.copy()
+    for d in range(1, radius + 1):
+        fwd = np.zeros_like(mask)
+        bwd = np.zeros_like(mask)
+        if axis == 0:
+            fwd[d:] = mask[:-d]
+            bwd[:-d] = mask[d:]
+        else:
+            fwd[:, d:] = mask[:, :-d]
+            bwd[:, :-d] = mask[:, d:]
+        result &= fwd & bwd
+    return result
+
+
+def _dilate_1d(mask, radius, axis):
+    """1D binary dilation along axis using shift-and-OR."""
+    result = mask.copy()
+    for d in range(1, radius + 1):
+        fwd = np.zeros_like(mask)
+        bwd = np.zeros_like(mask)
+        if axis == 0:
+            fwd[d:] = mask[:-d]
+            bwd[:-d] = mask[d:]
+        else:
+            fwd[:, d:] = mask[:, :-d]
+            bwd[:, :-d] = mask[:, d:]
+        result |= fwd | bwd
+    return result
+
+
+def morphological_opening(mask, radius):
+    """Binary opening (erosion then dilation) with separable square kernel."""
+    m = mask.astype(bool)
+    # Erosion: horizontal then vertical
+    m = _erode_1d(m, radius, axis=1)
+    m = _erode_1d(m, radius, axis=0)
+    # Dilation: horizontal then vertical
+    m = _dilate_1d(m, radius, axis=1)
+    m = _dilate_1d(m, radius, axis=0)
+    return m.astype(np.uint8)
+
+
+def largest_component(mask):
+    """Keep only the largest connected component (simple flood-fill)."""
+    try:
+        from scipy.ndimage import label as ndimage_label
+        labeled, n = ndimage_label(mask)
+        if n <= 1:
+            return mask
+        sizes = [(labeled == i).sum() for i in range(1, n + 1)]
+        largest = np.argmax(sizes) + 1
+        return (labeled == largest).astype(np.uint8)
+    except ImportError:
+        return mask  # skip if scipy unavailable
+
+
+# ---------------------------------------------------------------------------
+# Mask-based bbox
+# ---------------------------------------------------------------------------
+
+def compute_mask_bbox(mask_path, resolution, opening_fraction=0.03):
+    """Read mask PNG, apply morphological opening, return (bbox_raw, bbox_tight).
+
+    Returns (None, None) if mask has no foreground pixels.
+    """
+    mask_img = bpy.data.images.load(str(mask_path), check_existing=False)
+    w, h = mask_img.size
+    pixels = np.array(mask_img.pixels[:])
+    n_ch = mask_img.channels
+    bpy.data.images.remove(mask_img)
+
+    mask_2d = pixels.reshape(h, w, n_ch)[:, :, 0]
+    mask_2d = np.flipud(mask_2d)  # Blender stores bottom-up
+    mask_bin = (mask_2d > 0.5).astype(np.uint8)
+
+    # Raw bbox
+    ys, xs = np.where(mask_bin > 0)
+    if len(xs) == 0:
+        return None, None
+    bbox_raw = [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
+
+    # Morphological opening to remove thin protrusions
+    short_dim = min(resolution)
+    radius = max(2, int(short_dim * opening_fraction) // 2)
+    mask_opened = morphological_opening(mask_bin, radius)
+    mask_opened = largest_component(mask_opened)
+
+    ys, xs = np.where(mask_opened > 0)
+    if len(xs) == 0:
+        return bbox_raw, bbox_raw  # opening removed everything, fall back
+    bbox_tight = [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
+
+    return bbox_raw, bbox_tight
+
+
+# ---------------------------------------------------------------------------
+# main
+# ---------------------------------------------------------------------------
+
+def main(argv):
+    args = parse_args(argv)
+    random.seed(args.seed)
+    blend_path = Path(args.input_scene)
+    scene_stem = blend_path.stem
+
+    # --- output dirs ---
+    if args.output_run_dir:
+        run_dir = Path(args.output_run_dir)
+        timestamp = (
+            run_dir.name.split("_")[-1]
+            if "_" in run_dir.name
+            else datetime.now().strftime("%y%m%d_%H%M%S")
+        )
+    else:
+        timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
+        folder_name = f"{scene_stem}_{timestamp}"
+        if args.run_name:
+            folder_name = f"{scene_stem}_{args.run_name}_{timestamp}"
+        run_dir = Path(args.output_dir) / folder_name
+    images_dir = run_dir / "images"
+    images_dir.mkdir(parents=True, exist_ok=True)
+
+    # --- scene / camera / render ---
+    from src.scenes.scene import open_scene
+
+    scene = open_scene(str(blend_path))
+    camera = ensure_camera(scene)
+    prepare_camera(camera, args.keep_camera_constraints)
+    if args.focal_length is not None:
+        camera.data.lens = args.focal_length
+    if args.sensor_width is not None:
+        camera.data.sensor_width = args.sensor_width
+    if args.sensor_height is not None:
+        camera.data.sensor_height = args.sensor_height
+    if args.sky_strength > 0:
+        set_sky(args.sky_strength)
+    device_info = configure_gpu(scene, args.disable_gpu, args.gpu_backend, args.gpu_devices)
+    set_render_settings(scene, args.resolution, args)
+
+    # ------------------------------------------------------------------
+    # Phase 2: Object position + 3D bbox + mask setup
+    # ------------------------------------------------------------------
+    has_3d_bbox = False
+    min_v = max_v = None
+    corners_3d = None
+    dimensions = None
+    object_name = args.object_name
+    object_position_source = None
+    mask_dir = None
+    mask_output_node = None
+    depth_output_node = None
+
+    if args.object_name:
+        meshes = collect_object_meshes(args.object_name)
+
+        # Vertex-based tight AABB (not bound_box)
+        bbox_result = get_vertex_bbox(meshes)
+        if bbox_result:
+            min_v, max_v = bbox_result
+            aabb_center = (min_v + max_v) / 2
+            corners_3d = get_aabb_corners(min_v, max_v)
+            dimensions = compute_object_dimensions(min_v, max_v)
+            has_3d_bbox = True
+            print(f"3D bbox (vertex): min={vec(min_v)}, max={vec(max_v)}, center={vec(aabb_center)}")
+            print(f"  dimensions: {dimensions}")
+            print(f"  meshes: {len(meshes)} objects under '{args.object_name}'")
+
+        # Set pass_index for Object Index mask
+        for m in meshes:
+            m.pass_index = 1
+
+        # Set up compositor (mask + optional depth)
+        mask_dir = run_dir / "masks"
+        mask_dir.mkdir(parents=True, exist_ok=True)
+        depth_dir = None
+        if args.render_depth:
+            depth_dir = run_dir / "depth"
+            depth_dir.mkdir(parents=True, exist_ok=True)
+        mask_output_node, depth_output_node = configure_compositor(
+            scene, mask_dir,
+            depth_dir=depth_dir,
+            depth_format=args.depth_format,
+            depth_max=args.depth_max,
+        )
+
+        if args.object_position is not None:
+            obj_pos = Vector(args.object_position)
+            object_position_source = "object_position"
+        elif has_3d_bbox:
+            obj_pos = aabb_center
+            object_position_source = "object_name_aabb_center"
+        else:
+            raise RuntimeError(
+                f"Object '{args.object_name}' found but could not compute bounding box."
+            )
+
+    elif args.auto_place_object:
+        if not args.input_object:
+            raise RuntimeError("--input_object is required when --auto_place_object is set.")
+        obj_pos = auto_place_object(scene, args.input_object)
+        object_position_source = "auto_place_object"
+        if args.render_depth:
+            from render_object import configure_depth_output
+            depth_dir = run_dir / "depth"
+            depth_dir.mkdir(parents=True, exist_ok=True)
+            depth_output_node = configure_depth_output(scene, depth_dir, args.depth_format, args.depth_max)
+        warnings.warn(
+            "auto_place_object: mask/3D bbox not available (no --object_name). "
+            "Mask and 3D annotation fields will be omitted.",
+            stacklevel=1,
+        )
+
+    elif args.object_position is not None:
+        obj_pos = Vector(args.object_position)
+        object_position_source = "object_position"
+        if args.render_depth:
+            from render_object import configure_depth_output
+            depth_dir = run_dir / "depth"
+            depth_dir.mkdir(parents=True, exist_ok=True)
+            depth_output_node = configure_depth_output(scene, depth_dir, args.depth_format, args.depth_max)
+        warnings.warn(
+            "object_position only: mask/3D bbox not available (no --object_name). "
+            "Mask and 3D annotation fields will be omitted.",
+            stacklevel=1,
+        )
+
+    else:
+        raise RuntimeError("Provide one of --object_position, --object_name, or --auto_place_object.")
+
+    # ------------------------------------------------------------------
+    # Phase 3: Render loop
+    # ------------------------------------------------------------------
+    all_poses = [
+        (idx, sample_pose(obj_pos, args.camera_radius_range, args.camera_direction_offsets, args.hemisphere))
+        for idx in range(args.num_images)
+    ]
+    my_poses = [(idx, pose) for idx, pose in all_poses if idx % args.num_workers == args.worker_index]
+    print(f"Worker {args.worker_index}/{args.num_workers}: rendering {len(my_poses)}/{args.num_images} images")
+
+    annotations = []
+    for idx, pose in my_poses:
+        scene.frame_set(idx)
+        if mask_output_node is not None:
+            mask_output_node.file_slots[0].path = "mask_"
+        if depth_output_node is not None:
+            depth_output_node.file_slots[0].path = "img_"
+
+        camera.matrix_world = Matrix.Translation(pose["cam_pos"]) @ pose["rot_matrix"].to_4x4()
+        scene.render.filepath = str(images_dir / f"img_{idx:04d}.png")
+        bpy.ops.render.render(write_still=True)
+
+        entry = {
+            "image": f"images/img_{idx:04d}.png",
+            "camera_position": vec(pose["cam_pos"]),
+            "radius": pose["radius"],
+            "object_position": vec(obj_pos),
+            "base_forward": vec(pose["base_forward"]),
+            "base_up": vec(pose["base_up"]),
+            "offsets_deg": pose["offsets"],
+            "final_forward": vec(pose["final_forward"]),
+            "final_up": vec(pose["final_up"]),
+        }
+        if args.render_depth:
+            depth_ext = "exr" if args.depth_format == "OPEN_EXR" else "png"
+            entry["depth"] = f"depth/img_{idx:04d}.{depth_ext}"
+
+        # --- Mask-based tight bbox ---
+        if mask_dir is not None:
+            mask_path = mask_dir / f"mask_{idx:04d}.png"
+            entry["mask"] = f"masks/mask_{idx:04d}.png"
+
+            if mask_path.exists():
+                bbox_raw, bbox_tight = compute_mask_bbox(
+                    mask_path, args.resolution, opening_fraction=0.03,
+                )
+                if bbox_tight is not None:
+                    entry["bbox_2d"] = bbox_tight
+                    entry["bbox_2d_raw"] = bbox_raw
+                    # Backward compat
+                    entry["detections"] = [
+                        {
+                            "label": "mask_tight",
+                            "score": 1.0,
+                            "bbox_xyxy": bbox_tight,
+                        }
+                    ]
+
+        # --- 3D metrics ---
+        if has_3d_bbox:
+            elev, azi, dist = compute_3d_metrics(pose["cam_pos"], obj_pos)
+            entry["elevation_deg"] = round(elev, 2)
+            entry["azimuth_deg"] = round(azi, 2)
+            entry["camera_subject_distance"] = round(dist, 3)
+
+        annotations.append(entry)
+
+    # ------------------------------------------------------------------
+    # Phase 4: run_info.json
+    # ------------------------------------------------------------------
+    run_info = {
+        "input_scene": str(blend_path),
+        "output_dir": str(run_dir),
+        "scene_stem": scene_stem,
+        "object_name": object_name,
+        "run_name": args.run_name,
+        "created_at": timestamp,
+        "options": {
+            "sky_strength": args.sky_strength,
+            "object_position": vec(obj_pos),
+            "object_position_source": object_position_source,
+            "hemisphere": args.hemisphere,
+            "camera_radius_range": args.camera_radius_range,
+            "camera_direction_offsets": args.camera_direction_offsets,
+            "num_images": args.num_images,
+            "seed": args.seed,
+            "focal_length": args.focal_length,
+            "sensor_width": args.sensor_width,
+            "sensor_height": args.sensor_height,
+            "resolution": args.resolution,
+            "render_device": device_info["device"],
+            "render_devices": device_info["devices"],
+            "gpu_backend": args.gpu_backend,
+            "gpu_devices": args.gpu_devices,
+            "samples": args.samples,
+            "adaptive_sampling": args.adaptive_sampling,
+            "adaptive_threshold": args.adaptive_threshold,
+            "max_bounces": args.max_bounces,
+            "diffuse_bounces": args.diffuse_bounces,
+            "glossy_bounces": args.glossy_bounces,
+            "transmission_bounces": args.transmission_bounces,
+            "volume_bounces": args.volume_bounces,
+            "transparent_max_bounces": args.transparent_max_bounces,
+            "persistent_data": args.persistent_data,
+            "blender_threads": args.blender_threads,
+            "render_depth": args.render_depth,
+            "depth_format": args.depth_format,
+            "depth_max": args.depth_max,
+        },
+    }
+
+    if has_3d_bbox:
+        run_info["object_3d"] = {
+            "bbox_3d_corners": corners_3d,
+            "bbox_3d_min": vec(min_v),
+            "bbox_3d_max": vec(max_v),
+            "dimensions": dimensions,
+        }
+
+    # ------------------------------------------------------------------
+    # Phase 5: Save
+    # ------------------------------------------------------------------
+    if args.num_workers > 1:
+        ann_path = run_dir / f"annotations_worker{args.worker_index}.json"
+        with ann_path.open("w", encoding="utf-8") as f:
+            json.dump(annotations, f, indent=2)
+        if args.worker_index == 0:
+            with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
+                json.dump(run_info, f, indent=2)
+        print(f"Worker {args.worker_index}: saved {len(annotations)} images to {ann_path}")
+    else:
+        with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
+            json.dump(run_info, f, indent=2)
+        with (run_dir / "annotations.json").open("w", encoding="utf-8") as f:
+            json.dump(annotations, f, indent=2)
+        print(f"Saved {len(annotations)} images to {run_dir}")
+
+
+if __name__ == "__main__":
+    raw_argv = getattr(bpy.app, "argv", None)
+    if raw_argv is None:
+        raw_argv = sys.argv
+    raw_argv = list(raw_argv)
+    if "--" not in raw_argv and raw_argv and raw_argv[0].endswith(".py"):
+        raw_argv = raw_argv[1:]
+    main(raw_argv)
