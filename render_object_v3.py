@@ -18,6 +18,7 @@ from render_object import (
     configure_gpu,
     ensure_camera,
     parse_args,
+    place_imported_object,
     prepare_camera,
     sample_pose,
     set_render_settings,
@@ -447,7 +448,52 @@ def main(argv):
     depth_exr_output_node = None
     depth_exr_dir = None
 
-    if args.object_name:
+    if args.object_position is not None and args.input_object:
+        # Import external object at specified position with rotation/scale
+        obj_pos, placed_root = place_imported_object(
+            scene, args.input_object, args.object_position,
+            rotation_z_deg=args.rotation_z_deg, scale=args.scale,
+        )
+        object_position_source = "import_at_position"
+        object_name = placed_root
+
+        meshes = collect_object_meshes(placed_root)
+        bbox_result = get_vertex_bbox(meshes)
+        if bbox_result:
+            min_v, max_v = bbox_result
+            aabb_center = (min_v + max_v) / 2
+            corners_3d = get_aabb_corners(min_v, max_v)
+            dimensions = compute_object_dimensions(min_v, max_v)
+            has_3d_bbox = True
+            print(f"3D bbox (vertex): min={vec(min_v)}, max={vec(max_v)}, center={vec(aabb_center)}")
+            print(f"  dimensions: {dimensions}")
+            print(f"  meshes: {len(meshes)} objects under '{placed_root}'")
+
+        if has_3d_bbox and args.use_aabb_center:
+            obj_pos = aabb_center
+            object_position_source = "import_at_position_aabb_center"
+            print(f"  using AABB center as orbit center: {vec(aabb_center)}")
+
+        for m in meshes:
+            m.pass_index = 1
+
+        mask_dir = run_dir / "masks"
+        mask_dir.mkdir(parents=True, exist_ok=True)
+        depth_exr_dir = run_dir / ".depth_exr"
+        depth_exr_dir.mkdir(parents=True, exist_ok=True)
+        depth_dir = None
+        if args.render_depth:
+            depth_dir = run_dir / "depth"
+            depth_dir.mkdir(parents=True, exist_ok=True)
+        mask_output_node, depth_output_node, depth_exr_output_node = configure_compositor(
+            scene, mask_dir,
+            depth_dir=depth_dir,
+            depth_format=args.depth_format,
+            depth_max=args.depth_max,
+            depth_exr_dir=depth_exr_dir,
+        )
+
+    elif args.object_name:
         meshes = collect_object_meshes(args.object_name)
 
         # Vertex-based tight AABB (not bound_box)
@@ -538,6 +584,11 @@ def main(argv):
     print(f"Worker {args.worker_index}/{args.num_workers}: rendering {len(my_poses)}/{args.num_images} images")
 
     annotations = []
+    if args.num_workers > 1:
+        ann_path = run_dir / f"annotations_worker{args.worker_index}.json"
+    else:
+        ann_path = run_dir / "annotations.json"
+
     for idx, pose in my_poses:
         scene.frame_set(idx)
         if mask_output_node is not None:
@@ -619,6 +670,10 @@ def main(argv):
 
         annotations.append(entry)
 
+        # Incremental save — prevents annotation loss on crash
+        with ann_path.open("w", encoding="utf-8") as f:
+            json.dump(annotations, f, indent=2)
+
     # ------------------------------------------------------------------
     # Phase 4: run_info.json
     # ------------------------------------------------------------------
@@ -672,12 +727,9 @@ def main(argv):
         }
 
     # ------------------------------------------------------------------
-    # Phase 5: Save
+    # Phase 5: Save (run_info + final annotations already saved incrementally)
     # ------------------------------------------------------------------
     if args.num_workers > 1:
-        ann_path = run_dir / f"annotations_worker{args.worker_index}.json"
-        with ann_path.open("w", encoding="utf-8") as f:
-            json.dump(annotations, f, indent=2)
         if args.worker_index == 0:
             with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
                 json.dump(run_info, f, indent=2)
@@ -685,8 +737,6 @@ def main(argv):
     else:
         with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
             json.dump(run_info, f, indent=2)
-        with (run_dir / "annotations.json").open("w", encoding="utf-8") as f:
-            json.dump(annotations, f, indent=2)
         print(f"Saved {len(annotations)} images to {run_dir}")
 
     # Cleanup internal depth EXR files (metrics already extracted)
