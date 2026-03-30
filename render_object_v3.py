@@ -629,6 +629,16 @@ def main(argv):
             entry["camera_subject_distance"] = round(dist, 3)
             entry["camera_pitch_deg"] = round(pitch_deg, 2)
 
+        # --- Object orientation (coordinate frame) ---
+        if args.rotation_z_deg is not None:
+            from math import radians, cos, sin
+            rot_z = radians(args.rotation_z_deg)
+            obj_fwd = Vector((-sin(rot_z), cos(rot_z), 0.0))
+            obj_up = Vector((0.0, 0.0, 1.0))
+            entry["object_rotation_z_deg"] = args.rotation_z_deg
+            entry["object_forward"] = vec(obj_fwd)
+            entry["object_up"] = vec(obj_up)
+
         # --- Mask-based tight bbox + all frame metrics ---
         if mask_dir is not None:
             mask_path = mask_dir / f"mask_{idx:04d}.png"

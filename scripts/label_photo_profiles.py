@@ -18,6 +18,7 @@ import asyncio
 import base64
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -25,47 +26,71 @@ from pathlib import Path
 from openai import AsyncOpenAI, RateLimitError
 
 PHOTO_PROFILE_KEYS = [
+    "subject_visible", "saliency",
     "rule_of_thirds", "centeredness", "symmetry", "leading_lines", "negative_space",
-    "shot_close_up", "shot_medium", "shot_full", "shot_wide",
-    "angle_low", "angle_high", "angle_eye_level",
-    "lighting_front", "lighting_back", "lighting_side", "lighting_top", "lighting_ambient",
-    "visibility", "saliency",
+    "shot_close_up", "shot_medium", "shot_full", "shot_wide", "shot_overhead",
+    "angle_eye_level", "angle_high", "angle_low",
+    "lighting_front", "lighting_back", "lighting_left", "lighting_right",
+    "lighting_top", "lighting_bottom", "lighting_ambient",
 ]
 
-PROMPT = """You are a photography composition analyst. Analyze this drone photograph of {SUBJECT}.
+PROMPT = """You are a drone photography analyst. You will analyze a rendered image that may or may not contain {SUBJECT}.
 
-Rate ALL of the following on a scale of 1 to 10 (integer only).
+IMPORTANT: You must FIRST describe what you actually see, THEN score. Do not assume the subject is present — look carefully.
 
-Composition:
-- rule_of_thirds: Subject alignment with rule-of-thirds grid (1=far off, 10=perfect intersection)
-- centeredness: How centered the subject is (1=edge, 10=dead center)
-- symmetry: Vertical axis symmetry of overall composition (1=asymmetric, 10=perfect)
-- leading_lines: Environmental lines guiding eye to subject (1=none, 10=strong convergence)
-- negative_space: Effective use of empty space (1=cluttered, 10=clean purposeful)
+=== STEP 1: OBSERVATION (required) ===
+Write 2-3 sentences describing:
+1. Is {SUBJECT} actually visible in this image? If so, how much of them is visible (full body, partial, tiny speck, etc.)?
+2. Where in the frame is the subject (center, edge, corner, not present)?
+3. What is the apparent camera viewing angle relative to the subject (looking up at them, eye level, looking slightly down, looking steeply down, directly overhead)?
 
-Shot size (rate how much this image matches each type):
-- shot_close_up: Face/upper body fills frame (1=not at all, 10=clearly close-up)
-- shot_medium: Waist-up framing (1=not at all, 10=clearly medium)
-- shot_full: Full body visible head to toe (1=not at all, 10=clearly full shot)
-- shot_wide: Subject small in environment (1=not at all, 10=clearly wide)
+=== STEP 2: SCORING ===
+Rate ALL keys below on a scale of 1 to 10 (integer only).
+CRITICAL RULE: If the subject is NOT visible or barely visible (just a tiny edge/speck), then ALL subject-dependent scores (everything except negative_space and symmetry) MUST be 1-2.
 
-Camera angle (rate how much this image matches each angle):
-- angle_low: Camera below subject looking up (1=not at all, 10=clearly low angle)
-- angle_high: Camera above subject looking down (1=not at all, 10=clearly high angle)
-- angle_eye_level: Camera at subject's eye height (1=not at all, 10=clearly eye level)
+--- Visibility & Saliency ---
+VERIFICATION: Before rating subject_visible above 4, verify that you can describe what the subject is wearing AND identify at least one body part (head, arm, torso, leg). If you cannot answer both, set subject_visible to 1-3.
+- subject_visible: Is the subject actually present and identifiable? (1=not visible at all / only a tiny sliver or edge, 3=visible but very small or mostly occluded, 5=visible but small in frame, 7=clearly visible at moderate size, 10=large and fully visible filling significant portion of frame)
+- saliency: How strongly the subject draws visual attention vs the background (1=subject absent or blends completely, 5=noticeable but does not dominate, 10=immediately draws the eye)
 
-Lighting (rate intensity from each direction):
-- lighting_front: Light hitting subject from camera direction (1=none, 10=strong)
-- lighting_back: Backlight/rim light behind subject (1=none, 10=strong)
-- lighting_side: Light from left or right side (1=none, 10=strong)
-- lighting_top: Overhead/downward light (1=none, 10=strong)
-- lighting_ambient: Soft diffused light with no clear direction (1=none, 10=strong)
+--- Composition ---
+- rule_of_thirds: A great photograph breathes — the subject occupies one region while the remaining space carries its own weight. (10=placement feels inevitable, moving the subject would upset the whole image, 5=some awareness of frame regions but tension unresolved, 1=placement feels purely accidental)
+- centeredness: Centering done well is a deliberate declaration, not a default. (10=subject at exact heart of frame, world arranged around it, 5=roughly central but choice feels incidental, 1=subject drifted toward edge with no intention)
+- symmetry: Symmetry is about equilibrium, not mathematics — the two halves in quiet conversation. (10=near-perfect mirror in tone, shape, and spatial weight, 5=rough balance but diverging in unresolved ways, 1=one side dominates entirely). Score based on whole image.
+- leading_lines: The best images have a current that carries your eye to the subject before you realize it. (10=environment pointing — roads, shadows, rivers converging at subject, 5=lines exist but disperse before arriving, 1=eye has nowhere to go)
+- negative_space: Empty space is not absence — it is pressure that makes the subject louder. (10=restraint intentional, emptiness clearly load-bearing, 5=open space exists but not purposefully working, 1=every corner competes and nothing wins). Can be scored even without a visible subject.
 
-Perceptual:
-- visibility: Subject clarity and visibility (1=mostly hidden/tiny, 10=fully visible)
-- saliency: How strongly subject draws attention vs background (1=blends in, 10=pops out)
+--- Shot Size (MUTUALLY EXCLUSIVE — rate ONLY ONE type as 7-10, others must be proportionally lower. Your highest score must be at least 3 points above any other shot type.) ---
+- shot_close_up: Face or upper body fills most of the frame at large scale (1=subject small or absent, 10=face/upper body fills >50% of frame)
+- shot_medium: Subject shown roughly waist-up, with environment context visible (1=does not match, 10=classic waist-up framing)
+- shot_full: Subject's entire body visible head to toe with some space around (1=does not match, 10=textbook full-body head-to-toe framing)
+- shot_wide: Subject is small relative to the environment, landscape dominates (1=subject fills frame, 10=subject is a small figure in a vast scene)
+- shot_overhead: Camera is nearly directly above, looking straight down. Subject appears foreshortened/flattened (1=camera is level or slightly elevated, 5=clearly oblique ~45 degrees, 10=near-vertical bird's-eye directly above)
 
-Return a single JSON object with exactly these 19 keys, all integer values 1-10."""
+--- Camera Angle (based on GEOMETRIC camera-subject relationship, NOT visual impression of seeing ground/sky) ---
+IMPORTANT: Seeing the ground in the background does NOT mean high angle. angle_high should be high ONLY if the subject appears vertically compressed/foreshortened (head looks larger relative to feet, body appears squished top-to-bottom). If the subject has normal human proportions (not vertically compressed), the camera is near eye level even if ground is visible behind them.
+- angle_eye_level: Camera at approximately the same height as the subject (1=clearly above or below, 5=slightly off eye level, 10=exact eye level, horizon bisects subject)
+- angle_high: Camera positioned ABOVE the subject, looking DOWN. You can see the top of subject's head. (1=at or below subject level, 3=slightly above 5-15 degrees, 5=moderately above 20-40 degrees, 8=steeply above 50-70 degrees, 10=nearly directly overhead)
+- angle_low: Camera positioned BELOW the subject, looking UP. You can see under the subject's chin. (1=at or above subject level, 5=moderately below, 10=extreme low angle looking straight up)
+
+--- Lighting (relative to the SUBJECT's body orientation, NOT the camera) ---
+"Front" = subject's face/chest side. "Back" = subject's spine side. Left/right = subject's own left/right.
+- lighting_front: Light illuminating the FRONT of the subject (face/chest side appears bright) (1=face side in shadow or subject not visible, 5=soft partial front light, 10=strong direct light on face)
+- lighting_back: Light from BEHIND the subject creating rim light or silhouette on edges (1=no backlight or subject not visible, 5=subtle rim, 10=strong backlight with clear rim/silhouette)
+- lighting_left: Light hitting the subject's LEFT side (may be viewer's right). That body side appears brighter. (1=none or subject not visible, 5=moderate, 10=strong)
+- lighting_right: Light hitting the subject's RIGHT side. That body side appears brighter. (1=none or subject not visible, 5=moderate, 10=strong)
+- lighting_top: Light from directly above illuminating top of head and shoulders. Rate 7+ ONLY if the top surfaces (head crown, shoulders) are noticeably brighter than side surfaces. Normal outdoor daylight is NOT strong top light — rate it 4-5. (1=no overhead light or subject not visible, 5=moderate, 10=strong overhead light with bright top surfaces clearly contrasting with sides)
+- lighting_bottom: Light from below the subject (uplighting), illuminating under chin and body (1=no uplight or subject not visible, 5=moderate, 10=strong uplight)
+- lighting_ambient: Soft diffused light with no single dominant direction, shadows are soft or absent (1=harsh directional light with strong shadows, 5=mix of directional and diffused, 10=completely even diffused light, no shadows)
+
+=== OUTPUT FORMAT ===
+First write your observation (2-3 sentences starting with "Observation:"), then output a JSON object with exactly these 22 keys, all integer values 1-10.
+
+Example:
+Observation: The subject is clearly visible standing in the center-right of the frame, shown from approximately waist up. The camera is at roughly eye level. Lighting comes primarily from the upper left.
+```json
+{"subject_visible": 8, "saliency": 7, "rule_of_thirds": 6, "centeredness": 5, "symmetry": 3, "leading_lines": 2, "negative_space": 6, "shot_close_up": 2, "shot_medium": 8, "shot_full": 3, "shot_wide": 1, "shot_overhead": 1, "angle_eye_level": 8, "angle_high": 2, "angle_low": 1, "lighting_front": 6, "lighting_back": 2, "lighting_left": 7, "lighting_right": 2, "lighting_top": 4, "lighting_bottom": 1, "lighting_ambient": 4}
+```"""
 
 
 def parse_args():
@@ -94,17 +119,23 @@ def image_to_data_url(image_path):
 
 
 def parse_response(text):
-    """Extract and validate JSON from model response."""
-    # Try to find JSON in the response
+    """Extract observation text and validated JSON scores from model response."""
     text = text.strip()
-    if text.startswith("```"):
-        # Strip markdown code fences
-        lines = text.split("\n")
-        lines = [l for l in lines if not l.strip().startswith("```")]
-        text = "\n".join(lines)
 
-    data = json.loads(text)
+    # 1. Extract observation text
+    observation = ""
+    obs_match = re.search(r'Observation:\s*(.*?)(?=```|\{)', text, re.DOTALL)
+    if obs_match:
+        observation = obs_match.group(1).strip()
 
+    # 2. Extract JSON (inside code fence or raw braces)
+    json_match = re.search(r'\{[^{}]*\}', text)
+    if not json_match:
+        raise ValueError("No JSON found in response")
+
+    data = json.loads(json_match.group())
+
+    # 3. Validate all keys
     result = {}
     for key in PHOTO_PROFILE_KEYS:
         val = data.get(key)
@@ -115,7 +146,7 @@ def parse_response(text):
             raise ValueError(f"Value out of range for {key}: {val}")
         result[key] = val
 
-    return result
+    return result, observation
 
 
 async def label_one(client, entry, image_root, model, semaphore, idx, total, prompt):
@@ -146,7 +177,7 @@ async def label_one(client, entry, image_root, model, semaphore, idx, total, pro
                 )
                 text = resp.choices[0].message.content
                 try:
-                    result = parse_response(text)
+                    result, observation = parse_response(text)
                 except (json.JSONDecodeError, ValueError) as e:
                     if attempt < 4:
                         print(f"  [{idx+1}/{total}] Parse error (attempt {attempt+1}): {e}")
@@ -159,7 +190,7 @@ async def label_one(client, entry, image_root, model, semaphore, idx, total, pro
                         return idx, None
 
                 print(f"  [{idx+1}/{total}] OK: {entry['image']}")
-                return idx, result
+                return idx, (result, observation)
 
             except RateLimitError:
                 wait = 2 ** attempt
@@ -227,11 +258,14 @@ async def main():
         ]
         results = await asyncio.gather(*tasks)
 
-        for j, (_, result) in enumerate(results):
+        for j, (_, result_pair) in enumerate(results):
             ann_idx = batch[j][0]
-            if result is not None:
+            if result_pair is not None:
+                result, observation = result_pair
                 for key, val in result.items():
                     annotations[ann_idx][f"photo_profile_{key}"] = val
+                if observation:
+                    annotations[ann_idx]["photo_profile_observation"] = observation
                 done_count += 1
             else:
                 fail_count += 1

@@ -26,7 +26,7 @@ OUTPUT_DIR="${OUTPUT_DIR:-${REPO_ROOT}/outputs}"
 RUN_NAME="${RUN_NAME:-v3_8k}"
 NUM_IMAGES="${NUM_IMAGES:-8000}"
 GPU_BACKEND="${GPU_BACKEND:-OPTIX}"
-GPU_DEVICES="${GPU_DEVICES:-3 4 5}"
+GPU_DEVICES="${GPU_DEVICES:-1 2 3 4 5}"
 
 export OMP_NUM_THREADS="${BLENDER_THREADS}"
 export OPENBLAS_NUM_THREADS="${BLENDER_THREADS}"
@@ -63,10 +63,10 @@ echo "  GPUs:     ${GPU_DEVICES} (1 worker per GPU)"
 COMMON_ARGS=(
   --input_scene "${SCENE_PATH}"
   --output_run_dir "${RUN_DIR}"
-  --object_name RIG-Snowman.001
+  --object_name RIG-Pinda
   --num_images "${NUM_IMAGES}"
   --gpu_backend "${GPU_BACKEND}"
-  --camera_radius_range 1 8
+  --camera_radius_range 0.5 6
   --hemisphere
   --camera_direction_offsets 15 15 0
   --samples 32
