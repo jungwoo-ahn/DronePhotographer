@@ -439,6 +439,8 @@ The script prints:
 
 ## MPC Camera Planning
 
+![MPC Planning](docs/figures/dronephotographer_mpc_planning.svg)
+
 Once a model is trained, MPC-based planning finds camera actions that optimize toward a target composition objective. Two planning modes are available.
 
 ### Offline MPC (Pre-Rendered Views)

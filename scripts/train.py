@@ -17,6 +17,7 @@ from transformers import (
     AutoModelForImageTextToText,
     AutoProcessor,
     Trainer,
+    TrainerCallback,
     TrainingArguments,
     set_seed,
 )
@@ -27,6 +28,135 @@ if str(REPO_ROOT) not in sys.path:
 
 from src.vlm_qwen25.collator import QwenVLScoreCollator
 from src.vlm_qwen25.dataset import DroneActionScoreDataset
+from src.vlm_qwen25.schema import parse_scores_from_text
+from src.scoring.evaluator import RULE_BASED_SCORE_KEYS, CAMERA_3D_SCORE_KEYS
+
+
+class PredictionLoggingCallback(TrainerCallback):
+    """Log model predictions vs GT to TensorBoard during eval."""
+
+    def __init__(self, eval_dataset, processor, score_keys, num_samples=32, max_new_tokens=256):
+        self.eval_dataset = eval_dataset
+        self.processor = processor
+        self.score_keys = list(score_keys)
+        self.num_samples = num_samples
+        self.max_new_tokens = max_new_tokens
+        # Group keys
+        self.bbox_keys = [k for k in self.score_keys if k in RULE_BASED_SCORE_KEYS]
+        self.camera3d_keys = [k for k in self.score_keys if k in CAMERA_3D_SCORE_KEYS]
+
+    def on_evaluate(self, args, state, control, model=None, **kwargs):
+        if model is None:
+            return
+        tb_writer = None
+        for cb_obj in kwargs.get("callbacks", []):
+            if hasattr(cb_obj, "tb_writer"):
+                tb_writer = cb_obj.tb_writer
+                break
+        if tb_writer is None:
+            try:
+                from torch.utils.tensorboard import SummaryWriter
+                tb_writer = SummaryWriter(log_dir=args.logging_dir)
+            except Exception:
+                return
+
+        from src.vlm_qwen25.prompt import build_user_prompt
+
+        model.eval()
+        device = next(model.parameters()).device
+        indices = list(range(min(self.num_samples, len(self.eval_dataset))))
+
+        all_errors = {k: [] for k in self.score_keys}
+        parse_failures = 0
+        last_pred = None
+        last_gt = None
+
+        for idx in indices:
+            sample = self.eval_dataset[idx]
+            image = sample["image"]
+            action_text = sample["action_text"]
+            gt_scores = sample["target_scores"]
+
+            user_prompt = build_user_prompt(
+                action_text=action_text,
+                target_score_keys=self.score_keys,
+            )
+            messages = [{"role": "user", "content": [
+                {"type": "image"},
+                {"type": "text", "text": user_prompt},
+            ]}]
+            prompt_text = self.processor.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True,
+            )
+            inputs = self.processor(
+                text=[prompt_text], images=[image],
+                return_tensors="pt", padding=True,
+            ).to(device)
+
+            with torch.no_grad():
+                output_ids = model.generate(
+                    **inputs,
+                    max_new_tokens=self.max_new_tokens,
+                    do_sample=False,
+                )
+            prompt_len = inputs["input_ids"].shape[1]
+            generated_ids = output_ids[0, prompt_len:]
+            pred_text = self.processor.decode(generated_ids, skip_special_tokens=True)
+            pred_scores = parse_scores_from_text(pred_text, self.score_keys)
+
+            if pred_scores is None:
+                parse_failures += 1
+                continue
+
+            last_pred = pred_scores
+            last_gt = gt_scores
+            for k in self.score_keys:
+                if k in pred_scores and k in gt_scores:
+                    all_errors[k].append(abs(pred_scores[k] - gt_scores[k]))
+
+        step = state.global_step
+
+        # Per-key MAE
+        for k in self.score_keys:
+            errs = all_errors[k]
+            if errs:
+                tb_writer.add_scalar(f"pred_vs_gt/{k}_mae", sum(errs) / len(errs), step)
+
+        # Group MAE: bbox vs camera_3d vs total
+        def _group_mae(keys):
+            errs = []
+            for k in keys:
+                errs.extend(all_errors.get(k, []))
+            return sum(errs) / len(errs) if errs else None
+
+        bbox_mae = _group_mae(self.bbox_keys)
+        cam3d_mae = _group_mae(self.camera3d_keys)
+        total_mae = _group_mae(self.score_keys)
+
+        if bbox_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/bbox_group_mae", bbox_mae, step)
+        if cam3d_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/camera3d_group_mae", cam3d_mae, step)
+        if total_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/total_mae", total_mae, step)
+
+        if indices:
+            tb_writer.add_scalar(
+                "pred_vs_gt/parse_failure_rate",
+                parse_failures / len(indices),
+                step,
+            )
+
+        # Log one sample detail as text
+        if last_pred is not None and last_gt is not None:
+            detail = "| key | pred | gt | err |\n|---|---|---|---|\n"
+            for k in self.score_keys:
+                p = last_pred.get(k, float("nan"))
+                g = last_gt.get(k, float("nan"))
+                detail += f"| {k} | {p:.4f} | {g:.4f} | {abs(p-g):.4f} |\n"
+            tb_writer.add_text("pred_vs_gt/sample", detail, step)
+
+        tb_writer.flush()
 
 
 def parse_args() -> argparse.Namespace:
@@ -173,6 +303,7 @@ def main() -> None:
 
     training_kwargs = dict(
         output_dir=str(ckpt_dir),
+        logging_dir=str(run_dir / "tb_logs"),
         num_train_epochs=num_train_epochs,
         per_device_train_batch_size=per_device_train_batch_size,
         per_device_eval_batch_size=per_device_eval_batch_size,
@@ -207,22 +338,76 @@ def main() -> None:
         rotation_representation=dataset.rotation_representation,
     )
 
+    callbacks = []
+    if eval_dataset is not None:
+        callbacks.append(PredictionLoggingCallback(
+            eval_dataset=eval_dataset,
+            processor=processor,
+            score_keys=dataset.target_score_keys,
+            num_samples=min(32, len(eval_dataset)),
+        ))
+
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
         data_collator=collator,
+        callbacks=callbacks,
     )
+
+    # Log hyperparameters to TensorBoard for cross-run comparison
+    world_size = max(1, int(os.environ.get("WORLD_SIZE", "1")))
+    effective_batch_size = per_device_train_batch_size * gradient_accumulation_steps * world_size
+    steps_per_epoch = max(1, math.ceil(len(train_dataset) / effective_batch_size))
+    hparams = {
+        "model": model_name,
+        "num_views": len(dataset.views),
+        "num_train_pairs": len(train_dataset),
+        "num_eval_pairs": 0 if eval_dataset is None else len(eval_dataset),
+        "num_score_keys": len(dataset.target_score_keys),
+        "effective_batch_size": effective_batch_size,
+        "learning_rate": float(train_cfg["learning_rate"]),
+        "num_train_epochs": num_train_epochs,
+        "total_steps": steps_per_epoch,
+        "warmup_steps": warmup_steps,
+        "distance_threshold": float(cfg["data"]["distance_threshold"]),
+        "action_frame": action_frame,
+        "rotation_representation": rotation_representation,
+    }
+    if trainer.is_world_process_zero():
+        try:
+            from torch.utils.tensorboard import SummaryWriter
+            tb_writer = SummaryWriter(log_dir=str(ckpt_dir / "runs"))
+            # Log hparams as text table
+            hparams_text = "\n".join(f"| {k} | {v} |" for k, v in hparams.items())
+            tb_writer.add_text("hparams", f"| key | value |\n|---|---|\n{hparams_text}", 0)
+            for k, v in hparams.items():
+                if isinstance(v, (int, float)):
+                    tb_writer.add_scalar(f"hparams/{k}", v, 0)
+            tb_writer.flush()
+            tb_writer.close()
+        except Exception:
+            pass
 
     trainer.train(resume_from_checkpoint=train_cfg.get("resume_from_checkpoint"))
     trainer.save_model(str(final_dir))
     processor.save_pretrained(str(final_dir))
 
+    # Collect final training metrics
+    final_metrics = {}
+    if trainer.state.log_history:
+        for entry in trainer.state.log_history:
+            if "loss" in entry:
+                final_metrics["final_train_loss"] = entry["loss"]
+            if "eval_loss" in entry:
+                final_metrics["final_eval_loss"] = entry["eval_loss"]
+
     summary = {
         "run_dir": str(run_dir),
         "checkpoint_dir": str(ckpt_dir),
         "final_model_dir": str(final_dir),
+        "config_path": str(cfg_path),
         "dataset_pairs_total": len(dataset),
         "dataset_pairs_train": len(train_dataset),
         "dataset_pairs_eval": 0 if eval_dataset is None else len(eval_dataset),
@@ -231,6 +416,8 @@ def main() -> None:
         "action_frame": dataset.action_frame,
         "rotation_representation": dataset.rotation_representation,
         "target_score_keys": dataset.target_score_keys,
+        "hparams": hparams,
+        "final_metrics": final_metrics,
     }
     with (run_dir / "summary.json").open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)

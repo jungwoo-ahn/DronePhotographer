@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Training Data: 3D Camera Poses (5K views)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; }
+  .header { padding: 16px 24px; background: #161b22; border-bottom: 1px solid #30363d; display: flex; align-items: center; gap: 16px; }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .stats { display: flex; gap: 24px; font-size: 13px; color: #8b949e; }
+  .stats span { color: #58a6ff; font-weight: 600; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: calc(100vh - 56px); }
+  .cell { border: 1px solid #21262d; position: relative; }
+  .cell-label { position: absolute; top: 8px; left: 12px; z-index: 10; font-size: 11px; color: #8b949e;
+    background: rgba(13,17,23,0.85); padding: 2px 8px; border-radius: 4px; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Training Data: Camera Pose Distribution</h1>
+  <div class="stats" id="stats"></div>
+</div>
+<div class="grid">
+  <div class="cell"><span class="cell-label">3D Camera Positions (object at origin)</span><div id="plot3d" style="width:100%;height:100%"></div></div>
+  <div class="cell"><span class="cell-label">Top-Down XY View</span><div id="plotxy" style="width:100%;height:100%"></div></div>
+  <div class="cell"><span class="cell-label">Azimuth vs Elevation</span><div id="plotae" style="width:100%;height:100%"></div></div>
+  <div class="cell"><span class="cell-label">Distance Distribution</span><div id="plotdist" style="width:100%;height:100%"></div></div>
+</div>
+
+<script>
+// This script loads the annotation data and builds interactive plots.
+// We inline a small loader that fetches the JSON at a relative path.
+
+const ANNO_PATH = '../outputs/Namaqualand_namaqualand_v3_260401_024633/annotations_5k.json';
+
+const LAYOUT_COMMON = {
+  paper_bgcolor: '#0d1117',
+  plot_bgcolor: '#0d1117',
+  font: { color: '#c9d1d9', size: 11 },
+  margin: { l: 50, r: 30, t: 30, b: 50 },
+};
+
+function vec3(arr) { return { x: arr[0], y: arr[1], z: arr[2] }; }
+
+function buildPlots(data) {
+  const n = data.length;
+  const objPos = data[0].object_position;
+  const objFwd = data[0].object_forward;
+
+  // Relative positions
+  const rx = [], ry = [], rz = [];
+  const elev = [], azim = [], dist = [];
+  const fwdx = [], fwdy = [], fwdz = [];
+  const hoverText = [];
+
+  for (let i = 0; i < n; i++) {
+    const a = data[i];
+    const dx = a.camera_position[0] - objPos[0];
+    const dy = a.camera_position[1] - objPos[1];
+    const dz = a.camera_position[2] - objPos[2];
+    rx.push(dx); ry.push(dy); rz.push(dz);
+    elev.push(a.elevation_deg);
+    azim.push(a.azimuth_deg);
+    dist.push(a.camera_subject_distance);
+    fwdx.push(a.final_forward[0]);
+    fwdy.push(a.final_forward[1]);
+    fwdz.push(a.final_forward[2]);
+    hoverText.push(
+      `img: ${a.image}<br>` +
+      `az: ${a.azimuth_deg.toFixed(1)}° el: ${a.elevation_deg.toFixed(1)}°<br>` +
+      `dist: ${a.camera_subject_distance.toFixed(2)}m<br>` +
+      `occ: ${(a.occupancy_ratio * 100).toFixed(1)}%`
+    );
+  }
+
+  // Stats
+  const dArr = Float64Array.from(dist);
+  const dMin = Math.min(...dArr), dMax = Math.max(...dArr);
+  const dMean = dArr.reduce((a, b) => a + b) / n;
+  const eMin = Math.min(...elev), eMax = Math.max(...elev);
+  document.getElementById('stats').innerHTML =
+    `<div>Views: <span>${n}</span></div>` +
+    `<div>Distance: <span>${dMin.toFixed(2)}–${dMax.toFixed(2)}m</span> (mean ${dMean.toFixed(2)}m)</div>` +
+    `<div>Elevation: <span>${eMin.toFixed(1)}°–${eMax.toFixed(1)}°</span></div>` +
+    `<div>Azimuth: <span>0°–360°</span></div>`;
+
+  // --- Camera direction lines: subsample for performance ---
+  const arrowN = Math.min(600, n);
+  const arrowIdx = [];
+  const step = Math.floor(n / arrowN);
+  for (let i = 0; i < n && arrowIdx.length < arrowN; i += step) arrowIdx.push(i);
+
+  // Build line segments: camera_pos → camera_pos + forward * scale
+  // Each segment is 3 points: start, end, null (to break the line)
+  const dirScale = 0.6;  // length of direction line in meters
+  const dirX = [], dirY = [], dirZ = [], dirColor = [];
+  for (const i of arrowIdx) {
+    dirX.push(rx[i], rx[i] + fwdx[i] * dirScale, null);
+    dirY.push(ry[i], ry[i] + fwdy[i] * dirScale, null);
+    dirZ.push(rz[i], rz[i] + fwdz[i] * dirScale, null);
+  }
+
+  // Also build small "camera up" lines to show roll
+  const upScale = 0.25;
+  const upX = [], upY = [], upZ = [];
+  const cupx = [], cupy = [], cupz = [];  // camera up vectors
+  for (let i = 0; i < n; i++) {
+    const a = data[i];
+    const up = a.final_up || a.base_up;
+    cupx.push(up[0]); cupy.push(up[1]); cupz.push(up[2]);
+  }
+  for (const i of arrowIdx) {
+    upX.push(rx[i], rx[i] + cupx[i] * upScale, null);
+    upY.push(ry[i], ry[i] + cupy[i] * upScale, null);
+    upZ.push(rz[i], rz[i] + cupz[i] * upScale, null);
+  }
+
+  // Cone tips at end of forward lines (small arrowheads)
+  const tipX = arrowIdx.map(i => rx[i] + fwdx[i] * dirScale);
+  const tipY = arrowIdx.map(i => ry[i] + fwdy[i] * dirScale);
+  const tipZ = arrowIdx.map(i => rz[i] + fwdz[i] * dirScale);
+  const tipU = arrowIdx.map(i => fwdx[i]);
+  const tipV = arrowIdx.map(i => fwdy[i]);
+  const tipW = arrowIdx.map(i => fwdz[i]);
+
+  // ========== PLOT 1: 3D scatter + direction lines ==========
+  const trace3d = {
+    type: 'scatter3d', mode: 'markers',
+    x: rx, y: ry, z: rz,
+    marker: { size: 2.5, color: elev, colorscale: 'Viridis',
+      colorbar: { title: 'Elev (°)', thickness: 12, len: 0.6 }, opacity: 0.7 },
+    text: hoverText, hoverinfo: 'text', name: 'Cameras',
+  };
+
+  // Forward direction lines (orange)
+  const traceDirLines = {
+    type: 'scatter3d', mode: 'lines',
+    x: dirX, y: dirY, z: dirZ,
+    line: { color: '#ff8c42', width: 2 },
+    opacity: 0.6, name: 'Forward Dir',
+    hoverinfo: 'skip',
+  };
+
+  // Up direction lines (cyan)
+  const traceUpLines = {
+    type: 'scatter3d', mode: 'lines',
+    x: upX, y: upY, z: upZ,
+    line: { color: '#42c6ff', width: 1.5 },
+    opacity: 0.4, name: 'Up Dir',
+    hoverinfo: 'skip',
+  };
+
+  // Cone arrowheads at the tip of forward lines
+  const traceTips = {
+    type: 'cone',
+    x: tipX, y: tipY, z: tipZ,
+    u: tipU, v: tipV, w: tipW,
+    sizemode: 'absolute', sizeref: 0.15,
+    colorscale: [[0, '#ff8c42'], [1, '#ff8c42']],
+    showscale: false, opacity: 0.7, name: 'Forward Tip',
+    hoverinfo: 'skip', anchor: 'tail',
+  };
+
+  const traceObj = {
+    type: 'scatter3d', mode: 'markers',
+    x: [0], y: [0], z: [0],
+    marker: { size: 10, color: '#ff4444', symbol: 'diamond' },
+    name: 'Object', hoverinfo: 'name',
+  };
+
+  // Object forward arrow
+  const traceObjFwd = {
+    type: 'cone',
+    x: [0], y: [0], z: [0],
+    u: [objFwd[0]], v: [objFwd[1]], w: [objFwd[2]],
+    sizemode: 'absolute', sizeref: 0.8,
+    colorscale: [[0, '#ff4444'], [1, '#ff4444']],
+    showscale: false, opacity: 0.9, name: 'Obj Forward',
+  };
+
+  Plotly.newPlot('plot3d',
+    [trace3d, traceDirLines, traceUpLines, traceTips, traceObj, traceObjFwd],
+    {
+      ...LAYOUT_COMMON,
+      scene: {
+        xaxis: { title: 'X (m)', color: '#8b949e', gridcolor: '#21262d' },
+        yaxis: { title: 'Y (m)', color: '#8b949e', gridcolor: '#21262d' },
+        zaxis: { title: 'Z (m)', color: '#8b949e', gridcolor: '#21262d' },
+        bgcolor: '#0d1117',
+        aspectmode: 'data',
+      },
+      legend: { x: 0.01, y: 0.99, bgcolor: 'rgba(13,17,23,0.8)', font: { size: 10 } },
+    },
+    { responsive: true },
+  );
+
+  // ========== PLOT 2: Top-down XY ==========
+  const traceXY = {
+    type: 'scatter', mode: 'markers',
+    x: rx, y: ry,
+    marker: { size: 3, color: dist, colorscale: 'RdBu', reversescale: true,
+      colorbar: { title: 'Dist (m)', thickness: 12 }, opacity: 0.5 },
+    text: hoverText, hoverinfo: 'text', name: 'Cameras',
+  };
+  const traceObjXY = {
+    type: 'scatter', mode: 'markers',
+    x: [0], y: [0],
+    marker: { size: 12, color: '#ff4444', symbol: 'star' },
+    name: 'Object',
+  };
+  // Object forward as annotation arrow
+  Plotly.newPlot('plotxy', [traceXY, traceObjXY], {
+    ...LAYOUT_COMMON,
+    xaxis: { title: 'X (m)', color: '#8b949e', gridcolor: '#21262d', scaleanchor: 'y' },
+    yaxis: { title: 'Y (m)', color: '#8b949e', gridcolor: '#21262d' },
+    annotations: [{
+      x: objFwd[0] * 2, y: objFwd[1] * 2, ax: 0, ay: 0,
+      xref: 'x', yref: 'y', axref: 'x', ayref: 'y',
+      showarrow: true, arrowhead: 3, arrowsize: 1.5, arrowwidth: 2, arrowcolor: '#ff4444',
+    }],
+    showlegend: false,
+  }, { responsive: true });
+
+  // ========== PLOT 3: Azimuth vs Elevation heatmap ==========
+  const traceAE = {
+    type: 'histogram2d',
+    x: azim, y: elev,
+    nbinsx: 72, nbinsy: 36,
+    colorscale: 'Hot', reversescale: true,
+    colorbar: { title: 'Count', thickness: 12 },
+  };
+  Plotly.newPlot('plotae', [traceAE], {
+    ...LAYOUT_COMMON,
+    xaxis: { title: 'Azimuth (°)', color: '#8b949e', gridcolor: '#21262d' },
+    yaxis: { title: 'Elevation (°)', color: '#8b949e', gridcolor: '#21262d' },
+  }, { responsive: true });
+
+  // ========== PLOT 4: Distance histogram ==========
+  const traceDist = {
+    type: 'histogram',
+    x: dist, nbinsx: 60,
+    marker: { color: '#58a6ff', line: { color: '#0d1117', width: 0.5 } },
+    name: 'Distance',
+  };
+  Plotly.newPlot('plotdist', [traceDist], {
+    ...LAYOUT_COMMON,
+    xaxis: { title: 'Distance to Object (m)', color: '#8b949e', gridcolor: '#21262d' },
+    yaxis: { title: 'Count', color: '#8b949e', gridcolor: '#21262d' },
+    shapes: [
+      { type: 'line', x0: dMean, x1: dMean, y0: 0, y1: 1, yref: 'paper',
+        line: { color: '#ff4444', dash: 'dash', width: 1.5 } },
+    ],
+    annotations: [
+      { x: dMean, y: 1, yref: 'paper', text: `mean=${dMean.toFixed(2)}m`,
+        showarrow: false, font: { color: '#ff4444', size: 11 }, yanchor: 'bottom' },
+    ],
+  }, { responsive: true });
+}
+
+// Load data
+fetch(ANNO_PATH)
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  .then(buildPlots)
+  .catch(err => {
+    document.body.innerHTML = `<div style="padding:40px;color:#f85149">
+      <h2>Failed to load annotations</h2>
+      <p>${err.message}</p>
+      <p>Start a local server from project root:<br>
+      <code style="color:#58a6ff">python -m http.server 8000</code><br>
+      then open <code style="color:#58a6ff">http://localhost:8000/visualizations/training_data_3d.html</code></p>
+    </div>`;
+  });
+</script>
+</body>
+</html>

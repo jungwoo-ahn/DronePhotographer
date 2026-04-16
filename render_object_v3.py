@@ -639,6 +639,22 @@ def main(argv):
             entry["object_forward"] = vec(obj_fwd)
             entry["object_up"] = vec(obj_up)
 
+            # Camera-Object relative rotation (6D)
+            cam_fwd = pose["final_forward"]
+            cam_up = pose["final_up"]
+            cam_right = cam_fwd.cross(cam_up)
+            obj_fwd_in_cam = Vector((
+                cam_right.dot(obj_fwd),
+                cam_fwd.dot(obj_fwd),
+                cam_up.dot(obj_fwd),
+            ))
+            obj_up_in_cam = Vector((
+                cam_right.dot(obj_up),
+                cam_fwd.dot(obj_up),
+                cam_up.dot(obj_up),
+            ))
+            entry["camera_to_object_6d"] = vec(obj_fwd_in_cam) + vec(obj_up_in_cam)
+
         # --- Mask-based tight bbox + all frame metrics ---
         if mask_dir is not None:
             mask_path = mask_dir / f"mask_{idx:04d}.png"
@@ -694,6 +710,9 @@ def main(argv):
         "object_name": object_name,
         "run_name": args.run_name,
         "created_at": timestamp,
+        "input_object": args.input_object,
+        "scale": args.scale,
+        "rotation_z_deg": args.rotation_z_deg,
         "options": {
             "sky_strength": args.sky_strength,
             "object_position": vec(obj_pos),

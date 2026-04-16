@@ -115,6 +115,7 @@ def set_render_settings(scene, resolution, args):
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = "PNG"
     scene.render.use_persistent_data = bool(args.persistent_data)
+    scene.render.film_transparent = False
 
     cycles = scene.cycles
     cycles.samples = int(args.samples)

@@ -96,11 +96,11 @@ def preset_specs() -> dict[str, dict[str, float]]:
 
 def _load_json_dict(text_or_path: str) -> dict[str, float]:
     text_or_path = str(text_or_path).strip()
-    candidate_path = Path(text_or_path)
-    if candidate_path.exists():
-        payload = json.loads(candidate_path.read_text(encoding="utf-8"))
-    else:
-        payload = json.loads(text_or_path)
+    if not text_or_path.startswith("{"):
+        candidate_path = Path(text_or_path)
+        if candidate_path.exists():
+            text_or_path = candidate_path.read_text(encoding="utf-8")
+    payload = json.loads(text_or_path)
     if not isinstance(payload, dict):
         raise ValueError("target/weight JSON must decode to an object")
     return {str(key): float(value) for key, value in payload.items()}

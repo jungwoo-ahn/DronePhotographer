@@ -19,9 +19,11 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from src.scoring.bbox_control import RULE_BASED_SCORE_KEYS, compute_rule_based_scores
+from src.scoring.evaluator import ALL_SUPPORTED_SCORE_KEYS
 from src.vlm_qwen25.mpc import (
     generate_local_candidate_actions,
     score_action_candidates,
+    write_rollout_summary_image,
     write_rollout_video,
 )
 from src.vlm_qwen25.objective import (
@@ -86,6 +88,11 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=4,
         help="CPU thread limit for each Blender subprocess (-t flag)",
+    )
+    parser.add_argument(
+        "--disable_roll",
+        action="store_true",
+        help="Fix rz=0 in candidate rotation (no roll, pitch+yaw only)",
     )
     return parser.parse_args()
 
@@ -364,12 +371,9 @@ def main() -> None:
     action_frame = str(data_cfg.get("action_frame", "camera_local"))
     rotation_representation = str(data_cfg.get("rotation_representation", "orientation_6d"))
     score_keys = list(data_cfg.get("target_score_keys", []))
-    unsupported_score_keys = [key for key in score_keys if key not in RULE_BASED_SCORE_KEYS]
+    unsupported_score_keys = [key for key in score_keys if key not in ALL_SUPPORTED_SCORE_KEYS]
     if unsupported_score_keys:
-        raise ValueError(
-            "The Blender-in-the-loop rollout currently supports only rule-based bbox score keys. "
-            f"Unsupported keys: {', '.join(unsupported_score_keys)}"
-        )
+        raise ValueError(f"Unsupported score keys: {', '.join(unsupported_score_keys)}")
 
     run_info = load_json(run_info_path)
     if not isinstance(run_info, dict):
@@ -546,6 +550,7 @@ def main() -> None:
                 max_translation_norm=float(args.max_translation_norm_m),
                 max_rotation_norm_rad=max_rotation_norm_rad,
                 action_frame=action_frame,
+                disable_roll=bool(args.disable_roll),
                 rotation_representation=rotation_representation,
             )
             candidates = filter_candidates_by_environment(
@@ -685,6 +690,16 @@ def main() -> None:
         output_dir=output_dir,
         fps=int(args.video_fps),
     )
+
+    summary_image_path = write_rollout_summary_image(
+        frame_paths=frame_paths,
+        steps=steps,
+        score_targets=target_objective.score_targets,
+        score_weights=target_objective.score_weights,
+        output_dir=output_dir,
+    )
+    if summary_image_path:
+        print(f"Summary image saved: {summary_image_path}", flush=True)
 
     final_target_error = None
     final_error_by_key = None

@@ -11,6 +11,7 @@ from mathutils import Euler, Matrix, Vector
 
 from src.scenes.scene import open_scene, set_nishita_sky
 from src.vlm_qwen25.rotation_utils import apply_camera_local_action, orthonormalize_forward_up
+from render_object import place_imported_object
 
 
 def _to_path(path: str | Path) -> Path:
@@ -95,6 +96,7 @@ def _set_render_settings(scene: bpy.types.Scene, options: dict[str, object]) -> 
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = "PNG"
     scene.render.use_persistent_data = bool(options.get("persistent_data", False))
+    scene.render.film_transparent = False
 
     cycles = scene.cycles
     cycles.samples = int(options.get("samples", 64))
@@ -173,6 +175,17 @@ class BlenderDrone:
         self.scene = open_scene(str(self.scene_path))
         self.camera = _ensure_camera(self.scene)
         _prepare_camera(self.camera)
+
+        # Re-import external object if needed
+        input_object = self.run_info.get("input_object")
+        if input_object is not None:
+            obj_pos_raw = self.options.get("object_position", [0, 0, 0])
+            scale = float(self.run_info.get("scale", 1.0))
+            rotation_z_deg = float(self.run_info.get("rotation_z_deg", 0.0))
+            place_imported_object(
+                self.scene, input_object, obj_pos_raw,
+                rotation_z_deg=rotation_z_deg, scale=scale,
+            )
 
         self.object_position = np.asarray(self.options["object_position"], dtype=np.float32)
         self.camera_radius_range = [float(value) for value in self.options.get("camera_radius_range", [2.0, 10.0])]
