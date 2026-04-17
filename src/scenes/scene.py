@@ -16,31 +16,13 @@ def open_scene(scene_file: str):
 	return bpy.context.scene
 
 
-def set_nishita_sky(strength: float) -> None:
-	"""Set Nishita sky as world background if strength > 0."""
+def set_nishita_sky(strength: float, randomize_sun: bool = False) -> None:
+	"""Set Nishita sky as world background if strength > 0.
 
-	if strength <= 0:
-		return
-
-	import bpy
-
-	scene = bpy.context.scene
-	world = scene.world or bpy.data.worlds.new("World")
-	scene.world = world
-	world.use_nodes = True
-
-	nodes = world.node_tree.nodes
-	links = world.node_tree.links
-	nodes.clear()
-
-	bg = nodes.new(type="ShaderNodeBackground")
-	sky = nodes.new(type="ShaderNodeTexSky")
-	sky.sky_type = "NISHITA"
-	bg.inputs["Strength"].default_value = float(strength)
-	output = nodes.new(type="ShaderNodeOutputWorld")
-
-	links.new(sky.outputs["Color"], bg.inputs["Color"])
-	links.new(bg.outputs["Background"], output.inputs["Surface"])
+	Delegates to src.blender.sky.set_nishita_sky.
+	"""
+	from src.blender.sky import set_nishita_sky as _set_nishita_sky
+	_set_nishita_sky(strength, randomize_sun=randomize_sun)
 
 
 def ensure_camera(scene, camera_name: str = "RenderCamera"):
