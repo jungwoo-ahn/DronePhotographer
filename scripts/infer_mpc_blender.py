@@ -92,6 +92,8 @@ def parse_args() -> argparse.Namespace:
                         help="Enable 2-step lookahead MPC. Top-K first actions to expand (0=disabled, 30 recommended)")
     parser.add_argument("--disable_adaptive_step", action="store_true",
                         help="Disable distance-based adaptive step size scaling")
+    parser.add_argument("--disable_spike_detection", action="store_true",
+                        help="Disable c2o spike detection safety guard")
     parser.add_argument(
         "--blender_threads",
         type=int,
@@ -736,7 +738,7 @@ def main() -> None:
         # If c2o prediction changes drastically from previous step,
         # the model is likely confused — prefer a retreat action
         C2O_SPIKE_THRESHOLD = 0.5
-        if prev_best_c2o and best["predicted_scores"] is not None:
+        if not args.disable_spike_detection and prev_best_c2o and best["predicted_scores"] is not None:
             c2o_keys = ["camera_to_object_fx", "camera_to_object_fy", "camera_to_object_fz"]
             c2o_keys_present = [k for k in c2o_keys if k in best["predicted_scores"]]
             max_delta = max(
