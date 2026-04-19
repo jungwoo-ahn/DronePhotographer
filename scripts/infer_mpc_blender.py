@@ -397,6 +397,10 @@ def main() -> None:
         score_weights_json_text=args.score_weights_json,
         frame_aspect_ratio=frame_aspect_ratio,
     )
+    # Auto-add body_in_frame_ratio target if model supports it
+    if "body_in_frame_ratio" in score_keys and "body_in_frame_ratio" not in target_objective.score_targets:
+        target_objective.score_targets["body_in_frame_ratio"] = 1.0
+        target_objective.score_weights["body_in_frame_ratio"] = target_objective.score_weights.get("body_in_frame_ratio", 1.0)
     unsupported_targets = sorted(set(target_objective.score_targets) - set(score_keys))
     if unsupported_targets:
         raise ValueError(

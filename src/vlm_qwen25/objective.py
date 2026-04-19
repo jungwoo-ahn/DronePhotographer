@@ -192,10 +192,6 @@ def compile_score_targets(
                 "so bbox margins can be derived"
             )
 
-    # Always target full body in frame
-    if "body_in_frame_ratio" not in targets:
-        targets["body_in_frame_ratio"] = 1.0
-
     if not targets:
         raise ValueError(
             "target spec did not produce any score targets; provide bbox score keys directly "
