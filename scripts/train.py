@@ -159,6 +159,45 @@ class PredictionLoggingCallback(TrainerCallback):
         tb_writer.flush()
 
 
+class ScoreRegressionTrainer(Trainer):
+    """Trainer with auxiliary regression loss on predicted scores."""
+
+    def __init__(self, *args, score_keys=None, regression_weight=0.5, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.score_keys = score_keys or []
+        self.regression_weight = float(regression_weight)
+
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+        gt_scores = inputs.pop("gt_score_values", None)
+
+        outputs = model(**inputs, output_hidden_states=True)
+        lm_loss = outputs.loss
+
+        if (
+            gt_scores is not None
+            and hasattr(model, "score_head")
+            and outputs.hidden_states is not None
+        ):
+            hidden = outputs.hidden_states[-1]  # [B, seq, hidden]
+            labels = inputs["labels"]
+            # prompt end = first position where labels != -100, minus 1
+            prompt_ends = (labels != -100).long().argmax(dim=1) - 1
+            prompt_ends = prompt_ends.clamp(min=0)
+
+            batch_idx = torch.arange(hidden.size(0), device=hidden.device)
+            prompt_hidden = hidden[batch_idx, prompt_ends]  # [B, hidden]
+
+            pred_scores = model.score_head(prompt_hidden)  # [B, num_keys]
+            gt_scores = gt_scores.to(pred_scores.device, dtype=pred_scores.dtype)
+            reg_loss = torch.nn.functional.l1_loss(pred_scores, gt_scores)
+
+            loss = lm_loss + self.regression_weight * reg_loss
+        else:
+            loss = lm_loss
+
+        return (loss, outputs) if return_outputs else loss
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, default="configs/qwen25_vl_7b_full.yaml")
@@ -270,6 +309,16 @@ def main() -> None:
         model.gradient_checkpointing_enable()
         model.config.use_cache = False
 
+    # Score prediction head for auxiliary regression loss
+    regression_weight = float(train_cfg.get("regression_weight", 0.0))
+    if regression_weight > 0:
+        hidden_size = getattr(model.config, "hidden_size", None)
+        if hidden_size is None:
+            hidden_size = getattr(model.config.text_config, "hidden_size", 1536)
+        num_score_keys = len(cfg["data"].get("target_score_keys", []))
+        model.score_head = torch.nn.Linear(hidden_size, num_score_keys).to(torch_dtype)
+        print(f"Score head added: {hidden_size} → {num_score_keys} (regression_weight={regression_weight})", flush=True)
+
     run_root = Path(train_cfg["output_root"])
     run_name = str(train_cfg["run_name"])
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -347,14 +396,26 @@ def main() -> None:
             num_samples=min(32, len(eval_dataset)),
         ))
 
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
-        data_collator=collator,
-        callbacks=callbacks,
-    )
+    if regression_weight > 0:
+        trainer = ScoreRegressionTrainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=eval_dataset,
+            data_collator=collator,
+            callbacks=callbacks,
+            score_keys=dataset.target_score_keys,
+            regression_weight=regression_weight,
+        )
+    else:
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=eval_dataset,
+            data_collator=collator,
+            callbacks=callbacks,
+        )
 
     # Log hyperparameters to TensorBoard for cross-run comparison
     world_size = max(1, int(os.environ.get("WORLD_SIZE", "1")))

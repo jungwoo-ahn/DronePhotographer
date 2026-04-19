@@ -23,6 +23,8 @@ from src.scoring.evaluator import ALL_SUPPORTED_SCORE_KEYS
 from src.vlm_qwen25.mpc import (
     generate_local_candidate_actions,
     score_action_candidates,
+    score_action_candidates_vllm,
+    score_with_lookahead_vllm,
     write_rollout_summary_image,
     write_rollout_video,
 )
@@ -83,6 +85,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--detector_device", type=str, default="cuda")
     parser.add_argument("--list_target_presets", action="store_true")
     parser.add_argument("--trust_remote_code", action="store_true")
+    parser.add_argument("--use_vllm", action="store_true", help="Use vLLM for faster inference")
+    parser.add_argument("--tensor_parallel_size", type=int, default=None,
+                        help="vLLM tensor parallel size (default: number of visible GPUs)")
+    parser.add_argument("--lookahead_top_k", type=int, default=0,
+                        help="Enable 2-step lookahead MPC. Top-K first actions to expand (0=disabled, 30 recommended)")
+    parser.add_argument("--disable_adaptive_step", action="store_true",
+                        help="Disable distance-based adaptive step size scaling")
     parser.add_argument(
         "--blender_threads",
         type=int,
@@ -406,7 +415,7 @@ def main() -> None:
     max_rotation_norm_rad = math.radians(float(args.max_rotation_norm_deg))
 
     import torch
-    from transformers import AutoModelForImageTextToText, AutoProcessor
+    from transformers import AutoProcessor
 
     trust_remote_code = bool(model_cfg.get("trust_remote_code", False) or args.trust_remote_code)
     processor_source = resolve_processor_source(args.model_path, model_cfg)
@@ -414,13 +423,40 @@ def main() -> None:
         processor_source,
         trust_remote_code=trust_remote_code,
     )
-    model = AutoModelForImageTextToText.from_pretrained(
-        args.model_path,
-        dtype=torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16"))),
-        device_map="auto",
-        trust_remote_code=trust_remote_code,
-    )
-    model.eval()
+
+    use_vllm = args.use_vllm
+    if use_vllm:
+        from vllm import LLM
+
+        tp_size = args.tensor_parallel_size
+        if tp_size is None:
+            tp_size = len(os.environ.get("CUDA_VISIBLE_DEVICES", "0").split(","))
+        model = LLM(
+            model=args.model_path,
+            dtype=model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16")),
+            tensor_parallel_size=tp_size,
+            trust_remote_code=trust_remote_code,
+            max_model_len=int(cfg.get("training", {}).get("max_length", 2048)),
+            limit_mm_per_prompt={"image": 1},
+            gpu_memory_utilization=0.9,
+        )
+        print(f"vLLM loaded (tensor_parallel_size={tp_size})", flush=True)
+    else:
+        from transformers import AutoModelForImageTextToText
+
+        model = AutoModelForImageTextToText.from_pretrained(
+            args.model_path,
+            dtype=torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16"))),
+            device_map="auto",
+            attn_implementation="flash_attention_2",
+            trust_remote_code=trust_remote_code,
+        )
+        model.eval()
+        try:
+            model = torch.compile(model, mode="reduce-overhead")
+            print("torch.compile applied (mode=reduce-overhead)", flush=True)
+        except Exception as e:
+            print(f"torch.compile skipped: {e}", flush=True)
 
     caption = None
     detector = None
@@ -537,17 +573,28 @@ def main() -> None:
     current_image_path = initial_image_path
     current_scores = initial_scores
     current_detections = initial_detections
+    prev_best_c2o = None  # for spike detection (fix #1)
 
     for step_idx in range(int(args.num_steps)):
+        # --- Fix #4: adaptive step size based on distance to subject ---
+        cam_pos = np.asarray(current_pose["position"], dtype=np.float32)
+        dist_to_obj = float(np.linalg.norm(cam_pos - object_position))
+        if args.disable_adaptive_step:
+            step_scale = 1.0
+        else:
+            step_scale = float(np.clip(dist_to_obj / 4.0, 0.3, 1.0))
+        scaled_translation_values = [v * step_scale for v in translation_values]
+        scaled_max_translation_norm = float(args.max_translation_norm_m) * step_scale
+
         with Image.open(current_image_path) as current_image_raw:
             current_image = current_image_raw.convert("RGB")
             candidates = generate_local_candidate_actions(
-                position=np.asarray(current_pose["position"], dtype=np.float32),
+                position=cam_pos,
                 forward=np.asarray(current_pose["forward"], dtype=np.float32),
                 up=np.asarray(current_pose["up"], dtype=np.float32),
-                translation_values=translation_values,
+                translation_values=scaled_translation_values,
                 rotation_values_rad=rotation_values_rad,
-                max_translation_norm=float(args.max_translation_norm_m),
+                max_translation_norm=scaled_max_translation_norm,
                 max_rotation_norm_rad=max_rotation_norm_rad,
                 action_frame=action_frame,
                 disable_roll=bool(args.disable_roll),
@@ -565,17 +612,29 @@ def main() -> None:
             if not candidates:
                 raise RuntimeError("no valid candidates remain after environment filtering")
 
-            scored_candidates = score_action_candidates(
-                model=model,
-                processor=processor,
-                image=current_image,
-                candidates=candidates,
-                target_score_keys=score_keys,
-                action_frame=action_frame,
-                rotation_representation=rotation_representation,
-                max_new_tokens=int(args.max_new_tokens),
-                candidate_batch_size=int(args.candidate_batch_size),
-            )
+            if use_vllm:
+                scored_candidates = score_action_candidates_vllm(
+                    llm=model,
+                    processor=processor,
+                    image=current_image,
+                    candidates=candidates,
+                    target_score_keys=score_keys,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                    max_new_tokens=int(args.max_new_tokens),
+                )
+            else:
+                scored_candidates = score_action_candidates(
+                    model=model,
+                    processor=processor,
+                    image=current_image,
+                    candidates=candidates,
+                    target_score_keys=score_keys,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                    max_new_tokens=int(args.max_new_tokens),
+                    candidate_batch_size=int(args.candidate_batch_size),
+                )
         parse_success_count = sum(1 for item in scored_candidates if item.predicted_scores is not None)
         if parse_success_count == 0:
             raise RuntimeError(
@@ -622,7 +681,78 @@ def main() -> None:
             )
 
         ranked_candidates.sort(key=lambda row: float(row["objective_value"]))
+
+        # --- Multi-step lookahead MPC ---
+        if use_vllm and args.lookahead_top_k > 0:
+            lookahead_errors = score_with_lookahead_vllm(
+                llm=model,
+                processor=processor,
+                image=current_image,
+                first_step_scores=scored_candidates,
+                current_position=cam_pos,
+                current_forward=np.asarray(current_pose["forward"], dtype=np.float32),
+                current_up=np.asarray(current_pose["up"], dtype=np.float32),
+                target_score_keys=score_keys,
+                score_targets=target_objective.score_targets,
+                score_weights=target_objective.score_weights,
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+                max_new_tokens=int(args.max_new_tokens),
+                top_k=int(args.lookahead_top_k),
+            )
+            if lookahead_errors:
+                # Re-rank: blend 1-step error with lookahead error (uniform scale)
+                for rc in ranked_candidates:
+                    la_err = lookahead_errors.get(rc["action_text"])
+                    if la_err is not None:
+                        rc["lookahead_error"] = la_err
+                    else:
+                        la_err = rc["target_error"]  # conservative: assume no improvement
+                    rc["objective_value"] = 0.5 * rc["target_error"] + 0.5 * la_err
+                ranked_candidates.sort(key=lambda row: float(row["objective_value"]))
+                print(f"  [lookahead] re-ranked with {len(lookahead_errors)} lookahead scores", flush=True)
+
+        # --- Fix #3: margin lower bound filter ---
+        # Reject candidates where person is predicted to be cut off
+        MIN_MARGIN = 0.03
+        margin_keys = [k for k in ["bbox_margin_top", "bbox_margin_bottom"] if k in score_keys]
+        if margin_keys:
+            safe_candidates = [
+                rc for rc in ranked_candidates
+                if rc["parse_success"] and all(
+                    rc["predicted_scores"].get(k, 1.0) >= MIN_MARGIN for k in margin_keys
+                )
+            ]
+            if safe_candidates:
+                ranked_candidates = safe_candidates
+
         best = ranked_candidates[0]
+
+        # --- Fix #1: prediction spike detection + rollback ---
+        # If c2o prediction changes drastically from previous step,
+        # the model is likely confused — prefer a retreat action
+        C2O_SPIKE_THRESHOLD = 0.5
+        if prev_best_c2o and best["predicted_scores"] is not None:
+            c2o_keys = ["camera_to_object_fx", "camera_to_object_fy", "camera_to_object_fz"]
+            c2o_keys_present = [k for k in c2o_keys if k in best["predicted_scores"]]
+            max_delta = max(
+                (abs(best["predicted_scores"].get(k, 0) - prev_best_c2o.get(k, 0))
+                 for k in c2o_keys_present),
+                default=0.0,
+            )
+            if max_delta > C2O_SPIKE_THRESHOLD:
+                # Find the "stay" candidate (smallest translation norm)
+                stay_candidates = sorted(
+                    [rc for rc in ranked_candidates if rc["parse_success"]],
+                    key=lambda rc: rc["translation_norm"],
+                )
+                if stay_candidates:
+                    best = stay_candidates[0]
+                    print(f"  [safety] c2o spike detected (delta={max_delta:.2f}), using minimal-move action", flush=True)
+
+        if best["predicted_scores"] is not None:
+            prev_best_c2o = {k: v for k, v in best["predicted_scores"].items()
+                             if k.startswith("camera_to_object_")}
 
         next_image_path = frames_dir / f"frame_{step_idx + 1:04d}.png"
         next_response_path = blender_dir / f"frame_{step_idx + 1:04d}.json"

@@ -9,13 +9,14 @@ from typing import Mapping
 from src.scoring.evaluator import ALL_SUPPORTED_SCORE_KEYS
 
 DEFAULT_SCORE_WEIGHTS = {
-    "bbox_occupancy_ratio": 2.0,
+    "bbox_occupancy_ratio": 1.0,
     "bbox_margin_top": 1.0,
     "bbox_margin_bottom": 1.0,
     "bbox_margin_left": 1.0,
     "bbox_margin_right": 1.0,
     "bbox_aspect_ratio": 1.0,
-    "bbox_centroid_offset": 2.0,
+    "bbox_centroid_offset": 1.0,
+    "body_in_frame_ratio": 1.0,
 }
 
 TARGET_PRESETS: dict[str, dict[str, float]] = {
@@ -190,6 +191,10 @@ def compile_score_targets(
                 "off-center composition targets require occupancy and aspect_ratio "
                 "so bbox margins can be derived"
             )
+
+    # Always target full body in frame
+    if "body_in_frame_ratio" not in targets:
+        targets["body_in_frame_ratio"] = 1.0
 
     if not targets:
         raise ValueError(

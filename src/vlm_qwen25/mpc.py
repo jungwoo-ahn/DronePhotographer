@@ -16,6 +16,7 @@ from .rotation_utils import (
     apply_camera_local_action,
     make_camera_basis_from_forward_up,
     orthonormalize_forward_up,
+    relative_translation_camera_local,
     target_orientation_forward_up_camera_local,
     target_orientation_forward_up_world,
 )
@@ -293,6 +294,207 @@ def score_action_candidates(
                 )
             )
     return scored
+
+
+def score_action_candidates_vllm(
+    *,
+    llm,
+    processor,
+    image: Image.Image,
+    candidates: Sequence[CandidateAction],
+    target_score_keys: Sequence[str],
+    action_frame: str,
+    rotation_representation: str,
+    max_new_tokens: int,
+) -> list[CandidateScore]:
+    """Score candidates using vLLM for faster inference."""
+    from vllm import SamplingParams
+
+    sampling_params = SamplingParams(
+        temperature=0,
+        max_tokens=int(max_new_tokens),
+    )
+
+    prompts = []
+    for candidate in candidates:
+        user_prompt = build_user_prompt(
+            candidate.action_text,
+            target_score_keys=target_score_keys,
+            action_frame=action_frame,
+            rotation_representation=rotation_representation,
+        )
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image"},
+                    {"type": "text", "text": user_prompt},
+                ],
+            }
+        ]
+        text = processor.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+        prompts.append({
+            "prompt": text,
+            "multi_modal_data": {"image": image},
+        })
+
+    outputs = llm.generate(prompts, sampling_params)
+
+    scored: list[CandidateScore] = []
+    for output, candidate in zip(outputs, candidates):
+        generated_text = output.outputs[0].text
+        predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
+        scored.append(
+            CandidateScore(
+                candidate=candidate,
+                generated_text=generated_text,
+                predicted_scores=predicted_scores,
+            )
+        )
+    return scored
+
+
+def score_with_lookahead_vllm(
+    *,
+    llm,
+    processor,
+    image: Image.Image,
+    first_step_scores: list[CandidateScore],
+    current_position: np.ndarray,
+    current_forward: np.ndarray,
+    current_up: np.ndarray,
+    target_score_keys: Sequence[str],
+    score_targets: dict[str, float],
+    score_weights: dict[str, float],
+    action_frame: str,
+    rotation_representation: str,
+    max_new_tokens: int,
+    top_k: int = 30,
+    followup_per_candidate: int = 50,
+    followup_translation_values: Sequence[float] = (-0.15, 0.0, 0.15),
+    followup_rotation_values_deg: Sequence[float] = (-4.0, 0.0, 4.0),
+) -> dict[str, float]:
+    """2-step lookahead: score composed actions and return best lookahead error per first action.
+
+    Returns a dict mapping first-step action_text → best 2-step weighted target error.
+    """
+    import math
+    from vllm import SamplingParams
+    from .objective import weighted_target_error
+
+    sampling_params = SamplingParams(temperature=0, max_tokens=int(max_new_tokens))
+
+    # Take top-K first-step candidates by 1-step weighted target error
+    scored_with_err = []
+    for s in first_step_scores:
+        if s.predicted_scores is not None:
+            err, _ = weighted_target_error(s.predicted_scores, score_targets, score_weights)
+            scored_with_err.append((err, s))
+    scored_with_err.sort(key=lambda x: x[0])
+    top_candidates = [s for _, s in scored_with_err[:top_k]]
+    if not top_candidates:
+        return {}
+
+    followup_rotation_rad = [math.radians(d) for d in followup_rotation_values_deg]
+    followup_translation = list(followup_translation_values)
+
+    # Generate follow-up candidates from each top-K resulting pose
+    composed_prompts = []
+    composed_map: list[tuple[str, CandidateAction]] = []  # (first_action_text, followup_candidate)
+
+    for first in top_candidates:
+        fc = first.candidate
+        mid_pos = np.asarray(fc.target_position_world, dtype=np.float32)
+        mid_fwd = np.asarray(fc.target_forward_world, dtype=np.float32)
+        mid_up = np.asarray(fc.target_up_world, dtype=np.float32)
+
+        followups = generate_local_candidate_actions(
+            position=mid_pos,
+            forward=mid_fwd,
+            up=mid_up,
+            translation_values=followup_translation,
+            rotation_values_rad=followup_rotation_rad,
+            max_translation_norm=0.25,
+            max_rotation_norm_rad=math.radians(6.0),
+            action_frame=action_frame,
+            rotation_representation=rotation_representation,
+            disable_roll=True,
+        )
+        # Subsample if too many
+        if len(followups) > followup_per_candidate:
+            step = max(1, len(followups) // followup_per_candidate)
+            followups = followups[::step][:followup_per_candidate]
+
+        for fu in followups:
+            # Compose: current pose → final pose (fu's target) as single action
+            final_pos = np.asarray(fu.target_position_world, dtype=np.float32)
+            final_fwd = np.asarray(fu.target_forward_world, dtype=np.float32)
+            final_up = np.asarray(fu.target_up_world, dtype=np.float32)
+
+            if action_frame == "camera_local":
+                delta = relative_translation_camera_local(
+                    current_position, final_pos, current_forward, current_up,
+                )
+                target_fwd_out, target_up_out = target_orientation_forward_up_camera_local(
+                    current_forward, current_up, final_fwd, final_up,
+                )
+            else:  # world
+                delta = (final_pos - current_position).astype(np.float32)
+                target_fwd_out, target_up_out = target_orientation_forward_up_world(
+                    final_fwd, final_up,
+                )
+
+            composed_text = build_action_text(
+                delta_position=tuple(float(v) for v in delta.tolist()),
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+                target_forward=tuple(float(v) for v in target_fwd_out.tolist()),
+                target_up=tuple(float(v) for v in target_up_out.tolist()),
+            )
+
+            user_prompt = build_user_prompt(
+                composed_text,
+                target_score_keys=target_score_keys,
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+            )
+            messages = [
+                {"role": "user", "content": [
+                    {"type": "image"},
+                    {"type": "text", "text": user_prompt},
+                ]},
+            ]
+            text = processor.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True,
+            )
+            composed_prompts.append({
+                "prompt": text,
+                "multi_modal_data": {"image": image},
+            })
+            composed_map.append((fc.action_text, fu))
+
+    if not composed_prompts:
+        return {}
+
+    # Score all composed actions in one batch
+    outputs = llm.generate(composed_prompts, sampling_params)
+
+    # For each first action, find the best 2-step weighted target error
+    best_lookahead: dict[str, float] = {}
+    for (first_action_text, _fu), output in zip(composed_map, outputs):
+        gen_text = output.outputs[0].text
+        pred = parse_scores_from_text(gen_text, score_keys=target_score_keys)
+        if pred is None:
+            continue
+        err, _ = weighted_target_error(pred, score_targets, score_weights)
+        if first_action_text not in best_lookahead or err < best_lookahead[first_action_text]:
+            best_lookahead[first_action_text] = err
+
+    return best_lookahead
 
 
 def find_nearest_view(

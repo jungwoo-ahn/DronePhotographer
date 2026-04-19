@@ -106,4 +106,12 @@ class QwenVLScoreCollator:
             pad_token_id = self.processor.tokenizer.eos_token_id
         labels[labels == pad_token_id] = -100
         full_inputs["labels"] = labels
+
+        import torch
+        gt_values = torch.tensor(
+            [[sample["target_scores"].get(k, 0.0) for k in self.target_score_keys]
+             for sample in batch],
+            dtype=torch.float32,
+        )
+        full_inputs["gt_score_values"] = gt_values
         return full_inputs

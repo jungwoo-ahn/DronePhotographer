@@ -21,6 +21,7 @@ from src.vlm_qwen25.mpc import (
     load_planner_views,
     save_frame_copy,
     score_action_candidates,
+    score_action_candidates_vllm,
     write_rollout_video,
 )
 from src.vlm_qwen25.objective import (
@@ -60,6 +61,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output_root", type=str, default="runs/infer_mpc")
     parser.add_argument("--list_target_presets", action="store_true")
     parser.add_argument("--trust_remote_code", action="store_true")
+    parser.add_argument("--use_vllm", action="store_true", help="Use vLLM for faster inference")
+    parser.add_argument("--tensor_parallel_size", type=int, default=None,
+                        help="vLLM tensor parallel size (default: number of visible GPUs)")
     return parser.parse_args()
 
 
@@ -99,7 +103,7 @@ def main() -> None:
         cfg = yaml.safe_load(f)
 
     import torch
-    from transformers import AutoModelForImageTextToText, AutoProcessor
+    from transformers import AutoProcessor
 
     data_cfg = cfg["data"]
     model_cfg = cfg["model"]
@@ -136,13 +140,40 @@ def main() -> None:
         args.model_path,
         trust_remote_code=trust_remote_code,
     )
-    model = AutoModelForImageTextToText.from_pretrained(
-        args.model_path,
-        dtype=torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16"))),
-        device_map="auto",
-        trust_remote_code=trust_remote_code,
-    )
-    model.eval()
+
+    use_vllm = args.use_vllm
+    if use_vllm:
+        from vllm import LLM
+
+        tp_size = args.tensor_parallel_size
+        if tp_size is None:
+            tp_size = len(os.environ.get("CUDA_VISIBLE_DEVICES", "0").split(","))
+        model = LLM(
+            model=args.model_path,
+            dtype=model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16")),
+            tensor_parallel_size=tp_size,
+            trust_remote_code=trust_remote_code,
+            max_model_len=int(cfg.get("training", {}).get("max_length", 2048)),
+            limit_mm_per_prompt={"image": 1},
+            gpu_memory_utilization=0.9,
+        )
+        print(f"vLLM loaded (tensor_parallel_size={tp_size})", flush=True)
+    else:
+        from transformers import AutoModelForImageTextToText
+
+        model = AutoModelForImageTextToText.from_pretrained(
+            args.model_path,
+            dtype=torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16"))),
+            device_map="auto",
+            attn_implementation="flash_attention_2",
+            trust_remote_code=trust_remote_code,
+        )
+        model.eval()
+        try:
+            model = torch.compile(model, mode="reduce-overhead")
+            print("torch.compile applied (mode=reduce-overhead)", flush=True)
+        except Exception as e:
+            print(f"torch.compile skipped: {e}", flush=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = Path(args.output_root) / f"{timestamp}_mpc_rollout"
@@ -176,17 +207,29 @@ def main() -> None:
                 action_frame=action_frame,
                 rotation_representation=rotation_representation,
             )
-            scored_candidates = score_action_candidates(
-                model=model,
-                processor=processor,
-                image=current_image,
-                candidates=candidates,
-                target_score_keys=score_keys,
-                action_frame=action_frame,
-                rotation_representation=rotation_representation,
-                max_new_tokens=int(args.max_new_tokens),
-                candidate_batch_size=int(args.candidate_batch_size),
-            )
+            if use_vllm:
+                scored_candidates = score_action_candidates_vllm(
+                    llm=model,
+                    processor=processor,
+                    image=current_image,
+                    candidates=candidates,
+                    target_score_keys=score_keys,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                    max_new_tokens=int(args.max_new_tokens),
+                )
+            else:
+                scored_candidates = score_action_candidates(
+                    model=model,
+                    processor=processor,
+                    image=current_image,
+                    candidates=candidates,
+                    target_score_keys=score_keys,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                    max_new_tokens=int(args.max_new_tokens),
+                    candidate_batch_size=int(args.candidate_batch_size),
+                )
 
         ranked_candidates: list[dict[str, object]] = []
         for item in scored_candidates:
