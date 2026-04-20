@@ -1028,6 +1028,7 @@ def process_pair(
     pair_result = {
         "scene": scene_name,
         "scene_file": str(scene_blend),
+        "scene_scale": float(scene_scale),
         "object": object_name,
         "object_file": object_file,
         "incompatible": skip_remaining,
