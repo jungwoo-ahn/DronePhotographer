@@ -47,6 +47,7 @@ from src.vlm.api import (
     call_vlm,
     check_compatibility,
     estimate_scale_from_placement,
+    estimate_scale_multi_view,
 )
 from src.vlm.transforms import camera_to_world_adjustment
 
@@ -843,6 +844,37 @@ def process_pair(
                 return attempt["preview_image"]
         return None
 
+    def _scale_view_images(result_dict, max_views: int = 5):
+        """Collect up to max_views on-disk view images for multi-view scale voting.
+
+        Prefers visible views; falls back to any on-disk views if none are visible.
+        """
+        visible_imgs: list[str] = []
+        all_imgs: list[str] = []
+        for attempt in result_dict.get("attempts", []):
+            evals = {v.get("image"): v for v in attempt.get("view_evaluated", [])}
+            for v in attempt.get("view_images", []):
+                if not (v and Path(v).exists()):
+                    continue
+                all_imgs.append(v)
+                ev = evals.get(v)
+                if ev and ev.get("visible"):
+                    visible_imgs.append(v)
+            pv = attempt.get("preview_image")
+            if pv and Path(pv).exists() and pv not in all_imgs:
+                all_imgs.append(pv)
+        chosen = visible_imgs or all_imgs
+        # Dedupe preserving order
+        seen: set[str] = set()
+        out: list[str] = []
+        for p in chosen:
+            if p not in seen:
+                out.append(p)
+                seen.add(p)
+            if len(out) >= max_views:
+                break
+        return out
+
     def _any_view_visible(result_dict):
         """True if any view in the result had the object visible."""
         for attempt in result_dict.get("attempts", []):
@@ -907,9 +939,9 @@ def process_pair(
             if idx == 0 and not scale_check_done and scale_retries < max_scale_retries:
                 scale_check_done = True
                 config["_scale_locked"] = True
-                preview_img = _best_view_image(result)
+                view_imgs = _scale_view_images(result)
                 any_visible = _any_view_visible(result)
-                if not any_visible and preview_img:
+                if not any_visible and view_imgs:
                     # No view rendered a visible object: strong evidence scene is too big.
                     # Skip the VLM (it'll just say "not visible") and downscale aggressively.
                     vlm_scale = 0.3
@@ -918,10 +950,10 @@ def process_pair(
                         f"  Scale check: no visible views across {len(result.get('attempts', []))} "
                         f"attempts — treating as scene-too-big, applying x{vlm_scale}"
                     )
-                elif preview_img:
-                    log.info(f"  Running focused scale check on {preview_img}")
-                    vlm_scale, reasoning = estimate_scale_from_placement(
-                        image_path=preview_img,
+                elif view_imgs:
+                    log.info(f"  Running focused scale check on {len(view_imgs)} views")
+                    vlm_scale, reasoning = estimate_scale_multi_view(
+                        image_paths=view_imgs,
                         object_label=obj_label,
                         object_height_m=expected_h,
                         scene_name=scene_name,
@@ -930,7 +962,7 @@ def process_pair(
                 else:
                     vlm_scale, reasoning = 1.0, "no preview image"
 
-                if preview_img:
+                if view_imgs:
                     if abs(vlm_scale - 1.0) > 0.15:
                         new_scale = scene_scale * vlm_scale
                         # Clamp to reasonable range

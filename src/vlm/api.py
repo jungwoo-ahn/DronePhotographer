@@ -338,6 +338,47 @@ def estimate_scale_from_placement(
     return 1.0, "estimation failed"
 
 
+def estimate_scale_multi_view(
+    image_paths: list[str],
+    object_label: str,
+    object_height_m: float,
+    scene_name: str,
+    vlm_config: dict,
+) -> tuple[float, str]:
+    """Multi-view scale estimate: median of per-view scale_factors.
+
+    Calls estimate_scale_from_placement on each image and returns the
+    median scale_factor along with a summary of per-view responses.
+    Robust against outlier VLM responses (e.g. one view returning 10.0
+    because the camera happened to frame only ground texture).
+
+    Returns (scale_factor, reasoning). scale_factor=1.0 if image_paths empty.
+    """
+    import statistics as _stats
+    if not image_paths:
+        return 1.0, "no views"
+
+    per_view = []
+    for img in image_paths:
+        sf, r = estimate_scale_from_placement(
+            image_path=img,
+            object_label=object_label,
+            object_height_m=object_height_m,
+            scene_name=scene_name,
+            vlm_config=vlm_config,
+        )
+        per_view.append((sf, r))
+
+    scales = [sf for sf, _ in per_view]
+    median = _stats.median(scales)
+    summary = (
+        f"median of {len(scales)} views "
+        f"(values: {', '.join(f'{s:.2f}' for s in scales)}) → {median:.2f}"
+    )
+    log.info(f"VLM multi-view scale: {summary}")
+    return max(0.05, min(median, 10.0)), summary
+
+
 def check_compatibility(
     scene_preview_path: str,
     object_name: str,
