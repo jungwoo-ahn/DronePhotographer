@@ -1072,6 +1072,11 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--candidates", type=int, help="Override candidates_per_scene")
     p.add_argument("--max_iterations", type=int, help="Override max_iterations")
     p.add_argument("--run_name", help="Override run name")
+    p.add_argument("--resume", help="Resume an existing run: path to an existing "
+                                    "output dir. Skips pairs whose JSON already exists.")
+    p.add_argument("--retry_empty", action="store_true",
+                   help="With --resume, also redo pairs whose existing JSON has "
+                        "placements: [] (default: skip them too).")
     p.add_argument("--skip_compatibility", action="store_true",
                    help="Skip VLM scene-object compatibility check after first render")
     p.add_argument("--gpu_backend", default="AUTO",
@@ -1105,9 +1110,16 @@ def main():
         repo_root = Path(__file__).resolve().parent.parent
         blender_bin = str(repo_root / blender_bin)
 
-    timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
-    run_name = args.run_name or "vlm_placement"
-    output_dir = Path(config["output"]["output_dir"]) / f"{run_name}_{timestamp}"
+    if args.resume:
+        output_dir = Path(args.resume)
+        if not output_dir.is_dir():
+            log.error(f"--resume dir does not exist: {output_dir}")
+            sys.exit(1)
+        log.info(f"Resuming into existing output dir: {output_dir}")
+    else:
+        timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
+        run_name = args.run_name or "vlm_placement"
+        output_dir = Path(config["output"]["output_dir"]) / f"{run_name}_{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "previews").mkdir(exist_ok=True)
 
@@ -1154,6 +1166,7 @@ def main():
 
     # Build list of all (scene_blend, object_path) pairs
     pairs = []
+    skipped_resume = 0
     for scene_path in scene_files:
         scene_blend = find_scene_blend(scene_path)
         if scene_blend is None:
@@ -1161,7 +1174,22 @@ def main():
         sname = _scene_name(scene_blend)
         for obj_path in object_files:
             obj_name = _object_name(obj_path)
+            if args.resume:
+                existing = output_dir / f"{sname}__{obj_name}.json"
+                if existing.exists():
+                    try:
+                        prev = json.load(open(existing))
+                        has_placements = bool(prev.get("placements"))
+                    except Exception:
+                        has_placements = False
+                    if has_placements or not args.retry_empty:
+                        skipped_resume += 1
+                        continue
             pairs.append((scene_blend, str(obj_path), sname, obj_name))
+
+    if args.resume:
+        log.info(f"Resume: skipping {skipped_resume} pairs with existing JSONs "
+                 f"({'retrying empties' if args.retry_empty else 'including empties'})")
 
     total_pairs = len(pairs)
 
