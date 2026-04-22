@@ -116,7 +116,7 @@ def call_blender_worker(
     mode: str,
     object_file: str,
     extra_args: list[str] | None = None,
-    timeout: int = 600,
+    timeout: int = 1800,
 ) -> dict | None:
     worker_script = Path(__file__).resolve().parent / "vlm_place_worker.py"
     cmd = [
