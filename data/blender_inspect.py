@@ -9,12 +9,14 @@ Or:
 Prints a JSON verdict to stdout on a line prefixed ###INSPECT### so it can be
 parsed out of Blender's noisy output.
 
-Heuristics for "fake":
-  - total_polys < 1000                        (not enough geometry)
-  - mesh_count <= 3                           (few distinct objects)
-  - z_extent / max(x_extent, y_extent) < 0.05 (basically flat)
-  - one mesh accounts for > 80% of total polys AND has a large XY footprint
-    relative to the scene (likely a billboard/background plane)
+Verdict is "fake" only when BOTH of these fire together:
+  - total_polys < 1000    (not enough geometry to be a real 3D scene)
+  - mesh_count <= 3       (few distinct objects — consistent with a
+                           billboard plane + maybe a light/camera)
+
+Either signal alone produces false positives (stylized low-poly models;
+scenes dominated by one terrain plane). Billboard/image-plane assets
+reliably trip both.
 """
 import bpy
 import json
@@ -68,19 +70,18 @@ def main():
     poly_share = (biggest[1] / total_polys) if (biggest and total_polys) else 0.0
     footprint_share = (biggest[2] / scene_xy_area) if (biggest and scene_xy_area > 0) else 0.0
 
+    # Fake = billboard/image-plane. Require BOTH very low poly count AND few
+    # meshes — either alone produces too many false positives (a stylized
+    # low-poly model; a legit scene with a big terrain plane; a flat floor plan).
+    low_poly = total_polys < 1000
+    few_meshes = len(meshes) <= 3
     signals = []
-    if total_polys < 1000:
+    if low_poly:
         signals.append(f"low_poly_count({total_polys})")
-    if len(meshes) <= 3:
+    if few_meshes:
         signals.append(f"few_meshes({len(meshes)})")
-    if flatness < 0.05:
-        signals.append(f"flat(z/xy={flatness:.3f})")
-    if biggest and poly_share > 0.8 and footprint_share > 0.5:
-        signals.append(
-            f"dominant_plane({biggest[0]}: {poly_share:.0%} polys, {footprint_share:.0%} footprint)"
-        )
 
-    verdict = "fake" if signals else "ok"
+    verdict = "fake" if (low_poly and few_meshes) else "ok"
     report = {
         "verdict": verdict,
         "signals": signals,
