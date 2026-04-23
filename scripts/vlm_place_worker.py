@@ -93,6 +93,33 @@ def apply_scene_scale(scene_scale: float, imported_names: set) -> None:
     bpy.context.view_layer.update()
 
 
+def disable_heavy_modifiers_for_raycast() -> int:
+    """Disable PARTICLE_SYSTEM and SUBSURF modifiers in the current scene.
+
+    Raycasting over procedural geometry (grass/flower particle systems,
+    subdivided subsurf meshes) can be 40x+ slower than over the base mesh
+    (measured: 95ms/ray vs 2.4ms/ray on the Picnic scene). This is only
+    called in discovery mode, where particles contribute nothing — raycasts
+    hit particle instances but we care about the underlying terrain surface.
+
+    Returns the number of modifiers touched. Not reverted: discovery runs
+    in a one-shot Blender subprocess, so state dies with the process.
+    """
+    n = 0
+    for obj in bpy.context.scene.objects:
+        if obj.type != "MESH":
+            continue
+        for m in obj.modifiers:
+            if m.type in ("PARTICLE_SYSTEM", "SUBSURF"):
+                m.show_viewport = False
+                m.show_render = False
+                n += 1
+    if n:
+        print(f"Disabled {n} particle/subsurf modifiers for fast raycasting")
+        bpy.context.view_layer.update()
+    return n
+
+
 def emit_result(data: dict) -> None:
     print(f"{RESULT_PREFIX}{json.dumps(data)}", flush=True)
 
@@ -194,6 +221,9 @@ def mode_discover_candidates(args):
 
     # Hide imported for raycasting
     hidden = set_hidden(imported + [root], True)
+    # Disable particle systems and subsurf before raycasting — huge speedup
+    # on outdoor scenes with procedural grass/trees.
+    disable_heavy_modifiers_for_raycast()
     bpy.context.view_layer.update()
 
     try:
