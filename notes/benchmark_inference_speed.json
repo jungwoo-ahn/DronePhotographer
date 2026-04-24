@@ -1,0 +1,46 @@
+[
+  {
+    "label": "1_vanilla_hf",
+    "load_time_s": 1.57,
+    "n_candidates": 361,
+    "batch_size": 96,
+    "warmup_runs": 1,
+    "timed_runs": 3,
+    "times_s": [
+      27.401,
+      27.238,
+      26.747
+    ],
+    "mean_s": 27.129,
+    "std_s": 0.278
+  },
+  {
+    "label": "2_hf_sdpa_compile",
+    "load_time_s": 0.66,
+    "n_candidates": 361,
+    "batch_size": 96,
+    "warmup_runs": 1,
+    "timed_runs": 3,
+    "times_s": [
+      26.522,
+      26.587,
+      26.59
+    ],
+    "mean_s": 26.566,
+    "std_s": 0.032
+  },
+  {
+    "label": "3_vllm",
+    "load_time_s": 30.66,
+    "n_candidates": 361,
+    "warmup_runs": 1,
+    "timed_runs": 3,
+    "times_s": [
+      3.926,
+      3.922,
+      3.933
+    ],
+    "mean_s": 3.927,
+    "std_s": 0.005
+  }
+]

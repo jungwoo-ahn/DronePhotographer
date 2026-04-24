@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>mpc-inference-improvements 브랜치 총정리</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #f8fafc;
+  }
+  h1 {
+    font-size: 28px;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+  }
+  .branch-tag {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: white;
+  }
+  h2.data    { background: linear-gradient(90deg, #7c3aed, #a855f7); }
+  h2.train   { background: linear-gradient(90deg, #059669, #10b981); }
+  h2.infer   { background: linear-gradient(90deg, #dc2626, #f97316); }
+  h2.iter    { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+  h2.result  { background: linear-gradient(90deg, #0f172a, #334155); }
+  h3 {
+    margin-top: 28px;
+    color: #111827;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+  }
+  .box {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+  }
+  .problem {
+    background: #fef2f2;
+    border-left: 5px solid #dc2626;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .attempt {
+    background: #fffbeb;
+    border-left: 5px solid #d97706;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .result-ok {
+    background: #ecfdf5;
+    border-left: 5px solid #059669;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .result-bad {
+    background: #fef2f2;
+    border-left: 5px solid #b91c1c;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .insight {
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .label {
+    font-weight: 700;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 14px;
+    background: white;
+  }
+  th, td {
+    border: 1px solid #e5e7eb;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  th {
+    background: #f3f4f6;
+    font-weight: 600;
+  }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.best { background: #dcfce7; font-weight: 700; }
+  code, .mono {
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  pre {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 14px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .flow .step {
+    background: #e0e7ff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+  .flow .arrow { color: #6b7280; }
+  .iter-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .iter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .iter-num {
+    background: #2563eb;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge-new { background: #dcfce7; color: #166534; }
+  .badge-fail { background: #fee2e2; color: #991b1b; }
+  .badge-neutral { background: #e5e7eb; color: #374151; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .toc {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin: 18px 0;
+  }
+  .toc a { color: #2563eb; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .kv { display: grid; grid-template-columns: 180px 1fr; gap: 4px 16px; margin: 6px 0; }
+  .kv dt { font-weight: 600; color: #4b5563; }
+  .kv dd { margin: 0; }
+</style>
+</head>
+<body>
+
+<h1>mpc-inference-improvements 브랜치 총정리</h1>
+<span class="branch-tag">branch: mpc-inference-improvements · 10 commits · 2026-04-16 ~ 04-19</span>
+
+<div class="box">
+  <p><strong>한 줄 요약:</strong> Blender-in-the-loop MPC로 자연어 → 드론 카메라 포즈를 생성하는 시스템에서, "사람이 프레임에서 사라지면 모델이 붕괴" 하는 근본 문제를 해결하기 위해 <em>데이터 재설계 · 학습 loss 개선 · vLLM 가속 · safety guards · 2-step lookahead</em>를 도입하고 9번의 inference iteration으로 최적 config를 탐색.</p>
+</div>
+
+<div class="toc">
+  <strong>목차</strong>
+  <ol>
+    <li><a href="#context">0. 배경: 왜 이 작업이 필요했나</a></li>
+    <li><a href="#data">1. Data: 학습 데이터 재설계</a></li>
+    <li><a href="#train">2. Training: Score Head regression + v2 config</a></li>
+    <li><a href="#infer">3. Inference: vLLM + Safety guards + Lookahead</a></li>
+    <li><a href="#iter">4. 9번의 Iteration 탐색 여정</a></li>
+    <li><a href="#best">5. 최종 Best Results</a></li>
+    <li><a href="#future">6. 남은 문제 · 향후 방향</a></li>
+  </ol>
+</div>
+
+<h2 class="result" id="context">0. 배경: 왜 이 작업이 필요했나</h2>
+
+<div class="box">
+  <p>기존 베이스라인 모델 <code>qwen35_vl_2b_1xh200_with_c2o_5k</code> (Qwen3.5-VL 2B, c2o 포함, 1 epoch, 17.6k pairs)으로 4개 target에 대해 50-step MPC rollout을 돌린 결과:</p>
+  <table>
+    <thead><tr><th>Prompt</th><th>Init Error</th><th>Final Error</th><th>감소율</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td>front eye-level</td><td class="num">0.176</td><td class="num">0.068</td><td class="num">61%</td><td>중간에 에러 0.30 스파이크 반복</td></tr>
+      <tr><td>left hero</td><td class="num">0.354</td><td class="num">0.277</td><td class="num">22%</td><td>느린 수렴</td></tr>
+      <tr><td>high angle thirds</td><td class="num">0.396</td><td class="num">0.393</td><td class="num">1%</td><td>거의 수렴 안 됨</td></tr>
+      <tr><td>right cinematic</td><td class="num">0.380</td><td class="num">0.281</td><td class="num">26%</td><td>느린 수렴</td></tr>
+    </tbody>
+  </table>
+
+  <div class="problem">
+    <span class="label">핵심 문제:</span> 사람이 프레임 밖으로 나가면 모델 예측이 붕괴 (fy=-0.431 반복, mode collapse) → 잘못된 액션 → 더 나빠지는 악순환. step 10까지 잘 진행하다가 step 17에서 사람이 사라지고, 이후 복구 불가.
+  </div>
+
+  <div class="insight">
+    <span class="label">원인 추정:</span>
+    <ul>
+      <li><strong>데이터 문제:</strong> 17.6k pair는 2B 모델에 너무 적음, threshold 1.5m이라 큰 이동 학습 부족, occupancy 함정 (사람이 잘려도 occupancy가 낮으니 "더 가까이 가야 함"이라 판단)</li>
+      <li><strong>학습 문제:</strong> 1 epoch, cross-entropy on JSON tokens (수치 회귀엔 부적합)</li>
+      <li><strong>추론 문제:</strong> MPC greedy 특성 (단기 이득만), 사람 가시성 체크 없음, vLLM 속도 최적화 부재</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="data" id="data">1. Data: 학습 데이터 재설계 (v1 → v2)</h2>
+
+<div class="box">
+  <h3>1-1. 문제: "사람 프레임 잘림"을 학습 signal로 못 잡음</h3>
+  <div class="problem">
+    기존 <code>occupancy</code>(bbox 면적/이미지 면적, mask 기반) 하나만으로는 "적당한 크기로 잘 보이는 상태"와 "너무 가까워서 잘린 상태"가 구분 불가. 둘 다 occupancy &lt; target.
+  </div>
+
+  <h3>1-2. 해결책: body_in_frame_ratio 새 metric 도입</h3>
+  <div class="attempt">
+    <span class="label">정의:</span> <code>clipped_projected_area / full_projected_area</code><br>
+    사람의 3D bbox를 이미지 평면에 projection → 프레임 안쪽으로 잘라낸 면적 / 잘라내기 전 전체 면적.
+    <ul>
+      <li>사람이 프레임에 완전히 들어가면 1.0</li>
+      <li>절반 잘리면 0.5</li>
+      <li>완전히 밖이면 0.0</li>
+      <li>거리와 독립적 (멀리 있어도 잘리지 않으면 1.0)</li>
+    </ul>
+    <div class="flow">
+      <span class="step">3D body bbox</span><span class="arrow">→</span>
+      <span class="step">camera projection</span><span class="arrow">→</span>
+      <span class="step">frame clipping</span><span class="arrow">→</span>
+      <span class="step">area ratio</span>
+    </div>
+  </div>
+
+  <h3>1-3. 데이터 스케일 증대</h3>
+  <table>
+    <thead><tr><th>항목</th><th>v1 (기존)</th><th>v2 (신규)</th><th>증가</th></tr></thead>
+    <tbody>
+      <tr><td><code>distance_threshold</code> (pair 간 거리)</td><td class="num">1.5m</td><td class="num">3.0m</td><td>2×</td></tr>
+      <tr><td><code>max_pairs_per_image</code></td><td class="num">32</td><td class="num">64</td><td>2×</td></tr>
+      <tr><td>총 pair 개수</td><td class="num">~17.6k</td><td class="num">~338k</td><td class="best">19×</td></tr>
+      <tr><td>Score keys</td><td class="num">13</td><td class="num">14 (+body_in_frame_ratio)</td><td>+1</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1-4. 구현 파일</h3>
+  <dl class="kv">
+    <dt><code>scripts/add_body_in_frame_ratio.py</code></dt>
+    <dd>기존 annotation에 post-hoc으로 body_in_frame_ratio 필드를 추가하는 enrichment 스크립트 (+232 lines)</dd>
+    <dt><code>src/scoring/evaluator.py</code></dt>
+    <dd>annotation의 top-level 필드를 score로 꺼내 쓰는 <code>TOP_LEVEL_SCORE_KEYS</code> 카테고리 신설</dd>
+    <dt><code>configs/qwen35_vl_2b_4xh200_with_c2o_{5k,10k}_v2.yaml</code></dt>
+    <dd>14 score keys, distance_threshold=3.0, 4× H200 DeepSpeed ZeRO-3 setup</dd>
+  </dl>
+</div>
+
+<h2 class="train" id="train">2. Training: Score Head regression + v2</h2>
+
+<div class="box">
+  <h3>2-1. 문제: Cross-entropy on JSON tokens이 수치 회귀에 부적합</h3>
+  <div class="problem">
+    모델이 "<code>0.35</code>" vs "<code>0.36</code>"을 완전히 다른 token sequence로 보게 됨. 실제 score 차이는 0.01인데 loss는 동등. 정확한 수치 예측보다 텍스트 패턴 모방을 학습할 위험.
+  </div>
+
+  <h3>2-2. 해결책: Score Head auxiliary regression loss</h3>
+  <div class="attempt">
+    <ul>
+      <li><code>model.score_head = Linear(2048 → 14)</code> 추가</li>
+      <li>prompt 끝의 hidden state → 14개 float 직접 출력</li>
+      <li><code>total_loss = lm_loss + α · L1(score_head(h), gt_scores)</code>, α=0.5</li>
+      <li><code>ScoreRegressionTrainer</code> (train.py) · <code>gt_score_values</code> field (collator.py)</li>
+    </ul>
+  </div>
+
+  <h3>2-3. 학습 설정 변경</h3>
+  <table>
+    <thead><tr><th>항목</th><th>v1</th><th>v2</th></tr></thead>
+    <tbody>
+      <tr><td>Epochs</td><td>1</td><td class="best">3</td></tr>
+      <tr><td>GPU</td><td>1× H200</td><td class="best">4× H200 (DeepSpeed ZeRO-3)</td></tr>
+      <tr><td>Pairs</td><td>~17.6k</td><td class="best">~338k</td></tr>
+      <tr><td>Loss</td><td>LM only</td><td class="best">LM + 0.5 · L1(score_head)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2-4. 산출물</h3>
+  <dl class="kv">
+    <dt>v3-body 모델</dt>
+    <dd><code>runs/20260418_090117_qwen35_vl_2b_4xh200_with_c2o_5k_v2/final_converted</code> — 5k 이미지 · 3 epoch · 14 keys · score_head</dd>
+  </dl>
+
+  <div class="insight">
+    <span class="label">결과 선 요약:</span> v3-body 모델은 <strong>사람을 프레임에 유지</strong> 하는 데는 성공 (spike 없음). 하지만 <strong>"다가가기"를 못함</strong> (v1: 4.68→2.26m 접근, v3: 4.68→5.94m 오히려 멀어짐). body_in_frame_ratio에 과하게 weight가 실려서 conservative 해진 것으로 보임.
+  </div>
+</div>
+
+<h2 class="infer" id="infer">3. Inference: vLLM + Safety guards + Lookahead</h2>
+
+<div class="box">
+  <h3>3-1. vLLM 통합 — 속도</h3>
+  <div class="problem">
+    기존 HuggingFace <code>model.generate()</code>로 720 candidates 스코어링 = 매우 느림 (50 step MPC × 720 candidate = 36k forward pass)
+  </div>
+  <div class="attempt">
+    <ul>
+      <li><code>score_action_candidates_vllm()</code> 함수 신설 (<code>src/vlm_qwen25/mpc.py</code>, +202 lines)</li>
+      <li><code>--use_vllm</code>, <code>--tensor_parallel_size</code> 플래그</li>
+      <li>PagedAttention + continuous batching</li>
+      <li>Tokenizer 호환성 fix: TokenizersBackend → Qwen2TokenizerFast</li>
+    </ul>
+  </div>
+  <div class="result-ok">
+    <span class="label">결과:</span> 720 candidates를 <strong>~9초</strong>에 처리 (H200 1장). vLLM 설치로 transformers 5.5→4.57, torch 2.11→2.10 다운그레이드, flash-attn 제거 (vLLM 내장 flashinfer 사용).
+  </div>
+
+  <h3>3-2. Safety Guards — 3종 세트</h3>
+
+  <div class="attempt">
+    <span class="label">① c2o spike detection</span><br>
+    이전 step의 c2o 예측 값과 현재 best candidate의 c2o 예측 값을 비교 → fx/fy/fz 중 하나라도 0.5 이상 변하면 "spike"로 판정 → 가장 작은 이동의 candidate 선택.
+    <p><code>--disable_spike_detection</code> 플래그로 끄기 가능 (iter4에서 중요하게 쓰임).</p>
+  </div>
+
+  <div class="attempt">
+    <span class="label">② Margin 하한 필터</span><br>
+    예측된 <code>bbox_margin_top</code>, <code>bbox_margin_bottom</code>이 0.03 미만인 candidate를 제외. 사람이 상하단에서 잘리는 것을 방지. 모든 candidate가 조건 미달 시 skip (fallback).
+  </div>
+
+  <div class="attempt">
+    <span class="label">③ Adaptive step size</span><br>
+    현재 카메라-오브젝트 거리에 비례해서 step 스케일링.
+    <pre>step_scale = clamp(distance / 4.0, 0.3, 1.0)
+# 4m+ → × 1.0 (0.2m)
+# 2m  → × 0.5 (0.1m)
+# 1.2m → × 0.3 (0.06m, 최소)</pre>
+  </div>
+
+  <h3>3-3. 2-step Lookahead MPC</h3>
+  <div class="problem">
+    Greedy 1-step MPC는 "이번 스텝은 좋아보이지만 다음 스텝에서 사람이 사라지는" 경로를 예방 못함.
+  </div>
+  <div class="attempt">
+    <div class="flow">
+      <span class="step">720개 1st candidate</span><span class="arrow">→</span>
+      <span class="step">Top-30 선정</span><span class="arrow">→</span>
+      <span class="step">각각 50개 follow-up</span><span class="arrow">→</span>
+      <span class="step">기하 합성</span><span class="arrow">→</span>
+      <span class="step">재랭킹</span>
+    </div>
+    <ul>
+      <li><code>relative_translation_camera_local()</code>: current → final 위치를 현재 카메라 로컬로 변환</li>
+      <li><code>target_orientation_forward_up_camera_local()</code>: final orientation을 현재 카메라 로컬로</li>
+      <li><code>build_action_text()</code>: 합성된 단일 action text 생성</li>
+      <li>합성된 전체를 한 번에 vLLM으로 스코어링, <code>obj = 0.5·(1-step err) + 0.5·(lookahead err)</code>로 재랭킹</li>
+      <li>계산량: 720 + ~1500 = ~2,220 model calls/step (vLLM으로 감당 가능)</li>
+    </ul>
+  </div>
+
+  <h3>3-4. 발견한 버그 4종 (모두 수정)</h3>
+  <table>
+    <thead><tr><th>#</th><th>Bug</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>#1</td><td>spike detection이 bbox-only 모델에서 <code>max()</code> empty sequence crash</td><td><code>default=0.0</code> 추가</td></tr>
+      <tr><td>#3</td><td>Lookahead re-ranking에서 top-K 밖 candidate와 objective 스케일 불일치</td><td>전체 objective 통일</td></tr>
+      <tr><td>#5</td><td>Margin filter가 비-bbox 모델에서 no-op</td><td><code>score_keys</code> 체크 추가</td></tr>
+      <tr><td>#6</td><td>Lookahead에서 <code>action_frame="world"</code>일 때 좌표계 불일치</td><td>분기 처리</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3-5. E2E 파이프라인</h3>
+  <div class="flow">
+    <span class="step">자연어 prompt</span><span class="arrow">→</span>
+    <span class="step"><code>generate_target.py</code> (claude-cli)</span><span class="arrow">→</span>
+    <span class="step">target JSON (jq로 추출)</span><span class="arrow">→</span>
+    <span class="step"><code>infer_mpc_blender.py</code></span><span class="arrow">→</span>
+    <span class="step">50-step rollout</span>
+  </div>
+  <p><code>scripts/run_e2e_mpc.sh</code> · <code>scripts/install_blender.sh</code> (Blender 4.5 portable)로 한 커맨드에 돌아가도록.</p>
+
+  <div class="problem">
+    <span class="label">E2E에서 만난 문제:</span> generate_target이 LLM 기반이라 종종 <strong>불가능한 조합</strong>을 생성 — occupancy=0.6 + aspect_ratio=0.7 (프레임 초과), 하이앵글에서 uz&lt;0 (카메라 뒤집힘), |f|=0.85 (norm 미달). 현재는 <code>compile_score_targets()</code>에서 ValueError로 잡고 있지만 생성 단계 validation 필요.
+  </div>
+</div>
+
+<h2 class="iter" id="iter">4. 9번의 Iteration 탐색 여정 (2026-04-19)</h2>
+
+<div class="box">
+  <p>v3-body 모델이 나온 뒤, 어떤 inference config가 제일 잘 되는지 greedy search. 모두 <strong>Namaqualand</strong> scene, <strong>4 targets</strong> (front/left/high/right), Blender-in-the-loop.</p>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 1</span> v3-body 모델 첫 inference</strong>
+    <span class="badge badge-neutral">baseline</span>
+  </div>
+  <div class="problem"><strong>기대:</strong> v1의 spike 문제가 해결될 것. <strong>실제:</strong> front eye-level 0.185→0.181 (+2%, 수렴 거의 안 됨)</div>
+  <div class="insight">
+    <ul>
+      <li>✅ 사람이 프레임에 유지됨 (v1처럼 사라지는 스파이크 없음)</li>
+      <li>❌ 전체적으로 v1보다 수렴 속도가 느림 — 14 keys로 최적화 대상이 분산</li>
+      <li>❌ 카메라 drift 여전 (fz → 양수, low angle로 변함)</li>
+    </ul>
+  </div>
+  <p><strong>다음 시도:</strong> body_in_frame_ratio weight 1.0 → 0.5로 줄이고 step 0.5m → 0.3m으로.</p>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 2</span> body weight=0.5, step=0.3m</strong>
+    <span class="badge badge-neutral">tuning</span>
+  </div>
+  <div class="result-ok">
+    step=0.3m이 camera drift 감소 효과 (z변화 v1=-1.60m → it2=-0.33m), left hero 0.255 (v1의 0.277보다 나음)
+  </div>
+  <div class="result-bad">
+    <strong>치명적 발견:</strong> v3 모델이 dist 4.68→5.94m으로 <strong>오히려 멀어짐</strong>. v1은 4.68→2.26m로 잘 접근. <em>body_in_frame_ratio가 "프레임 유지"는 시키지만 "다가가기"를 방해</em>.
+  </div>
+  <div class="insight"><strong>핵심 인사이트:</strong> v1은 공격적 접근 O · 사람 놓침, v3는 사람 유지 O · 접근 X. 둘 다 문제.</div>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 3</span> v1 모델 + safety guards</strong>
+    <span class="badge badge-fail">실패 발견</span>
+  </div>
+  <p><strong>가설:</strong> v1의 공격적 예측 + guards로 잘림 방지하면 best of both worlds일 것.</p>
+  <div class="result-bad">
+    <strong>front eye-level 0.356 (50/50 steps 전부 spike)</strong>, 카메라가 위로 올라감(z: 8.43→11.58). <strong>spike detection이 v1의 공격적 이동을 막고 있음</strong>. v1은 c2o 예측이 불안정 → 매 step spike 감지 → 최소 이동 선택 → 전혀 진행 못함.
+  </div>
+  <p>부가 작업: <code>body_in_frame_ratio</code> auto-add crash 수정 (<code>compile_score_targets</code>에서 분기).</p>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 4</span> v1 + spike OFF + margin ON + step=0.3m</strong>
+    <span class="badge badge-new">left hero 역대 최고!</span>
+  </div>
+  <div class="result-ok">
+    <strong>left hero 0.122 (0 spikes!)</strong> — v1-orig의 0.277 대비 55% 개선. 4.7→2.5m 적극 접근, 사람 상체가 크게 잘 보이는 좋은 구도. <code>--disable_spike_detection</code> 플래그 추가.
+  </div>
+  <div class="result-bad">front eye-level은 여전히 0.323 (50 spikes). margin filter가 접근을 방해하는 듯.</div>
+  <p>부작용: for-loop race condition으로 GPU3가 실패해 2/4 target만 실행됨.</p>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 5</span> v1 orig params(step=0.12m, rot=3°) + margin filter</strong>
+    <span class="badge badge-new">high/right 최고!</span>
+  </div>
+  <div class="result-ok">
+    <strong>right cinematic 0.195</strong> (v1-orig 0.281 대비 30% 개선, 역대 최고) · <strong>high angle thirds 0.308</strong> (역대 최고)
+  </div>
+  <div class="insight">
+    <span class="label">발견:</span> <strong>최적 config는 target마다 다름</strong> — 단일 세팅으로 모든 target 최적화 불가.
+    <ul>
+      <li>front → v1-orig (no guards) 의 공격성</li>
+      <li>left hero → 큰 step (0.3m) + spike OFF</li>
+      <li>high / right → 작은 step (0.12m) + margin filter</li>
+    </ul>
+  </div>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 6</span> Multi-seed 일반화 테스트</strong>
+    <span class="badge badge-new">seed=123: 0.061 최고!</span>
+  </div>
+  <p>front eye-level에서 seed 42/123/999 비교.</p>
+  <table>
+    <thead><tr><th>Seed</th><th>Error</th><th>Dist</th><th>Spikes</th></tr></thead>
+    <tbody>
+      <tr><td>42</td><td colspan="3" style="color:#b91c1c">HUNG at step 37 (vLLM inference hang)</td></tr>
+      <tr><td class="best">123</td><td class="best num">0.061</td><td class="num">2.7→2.5m</td><td class="num">0</td></tr>
+      <tr><td>999</td><td class="num">0.150</td><td class="num">3.1→2.4m</td><td class="num">22</td></tr>
+      <tr><td>721 (ref)</td><td class="num">0.068</td><td class="num">4.7→2.3m</td><td class="num">15</td></tr>
+    </tbody>
+  </table>
+  <div class="insight">
+    ⚠️ <strong>초기 위치에 대한 robustness 낮음</strong> (0.061~0.150, 2.4× 차이). vLLM이 특정 이미지에서 hang 하는 문제 재발 — timeout 필요.
+  </div>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 7</span> seed=123을 다른 target에도 적용</strong>
+    <span class="badge badge-fail">generalization 실패</span>
+  </div>
+  <div class="result-bad">
+    seed=123이 <strong>front에서만 좋음</strong>. 다른 target에서는 seed=721보다 나쁨.
+    <ul>
+      <li>left hero: 0.271 (vs 0.122) — 50 spikes</li>
+      <li>high angle: 0.356 (vs 0.308) — 50 spikes</li>
+      <li>right cinematic: 0.206 (vs 0.195)</li>
+    </ul>
+  </div>
+  <div class="insight">
+    seed=123의 초기 위치(dist=2.7m, 가까움)가 front에는 유리하지만, 큰 각도 이동이 필요한 target에는 불리. <strong>초기 위치와 목표 포즈의 궁합</strong>이 성능을 좌우.
+  </div>
+  <div class="result-ok">부가 발견: 새 target <strong>three-quarter above 0.168</strong> (spike 1개) — 양호한 new baseline.</div>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 8</span> 100 steps convergence test</strong>
+    <span class="badge badge-new">right cinematic 0.067 역대 최고!</span>
+  </div>
+  <table>
+    <thead><tr><th>Target</th><th>50 steps</th><th>100 steps</th><th>개선</th></tr></thead>
+    <tbody>
+      <tr><td>right cinematic</td><td class="num">0.110</td><td class="best num">0.067</td><td>best ever</td></tr>
+      <tr><td>left hero</td><td class="num">0.294</td><td class="num">0.178</td><td>39%</td></tr>
+      <tr><td>high angle thirds</td><td class="num">0.440</td><td class="num">0.320</td><td>27%</td></tr>
+      <tr><td>front eye-level</td><td class="num">0.284</td><td class="num">0.282</td><td>0% (100 spikes)</td></tr>
+    </tbody>
+  </table>
+  <div class="insight">
+    수렴이 느린 target일수록 steps 증가 효과 큼. 단 front는 이 config(v1+spikeOFF+margin)에서는 근본적으로 안 됨 — v1-orig(spike 허용)에서만 수렴.
+  </div>
+</div>
+
+<div class="iter-card">
+  <div class="iter-header">
+    <strong><span class="iter-num">Iter 9</span> Per-target best config × 100 steps</strong>
+    <span class="badge badge-fail">diminishing returns</span>
+  </div>
+  <table>
+    <thead><tr><th>Config</th><th>50</th><th>100</th><th>Prev Best</th></tr></thead>
+    <tbody>
+      <tr><td>front v1-orig</td><td class="num">0.115</td><td class="num">0.117</td><td class="num">0.061</td></tr>
+      <tr><td>left step=0.3</td><td class="num">0.237</td><td class="num">0.206</td><td class="num">0.122</td></tr>
+      <tr><td>high spikeOFF</td><td class="num">0.341</td><td class="num">0.326</td><td class="num">0.308</td></tr>
+      <tr><td>front seed=123</td><td class="num">0.093 ✓</td><td class="num">0.143 ✗</td><td class="num">0.061</td></tr>
+    </tbody>
+  </table>
+  <div class="result-bad">
+    <strong>Overshooting:</strong> front s=123이 50 steps에서 0.093이었는데 100 steps에서 0.143으로 <strong>악화</strong>. 수렴 후 발산. MPC greedy의 한계 — 최적점을 지나치면 되돌아오지 못함.
+  </div>
+  <div class="insight">
+    <strong>9 iterations 루프 종료 결정:</strong> config tuning만으로는 추가 개선 없음. 근본 개선은 모델 학습 또는 MPC 알고리즘 변경이 필요.
+  </div>
+</div>
+
+<h2 class="result" id="best">5. 최종 Best Results</h2>
+
+<div class="box">
+  <table>
+    <thead>
+      <tr>
+        <th>Target</th>
+        <th>Best Error</th>
+        <th>초기 Error</th>
+        <th>감소율</th>
+        <th>Config</th>
+        <th>Seed</th>
+        <th>Steps</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>front eye-level</td><td class="best num">0.061</td><td class="num">~0.18</td><td class="num">~66%</td><td>v1 + margin + spikeOFF</td><td>123</td><td>50</td></tr>
+      <tr><td>left hero</td><td class="best num">0.122</td><td class="num">~0.35</td><td class="num">~65%</td><td>v1 + spikeOFF + step=0.3m</td><td>721</td><td>50</td></tr>
+      <tr><td>high angle thirds</td><td class="best num">0.308</td><td class="num">~0.40</td><td class="num">~23%</td><td>v1 + margin</td><td>721</td><td>50</td></tr>
+      <tr><td>right cinematic</td><td class="best num">0.067</td><td class="num">~0.38</td><td class="num">~82%</td><td>v1 + margin + spikeOFF</td><td>721</td><td>100</td></tr>
+      <tr><td>three-quarter above</td><td class="best num">0.168</td><td>-</td><td>-</td><td>v1 + margin + spikeOFF</td><td>123</td><td>50</td></tr>
+    </tbody>
+  </table>
+
+  <div class="insight">
+    <strong>핵심 결론 5가지:</strong>
+    <ol>
+      <li><strong>v1 모델이 v3-body 모델보다 일관되게 나음</strong> — 추가 학습(epochs↑, pairs↑, body_in_frame_ratio, score_head)이 오히려 <em>접근 능력</em>을 해쳤을 가능성.</li>
+      <li><strong>최적 config는 target마다 다름</strong> — 단일 "best config"는 존재하지 않음.</li>
+      <li><strong>margin filter는 대체로 도움됨</strong> (spike 감소, 안정성 증가).</li>
+      <li><strong>spike detection은 v1 모델에서 해로움</strong> — 공격적 이동을 억제.</li>
+      <li><strong>Step size 0.12m이 대부분의 target에 최적</strong> — 단 left hero는 큰 이동 필요해서 0.3m이 낫다.</li>
+    </ol>
+  </div>
+</div>
+
+<h2 class="result" id="future">6. 남은 문제 · 향후 방향</h2>
+
+<div class="box">
+  <h3>6-1. 여전히 남은 근본 문제</h3>
+  <div class="problem">
+    <ul>
+      <li><strong>카메라 drift (MPC greedy 특성):</strong> 매 step 아래로 약간 이동이 단기 error 감소 → 누적되어 target은 eye-level인데 low angle로 끝남</li>
+      <li><strong>Overshooting:</strong> 수렴 후에도 step을 계속 진행하면 최적점을 지나쳐 악화 (iter9)</li>
+      <li><strong>vLLM inference hang:</strong> 특정 이미지에서 <code>model.generate()</code>가 멈춤 (iter6 seed=42)</li>
+      <li><strong>어려운 target 수렴 불가:</strong> left hero 같이 현재 위치에서 큰 각도 전환 필요한 target은 safety guards로 catastrophic failure는 막지만 수렴 X</li>
+      <li><strong>v3-body의 접근 능력 부족:</strong> body_in_frame_ratio weight가 다른 score들의 영향력을 희석시켜 "다가가기" 행동을 약하게 만듦</li>
+    </ul>
+  </div>
+
+  <h3>6-2. 단기 개선 (코드 수정만)</h3>
+  <div class="attempt">
+    <ul>
+      <li><strong>Coarse-to-fine 2-phase:</strong> 규칙 기반으로 대략 위치 먼저 잡기 (3D geometry 활용) → VLM MPC로 정밀 조정</li>
+      <li><strong>더 큰 step size 허용:</strong> translation_values에 0.4~0.5m 포함 (멀 때만)</li>
+      <li><strong>Drift 방지:</strong> target fz=0이면 z축 이동에 penalty</li>
+      <li><strong>Early stopping:</strong> error가 threshold 이하로 떨어지면 종료 — overshooting 방지</li>
+      <li><strong>vLLM timeout:</strong> 특정 시간 내 generate 안되면 fallback</li>
+      <li><strong>generate_target.py validation 강화:</strong> occupancy+aspect 조합, c2o orthogonality 체크</li>
+    </ul>
+  </div>
+
+  <h3>6-3. 중기 개선 (학습 재설계)</h3>
+  <div class="attempt">
+    <ul>
+      <li><strong>body_in_frame_ratio를 hard constraint로:</strong> target score가 아닌 필터로만 사용 → 접근 능력 보존</li>
+      <li><strong>image_j 활용:</strong> 현재는 image_i + action → predict j scores (j 안 봄). (image_i, image_j) pair pre-training으로 3D 추론 능력 향상</li>
+      <li><strong>Multi-scene 학습:</strong> best25.json 활용 — 현재 Namaqualand 단일 scene</li>
+      <li><strong>Pair sampling 개선:</strong> 거리 균등 분포 + hard negative mining</li>
+      <li><strong>Score Head weight α 조정:</strong> α=0.5이 너무 커서 LM loss 학습을 희석했을 가능성</li>
+    </ul>
+  </div>
+
+  <h3>6-4. 장기 (아키텍처)</h3>
+  <div class="attempt">
+    <ul>
+      <li><strong>규칙 기반 초기 positioning + VLM refinement</strong></li>
+      <li><strong>거리/각도 정보를 prompt에 명시적으로 입력</strong></li>
+      <li><strong>더 큰 모델 (7B/9B)</strong>으로 3D 추론 능력 향상</li>
+      <li><strong>Non-greedy planner:</strong> MPC 대신 A* / sampling-based planner로 long-horizon 최적화</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box" style="margin-top:40px; background:#f1f5f9; text-align:center;">
+  <p><strong>브랜치 통계:</strong> 10 commits · 25 files · +1,785 / -51 lines</p>
+  <p><strong>소요 시간:</strong> 2026-04-16 (기반 작업 1일) + 2026-04-19 (iteration 탐색 1일)</p>
+</div>
+
+</body>
+</html>

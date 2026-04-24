@@ -27,6 +27,8 @@ from src.vlm_qwen25.mpc import (
 from src.vlm_qwen25.objective import (
     available_target_presets,
     build_target_objective,
+    build_target_objective_schedule,
+    objective_for_step,
     preset_specs,
     weighted_target_error,
 )
@@ -51,6 +53,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target_preset", type=str, default="centered_50")
     parser.add_argument("--target_json", type=str, default=None)
     parser.add_argument("--score_weights_json", type=str, default=None)
+    parser.add_argument(
+        "--objective_schedule_json",
+        type=str,
+        default=None,
+        help=(
+            "Optional JSON list of phases (inline or path). Each phase: "
+            "{'until_step': int, 'score_weights': {key: weight, ...}}. "
+            "Overrides --score_weights_json when provided; phases apply sequentially by step index."
+        ),
+    )
+    parser.add_argument(
+        "--candidate_mode",
+        type=str,
+        choices=["grid", "axis"],
+        default="grid",
+        help="'grid' = full cross-product over axes (default); 'axis' = one axis at a time for finer per-axis resolution.",
+    )
     parser.add_argument("--translation_penalty_weight", type=float, default=0.05)
     parser.add_argument("--rotation_penalty_weight", type=float, default=0.05)
     parser.add_argument("--parse_failure_penalty", type=float, default=10.0)
@@ -110,11 +129,22 @@ def main() -> None:
     action_frame = str(data_cfg.get("action_frame", "camera_local"))
     rotation_representation = str(data_cfg.get("rotation_representation", "orientation_6d"))
     score_keys = list(data_cfg.get("target_score_keys", []))
-    target_objective = build_target_objective(
-        preset_name=args.target_preset,
-        target_json_text=args.target_json,
-        score_weights_json_text=args.score_weights_json,
-    )
+
+    if args.objective_schedule_json:
+        objective_schedule = build_target_objective_schedule(
+            preset_name=args.target_preset,
+            target_json_text=args.target_json,
+            schedule_json_text=args.objective_schedule_json,
+            default_weights_json_text=args.score_weights_json,
+        )
+        target_objective = objective_schedule[0][1]
+    else:
+        target_objective = build_target_objective(
+            preset_name=args.target_preset,
+            target_json_text=args.target_json,
+            score_weights_json_text=args.score_weights_json,
+        )
+        objective_schedule = [(int(args.num_steps) + 1, target_objective)]
 
     unsupported_targets = sorted(set(target_objective.score_targets) - set(score_keys))
     if unsupported_targets:
@@ -187,13 +217,15 @@ def main() -> None:
     frame_paths.append(str(frames_dir / "frame_0000.png"))
 
     steps: list[dict[str, object]] = []
+    initial_objective = objective_for_step(objective_schedule, 0)
     initial_error, initial_error_by_key = weighted_target_error(
         current_view.scores,
-        target_objective.score_targets,
-        target_objective.score_weights,
+        initial_objective.score_targets,
+        initial_objective.score_weights,
     )
 
     for step_idx in range(int(args.num_steps)):
+        step_objective = objective_for_step(objective_schedule, step_idx)
         with Image.open(current_view.image_path) as current_image_raw:
             current_image = current_image_raw.convert("RGB")
             candidates = generate_local_candidate_actions(
@@ -206,6 +238,7 @@ def main() -> None:
                 max_rotation_norm_rad=max_rotation_norm_rad,
                 action_frame=action_frame,
                 rotation_representation=rotation_representation,
+                mode=str(args.candidate_mode),
             )
             if use_vllm:
                 scored_candidates = score_action_candidates_vllm(
@@ -237,8 +270,8 @@ def main() -> None:
             if parse_success:
                 target_error, error_by_key = weighted_target_error(
                     item.predicted_scores,
-                    target_objective.score_targets,
-                    target_objective.score_weights,
+                    step_objective.score_targets,
+                    step_objective.score_weights,
                 )
             else:
                 target_error = float(args.parse_failure_penalty)
@@ -281,8 +314,8 @@ def main() -> None:
         next_view = views[snap_index]
         actual_error, actual_error_by_key = weighted_target_error(
             next_view.scores,
-            target_objective.score_targets,
-            target_objective.score_weights,
+            step_objective.score_targets,
+            step_objective.score_weights,
         )
 
         frame_path = frames_dir / f"frame_{step_idx + 1:04d}.png"
@@ -292,6 +325,8 @@ def main() -> None:
         steps.append(
             {
                 "step_index": step_idx,
+                "objective_name": step_objective.name,
+                "objective_weights": step_objective.score_weights,
                 "current_view_index": current_view.index,
                 "current_image_path": str(current_view.image_path),
                 "current_actual_scores": current_view.scores,
@@ -313,18 +348,28 @@ def main() -> None:
         fps=int(args.video_fps),
     )
 
+    final_objective = objective_for_step(objective_schedule, max(0, int(args.num_steps) - 1))
     summary = {
         "config_path": str(args.config),
         "model_path": str(args.model_path),
         "action_frame": action_frame,
         "rotation_representation": rotation_representation,
         "score_keys": score_keys,
+        "candidate_mode": str(args.candidate_mode),
         "target_objective": {
             "name": target_objective.name,
             "raw_spec": target_objective.raw_spec,
             "score_targets": target_objective.score_targets,
             "score_weights": target_objective.score_weights,
         },
+        "objective_schedule": [
+            {
+                "until_step": until_step,
+                "name": objective.name,
+                "score_weights": objective.score_weights,
+            }
+            for until_step, objective in objective_schedule
+        ],
         "rollout": {
             "start_index": int(args.start_index),
             "num_steps": int(args.num_steps),
@@ -349,8 +394,8 @@ def main() -> None:
             "final_target_error": float(
                 weighted_target_error(
                     current_view.scores,
-                    target_objective.score_targets,
-                    target_objective.score_weights,
+                    final_objective.score_targets,
+                    final_objective.score_weights,
                 )[0]
             ),
         },

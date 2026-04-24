@@ -31,6 +31,8 @@ from src.vlm_qwen25.mpc import (
 from src.vlm_qwen25.objective import (
     available_target_presets,
     build_target_objective,
+    build_target_objective_schedule,
+    objective_for_step,
     preset_specs,
     weighted_target_error,
 )
@@ -58,6 +60,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target_preset", type=str, default="centered_50")
     parser.add_argument("--target_json", type=str, default=None)
     parser.add_argument("--score_weights_json", type=str, default=None)
+    parser.add_argument(
+        "--objective_schedule_json",
+        type=str,
+        default=None,
+        help=(
+            "Optional JSON list of phases (inline or path). Each phase: "
+            "{'until_step': int, 'score_weights': {key: weight, ...}}. "
+            "Overrides --score_weights_json when provided; phases apply sequentially by step index."
+        ),
+    )
+    parser.add_argument(
+        "--candidate_mode",
+        type=str,
+        choices=["grid", "axis"],
+        default="grid",
+        help="'grid' = full cross-product over axes (default); 'axis' = one axis at a time for finer per-axis resolution.",
+    )
     parser.add_argument("--translation_penalty_weight", type=float, default=0.0)
     parser.add_argument("--rotation_penalty_weight", type=float, default=0.0)
     parser.add_argument("--parse_failure_penalty", type=float, default=10.0)
@@ -393,16 +412,32 @@ def main() -> None:
     resolution = options.get("resolution", [1024, 768])
     frame_aspect_ratio = float(resolution[0]) / float(resolution[1])
 
-    target_objective = build_target_objective(
-        preset_name=args.target_preset,
-        target_json_text=args.target_json,
-        score_weights_json_text=args.score_weights_json,
-        frame_aspect_ratio=frame_aspect_ratio,
-    )
-    # Auto-add body_in_frame_ratio target if model supports it
-    if "body_in_frame_ratio" in score_keys and "body_in_frame_ratio" not in target_objective.score_targets:
-        target_objective.score_targets["body_in_frame_ratio"] = 1.0
-        target_objective.score_weights["body_in_frame_ratio"] = target_objective.score_weights.get("body_in_frame_ratio", 1.0)
+    if args.objective_schedule_json:
+        objective_schedule = build_target_objective_schedule(
+            preset_name=args.target_preset,
+            target_json_text=args.target_json,
+            schedule_json_text=args.objective_schedule_json,
+            default_weights_json_text=args.score_weights_json,
+            frame_aspect_ratio=frame_aspect_ratio,
+        )
+        target_objective = objective_schedule[0][1]
+    else:
+        target_objective = build_target_objective(
+            preset_name=args.target_preset,
+            target_json_text=args.target_json,
+            score_weights_json_text=args.score_weights_json,
+            frame_aspect_ratio=frame_aspect_ratio,
+        )
+        objective_schedule = [(int(args.num_steps) + 1, target_objective)]
+
+    # Auto-add body_in_frame_ratio target if model supports it. Apply to every phase.
+    if "body_in_frame_ratio" in score_keys:
+        for _, phase_objective in objective_schedule:
+            if "body_in_frame_ratio" not in phase_objective.score_targets:
+                phase_objective.score_targets["body_in_frame_ratio"] = 1.0
+                phase_objective.score_weights["body_in_frame_ratio"] = (
+                    phase_objective.score_weights.get("body_in_frame_ratio", 1.0)
+                )
     unsupported_targets = sorted(set(target_objective.score_targets) - set(score_keys))
     if unsupported_targets:
         raise ValueError(
@@ -570,8 +605,8 @@ def main() -> None:
         )
         initial_target_error, initial_error_by_key = weighted_target_error(
             initial_scores,
-            target_objective.score_targets,
-            target_objective.score_weights,
+            objective_for_step(objective_schedule, 0).score_targets,
+            objective_for_step(objective_schedule, 0).score_weights,
         )
 
     frame_paths = [str(initial_image_path)]
@@ -582,6 +617,7 @@ def main() -> None:
     prev_best_c2o = None  # for spike detection (fix #1)
 
     for step_idx in range(int(args.num_steps)):
+        step_objective = objective_for_step(objective_schedule, step_idx)
         # --- Fix #4: adaptive step size based on distance to subject ---
         cam_pos = np.asarray(current_pose["position"], dtype=np.float32)
         dist_to_obj = float(np.linalg.norm(cam_pos - object_position))
@@ -605,6 +641,7 @@ def main() -> None:
                 action_frame=action_frame,
                 disable_roll=bool(args.disable_roll),
                 rotation_representation=rotation_representation,
+                mode=str(args.candidate_mode),
             )
             candidates = filter_candidates_by_environment(
                 candidates=candidates,
@@ -655,8 +692,8 @@ def main() -> None:
             if parse_success:
                 target_error, error_by_key = weighted_target_error(
                     item.predicted_scores,
-                    target_objective.score_targets,
-                    target_objective.score_weights,
+                    step_objective.score_targets,
+                    step_objective.score_weights,
                 )
             else:
                 target_error = float(args.parse_failure_penalty)
@@ -699,8 +736,8 @@ def main() -> None:
                 current_forward=np.asarray(current_pose["forward"], dtype=np.float32),
                 current_up=np.asarray(current_pose["up"], dtype=np.float32),
                 target_score_keys=score_keys,
-                score_targets=target_objective.score_targets,
-                score_weights=target_objective.score_weights,
+                score_targets=step_objective.score_targets,
+                score_weights=step_objective.score_weights,
                 action_frame=action_frame,
                 rotation_representation=rotation_representation,
                 max_new_tokens=int(args.max_new_tokens),
@@ -789,13 +826,15 @@ def main() -> None:
             )
             actual_target_error, actual_error_by_key = weighted_target_error(
                 next_scores,
-                target_objective.score_targets,
-                target_objective.score_weights,
+                step_objective.score_targets,
+                step_objective.score_weights,
             )
 
         steps.append(
             {
                 "step_index": step_idx,
+                "objective_name": step_objective.name,
+                "objective_weights": step_objective.score_weights,
                 "current_image_path": str(current_image_path),
                 "current_pose": current_pose,
                 "current_actual_scores": current_scores,
@@ -827,11 +866,12 @@ def main() -> None:
         fps=int(args.video_fps),
     )
 
+    final_objective = objective_for_step(objective_schedule, max(0, int(args.num_steps) - 1))
     summary_image_path = write_rollout_summary_image(
         frame_paths=frame_paths,
         steps=steps,
-        score_targets=target_objective.score_targets,
-        score_weights=target_objective.score_weights,
+        score_targets=final_objective.score_targets,
+        score_weights=final_objective.score_weights,
         output_dir=output_dir,
     )
     if summary_image_path:
@@ -842,8 +882,8 @@ def main() -> None:
     if current_scores is not None:
         final_target_error, final_error_by_key = weighted_target_error(
             current_scores,
-            target_objective.score_targets,
-            target_objective.score_weights,
+            final_objective.score_targets,
+            final_objective.score_weights,
         )
     summary = {
         "run_dir": str(run_dir),
@@ -858,12 +898,21 @@ def main() -> None:
         "score_keys": score_keys,
         "evaluate_with_detector": bool(args.evaluate_with_detector),
         "detection_caption": caption,
+        "candidate_mode": str(args.candidate_mode),
         "target_objective": {
             "name": target_objective.name,
             "raw_spec": target_objective.raw_spec,
             "score_targets": target_objective.score_targets,
             "score_weights": target_objective.score_weights,
         },
+        "objective_schedule": [
+            {
+                "until_step": until_step,
+                "name": objective.name,
+                "score_weights": objective.score_weights,
+            }
+            for until_step, objective in objective_schedule
+        ],
         "environment": {
             "object_position": [float(value) for value in object_position.tolist()],
             "camera_radius_range": camera_radius_range,

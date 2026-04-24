@@ -99,6 +99,86 @@ def _rotation_local_to_world(rotvec_local: np.ndarray, forward: np.ndarray, up: 
     return (basis @ np.asarray(rotvec_local, dtype=np.float32)).astype(np.float32)
 
 
+def _build_candidate_from_deltas(
+    *,
+    position: np.ndarray,
+    forward: np.ndarray,
+    up: np.ndarray,
+    delta_position_local: np.ndarray,
+    delta_rotation_local: np.ndarray,
+    action_frame: str,
+    rotation_representation: str,
+) -> CandidateAction:
+    translation_norm = float(np.linalg.norm(delta_position_local))
+    rotation_norm_rad = float(np.linalg.norm(delta_rotation_local))
+
+    next_position_world, next_forward_world, next_up_world = apply_camera_local_action(
+        position=position,
+        forward=forward,
+        up=up,
+        delta_position_local=delta_position_local,
+        delta_rotation_local=delta_rotation_local,
+    )
+
+    if action_frame == "camera_local":
+        delta_position_for_text = tuple(delta_position_local.tolist())
+        if rotation_representation == "orientation_6d":
+            target_forward, target_up = target_orientation_forward_up_camera_local(
+                forward,
+                up,
+                next_forward_world,
+                next_up_world,
+            )
+            action_text = build_action_text(
+                delta_position=delta_position_for_text,
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+                target_forward=tuple(target_forward.tolist()),
+                target_up=tuple(target_up.tolist()),
+            )
+        else:
+            action_text = build_action_text(
+                delta_position=delta_position_for_text,
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+                delta_rotation=tuple(delta_rotation_local.tolist()),
+            )
+    else:
+        basis = make_camera_basis_from_forward_up(forward, up)
+        delta_position_world = (basis @ delta_position_local).astype(np.float32)
+        if rotation_representation == "orientation_6d":
+            target_forward, target_up = target_orientation_forward_up_world(
+                next_forward_world,
+                next_up_world,
+            )
+            action_text = build_action_text(
+                delta_position=tuple(delta_position_world.tolist()),
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+                target_forward=tuple(target_forward.tolist()),
+                target_up=tuple(target_up.tolist()),
+            )
+        else:
+            delta_rotation_world = _rotation_local_to_world(delta_rotation_local, forward, up)
+            action_text = build_action_text(
+                delta_position=tuple(delta_position_world.tolist()),
+                action_frame=action_frame,
+                rotation_representation=rotation_representation,
+                delta_rotation=tuple(delta_rotation_world.tolist()),
+            )
+
+    return CandidateAction(
+        action_text=action_text,
+        delta_position_local=tuple(float(v) for v in delta_position_local.tolist()),
+        delta_rotation_local=tuple(float(v) for v in delta_rotation_local.tolist()),
+        target_position_world=tuple(float(v) for v in next_position_world.tolist()),
+        target_forward_world=tuple(float(v) for v in next_forward_world.tolist()),
+        target_up_world=tuple(float(v) for v in next_up_world.tolist()),
+        translation_norm=translation_norm,
+        rotation_norm_rad=rotation_norm_rad,
+    )
+
+
 def generate_local_candidate_actions(
     *,
     position: np.ndarray,
@@ -111,6 +191,7 @@ def generate_local_candidate_actions(
     action_frame: str,
     rotation_representation: str,
     disable_roll: bool = False,
+    mode: str = "grid",
 ) -> list[CandidateAction]:
     translation_values = [float(value) for value in translation_values]
     rotation_values_rad = [float(value) for value in rotation_values_rad]
@@ -124,89 +205,90 @@ def generate_local_candidate_actions(
         raise ValueError("action_frame must be 'camera_local' or 'world'")
     if rotation_representation not in {"orientation_6d", "rotvec"}:
         raise ValueError("rotation_representation must be 'orientation_6d' or 'rotvec'")
+    if mode not in {"grid", "axis"}:
+        raise ValueError("mode must be 'grid' or 'axis'")
 
     dedup: dict[str, CandidateAction] = {}
-    for dx in translation_values:
-        for dy in translation_values:
-            for dz in translation_values:
-                delta_position_local = np.asarray([dx, dy, dz], dtype=np.float32)
-                translation_norm = float(np.linalg.norm(delta_position_local))
-                if translation_norm > max_translation_norm + 1e-8:
+
+    if mode == "grid":
+        for dx in translation_values:
+            for dy in translation_values:
+                for dz in translation_values:
+                    delta_position_local = np.asarray([dx, dy, dz], dtype=np.float32)
+                    translation_norm = float(np.linalg.norm(delta_position_local))
+                    if translation_norm > max_translation_norm + 1e-8:
+                        continue
+                    roll_values = [0.0] if disable_roll else rotation_values_rad
+                    for rx in rotation_values_rad:
+                        for ry in rotation_values_rad:
+                            for rz in roll_values:
+                                delta_rotation_local = np.asarray([rx, ry, rz], dtype=np.float32)
+                                rotation_norm_rad = float(np.linalg.norm(delta_rotation_local))
+                                if rotation_norm_rad > max_rotation_norm_rad + 1e-8:
+                                    continue
+                                candidate = _build_candidate_from_deltas(
+                                    position=position,
+                                    forward=forward,
+                                    up=up,
+                                    delta_position_local=delta_position_local,
+                                    delta_rotation_local=delta_rotation_local,
+                                    action_frame=action_frame,
+                                    rotation_representation=rotation_representation,
+                                )
+                                dedup[candidate.action_text] = candidate
+    else:
+        zero_delta = np.zeros(3, dtype=np.float32)
+        noop = _build_candidate_from_deltas(
+            position=position,
+            forward=forward,
+            up=up,
+            delta_position_local=zero_delta,
+            delta_rotation_local=zero_delta,
+            action_frame=action_frame,
+            rotation_representation=rotation_representation,
+        )
+        dedup[noop.action_text] = noop
+
+        for axis in range(3):
+            for value in translation_values:
+                if abs(value) < 1e-8:
                     continue
-                roll_values = [0.0] if disable_roll else rotation_values_rad
-                for rx in rotation_values_rad:
-                    for ry in rotation_values_rad:
-                        for rz in roll_values:
-                            delta_rotation_local = np.asarray([rx, ry, rz], dtype=np.float32)
-                            rotation_norm_rad = float(np.linalg.norm(delta_rotation_local))
-                            if rotation_norm_rad > max_rotation_norm_rad + 1e-8:
-                                continue
+                delta_position_local = np.zeros(3, dtype=np.float32)
+                delta_position_local[axis] = float(value)
+                if float(np.linalg.norm(delta_position_local)) > max_translation_norm + 1e-8:
+                    continue
+                candidate = _build_candidate_from_deltas(
+                    position=position,
+                    forward=forward,
+                    up=up,
+                    delta_position_local=delta_position_local,
+                    delta_rotation_local=zero_delta,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                )
+                dedup[candidate.action_text] = candidate
 
-                            next_position_world, next_forward_world, next_up_world = apply_camera_local_action(
-                                position=position,
-                                forward=forward,
-                                up=up,
-                                delta_position_local=delta_position_local,
-                                delta_rotation_local=delta_rotation_local,
-                            )
+        for axis in range(3):
+            if axis == 2 and disable_roll:
+                continue
+            for value in rotation_values_rad:
+                if abs(value) < 1e-8:
+                    continue
+                delta_rotation_local = np.zeros(3, dtype=np.float32)
+                delta_rotation_local[axis] = float(value)
+                if float(np.linalg.norm(delta_rotation_local)) > max_rotation_norm_rad + 1e-8:
+                    continue
+                candidate = _build_candidate_from_deltas(
+                    position=position,
+                    forward=forward,
+                    up=up,
+                    delta_position_local=zero_delta,
+                    delta_rotation_local=delta_rotation_local,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                )
+                dedup[candidate.action_text] = candidate
 
-                            if action_frame == "camera_local":
-                                delta_position_for_text = tuple(delta_position_local.tolist())
-                                if rotation_representation == "orientation_6d":
-                                    target_forward, target_up = target_orientation_forward_up_camera_local(
-                                        forward,
-                                        up,
-                                        next_forward_world,
-                                        next_up_world,
-                                    )
-                                    action_text = build_action_text(
-                                        delta_position=delta_position_for_text,
-                                        action_frame=action_frame,
-                                        rotation_representation=rotation_representation,
-                                        target_forward=tuple(target_forward.tolist()),
-                                        target_up=tuple(target_up.tolist()),
-                                    )
-                                else:
-                                    action_text = build_action_text(
-                                        delta_position=delta_position_for_text,
-                                        action_frame=action_frame,
-                                        rotation_representation=rotation_representation,
-                                        delta_rotation=tuple(delta_rotation_local.tolist()),
-                                    )
-                            else:
-                                basis = make_camera_basis_from_forward_up(forward, up)
-                                delta_position_world = (basis @ delta_position_local).astype(np.float32)
-                                if rotation_representation == "orientation_6d":
-                                    target_forward, target_up = target_orientation_forward_up_world(
-                                        next_forward_world,
-                                        next_up_world,
-                                    )
-                                    action_text = build_action_text(
-                                        delta_position=tuple(delta_position_world.tolist()),
-                                        action_frame=action_frame,
-                                        rotation_representation=rotation_representation,
-                                        target_forward=tuple(target_forward.tolist()),
-                                        target_up=tuple(target_up.tolist()),
-                                    )
-                                else:
-                                    delta_rotation_world = _rotation_local_to_world(delta_rotation_local, forward, up)
-                                    action_text = build_action_text(
-                                        delta_position=tuple(delta_position_world.tolist()),
-                                        action_frame=action_frame,
-                                        rotation_representation=rotation_representation,
-                                        delta_rotation=tuple(delta_rotation_world.tolist()),
-                                    )
-
-                            dedup[action_text] = CandidateAction(
-                                action_text=action_text,
-                                delta_position_local=tuple(float(v) for v in delta_position_local.tolist()),
-                                delta_rotation_local=tuple(float(v) for v in delta_rotation_local.tolist()),
-                                target_position_world=tuple(float(v) for v in next_position_world.tolist()),
-                                target_forward_world=tuple(float(v) for v in next_forward_world.tolist()),
-                                target_up_world=tuple(float(v) for v in next_up_world.tolist()),
-                                translation_norm=translation_norm,
-                                rotation_norm_rad=rotation_norm_rad,
-                            )
     return list(dedup.values())
 
 
