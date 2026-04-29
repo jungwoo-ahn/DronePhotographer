@@ -16,9 +16,21 @@ _OBJECT_SIZE_RULES = [
     (("tiger",), 0.95, "tiger"),
     (("tree",), 6.00, "tree"),
     (("dahlia", "orchid", "flower"), 0.40, "flower"),
-    (("cooler", "standing-cool"), 0.90, "cooler"),
+    # "cooler" alone — be specific. "standing-cool" is too generic and
+    # matched assets like "standing-cool-bald-man" (a person, not a cooler).
+    (("cooler", "ice-box", "ice-cooler"), 0.90, "cooler"),
     (("porsche", "pourche", "mclaren", "lamborghini", "cabriolet",
       "wagon-car", "cartoon-car"), 1.40, "car"),
+    # Sitting / crouching / kneeling / squatting people — bbox height is
+    # ~1.0m, not 1.7m. MUST come before the standing-person rule below
+    # (first match wins). Note: the auto-scaler in normalize_to_metric now
+    # also has a wide ±2× tolerance so even if a sitting-person isn't
+    # caught here, it won't be wrongly rescaled — this label mostly affects
+    # downstream VLM prompts.
+    (("sitting", "seated", "on-chair", "on-stool", "on-bench",
+      "kneeling", "kneel", "crouch", "crouching", "squat", "squatting",
+      "perched", "buddy-sitting", "shoelaces", "tying-his-shoe"),
+     1.05, "person-sitting"),
     (("andrew", "charles", "john", "koky", "luke", "wenceslavus", "utel",
       "spider-man", "explorer", "scout", "survivor", "girl", "guy", "man",
       "boy", "rigged", "character", "rp_posed", "standing-cute",

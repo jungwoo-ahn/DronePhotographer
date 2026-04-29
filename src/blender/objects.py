@@ -160,14 +160,28 @@ def normalize_to_metric(imported_root, imported_objs, scene_meshes,
 
     exclude = set(exclude_names or set())
 
-    # Step 1: Scale OBJECT to correct absolute metric size
+    # Step 1: Scale OBJECT to correct absolute metric size — but trust the
+    # imported size if it's already in the right ballpark. Keyword-based
+    # category guesses are fragile (a "Buddy-Sitting" person has bbox ≈ 1.0m,
+    # not 1.7m; "Photographer-on-a-bar-stool" is sitting tall ≈ 1.3m).
+    # Only override when the imported size is wildly off (e.g. 10×+ wrong
+    # due to unit confusion: cm vs m, or mm vs m).
     obj_correction = expected_h / actual_h
-    if 0.8 < obj_correction < 1.25:
-        print(f"Object OK: {label} is {actual_h:.2f}m (expected {expected_h:.2f}m)")
+    # Wide plausible band: allow 0.3×–3.5× of the keyword-guessed height.
+    # Visual scan of our 102 assets shows real diversity:
+    #   - sitting human ~0.85m vs standing 1.7m  (0.5× ratio)
+    #   - mini decorative snowman ~0.5m vs large 1.5m  (3× ratio)
+    #   - tall human in cape ~2m vs default 1.7m  (1.18× ratio)
+    # Outside 0.3-3.5× we flag as a unit error (e.g. cm/mm/m confusion,
+    # like rp_posedplus arriving at 169m).
+    if 0.3 <= obj_correction <= 3.5:
+        print(f"Object OK: {label} is {actual_h:.2f}m "
+              f"(expected ~{expected_h:.2f}m, ratio {obj_correction:.2f}x)")
         obj_correction = 1.0
     else:
         print(f"Scaling OBJECT: {label} {actual_h:.2f}m → {expected_h:.2f}m "
-              f"(factor {obj_correction:.3f})")
+              f"(factor {obj_correction:.3f}; way outside plausible range — "
+              f"likely unit error)")
         imported_root.scale = tuple(s * obj_correction for s in imported_root.scale)
         imported_root.location = tuple(v * obj_correction for v in imported_root.location)
         bpy.context.view_layer.update()

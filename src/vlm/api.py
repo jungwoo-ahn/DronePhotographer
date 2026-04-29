@@ -190,7 +190,7 @@ def estimate_scene_scale(
                     }},
                 ],
             }],
-            max_tokens=256,
+            max_tokens=vlm_config.get("max_tokens", 2048),
             temperature=0.1,
         )
         text = response.choices[0].message.content.strip()
@@ -322,7 +322,7 @@ def estimate_scale_from_placement(
                     }},
                 ],
             }],
-            max_tokens=256,
+            max_tokens=vlm_config.get("max_tokens", 2048),
             temperature=0.1,
         )
         text = response.choices[0].message.content.strip()
@@ -377,6 +377,87 @@ def estimate_scale_multi_view(
     )
     log.info(f"VLM multi-view scale: {summary}")
     return max(0.05, min(median, 10.0)), summary
+
+
+def estimate_interest_region(
+    scene_preview_path: str,
+    vlm_config: dict,
+) -> dict | None:
+    """Ask the VLM where in the scene preview "interesting" surroundings live.
+
+    Returns a dict with a normalized image-fraction bbox:
+        {"bbox": [x_lo, y_lo, x_hi, y_hi], "reasoning": str}
+    where all bbox values are in [0, 1] (y increases downward, standard
+    image convention). Returns None on failure.
+
+    Intended as a per-scene call — one VLM query, cached, reused across all
+    object pairs for that scene.
+    """
+    try:
+        from openai import OpenAI
+    except ImportError:
+        log.warning("openai not installed; skipping interest-region estimation")
+        return None
+
+    from src.vlm.prompts import INTEREST_REGION_PROMPT
+
+    api_key = os.environ.get(
+        vlm_config.get("api_key_env", "LETSUR_API_KEY"),
+        "sk-PloeoBXIjFj3xnflrpanUA",
+    )
+    client = OpenAI(base_url=vlm_config["api_base"], api_key=api_key)
+    try:
+        img_b64 = encode_image_base64(scene_preview_path)
+    except Exception as e:
+        log.warning(f"Could not read scene preview {scene_preview_path}: {e}")
+        return None
+
+    try:
+        response = client.chat.completions.create(
+            model=vlm_config["model"],
+            messages=[{
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": INTEREST_REGION_PROMPT},
+                    {"type": "image_url", "image_url": {
+                        "url": f"data:image/png;base64,{img_b64}",
+                    }},
+                ],
+            }],
+            max_tokens=vlm_config.get("max_tokens", 2048),
+            temperature=0.1,
+        )
+        text = response.choices[0].message.content.strip()
+        result = parse_vlm_json(text)
+        if not result or "bbox" not in result:
+            # Log full text so we can debug parse issues (markdown fences etc.)
+            log.warning(
+                f"Interest-region VLM response missing bbox. Full text "
+                f"({len(text)} chars):\n{text}"
+            )
+            return None
+        bbox = result["bbox"]
+        if not (isinstance(bbox, list) and len(bbox) == 4):
+            log.warning(f"Interest-region bbox wrong shape: {bbox}")
+            return None
+        # Clamp to [0,1] and enforce ordering
+        try:
+            x_lo, y_lo, x_hi, y_hi = [max(0.0, min(1.0, float(v))) for v in bbox]
+        except (TypeError, ValueError):
+            return None
+        if x_hi <= x_lo or y_hi <= y_lo:
+            return None
+        log.info(
+            f"VLM interest region: bbox=[{x_lo:.2f},{y_lo:.2f},{x_hi:.2f},{y_hi:.2f}] "
+            f"({result.get('reasoning', '')})"
+        )
+        return {
+            "bbox": [x_lo, y_lo, x_hi, y_hi],
+            "reasoning": result.get("reasoning", ""),
+        }
+    except Exception as e:
+        log.warning(f"Interest-region estimation failed: {e}")
+        return None
 
 
 def check_compatibility(

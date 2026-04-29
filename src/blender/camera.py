@@ -104,15 +104,44 @@ def _get_scene_camera_max_z():
     return cam.location.z
 
 
+def _ideal_interest_azimuth(target_pos, interest_target):
+    """Azimuth that places the camera so it looks from -interest direction
+    toward target (interest stays in the background of the rendered view).
+
+    Camera convention (see _compute_cam_position): for elev=0,
+        cam_xy - target_xy = radius * (sin(azim), -cos(azim)).
+    For the camera to face from "opposite of interest" toward target:
+        cam - target = -(interest - target) / |interest - target| * radius
+    Solving:
+        sin(azim) = (target.x - interest.x) / |dxy|
+        cos(azim) = (interest.y - target.y) / |dxy|
+        azim = atan2(target.x - interest.x, interest.y - target.y)
+    """
+    if interest_target is None:
+        return None
+    dx = target_pos.x - interest_target.x
+    dy = interest_target.y - target_pos.y
+    if abs(dx) < 1e-6 and abs(dy) < 1e-6:
+        return None
+    return math.degrees(math.atan2(dx, dy)) % 360
+
+
 def find_valid_azimuths_with_elevation(
     target_pos, obj_size, radius, base_elevation_deg,
     preferred_azimuths, ignore_names=None, num_needed=4, min_separation=45.0,
-    elevation_choices=None,
+    elevation_choices=None, interest_target=None,
 ):
     """Find diverse (azimuth, elevation) view pairs with good coverage.
 
-    Returns list of (azimuth, elevation) tuples. Picks the elevation per
-    azimuth that gives the best view coverage of scene geometry.
+    Returns list of (azimuth, elevation, coverage) tuples. Picks the elevation
+    per azimuth that gives the best view coverage of scene geometry.
+
+    If `interest_target` is provided, biases the trial order so the FIRST
+    azimuth tried places the camera looking from -interest toward target
+    (i.e. the interest region is in the rendered background). Offsets are
+    explored from BOTH the interest direction AND the scene camera direction,
+    so resulting views remain diverse but lean toward interest-revealing
+    backdrops.
     """
     if elevation_choices is None:
         elevation_choices = [base_elevation_deg, base_elevation_deg + 15, base_elevation_deg - 5]
@@ -152,13 +181,24 @@ def find_valid_azimuths_with_elevation(
             return True
         return False
 
-    # First view: scene camera azimuth
+    ideal_azim = _ideal_interest_azimuth(target_pos, interest_target)
     scene_azim = _get_scene_camera_azimuth(target_pos)
+
+    # First view: interest direction (if available) — looks toward the
+    # interesting part of the scene (interest behind target in the frame).
+    if ideal_azim is not None:
+        _try(ideal_azim, require_separation=False)
+
+    # Second anchor: scene camera direction (if distinct from interest).
     if scene_azim is not None:
         _try(scene_azim, require_separation=False)
-        if len(valid) < num_needed:
-            for offset in [60, -60, 120, -120, 30, -30, 90, -90, 150, -150, 180]:
-                _try(scene_azim + offset)
+
+    # Offsets explored from BOTH anchors, interleaved, smaller offsets first.
+    anchors = [a for a in (ideal_azim, scene_azim) if a is not None]
+    if anchors and len(valid) < num_needed:
+        for offset in [60, -60, 30, -30, 90, -90, 120, -120, 150, -150, 180]:
+            for anchor in anchors:
+                _try(anchor + offset)
                 if len(valid) >= num_needed:
                     return valid
 

@@ -11,12 +11,12 @@
   "preview": {
     "engine": "CYCLES",
     "resolution": [512, 384],
-    "samples": 32
+    "samples": 16
   },
   "final": {
     "engine": "CYCLES",
-    "resolution": [1024, 768],
-    "samples": 128
+    "resolution": [512, 384],
+    "samples": 16
   },
   "placement": {
     "candidates_per_scene": 5,
@@ -32,7 +32,7 @@
     "api_base": "https://gateway.letsur.ai/v1",
     "api_key_env": "LETSUR_API_KEY",
     "model": "gemini-3-flash-preview",
-    "max_tokens": 512,
+    "max_tokens": 4096,
     "temperature": 0.2,
     "retry_attempts": 3,
     "retry_delay_seconds": 2
