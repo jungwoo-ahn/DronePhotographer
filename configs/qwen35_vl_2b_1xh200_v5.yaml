@@ -1,0 +1,53 @@
+model:
+  name_or_path: Qwen/Qwen3.5-2B
+  dtype: bfloat16
+  attn_implementation: null
+  trust_remote_code: true
+
+data:
+  # v5 dataset path: directory containing per-placement subdirectories
+  # (each with images/ + annotations.json). Multi-file load is auto-detected
+  # when annotations_path is a directory.
+  annotations_path: outputs/v5_3090x8_260429_092917/
+  image_root: null
+  action_frame: camera_local
+  rotation_representation: orientation_6d
+  target_score_keys:
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+  distance_threshold: 1.5
+  rotation_threshold_deg: 60.0
+  pair_distance_distribution: uniform       # natural | uniform | log_uniform
+  n_distance_bins: 10
+  min_pair_distance: 0.05                   # used by log_uniform binning
+  max_pairs_per_image: 20
+  zero_action_ratio: 0.1
+  eval_ratio: 0.02
+  seed: 721
+
+training:
+  output_root: runs
+  run_name: qwen35_vl_2b_1xh200_v5
+  num_train_epochs: 1
+  per_device_train_batch_size: 8
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 2
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  max_length: 2048
+  logging_steps: 20
+  save_steps: 500
+  eval_steps: 500
+  dataloader_num_workers: 8
+  gradient_checkpointing: false
+  bf16: true
+  fp16: false
+  deepspeed_config: null
+  resume_from_checkpoint: null

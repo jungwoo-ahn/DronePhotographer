@@ -29,7 +29,20 @@ def parse_args(argv):
     parser.add_argument("--auto_place_object", action="store_true")
     parser.add_argument("--input_object", help="path to object file or folder (used with --auto_place_object or --object_position)")
     parser.add_argument("--rotation_z_deg", type=float, default=0.0, help="Z-axis rotation in degrees for imported object")
+    parser.add_argument(
+        "--object_rotation_xyz_rad",
+        nargs=3,
+        type=float,
+        default=None,
+        help="full Euler XYZ rotation in radians for imported object (overrides --rotation_z_deg when set)",
+    )
     parser.add_argument("--scale", type=float, default=1.0, help="uniform scale for imported object")
+    parser.add_argument(
+        "--scene_scale",
+        type=float,
+        default=1.0,
+        help="uniform scale applied to the scene root before placing the object (matches placement-pipeline scene_scale)",
+    )
     parser.add_argument("--use_aabb_center", action="store_true", help="use AABB center as camera orbit center instead of object position")
     parser.add_argument("--hemisphere", action="store_true")
     parser.add_argument("--camera_radius_range", nargs=2, type=float, default=[2.0, 10.0])
@@ -106,6 +119,63 @@ def ensure_camera(scene):
 
 def set_sky(strength):
     set_nishita_sky(float(strength))
+
+
+def set_sky_if_no_native_lighting(strength, imported_names=None):
+    """Scene-adaptive sky lighting (mirrors scripts/vlm_place_worker.py:455-473).
+
+    Only adds Nishita sky when the BLEND scene has no LIGHT objects AND no
+    sky / environment / non-black background in its world shader. Prevents
+    overwriting a scene's native HDRI / sun + bake interior scenes that
+    already ship their own lighting.
+    """
+    imported_names = imported_names or set()
+    has_lights = any(
+        o.type == "LIGHT" and o.name not in imported_names
+        for o in bpy.data.objects
+    )
+    has_world = False
+    world = bpy.context.scene.world
+    if world and world.use_nodes:
+        for node in world.node_tree.nodes:
+            if node.type in ("TEX_SKY", "TEX_ENVIRONMENT", "TEX_IMAGE"):
+                has_world = True
+                break
+            if node.type == "BACKGROUND":
+                c = node.inputs["Color"]
+                if c.is_linked or sum(c.default_value[:3]) > 0.01:
+                    has_world = True
+                    break
+    if not has_lights and not has_world:
+        print("No native lighting found, adding Nishita sky")
+        set_nishita_sky(float(strength))
+        return True
+    print(f"Using scene lighting (lights={has_lights}, world={has_world})")
+    return False
+
+
+def apply_scene_scale(scene, scale_factor):
+    """Uniform-scale the scene by ``scale_factor`` and compensate light intensity.
+
+    Scales every root-level object's location and scale, then multiplies
+    non-sun light energy by scale_factor**2 (point/area/spot lights follow an
+    inverse-square law, so shrinking distances by s requires energy * s^2 to
+    keep illuminance constant). Sun lights use directional irradiance and are
+    left untouched. Mirrors scripts/vlm_place_worker.py:apply_scene_scale.
+    """
+    s = float(scale_factor)
+    if abs(s - 1.0) < 1e-9:
+        return
+    for obj in scene.objects:
+        if obj.parent is None:
+            obj.location = (obj.location.x * s, obj.location.y * s, obj.location.z * s)
+            obj.scale = (obj.scale.x * s, obj.scale.y * s, obj.scale.z * s)
+    energy_factor = s * s
+    for light in bpy.data.lights:
+        if light.type == "SUN":
+            continue
+        light.energy = light.energy * energy_factor
+    bpy.context.view_layer.update()
 
 
 def set_render_settings(scene, resolution, args):
@@ -489,8 +559,12 @@ def auto_place_object(scene: bpy.types.Scene, input_object: str) -> Vector:
     return root.location.copy()
 
 
-def place_imported_object(scene, input_object, position, rotation_z_deg=0.0, scale=1.0):
+def place_imported_object(scene, input_object, position, rotation_z_deg=0.0, scale=1.0,
+                          rotation_xyz_rad=None):
     """Import an external object and place it at a specified position with rotation and scale.
+
+    rotation_xyz_rad: optional (rx, ry, rz) Euler XYZ in radians; takes precedence
+    over rotation_z_deg when provided.
 
     Returns (obj_position, root_object_name).
     """
@@ -508,7 +582,11 @@ def place_imported_object(scene, input_object, position, rotation_z_deg=0.0, sca
     root.scale = (scale, scale, scale)
     bpy.context.view_layer.update()
 
-    root.rotation_euler = (0, 0, radians(rotation_z_deg))
+    if rotation_xyz_rad is not None:
+        rx, ry, rz = (float(v) for v in rotation_xyz_rad)
+        root.rotation_euler = (rx, ry, rz)
+    else:
+        root.rotation_euler = (0, 0, radians(rotation_z_deg))
     root.location = Vector(position)
     bpy.context.view_layer.update()
 

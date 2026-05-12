@@ -16,6 +16,14 @@ DEFAULT_SCORE_WEIGHTS = {
     "bbox_margin_right": 1.0,
     "bbox_aspect_ratio": 1.0,
     "bbox_centroid_offset": 2.0,
+    "occupancy": 2.0,
+    "body_in_frame_ratio": 2.0,
+    "object_center_x": 1.0,
+    "object_center_y": 1.0,
+    "bbox_x_offset": 1.0,
+    "bbox_y_offset": 1.0,
+    "cam_to_obj_azimuth_deg": 0.5,
+    "cam_to_obj_elevation_deg": 0.5,
 }
 
 TARGET_PRESETS: dict[str, dict[str, float]] = {
