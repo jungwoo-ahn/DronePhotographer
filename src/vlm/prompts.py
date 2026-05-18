@@ -49,6 +49,20 @@ EVALUATE THE PLACEMENT (not just the framing):
 - Objects CAN be on furniture (cat on table, vase on shelf, etc.)
 
 ═══════════════════════════════════════════════════════════
+SURROUNDINGS CHECK — does the view show interesting context?
+═══════════════════════════════════════════════════════════
+
+Beyond just the object, evaluate the BACKGROUND/SURROUNDINGS in the rendered image:
+- Set `surroundings_empty=true` if the area around the object is mostly empty —
+  pure sky, plain ground/snow/sand, or a blank wall — with no architecture,
+  furniture, props, vegetation, or other scene detail visible.
+- Set `surroundings_empty=false` if you can see ANY meaningful scene context:
+  buildings, furniture, trees, fences, props, or other recognizable structure.
+
+If `surroundings_empty=true`, quality MUST be ≤ 4 (we don't want to train on
+shots where the photographer would have nothing interesting to look at).
+
+═══════════════════════════════════════════════════════════
 RESPONSE FORMAT — JSON only:
 ═══════════════════════════════════════════════════════════
 {
@@ -56,6 +70,7 @@ RESPONSE FORMAT — JSON only:
   "fully_visible": <bool>,
   "grounded": <bool>,
   "clipping": <bool>,
+  "surroundings_empty": <bool>,
   "issues": [<string>, ...],
   "adjustment": {"forward": <float>, "right": <float>, "up": <float>},
   "scale_factor": <float>,
@@ -63,18 +78,42 @@ RESPONSE FORMAT — JSON only:
 }
 
 Scoring:
-- 9-10: Object is grounded, mostly/fully visible, plausible location, no clipping.
+- 9-10: Object is grounded, mostly/fully visible, plausible location, no clipping, rich surroundings.
 - 7-8: Good placement, mostly visible, minor issues (e.g., slightly close to furniture edge).
 - 5-6: Acceptable — object is there, mostly visible, grounded, but placement is awkward.
-- 3-4: Object is heavily cropped, partly occluded, or clipping with furniture.
+- 3-4: Object is heavily cropped, partly occluded, clipping with furniture, OR surroundings_empty=true.
 - 0-2: Not visible, floating, embedded, or broken render.
 
-IMPORTANT: If fully_visible is false, quality MUST be ≤ 4.
+IMPORTANT:
+- If fully_visible is false, quality MUST be ≤ 4.
+- If surroundings_empty is true, quality MUST be ≤ 4.
 
 Adjustments (only if quality < 7):
 - "forward/right/up": meters to move, in camera-view space, ±2.0 max.
 - "scale_factor": 1.0 if OK, <1.0 to shrink, >1.0 to enlarge.
 """
+
+INTEREST_REGION_PROMPT = """\
+You are looking at a rendered preview of a 3D scene. We want to place people, \
+animals, or props in this scene such that when we render from their location \
+looking outward, the surroundings are visually interesting — showing \
+architecture, props, vegetation, varied geometry — NOT an open empty field, a \
+plain wall, or blank ground.
+
+Return a rectangular region of this image covering the area a person should \
+STAND IN so that what they'd see around them is interesting. Think: "best \
+spots to place a photographer." A good region tends to be where multiple \
+things converge — buildings + path, furniture + walls, trees + clearing — \
+not an isolated flat patch.
+
+Respond with ONLY a JSON object, no markdown, no explanation:
+{"bbox": [x_lo, y_lo, x_hi, y_hi]}
+
+Coordinates are fractions in [0, 1]: x_lo=0 is the left edge, x_hi=1 the \
+right edge, y_lo=0 the TOP, y_hi=1 the bottom. Make the region reasonably \
+tight (10%-40% of the image), not the whole frame.
+"""
+
 
 COMPATIBILITY_SYSTEM_PROMPT = """\
 You are evaluating whether a 3D object would look natural if placed in a scene. \

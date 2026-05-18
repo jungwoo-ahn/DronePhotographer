@@ -27,7 +27,7 @@ import os
 import subprocess
 import sys
 import time
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -46,7 +46,9 @@ from src.assets import (
 from src.vlm.api import (
     call_vlm,
     check_compatibility,
+    estimate_interest_region,
     estimate_scale_from_placement,
+    estimate_scale_multi_view,
 )
 from src.vlm.transforms import camera_to_world_adjustment
 
@@ -110,14 +112,159 @@ def load_config(config_path: str) -> dict:
 # ---------------------------------------------------------------------------
 
 
+# Thread-local pointer to the active BlenderWorker. When set, all
+# call_blender_worker invocations route through it (one Blender process,
+# scene loaded once) instead of spawning a fresh subprocess per call.
+import threading as _threading
+_PERSISTENT_WORKER = _threading.local()
+
+
+def _build_serve_cmd(mode: str, object_file: str, extra_args: list[str] | None) -> dict:
+    """Convert one-shot CLI args into a serve-mode JSON command.
+
+    Mirrors the worker's argparse so we can re-route subprocess invocations
+    through a persistent worker without changing call sites.
+    """
+    cmd_kind = {"discover_candidates": "discover",
+                "place_and_render": "place_and_render"}.get(mode, mode)
+    p = argparse.ArgumentParser(add_help=False)
+    p.add_argument("--top_k", type=int, default=5)
+    p.add_argument("--min_candidate_distance", type=float, default=2.0)
+    p.add_argument("--position", type=float, nargs=3, default=None)
+    p.add_argument("--rotation_x", type=float, default=0.0)
+    p.add_argument("--rotation_y", type=float, default=0.0)
+    p.add_argument("--rotation_z", type=float, default=0.0)
+    p.add_argument("--camera_radius", type=float, default=5.0)
+    p.add_argument("--camera_elevation", type=float, default=30.0)
+    p.add_argument("--camera_azimuth", type=float, default=30.0)
+    p.add_argument("--output_image", type=str, default=None)
+    p.add_argument("--scale", type=float, default=0.0)
+    p.add_argument("--engine", default="EEVEE")
+    p.add_argument("--resolution", type=int, nargs=2, default=None)
+    p.add_argument("--samples", type=int, default=16)
+    p.add_argument("--sky_strength", type=float, default=0.3)
+    p.add_argument("--camera_azimuths", type=float, nargs="*", default=None)
+    p.add_argument("--gpu_backend", default="AUTO")
+    p.add_argument("--gpu_devices", type=int, nargs="*", default=None)
+    p.add_argument("--scene_preview_path", type=str, default=None)
+    p.add_argument("--shot_types", nargs="*", default=None)
+    p.add_argument("--scene_scale", type=float, default=1.0)
+    p.add_argument("--interest_region", type=str, default=None)
+    p.add_argument("--interest_target_xy", type=float, nargs=2, default=None)
+    parsed, _ = p.parse_known_args(extra_args or [])
+    cmd = {"cmd": cmd_kind, "object_file": object_file}
+    cmd.update({k: v for k, v in vars(parsed).items() if v is not None})
+    return cmd
+
+
+class BlenderWorker:
+    """Long-lived Blender process running in `serve` mode.
+
+    Loads the scene once at construction and processes commands via
+    stdin/stdout JSON RPC until `close()` is called.
+    """
+    READY_PREFIX = "###SERVE_READY###"
+
+    def __init__(self, blender_bin: str, scene_blend: Path,
+                 gpu_devices: list[int] | None = None,
+                 startup_timeout: int = 120):
+        self.scene_blend = scene_blend
+        self._next_id = 1
+        self._cmd_lock = _threading.Lock()
+        worker_script = Path(__file__).resolve().parent / "vlm_place_worker.py"
+        cmd = [
+            blender_bin, "--background", str(scene_blend),
+            "--python", str(worker_script), "--", "--mode", "serve",
+        ]
+        env = os.environ.copy()
+        if gpu_devices:
+            env["CUDA_VISIBLE_DEVICES"] = ",".join(str(d) for d in gpu_devices)
+        self.proc = subprocess.Popen(
+            cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT, text=True, bufsize=1, env=env,
+        )
+        # Wait for the SERVE_READY banner so the scene is fully loaded.
+        deadline = time.time() + startup_timeout
+        while time.time() < deadline:
+            line = self.proc.stdout.readline()
+            if not line:
+                rc = self.proc.poll()
+                raise RuntimeError(
+                    f"BlenderWorker died before ready (exit code {rc})"
+                )
+            if line.startswith(self.READY_PREFIX):
+                log.info(f"BlenderWorker ready: {scene_blend.name}")
+                return
+        raise RuntimeError("BlenderWorker startup timed out")
+
+    def send(self, cmd: dict, timeout: int = 1800) -> dict | None:
+        with self._cmd_lock:
+            cmd_id = self._next_id
+            self._next_id += 1
+            cmd = {**cmd, "id": cmd_id}
+            line = json.dumps(cmd) + "\n"
+            try:
+                self.proc.stdin.write(line)
+                self.proc.stdin.flush()
+            except BrokenPipeError:
+                return None
+            deadline = time.time() + timeout
+            while time.time() < deadline:
+                out = self.proc.stdout.readline()
+                if not out:
+                    rc = self.proc.poll()
+                    log.error(f"BlenderWorker died mid-cmd (exit {rc})")
+                    return None
+                if not out.startswith(RESULT_PREFIX):
+                    continue
+                try:
+                    data = json.loads(out[len(RESULT_PREFIX):])
+                except json.JSONDecodeError:
+                    log.error("BlenderWorker: unparseable RESULT line")
+                    return None
+                if data.get("id") != cmd_id:
+                    log.warning(
+                        f"BlenderWorker: response id {data.get('id')} != cmd id {cmd_id}"
+                    )
+                if data.get("status") == "error":
+                    log.error(f"BlenderWorker error: {data.get('error')}")
+                    return None
+                return data
+            log.error(f"BlenderWorker timed out waiting for cmd id {cmd_id}")
+            return None
+
+    def close(self) -> None:
+        try:
+            if self.proc.poll() is None:
+                self.proc.stdin.write(json.dumps({"cmd": "exit"}) + "\n")
+                self.proc.stdin.flush()
+        except Exception:
+            pass
+        try:
+            self.proc.wait(timeout=10)
+        except Exception:
+            self.proc.kill()
+
+
 def call_blender_worker(
     blender_bin: str,
     scene_blend: Path,
     mode: str,
     object_file: str,
     extra_args: list[str] | None = None,
-    timeout: int = 600,
+    timeout: int | None = None,
 ) -> dict | None:
+    """Run a Blender worker subprocess. No timeout by default — past
+    "timeout" failures turned out to be pathological raycast loops over
+    procedural geometry, which we now mitigate by disabling those modifiers
+    during discovery (see vlm_place_worker.disable_heavy_modifiers_for_raycast).
+
+    If a persistent BlenderWorker is set on the thread-local
+    `_PERSISTENT_WORKER`, the call is routed through it (no new subprocess)."""
+    persistent = getattr(_PERSISTENT_WORKER, "worker", None)
+    if persistent is not None:
+        cmd = _build_serve_cmd(mode, object_file, extra_args)
+        return persistent.send(cmd, timeout=timeout or 1800)
     worker_script = Path(__file__).resolve().parent / "vlm_place_worker.py"
     cmd = [
         blender_bin,
@@ -171,7 +318,8 @@ def call_blender_worker(
 
 def _build_render_args(position, scale, rotation, placement_cfg, render_cfg, img_path,
                        gpu_backend="AUTO", gpu_devices=None, multi_view=False,
-                       scene_preview_path=None, shot_types=None, scene_scale=1.0):
+                       scene_preview_path=None, shot_types=None, scene_scale=1.0,
+                       interest_target_xy=None):
     """Build extra_args for call_blender_worker place_and_render."""
     args = [
         "--position", *[f"{p:.6f}" for p in position],
@@ -195,6 +343,9 @@ def _build_render_args(position, scale, rotation, placement_cfg, render_cfg, img
         args.extend(["--shot_types", *shot_types])
     if abs(scene_scale - 1.0) > 0.01:
         args.extend(["--scene_scale", f"{scene_scale:.6f}"])
+    if interest_target_xy is not None:
+        tx, ty = interest_target_xy
+        args.extend(["--interest_target_xy", f"{float(tx):.6f}", f"{float(ty):.6f}"])
     if scale > 0:
         args.extend(["--scale", f"{scale:.6f}"])
     if rotation:
@@ -261,6 +412,7 @@ def process_candidate(
                 multi_view=True,
                 scene_preview_path=scene_preview_path,
                 scene_scale=scene_scale,
+                interest_target_xy=config.get("_interest_target_xy"),
             ),
         )
 
@@ -368,27 +520,40 @@ def process_candidate(
                 )
             extra_context += "\nUse this history to suggest a meaningfully different position."
 
-        # Evaluate each view with VLM
+        # Evaluate each view with VLM — fan out HTTP calls in parallel since
+        # each is network-bound and independent. Order is preserved by index.
         view_qualities = []
         view_scores = []  # (quality, azimuth, response) for tracking best view
         view_evaluated = []  # [{image, quality, visible}] — non-broken views only
         all_issues = []
         worst_response = None
-        for vi, vimg in enumerate(view_images):
-            scene_preview = render_result.get("scene_preview")
-            if scene_preview and not os.path.exists(scene_preview):
-                scene_preview = None
-            vr = call_vlm(
+        scene_preview = render_result.get("scene_preview")
+        if scene_preview and not os.path.exists(scene_preview):
+            scene_preview = None
+        cam_rad = _f(render_result.get("camera_radius"), 5.0)
+        cam_elev = _f(placement_cfg.get("camera_elevation_deg"), 30.0)
+
+        def _vlm_for_view(vimg):
+            return call_vlm(
                 image_path=vimg,
                 object_name=object_name,
                 scene_name=scene_name,
-                camera_radius=_f(render_result.get("camera_radius"), 5.0),
-                camera_elevation=_f(placement_cfg.get("camera_elevation_deg"), 30.0),
+                camera_radius=cam_rad,
+                camera_elevation=cam_elev,
                 vlm_config=vlm_cfg,
                 extra_context=extra_context,
                 scene_context_image=scene_preview,
             )
+
+        view_responses: list = [None] * len(view_images)
+        if view_images:
+            with ThreadPoolExecutor(max_workers=min(len(view_images), 8)) as ex:
+                for i, vr in enumerate(ex.map(_vlm_for_view, view_images)):
+                    view_responses[i] = vr
+
+        for vi, (vimg, vr) in enumerate(zip(view_images, view_responses)):
             if vr is None:
+                log.warning(f"    view {vi}: VLM call returned None (parse fail or API error)")
                 continue
             vq = _f(vr.get("quality"), 0)
             vr_issues = vr.get("issues", [])
@@ -410,6 +575,7 @@ def process_candidate(
                 "image": vimg,
                 "quality": vq,
                 "visible": bool(vr.get("fully_visible", False)),
+                "surroundings_empty": bool(vr.get("surroundings_empty", False)),
             })
             all_issues.extend(vr_issues)
             log.info(
@@ -442,17 +608,21 @@ def process_candidate(
             })
             break
 
-        # Quality scoring: use the BEST view's score AMONG VISIBLE views.
-        # A view where the VLM couldn't see the object shouldn't contribute
-        # to the candidate's quality — only visible views count.
-        visible_qualities = [
-            v["quality"] for v in view_evaluated if v.get("visible")
+        # Quality scoring: use the BEST view's score AMONG views that are
+        # visible AND have non-empty surroundings. A view where the VLM
+        # couldn't see the object — or where the surroundings are an empty
+        # void/sky/blank ground — shouldn't contribute to the candidate's
+        # quality.
+        good_qualities = [
+            v["quality"] for v in view_evaluated
+            if v.get("visible") and not v.get("surroundings_empty")
         ]
-        if visible_qualities:
-            quality = max(visible_qualities)
+        if good_qualities:
+            quality = max(good_qualities)
         else:
-            # No view had the object visible. Cap quality so the candidate
-            # can't be accepted, but keep it non-zero so we still record it.
+            # All views are either invisible or empty-surrounded. Cap quality
+            # so the candidate is rejected, but keep it non-zero so we still
+            # record it.
             quality = min(max(view_qualities), 2.0)
             log.info(f"  No visible views (all cropped/occluded) — capping quality at 2.0")
         issues = list(set(all_issues)) if all_issues else vlm_response.get("issues", [])
@@ -667,6 +837,7 @@ def process_candidate(
                     gpu_backend=gpu_backend, gpu_devices=gpu_devices,
                     scene_preview_path=scene_preview_path,
                     scene_scale=scene_scale,
+                    interest_target_xy=config.get("_interest_target_xy"),
                 )
                 final_extra.extend(["--camera_azimuths", str(va)])
                 log.info(f"  Rendering final v{vi} (azim={va} elev={ve} preview_q={vq:.1f})...")
@@ -772,6 +943,29 @@ def process_pair(
 
     config["scene_scale"] = scene_scale
 
+    # --- Step 0b: Interest-region (one VLM call per scene, cached) ---
+    import json as _json_m
+    interest_region_path = cache_root / f"{scene_name}_interest.json"
+    interest_region_arg = None
+    placement_cfg_for_vlm = config.get("placement", {})
+    use_vlm_interest = placement_cfg_for_vlm.get("use_vlm_interest_region", True)
+    if interest_region_path.exists():
+        try:
+            interest_region_arg = _json_m.load(open(interest_region_path))
+            log.info(f"Loaded cached interest region")
+        except Exception as e:
+            log.warning(f"Could not load cached interest region: {e}")
+    elif use_vlm_interest and Path(scene_preview_path).exists() and config.get("vlm"):
+        try:
+            result = estimate_interest_region(scene_preview_path, config["vlm"])
+            if result and "bbox" in result:
+                interest_region_arg = {"image_bbox": result["bbox"]}
+                with open(interest_region_path, "w") as f:
+                    _json_m.dump(interest_region_arg, f)
+                log.info(f"Cached interest region for {scene_name}")
+        except Exception as e:
+            log.warning(f"Interest-region estimation failed: {e}")
+
     # --- Step 1: Discover candidates (at the estimated scene scale) ---
     log.info(f"Discovering candidates for {scene_name} + {object_name} "
              f"(scene_scale={scene_scale:.2f})...")
@@ -782,6 +976,8 @@ def process_pair(
     ]
     if abs(scene_scale - 1.0) > 0.01:
         disc_args.extend(["--scene_scale", str(scene_scale)])
+    if interest_region_arg:
+        disc_args.extend(["--interest_region", _json_m.dumps(interest_region_arg)])
 
     discovery = call_blender_worker(
         blender_bin,
@@ -793,9 +989,20 @@ def process_pair(
 
     candidates = []
     scene_bounds = None
+    interest_target_xy = None
     if discovery:
         candidates = discovery.get("candidates", [])
         scene_bounds = discovery.get("scene_bounds")
+        # World-space interest region (if discovery resolved it from image_bbox).
+        # Centroid → biases camera azimuth selection during render.
+        iw = discovery.get("interest_world_region")
+        if iw and all(k in iw for k in ("x_lo", "x_hi", "y_lo", "y_hi")):
+            interest_target_xy = (
+                (iw["x_lo"] + iw["x_hi"]) / 2.0,
+                (iw["y_lo"] + iw["y_hi"]) / 2.0,
+            )
+            config["_interest_target_xy"] = interest_target_xy
+            log.info(f"Interest target XY: ({interest_target_xy[0]:.2f}, {interest_target_xy[1]:.2f})")
 
     # If this was the first pair for this scene, the place_and_render call
     # will generate the scene preview. After that, we can ask VLM for scale
@@ -843,6 +1050,37 @@ def process_pair(
                 return attempt["preview_image"]
         return None
 
+    def _scale_view_images(result_dict, max_views: int = 5):
+        """Collect up to max_views on-disk view images for multi-view scale voting.
+
+        Prefers visible views; falls back to any on-disk views if none are visible.
+        """
+        visible_imgs: list[str] = []
+        all_imgs: list[str] = []
+        for attempt in result_dict.get("attempts", []):
+            evals = {v.get("image"): v for v in attempt.get("view_evaluated", [])}
+            for v in attempt.get("view_images", []):
+                if not (v and Path(v).exists()):
+                    continue
+                all_imgs.append(v)
+                ev = evals.get(v)
+                if ev and ev.get("visible"):
+                    visible_imgs.append(v)
+            pv = attempt.get("preview_image")
+            if pv and Path(pv).exists() and pv not in all_imgs:
+                all_imgs.append(pv)
+        chosen = visible_imgs or all_imgs
+        # Dedupe preserving order
+        seen: set[str] = set()
+        out: list[str] = []
+        for p in chosen:
+            if p not in seen:
+                out.append(p)
+                seen.add(p)
+            if len(out) >= max_views:
+                break
+        return out
+
     def _any_view_visible(result_dict):
         """True if any view in the result had the object visible."""
         for attempt in result_dict.get("attempts", []):
@@ -859,6 +1097,11 @@ def process_pair(
         config["_scale_locked"] = True
     scale_retries = 0
     max_scale_retries = 2
+    # Per-pair bail-out on repeated grounding failures: if N candidates in a
+    # row come back as floating/embedded, the scene's geometry simply doesn't
+    # cooperate with this object — moving on saves a lot of wasted render time.
+    not_grounded_streak = 0
+    max_not_grounded_streak = 3
 
     outer_retry = True
     while outer_retry:
@@ -866,6 +1109,10 @@ def process_pair(
         for idx, candidate in enumerate(candidates):
             if skip_remaining:
                 log.info(f"Candidate {idx + 1}/{len(candidates)}: SKIP (incompatible pair)")
+                continue
+            if not_grounded_streak >= max_not_grounded_streak:
+                log.info(f"Candidate {idx + 1}/{len(candidates)}: SKIP "
+                         f"({not_grounded_streak} grounding failures in a row)")
                 continue
 
             log.info(
@@ -891,6 +1138,14 @@ def process_pair(
                 defer_cleanup=defer,
             )
             placements.append(result)
+            # Update grounding-rejection streak. Reset on any candidate that
+            # got past the grounding gate; increment on candidates that bailed
+            # for grounding specifically.
+            attempt_statuses = [a.get("status") for a in result.get("attempts", [])]
+            if attempt_statuses and all(s == "not_grounded" for s in attempt_statuses):
+                not_grounded_streak += 1
+            else:
+                not_grounded_streak = 0
             # Track for next candidate
             if result.get("attempts"):
                 for a in result["attempts"]:
@@ -907,21 +1162,31 @@ def process_pair(
             if idx == 0 and not scale_check_done and scale_retries < max_scale_retries:
                 scale_check_done = True
                 config["_scale_locked"] = True
-                preview_img = _best_view_image(result)
+                view_imgs = _scale_view_images(result)
                 any_visible = _any_view_visible(result)
-                if not any_visible and preview_img:
-                    # No view rendered a visible object: strong evidence scene is too big.
-                    # Skip the VLM (it'll just say "not visible") and downscale aggressively.
-                    vlm_scale = 0.3
-                    reasoning = "no view showed the object — scene likely too big, forcing 0.3"
+                if not any_visible and view_imgs:
+                    # No view rendered a visible object: scene is probably too
+                    # big. Be less aggressive when interest-region camera bias
+                    # was active (could just be bad luck on the first candidate).
+                    if config.get("_interest_target_xy"):
+                        vlm_scale = 0.5
+                        reasoning = (
+                            "no view showed the object (interest-bias was on, so "
+                            "softer 0.5x correction)"
+                        )
+                    else:
+                        vlm_scale = 0.3
+                        reasoning = (
+                            "no view showed the object — scene likely too big, forcing 0.3"
+                        )
                     log.warning(
                         f"  Scale check: no visible views across {len(result.get('attempts', []))} "
-                        f"attempts — treating as scene-too-big, applying x{vlm_scale}"
+                        f"attempts — applying x{vlm_scale}"
                     )
-                elif preview_img:
-                    log.info(f"  Running focused scale check on {preview_img}")
-                    vlm_scale, reasoning = estimate_scale_from_placement(
-                        image_path=preview_img,
+                elif view_imgs:
+                    log.info(f"  Running focused scale check on {len(view_imgs)} views")
+                    vlm_scale, reasoning = estimate_scale_multi_view(
+                        image_paths=view_imgs,
                         object_label=obj_label,
                         object_height_m=expected_h,
                         scene_name=scene_name,
@@ -930,7 +1195,7 @@ def process_pair(
                 else:
                     vlm_scale, reasoning = 1.0, "no preview image"
 
-                if preview_img:
+                if view_imgs:
                     if abs(vlm_scale - 1.0) > 0.15:
                         new_scale = scene_scale * vlm_scale
                         # Clamp to reasonable range
@@ -962,6 +1227,10 @@ def process_pair(
                             "--min_candidate_distance", str(min_dist),
                             "--scene_scale", str(scene_scale),
                         ]
+                        if interest_region_arg:
+                            disc_args2.extend([
+                                "--interest_region", _json_m.dumps(interest_region_arg)
+                            ])
                         discovery2 = call_blender_worker(
                             blender_bin,
                             scene_blend,
@@ -1028,6 +1297,7 @@ def process_pair(
     pair_result = {
         "scene": scene_name,
         "scene_file": str(scene_blend),
+        "scene_scale": float(scene_scale),
         "object": object_name,
         "object_file": object_file,
         "incompatible": skip_remaining,
@@ -1071,6 +1341,11 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--candidates", type=int, help="Override candidates_per_scene")
     p.add_argument("--max_iterations", type=int, help="Override max_iterations")
     p.add_argument("--run_name", help="Override run name")
+    p.add_argument("--resume", help="Resume an existing run: path to an existing "
+                                    "output dir. Skips pairs whose JSON already exists.")
+    p.add_argument("--retry_empty", action="store_true",
+                   help="With --resume, also redo pairs whose existing JSON has "
+                        "placements: [] (default: skip them too).")
     p.add_argument("--skip_compatibility", action="store_true",
                    help="Skip VLM scene-object compatibility check after first render")
     p.add_argument("--gpu_backend", default="AUTO",
@@ -1078,6 +1353,9 @@ def parse_args() -> argparse.Namespace:
                    help="GPU backend for Cycles rendering (default: AUTO)")
     p.add_argument("--gpu_devices", type=int, nargs="*", default=None,
                    help="GPU device indices to use (default: all available)")
+    p.add_argument("--persistent", action="store_true",
+                   help="Use persistent Blender workers (one per scene); load each "
+                        "scene .blend once and process all its pairs over stdin RPC.")
     p.add_argument("--num_workers", type=int, default=1,
                    help="Number of parallel Blender workers, each on its own GPU")
     return p.parse_args()
@@ -1104,9 +1382,16 @@ def main():
         repo_root = Path(__file__).resolve().parent.parent
         blender_bin = str(repo_root / blender_bin)
 
-    timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
-    run_name = args.run_name or "vlm_placement"
-    output_dir = Path(config["output"]["output_dir"]) / f"{run_name}_{timestamp}"
+    if args.resume:
+        output_dir = Path(args.resume)
+        if not output_dir.is_dir():
+            log.error(f"--resume dir does not exist: {output_dir}")
+            sys.exit(1)
+        log.info(f"Resuming into existing output dir: {output_dir}")
+    else:
+        timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
+        run_name = args.run_name or "vlm_placement"
+        output_dir = Path(config["output"]["output_dir"]) / f"{run_name}_{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "previews").mkdir(exist_ok=True)
 
@@ -1153,6 +1438,7 @@ def main():
 
     # Build list of all (scene_blend, object_path) pairs
     pairs = []
+    skipped_resume = 0
     for scene_path in scene_files:
         scene_blend = find_scene_blend(scene_path)
         if scene_blend is None:
@@ -1160,7 +1446,22 @@ def main():
         sname = _scene_name(scene_blend)
         for obj_path in object_files:
             obj_name = _object_name(obj_path)
+            if args.resume:
+                existing = output_dir / f"{sname}__{obj_name}.json"
+                if existing.exists():
+                    try:
+                        prev = json.load(open(existing))
+                        has_placements = bool(prev.get("placements"))
+                    except Exception:
+                        has_placements = False
+                    if has_placements or not args.retry_empty:
+                        skipped_resume += 1
+                        continue
             pairs.append((scene_blend, str(obj_path), sname, obj_name))
+
+    if args.resume:
+        log.info(f"Resume: skipping {skipped_resume} pairs with existing JSONs "
+                 f"({'retrying empties' if args.retry_empty else 'including empties'})")
 
     total_pairs = len(pairs)
 
@@ -1194,7 +1495,78 @@ def main():
             f"{status} | total={accepted_total} | ETA {eta_str}"
         )
 
-    if num_workers <= 1:
+    if getattr(args, "persistent", False):
+        # ---- Persistent / scene-batched dispatch ----
+        # Group pairs by scene. Each thread takes one scene at a time, opens
+        # one long-lived Blender process for it, processes all its pairs over
+        # stdin RPC, then moves to the next scene. Up to `num_workers` scenes
+        # are processed concurrently (each on its own GPU).
+        progress.info(f"Persistent mode: 1 worker per scene, "
+                      f"{num_workers} concurrent scenes on GPUs {gpu_devices[:num_workers]}")
+        from collections import defaultdict
+        by_scene: dict = defaultdict(list)
+        for scene_blend, obj_file, sname, obj_name in pairs:
+            by_scene[(sname, str(scene_blend))].append((obj_file, obj_name))
+
+        scene_queue = list(by_scene.items())
+        completed_pairs = [0]
+        completed_lock = _threading.Lock()
+
+        def _run_scene(scene_key, scene_pairs, gpu_id):
+            sname, scene_path = scene_key
+            scene_blend = Path(scene_path)
+            log.info(f"[scene] {sname}: spawning Blender for {len(scene_pairs)} pairs on GPU {gpu_id}")
+            try:
+                worker = BlenderWorker(blender_bin, scene_blend, gpu_devices=[gpu_id])
+            except Exception as e:
+                log.error(f"[scene] {sname}: failed to start Blender: {e}")
+                return [{"scene_name": sname, "object_name": obj_name,
+                         "status": "worker_start_failed", "error": str(e),
+                         "placements": []} for _, obj_name in scene_pairs]
+
+            _PERSISTENT_WORKER.worker = worker
+            results = []
+            try:
+                worker_config = copy.deepcopy(config)
+                worker_config["gpu_backend"] = args.gpu_backend
+                worker_config["gpu_devices"] = [gpu_id]
+                for obj_file, obj_name in scene_pairs:
+                    try:
+                        pair_result = process_pair(
+                            blender_bin=blender_bin,
+                            scene_blend=scene_blend,
+                            object_file=obj_file,
+                            scene_name=sname,
+                            object_name=obj_name,
+                            config=worker_config,
+                            output_dir=output_dir,
+                        )
+                    except Exception as e:
+                        log.exception(f"Pair {sname} + {obj_name} crashed")
+                        pair_result = {"scene_name": sname, "object_name": obj_name,
+                                       "status": "error", "error": str(e),
+                                       "placements": []}
+                    results.append(pair_result)
+                    with completed_lock:
+                        completed_pairs[0] += 1
+                        _log_progress(completed_pairs[0], sname, obj_name, pair_result)
+            finally:
+                _PERSISTENT_WORKER.worker = None
+                worker.close()
+            return results
+
+        # Run scenes concurrently up to num_workers; each gets a dedicated GPU.
+        with ThreadPoolExecutor(max_workers=num_workers) as executor:
+            futures = []
+            for idx, (scene_key, scene_pairs) in enumerate(scene_queue):
+                gpu_id = gpu_devices[idx % len(gpu_devices[:num_workers])]
+                futures.append(executor.submit(_run_scene, scene_key, scene_pairs, gpu_id))
+            for future in as_completed(futures):
+                try:
+                    all_pair_results.extend(future.result())
+                except Exception as e:
+                    log.error(f"Scene worker failed: {e}")
+    elif num_workers <= 1:
         for pair_idx, (scene_blend, obj_file, sname, obj_name) in enumerate(pairs, 1):
             log.info(f"Pair {pair_idx}/{total_pairs}: {sname} + {obj_name}")
             pair_result = process_pair(

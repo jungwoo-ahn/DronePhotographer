@@ -11,16 +11,16 @@
   "preview": {
     "engine": "CYCLES",
     "resolution": [512, 384],
-    "samples": 32
+    "samples": 16
   },
   "final": {
     "engine": "CYCLES",
-    "resolution": [1024, 768],
-    "samples": 128
+    "resolution": [512, 384],
+    "samples": 16
   },
   "placement": {
-    "candidates_per_scene": 5,
-    "max_iterations": 3,
+    "candidates_per_scene": 3,
+    "max_iterations": 2,
     "quality_threshold": 7.0,
     "adjustment_scale": 0.5,
     "min_candidate_distance": 0.8,
@@ -31,8 +31,14 @@
   "vlm": {
     "api_base": "https://gateway.letsur.ai/v1",
     "api_key_env": "LETSUR_API_KEY",
-    "model": "gemini-3-flash-preview",
-    "max_tokens": 512,
+    "model": "gemini-2.5-flash-lite",
+    "models": {
+      "compatibility": "gemini-3-flash-preview",
+      "scale": "gemini-3-flash-preview",
+      "interest": "gemini-2.5-flash",
+      "placement": "gemini-2.5-flash-lite"
+    },
+    "max_tokens": 4096,
     "temperature": 0.2,
     "retry_attempts": 3,
     "retry_delay_seconds": 2

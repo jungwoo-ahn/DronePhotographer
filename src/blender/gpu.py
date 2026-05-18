@@ -6,29 +6,33 @@ from __future__ import annotations
 def configure_gpu(scene, disable_gpu=False, gpu_backend="AUTO", gpu_devices=None):
     """Configure GPU rendering for Cycles. Must run inside Blender.
 
-    Returns dict with 'device' and 'devices' keys.
+    Returns dict with 'device' and 'devices' keys. Raises RuntimeError if GPU
+    init fails (we never silently fall back to CPU rendering).
     """
     import bpy
 
     scene.render.engine = "CYCLES"
     if disable_gpu:
         scene.cycles.device = "CPU"
+        print("GPU_CONFIG: CPU (disable_gpu=True)")
         return {"device": "CPU", "devices": []}
     cprefs_addon = bpy.context.preferences.addons.get("cycles")
     if cprefs_addon is None:
-        scene.cycles.device = "CPU"
-        return {"device": "CPU", "devices": []}
+        raise RuntimeError("cycles addon not loaded; cannot configure GPU")
     cprefs = cprefs_addon.preferences
-    chosen = {"device": "CPU", "devices": []}
     backend_order = ("OPTIX", "CUDA") if gpu_backend == "AUTO" else (gpu_backend,)
+    last_err = None
     for dtype in backend_order:
         try:
             cprefs.compute_device_type = dtype
             cprefs.get_devices()
-        except Exception:
+        except Exception as e:
+            last_err = e
+            print(f"GPU_CONFIG: backend {dtype} init failed: {e}")
             continue
         backend_devices = [d for d in cprefs.devices if d.type == dtype]
         if not backend_devices:
+            print(f"GPU_CONFIG: backend {dtype} found 0 devices")
             continue
         selected_indices = set()
         if gpu_devices:
@@ -38,17 +42,18 @@ def configure_gpu(scene, disable_gpu=False, gpu_backend="AUTO", gpu_devices=None
             d.use = False
         for idx, d in enumerate(backend_devices):
             d.use = idx in selected_indices if selected_indices else True
+        active = [d.name for d in backend_devices if d.use]
+        if not active:
+            print(f"GPU_CONFIG: backend {dtype} matched 0 active devices "
+                  f"(gpu_devices={gpu_devices}, visible={len(backend_devices)})")
+            continue
         scene.cycles.device = "GPU"
-        chosen = {"device": dtype, "devices": [d.name for d in backend_devices if d.use]}
-        break
-    else:
-        try:
-            cprefs.compute_device_type = "NONE"
-            cprefs.get_devices()
-        except Exception:
-            pass
-        scene.cycles.device = "CPU"
-    return chosen
+        print(f"GPU_CONFIG: device={dtype} active={active}")
+        return {"device": dtype, "devices": active}
+    raise RuntimeError(
+        f"No GPU backend available (tried {backend_order}); "
+        f"refusing to fall back to CPU. Last error: {last_err}"
+    )
 
 
 def gpu_config_snippet(gpu_backend: str = "AUTO", gpu_devices: list[int] | None = None) -> str:
