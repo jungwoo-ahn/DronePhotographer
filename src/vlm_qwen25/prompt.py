@@ -127,7 +127,7 @@ def build_user_prompt(
             explanation_lines.append(f"- {key}: {desc}")
         explanation_block = "\n".join(explanation_lines)
         return (
-            "You are a drone photography scorer (DronePhotographer v5.0).\n"
+            "You are a drone photography scorer.\n"
             "Image resolution is 1024 wide x 768 tall (pixels).\n"
             f"Input is the current image_i and an action command in {frame_text}\n"
             f"{orientation_text}\n"

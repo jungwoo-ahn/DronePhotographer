@@ -191,14 +191,14 @@ def monitor_and_wait(processes, run_dir, num_images, label):
         if not still_running:
             break
 
-        done = len(list(images_dir.glob("*.png"))) if images_dir.exists() else 0
+        done = (len(list(images_dir.glob("*.jpg"))) + len(list(images_dir.glob("*.png")))) if images_dir.exists() else 0
         elapsed = time.time() - start
         mins, secs = divmod(int(elapsed), 60)
         print(f"\r  [{label}] {done}/{num_images} images [{mins}m {secs}s]", end="", flush=True)
         time.sleep(2)
 
     # Final count
-    done = len(list(images_dir.glob("*.png"))) if images_dir.exists() else 0
+    done = (len(list(images_dir.glob("*.jpg"))) + len(list(images_dir.glob("*.png")))) if images_dir.exists() else 0
     elapsed = time.time() - start
     mins, secs = divmod(int(elapsed), 60)
     print(f"\r  [{label}] {done}/{num_images} images done. [{mins}m {secs}s]")

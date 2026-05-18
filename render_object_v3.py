@@ -671,12 +671,13 @@ def main(argv):
         if depth_exr_output_node is not None:
             depth_exr_output_node.file_slots[0].path = "depth_"
 
+        img_ext = "jpg" if getattr(args, "image_format", "JPEG") == "JPEG" else "png"
         camera.matrix_world = Matrix.Translation(pose["cam_pos"]) @ pose["rot_matrix"].to_4x4()
-        scene.render.filepath = str(images_dir / f"img_{idx:04d}.png")
+        scene.render.filepath = str(images_dir / f"img_{idx:04d}.{img_ext}")
         bpy.ops.render.render(write_still=True)
 
         entry = {
-            "image": f"images/img_{idx:04d}.png",
+            "image": f"images/img_{idx:04d}.{img_ext}",
             "camera_position": vec(pose["cam_pos"]),
             "radius": pose["radius"],
             "object_position": vec(obj_pos),

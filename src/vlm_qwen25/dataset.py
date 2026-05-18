@@ -1,6 +1,11 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import os
+import pickle
+import re
+import time
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,7 +26,7 @@ from .rotation_utils import (
 )
 from .schema import SCORE_KEYS, extract_scores_from_annotation, scores_to_canonical_json
 
-_VALID_DISTRIBUTIONS = {"natural", "uniform", "log_uniform"}
+_VALID_DISTRIBUTIONS = {"natural", "uniform", "log_uniform", "adaptive"}
 
 
 @dataclass(frozen=True)
@@ -32,6 +37,8 @@ class PairRecord:
     action_text: str
     target_text: str
     target_scores: dict[str, float]
+    distance: float = 0.0
+    bucket_idx: int = 0
 
 
 @dataclass(frozen=True)
@@ -53,7 +60,7 @@ class DroneActionScoreDataset(Dataset):
         action_frame: str = "camera_local",
         rotation_representation: str = "orientation_6d",
         distance_threshold: float = 1.5,
-        rotation_threshold_deg: float = 60.0,
+        rotation_threshold_deg: float | None = 60.0,
         pair_distance_distribution: str = "log_uniform",
         n_distance_bins: int = 5,
         min_pair_distance: float = 0.05,
@@ -61,13 +68,16 @@ class DroneActionScoreDataset(Dataset):
         zero_action_ratio: float = 0.0,
         seed: int = 721,
         target_score_keys: Sequence[str] | None = None,
+        placement_start_idx: int = 0,
+        placement_end_idx: int | None = None,
+        views_cache_dir: str | Path | None = None,
     ) -> None:
         self.annotations_path = Path(annotations_path)
         self.image_root = Path(image_root) if image_root is not None else self.annotations_path.parent
         self.action_frame = str(action_frame)
         self.rotation_representation = str(rotation_representation)
         self.distance_threshold = float(distance_threshold)
-        self.rotation_threshold_deg = float(rotation_threshold_deg)
+        self.rotation_threshold_deg = None if rotation_threshold_deg is None else float(rotation_threshold_deg)
         self.pair_distance_distribution = str(pair_distance_distribution)
         self.n_distance_bins = int(n_distance_bins)
         self.min_pair_distance = float(min_pair_distance)
@@ -75,6 +85,13 @@ class DroneActionScoreDataset(Dataset):
         self.zero_action_ratio = float(zero_action_ratio)
         self.seed = int(seed)
         self.target_score_keys = list(SCORE_KEYS if target_score_keys is None else target_score_keys)
+        self.placement_start_idx = int(placement_start_idx)
+        self.placement_end_idx = None if placement_end_idx is None else int(placement_end_idx)
+        self.views_cache_dir = Path(views_cache_dir) if views_cache_dir is not None else None
+        if self.placement_start_idx < 0:
+            raise ValueError("placement_start_idx must be >= 0")
+        if self.placement_end_idx is not None and self.placement_end_idx <= self.placement_start_idx:
+            raise ValueError("placement_end_idx must be > placement_start_idx")
         if self.action_frame not in {"camera_local", "world"}:
             raise ValueError("action_frame must be 'camera_local' or 'world'")
         if self.rotation_representation not in {"orientation_6d", "rotvec"}:
@@ -90,11 +107,27 @@ class DroneActionScoreDataset(Dataset):
             raise ValueError("n_distance_bins must be >= 1 when binning is enabled")
         if self.pair_distance_distribution == "log_uniform" and self.min_pair_distance <= 0:
             raise ValueError("min_pair_distance must be > 0 for log_uniform binning")
-        if self.rotation_threshold_deg <= 0:
-            raise ValueError("rotation_threshold_deg must be > 0")
+        if self.rotation_threshold_deg is not None and self.rotation_threshold_deg <= 0:
+            raise ValueError("rotation_threshold_deg must be > 0 when set")
 
-        raw = self._load_raw_annotations()
-        self.views = self._load_views(raw)
+        cache_path = self._views_cache_path()
+        if cache_path is not None and cache_path.exists():
+            print(f"[dataset] loading cached views: {cache_path}", flush=True)
+            t0 = time.time()
+            with cache_path.open("rb") as f:
+                self.views = pickle.load(f)
+            print(f"[dataset] cached views loaded in {time.time()-t0:.1f}s "
+                  f"(n_views={len(self.views)})", flush=True)
+        else:
+            raw = self._load_raw_annotations()
+            self.views = self._load_views(raw)
+            if cache_path is not None:
+                cache_path.parent.mkdir(parents=True, exist_ok=True)
+                tmp = cache_path.with_suffix(cache_path.suffix + ".tmp")
+                with tmp.open("wb") as f:
+                    pickle.dump(self.views, f, protocol=pickle.HIGHEST_PROTOCOL)
+                os.replace(tmp, cache_path)
+                print(f"[dataset] views cached to {cache_path}", flush=True)
         normal_pairs = self._build_pairs()
         zero_pairs = self._build_zero_action_pairs(base_pair_count=len(normal_pairs))
         self.pairs = normal_pairs + zero_pairs
@@ -109,11 +142,22 @@ class DroneActionScoreDataset(Dataset):
         single-file loading.
         """
         if self.annotations_path.is_dir():
-            ann_files = sorted(self.annotations_path.glob("p*/annotations.json"))
+            ann_files = list(self.annotations_path.glob("p*/annotations.json"))
             if not ann_files:
                 raise FileNotFoundError(
                     f"No placement annotations.json found under {self.annotations_path} "
                     "(expected layout: <dir>/p*/annotations.json)"
+                )
+
+            def _placement_sort_key(path: Path) -> tuple[int, str]:
+                m = re.match(r"p(\d+)_", path.parent.name)
+                return (int(m.group(1)) if m else 10**9, path.parent.name)
+
+            ann_files.sort(key=_placement_sort_key)
+            ann_files = ann_files[self.placement_start_idx : self.placement_end_idx]
+            if not ann_files:
+                raise ValueError(
+                    f"placement slice [{self.placement_start_idx}:{self.placement_end_idx}] is empty"
                 )
             raw: list[dict] = []
             for ann_file in ann_files:
@@ -134,16 +178,39 @@ class DroneActionScoreDataset(Dataset):
             item.setdefault("_image_root", str(self.image_root))
         return items
 
+    def _views_cache_path(self) -> Path | None:
+        """Path to a pickle cache of the views list. None if caching is disabled."""
+        if self.views_cache_dir is None:
+            return None
+        key_parts = [
+            str(self.annotations_path.resolve()),
+            str(self.placement_start_idx),
+            str(self.placement_end_idx),
+            ",".join(self.target_score_keys),
+        ]
+        key = hashlib.sha1("|".join(key_parts).encode("utf-8")).hexdigest()[:16]
+        return self.views_cache_dir / f"views_{key}.pkl"
+
     def _load_views(self, raw: list[dict]) -> list[ViewRecord]:
         views: list[ViewRecord] = []
-        for item in raw:
+        # Cache image dimensions per image_root: all v5 placements render at the
+        # same resolution, so reading dims from the first image of each placement
+        # avoids one PIL Image.open per view (320 vs 640k = ~2000x speedup).
+        dims_cache: dict[str, tuple[int, int]] = {}
+        t0 = time.time()
+        for idx, item in enumerate(raw):
             placement_id = str(item.get("_placement_id", "default"))
-            image_root = Path(item.get("_image_root", str(self.image_root)))
+            image_root_str = str(item.get("_image_root", str(self.image_root)))
+            image_root = Path(image_root_str)
             image_path = image_root / str(item["image"])
-            if not image_path.exists():
-                raise FileNotFoundError(f"image missing: {image_path}")
-            with Image.open(image_path) as image:
-                image_width, image_height = image.size
+            dims = dims_cache.get(image_root_str)
+            if dims is None:
+                if not image_path.exists():
+                    raise FileNotFoundError(f"image missing: {image_path}")
+                with Image.open(image_path) as image:
+                    dims = image.size
+                dims_cache[image_root_str] = dims
+            image_width, image_height = dims
 
             scores = extract_scores_from_annotation(
                 annotation=item,
@@ -169,6 +236,8 @@ class DroneActionScoreDataset(Dataset):
                     placement_id=placement_id,
                 )
             )
+        print(f"[dataset] loaded {len(views)} views from {len(dims_cache)} placements "
+              f"in {time.time()-t0:.1f}s", flush=True)
         return views
 
     def _build_action_text_for_views(self, view_i: ViewRecord, view_j: ViewRecord) -> str:
@@ -242,7 +311,7 @@ class DroneActionScoreDataset(Dataset):
                     self.n_distance_bins + 1,
                 )
             )
-        if self.pair_distance_distribution == "uniform":
+        if self.pair_distance_distribution in {"uniform", "adaptive"}:
             return np.linspace(0.0, self.distance_threshold, self.n_distance_bins + 1)
         return None  # natural
 
@@ -277,13 +346,10 @@ class DroneActionScoreDataset(Dataset):
 
             for li, gi in enumerate(gidxs):
                 d = np.linalg.norm(pos - pos[li], axis=1)
-                a = batch_relative_rotation_angle_deg(fwd[li], ups[li], fwd, ups)
-                mask = (
-                    (d > 0.0)
-                    & (d <= self.distance_threshold)
-                    & (a <= self.rotation_threshold_deg)
-                    & has_det
-                )
+                mask = (d > 0.0) & (d <= self.distance_threshold) & has_det
+                if self.rotation_threshold_deg is not None:
+                    a = batch_relative_rotation_angle_deg(fwd[li], ups[li], fwd, ups)
+                    mask = mask & (a <= self.rotation_threshold_deg)
                 valid_local = np.where(mask)[0]
                 if valid_local.size == 0:
                     continue
@@ -296,6 +362,24 @@ class DroneActionScoreDataset(Dataset):
                         valid_local = rng.choice(
                             valid_local, size=self.max_pairs_per_image, replace=False
                         )
+                elif self.pair_distance_distribution == "adaptive":
+                    bin_idx = np.clip(
+                        np.digitize(d[valid_local], bin_edges) - 1,
+                        0,
+                        self.n_distance_bins - 1,
+                    )
+                    bin_groups = [
+                        valid_local[bin_idx == b] for b in range(self.n_distance_bins)
+                    ]
+                    n_per_bin = min(g.size for g in bin_groups)
+                    if n_per_bin == 0:
+                        continue
+                    chunks = []
+                    for g in bin_groups:
+                        if g.size > n_per_bin:
+                            g = rng.choice(g, size=n_per_bin, replace=False)
+                        chunks.append(g)
+                    valid_local = np.concatenate(chunks)
                 else:
                     bin_idx = np.clip(
                         np.digitize(d[valid_local], bin_edges) - 1,
@@ -314,6 +398,13 @@ class DroneActionScoreDataset(Dataset):
                     if valid_local.size == 0:
                         continue
 
+                # Fallback bin edges for bucket_idx logging when binning is off
+                # (natural mode). Always uniform 0..distance_threshold over
+                # n_distance_bins so the analytic axis is consistent.
+                bucket_edges = bin_edges if bin_edges is not None else np.linspace(
+                    0.0, self.distance_threshold, self.n_distance_bins + 1
+                )
+
                 view_i = self.views[gi]
                 for lj in valid_local.tolist():
                     gj = gidxs[lj]
@@ -324,6 +415,12 @@ class DroneActionScoreDataset(Dataset):
                         target_scores,
                         score_keys=self.target_score_keys,
                     )
+                    pair_distance = float(d[lj])
+                    bucket = int(np.clip(
+                        np.digitize([pair_distance], bucket_edges)[0] - 1,
+                        0,
+                        self.n_distance_bins - 1,
+                    ))
                     pair_records.append(
                         PairRecord(
                             index_i=gi,
@@ -332,6 +429,8 @@ class DroneActionScoreDataset(Dataset):
                             action_text=action_text,
                             target_text=target_text,
                             target_scores=target_scores,
+                            distance=pair_distance,
+                            bucket_idx=bucket,
                         )
                     )
 
@@ -388,6 +487,8 @@ class DroneActionScoreDataset(Dataset):
             "index_i": pair.index_i,
             "index_j": pair.index_j,
             "image_path": str(pair.image_i),
+            "distance": pair.distance,
+            "bucket_idx": pair.bucket_idx,
         }
 
 

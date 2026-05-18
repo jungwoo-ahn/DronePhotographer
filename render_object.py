@@ -105,6 +105,10 @@ def parse_args(argv):
     parser.add_argument("--render_depth", action="store_true", help="render depth map alongside RGB")
     parser.add_argument("--depth_format", choices=["OPEN_EXR", "PNG"], default="PNG", help="depth output format (OPEN_EXR recommended)")
     parser.add_argument("--depth_max", type=float, default=15.0, help="max depth for PNG normalization (ignored for EXR)")
+    parser.add_argument("--image_format", choices=["JPEG", "PNG"], default="JPEG",
+                        help="RGB image output format (JPEG default for ~5x smaller files)")
+    parser.add_argument("--image_quality", type=int, default=90,
+                        help="JPEG quality (0-100, default 90); ignored for PNG")
     split = argv.index("--") + 1 if "--" in argv else len(argv)
     return parser.parse_args(argv[split:])
 
@@ -183,7 +187,11 @@ def set_render_settings(scene, resolution, args):
     scene.render.resolution_x = int(resolution[0])
     scene.render.resolution_y = int(resolution[1])
     scene.render.resolution_percentage = 100
-    scene.render.image_settings.file_format = "PNG"
+    img_fmt = getattr(args, "image_format", "JPEG")
+    scene.render.image_settings.file_format = img_fmt
+    if img_fmt == "JPEG":
+        scene.render.image_settings.quality = int(getattr(args, "image_quality", 90))
+        scene.render.image_settings.color_mode = "RGB"   # JPEG cannot use RGBA
     scene.render.use_persistent_data = bool(args.persistent_data)
     scene.render.film_transparent = False
 
@@ -773,11 +781,12 @@ def main(argv):
         if depth_output_node is not None:
             scene.frame_set(idx)
             depth_output_node.file_slots[0].path = "img_"
+        img_ext = "jpg" if getattr(args, "image_format", "JPEG") == "JPEG" else "png"
         camera.matrix_world = Matrix.Translation(pose["cam_pos"]) @ pose["rot_matrix"].to_4x4()
-        scene.render.filepath = str(images_dir / f"img_{idx:04d}.png")
+        scene.render.filepath = str(images_dir / f"img_{idx:04d}.{img_ext}")
         bpy.ops.render.render(write_still=True)
         entry = {
-            "image": f"images/img_{idx:04d}.png",
+            "image": f"images/img_{idx:04d}.{img_ext}",
             "camera_position": vec(pose["cam_pos"]),
             "radius": pose["radius"],
             "object_position": vec(obj_pos),
