@@ -18,6 +18,14 @@ def encode_image_base64(image_path: str) -> str:
         return base64.b64encode(f.read()).decode("utf-8")
 
 
+def _model_for(vlm_config: dict, task: str) -> str:
+    """Pick the model name for a task. Optional per-task overrides via
+    `vlm_config["models"][task]` (e.g. "compatibility", "scale", "interest",
+    "placement"). Falls back to `vlm_config["model"]`."""
+    models = vlm_config.get("models") or {}
+    return models.get(task) or vlm_config["model"]
+
+
 def parse_vlm_json(text: str) -> dict | None:
     """Extract a JSON object from VLM response text (handles markdown fences)."""
     try:
@@ -115,7 +123,7 @@ def call_vlm(
     for attempt in range(retries):
         try:
             response = client.chat.completions.create(
-                model=vlm_config["model"],
+                model=_model_for(vlm_config, "placement"),
                 messages=[
                     {"role": "system", "content": VLM_SYSTEM_PROMPT},
                     {"role": "user", "content": content},
@@ -124,7 +132,9 @@ def call_vlm(
                 temperature=vlm_config.get("temperature", 0.2),
             )
 
-            text = response.choices[0].message.content.strip()
+            text = (response.choices[0].message.content or "").strip()
+            if not text:
+                raise ValueError("VLM returned empty content")
             return parse_vlm_json(text)
 
         except Exception as e:
@@ -180,7 +190,7 @@ def estimate_scene_scale(
 
     try:
         response = client.chat.completions.create(
-            model=vlm_config["model"],
+            model=_model_for(vlm_config, "scale"),
             messages=[{
                 "role": "user",
                 "content": [
@@ -193,7 +203,9 @@ def estimate_scene_scale(
             max_tokens=vlm_config.get("max_tokens", 2048),
             temperature=0.1,
         )
-        text = response.choices[0].message.content.strip()
+        text = (response.choices[0].message.content or "").strip()
+        if not text:
+            raise ValueError("VLM returned empty content")
         result = parse_vlm_json(text)
         if result and "scale_factor" in result:
             sf = float(result["scale_factor"])
@@ -312,7 +324,7 @@ def estimate_scale_from_placement(
 
     try:
         response = client.chat.completions.create(
-            model=vlm_config["model"],
+            model=_model_for(vlm_config, "scale"),
             messages=[{
                 "role": "user",
                 "content": [
@@ -325,7 +337,9 @@ def estimate_scale_from_placement(
             max_tokens=vlm_config.get("max_tokens", 2048),
             temperature=0.1,
         )
-        text = response.choices[0].message.content.strip()
+        text = (response.choices[0].message.content or "").strip()
+        if not text:
+            raise ValueError("VLM returned empty content")
         result = parse_vlm_json(text)
         if result and "scale_factor" in result:
             sf = float(result["scale_factor"])
@@ -414,7 +428,7 @@ def estimate_interest_region(
 
     try:
         response = client.chat.completions.create(
-            model=vlm_config["model"],
+            model=_model_for(vlm_config, "interest"),
             messages=[{
                 "role": "user",
                 "content": [
@@ -427,7 +441,9 @@ def estimate_interest_region(
             max_tokens=vlm_config.get("max_tokens", 2048),
             temperature=0.1,
         )
-        text = response.choices[0].message.content.strip()
+        text = (response.choices[0].message.content or "").strip()
+        if not text:
+            raise ValueError("VLM returned empty content")
         result = parse_vlm_json(text)
         if not result or "bbox" not in result:
             # Log full text so we can debug parse issues (markdown fences etc.)
@@ -509,7 +525,7 @@ def check_compatibility(
     for attempt in range(retries):
         try:
             response = client.chat.completions.create(
-                model=vlm_config["model"],
+                model=_model_for(vlm_config, "compatibility"),
                 messages=[
                     {"role": "system", "content": COMPATIBILITY_SYSTEM_PROMPT},
                     {
@@ -529,7 +545,9 @@ def check_compatibility(
                 temperature=vlm_config.get("temperature", 0.2),
             )
 
-            text = response.choices[0].message.content.strip()
+            text = (response.choices[0].message.content or "").strip()
+            if not text:
+                raise ValueError("VLM returned empty content")
             return parse_vlm_json(text)
 
         except Exception as e:
