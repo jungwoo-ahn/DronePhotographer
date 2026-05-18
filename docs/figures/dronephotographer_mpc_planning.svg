@@ -1,0 +1,536 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1960" viewBox="0 0 1800 1960">
+  <defs>
+    <marker id="arr" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 4 L 0 8 z" fill="#4a6380"/>
+    </marker>
+    <marker id="arrLoop" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 4 L 0 8 z" fill="#2a7d5f"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 4 L 0 8 z" fill="#c26d1f"/>
+    </marker>
+    <marker id="arrRed" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#cc4444"/>
+    </marker>
+    <linearGradient id="viewSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d6ecff"/>
+      <stop offset="55%" stop-color="#eef7ff"/>
+      <stop offset="56%" stop-color="#c5dcc6"/>
+      <stop offset="100%" stop-color="#9db888"/>
+    </linearGradient>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 32px; font-weight: 700; fill: #112033; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #556477; }
+      .section { font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700; fill: #15273a; }
+      .panel-title { font-family: Arial, Helvetica, sans-serif; font-size: 17px; font-weight: 700; fill: #182a3c; }
+      .body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #2b3948; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 12px; fill: #607083; }
+      .tiny { font-family: Arial, Helvetica, sans-serif; font-size: 11px; fill: #6b7a8b; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 10px; fill: #506177; font-weight: 600; }
+      .label-green { font-family: Arial, Helvetica, sans-serif; font-size: 10px; fill: #2a7d5f; font-weight: 700; }
+      .label-red { font-family: Arial, Helvetica, sans-serif; font-size: 10px; fill: #cc4444; font-weight: 600; }
+      .code { font-family: "Courier New", Courier, monospace; font-size: 12px; fill: #1c2430; }
+      .code-s { font-family: "Courier New", Courier, monospace; font-size: 11px; fill: #1c2430; }
+      .code-t { font-family: "Courier New", Courier, monospace; font-size: 10px; fill: #1c2430; }
+      .panel { fill: #ffffff; stroke: #d5dde7; stroke-width: 2; rx: 20; ry: 20; }
+      .box-blue { fill: #edf5ff; stroke: #8eb5e0; stroke-width: 1.5; rx: 14; ry: 14; }
+      .box-teal { fill: #ecfbf7; stroke: #7cc1b4; stroke-width: 1.5; rx: 14; ry: 14; }
+      .box-gold { fill: #fff8e7; stroke: #d9b35b; stroke-width: 1.5; rx: 14; ry: 14; }
+      .box-rose { fill: #fff0f1; stroke: #d9a0a9; stroke-width: 1.5; rx: 14; ry: 14; }
+      .box-green { fill: #eefbee; stroke: #7db87d; stroke-width: 1.5; rx: 14; ry: 14; }
+      .box-purple { fill: #f3eeff; stroke: #a48fd0; stroke-width: 1.5; rx: 14; ry: 14; }
+      .box-slate { fill: #f5f8fb; stroke: #c5d0dc; stroke-width: 1.5; rx: 14; ry: 14; }
+      .loop-step { fill: #eefbee; stroke: #5a9e5a; stroke-width: 2; rx: 16; ry: 16; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1960" fill="#fbfcfe"/>
+  <rect x="24" y="20" width="1752" height="1920" rx="26" ry="26" fill="#ffffff" stroke="#e5ebf2" stroke-width="2"/>
+
+  <text x="48" y="60" class="title">DronePhotographer MPC Planning: composition-driven camera optimization</text>
+  <text x="48" y="84" class="subtitle">Model Predictive Control loop that uses a trained Qwen-VL to iteratively optimize camera pose toward a target photographic composition.</text>
+
+  <!-- ========== Section 1: Composition Objective System ========== -->
+  <rect x="36" y="108" width="1120" height="400" class="panel"/>
+  <text x="56" y="142" class="section">1. Composition objective system</text>
+  <text x="56" y="163" class="small">High-level composition specs are compiled into margin-based score targets. Visualizations show target bbox placement in a 4:3 frame.</text>
+
+  <!-- Preset table -->
+  <rect x="56" y="182" width="520" height="296" class="box-gold"/>
+  <text x="72" y="206" class="panel-title">Built-in target presets (src/vlm_qwen25/objective.py)</text>
+
+  <rect x="72" y="220" width="488" height="22" rx="6" ry="6" fill="#f0e4c0" stroke="none"/>
+  <text x="80" y="236" class="code-s">Preset name                center   occ   aspect</text>
+
+  <text x="80" y="258" class="code-t">centered_50                  -      0.50    -</text>
+  <text x="80" y="274" class="code-t">centered_square_medium     0.5,0.5  0.30   1.0</text>
+  <text x="80" y="290" class="code-t">centered_square_close      0.5,0.5  0.55   1.0</text>
+  <text x="80" y="306" class="code-t">top_right_thirds_medium    0.67,0.33 0.25  1.0</text>
+  <text x="80" y="322" class="code-t">cinematic_center_wide      0.5,0.5  0.35   1.8</text>
+  <text x="80" y="338" class="code-t">centered_wide_close_18     0.5,0.5  0.48   1.8</text>
+  <text x="80" y="354" class="code-t">centered_portrait_medium   0.5,0.5  0.30   0.67</text>
+  <text x="80" y="370" class="code-t">centered_portrait_close    0.5,0.5  0.40   0.67</text>
+  <text x="80" y="386" class="code-t">top_right_thirds_portrait  0.67,0.33 0.20  0.67</text>
+
+  <text x="72" y="414" class="tiny">Presets without center/occupancy/aspect set direct bbox score keys (e.g., centered_50 sets</text>
+  <text x="72" y="428" class="tiny">bbox_centroid_offset=0.0 and bbox_occupancy_ratio=0.5 directly).</text>
+  <text x="72" y="448" class="tiny">Custom targets via --target_json override or extend any preset.</text>
+  <text x="72" y="462" class="tiny">Score weights via --score_weights_json (defaults: occupancy=2.0, centroid=2.0, others=1.0).</text>
+
+  <!-- ===== Visual preset thumbnails ===== -->
+  <rect x="596" y="182" width="542" height="296" class="box-blue"/>
+  <text x="612" y="206" class="panel-title">Target composition visualized (bbox in 4:3 frame)</text>
+
+  <!-- centered_square_medium: cx=0.5 cy=0.5 occ=0.3 ar=1.0 => w=0.5477 h=0.5477 => margins=0.2262 all -->
+  <!-- Frame 120x90, bbox: x=27.1 y=20.4 w=65.7 h=49.3 -->
+  <rect x="616" y="224" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="676" cy="272" r="8" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="676" cy="286" rx="10" ry="12" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="643.1" y="244.4" width="65.7" height="49.3" fill="none" stroke="#2a7d5f" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="616" y="330" class="label">centered_square_medium</text>
+  <text x="616" y="342" class="label">occ=30% ar=1:1 centered</text>
+
+  <!-- centered_square_close: cx=0.5 cy=0.5 occ=0.55 ar=1.0 => w=0.7416 h=0.7416 => margins=0.129 -->
+  <!-- Frame 120x90, bbox: x=15.5 y=11.6 w=89.0 h=66.7 -->
+  <rect x="756" y="224" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="816" cy="265" r="10" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="816" cy="283" rx="14" ry="16" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="771.5" y="235.6" width="89.0" height="66.7" fill="none" stroke="#2a7d5f" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="756" y="330" class="label">centered_square_close</text>
+  <text x="756" y="342" class="label">occ=55% ar=1:1 centered</text>
+
+  <!-- top_right_thirds_medium: cx=0.667 cy=0.333 occ=0.25 ar=1.0 => w=0.5 h=0.5 -->
+  <!-- margins: L=0.417 R=0.083 T=0.083 B=0.417 -->
+  <!-- Frame 120x90, bbox: x=50.0 y=7.5 w=60.0 h=45.0 -->
+  <rect x="896" y="224" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="976" cy="249" r="7" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="976" cy="261" rx="9" ry="11" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="946.0" y="231.5" width="60.0" height="45.0" fill="none" stroke="#c26d1f" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <!-- Rule of thirds guides -->
+  <line x1="936" y1="224" x2="936" y2="314" stroke="#c26d1f" stroke-width="0.6" opacity="0.4"/>
+  <line x1="976" y1="224" x2="976" y2="314" stroke="#c26d1f" stroke-width="0.6" opacity="0.4"/>
+  <line x1="896" y1="254" x2="1016" y2="254" stroke="#c26d1f" stroke-width="0.6" opacity="0.4"/>
+  <line x1="896" y1="284" x2="1016" y2="284" stroke="#c26d1f" stroke-width="0.6" opacity="0.4"/>
+  <text x="896" y="330" class="label">top_right_thirds</text>
+  <text x="896" y="342" class="label">occ=25% rule-of-thirds</text>
+
+  <!-- cinematic_center_wide: cx=0.5 cy=0.5 occ=0.35 ar=1.8 => w=sqrt(0.63)=0.7937 h=sqrt(0.194)=0.4410 -->
+  <!-- Frame 120x90, bbox: x=12.4 y=25.2 w=95.2 h=39.7 -->
+  <rect x="1036" y="224" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="1096" cy="266" r="7" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="1096" cy="278" rx="10" ry="12" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="1048.4" y="249.2" width="95.2" height="39.7" fill="none" stroke="#5a5ac2" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="1036" y="330" class="label">cinematic_center_wide</text>
+  <text x="1036" y="342" class="label">occ=35% ar=1.8:1 wide</text>
+
+  <!-- Second row of presets -->
+  <!-- centered_portrait_medium: cx=0.5 cy=0.5 occ=0.3 ar=0.67 => w=sqrt(0.201)=0.4483 h=sqrt(0.4478)=0.6692 -->
+  <!-- Frame 120x90, bbox: x=33.1 y=14.9 w=53.8 h=60.2 -->
+  <rect x="616" y="360" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="676" cy="395" r="8" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="676" cy="413" rx="11" ry="14" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="649.1" y="374.9" width="53.8" height="60.2" fill="none" stroke="#8844aa" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="616" y="466" class="label">centered_portrait_medium</text>
+  <text x="616" y="478" class="label">occ=30% ar=0.67 portrait</text>
+
+  <!-- centered_50: centroid_offset=0.0, occupancy=0.5 (no aspect). Approx centered large box -->
+  <!-- Using approx 1:1 centered at 50% => w=0.707 h=0.707 -->
+  <rect x="756" y="360" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="816" cy="398" r="10" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="816" cy="416" rx="14" ry="17" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="773.6" y="372.2" width="84.8" height="63.6" fill="none" stroke="#2a7d5f" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="756" y="466" class="label">centered_50</text>
+  <text x="756" y="478" class="label">occ=50% centered</text>
+
+  <!-- aggressive_closeup: occ=0.67, tight crop -->
+  <rect x="896" y="360" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="956" cy="390" r="12" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="956" cy="414" rx="17" ry="22" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="906" y="368" width="100" height="74" fill="none" stroke="#cc4444" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="896" y="466" class="label">aggressive_closeup</text>
+  <text x="896" y="478" class="label">occ=67% tight crop</text>
+
+  <!-- left_edge variant: subject on left edge -->
+  <rect x="1036" y="360" width="120" height="90" rx="4" ry="4" fill="url(#viewSky)" stroke="#9eb7ce" stroke-width="1.5"/>
+  <circle cx="1070" cy="400" r="7" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="1070" cy="415" rx="10" ry="13" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <rect x="1044" y="382" width="52" height="60" fill="none" stroke="#c26d1f" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="1036" y="466" class="label">left_edge_square</text>
+  <text x="1036" y="478" class="label">subject at left edge</text>
+
+  <!-- Dashed box = target bbox, green/orange/etc = preset color -->
+  <text x="616" y="496" class="tiny" style="fill:#2a7d5f;">Dashed box = target bounding box placement. Subject silhouette is illustrative.</text>
+
+  <!-- ========== Section 2: Objective Function ========== -->
+  <rect x="1176" y="108" width="600" height="400" class="panel"/>
+  <text x="1196" y="142" class="section">2. Objective function</text>
+  <text x="1196" y="163" class="small">Candidates ranked by weighted error vs. target plus regularization.</text>
+
+  <rect x="1196" y="182" width="562" height="120" class="box-rose"/>
+  <text x="1212" y="206" class="panel-title">weighted_target_error(predicted, targets, weights)</text>
+  <text x="1212" y="232" class="code-s">error = SUM(w_k * |pred_k - target_k|) / SUM(w_k)</text>
+  <text x="1212" y="256" class="code-s">objective = error + alpha*||t|| + beta*||r||</text>
+  <text x="1212" y="276" class="small">alpha = translation_penalty (0.05 offline, 0.0 Blender)</text>
+  <text x="1212" y="292" class="small">beta = rotation_penalty (0.05 offline, 0.0 Blender)</text>
+
+  <rect x="1196" y="318" width="270" height="172" class="box-purple"/>
+  <text x="1212" y="342" class="panel-title">Candidate action space</text>
+  <text x="1212" y="366" class="code-t">for dx,dy,dz in T_vals^3:</text>
+  <text x="1212" y="382" class="code-t">  for rx,ry,rz in R_vals^3:</text>
+  <text x="1212" y="398" class="code-t">    if ||t||&lt;=max and ||r||&lt;=max:</text>
+  <text x="1212" y="414" class="code-t">      add candidate</text>
+  <text x="1212" y="440" class="small">Offline: T=[-0.25,0,0.25]</text>
+  <text x="1212" y="456" class="small">         R=[-6,0,6] deg</text>
+  <text x="1212" y="474" class="small">Blender: T=[-0.12..0.12]</text>
+  <text x="1212" y="488" class="small">         R=[-3,0,3] deg</text>
+
+  <rect x="1484" y="318" width="274" height="172" class="box-teal"/>
+  <text x="1500" y="342" class="panel-title">Snap to nearest (offline)</text>
+  <text x="1500" y="368" class="code-t">pos_cost = ||p - p_target||</text>
+  <text x="1500" y="386" class="code-t">fwd_cost = arccos(f . f_t)</text>
+  <text x="1500" y="404" class="code-t">up_cost  = 0.5*arccos(u.u_t)</text>
+  <text x="1500" y="422" class="code-t">cost = 1.0*pos + 0.35*rot</text>
+  <text x="1500" y="450" class="small">Blender mode skips snap:</text>
+  <text x="1500" y="466" class="small">re-renders the exact target</text>
+  <text x="1500" y="482" class="small">pose in the 3D scene.</text>
+
+  <!-- ========== Section 3: MPC Loop ========== -->
+  <rect x="36" y="528" width="1740" height="250" class="panel"/>
+  <text x="56" y="562" class="section">3. MPC planning loop</text>
+  <text x="56" y="583" class="small">Greedy per-step optimization: at each step, generate all candidate actions, batch-score with the VLM, select the best, and advance.</text>
+
+  <!-- Loop flow: boxes connected by arrows -->
+  <rect x="56" y="604" width="160" height="68" class="loop-step"/>
+  <text x="78" y="628" class="body" style="font-weight:700;">Current View</text>
+  <text x="78" y="648" class="code-t">image_i, pos, fwd, up</text>
+  <text x="78" y="662" class="code-t">actual scores (GT)</text>
+
+  <line x1="216" y1="638" x2="248" y2="638" stroke="#2a7d5f" stroke-width="2.5" marker-end="url(#arrLoop)"/>
+
+  <rect x="260" y="604" width="186" height="68" class="loop-step"/>
+  <text x="278" y="628" class="body" style="font-weight:700;">Generate Candidates</text>
+  <text x="278" y="648" class="code-t">|T|^3 x |R|^3 combos</text>
+  <text x="278" y="662" class="code-t">norm-filtered, deduped</text>
+
+  <line x1="446" y1="638" x2="478" y2="638" stroke="#2a7d5f" stroke-width="2.5" marker-end="url(#arrLoop)"/>
+
+  <rect x="490" y="598" width="236" height="80" class="loop-step" style="stroke:#2a7d5f; stroke-width:3;"/>
+  <text x="516" y="622" class="body" style="font-weight:700;">Batch Score with VLM</text>
+  <text x="516" y="642" class="code-t">for each candidate:</text>
+  <text x="516" y="656" class="code-t">  prompt(image_i, action)</text>
+  <text x="516" y="670" class="code-t">  generate JSON -> parse</text>
+
+  <line x1="726" y1="638" x2="758" y2="638" stroke="#2a7d5f" stroke-width="2.5" marker-end="url(#arrLoop)"/>
+
+  <rect x="770" y="604" width="200" height="68" class="loop-step"/>
+  <text x="794" y="628" class="body" style="font-weight:700;">Rank by Objective</text>
+  <text x="794" y="648" class="code-t">objective = weighted_error</text>
+  <text x="794" y="662" class="code-t">+ motion penalties</text>
+
+  <line x1="970" y1="638" x2="1002" y2="638" stroke="#2a7d5f" stroke-width="2.5" marker-end="url(#arrLoop)"/>
+
+  <rect x="1014" y="604" width="160" height="68" class="loop-step"/>
+  <text x="1038" y="628" class="body" style="font-weight:700;">Select Best</text>
+  <text x="1038" y="648" class="code-t">argmin(objective)</text>
+  <text x="1038" y="662" class="code-t">log top-K candidates</text>
+
+  <line x1="1174" y1="638" x2="1206" y2="638" stroke="#2a7d5f" stroke-width="2.5" marker-end="url(#arrLoop)"/>
+
+  <rect x="1218" y="598" width="204" height="80" class="loop-step" style="stroke-dasharray: 6 4;"/>
+  <text x="1240" y="622" class="body" style="font-weight:700;">Advance to Next View</text>
+  <text x="1240" y="644" class="code-t">Offline: snap to nearest</text>
+  <text x="1240" y="658" class="code-t">Blender: re-render pose</text>
+
+  <!-- Loop back arrow -->
+  <line x1="1320" y1="678" x2="1320" y2="728" stroke="#2a7d5f" stroke-width="2.5"/>
+  <line x1="1320" y1="728" x2="136" y2="728" stroke="#2a7d5f" stroke-width="2.5"/>
+  <line x1="136" y1="728" x2="136" y2="678" stroke="#2a7d5f" stroke-width="2.5" marker-end="url(#arrLoop)"/>
+  <text x="660" y="746" class="small" style="fill:#2a7d5f; font-weight:700;">repeat for num_steps (default: 8 offline, 16 Blender)</text>
+
+  <!-- Output arrow -->
+  <line x1="1422" y1="638" x2="1468" y2="638" stroke="#4a6380" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <rect x="1480" y="598" width="276" height="152" class="box-slate"/>
+  <text x="1498" y="622" class="panel-title">Rollout output</text>
+  <text x="1498" y="646" class="code-s">trajectory.json</text>
+  <text x="1498" y="664" class="small">- initial/final target error</text>
+  <text x="1498" y="680" class="small">- per-step top-K candidates</text>
+  <text x="1498" y="696" class="small">- predicted vs actual scores</text>
+  <text x="1498" y="716" class="code-s">frames/ + rollout.mp4</text>
+  <text x="1498" y="734" class="small">(or .gif fallback)</text>
+
+  <!-- ========== Section 4: Rollout Visualization ========== -->
+  <rect x="36" y="798" width="1740" height="360" class="panel"/>
+  <text x="56" y="832" class="section">4. Example MPC rollout: subject repositioning toward centered_50 target</text>
+  <text x="56" y="853" class="small">The camera moves over 16 steps so the subject (shown as a silhouette) progressively becomes centered at ~50% frame occupancy. The dashed green box is the target.</text>
+
+  <!-- Target reference (small, top right) -->
+  <rect x="1550" y="824" width="80" height="22" rx="6" ry="6" fill="#eefbee" stroke="#5a9e5a" stroke-width="1.5"/>
+  <text x="1559" y="840" class="label-green">TARGET</text>
+  <rect x="1640" y="824" width="80" height="22" rx="6" ry="6" fill="#fff0f1" stroke="#cc4444" stroke-width="1.5"/>
+  <text x="1649" y="840" class="label-red">ACTUAL</text>
+
+  <!-- Frame 0: Subject small, off to the right, low in frame -->
+  <rect x="60" y="878" width="200" height="150" rx="6" ry="6" fill="url(#viewSky)" stroke="#b0bfce" stroke-width="2"/>
+  <!-- Ground -->
+  <path d="M 60 1003 L 260 1003" stroke="#7f9876" stroke-width="1.5"/>
+  <path d="M 80 1003 L 106 978 L 128 1003" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 160 1003 L 190 970 L 225 1003" fill="#93ab88" stroke="#758c6b"/>
+  <!-- Subject: small, right side -->
+  <circle cx="210" cy="968" r="6" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="210" cy="983" rx="8" ry="11" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <!-- Actual bbox (red): small, right -->
+  <rect x="195" y="957" width="30" height="42" fill="none" stroke="#cc4444" stroke-width="2"/>
+  <!-- Target bbox (green dashed): centered, large -->
+  <rect x="96" y="903" width="128" height="100" fill="none" stroke="#2a7d5f" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="60" y="1042" class="body" style="font-weight:700;">frame_0000</text>
+  <text x="60" y="1058" class="code-t">occ=0.06 offset=0.62</text>
+  <text x="60" y="1072" class="label-red">error = 0.54</text>
+
+  <!-- Arrow -->
+  <line x1="270" y1="953" x2="298" y2="953" stroke="#4a6380" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Frame 4: Subject moved left and larger -->
+  <rect x="310" y="878" width="200" height="150" rx="6" ry="6" fill="url(#viewSky)" stroke="#b0bfce" stroke-width="2"/>
+  <path d="M 310 1003 L 510 1003" stroke="#7f9876" stroke-width="1.5"/>
+  <path d="M 330 1003 L 360 975 L 384 1003" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 420 1003 L 446 975 L 478 1003" fill="#93ab88" stroke="#758c6b"/>
+  <!-- Subject: medium-small, slightly right of center -->
+  <circle cx="430" cy="956" r="8" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="430" cy="974" rx="12" ry="15" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <!-- Actual bbox (red) -->
+  <rect x="410" y="941" width="40" height="55" fill="none" stroke="#cc4444" stroke-width="2"/>
+  <!-- Target bbox (green dashed) -->
+  <rect x="346" y="903" width="128" height="100" fill="none" stroke="#2a7d5f" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="310" y="1042" class="body" style="font-weight:700;">frame_0004</text>
+  <text x="310" y="1058" class="code-t">occ=0.15 offset=0.38</text>
+  <text x="310" y="1072" class="label-red">error = 0.36</text>
+
+  <line x1="520" y1="953" x2="548" y2="953" stroke="#4a6380" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Frame 8: Subject near center, medium size -->
+  <rect x="560" y="878" width="200" height="150" rx="6" ry="6" fill="url(#viewSky)" stroke="#b0bfce" stroke-width="2"/>
+  <path d="M 560 1003 L 760 1003" stroke="#7f9876" stroke-width="1.5"/>
+  <path d="M 580 1003 L 610 978 L 638 1003" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 680 1003 L 710 973 L 740 1003" fill="#93ab88" stroke="#758c6b"/>
+  <!-- Subject: medium, near center -->
+  <circle cx="665" cy="944" r="10" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="665" cy="968" rx="14" ry="18" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <!-- Actual bbox -->
+  <rect x="641" y="927" width="48" height="66" fill="none" stroke="#cc4444" stroke-width="2"/>
+  <!-- Target bbox -->
+  <rect x="596" y="903" width="128" height="100" fill="none" stroke="#2a7d5f" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="560" y="1042" class="body" style="font-weight:700;">frame_0008</text>
+  <text x="560" y="1058" class="code-t">occ=0.28 offset=0.12</text>
+  <text x="560" y="1072" class="label" style="fill:#c28020;">error = 0.18</text>
+
+  <line x1="770" y1="953" x2="798" y2="953" stroke="#4a6380" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Frame 12: Subject centered, close to target -->
+  <rect x="810" y="878" width="200" height="150" rx="6" ry="6" fill="url(#viewSky)" stroke="#b0bfce" stroke-width="2"/>
+  <path d="M 810 1003 L 1010 1003" stroke="#7f9876" stroke-width="1.5"/>
+  <path d="M 830 1003 L 858 980 L 880 1003" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 920 1003 L 954 975 L 990 1003" fill="#93ab88" stroke="#758c6b"/>
+  <!-- Subject: larger, centered -->
+  <circle cx="912" cy="934" r="12" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <ellipse cx="912" cy="962" rx="16" ry="20" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.2"/>
+  <!-- Actual bbox -->
+  <rect x="885" y="915" width="54" height="76" fill="none" stroke="#cc4444" stroke-width="2"/>
+  <!-- Target bbox -->
+  <rect x="846" y="903" width="128" height="100" fill="none" stroke="#2a7d5f" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="810" y="1042" class="body" style="font-weight:700;">frame_0012</text>
+  <text x="810" y="1058" class="code-t">occ=0.41 offset=0.04</text>
+  <text x="810" y="1072" class="label" style="fill:#6a9e2a;">error = 0.08</text>
+
+  <line x1="1020" y1="953" x2="1048" y2="953" stroke="#4a6380" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Frame 16: Subject perfectly centered at ~50% occupancy (target achieved) -->
+  <rect x="1060" y="878" width="200" height="150" rx="6" ry="6" fill="url(#viewSky)" stroke="#2a7d5f" stroke-width="3"/>
+  <path d="M 1060 1003 L 1260 1003" stroke="#7f9876" stroke-width="1.5"/>
+  <path d="M 1080 1003 L 1110 978 L 1136 1003" fill="#a2b694" stroke="#7d9271"/>
+  <path d="M 1180 1003 L 1210 975 L 1240 1003" fill="#93ab88" stroke="#758c6b"/>
+  <!-- Subject: large, perfectly centered -->
+  <circle cx="1160" cy="926" r="14" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.4"/>
+  <ellipse cx="1160" cy="958" rx="18" ry="24" fill="#ffffff" stroke="#9aa9b6" stroke-width="1.4"/>
+  <!-- Actual bbox (now closely matches target) -->
+  <rect x="1128" y="904" width="64" height="92" fill="none" stroke="#2a7d5f" stroke-width="2.5"/>
+  <!-- Target bbox -->
+  <rect x="1096" y="903" width="128" height="100" fill="none" stroke="#2a7d5f" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="1060" y="1042" class="body" style="font-weight:700;">frame_0016</text>
+  <text x="1060" y="1058" class="code-t">occ=0.49 offset=0.01</text>
+  <text x="1060" y="1072" class="label-green">error = 0.02</text>
+
+  <!-- Error convergence chart -->
+  <rect x="1310" y="870" width="446" height="270" class="box-slate"/>
+  <text x="1330" y="898" class="panel-title">Target error convergence</text>
+
+  <!-- Chart axes -->
+  <line x1="1370" y1="920" x2="1370" y2="1100" stroke="#8899aa" stroke-width="1.5"/>
+  <line x1="1370" y1="1100" x2="1720" y2="1100" stroke="#8899aa" stroke-width="1.5"/>
+  <text x="1330" y="930" class="tiny">error</text>
+  <text x="1710" y="1116" class="tiny">step</text>
+
+  <!-- Y-axis labels -->
+  <text x="1346" y="930" class="code-t">0.6</text>
+  <text x="1346" y="960" class="code-t">0.5</text>
+  <text x="1346" y="990" class="code-t">0.4</text>
+  <text x="1346" y="1020" class="code-t">0.3</text>
+  <text x="1346" y="1050" class="code-t">0.2</text>
+  <text x="1346" y="1080" class="code-t">0.1</text>
+  <text x="1346" y="1100" class="code-t">0.0</text>
+
+  <!-- Grid lines -->
+  <line x1="1370" y1="926" x2="1720" y2="926" stroke="#e0e6ec" stroke-width="0.8"/>
+  <line x1="1370" y1="956" x2="1720" y2="956" stroke="#e0e6ec" stroke-width="0.8"/>
+  <line x1="1370" y1="986" x2="1720" y2="986" stroke="#e0e6ec" stroke-width="0.8"/>
+  <line x1="1370" y1="1016" x2="1720" y2="1016" stroke="#e0e6ec" stroke-width="0.8"/>
+  <line x1="1370" y1="1046" x2="1720" y2="1046" stroke="#e0e6ec" stroke-width="0.8"/>
+  <line x1="1370" y1="1076" x2="1720" y2="1076" stroke="#e0e6ec" stroke-width="0.8"/>
+
+  <!-- X-axis labels (steps 0,4,8,12,16) -->
+  <text x="1377" y="1116" class="code-t">0</text>
+  <text x="1455" y="1116" class="code-t">4</text>
+  <text x="1533" y="1116" class="code-t">8</text>
+  <text x="1611" y="1116" class="code-t">12</text>
+  <text x="1689" y="1116" class="code-t">16</text>
+
+  <!-- Error line: starts ~0.54, drops to ~0.02 -->
+  <!-- 0.54 -> y=926+(1-0.54/0.6)*174 = y=926+0.1*174=943.4... let me recalculate -->
+  <!-- y_scale: 0.0 maps to y=1100, 0.6 maps to y=926. range=174px for 0.6. so y = 1100 - (val/0.6)*174 -->
+  <!-- step 0: err=0.54 -> y=1100-(0.54/0.6)*174=1100-156.6=943 x=1380 -->
+  <!-- step 4: err=0.36 -> y=1100-(0.36/0.6)*174=1100-104.4=996 x=1462 -->
+  <!-- step 8: err=0.18 -> y=1100-(0.18/0.6)*174=1100-52.2=1048 x=1544 -->
+  <!-- step 12: err=0.08 -> y=1100-(0.08/0.6)*174=1100-23.2=1077 x=1626 -->
+  <!-- step 16: err=0.02 -> y=1100-(0.02/0.6)*174=1100-5.8=1094 x=1700 -->
+  <polyline points="1380,943 1420,960 1462,996 1500,1020 1544,1048 1580,1062 1626,1077 1660,1084 1700,1094"
+    fill="none" stroke="#2a7d5f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Data points -->
+  <circle cx="1380" cy="943" r="4" fill="#cc4444" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="1462" cy="996" r="4" fill="#c28020" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="1544" cy="1048" r="4" fill="#c28020" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="1626" cy="1077" r="4" fill="#6a9e2a" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="1700" cy="1094" r="4" fill="#2a7d5f" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Annotations on chart -->
+  <text x="1386" y="937" class="label-red">0.54</text>
+  <text x="1468" y="990" class="label">0.36</text>
+  <text x="1550" y="1042" class="label">0.18</text>
+  <text x="1632" y="1071" class="label">0.08</text>
+  <text x="1706" y="1090" class="label-green">0.02</text>
+
+  <!-- ========== Section 5: Two modes + launcher scripts ========== -->
+  <rect x="36" y="1178" width="860" height="370" class="panel"/>
+  <text x="56" y="1212" class="section">5. Two planning modes</text>
+
+  <rect x="56" y="1232" width="400" height="296" class="box-blue"/>
+  <text x="72" y="1256" class="panel-title">Offline MPC (infer_mpc.py)</text>
+  <text x="72" y="1280" class="small">Uses pre-rendered view dataset as the action space.</text>
+  <text x="72" y="1300" class="small">After selecting best action, snaps to nearest existing view</text>
+  <text x="72" y="1316" class="small">by position + rotation cost.</text>
+  <line x1="72" y1="1332" x2="440" y2="1332" stroke="#b8cbe0" stroke-width="1"/>
+  <text x="72" y="1352" class="code-s">python scripts/infer_mpc.py \</text>
+  <text x="72" y="1368" class="code-s">  --config configs/qwen35_vl_2b_1xh200.yaml \</text>
+  <text x="72" y="1384" class="code-s">  --model_path runs/&lt;run&gt;/final \</text>
+  <text x="72" y="1400" class="code-s">  --start_index 0 --num_steps 8 \</text>
+  <text x="72" y="1416" class="code-s">  --target_preset centered_50</text>
+  <text x="72" y="1442" class="tiny">Faster: no rendering, VLM scoring only.</text>
+  <text x="72" y="1458" class="tiny">Limitation: rollout quality depends on view coverage.</text>
+  <text x="72" y="1474" class="tiny">Default translation grid: [-0.25, 0, 0.25] m</text>
+  <text x="72" y="1490" class="tiny">Default rotation grid: [-6, 0, 6] deg</text>
+  <text x="72" y="1510" class="tiny">Parse failure penalty: 10.0 (heavily penalizes bad VLM outputs)</text>
+
+  <rect x="476" y="1232" width="400" height="296" class="box-teal"/>
+  <text x="492" y="1256" class="panel-title">Blender-in-the-loop MPC (infer_mpc_blender.py)</text>
+  <text x="492" y="1280" class="small">Re-renders actual Blender scene at each step.</text>
+  <text x="492" y="1300" class="small">Produces true camera movement through the 3D scene.</text>
+  <text x="492" y="1316" class="small">Optionally runs GroundingDINO for ground-truth scores.</text>
+  <line x1="492" y1="1332" x2="860" y2="1332" stroke="#9fd7ca" stroke-width="1"/>
+  <text x="492" y="1352" class="code-s">python scripts/infer_mpc_blender.py \</text>
+  <text x="492" y="1368" class="code-s">  --run_dir outputs/&lt;scene_run&gt; \</text>
+  <text x="492" y="1384" class="code-s">  --model_path runs/&lt;run&gt;/final \</text>
+  <text x="492" y="1400" class="code-s">  --blender_bin blender/blender \</text>
+  <text x="492" y="1416" class="code-s">  --num_steps 16 --target_preset centered_50</text>
+  <text x="492" y="1442" class="tiny">Slower: full Blender render per step (~seconds each).</text>
+  <text x="492" y="1458" class="tiny">Accurate: real scene geometry and lighting.</text>
+  <text x="492" y="1474" class="tiny">Default translation grid: [-0.12,-0.06,0,0.06,0.12] m</text>
+  <text x="492" y="1490" class="tiny">Default rotation grid: [-3, 0, 3] deg</text>
+  <text x="492" y="1510" class="tiny">--evaluate_with_detector for GroundingDINO ground-truth scoring</text>
+
+  <!-- ========== Section 6: Launcher scripts ========== -->
+  <rect x="916" y="1178" width="860" height="370" class="panel"/>
+  <text x="936" y="1212" class="section">6. Pre-configured launcher scripts</text>
+  <text x="936" y="1233" class="small">Each scripts/infer_mpc_*.sh configures RUN_DIR, MODEL_PATH, score weights, and target JSON for a specific composition goal.</text>
+
+  <rect x="936" y="1252" width="822" height="276" class="box-gold"/>
+
+  <rect x="952" y="1268" width="790" height="22" rx="6" ry="6" fill="#f0e4c0" stroke="none"/>
+  <text x="960" y="1284" class="code-s">Script                                       Composition goal</text>
+
+  <text x="960" y="1306" class="code-t">infer_mpc_centered_50.sh                     50% occupancy, centered</text>
+  <text x="960" y="1322" class="code-t">infer_mpc_centered_square_medium.sh           30% occ, 1:1, centered</text>
+  <text x="960" y="1338" class="code-t">infer_mpc_centered_square_close.sh            55% occ, 1:1, centered</text>
+  <text x="960" y="1354" class="code-t">infer_mpc_cinematic_center_wide.sh            35% occ, 1.8:1, centered</text>
+  <text x="960" y="1370" class="code-t">infer_mpc_centered_portrait_medium.sh         30% occ, 0.67:1 portrait</text>
+  <text x="960" y="1386" class="code-t">infer_mpc_top_right_thirds_medium.sh          25% occ, rule-of-thirds</text>
+  <text x="960" y="1402" class="code-t">infer_mpc_aggressive_closeup_crop.sh          67% occ, tight crop</text>
+  <text x="960" y="1418" class="code-t">infer_mpc_safe_closeup_portrait.sh            40% occ, 0.67:1 portrait</text>
+  <text x="960" y="1434" class="code-t">infer_mpc_{left,right,top,bottom}_edge_*.sh   Edge-placement variants</text>
+  <text x="960" y="1450" class="code-t">infer_mpc_upper_body_like_bottom_crop.sh      Upper-body framing</text>
+
+  <text x="952" y="1480" class="small">Override environment variables: CANDIDATE_BATCH_SIZE (default 96), INITIAL_SEED (default 721), SCORE_WEIGHTS_JSON</text>
+  <text x="952" y="1496" class="small">All scripts default to Qwen3.5-VL-2B checkpoint and Blender-in-the-loop mode with 16 planning steps.</text>
+  <text x="952" y="1512" class="small">Edge-placement scripts use custom score weights to prioritize margin targets over centroid_offset.</text>
+
+  <!-- ========== Section 7: Current Experimental Results ========== -->
+  <rect x="36" y="1568" width="1740" height="370" class="panel"/>
+  <text x="56" y="1602" class="section">7. Current experimental results (28 rollouts, Mar 13-15 2026)</text>
+  <text x="56" y="1623" class="small">Tested with Qwen3.5-VL-2B (checkpoint-14000) on DogWalk scene. Results in runs/infer_mpc_blender/.</text>
+
+  <!-- Successful compositions -->
+  <rect x="56" y="1642" width="540" height="278" class="box-green"/>
+  <text x="72" y="1666" class="panel-title">Successful compositions</text>
+  <text x="72" y="1694" class="body" style="font-weight:600;">Centered framing</text>
+  <text x="72" y="1712" class="small">Subject reliably moved to frame center (centroid_offset ~ 0.01)</text>
+  <text x="72" y="1734" class="body" style="font-weight:600;">Distance / size control</text>
+  <text x="72" y="1752" class="small">Occupancy ratio adjustable from ~5% to ~50% via target setting</text>
+  <text x="72" y="1774" class="body" style="font-weight:600;">Rule-of-thirds placement</text>
+  <text x="72" y="1792" class="small">Subject placed at intersection points with top_right_thirds preset</text>
+  <text x="72" y="1814" class="body" style="font-weight:600;">Error convergence</text>
+  <text x="72" y="1832" class="small">Typical target error: 0.54 -> 0.02 over 16 MPC steps</text>
+  <text x="72" y="1854" class="body" style="font-weight:600;">Cinematic wide framing</text>
+  <text x="72" y="1872" class="small">1.8:1 wide aspect compositions achieved with centered_wide presets</text>
+  <line x1="72" y1="1890" x2="576" y2="1890" stroke="#7db87d" stroke-width="1"/>
+  <text x="72" y="1908" class="small" style="fill:#2a7d5f; font-weight:600;">VLM approach significantly outperforms baseline at 60% training.</text>
+
+  <!-- Failure cases -->
+  <rect x="616" y="1642" width="540" height="278" class="box-rose"/>
+  <text x="632" y="1666" class="panel-title">Failure cases and root causes</text>
+  <text x="632" y="1694" class="body" style="font-weight:600;">Upper-body close-up - FAILS</text>
+  <text x="632" y="1712" class="small">Training data only 2-8m; no close-range (0.5-2m) positions exist</text>
+  <text x="632" y="1728" class="small">Model cannot reason: "lower elevation + approach = upper body crop"</text>
+  <text x="632" y="1752" class="body" style="font-weight:600;">Aspect ratio control - WEAK</text>
+  <text x="632" y="1770" class="small">Setting 1:1 aspect target has minimal effect on camera behavior</text>
+  <text x="632" y="1786" class="small">2D bbox aspect ratio not strongly coupled to 3D camera movement</text>
+  <line x1="632" y1="1806" x2="1136" y2="1806" stroke="#d9a0a9" stroke-width="1"/>
+  <text x="632" y="1828" class="body" style="font-weight:700;">Root cause: 2D pattern memorization</text>
+  <text x="632" y="1848" class="small">Learns: "move right -> bbox shifts left" (2D correlation)</text>
+  <text x="632" y="1864" class="small">Lacks: 3D spatial reasoning (elevation + distance + pitch)</text>
+  <text x="632" y="1888" class="small" style="fill:#cc4444; font-weight:600;">Fix: add 3D-aware score keys + close-range data (P0)</text>
+  <text x="632" y="1908" class="tiny">Failed presets: safe_closeup_portrait, aggressive_closeup, upper_body_like</text>
+
+  <!-- Experiment stats -->
+  <rect x="1176" y="1642" width="582" height="278" class="box-gold"/>
+  <text x="1192" y="1666" class="panel-title">Experiment summary and next steps</text>
+  <text x="1192" y="1694" class="code-s">Total MPC rollouts           28</text>
+  <text x="1192" y="1714" class="code-s">Planning steps per rollout   16</text>
+  <text x="1192" y="1734" class="code-s">Max candidates per step      720</text>
+  <text x="1192" y="1754" class="code-s">Model                        Qwen3.5-VL-2B</text>
+  <text x="1192" y="1774" class="code-s">Checkpoint                   14000 / 21728</text>
+  <text x="1192" y="1794" class="code-s">Composition presets tested    11</text>
+  <line x1="1192" y1="1812" x2="1738" y2="1812" stroke="#d9b35b" stroke-width="1"/>
+  <text x="1192" y="1834" class="body" style="font-weight:600;">Planned improvements (P0):</text>
+  <text x="1192" y="1854" class="small">1. 3D score keys: elevation, azimuth, distance, pitch</text>
+  <text x="1192" y="1872" class="small">2. Close-range data (0.5-2m) for close-up support</text>
+  <text x="1192" y="1890" class="small">3. Subject text in VLM prompt (from GroundingDINO label)</text>
+  <text x="1192" y="1908" class="small">4. Multi-frame history input (P1)</text>
+</svg>

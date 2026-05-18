@@ -17,6 +17,7 @@ from transformers import (
     AutoModelForImageTextToText,
     AutoProcessor,
     Trainer,
+    TrainerCallback,
     TrainingArguments,
     set_seed,
 )
@@ -27,6 +28,226 @@ if str(REPO_ROOT) not in sys.path:
 
 from src.vlm_qwen25.collator import QwenVLScoreCollator
 from src.vlm_qwen25.dataset import DroneActionScoreDataset
+from src.vlm_qwen25.schema import parse_scores_from_text
+from src.scoring.evaluator import RULE_BASED_SCORE_KEYS, CAMERA_3D_SCORE_KEYS
+from src.scoring.bbox_control import V5_SCORE_KEYS
+
+# v5 sub-groupings (bbox-derived vs camera-pose keys)
+V5_BBOX_KEYS = {
+    "occupancy", "body_in_frame_ratio",
+    "object_center_x", "object_center_y",
+    "bbox_x_offset", "bbox_y_offset",
+}
+V5_POSE_KEYS = {"cam_to_obj_azimuth_deg", "cam_to_obj_elevation_deg"}
+
+
+class PredictionLoggingCallback(TrainerCallback):
+    """Log model predictions vs GT to TensorBoard during eval."""
+
+    def __init__(self, eval_dataset, processor, score_keys, num_samples=32, max_new_tokens=256):
+        self.eval_dataset = eval_dataset
+        self.processor = processor
+        self.score_keys = list(score_keys)
+        self.num_samples = num_samples
+        self.max_new_tokens = max_new_tokens
+        # Group keys
+        self.bbox_keys = [k for k in self.score_keys if k in RULE_BASED_SCORE_KEYS]
+        self.camera3d_keys = [k for k in self.score_keys if k in CAMERA_3D_SCORE_KEYS]
+        self.v5_bbox_keys = [k for k in self.score_keys if k in V5_BBOX_KEYS]
+        self.v5_pose_keys = [k for k in self.score_keys if k in V5_POSE_KEYS]
+
+    def on_evaluate(self, args, state, control, model=None, **kwargs):
+        if model is None:
+            return
+        tb_writer = None
+        for cb_obj in kwargs.get("callbacks", []):
+            if hasattr(cb_obj, "tb_writer"):
+                tb_writer = cb_obj.tb_writer
+                break
+        if tb_writer is None:
+            try:
+                from torch.utils.tensorboard import SummaryWriter
+                tb_writer = SummaryWriter(log_dir=args.logging_dir)
+            except Exception:
+                return
+
+        from src.vlm_qwen25.prompt import build_user_prompt
+
+        model.eval()
+        device = next(model.parameters()).device
+        indices = list(range(min(self.num_samples, len(self.eval_dataset))))
+
+        all_errors = {k: [] for k in self.score_keys}
+        parse_failures = 0
+        last_pred = None
+        last_gt = None
+
+        for idx in indices:
+            sample = self.eval_dataset[idx]
+            image = sample["image"]
+            action_text = sample["action_text"]
+            gt_scores = sample["target_scores"]
+
+            user_prompt = build_user_prompt(
+                action_text=action_text,
+                target_score_keys=self.score_keys,
+            )
+            messages = [{"role": "user", "content": [
+                {"type": "image"},
+                {"type": "text", "text": user_prompt},
+            ]}]
+            prompt_text = self.processor.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True,
+            )
+            inputs = self.processor(
+                text=[prompt_text], images=[image],
+                return_tensors="pt", padding=True,
+            ).to(device)
+
+            with torch.no_grad():
+                output_ids = model.generate(
+                    **inputs,
+                    max_new_tokens=self.max_new_tokens,
+                    do_sample=False,
+                )
+            prompt_len = inputs["input_ids"].shape[1]
+            generated_ids = output_ids[0, prompt_len:]
+            pred_text = self.processor.decode(generated_ids, skip_special_tokens=True)
+            pred_scores = parse_scores_from_text(pred_text, self.score_keys)
+
+            if pred_scores is None:
+                parse_failures += 1
+                continue
+
+            last_pred = pred_scores
+            last_gt = gt_scores
+            for k in self.score_keys:
+                if k in pred_scores and k in gt_scores:
+                    all_errors[k].append(abs(pred_scores[k] - gt_scores[k]))
+
+        step = state.global_step
+
+        # Per-key MAE
+        for k in self.score_keys:
+            errs = all_errors[k]
+            if errs:
+                tb_writer.add_scalar(f"pred_vs_gt/{k}_mae", sum(errs) / len(errs), step)
+
+        # Group MAE: bbox vs camera_3d vs total
+        def _group_mae(keys):
+            errs = []
+            for k in keys:
+                errs.extend(all_errors.get(k, []))
+            return sum(errs) / len(errs) if errs else None
+
+        bbox_mae = _group_mae(self.bbox_keys)
+        cam3d_mae = _group_mae(self.camera3d_keys)
+        v5_bbox_mae = _group_mae(self.v5_bbox_keys)
+        v5_pose_mae = _group_mae(self.v5_pose_keys)
+        total_mae = _group_mae(self.score_keys)
+
+        if bbox_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/bbox_group_mae", bbox_mae, step)
+        if cam3d_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/camera3d_group_mae", cam3d_mae, step)
+        if v5_bbox_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/v5_bbox_group_mae", v5_bbox_mae, step)
+        if v5_pose_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/v5_pose_group_mae", v5_pose_mae, step)
+        if total_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/total_mae", total_mae, step)
+
+        if indices:
+            tb_writer.add_scalar(
+                "pred_vs_gt/parse_failure_rate",
+                parse_failures / len(indices),
+                step,
+            )
+
+        # Log one sample detail as text
+        if last_pred is not None and last_gt is not None:
+            detail = "| key | pred | gt | err |\n|---|---|---|---|\n"
+            for k in self.score_keys:
+                p = last_pred.get(k, float("nan"))
+                g = last_gt.get(k, float("nan"))
+                detail += f"| {k} | {p:.4f} | {g:.4f} | {abs(p-g):.4f} |\n"
+            tb_writer.add_text("pred_vs_gt/sample", detail, step)
+
+        tb_writer.flush()
+
+
+class V5LossTrainer(Trainer):
+    """Trainer subclass that splits the train CE loss into per-key and per-
+    distance-bucket components for TensorBoard tracking, while still returning
+    the original total loss to the optimizer.
+    """
+
+    def __init__(self, *args, v5_score_keys=None, n_distance_bins=6, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.v5_score_keys = list(v5_score_keys) if v5_score_keys is not None else list(V5_SCORE_KEYS)
+        self.n_distance_bins = int(n_distance_bins)
+
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        # Pop side-channel tensors not consumed by the model.
+        key_id = inputs.pop("key_id", None)
+        bucket_idx = inputs.pop("bucket_idx", None)
+
+        outputs = model(**inputs)
+        logits = outputs.logits
+
+        labels = inputs["labels"]
+        shift_logits = logits[..., :-1, :].contiguous()
+        shift_labels = labels[..., 1:].contiguous()
+
+        loss_fct = torch.nn.CrossEntropyLoss(reduction="none", ignore_index=-100)
+        flat_logits = shift_logits.view(-1, shift_logits.size(-1))
+        flat_labels = shift_labels.view(-1)
+        per_token_loss = loss_fct(flat_logits, flat_labels)  # (B*T,)
+
+        valid_mask = (flat_labels != -100)
+        n_valid = int(valid_mask.sum().item())
+        if n_valid > 0:
+            total_loss = per_token_loss[valid_mask].mean()
+        else:
+            total_loss = per_token_loss.sum() * 0.0
+
+        # Log per-key and per-bucket scalars only every logging_steps.
+        try:
+            should_log = (
+                self.args.logging_steps > 0
+                and self.state.global_step > 0
+                and self.state.global_step % self.args.logging_steps == 0
+                and self.is_world_process_zero()
+            )
+        except Exception:
+            should_log = False
+
+        if should_log and key_id is not None:
+            with torch.no_grad():
+                shift_key = key_id[..., 1:].contiguous().view(-1)
+                shift_bucket = None
+                if bucket_idx is not None:
+                    B, T = labels.shape
+                    sample_bucket = bucket_idx.to(labels.device)
+                    expanded = sample_bucket.view(B, 1).expand(B, T - 1).contiguous()
+                    shift_bucket = expanded.view(-1)
+
+                logs = {"loss_total": float(total_loss.detach().item())}
+                # Per-key
+                for k_idx, k_name in enumerate(self.v5_score_keys):
+                    mask = (shift_key == k_idx) & valid_mask
+                    if mask.any():
+                        logs[f"loss_{k_name}"] = float(per_token_loss[mask].mean().item())
+                # Per-bucket
+                if shift_bucket is not None:
+                    for b in range(self.n_distance_bins):
+                        mask = (shift_bucket == b) & valid_mask
+                        if mask.any():
+                            logs[f"loss_bucket_{b}"] = float(per_token_loss[mask].mean().item())
+                # Push to HF Trainer log history (TB writer adds `train/` prefix).
+                self.log(logs)
+
+        return (total_loss, outputs) if return_outputs else total_loss
 
 
 def parse_args() -> argparse.Namespace:
@@ -91,27 +312,58 @@ def main() -> None:
     action_frame = str(cfg["data"].get("action_frame", "camera_local"))
     rotation_representation = str(cfg["data"].get("rotation_representation", "orientation_6d"))
 
-    dataset = DroneActionScoreDataset(
+    dataset_kwargs = dict(
         annotations_path=cfg["data"]["annotations_path"],
         image_root=cfg["data"].get("image_root"),
         action_frame=action_frame,
         rotation_representation=rotation_representation,
         distance_threshold=float(cfg["data"]["distance_threshold"]),
+        rotation_threshold_deg=(
+            None if cfg["data"].get("rotation_threshold_deg", 60.0) is None
+            else float(cfg["data"].get("rotation_threshold_deg", 60.0))
+        ),
+        pair_distance_distribution=str(cfg["data"].get("pair_distance_distribution", "log_uniform")),
+        n_distance_bins=int(cfg["data"].get("n_distance_bins", 5)),
+        min_pair_distance=float(cfg["data"].get("min_pair_distance", 0.05)),
         max_pairs_per_image=int(cfg["data"]["max_pairs_per_image"]),
         zero_action_ratio=float(cfg["data"].get("zero_action_ratio", 0.0)),
         seed=seed,
         target_score_keys=cfg["data"].get("target_score_keys"),
+        views_cache_dir=cfg["data"].get("views_cache_dir"),
     )
 
-    train_indices, eval_indices = split_dataset_indices(
-        len(dataset),
-        float(cfg["data"].get("eval_ratio", 0.0)),
-        seed,
-    )
-    train_dataset = Subset(dataset, train_indices)
-    eval_dataset = Subset(dataset, eval_indices) if eval_indices else None
+    num_train_placements = int(cfg["data"].get("num_train_placements", 0))
+    num_val_placements = int(cfg["data"].get("num_val_placements", 0))
+
+    if num_train_placements > 0:
+        # Placement-level train/val split.
+        train_dataset = DroneActionScoreDataset(
+            placement_start_idx=0,
+            placement_end_idx=num_train_placements,
+            **dataset_kwargs,
+        )
+        if num_val_placements > 0:
+            eval_dataset = DroneActionScoreDataset(
+                placement_start_idx=num_train_placements,
+                placement_end_idx=num_train_placements + num_val_placements,
+                **dataset_kwargs,
+            )
+        else:
+            eval_dataset = None
+        dataset = train_dataset  # used downstream for target_score_keys/views counts
+    else:
+        # Legacy pair-level split via eval_ratio.
+        dataset = DroneActionScoreDataset(**dataset_kwargs)
+        train_indices, eval_indices = split_dataset_indices(
+            len(dataset),
+            float(cfg["data"].get("eval_ratio", 0.0)),
+            seed,
+        )
+        train_dataset = Subset(dataset, train_indices)
+        eval_dataset = Subset(dataset, eval_indices) if eval_indices else None
+
     if len(train_dataset) == 0:
-        raise ValueError("train dataset is empty. Increase pair count or reduce eval_ratio.")
+        raise ValueError("train dataset is empty. Check placement counts / eval_ratio.")
 
     model_cfg = cfg["model"]
     train_cfg = cfg["training"]
@@ -173,6 +425,7 @@ def main() -> None:
 
     training_kwargs = dict(
         output_dir=str(ckpt_dir),
+        logging_dir=str(run_dir / "tb_logs"),
         num_train_epochs=num_train_epochs,
         per_device_train_batch_size=per_device_train_batch_size,
         per_device_eval_batch_size=per_device_eval_batch_size,
@@ -182,6 +435,7 @@ def main() -> None:
         warmup_steps=warmup_steps,
         logging_steps=int(train_cfg["logging_steps"]),
         save_steps=int(train_cfg["save_steps"]),
+        save_total_limit=int(train_cfg.get("save_total_limit", 3)),
         eval_steps=int(train_cfg["eval_steps"]),
         save_strategy="steps",
         bf16=bool(train_cfg.get("bf16", True)),
@@ -207,22 +461,82 @@ def main() -> None:
         rotation_representation=dataset.rotation_representation,
     )
 
-    trainer = Trainer(
+    callbacks = []
+    if eval_dataset is not None:
+        callbacks.append(PredictionLoggingCallback(
+            eval_dataset=eval_dataset,
+            processor=processor,
+            score_keys=dataset.target_score_keys,
+            num_samples=min(32, len(eval_dataset)),
+        ))
+
+    trainer = V5LossTrainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
         data_collator=collator,
+        callbacks=callbacks,
+        v5_score_keys=dataset.target_score_keys,
+        n_distance_bins=int(cfg["data"].get("n_distance_bins", 6)),
     )
+
+    # Log hyperparameters to TensorBoard for cross-run comparison
+    world_size = max(1, int(os.environ.get("WORLD_SIZE", "1")))
+    effective_batch_size = per_device_train_batch_size * gradient_accumulation_steps * world_size
+    steps_per_epoch = max(1, math.ceil(len(train_dataset) / effective_batch_size))
+    hparams = {
+        "model": model_name,
+        "num_views": len(dataset.views),
+        "num_train_pairs": len(train_dataset),
+        "num_eval_pairs": 0 if eval_dataset is None else len(eval_dataset),
+        "num_train_placements": num_train_placements,
+        "num_val_placements": num_val_placements,
+        "num_score_keys": len(dataset.target_score_keys),
+        "effective_batch_size": effective_batch_size,
+        "learning_rate": float(train_cfg["learning_rate"]),
+        "num_train_epochs": num_train_epochs,
+        "total_steps": steps_per_epoch,
+        "warmup_steps": warmup_steps,
+        "distance_threshold": float(cfg["data"]["distance_threshold"]),
+        "pair_distance_distribution": str(cfg["data"].get("pair_distance_distribution", "log_uniform")),
+        "n_distance_bins": int(cfg["data"].get("n_distance_bins", 5)),
+        "action_frame": action_frame,
+        "rotation_representation": rotation_representation,
+    }
+    if trainer.is_world_process_zero():
+        try:
+            from torch.utils.tensorboard import SummaryWriter
+            tb_writer = SummaryWriter(log_dir=str(ckpt_dir / "runs"))
+            # Log hparams as text table
+            hparams_text = "\n".join(f"| {k} | {v} |" for k, v in hparams.items())
+            tb_writer.add_text("hparams", f"| key | value |\n|---|---|\n{hparams_text}", 0)
+            for k, v in hparams.items():
+                if isinstance(v, (int, float)):
+                    tb_writer.add_scalar(f"hparams/{k}", v, 0)
+            tb_writer.flush()
+            tb_writer.close()
+        except Exception:
+            pass
 
     trainer.train(resume_from_checkpoint=train_cfg.get("resume_from_checkpoint"))
     trainer.save_model(str(final_dir))
     processor.save_pretrained(str(final_dir))
 
+    # Collect final training metrics
+    final_metrics = {}
+    if trainer.state.log_history:
+        for entry in trainer.state.log_history:
+            if "loss" in entry:
+                final_metrics["final_train_loss"] = entry["loss"]
+            if "eval_loss" in entry:
+                final_metrics["final_eval_loss"] = entry["eval_loss"]
+
     summary = {
         "run_dir": str(run_dir),
         "checkpoint_dir": str(ckpt_dir),
         "final_model_dir": str(final_dir),
+        "config_path": str(cfg_path),
         "dataset_pairs_total": len(dataset),
         "dataset_pairs_train": len(train_dataset),
         "dataset_pairs_eval": 0 if eval_dataset is None else len(eval_dataset),
@@ -231,6 +545,8 @@ def main() -> None:
         "action_frame": dataset.action_frame,
         "rotation_representation": dataset.rotation_representation,
         "target_score_keys": dataset.target_score_keys,
+        "hparams": hparams,
+        "final_metrics": final_metrics,
     }
     with (run_dir / "summary.json").open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)

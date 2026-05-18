@@ -19,9 +19,11 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from src.scoring.bbox_control import RULE_BASED_SCORE_KEYS, compute_rule_based_scores
+from src.scoring.evaluator import ALL_SUPPORTED_SCORE_KEYS
 from src.vlm_qwen25.mpc import (
     generate_local_candidate_actions,
     score_action_candidates,
+    write_rollout_summary_image,
     write_rollout_video,
 )
 from src.vlm_qwen25.objective import (
@@ -81,6 +83,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--detector_device", type=str, default="cuda")
     parser.add_argument("--list_target_presets", action="store_true")
     parser.add_argument("--trust_remote_code", action="store_true")
+    parser.add_argument(
+        "--blender_threads",
+        type=int,
+        default=4,
+        help="CPU thread limit for each Blender subprocess (-t flag)",
+    )
+    parser.add_argument(
+        "--disable_roll",
+        action="store_true",
+        help="Fix rz=0 in candidate rotation (no roll, pitch+yaw only)",
+    )
     return parser.parse_args()
 
 
@@ -173,6 +186,7 @@ def run_blender_render(
     run_info_path: Path,
     output_image: Path,
     output_json: Path,
+    blender_threads: int = 4,
     sample_initial_pose: bool = False,
     seed: int | None = None,
     position: list[float] | None = None,
@@ -182,6 +196,7 @@ def run_blender_render(
     cmd = [
         blender_bin,
         "-b",
+        "-t", str(max(1, int(blender_threads))),
         "-P",
         str(REPO_ROOT / "scripts" / "blender_render_pose.py"),
         "--",
@@ -356,17 +371,22 @@ def main() -> None:
     action_frame = str(data_cfg.get("action_frame", "camera_local"))
     rotation_representation = str(data_cfg.get("rotation_representation", "orientation_6d"))
     score_keys = list(data_cfg.get("target_score_keys", []))
-    unsupported_score_keys = [key for key in score_keys if key not in RULE_BASED_SCORE_KEYS]
+    unsupported_score_keys = [key for key in score_keys if key not in ALL_SUPPORTED_SCORE_KEYS]
     if unsupported_score_keys:
-        raise ValueError(
-            "The Blender-in-the-loop rollout currently supports only rule-based bbox score keys. "
-            f"Unsupported keys: {', '.join(unsupported_score_keys)}"
-        )
+        raise ValueError(f"Unsupported score keys: {', '.join(unsupported_score_keys)}")
+
+    run_info = load_json(run_info_path)
+    if not isinstance(run_info, dict):
+        raise ValueError(f"invalid run_info payload: {run_info_path}")
+    options = dict(run_info.get("options", {}))
+    resolution = options.get("resolution", [1024, 768])
+    frame_aspect_ratio = float(resolution[0]) / float(resolution[1])
 
     target_objective = build_target_objective(
         preset_name=args.target_preset,
         target_json_text=args.target_json,
         score_weights_json_text=args.score_weights_json,
+        frame_aspect_ratio=frame_aspect_ratio,
     )
     unsupported_targets = sorted(set(target_objective.score_targets) - set(score_keys))
     if unsupported_targets:
@@ -374,11 +394,6 @@ def main() -> None:
             "target objective uses keys not predicted by this model config: "
             + ", ".join(unsupported_targets)
         )
-
-    run_info = load_json(run_info_path)
-    if not isinstance(run_info, dict):
-        raise ValueError(f"invalid run_info payload: {run_info_path}")
-    options = dict(run_info.get("options", {}))
     object_position = np.asarray(options["object_position"], dtype=np.float32)
     camera_radius_range = [float(value) for value in options.get("camera_radius_range", [2.0, 10.0])]
     hemisphere = bool(options.get("hemisphere", False))
@@ -443,6 +458,7 @@ def main() -> None:
             "model_path": str(args.model_path),
             "processor_source": str(processor_source),
             "blender_bin": str(args.blender_bin),
+            "blender_threads": int(args.blender_threads),
             "output_dir": str(output_dir),
         },
         "planner": {
@@ -491,6 +507,7 @@ def main() -> None:
         run_info_path=run_info_path,
         output_image=initial_image_path,
         output_json=initial_response_path,
+        blender_threads=args.blender_threads,
         sample_initial_pose=True,
         seed=args.initial_seed,
     )
@@ -533,6 +550,7 @@ def main() -> None:
                 max_translation_norm=float(args.max_translation_norm_m),
                 max_rotation_norm_rad=max_rotation_norm_rad,
                 action_frame=action_frame,
+                disable_roll=bool(args.disable_roll),
                 rotation_representation=rotation_representation,
             )
             candidates = filter_candidates_by_environment(
@@ -613,6 +631,7 @@ def main() -> None:
             run_info_path=run_info_path,
             output_image=next_image_path,
             output_json=next_response_path,
+            blender_threads=args.blender_threads,
             position=best["target_position_world"],
             forward=best["target_forward_world"],
             up=best["target_up_world"],
@@ -671,6 +690,16 @@ def main() -> None:
         output_dir=output_dir,
         fps=int(args.video_fps),
     )
+
+    summary_image_path = write_rollout_summary_image(
+        frame_paths=frame_paths,
+        steps=steps,
+        score_targets=target_objective.score_targets,
+        score_weights=target_objective.score_weights,
+        output_dir=output_dir,
+    )
+    if summary_image_path:
+        print(f"Summary image saved: {summary_image_path}", flush=True)
 
     final_target_error = None
     final_error_by_key = None

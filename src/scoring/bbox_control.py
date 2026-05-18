@@ -16,6 +16,18 @@ RULE_BASED_SCORE_KEYS = [
 ]
 
 
+V5_SCORE_KEYS = [
+    "occupancy",
+    "body_in_frame_ratio",
+    "cam_to_obj_azimuth_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset",
+]
+
+
 def clamp01(value: float) -> float:
     if value < 0.0:
         return 0.0
@@ -118,4 +130,85 @@ def compute_rule_based_scores(
         "bbox_margin_right": margin_right,
         "bbox_aspect_ratio": float(aspect_ratio),
         "bbox_centroid_offset": centroid_offset,
+    }
+
+
+def zero_v5_scores() -> dict[str, int]:
+    return {key: 0 for key in V5_SCORE_KEYS}
+
+
+def compute_v5_scores(
+    image_width: int,
+    image_height: int,
+    bbox_full: BBoxXYXY | None,
+    azimuth_deg: float,
+    elevation_deg: float,
+) -> dict[str, int]:
+    """v5 integer score schema.
+
+    bbox_full: full projected bbox in pixel coords; may extend beyond image.
+    Returns 8 ints: occupancy, body_in_frame_ratio (0-100 percent),
+    cam_to_obj_azimuth_deg/elevation_deg, object_center_x/y (unbounded),
+    bbox_x_offset/y_offset (>=0).
+    """
+    if image_width <= 0 or image_height <= 0:
+        raise ValueError("image size must be positive")
+
+    az = int(round(float(azimuth_deg))) % 360
+    if az < 0:
+        az += 360
+    el = max(-90, min(90, int(round(float(elevation_deg)))))
+
+    if bbox_full is None:
+        out = zero_v5_scores()
+        out["cam_to_obj_azimuth_deg"] = az
+        out["cam_to_obj_elevation_deg"] = el
+        return out
+
+    x1f, y1f, x2f, y2f = (float(v) for v in bbox_full)
+    bbox_full_w = max(0.0, x2f - x1f)
+    bbox_full_h = max(0.0, y2f - y1f)
+    full_area = bbox_full_w * bbox_full_h
+
+    # Clamp pathological projections (camera near-plane blow-ups when a 3D
+    # bbox corner is essentially at camera depth = 0). Anything beyond ~4x
+    # the image dimension is "fully off-screen"; report it as such instead of
+    # leaking 5-digit pixel coordinates that the VLM can't predict.
+    extreme_w = bbox_full_w > 4.0 * image_width
+    extreme_h = bbox_full_h > 4.0 * image_height
+    if extreme_w or extreme_h or full_area > 16.0 * (float(image_width) * float(image_height)):
+        out = zero_v5_scores()
+        out["cam_to_obj_azimuth_deg"] = az
+        out["cam_to_obj_elevation_deg"] = el
+        return out
+
+    cx = (x1f + x2f) * 0.5
+    cy = (y1f + y2f) * 0.5
+    x_offset = int(round(bbox_full_w * 0.5))
+    y_offset = int(round(bbox_full_h * 0.5))
+
+    cx1 = max(0.0, min(x1f, float(image_width)))
+    cx2 = max(0.0, min(x2f, float(image_width)))
+    cy1 = max(0.0, min(y1f, float(image_height)))
+    cy2 = max(0.0, min(y2f, float(image_height)))
+    clipped_area = max(0.0, cx2 - cx1) * max(0.0, cy2 - cy1)
+    img_area = float(image_width) * float(image_height)
+
+    occupancy_pct = int(round(100.0 * clipped_area / img_area))
+    if full_area > 0.0:
+        body_in_frame_pct = int(round(100.0 * clipped_area / full_area))
+    else:
+        body_in_frame_pct = 0
+    occupancy_pct = max(0, min(100, occupancy_pct))
+    body_in_frame_pct = max(0, min(100, body_in_frame_pct))
+
+    return {
+        "occupancy": occupancy_pct,
+        "body_in_frame_ratio": body_in_frame_pct,
+        "cam_to_obj_azimuth_deg": az,
+        "cam_to_obj_elevation_deg": el,
+        "object_center_x": int(round(cx)),
+        "object_center_y": int(round(cy)),
+        "bbox_x_offset": max(0, x_offset),
+        "bbox_y_offset": max(0, y_offset),
     }

@@ -22,11 +22,28 @@ def parse_args(argv):
     parser.add_argument("--input_scene", default="assets/Koky_LuxuryHouse_0.blend")     #ahn, 260309: all assets moved to /home/nas5/jungwooahn/datasets/DronePhotos
     parser.add_argument("--output_dir", default="outputs")
     parser.add_argument("--run_name")
+    parser.add_argument("--output_run_dir", help="explicit output run directory (overrides auto-generated path)")
     parser.add_argument("--sky_strength", type=float, default=0.1)
     parser.add_argument("--object_name", help="object name in scene (e.g., GEO-snowman-head.001)")
     parser.add_argument("--object_position", nargs=3, type=float)
     parser.add_argument("--auto_place_object", action="store_true")
-    parser.add_argument("--input_object", help="path to object file or folder for auto placement")
+    parser.add_argument("--input_object", help="path to object file or folder (used with --auto_place_object or --object_position)")
+    parser.add_argument("--rotation_z_deg", type=float, default=0.0, help="Z-axis rotation in degrees for imported object")
+    parser.add_argument(
+        "--object_rotation_xyz_rad",
+        nargs=3,
+        type=float,
+        default=None,
+        help="full Euler XYZ rotation in radians for imported object (overrides --rotation_z_deg when set)",
+    )
+    parser.add_argument("--scale", type=float, default=1.0, help="uniform scale for imported object")
+    parser.add_argument(
+        "--scene_scale",
+        type=float,
+        default=1.0,
+        help="uniform scale applied to the scene root before placing the object (matches placement-pipeline scene_scale)",
+    )
+    parser.add_argument("--use_aabb_center", action="store_true", help="use AABB center as camera orbit center instead of object position")
     parser.add_argument("--hemisphere", action="store_true")
     parser.add_argument("--camera_radius_range", nargs=2, type=float, default=[2.0, 10.0])
     parser.add_argument("--camera_direction_offsets", nargs=3, type=float, default=[30.0, 30.0, 30.0], help="yaw pitch roll offsets in degrees")
@@ -54,6 +71,7 @@ def parse_args(argv):
     parser.add_argument("--samples", type=int, default=64, help="Cycles sample count per image")
     parser.add_argument("--adaptive_sampling", action="store_true", help="enable Cycles adaptive sampling")
     parser.add_argument("--adaptive_threshold", type=float, default=0.01, help="adaptive sampling noise threshold")
+    parser.add_argument("--no_denoise", action="store_true", help="disable OptiX denoiser (enabled by default)")
     parser.add_argument("--max_bounces", type=int, default=4)
     parser.add_argument("--diffuse_bounces", type=int, default=2)
     parser.add_argument("--glossy_bounces", type=int, default=2)
@@ -65,10 +83,32 @@ def parse_args(argv):
         action="store_true",
         help="reuse render data across frames to reduce per-frame overhead",
     )
+    parser.add_argument(
+        "--blender_threads",
+        type=int,
+        default=4,
+        help="number of CPU threads for Blender (1-4 recommended for GPU rendering)",
+    )
     
+    parser.add_argument(
+        "--num_workers",
+        type=int,
+        default=1,
+        help="total number of parallel workers (each gets a separate GPU)",
+    )
+    parser.add_argument(
+        "--worker_index",
+        type=int,
+        default=0,
+        help="this worker's index (0-based), determines which images to render",
+    )
     parser.add_argument("--render_depth", action="store_true", help="render depth map alongside RGB")
     parser.add_argument("--depth_format", choices=["OPEN_EXR", "PNG"], default="PNG", help="depth output format (OPEN_EXR recommended)")
     parser.add_argument("--depth_max", type=float, default=15.0, help="max depth for PNG normalization (ignored for EXR)")
+    parser.add_argument("--image_format", choices=["JPEG", "PNG"], default="JPEG",
+                        help="RGB image output format (JPEG default for ~5x smaller files)")
+    parser.add_argument("--image_quality", type=int, default=90,
+                        help="JPEG quality (0-100, default 90); ignored for PNG")
     split = argv.index("--") + 1 if "--" in argv else len(argv)
     return parser.parse_args(argv[split:])
 
@@ -85,13 +125,75 @@ def set_sky(strength):
     set_nishita_sky(float(strength))
 
 
+def set_sky_if_no_native_lighting(strength, imported_names=None):
+    """Scene-adaptive sky lighting (mirrors scripts/vlm_place_worker.py:455-473).
+
+    Only adds Nishita sky when the BLEND scene has no LIGHT objects AND no
+    sky / environment / non-black background in its world shader. Prevents
+    overwriting a scene's native HDRI / sun + bake interior scenes that
+    already ship their own lighting.
+    """
+    imported_names = imported_names or set()
+    has_lights = any(
+        o.type == "LIGHT" and o.name not in imported_names
+        for o in bpy.data.objects
+    )
+    has_world = False
+    world = bpy.context.scene.world
+    if world and world.use_nodes:
+        for node in world.node_tree.nodes:
+            if node.type in ("TEX_SKY", "TEX_ENVIRONMENT", "TEX_IMAGE"):
+                has_world = True
+                break
+            if node.type == "BACKGROUND":
+                c = node.inputs["Color"]
+                if c.is_linked or sum(c.default_value[:3]) > 0.01:
+                    has_world = True
+                    break
+    if not has_lights and not has_world:
+        print("No native lighting found, adding Nishita sky")
+        set_nishita_sky(float(strength))
+        return True
+    print(f"Using scene lighting (lights={has_lights}, world={has_world})")
+    return False
+
+
+def apply_scene_scale(scene, scale_factor):
+    """Uniform-scale the scene by ``scale_factor`` and compensate light intensity.
+
+    Scales every root-level object's location and scale, then multiplies
+    non-sun light energy by scale_factor**2 (point/area/spot lights follow an
+    inverse-square law, so shrinking distances by s requires energy * s^2 to
+    keep illuminance constant). Sun lights use directional irradiance and are
+    left untouched. Mirrors scripts/vlm_place_worker.py:apply_scene_scale.
+    """
+    s = float(scale_factor)
+    if abs(s - 1.0) < 1e-9:
+        return
+    for obj in scene.objects:
+        if obj.parent is None:
+            obj.location = (obj.location.x * s, obj.location.y * s, obj.location.z * s)
+            obj.scale = (obj.scale.x * s, obj.scale.y * s, obj.scale.z * s)
+    energy_factor = s * s
+    for light in bpy.data.lights:
+        if light.type == "SUN":
+            continue
+        light.energy = light.energy * energy_factor
+    bpy.context.view_layer.update()
+
+
 def set_render_settings(scene, resolution, args):
     scene.render.engine = "CYCLES"
     scene.render.resolution_x = int(resolution[0])
     scene.render.resolution_y = int(resolution[1])
     scene.render.resolution_percentage = 100
-    scene.render.image_settings.file_format = "PNG"
+    img_fmt = getattr(args, "image_format", "JPEG")
+    scene.render.image_settings.file_format = img_fmt
+    if img_fmt == "JPEG":
+        scene.render.image_settings.quality = int(getattr(args, "image_quality", 90))
+        scene.render.image_settings.color_mode = "RGB"   # JPEG cannot use RGBA
     scene.render.use_persistent_data = bool(args.persistent_data)
+    scene.render.film_transparent = False
 
     cycles = scene.cycles
     cycles.samples = int(args.samples)
@@ -105,6 +207,16 @@ def set_render_settings(scene, resolution, args):
         cycles.use_adaptive_sampling = bool(args.adaptive_sampling)
     if hasattr(cycles, "adaptive_threshold"):
         cycles.adaptive_threshold = float(args.adaptive_threshold)
+
+    # Denoiser
+    if hasattr(cycles, "use_denoising"):
+        cycles.use_denoising = not args.no_denoise
+        if not args.no_denoise:
+            cycles.denoiser = "OPTIX"
+
+    if hasattr(scene.render, "threads_mode"):
+        scene.render.threads_mode = "FIXED"
+        scene.render.threads = max(1, int(args.blender_threads))
 
 
 def configure_depth_output(
@@ -455,6 +567,40 @@ def auto_place_object(scene: bpy.types.Scene, input_object: str) -> Vector:
     return root.location.copy()
 
 
+def place_imported_object(scene, input_object, position, rotation_z_deg=0.0, scale=1.0,
+                          rotation_xyz_rad=None):
+    """Import an external object and place it at a specified position with rotation and scale.
+
+    rotation_xyz_rad: optional (rx, ry, rz) Euler XYZ in radians; takes precedence
+    over rotation_z_deg when provided.
+
+    Returns (obj_position, root_object_name).
+    """
+    obj_file = pick_first_file(Path(input_object), PICK_EXTS_OBJ)
+    if obj_file is None:
+        raise FileNotFoundError(f"Object not found: {input_object}")
+    imported_objs = import_object(obj_file)
+    if not imported_objs:
+        raise RuntimeError("No objects were imported.")
+
+    root = parent_imported_objects(imported_objs)
+    move_group_bottom_center_to_origin(root, imported_objs)
+    bpy.context.view_layer.update()
+
+    root.scale = (scale, scale, scale)
+    bpy.context.view_layer.update()
+
+    if rotation_xyz_rad is not None:
+        rx, ry, rz = (float(v) for v in rotation_xyz_rad)
+        root.rotation_euler = (rx, ry, rz)
+    else:
+        root.rotation_euler = (0, 0, radians(rotation_z_deg))
+    root.location = Vector(position)
+    bpy.context.view_layer.update()
+
+    return root.location.copy(), root.name
+
+
 def random_direction(hemisphere):
     u = random.random()
     v = random.random()
@@ -561,11 +707,15 @@ def main(argv):
     random.seed(args.seed)
     blend_path = Path(args.input_scene)
     scene_stem = blend_path.stem
-    timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
-    folder_name = f"{scene_stem}_{timestamp}"
-    if args.run_name:
-        folder_name = f"{scene_stem}_{args.run_name}_{timestamp}"
-    run_dir = Path(args.output_dir) / folder_name
+    if args.output_run_dir:
+        run_dir = Path(args.output_run_dir)
+        timestamp = run_dir.name.split("_")[-1] if "_" in run_dir.name else datetime.now().strftime("%y%m%d_%H%M%S")
+    else:
+        timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
+        folder_name = f"{scene_stem}_{timestamp}"
+        if args.run_name:
+            folder_name = f"{scene_stem}_{args.run_name}_{timestamp}"
+        run_dir = Path(args.output_dir) / folder_name
     images_dir = run_dir / "images"
     images_dir.mkdir(parents=True, exist_ok=True)
     depth_dir = None
@@ -591,7 +741,13 @@ def main(argv):
 
     object_name = args.object_name
     object_position_source = None
-    if args.object_position is not None:
+    if args.object_position is not None and args.input_object:
+        obj_pos, placed_root = place_imported_object(
+            scene, args.input_object, args.object_position,
+            rotation_z_deg=args.rotation_z_deg, scale=args.scale,
+        )
+        object_position_source = "import_at_position"
+    elif args.object_position is not None:
         obj_pos = Vector(args.object_position)
         object_position_source = "object_position"
     elif args.auto_place_object:
@@ -605,17 +761,32 @@ def main(argv):
     else:
         raise RuntimeError("Provide one of --object_position, --object_name, or --auto_place_object.")
 
+    # Pre-generate all poses with the same seed so results are identical
+    # regardless of how many workers are used.
+    all_poses = [
+        (idx, sample_pose(obj_pos, args.camera_radius_range, args.camera_direction_offsets, args.hemisphere))
+        for idx in range(args.num_images)
+    ]
+    # Each worker renders only its slice: worker 0 gets idx 0,3,6,...  worker 1 gets 1,4,7,... etc.
+    my_poses = [(idx, pose) for idx, pose in all_poses if idx % args.num_workers == args.worker_index]
+    print(f"Worker {args.worker_index}/{args.num_workers}: rendering {len(my_poses)}/{args.num_images} images")
+
     annotations = []
-    for idx in range(args.num_images):
+    if args.num_workers > 1:
+        ann_path = run_dir / f"annotations_worker{args.worker_index}.json"
+    else:
+        ann_path = run_dir / "annotations.json"
+
+    for idx, pose in my_poses:
         if depth_output_node is not None:
             scene.frame_set(idx)
             depth_output_node.file_slots[0].path = "img_"
-        pose = sample_pose(obj_pos, args.camera_radius_range, args.camera_direction_offsets, args.hemisphere)
+        img_ext = "jpg" if getattr(args, "image_format", "JPEG") == "JPEG" else "png"
         camera.matrix_world = Matrix.Translation(pose["cam_pos"]) @ pose["rot_matrix"].to_4x4()
-        scene.render.filepath = str(images_dir / f"img_{idx:04d}.png")
+        scene.render.filepath = str(images_dir / f"img_{idx:04d}.{img_ext}")
         bpy.ops.render.render(write_still=True)
         entry = {
-            "image": f"images/img_{idx:04d}.png",
+            "image": f"images/img_{idx:04d}.{img_ext}",
             "camera_position": vec(pose["cam_pos"]),
             "radius": pose["radius"],
             "object_position": vec(obj_pos),
@@ -629,6 +800,10 @@ def main(argv):
             depth_ext = "exr" if args.depth_format == "OPEN_EXR" else "png"
             entry["depth"] = f"depth/img_{idx:04d}.{depth_ext}"
         annotations.append(entry)
+
+        # Incremental save — prevents annotation loss on crash
+        with ann_path.open("w", encoding="utf-8") as f:
+            json.dump(annotations, f, indent=2)
 
     run_info = {
         "input_scene": str(blend_path),
@@ -664,18 +839,23 @@ def main(argv):
             "volume_bounces": args.volume_bounces,
             "transparent_max_bounces": args.transparent_max_bounces,
             "persistent_data": args.persistent_data,
+            "blender_threads": args.blender_threads,
             "render_depth": args.render_depth,
             "depth_format": args.depth_format,
             "depth_max": args.depth_max,
         },
     }
 
-    with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
-        json.dump(run_info, f, indent=2)
-    with (run_dir / "annotations.json").open("w", encoding="utf-8") as f:
-        json.dump(annotations, f, indent=2)
-
-    print(f"Saved {len(annotations)} images to {run_dir}")
+    # Annotations already saved incrementally above; just save run_info
+    if args.num_workers > 1:
+        if args.worker_index == 0:
+            with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
+                json.dump(run_info, f, indent=2)
+        print(f"Worker {args.worker_index}: saved {len(annotations)} images to {ann_path}")
+    else:
+        with (run_dir / "run_info.json").open("w", encoding="utf-8") as f:
+            json.dump(run_info, f, indent=2)
+        print(f"Saved {len(annotations)} images to {run_dir}")
 
 
 if __name__ == "__main__":

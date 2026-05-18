@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1340" viewBox="0 0 1800 1340">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1640" viewBox="0 0 1800 1640">
   <defs>
     <marker id="arrow" markerWidth="14" markerHeight="10" refX="12" refY="5" orient="auto" markerUnits="strokeWidth">
       <path d="M 0 0 L 14 5 L 0 10 z" fill="#536579"/>
@@ -23,11 +23,11 @@
     </style>
   </defs>
 
-  <rect x="0" y="0" width="1800" height="1340" fill="#fbfcfe"/>
-  <rect x="24" y="22" width="1752" height="1296" rx="28" ry="28" fill="#ffffff" stroke="#e4ebf2" stroke-width="2"/>
+  <rect x="0" y="0" width="1800" height="1640" fill="#fbfcfe"/>
+  <rect x="24" y="22" width="1752" height="1596" rx="28" ry="28" fill="#ffffff" stroke="#e4ebf2" stroke-width="2"/>
 
   <text x="52" y="64" class="title">DronePhotographer training lens: exact Qwen-VL sequence, labels, and loss on one real sample</text>
-  <text x="52" y="90" class="subtitle">Measured from the local `drone` environment with `transformers 5.3.0`, `Qwen2_5_VLProcessor`, and `Qwen2Tokenizer` using the repository's current collator logic.</text>
+  <text x="52" y="90" class="subtitle">Measured from the local `drone` environment with `transformers 5.3.0`, `Qwen2_5_VLProcessor`, and `Qwen2Tokenizer`. Current default: orientation_6d rotation representation.</text>
 
   <rect x="40" y="118" width="1720" height="250" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
   <text x="60" y="154" class="section">1. What the collator actually builds</text>
@@ -44,7 +44,7 @@
   <text x="212" y="258" class="code-small">image_i: img_0000.png</text>
   <text x="212" y="276" class="code-small">seq_len = 1388</text>
   <text x="212" y="294" class="code-small">prompt_len = 1293</text>
-  <text x="80" y="325" class="code-tiny">action_text:</text>
+  <text x="80" y="325" class="code-tiny">action_text (orientation_6d, current default):</text>
   <text x="80" y="339" class="code-tiny">move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333);</text>
   <text x="80" y="351" class="code-tiny">orient_camera_local_6d(fx=..., fy=..., fz=..., ux=..., uy=..., uz=...)</text>
 
@@ -129,19 +129,18 @@
   <text x="82" y="836" class="code-tiny">You are a drone image scorer.</text>
   <text x="82" y="850" class="code-tiny">Input is current image_i and an action command in camera-local frame of image_i</text>
   <text x="82" y="864" class="code-tiny">(+right, +up, +forward).</text>
-  <text x="82" y="878" class="code-tiny">Predict score values of image_j after applying the action.</text>
-  <text x="82" y="892" class="code-tiny">Action: move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333);</text>
-  <text x="82" y="906" class="code-tiny">orient_camera_local_6d(fx=..., fy=..., fz=..., ux=..., uy=..., uz=...)</text>
-  <text x="82" y="920" class="code-tiny">Return exactly one JSON object.</text>
-  <text x="82" y="934" class="code-tiny">Use this JSON schema: {"bbox_occupancy_ratio": &lt;float&gt;, "bbox_margin_top": &lt;float&gt;,</text>
-  <text x="82" y="948" class="code-tiny">"bbox_margin_bottom": &lt;float&gt;, "bbox_margin_left": &lt;float&gt;, "bbox_margin_right": &lt;float&gt;,</text>
-  <text x="82" y="962" class="code-tiny">"bbox_aspect_ratio": &lt;float&gt;, "bbox_centroid_offset": &lt;float&gt;}</text>
-  <text x="82" y="976" class="code-tiny">The first character of your response must be '{' and the last character must be '}'.</text>
-  <text x="82" y="990" class="code-tiny">Use keys exactly once and in this exact order: bbox_occupancy_ratio, bbox_margin_top,</text>
-  <text x="82" y="1004" class="code-tiny">bbox_margin_bottom, bbox_margin_left, bbox_margin_right, bbox_aspect_ratio,</text>
-  <text x="82" y="1018" class="code-tiny">bbox_centroid_offset</text>
-  <text x="82" y="1032" class="code-tiny">Use numeric JSON values only. Do not use strings, null, comments, or trailing commas.</text>
-  <text x="82" y="1046" class="code-tiny">Do not output markdown, code fences, explanations, or any extra text.</text>
+  <text x="82" y="878" class="code-tiny">The action encodes the target camera orientation as target forward/up vectors.</text>
+  <text x="82" y="892" class="code-tiny">Predict score values of image_j after applying the action.</text>
+  <text x="82" y="906" class="code-tiny">Action: move_camera_local_m(right=-0.0976, up=-1.4457, forward=0.3333);</text>
+  <text x="82" y="920" class="code-tiny">orient_camera_local_6d(fx=..., fy=..., fz=..., ux=..., uy=..., uz=...)</text>
+  <text x="82" y="934" class="code-tiny">Return exactly one JSON object.</text>
+  <text x="82" y="948" class="code-tiny">Use this JSON schema: {"bbox_occupancy_ratio": &lt;float&gt;, "bbox_margin_top": &lt;float&gt;,</text>
+  <text x="82" y="962" class="code-tiny">"bbox_margin_bottom": &lt;float&gt;, "bbox_margin_left": &lt;float&gt;, "bbox_margin_right": &lt;float&gt;,</text>
+  <text x="82" y="976" class="code-tiny">"bbox_aspect_ratio": &lt;float&gt;, "bbox_centroid_offset": &lt;float&gt;}</text>
+  <text x="82" y="990" class="code-tiny">The first character of your response must be '{' and the last character must be '}'.</text>
+  <text x="82" y="1004" class="code-tiny">Use keys exactly once and in this exact order: bbox_occupancy_ratio, bbox_margin_top, ...</text>
+  <text x="82" y="1018" class="code-tiny">Use numeric JSON values only. Do not use strings, null, comments, or trailing commas.</text>
+  <text x="82" y="1032" class="code-tiny">Do not output markdown, code fences, explanations, or any extra text.</text>
 
   <rect x="62" y="1128" width="796" height="150" rx="16" ry="16" fill="#edf5ff" stroke="#8fb5e0" stroke-width="1.5"/>
   <text x="82" y="1156" class="panel-title">Observed wrapper tokens around that prompt</text>
@@ -205,4 +204,49 @@
   <text x="1392" y="1212" class="panel-title">Why this matters</text>
   <text x="1392" y="1237" class="small">The model is not trained to recreate the prompt or the image wrappers.</text>
   <text x="1392" y="1255" class="small">It is trained only to continue the sequence with the target JSON.</text>
+
+  <!-- ===== Section 6: Training Run Summary ===== -->
+  <rect x="40" y="1320" width="1720" height="280" rx="22" ry="22" fill="#ffffff" stroke="#d5dde7" stroke-width="2"/>
+  <text x="60" y="1356" class="section">6. Training run summary and GPU requirements</text>
+  <text x="60" y="1377" class="small">Measured from runs on DogWalk_v2_10k (10,000 views, 354,728 pairs). All runs use 1 epoch, lr=2e-5, effective batch=16.</text>
+
+  <rect x="62" y="1396" width="540" height="182" rx="16" ry="16" fill="#ecfbf7" stroke="#7dc1b4" stroke-width="1.5"/>
+  <text x="82" y="1422" class="panel-title">GPU configurations tested</text>
+  <rect x="82" y="1438" width="500" height="22" rx="6" ry="6" fill="#d5f0ea" stroke="none"/>
+  <text x="90" y="1454" class="code-small">Model         GPU setup          Batch config         Time</text>
+  <text x="90" y="1478" class="code-small">Qwen3.5-2B   1x H200 (141GB)    8 x 2 x 1 = 16      ~24h</text>
+  <text x="90" y="1498" class="code-small">Qwen3.5-9B   2x H200 (DS-Z3)    1 x 8 x 2 = 16      est.</text>
+  <text x="90" y="1518" class="code-small">Qwen3.5-2B   4x A100-40G        1 x 4 x 4 = 16      est.</text>
+  <text x="90" y="1538" class="code-small">Qwen2.5-7B   2x H200 (DS-Z3)    1 x 16 x 1 = 16     est.</text>
+  <text x="82" y="1566" class="tiny">DeepSpeed Zero-3 for 7B/9B models. Gradient checkpointing enabled for 7B/9B to fit in VRAM.</text>
+
+  <rect x="622" y="1396" width="340" height="182" rx="16" ry="16" fill="#fff8e6" stroke="#d7b35c" stroke-width="1.5"/>
+  <text x="642" y="1422" class="panel-title">Loss convergence (2B, 1xH200)</text>
+  <text x="642" y="1450" class="code-small">Step   20:  loss = 1.026</text>
+  <text x="642" y="1470" class="code-small">Step  100:  loss = 0.837</text>
+  <text x="642" y="1490" class="code-small">Step  300:  loss = 0.786</text>
+  <text x="642" y="1510" class="code-small">Step  500:  loss = 0.780</text>
+  <text x="642" y="1530" class="code-small">eval_loss at 500:    0.780</text>
+  <text x="642" y="1554" class="tiny">Total steps: 21,728. Checkpointed every 500 steps.</text>
+  <text x="642" y="1568" class="tiny">~90% complete at time of reporting.</text>
+
+  <rect x="982" y="1396" width="356" height="182" rx="16" ry="16" fill="#fff0f1" stroke="#d8a0a9" stroke-width="1.5"/>
+  <text x="1002" y="1422" class="panel-title">Data pipeline overview</text>
+  <text x="1002" y="1450" class="code-small">Base views:     10,000</text>
+  <text x="1002" y="1470" class="code-small">Pair threshold: 1.5 m</text>
+  <text x="1002" y="1490" class="code-small">Max pairs/img:  32</text>
+  <text x="1002" y="1510" class="code-small">Zero-action:    10%</text>
+  <text x="1002" y="1530" class="code-small">Total pairs:    354,728</text>
+  <text x="1002" y="1554" class="tiny">Score keys: 7 (occupancy, 4 margins, aspect, centroid)</text>
+  <text x="1002" y="1568" class="tiny">Action frame: camera_local, orientation_6d</text>
+
+  <rect x="1358" y="1396" width="380" height="182" rx="16" ry="16" fill="#edf5ff" stroke="#8fb5e0" stroke-width="1.5"/>
+  <text x="1378" y="1422" class="panel-title">Current status (2026-03-18)</text>
+  <text x="1378" y="1450" class="small">Training: 2B model ~90% complete on H200</text>
+  <text x="1378" y="1468" class="small">Inference: 28 MPC rollouts (11 presets)</text>
+  <text x="1378" y="1486" class="small">Centered/distance control works well</text>
+  <text x="1378" y="1504" class="small">Close-up shots fail (no 0.5-2m data)</text>
+  <text x="1378" y="1526" class="small" style="font-weight:600;">Next: add 3D score keys (elevation,</text>
+  <text x="1378" y="1544" class="small" style="font-weight:600;">azimuth, distance, pitch) via v3 renderer</text>
+  <text x="1378" y="1568" class="tiny">See notes/photo_profile_expansion_research.md</text>
 </svg>

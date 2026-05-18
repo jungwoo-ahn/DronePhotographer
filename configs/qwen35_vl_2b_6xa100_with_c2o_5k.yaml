@@ -1,0 +1,51 @@
+model:
+  name_or_path: Qwen/Qwen3.5-2B
+  dtype: bfloat16
+  attn_implementation: null
+  trust_remote_code: true
+
+data:
+  annotations_path: outputs/Namaqualand_namaqualand_v3_260401_024633/annotations_5k.json
+  image_root: outputs/Namaqualand_namaqualand_v3_260401_024633
+  action_frame: camera_local
+  rotation_representation: orientation_6d
+  target_score_keys:
+    - bbox_occupancy_ratio
+    - bbox_margin_top
+    - bbox_margin_bottom
+    - bbox_margin_left
+    - bbox_margin_right
+    - bbox_aspect_ratio
+    - bbox_centroid_offset
+    - camera_to_object_fx
+    - camera_to_object_fy
+    - camera_to_object_fz
+    - camera_to_object_ux
+    - camera_to_object_uy
+    - camera_to_object_uz
+  distance_threshold: 1.5
+  max_pairs_per_image: 32
+  zero_action_ratio: 0.1
+  eval_ratio: 0.05
+  seed: 721
+
+training:
+  output_root: runs
+  run_name: qwen35_vl_2b_6xa100_with_c2o_5k
+  num_train_epochs: 1
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  max_length: 2048
+  logging_steps: 5
+  save_steps: 50
+  eval_steps: 50
+  dataloader_num_workers: 8
+  gradient_checkpointing: false
+  bf16: true
+  fp16: false
+  deepspeed_config: configs/deepspeed_zero3.json
+  resume_from_checkpoint: null

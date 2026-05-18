@@ -1,0 +1,49 @@
+obj_fwd convention in camera_to_object_6d
+=========================================
+
+Problem
+-------
+render_object_v3.py computes:
+    obj_fwd = (-sin(rot_z), cos(rot_z), 0)   # +Y at rot_z=0
+
+But the Blender character model faces -Y at rest.
+So obj_fwd points OPPOSITE to the actual face direction.
+
+Consequence
+-----------
+camera_to_object_6d uses this inverted obj_fwd, so:
+    fy = cam_fwd . obj_fwd
+
+    fy > 0  -->  camera sees FACE  (front view)
+    fy < 0  -->  camera sees BACK  (rear view)
+
+This is backwards from the naive expectation (where fy<0 would mean
+"camera opposes object forward = face-to-face").
+
+Verified with Namaqualand scene (rotation_z_deg=135):
+    view 190: fy=+0.997  -->  face clearly visible
+    view 174: fy=-0.991  -->  back clearly visible
+
+Impact
+------
+- Training data is internally consistent (model learned this convention).
+- No retraining needed.
+- Inference target_json values must follow this convention:
+    front shot  -->  fy positive
+    back shot   -->  fy negative
+    left side   -->  fx positive (obj_fwd/backward to cam right)
+
+Correct target examples (from actual annotation data)
+-----------------------------------------------------
+front_eyelevel:   fy~+1.0  fz~0    uy~0    uz~+1.0
+behind_aerial:    fy~-0.7  fz~-0.5 uy~-0.5 uz~+0.8
+low_heroic:       fy~+0.8  fz~0    uy~0    uz~+1.0
+topdown:          fy~0     fz=var  uy~-1.0 uz~0
+left_side:        fx~+1.0  fy~0    fz~0    uz~+1.0
+
+Future
+------
+If obj_fwd formula is fixed to match face direction:
+    obj_fwd = (sin(rot_z), -cos(rot_z), 0)   # -Y at rot_z=0
+then all fy signs flip and retraining is required.
+For now, keep current convention and set targets accordingly.

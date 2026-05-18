@@ -2,12 +2,23 @@ from __future__ import annotations
 
 from typing import Any, Iterable, Sequence
 
-from .bbox_control import RULE_BASED_SCORE_KEYS, compute_rule_based_scores
+from .bbox_control import RULE_BASED_SCORE_KEYS, V5_SCORE_KEYS, compute_rule_based_scores
 from .subject_aware import SUBJECT_AWARE_SCORE_KEYS
 
+CAMERA_3D_SCORE_KEYS = [
+    "camera_to_object_fx", "camera_to_object_fy", "camera_to_object_fz",
+    "camera_to_object_ux", "camera_to_object_uy", "camera_to_object_uz",
+]
+
+_CAMERA_3D_KEY_TO_IDX = {k: i for i, k in enumerate(CAMERA_3D_SCORE_KEYS)}
 
 DEFAULT_TARGET_SCORE_KEYS = list(RULE_BASED_SCORE_KEYS)
-ALL_SUPPORTED_SCORE_KEYS = list(RULE_BASED_SCORE_KEYS) + list(SUBJECT_AWARE_SCORE_KEYS)
+ALL_SUPPORTED_SCORE_KEYS = (
+    list(RULE_BASED_SCORE_KEYS)
+    + list(SUBJECT_AWARE_SCORE_KEYS)
+    + list(CAMERA_3D_SCORE_KEYS)
+    + list(V5_SCORE_KEYS)
+)
 
 
 def _annotation_field_name(score_key: str) -> str:
@@ -23,6 +34,8 @@ def _clamp_subject_score(value: float) -> float:
 
 
 def normalize_score_value(score_key: str, value: float) -> float:
+    if score_key in V5_SCORE_KEYS:
+        return int(round(float(value)))
     if score_key in SUBJECT_AWARE_SCORE_KEYS:
         return _clamp_subject_score(value)
     if score_key in RULE_BASED_SCORE_KEYS and score_key != "bbox_aspect_ratio":
@@ -40,6 +53,8 @@ def extract_target_scores(
     rule_keys = [key for key in target_keys if key in RULE_BASED_SCORE_KEYS]
     subject_keys = [key for key in target_keys if key in SUBJECT_AWARE_SCORE_KEYS]
 
+    camera_3d_keys = [key for key in target_keys if key in CAMERA_3D_SCORE_KEYS]
+    v5_keys = [key for key in target_keys if key in V5_SCORE_KEYS]
     unsupported = [key for key in target_keys if key not in ALL_SUPPORTED_SCORE_KEYS]
     if unsupported:
         raise ValueError(f"unsupported score keys: {unsupported}")
@@ -63,6 +78,25 @@ def extract_target_scores(
                 f"Add VLM scores first or remove '{key}' from target_score_keys."
             )
         out[key] = normalize_score_value(key, float(annotation[field]))
+
+    if camera_3d_keys:
+        c2o = annotation.get("camera_to_object_6d")
+        if c2o is None:
+            raise KeyError(
+                "missing 'camera_to_object_6d' in annotation. "
+                "Re-render with object orientation or remove camera_to_object_* from target_score_keys."
+            )
+        for key in camera_3d_keys:
+            out[key] = float(c2o[_CAMERA_3D_KEY_TO_IDX[key]])
+
+    for key in v5_keys:
+        field = _annotation_field_name(key)
+        if field not in annotation:
+            raise KeyError(
+                f"missing v5 score field '{field}'. "
+                f"Re-render with v5 annotations or remove '{key}' from target_score_keys."
+            )
+        out[key] = normalize_score_value(key, annotation[field])
 
     return out
 

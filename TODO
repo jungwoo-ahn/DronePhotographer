@@ -1,0 +1,37 @@
+
+Rendering (v3 - richer info):
+  ☐ Rendering 시 annotation을 더 풍부하게 추가하기 (3D bbox, depth, camera-subject distance/elevation/azimuth, visibility, truncation 등)
+  ☐ Close-range data를 추가로 render하기 (0.5m~2m range — 현재 2m~8m만 있어서 close-up이 실패함)
+  ☐ Scene diversity 늘리기 (현재 DogWalk 하나만 있음 — synthetic dataset room 참고)
+  ☐ Image sampling ratio 정하기 (action 0 / small action / large action 비중)
+
+Photo Profile criteria expansion:
+  ☐ Aerial shot을 찍게 할지 정하기
+  ☐ Close-up quality 확인하기 — object cropping 허용 여부, upper-body shot이 잘 나오는지
+  ☐ Subject specification 정하기 — output으로 subject text를 내고 그 기준으로 움직일지? (input으로 넣는 게 더 맞을 수도 있음)
+  ☐ Lighting 정보도 이해해야 하는지 정하기
+  ☐ Subject scope 정하기 (landscape 포함 여부)
+
+Training:
+  ☐ 3D-aware score 추가하기 (depth, elevation, orientation 등 — 현재는 2D bbox pattern memorization에 그침)
+  ☐ Subject text를 VLM input에 넣기 (GroundingDINO prompt 활용)
+  ☐ Training component를 다양하게 추가해보기 (score type, augmentation 등)
+  ☐ Training/Inference speed 최적화하기 (VRAM보다 speed 개선에 집중)
+  ☐ Image sampling ratio 정하기 (action 0 / small action / large action 비중)
+
+Inference / MPC improvements:
+  ☐ Inference step을 줄이거나 후반 step에서 action bound를 줄여서 stability 높이기
+  ☐ Blender-in-the-loop MPC에서 GroundingDINO로 actual score vs predicted score 비교 검증하기
+
+Data collection:
+  ☐ Close-range data 수집하기 (short distance에서 다시 생성)
+  ☐ Subject scope 정한 뒤 diverse scene 확보하기
+  ☐ 주열 - data source 알아보는 중
+
+Meeting preparation:
+  ☐ Experiment spec 보여주기 (time, memory, data)
+  ☐ Inference demo 준비하기 — error reduction graph 포함
+  ☐ Training detail 추가로 정리하기
+
+Human In the Loop Pipeline:
+  무슨 object를 찍을지 사람이 간편하게 정할 수 있도록 
