@@ -8,6 +8,7 @@ from .bbox_control import (
 from .evaluator import (
     ALL_SUPPORTED_SCORE_KEYS,
     DEFAULT_TARGET_SCORE_KEYS,
+    TOP_LEVEL_SCORE_KEYS,
     extract_target_scores,
     flatten_scores_for_annotation,
     normalize_score_value,
@@ -23,6 +24,7 @@ __all__ = [
     "V5_SCORE_KEYS",
     "SUBJECT_AWARE_SCORE_KEYS",
     "SUBJECT_AWARE_DESCRIPTIONS",
+    "TOP_LEVEL_SCORE_KEYS",
     "ALL_SUPPORTED_SCORE_KEYS",
     "DEFAULT_TARGET_SCORE_KEYS",
     "compute_rule_based_scores",

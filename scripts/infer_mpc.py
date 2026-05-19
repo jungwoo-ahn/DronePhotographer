@@ -21,11 +21,14 @@ from src.vlm_qwen25.mpc import (
     load_planner_views,
     save_frame_copy,
     score_action_candidates,
+    score_action_candidates_vllm,
     write_rollout_video,
 )
 from src.vlm_qwen25.objective import (
     available_target_presets,
     build_target_objective,
+    build_target_objective_schedule,
+    objective_for_step,
     preset_specs,
     weighted_target_error,
 )
@@ -50,6 +53,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target_preset", type=str, default="centered_50")
     parser.add_argument("--target_json", type=str, default=None)
     parser.add_argument("--score_weights_json", type=str, default=None)
+    parser.add_argument(
+        "--objective_schedule_json",
+        type=str,
+        default=None,
+        help=(
+            "Optional JSON list of phases (inline or path). Each phase: "
+            "{'until_step': int, 'score_weights': {key: weight, ...}}. "
+            "Overrides --score_weights_json when provided; phases apply sequentially by step index."
+        ),
+    )
+    parser.add_argument(
+        "--candidate_mode",
+        type=str,
+        choices=["grid", "axis"],
+        default="grid",
+        help="'grid' = full cross-product over axes (default); 'axis' = one axis at a time for finer per-axis resolution.",
+    )
     parser.add_argument("--translation_penalty_weight", type=float, default=0.05)
     parser.add_argument("--rotation_penalty_weight", type=float, default=0.05)
     parser.add_argument("--parse_failure_penalty", type=float, default=10.0)
@@ -60,6 +80,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output_root", type=str, default="runs/infer_mpc")
     parser.add_argument("--list_target_presets", action="store_true")
     parser.add_argument("--trust_remote_code", action="store_true")
+    parser.add_argument("--use_vllm", action="store_true", help="Use vLLM for faster inference")
+    parser.add_argument("--tensor_parallel_size", type=int, default=None,
+                        help="vLLM tensor parallel size (default: number of visible GPUs)")
     return parser.parse_args()
 
 
@@ -99,18 +122,29 @@ def main() -> None:
         cfg = yaml.safe_load(f)
 
     import torch
-    from transformers import AutoModelForImageTextToText, AutoProcessor
+    from transformers import AutoProcessor
 
     data_cfg = cfg["data"]
     model_cfg = cfg["model"]
     action_frame = str(data_cfg.get("action_frame", "camera_local"))
     rotation_representation = str(data_cfg.get("rotation_representation", "orientation_6d"))
     score_keys = list(data_cfg.get("target_score_keys", []))
-    target_objective = build_target_objective(
-        preset_name=args.target_preset,
-        target_json_text=args.target_json,
-        score_weights_json_text=args.score_weights_json,
-    )
+
+    if args.objective_schedule_json:
+        objective_schedule = build_target_objective_schedule(
+            preset_name=args.target_preset,
+            target_json_text=args.target_json,
+            schedule_json_text=args.objective_schedule_json,
+            default_weights_json_text=args.score_weights_json,
+        )
+        target_objective = objective_schedule[0][1]
+    else:
+        target_objective = build_target_objective(
+            preset_name=args.target_preset,
+            target_json_text=args.target_json,
+            score_weights_json_text=args.score_weights_json,
+        )
+        objective_schedule = [(int(args.num_steps) + 1, target_objective)]
 
     unsupported_targets = sorted(set(target_objective.score_targets) - set(score_keys))
     if unsupported_targets:
@@ -136,13 +170,40 @@ def main() -> None:
         args.model_path,
         trust_remote_code=trust_remote_code,
     )
-    model = AutoModelForImageTextToText.from_pretrained(
-        args.model_path,
-        dtype=torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16"))),
-        device_map="auto",
-        trust_remote_code=trust_remote_code,
-    )
-    model.eval()
+
+    use_vllm = args.use_vllm
+    if use_vllm:
+        from vllm import LLM
+
+        tp_size = args.tensor_parallel_size
+        if tp_size is None:
+            tp_size = len(os.environ.get("CUDA_VISIBLE_DEVICES", "0").split(","))
+        model = LLM(
+            model=args.model_path,
+            dtype=model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16")),
+            tensor_parallel_size=tp_size,
+            trust_remote_code=trust_remote_code,
+            max_model_len=int(cfg.get("training", {}).get("max_length", 2048)),
+            limit_mm_per_prompt={"image": 1},
+            gpu_memory_utilization=0.9,
+        )
+        print(f"vLLM loaded (tensor_parallel_size={tp_size})", flush=True)
+    else:
+        from transformers import AutoModelForImageTextToText
+
+        model = AutoModelForImageTextToText.from_pretrained(
+            args.model_path,
+            dtype=torch_dtype_from_name(model_cfg.get("dtype", model_cfg.get("torch_dtype", "bfloat16"))),
+            device_map="auto",
+            attn_implementation="flash_attention_2",
+            trust_remote_code=trust_remote_code,
+        )
+        model.eval()
+        try:
+            model = torch.compile(model, mode="reduce-overhead")
+            print("torch.compile applied (mode=reduce-overhead)", flush=True)
+        except Exception as e:
+            print(f"torch.compile skipped: {e}", flush=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = Path(args.output_root) / f"{timestamp}_mpc_rollout"
@@ -156,13 +217,15 @@ def main() -> None:
     frame_paths.append(str(frames_dir / "frame_0000.png"))
 
     steps: list[dict[str, object]] = []
+    initial_objective = objective_for_step(objective_schedule, 0)
     initial_error, initial_error_by_key = weighted_target_error(
         current_view.scores,
-        target_objective.score_targets,
-        target_objective.score_weights,
+        initial_objective.score_targets,
+        initial_objective.score_weights,
     )
 
     for step_idx in range(int(args.num_steps)):
+        step_objective = objective_for_step(objective_schedule, step_idx)
         with Image.open(current_view.image_path) as current_image_raw:
             current_image = current_image_raw.convert("RGB")
             candidates = generate_local_candidate_actions(
@@ -175,18 +238,31 @@ def main() -> None:
                 max_rotation_norm_rad=max_rotation_norm_rad,
                 action_frame=action_frame,
                 rotation_representation=rotation_representation,
+                mode=str(args.candidate_mode),
             )
-            scored_candidates = score_action_candidates(
-                model=model,
-                processor=processor,
-                image=current_image,
-                candidates=candidates,
-                target_score_keys=score_keys,
-                action_frame=action_frame,
-                rotation_representation=rotation_representation,
-                max_new_tokens=int(args.max_new_tokens),
-                candidate_batch_size=int(args.candidate_batch_size),
-            )
+            if use_vllm:
+                scored_candidates = score_action_candidates_vllm(
+                    llm=model,
+                    processor=processor,
+                    image=current_image,
+                    candidates=candidates,
+                    target_score_keys=score_keys,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                    max_new_tokens=int(args.max_new_tokens),
+                )
+            else:
+                scored_candidates = score_action_candidates(
+                    model=model,
+                    processor=processor,
+                    image=current_image,
+                    candidates=candidates,
+                    target_score_keys=score_keys,
+                    action_frame=action_frame,
+                    rotation_representation=rotation_representation,
+                    max_new_tokens=int(args.max_new_tokens),
+                    candidate_batch_size=int(args.candidate_batch_size),
+                )
 
         ranked_candidates: list[dict[str, object]] = []
         for item in scored_candidates:
@@ -194,8 +270,8 @@ def main() -> None:
             if parse_success:
                 target_error, error_by_key = weighted_target_error(
                     item.predicted_scores,
-                    target_objective.score_targets,
-                    target_objective.score_weights,
+                    step_objective.score_targets,
+                    step_objective.score_weights,
                 )
             else:
                 target_error = float(args.parse_failure_penalty)
@@ -238,8 +314,8 @@ def main() -> None:
         next_view = views[snap_index]
         actual_error, actual_error_by_key = weighted_target_error(
             next_view.scores,
-            target_objective.score_targets,
-            target_objective.score_weights,
+            step_objective.score_targets,
+            step_objective.score_weights,
         )
 
         frame_path = frames_dir / f"frame_{step_idx + 1:04d}.png"
@@ -249,6 +325,8 @@ def main() -> None:
         steps.append(
             {
                 "step_index": step_idx,
+                "objective_name": step_objective.name,
+                "objective_weights": step_objective.score_weights,
                 "current_view_index": current_view.index,
                 "current_image_path": str(current_view.image_path),
                 "current_actual_scores": current_view.scores,
@@ -270,18 +348,28 @@ def main() -> None:
         fps=int(args.video_fps),
     )
 
+    final_objective = objective_for_step(objective_schedule, max(0, int(args.num_steps) - 1))
     summary = {
         "config_path": str(args.config),
         "model_path": str(args.model_path),
         "action_frame": action_frame,
         "rotation_representation": rotation_representation,
         "score_keys": score_keys,
+        "candidate_mode": str(args.candidate_mode),
         "target_objective": {
             "name": target_objective.name,
             "raw_spec": target_objective.raw_spec,
             "score_targets": target_objective.score_targets,
             "score_weights": target_objective.score_weights,
         },
+        "objective_schedule": [
+            {
+                "until_step": until_step,
+                "name": objective.name,
+                "score_weights": objective.score_weights,
+            }
+            for until_step, objective in objective_schedule
+        ],
         "rollout": {
             "start_index": int(args.start_index),
             "num_steps": int(args.num_steps),
@@ -306,8 +394,8 @@ def main() -> None:
             "final_target_error": float(
                 weighted_target_error(
                     current_view.scores,
-                    target_objective.score_targets,
-                    target_objective.score_weights,
+                    final_objective.score_targets,
+                    final_objective.score_weights,
                 )[0]
             ),
         },
