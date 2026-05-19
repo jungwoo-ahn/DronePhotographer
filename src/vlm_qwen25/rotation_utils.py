@@ -220,6 +220,45 @@ def relative_rotation_rotvec(
     return rotation_matrix_to_rotvec(rel).astype(np.float32)
 
 
+def _batch_camera_rotation_from_forward_up(
+    forwards: np.ndarray,
+    ups: np.ndarray,
+) -> np.ndarray:
+    """Batched version of make_camera_rotation_from_forward_up.
+
+    forwards: (N, 3), ups: (N, 3) -> rotations: (N, 3, 3)
+    Mirrors the single-pair convention: columns = [right, up, -forward].
+    """
+    eps = 1e-8
+    fwds_n = forwards / (np.linalg.norm(forwards, axis=1, keepdims=True) + eps)
+    ups_n = ups / (np.linalg.norm(ups, axis=1, keepdims=True) + eps)
+    rights = np.cross(fwds_n, ups_n)
+    rights = rights / (np.linalg.norm(rights, axis=1, keepdims=True) + eps)
+    ups_o = np.cross(rights, fwds_n)
+    ups_o = ups_o / (np.linalg.norm(ups_o, axis=1, keepdims=True) + eps)
+    return np.stack([rights, ups_o, -fwds_n], axis=-1)
+
+
+def batch_relative_rotation_angle_deg(
+    forward_i: np.ndarray,
+    up_i: np.ndarray,
+    forwards: np.ndarray,
+    ups: np.ndarray,
+) -> np.ndarray:
+    """Geodesic SO(3) angle (degrees) between view_i and each view_j (vectorized).
+
+    forward_i, up_i: (3,)   single source orientation
+    forwards, ups:   (N, 3) batch of target orientations
+    Returns:         (N,)   rotation angles in degrees, in [0, 180].
+    """
+    r_i = make_camera_rotation_from_forward_up(forward_i, up_i)
+    r_j = _batch_camera_rotation_from_forward_up(forwards, ups)
+    r_rel = r_j @ r_i.T  # (N, 3, 3) via numpy broadcasting
+    trace = r_rel[:, 0, 0] + r_rel[:, 1, 1] + r_rel[:, 2, 2]
+    cos_a = np.clip((trace - 1.0) * 0.5, -1.0, 1.0)
+    return np.degrees(np.arccos(cos_a))
+
+
 def relative_rotation_rotvec_camera_local(
     forward_i: np.ndarray,
     up_i: np.ndarray,

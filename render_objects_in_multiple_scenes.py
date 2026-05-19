@@ -128,12 +128,21 @@ def build_common_args(entry, args, run_dir):
         cmd_args.extend(["--object_position", str(pos[0]), str(pos[1]), str(pos[2])])
         if "rotation_z_deg" in entry:
             cmd_args.extend(["--rotation_z_deg", str(entry["rotation_z_deg"])])
+        if "rotation_xyz_rad" in entry:
+            rxyz = entry["rotation_xyz_rad"]
+            cmd_args.extend([
+                "--object_rotation_xyz_rad",
+                str(rxyz[0]), str(rxyz[1]), str(rxyz[2]),
+            ])
         if "scale" in entry:
             cmd_args.extend(["--scale", str(entry["scale"])])
     elif "object_name" in entry:
         cmd_args.extend(["--object_name", entry["object_name"]])
     else:
         raise ValueError(f"Placement entry must have (object_path + position) or object_name: {entry}")
+
+    if "scene_scale" in entry and entry["scene_scale"] is not None:
+        cmd_args.extend(["--scene_scale", str(entry["scene_scale"])])
 
     return cmd_args
 
@@ -182,14 +191,14 @@ def monitor_and_wait(processes, run_dir, num_images, label):
         if not still_running:
             break
 
-        done = len(list(images_dir.glob("*.png"))) if images_dir.exists() else 0
+        done = (len(list(images_dir.glob("*.jpg"))) + len(list(images_dir.glob("*.png")))) if images_dir.exists() else 0
         elapsed = time.time() - start
         mins, secs = divmod(int(elapsed), 60)
         print(f"\r  [{label}] {done}/{num_images} images [{mins}m {secs}s]", end="", flush=True)
         time.sleep(2)
 
     # Final count
-    done = len(list(images_dir.glob("*.png"))) if images_dir.exists() else 0
+    done = (len(list(images_dir.glob("*.jpg"))) + len(list(images_dir.glob("*.png")))) if images_dir.exists() else 0
     elapsed = time.time() - start
     mins, secs = divmod(int(elapsed), 60)
     print(f"\r  [{label}] {done}/{num_images} images done. [{mins}m {secs}s]")

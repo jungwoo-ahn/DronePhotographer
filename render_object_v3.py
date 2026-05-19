@@ -10,10 +10,12 @@ from pathlib import Path
 
 import bpy
 import numpy as np
-from mathutils import Matrix, Vector
+from mathutils import Euler, Matrix, Vector
 
 sys.path.append(".")
+from src.scoring.bbox_control import compute_v5_scores
 from render_object import (
+    apply_scene_scale,
     auto_place_object,
     configure_gpu,
     ensure_camera,
@@ -23,6 +25,7 @@ from render_object import (
     sample_pose,
     set_render_settings,
     set_sky,
+    set_sky_if_no_native_lighting,
     vec,
 )
 
@@ -80,6 +83,54 @@ def get_aabb_corners(min_v, max_v):
             for z in (min_v.z, max_v.z):
                 corners.append([x, y, z])
     return corners
+
+
+def compute_camera_to_object_angles(cam_pos, obj_pos, object_rotation_xyz_rad):
+    """Camera position expressed in object-local frame -> (azimuth_deg, elevation_deg).
+
+    Drops camera roll. Azimuth in [0, 360), elevation in [-90, 90].
+    """
+    d_world = cam_pos - obj_pos
+    if object_rotation_xyz_rad is None:
+        d_local = d_world
+    else:
+        rx, ry, rz = (float(v) for v in object_rotation_xyz_rad)
+        inv_rot = Euler((rx, ry, rz), "XYZ").to_matrix().transposed()
+        d_local = inv_rot @ d_world
+    elevation_deg = degrees(atan2(d_local.z, sqrt(d_local.x ** 2 + d_local.y ** 2)))
+    azimuth_deg = degrees(atan2(d_local.y, d_local.x)) % 360
+    return azimuth_deg, elevation_deg
+
+
+def project_corners_to_pixels(scene, camera, corners_world, resolution):
+    """Project 8 world-space AABB corners through the camera into pixel coords.
+
+    Returns list of (x_px, y_px, depth) where x/y may extend beyond image
+    bounds; depth <= 0 indicates the corner is behind the camera.
+    Uses Blender's world_to_camera_view for focal length / sensor handling.
+    """
+    from bpy_extras.object_utils import world_to_camera_view
+
+    res_x, res_y = (int(resolution[0]), int(resolution[1]))
+    pts = []
+    for corner in corners_world:
+        ndc = world_to_camera_view(scene, camera, Vector(corner))
+        px = float(ndc.x) * res_x
+        py = (1.0 - float(ndc.y)) * res_y
+        pts.append((px, py, float(ndc.z)))
+    return pts
+
+
+def projected_bbox_full(projected_pts):
+    """From projected pixel points, return bbox [x1,y1,x2,y2] (no clamping)
+    or None if all points are behind the camera (depth <= 0).
+    """
+    valid = [(x, y) for (x, y, z) in projected_pts if z > 0.0]
+    if not valid:
+        return None
+    xs = [p[0] for p in valid]
+    ys = [p[1] for p in valid]
+    return [min(xs), min(ys), max(xs), max(ys)]
 
 
 def compute_3d_metrics(cam_pos, obj_pos):
@@ -239,8 +290,16 @@ def largest_component(mask):
 # ---------------------------------------------------------------------------
 
 def _load_mask(mask_path):
-    """Load mask PNG via Blender, return (h, w) uint8 array (top-down)."""
-    mask_img = bpy.data.images.load(str(mask_path), check_existing=False)
+    """Load mask PNG via Blender, return (h, w) uint8 array (top-down).
+
+    Returns None if the file isn't readable (multi-worker compositor writes
+    are async — caller must handle None).
+    """
+    try:
+        mask_img = bpy.data.images.load(str(mask_path), check_existing=False)
+    except RuntimeError as exc:
+        print(f"  [mask] skip {Path(mask_path).name}: {exc}")
+        return None
     w, h = mask_img.size
     pixels = np.array(mask_img.pixels[:])
     n_ch = mask_img.channels
@@ -257,6 +316,8 @@ def compute_mask_bbox(mask_path, resolution, opening_fraction=0.03):
     mask_stats: dict with mask_pixels, mask_pixels_raw, centroid.
     """
     mask_bin = _load_mask(mask_path)
+    if mask_bin is None:
+        return None, None, None
 
     # Raw bbox
     ys, xs = np.where(mask_bin > 0)
@@ -352,9 +413,18 @@ def compute_depth_metrics(depth_path, mask_path, resolution):
         return None
 
     mask_bin = _load_mask(mask_path)
+    if mask_bin is None:
+        return None
 
-    # Load depth via Blender
-    depth_img = bpy.data.images.load(str(depth_path), check_existing=False)
+    # Load depth via Blender. Multi-worker EXR writes are async — the file may
+    # exist but still be flushing when we try to read it. Treat any load
+    # failure as "depth metrics unavailable" rather than crashing the worker
+    # (depth metrics are optional and not part of the v5 score schema).
+    try:
+        depth_img = bpy.data.images.load(str(depth_path), check_existing=False)
+    except RuntimeError as exc:
+        print(f"  [depth] skip {depth_path.name}: {exc}")
+        return None
     w, h = depth_img.size
     pixels = np.array(depth_img.pixels[:])
     n_ch = depth_img.channels
@@ -420,6 +490,8 @@ def main(argv):
     from src.scenes.scene import open_scene
 
     scene = open_scene(str(blend_path))
+    if getattr(args, "scene_scale", 1.0) != 1.0:
+        apply_scene_scale(scene, args.scene_scale)
     camera = ensure_camera(scene)
     prepare_camera(camera, args.keep_camera_constraints)
     if args.focal_length is not None:
@@ -429,7 +501,7 @@ def main(argv):
     if args.sensor_height is not None:
         camera.data.sensor_height = args.sensor_height
     if args.sky_strength > 0:
-        set_sky(args.sky_strength)
+        set_sky_if_no_native_lighting(args.sky_strength)
     device_info = configure_gpu(scene, args.disable_gpu, args.gpu_backend, args.gpu_devices)
     set_render_settings(scene, args.resolution, args)
 
@@ -453,6 +525,7 @@ def main(argv):
         obj_pos, placed_root = place_imported_object(
             scene, args.input_object, args.object_position,
             rotation_z_deg=args.rotation_z_deg, scale=args.scale,
+            rotation_xyz_rad=getattr(args, "object_rotation_xyz_rad", None),
         )
         object_position_source = "import_at_position"
         object_name = placed_root
@@ -598,12 +671,13 @@ def main(argv):
         if depth_exr_output_node is not None:
             depth_exr_output_node.file_slots[0].path = "depth_"
 
+        img_ext = "jpg" if getattr(args, "image_format", "JPEG") == "JPEG" else "png"
         camera.matrix_world = Matrix.Translation(pose["cam_pos"]) @ pose["rot_matrix"].to_4x4()
-        scene.render.filepath = str(images_dir / f"img_{idx:04d}.png")
+        scene.render.filepath = str(images_dir / f"img_{idx:04d}.{img_ext}")
         bpy.ops.render.render(write_still=True)
 
         entry = {
-            "image": f"images/img_{idx:04d}.png",
+            "image": f"images/img_{idx:04d}.{img_ext}",
             "camera_position": vec(pose["cam_pos"]),
             "radius": pose["radius"],
             "object_position": vec(obj_pos),
@@ -693,6 +767,35 @@ def main(argv):
                         )
                         if depth_metrics is not None:
                             entry.update(depth_metrics)
+
+        # --- v5 score fields (integer schema; full-projected bbox allows off-image centers) ---
+        if has_3d_bbox and corners_3d is not None:
+            projected = project_corners_to_pixels(
+                scene, camera, corners_3d, args.resolution,
+            )
+            bbox_full_px = projected_bbox_full(projected)
+            obj_rot_xyz = getattr(args, "object_rotation_xyz_rad", None)
+            if obj_rot_xyz is None:
+                obj_rot_xyz = (0.0, 0.0, math.radians(args.rotation_z_deg or 0.0))
+            v5_az, v5_el = compute_camera_to_object_angles(
+                pose["cam_pos"], obj_pos, obj_rot_xyz,
+            )
+            v5 = compute_v5_scores(
+                image_width=int(args.resolution[0]),
+                image_height=int(args.resolution[1]),
+                bbox_full=bbox_full_px,
+                azimuth_deg=v5_az,
+                elevation_deg=v5_el,
+            )
+            for k, val in v5.items():
+                entry[f"score_{k}"] = int(val)
+            if bbox_full_px is not None:
+                entry["bbox_2d_full_projected"] = [
+                    round(bbox_full_px[0], 2),
+                    round(bbox_full_px[1], 2),
+                    round(bbox_full_px[2], 2),
+                    round(bbox_full_px[3], 2),
+                ]
 
         annotations.append(entry)
 

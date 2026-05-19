@@ -9,14 +9,21 @@ from typing import Mapping
 from src.scoring.evaluator import ALL_SUPPORTED_SCORE_KEYS
 
 DEFAULT_SCORE_WEIGHTS = {
-    "bbox_occupancy_ratio": 1.0,
+    "bbox_occupancy_ratio": 2.0,
     "bbox_margin_top": 1.0,
     "bbox_margin_bottom": 1.0,
     "bbox_margin_left": 1.0,
     "bbox_margin_right": 1.0,
     "bbox_aspect_ratio": 1.0,
-    "bbox_centroid_offset": 1.0,
-    "body_in_frame_ratio": 1.0,
+    "bbox_centroid_offset": 2.0,
+    "occupancy": 2.0,
+    "body_in_frame_ratio": 2.0,
+    "object_center_x": 1.0,
+    "object_center_y": 1.0,
+    "bbox_x_offset": 1.0,
+    "bbox_y_offset": 1.0,
+    "cam_to_obj_azimuth_deg": 0.5,
+    "cam_to_obj_elevation_deg": 0.5,
 }
 
 TARGET_PRESETS: dict[str, dict[str, float]] = {
@@ -263,93 +270,3 @@ def build_target_objective(
         score_targets=score_targets,
         score_weights=score_weights,
     )
-
-
-def _load_json_list(text_or_path: str) -> list:
-    text_or_path = str(text_or_path).strip()
-    if not text_or_path.startswith("["):
-        candidate_path = Path(text_or_path)
-        if candidate_path.exists():
-            text_or_path = candidate_path.read_text(encoding="utf-8")
-    payload = json.loads(text_or_path)
-    if not isinstance(payload, list):
-        raise ValueError("objective schedule JSON must decode to a list")
-    return payload
-
-
-def build_target_objective_schedule(
-    *,
-    preset_name: str | None = None,
-    target_json_text: str | None = None,
-    schedule_json_text: str,
-    default_weights_json_text: str | None = None,
-    frame_aspect_ratio: float = 4.0 / 3.0,
-) -> list[tuple[int, TargetObjective]]:
-    raw_spec: dict[str, float] = {}
-    if preset_name:
-        if preset_name not in TARGET_PRESETS:
-            raise ValueError(
-                f"unknown target preset '{preset_name}'. Available presets: {', '.join(available_target_presets())}"
-            )
-        raw_spec.update(TARGET_PRESETS[preset_name])
-    if target_json_text:
-        raw_spec.update(_load_json_dict(target_json_text))
-
-    score_targets = compile_score_targets(raw_spec, frame_aspect_ratio=frame_aspect_ratio)
-    default_weights = (
-        _load_json_dict(default_weights_json_text) if default_weights_json_text else None
-    )
-
-    phases = _load_json_list(schedule_json_text)
-    if not phases:
-        raise ValueError("objective schedule must contain at least one phase")
-
-    schedule: list[tuple[int, TargetObjective]] = []
-    last_until = -1
-    for idx, phase in enumerate(phases):
-        if not isinstance(phase, dict):
-            raise ValueError(f"phase {idx} must be an object with 'until_step' and 'score_weights'")
-        if "until_step" not in phase:
-            raise ValueError(f"phase {idx} missing 'until_step'")
-        until_step = int(phase["until_step"])
-        if until_step <= last_until:
-            raise ValueError(
-                f"phase {idx} until_step={until_step} must be strictly greater than prior phase until_step={last_until}"
-            )
-        last_until = until_step
-
-        phase_weights_spec: dict[str, float] = {}
-        if default_weights is not None:
-            phase_weights_spec.update(default_weights)
-        override = phase.get("score_weights")
-        if override is not None:
-            if not isinstance(override, dict):
-                raise ValueError(f"phase {idx} 'score_weights' must be an object")
-            phase_weights_spec.update({str(k): float(v) for k, v in override.items()})
-
-        score_weights = compile_score_weights(score_targets, weights_spec=phase_weights_spec or None)
-        phase_name = f"phase_{idx}_until_{until_step}"
-        schedule.append(
-            (
-                until_step,
-                TargetObjective(
-                    name=phase_name,
-                    raw_spec=raw_spec,
-                    score_targets=score_targets,
-                    score_weights=score_weights,
-                ),
-            )
-        )
-    return schedule
-
-
-def objective_for_step(
-    schedule: list[tuple[int, TargetObjective]],
-    step_idx: int,
-) -> TargetObjective:
-    if not schedule:
-        raise ValueError("schedule is empty")
-    for until_step, objective in schedule:
-        if step_idx < until_step:
-            return objective
-    return schedule[-1][1]

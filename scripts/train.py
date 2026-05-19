@@ -30,6 +30,15 @@ from src.vlm_qwen25.collator import QwenVLScoreCollator
 from src.vlm_qwen25.dataset import DroneActionScoreDataset
 from src.vlm_qwen25.schema import parse_scores_from_text
 from src.scoring.evaluator import RULE_BASED_SCORE_KEYS, CAMERA_3D_SCORE_KEYS
+from src.scoring.bbox_control import V5_SCORE_KEYS
+
+# v5 sub-groupings (bbox-derived vs camera-pose keys)
+V5_BBOX_KEYS = {
+    "occupancy", "body_in_frame_ratio",
+    "object_center_x", "object_center_y",
+    "bbox_x_offset", "bbox_y_offset",
+}
+V5_POSE_KEYS = {"cam_to_obj_azimuth_deg", "cam_to_obj_elevation_deg"}
 
 
 class PredictionLoggingCallback(TrainerCallback):
@@ -44,6 +53,8 @@ class PredictionLoggingCallback(TrainerCallback):
         # Group keys
         self.bbox_keys = [k for k in self.score_keys if k in RULE_BASED_SCORE_KEYS]
         self.camera3d_keys = [k for k in self.score_keys if k in CAMERA_3D_SCORE_KEYS]
+        self.v5_bbox_keys = [k for k in self.score_keys if k in V5_BBOX_KEYS]
+        self.v5_pose_keys = [k for k in self.score_keys if k in V5_POSE_KEYS]
 
     def on_evaluate(self, args, state, control, model=None, **kwargs):
         if model is None:
@@ -131,12 +142,18 @@ class PredictionLoggingCallback(TrainerCallback):
 
         bbox_mae = _group_mae(self.bbox_keys)
         cam3d_mae = _group_mae(self.camera3d_keys)
+        v5_bbox_mae = _group_mae(self.v5_bbox_keys)
+        v5_pose_mae = _group_mae(self.v5_pose_keys)
         total_mae = _group_mae(self.score_keys)
 
         if bbox_mae is not None:
             tb_writer.add_scalar("pred_vs_gt/bbox_group_mae", bbox_mae, step)
         if cam3d_mae is not None:
             tb_writer.add_scalar("pred_vs_gt/camera3d_group_mae", cam3d_mae, step)
+        if v5_bbox_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/v5_bbox_group_mae", v5_bbox_mae, step)
+        if v5_pose_mae is not None:
+            tb_writer.add_scalar("pred_vs_gt/v5_pose_group_mae", v5_pose_mae, step)
         if total_mae is not None:
             tb_writer.add_scalar("pred_vs_gt/total_mae", total_mae, step)
 
@@ -159,43 +176,78 @@ class PredictionLoggingCallback(TrainerCallback):
         tb_writer.flush()
 
 
-class ScoreRegressionTrainer(Trainer):
-    """Trainer with auxiliary regression loss on predicted scores."""
+class V5LossTrainer(Trainer):
+    """Trainer subclass that splits the train CE loss into per-key and per-
+    distance-bucket components for TensorBoard tracking, while still returning
+    the original total loss to the optimizer.
+    """
 
-    def __init__(self, *args, score_keys=None, regression_weight=0.5, **kwargs):
+    def __init__(self, *args, v5_score_keys=None, n_distance_bins=6, **kwargs):
         super().__init__(*args, **kwargs)
-        self.score_keys = score_keys or []
-        self.regression_weight = float(regression_weight)
+        self.v5_score_keys = list(v5_score_keys) if v5_score_keys is not None else list(V5_SCORE_KEYS)
+        self.n_distance_bins = int(n_distance_bins)
 
-    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
-        gt_scores = inputs.pop("gt_score_values", None)
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        # Pop side-channel tensors not consumed by the model.
+        key_id = inputs.pop("key_id", None)
+        bucket_idx = inputs.pop("bucket_idx", None)
 
-        outputs = model(**inputs, output_hidden_states=True)
-        lm_loss = outputs.loss
+        outputs = model(**inputs)
+        logits = outputs.logits
 
-        if (
-            gt_scores is not None
-            and hasattr(model, "score_head")
-            and outputs.hidden_states is not None
-        ):
-            hidden = outputs.hidden_states[-1]  # [B, seq, hidden]
-            labels = inputs["labels"]
-            # prompt end = first position where labels != -100, minus 1
-            prompt_ends = (labels != -100).long().argmax(dim=1) - 1
-            prompt_ends = prompt_ends.clamp(min=0)
+        labels = inputs["labels"]
+        shift_logits = logits[..., :-1, :].contiguous()
+        shift_labels = labels[..., 1:].contiguous()
 
-            batch_idx = torch.arange(hidden.size(0), device=hidden.device)
-            prompt_hidden = hidden[batch_idx, prompt_ends]  # [B, hidden]
+        loss_fct = torch.nn.CrossEntropyLoss(reduction="none", ignore_index=-100)
+        flat_logits = shift_logits.view(-1, shift_logits.size(-1))
+        flat_labels = shift_labels.view(-1)
+        per_token_loss = loss_fct(flat_logits, flat_labels)  # (B*T,)
 
-            pred_scores = model.score_head(prompt_hidden)  # [B, num_keys]
-            gt_scores = gt_scores.to(pred_scores.device, dtype=pred_scores.dtype)
-            reg_loss = torch.nn.functional.l1_loss(pred_scores, gt_scores)
-
-            loss = lm_loss + self.regression_weight * reg_loss
+        valid_mask = (flat_labels != -100)
+        n_valid = int(valid_mask.sum().item())
+        if n_valid > 0:
+            total_loss = per_token_loss[valid_mask].mean()
         else:
-            loss = lm_loss
+            total_loss = per_token_loss.sum() * 0.0
 
-        return (loss, outputs) if return_outputs else loss
+        # Log per-key and per-bucket scalars only every logging_steps.
+        try:
+            should_log = (
+                self.args.logging_steps > 0
+                and self.state.global_step > 0
+                and self.state.global_step % self.args.logging_steps == 0
+                and self.is_world_process_zero()
+            )
+        except Exception:
+            should_log = False
+
+        if should_log and key_id is not None:
+            with torch.no_grad():
+                shift_key = key_id[..., 1:].contiguous().view(-1)
+                shift_bucket = None
+                if bucket_idx is not None:
+                    B, T = labels.shape
+                    sample_bucket = bucket_idx.to(labels.device)
+                    expanded = sample_bucket.view(B, 1).expand(B, T - 1).contiguous()
+                    shift_bucket = expanded.view(-1)
+
+                logs = {"loss_total": float(total_loss.detach().item())}
+                # Per-key
+                for k_idx, k_name in enumerate(self.v5_score_keys):
+                    mask = (shift_key == k_idx) & valid_mask
+                    if mask.any():
+                        logs[f"loss_{k_name}"] = float(per_token_loss[mask].mean().item())
+                # Per-bucket
+                if shift_bucket is not None:
+                    for b in range(self.n_distance_bins):
+                        mask = (shift_bucket == b) & valid_mask
+                        if mask.any():
+                            logs[f"loss_bucket_{b}"] = float(per_token_loss[mask].mean().item())
+                # Push to HF Trainer log history (TB writer adds `train/` prefix).
+                self.log(logs)
+
+        return (total_loss, outputs) if return_outputs else total_loss
 
 
 def parse_args() -> argparse.Namespace:
@@ -260,27 +312,58 @@ def main() -> None:
     action_frame = str(cfg["data"].get("action_frame", "camera_local"))
     rotation_representation = str(cfg["data"].get("rotation_representation", "orientation_6d"))
 
-    dataset = DroneActionScoreDataset(
+    dataset_kwargs = dict(
         annotations_path=cfg["data"]["annotations_path"],
         image_root=cfg["data"].get("image_root"),
         action_frame=action_frame,
         rotation_representation=rotation_representation,
         distance_threshold=float(cfg["data"]["distance_threshold"]),
+        rotation_threshold_deg=(
+            None if cfg["data"].get("rotation_threshold_deg", 60.0) is None
+            else float(cfg["data"].get("rotation_threshold_deg", 60.0))
+        ),
+        pair_distance_distribution=str(cfg["data"].get("pair_distance_distribution", "log_uniform")),
+        n_distance_bins=int(cfg["data"].get("n_distance_bins", 5)),
+        min_pair_distance=float(cfg["data"].get("min_pair_distance", 0.05)),
         max_pairs_per_image=int(cfg["data"]["max_pairs_per_image"]),
         zero_action_ratio=float(cfg["data"].get("zero_action_ratio", 0.0)),
         seed=seed,
         target_score_keys=cfg["data"].get("target_score_keys"),
+        views_cache_dir=cfg["data"].get("views_cache_dir"),
     )
 
-    train_indices, eval_indices = split_dataset_indices(
-        len(dataset),
-        float(cfg["data"].get("eval_ratio", 0.0)),
-        seed,
-    )
-    train_dataset = Subset(dataset, train_indices)
-    eval_dataset = Subset(dataset, eval_indices) if eval_indices else None
+    num_train_placements = int(cfg["data"].get("num_train_placements", 0))
+    num_val_placements = int(cfg["data"].get("num_val_placements", 0))
+
+    if num_train_placements > 0:
+        # Placement-level train/val split.
+        train_dataset = DroneActionScoreDataset(
+            placement_start_idx=0,
+            placement_end_idx=num_train_placements,
+            **dataset_kwargs,
+        )
+        if num_val_placements > 0:
+            eval_dataset = DroneActionScoreDataset(
+                placement_start_idx=num_train_placements,
+                placement_end_idx=num_train_placements + num_val_placements,
+                **dataset_kwargs,
+            )
+        else:
+            eval_dataset = None
+        dataset = train_dataset  # used downstream for target_score_keys/views counts
+    else:
+        # Legacy pair-level split via eval_ratio.
+        dataset = DroneActionScoreDataset(**dataset_kwargs)
+        train_indices, eval_indices = split_dataset_indices(
+            len(dataset),
+            float(cfg["data"].get("eval_ratio", 0.0)),
+            seed,
+        )
+        train_dataset = Subset(dataset, train_indices)
+        eval_dataset = Subset(dataset, eval_indices) if eval_indices else None
+
     if len(train_dataset) == 0:
-        raise ValueError("train dataset is empty. Increase pair count or reduce eval_ratio.")
+        raise ValueError("train dataset is empty. Check placement counts / eval_ratio.")
 
     model_cfg = cfg["model"]
     train_cfg = cfg["training"]
@@ -308,16 +391,6 @@ def main() -> None:
     if bool(train_cfg.get("gradient_checkpointing", True)):
         model.gradient_checkpointing_enable()
         model.config.use_cache = False
-
-    # Score prediction head for auxiliary regression loss
-    regression_weight = float(train_cfg.get("regression_weight", 0.0))
-    if regression_weight > 0:
-        hidden_size = getattr(model.config, "hidden_size", None)
-        if hidden_size is None:
-            hidden_size = getattr(model.config.text_config, "hidden_size", 1536)
-        num_score_keys = len(cfg["data"].get("target_score_keys", []))
-        model.score_head = torch.nn.Linear(hidden_size, num_score_keys).to(torch_dtype)
-        print(f"Score head added: {hidden_size} → {num_score_keys} (regression_weight={regression_weight})", flush=True)
 
     run_root = Path(train_cfg["output_root"])
     run_name = str(train_cfg["run_name"])
@@ -362,6 +435,7 @@ def main() -> None:
         warmup_steps=warmup_steps,
         logging_steps=int(train_cfg["logging_steps"]),
         save_steps=int(train_cfg["save_steps"]),
+        save_total_limit=int(train_cfg.get("save_total_limit", 3)),
         eval_steps=int(train_cfg["eval_steps"]),
         save_strategy="steps",
         bf16=bool(train_cfg.get("bf16", True)),
@@ -396,26 +470,16 @@ def main() -> None:
             num_samples=min(32, len(eval_dataset)),
         ))
 
-    if regression_weight > 0:
-        trainer = ScoreRegressionTrainer(
-            model=model,
-            args=training_args,
-            train_dataset=train_dataset,
-            eval_dataset=eval_dataset,
-            data_collator=collator,
-            callbacks=callbacks,
-            score_keys=dataset.target_score_keys,
-            regression_weight=regression_weight,
-        )
-    else:
-        trainer = Trainer(
-            model=model,
-            args=training_args,
-            train_dataset=train_dataset,
-            eval_dataset=eval_dataset,
-            data_collator=collator,
-            callbacks=callbacks,
-        )
+    trainer = V5LossTrainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
+        data_collator=collator,
+        callbacks=callbacks,
+        v5_score_keys=dataset.target_score_keys,
+        n_distance_bins=int(cfg["data"].get("n_distance_bins", 6)),
+    )
 
     # Log hyperparameters to TensorBoard for cross-run comparison
     world_size = max(1, int(os.environ.get("WORLD_SIZE", "1")))
@@ -426,6 +490,8 @@ def main() -> None:
         "num_views": len(dataset.views),
         "num_train_pairs": len(train_dataset),
         "num_eval_pairs": 0 if eval_dataset is None else len(eval_dataset),
+        "num_train_placements": num_train_placements,
+        "num_val_placements": num_val_placements,
         "num_score_keys": len(dataset.target_score_keys),
         "effective_batch_size": effective_batch_size,
         "learning_rate": float(train_cfg["learning_rate"]),
@@ -433,6 +499,8 @@ def main() -> None:
         "total_steps": steps_per_epoch,
         "warmup_steps": warmup_steps,
         "distance_threshold": float(cfg["data"]["distance_threshold"]),
+        "pair_distance_distribution": str(cfg["data"].get("pair_distance_distribution", "log_uniform")),
+        "n_distance_bins": int(cfg["data"].get("n_distance_bins", 5)),
         "action_frame": action_frame,
         "rotation_representation": rotation_representation,
     }

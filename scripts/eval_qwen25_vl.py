@@ -73,24 +73,45 @@ def main() -> None:
     model_cfg = cfg["model"]
     trust_remote_code = bool(model_cfg.get("trust_remote_code", False))
 
-    dataset = DroneActionScoreDataset(
+    num_train_placements = int(data_cfg.get("num_train_placements", 0))
+    num_val_placements = int(data_cfg.get("num_val_placements", 0))
+
+    dataset_kwargs = dict(
         annotations_path=data_cfg["annotations_path"],
         image_root=data_cfg.get("image_root"),
         action_frame=str(data_cfg.get("action_frame", "camera_local")),
         rotation_representation=str(data_cfg.get("rotation_representation", "orientation_6d")),
         distance_threshold=float(data_cfg["distance_threshold"]),
+        rotation_threshold_deg=(
+            None if data_cfg.get("rotation_threshold_deg", 60.0) is None
+            else float(data_cfg.get("rotation_threshold_deg", 60.0))
+        ),
+        pair_distance_distribution=str(data_cfg.get("pair_distance_distribution", "log_uniform")),
+        n_distance_bins=int(data_cfg.get("n_distance_bins", 5)),
+        min_pair_distance=float(data_cfg.get("min_pair_distance", 0.05)),
         max_pairs_per_image=int(data_cfg["max_pairs_per_image"]),
         zero_action_ratio=float(data_cfg.get("zero_action_ratio", 0.0)),
         seed=int(data_cfg["seed"]),
         target_score_keys=data_cfg.get("target_score_keys"),
+        views_cache_dir=data_cfg.get("views_cache_dir"),
     )
 
-    _, eval_indices = split_dataset_indices(
-        len(dataset),
-        float(data_cfg.get("eval_ratio", 0.0)),
-        int(data_cfg["seed"]),
-    )
-    eval_source = Subset(dataset, eval_indices) if eval_indices else dataset
+    if num_train_placements > 0 and num_val_placements > 0:
+        # Match train.py: use the held-out val placement range.
+        dataset = DroneActionScoreDataset(
+            placement_start_idx=num_train_placements,
+            placement_end_idx=num_train_placements + num_val_placements,
+            **dataset_kwargs,
+        )
+        eval_source = dataset
+    else:
+        dataset = DroneActionScoreDataset(**dataset_kwargs)
+        _, eval_indices = split_dataset_indices(
+            len(dataset),
+            float(data_cfg.get("eval_ratio", 0.0)),
+            int(data_cfg["seed"]),
+        )
+        eval_source = Subset(dataset, eval_indices) if eval_indices else dataset
 
     max_samples = min(int(args.max_samples), len(eval_source))
     samples = [eval_source[i] for i in range(max_samples)]
