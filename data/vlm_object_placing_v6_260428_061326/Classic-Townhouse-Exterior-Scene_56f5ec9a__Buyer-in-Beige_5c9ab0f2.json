@@ -1,0 +1,560 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 1.0,
+  "object": "Buyer-in-Beige_5c9ab0f2",
+  "object_file": "data/objects/Buyer-in-Beige_5c9ab0f2/Buyer-in-Beige_5c9ab0f2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        33.9087028503418,
+        11.690461158752441,
+        -1.0330721139907837
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            33.9087028503418,
+            11.690461158752441,
+            -1.0330721139907837
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            3.0,
+            9.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped (head missing)",
+            "The person's head is cut off by the top of the frame.",
+            "missing scene context (townhouse from reference is not visible)",
+            "Minor cropping at the top of the frame (hat).",
+            "background appears to be a flat billboard with a visible edge on the right",
+            "The placement in the middle of the road is plausible but lacks the architectural context of the townhouses seen in the reference image.",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is correctly grounded and fully visible, but the render lacks the architectural context shown in the reference image, resulting in empty surroundings and a flat, artificial-looking background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_v0.png",
+          "azimuth": 343.0,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            32.796165466308594,
+            8.051515579223633,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.28590431809425354,
+            0.9351507425308228,
+            -0.209169402718544
+          ],
+          "camera_up": [
+            0.06115524843335152,
+            0.20002968609333038,
+            0.9778794050216675
+          ],
+          "camera_radius": 4.097632030782774
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c0_v1.png",
+          "azimuth": 97.9,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            37.67780303955078,
+            12.213467597961426,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9685987830162048,
+            -0.1344042867422104,
+            -0.20916952192783356
+          ],
+          "camera_up": [
+            -0.20718440413475037,
+            -0.02874908596277237,
+            0.9778794050216675
+          ],
+          "camera_radius": 4.097630532532202
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        38.40507507324219,
+        23.680782318115234,
+        -1.1209819316864014
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            38.40507507324219,
+            23.680782318115234,
+            -1.1209819316864014
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            7.5,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped (head missing)",
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is placed on a platform that appears disconnected from the main scene architecture",
+            "Object is placed in front of a flat backdrop instead of the main scene architecture"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is severely cropped with the head and upper body out of frame, and the background lacks any meaningful architectural context from the townhouse scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c1_v0.png",
+          "azimuth": 167.7,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            39.215702056884766,
+            27.398651123046875,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.2072882503271103,
+            -0.950709342956543,
+            -0.23061516880989075
+          ],
+          "camera_up": [
+            -0.04912801459431648,
+            -0.22532153129577637,
+            0.9730450510978699
+          ],
+          "camera_radius": 4.131052367118793
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        12.92564582824707,
+        4.196511268615723,
+        -1.0330902338027954
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.92564582824707,
+            4.196511268615723,
+            -1.0330902338027954
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            4.0,
+            9.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "The main architecture (townhouses) is not visible in this shot",
+            "Object is heavily cropped (head missing)",
+            "Placement in the middle of the road is awkward",
+            "Object is slightly cropped at the top"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a very empty part of the scene with no architectural context visible, and the top of the head is slightly cropped."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c2_v0.png",
+          "azimuth": 339.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            11.586812019348145,
+            0.6346017122268677,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.34405839443206787,
+            0.915352463722229,
+            -0.20917384326457977
+          ],
+          "camera_up": [
+            0.0735960453748703,
+            0.19579917192459106,
+            0.9778784513473511
+          ],
+          "camera_radius": 4.097639696580527
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -3.5610435009002686,
+        17.68562126159668,
+        -0.7874102592468262
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.5610435009002686,
+            17.68562126159668,
+            -0.7874102592468262
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.5,
+            7.0,
+            10.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "The main architecture (townhouses) is not visible in this shot",
+            "Object is heavily cropped (head and upper body missing)",
+            "The main architecture (townhouses) is not visible in the background.",
+            "The top of the person's head is slightly cropped by the frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is correctly grounded on a path, the camera angle faces away from the main townhouse architecture, resulting in a sparse and uninteresting background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_v0.png",
+          "azimuth": 10.7,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -2.478620767593384,
+            11.95705795288086,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.18479076027870178,
+            0.9779776334762573,
+            -0.09701604396104813
+          ],
+          "camera_up": [
+            -0.018012648448348045,
+            0.09532920271158218,
+            0.9952828288078308
+          ],
+          "camera_radius": 5.967617047220338
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Buyer-in-Beige_5c9ab0f2_c4_v1.png",
+          "azimuth": 310.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.9809136390686035,
+            13.883934020996094,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.7545581459999084,
+            0.6490222811698914,
+            -0.09701592475175858
+          ],
+          "camera_up": [
+            0.07355115562677383,
+            0.06326387077569962,
+            0.9952828288078308
+          ],
+          "camera_radius": 5.967616597759674
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Casual-Crouch_b3e2a7cc",
+  "object_file": "data/objects/Casual-Crouch_b3e2a7cc/Casual-Crouch_b3e2a7cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -46.67413330078125,
+        -28.94991111755371,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -46.67413330078125,
+            -28.94991111755371,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            6.0,
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is grounded, but the surface it is on appears to be water, which is not a typical surface for a person to be sitting on.",
+            "surroundings_empty=true",
+            "The surroundings are empty.",
+            "The surroundings are empty, with only water and a distant misty landscape visible. The object is placed in a vast expanse of water with no context or supporting elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the placement is not plausible as it is sitting in the middle of a large body of water with no context. The surroundings are also empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Casual-Crouch_b3e2a7cc_c0_v0.png",
+          "azimuth": 267.7,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -49.95941162109375,
+            -28.817960739135742,
+            4.656242370605469
+          ],
+          "camera_forward": [
+            0.8184922933578491,
+            -0.03287404030561447,
+            -0.5735762119293213
+          ],
+          "camera_up": [
+            0.5731140971183777,
+            -0.023018663749098778,
+            0.8191522359848022
+          ],
+          "camera_radius": 4.255219693535458
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Casual-Crouch_b3e2a7cc_c0_v1.png",
+          "azimuth": 327.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -48.78634262084961,
+            -32.29109191894531,
+            3.051003932952881
+          ],
+          "camera_forward": [
+            0.5262346863746643,
+            0.8324201703071594,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.0927894115447998,
+            0.1467781662940979,
+            0.9848077297210693
+          ],
+          "camera_radius": 4.101954181679361
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -8.709465026855469,
+        -18.102861404418945,
+        1.955073356628418
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.709465026855469,
+            -18.102861404418945,
+            1.955073356628418
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is grounded, but the surface it is on appears to be water, which is not a typical surface for a person to be sitting on.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but sitting on water is implausible. The surroundings are not empty, but the scene lacks context for a person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Casual-Crouch_b3e2a7cc_c1_v0.png",
+          "azimuth": 251.8,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -11.83289909362793,
+            -17.075927734375,
+            4.656260967254639
+          ],
+          "camera_forward": [
+            0.7781714797019958,
+            -0.2558499276638031,
+            -0.5735764503479004
+          ],
+          "camera_up": [
+            0.5448815226554871,
+            -0.1791480928659439,
+            0.8191520571708679
+          ],
+          "camera_radius": 4.255214479489442
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Casual-Crouch_b3e2a7cc_c1_v1.png",
+          "azimuth": 6.8,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -8.241434097290039,
+            -22.027889251708984,
+            3.0510241985321045
+          ],
+          "camera_forward": [
+            -0.11660506576299667,
+            0.9778801202774048,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.02056063897907734,
+            0.17242668569087982,
+            0.9848077297210693
+          ],
+          "camera_radius": 4.101951455338526
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -19.556514739990234,
+        -28.94991111755371,
+        1.955062747001648
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -19.556514739990234,
+            -28.94991111755371,
+            1.955062747001648
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            3.0,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is grounded, but the surface it is on appears to be water, which is not a typical surface for a person to be sitting on.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly visible and grounded, but it is placed on water, which is not a plausible surface for a person to be sitting on. The surroundings are also empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Casual-Crouch_b3e2a7cc_c2_v0.png",
+          "azimuth": 266.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -22.838306427001953,
+            -28.749187469482422,
+            4.656251907348633
+          ],
+          "camera_forward": [
+            0.8176242709159851,
+            -0.050008222460746765,
+            -0.5735762715339661
+          ],
+          "camera_up": [
+            0.5725064277648926,
+            -0.03501603752374649,
+            0.8191521763801575
+          ],
+          "camera_radius": 4.255216662897979
+        }
+      ]
+    }
+  ]
+}

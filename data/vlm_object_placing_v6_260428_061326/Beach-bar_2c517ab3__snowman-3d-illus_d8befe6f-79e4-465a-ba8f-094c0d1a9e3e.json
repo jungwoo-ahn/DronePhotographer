@@ -1,0 +1,124 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e",
+  "object_file": "data/objects/snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e/snowman-3d-illustration_8a079e99-46ed-4719-9ddd-f3e657aaf5a4.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.4675050973892212,
+        -7.800871849060059,
+        -0.1199999749660492
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.4675050973892212,
+            -7.800871849060059,
+            -0.1199999749660492
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Plausibility is low (snowman at a beach bar).",
+            "Plausibility: A snowman at a beach bar is highly unrealistic.",
+            "Object is heavily occluded by foreground furniture",
+            "Object is clipping through the picnic table.",
+            "Object is likely clipping into the table/counter",
+            "Object's arm is clipping into the table/bench furniture."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is almost entirely hidden behind a wooden structure, violating the visibility requirement and making it impossible to see the majority of the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_v0.png",
+          "azimuth": 71.1,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            4.749287128448486,
+            -9.92935562133789,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9454808831214905,
+            0.32371044158935547,
+            -0.0357418954372406
+          ],
+          "camera_up": [
+            -0.03381491079926491,
+            0.011577343568205833,
+            0.9993610382080078
+          ],
+          "camera_radius": 6.657470349479654
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is made of ice and snow, which would immediately melt in a sunny beach environment."
+    }
+  ]
+}

@@ -1,0 +1,655 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e",
+  "object_file": "data/objects/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.8351056575775146,
+        -9.713561058044434,
+        -8.940697071579962e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.8351056575775146,
+            -9.713561058044434,
+            -8.940697071579962e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            10.0,
+            4.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is significantly occluded by scene architecture (pillar and wall).",
+            "Object's head is cut off by the top of the frame",
+            "Object is completely hidden behind scene geometry (the bar counter/wall).",
+            "Object is partially occluded by a foreground pillar"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the bar counter and wall in the rendered view, making it impossible to evaluate placement quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v0.png",
+          "azimuth": 221.2,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -1.9911518096923828,
+            -5.342862129211426,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.6582115888595581,
+            -0.7518694996833801,
+            -0.03807525709271431
+          ],
+          "camera_up": [
+            0.025079768151044846,
+            -0.028648393228650093,
+            0.9992748498916626
+          ],
+          "camera_radius": 5.8859187584343955
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v1.png",
+          "azimuth": 84.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.896862030029297,
+            -10.275893211364746,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9950672388076782,
+            0.09230957925319672,
+            -0.03633338585495949
+          ],
+          "camera_up": [
+            -0.03617805242538452,
+            0.003356129862368107,
+            0.9993396997451782
+          ],
+          "camera_radius": 6.161322002617047
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.081561326980591,
+        -0.7968943119049072,
+        -1.9073488033427566e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.081561326980591,
+            -0.7968943119049072,
+            -1.9073488033427566e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            10.0,
+            9.5,
+            10.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is heavily cropped; head and feet are out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and in a plausible location at the bar, but the framing is far too tight, cutting off both his head and feet."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_v0.png",
+          "azimuth": 351.3,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -2.960219383239746,
+            -6.5389509201049805,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.15115121006965637,
+            0.9877771139144897,
+            -0.03807513788342476
+          ],
+          "camera_up": [
+            0.005759264808148146,
+            0.03763704374432564,
+            0.9992748498916626
+          ],
+          "camera_radius": 5.885918925524133
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_v1.png",
+          "azimuth": 291.3,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -5.783653259277344,
+            -2.24027943611145,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9302492141723633,
+            0.36268895864486694,
+            -0.0556163527071476
+          ],
+          "camera_up": [
+            0.051817286759614944,
+            0.02020265907049179,
+            0.9984521865844727
+          ],
+          "camera_radius": 4.085294450445577
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.16489453613758087,
+        -7.713561534881592,
+        -1.4901161193847656e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.16489453613758087,
+            -7.713561534881592,
+            -1.4901161193847656e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            10.0,
+            4.0,
+            10.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "Object's head is cut off by the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The man is grounded and in a plausible location, but his head is cut off by the top of the frame, making him not fully visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v0.png",
+          "azimuth": 65.3,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            5.112534046173096,
+            -10.140908241271973,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9078494310379028,
+            0.4175640344619751,
+            -0.03807525709271431
+          ],
+          "camera_up": [
+            -0.034591712057590485,
+            0.015910333022475243,
+            0.9992748498916626
+          ],
+          "camera_radius": 5.885919649579611
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v1.png",
+          "azimuth": 281.8,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.054442405700684,
+            -8.526130676269531,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9773523211479187,
+            0.20417948067188263,
+            -0.0556163527071476
+          ],
+          "camera_up": [
+            0.054441068321466446,
+            0.011373152956366539,
+            0.9984521865844727
+          ],
+          "camera_radius": 4.085294246184891
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -1.4148945808410645,
+        -1.7135610580444336,
+        9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.4148945808410645,
+            -1.7135610580444336,
+            9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            10.0,
+            2.0,
+            10.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is extremely far from the camera and tiny.",
+            "The view is heavily occluded by a foreground wall/pillar, making the composition poor.",
+            "Object's head is cut off by the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed very far away on the beach and the camera view is almost entirely blocked by a foreground pillar, resulting in a very poor composition where the object is barely identifiable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_v0.png",
+          "azimuth": 346.4,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -2.8463892936706543,
+            -7.630648612976074,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.23498685657978058,
+            0.9713192582130432,
+            -0.03633326664566994
+          ],
+          "camera_up": [
+            0.00854349136352539,
+            0.035314515233039856,
+            0.9993396997451782
+          ],
+          "camera_radius": 6.161321574542419
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_v1.png",
+          "azimuth": 137.7,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.2593324184417725,
+            1.2253766059875488,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.671970784664154,
+            -0.7384862899780273,
+            -0.05561647191643715
+          ],
+          "camera_up": [
+            -0.037430569529533386,
+            -0.04113567993044853,
+            0.9984521865844727
+          ],
+          "camera_radius": 4.08529442126548
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -2.1648945808410645,
+        -6.713561534881592,
+        -9.536744016713783e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.1648945808410645,
+            -6.713561534881592,
+            -9.536744016713783e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "Object's leg is clipping through the wooden bench.",
+            "Object is partially occluded by a foreground table.",
+            "Object is heavily occluded by the umbrella, with the head and upper torso completely hidden.",
+            "Object's head is completely cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is entirely out of frame and the foreground table occludes a significant portion of the body, making for a poor composition."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_v0.png",
+          "azimuth": 70.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            3.570146083831787,
+            -8.755718231201172,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9414354562759399,
+            0.3352300226688385,
+            -0.03633338585495949
+          ],
+          "camera_up": [
+            -0.034228160977363586,
+            0.012188022956252098,
+            0.9993396997451782
+          ],
+          "camera_radius": 6.161321497150393
+        }
+      ]
+    }
+  ]
+}

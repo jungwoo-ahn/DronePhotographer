@@ -1,0 +1,445 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.0,
+  "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+  "object_file": "data/objects/Buddy-in-the-Brooklyn-Is-Walking_43d448d4/Buddy-in-the-Brooklyn-Is-Walking_43d448d4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        20.691932678222656,
+        -1.4512414932250977,
+        3.6001033782958984
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.691932678222656,
+            -1.4512414932250977,
+            3.6001033782958984
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            7.0,
+            3.0,
+            9.5,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The scene is very dark, making the object difficult to see clearly.",
+            "Object is clipping through the stadium seats.",
+            "The composition has a large amount of empty dark space on the left.",
+            "Object is heavily cropped; the head is out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.8,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is walking directly through the back of the stadium seats, which is a major clipping violation."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_v0.png",
+          "azimuth": 2.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            20.9202938079834,
+            -6.293633937835693,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            -0.04700550436973572,
+            0.9967507719993591,
+            -0.06540890038013458
+          ],
+          "camera_up": [
+            -0.0030811703763902187,
+            0.06533628702163696,
+            0.9978585243225098
+          ],
+          "camera_radius": 4.950789323583169
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_v1.png",
+          "azimuth": 272.7,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            16.892112731933594,
+            -1.6304359436035156,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.995422899723053,
+            0.0469428151845932,
+            -0.08324404060840607
+          ],
+          "camera_up": [
+            0.08315163105726242,
+            0.00392127176746726,
+            0.9965291619300842
+          ],
+          "camera_radius": 3.9344809491956063
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        20.691932678222656,
+        -4.451241493225098,
+        3.600102424621582
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.691932678222656,
+            -4.451241493225098,
+            3.600102424621582
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            6.0,
+            4.0,
+            9.5,
+            3.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The background behind the person is completely black, lacking scene context in this specific crop.",
+            "The scene is quite hazy/dark, which slightly obscures the object.",
+            "The background is extremely dark, lacking the context shown in the reference image.",
+            "The person's head is cut off by the top of the frame, making them less than 70% visible.",
+            "The person is walking into a dark void.",
+            "The object is heavily cropped, with the head completely out of frame.",
+            "The person is clipping through the stadium seats.",
+            "The scene is extremely dark, making the object and its context difficult to see.",
+            "Object is clipping through the stadium seats."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.4,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the armrest of the stadium seating, and the lighting makes the background appear unnaturally void compared to the reference."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v0.png",
+          "azimuth": 224.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            16.592456817626953,
+            -0.3086083233356476,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.7023515701293945,
+            -0.7097452282905579,
+            -0.05444237217307091
+          ],
+          "camera_up": [
+            0.03829445689916611,
+            -0.038697630167007446,
+            0.9985169172286987
+          ],
+          "camera_radius": 5.914093783458377
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v1.png",
+          "azimuth": 240.0,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.644622802734375,
+            -1.5371752977371216,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.8647410273551941,
+            -0.49925848841667175,
+            -0.05444225296378136
+          ],
+          "camera_up": [
+            0.04714823141694069,
+            -0.027221374213695526,
+            0.9985169172286987
+          ],
+          "camera_radius": 5.914094589730889
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        17.191932678222656,
+        -4.451241493225098,
+        2.7001025676727295
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.191932678222656,
+            -4.451241493225098,
+            2.7001025676727295
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            1.0,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The placement is very tight against the auditorium seats.",
+            "The scene is extremely dark, making the object difficult to see.",
+            "Object is likely clipping through the furniture.",
+            "The person's head is cut off by the top of the frame.",
+            "Object is almost entirely hidden behind stadium seats.",
+            "The person's head is completely cut off by the top of the frame.",
+            "The object is heavily occluded by the auditorium seats, with less than 30% visible.",
+            "The person is clipping through the stadium seats.",
+            "A significant portion of the object's lower body is occluded by foreground seating.",
+            "Object is clipping through the stadium seats."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost completely obscured by the stadium seating, with only the very top of the head visible, making the placement unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v0.png",
+          "azimuth": 208.3,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.388481140136719,
+            -1.10186767578125,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.45151668787002563,
+            -0.8385575413703918,
+            -0.3048834800720215
+          ],
+          "camera_up": [
+            0.14454151690006256,
+            -0.2684430778026581,
+            0.952389657497406
+          ],
+          "camera_radius": 4.254241902093667
+        }
+      ]
+    }
+  ]
+}

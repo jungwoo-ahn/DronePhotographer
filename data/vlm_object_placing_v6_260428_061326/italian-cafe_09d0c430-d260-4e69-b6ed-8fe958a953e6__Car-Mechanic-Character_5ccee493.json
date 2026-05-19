@@ -1,0 +1,95 @@
+{
+  "scene": "italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6",
+  "scene_file": "data/scenes/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6/italian-cafe_61ba9dfe-fd8c-4953-af72-4204117f6103.blend",
+  "scene_scale": 0.7142857142857143,
+  "object": "Car-Mechanic-Character_5ccee493",
+  "object_file": "data/objects/Car-Mechanic-Character_5ccee493/Car-Mechanic-Character_5ccee493.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        4.287600040435791,
+        -0.16123366355895996,
+        0.009888803586363792
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.287600040435791,
+            -0.16123366355895996,
+            0.009888803586363792
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Car-Mechanic-Character_5ccee493_c0_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is carrying a tire and walking away from the camera, which is an odd pose for a cafe setting."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the pose and context of carrying a tire in a cafe setting is unusual."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Car-Mechanic-Character_5ccee493_c0_v0.png",
+          "azimuth": 230.4,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            1.0952486991882324,
+            2.479708671569824,
+            1.0806478261947632
+          ],
+          "camera_forward": [
+            0.768020749092102,
+            -0.6353623270988464,
+            -0.08036670833826065
+          ],
+          "camera_up": [
+            0.06192369759082794,
+            -0.05122756212949753,
+            0.9967653751373291
+          ],
+          "camera_radius": 4.279276706329411
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The scene depicts an outdoor cafe setting with a scooter, which is incongruous with a car mechanic character carrying a tire."
+    }
+  ]
+}

@@ -1,0 +1,665 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 0.75,
+  "object": "Pajama-Party_1d7be87e",
+  "object_file": "data/objects/Pajama-Party_1d7be87e/Pajama-Party_1d7be87e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -22.753379821777344,
+        -1.1979255676269531,
+        -0.8407443761825562
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -22.753379821777344,
+            -1.1979255676269531,
+            -0.8407443761825562
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            6.0,
+            4.0,
+            9.5,
+            4.0,
+            5.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_iter0_v5.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object's attire (pajamas) makes its placement on a public sidewalk feel slightly awkward.",
+            "A large portion of the foreground is empty, making the composition awkward.",
+            "Object is very small in the frame due to a wide shot and distant placement.",
+            "Object is heavily cropped at the top."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped at the top, but is otherwise grounded, not clipping, and in a plausible outdoor location with good surroundings. The scale appears appropriate for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_v0.png",
+          "azimuth": 310.9,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -25.338743209838867,
+            -3.4374375343322754,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.7393537759780884,
+            0.6404481530189514,
+            -0.20780320465564728
+          ],
+          "camera_up": [
+            0.15706881880760193,
+            0.13605719804763794,
+            0.97817063331604
+          ],
+          "camera_radius": 3.669153333000465
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c0_v1.png",
+          "azimuth": 40.9,
+          "elevation": 50,
+          "preview_quality": 5.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            -20.51386833190918,
+            -3.7832887172698975,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.6404483318328857,
+            0.739353597164154,
+            -0.20780332386493683
+          ],
+          "camera_up": [
+            -0.1360572725534439,
+            0.1570689082145691,
+            0.97817063331604
+          ],
+          "camera_radius": 3.669152813166979
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -32.870208740234375,
+        4.422536849975586,
+        -0.774815559387207
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -32.870208740234375,
+            4.422536849975586,
+            -0.774815559387207
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.5,
+            5.5,
+            8.0,
+            3.0,
+            3.5,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v1.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v4.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_iter0_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Surroundings are empty, showing only a generic ground and tree backdrop with no architecture or scene context.",
+            "Object's attire (pajamas) makes its placement on a public road feel awkward.",
+            "Object's attire (pajamas) makes its placement on a public road feel slightly awkward.",
+            "Object's attire (pajamas) makes its placement in this generic outdoor setting implausible.",
+            "The object's attire (pajamas) makes its placement in this vast, open outdoor environment feel somewhat awkward.",
+            "Object's attire (pajamas) makes its placement in the middle of a paved area outside townhouses feel slightly awkward.",
+            "Object's attire (pajamas) makes its placement on a public road feel implausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a vast, empty outdoor area with no visible context from the townhouse scene, and its attire is unsuitable for this setting, leading to empty surroundings and implausible placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_v0.png",
+          "azimuth": 323.4,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -35.469120025634766,
+            0.9231021404266357,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.589491605758667,
+            0.7937505841255188,
+            -0.14986532926559448
+          ],
+          "camera_up": [
+            0.0893535166978836,
+            0.12031445652246475,
+            0.9887064099311829
+          ],
+          "camera_radius": 4.537930726659524
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c1_v1.png",
+          "azimuth": 263.4,
+          "elevation": 50,
+          "preview_quality": 5.5,
+          "final_quality": 5.5,
+          "camera_position": [
+            -36.26799774169922,
+            4.815674304962158,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.975342869758606,
+            -0.11285093426704407,
+            -0.18966002762317657
+          ],
+          "camera_up": [
+            0.18840312957763672,
+            -0.0217988770455122,
+            0.9818498492240906
+          ],
+          "camera_radius": 3.6458140320494046
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        21.23714067231772,
+        12.06113457795889,
+        -0.7747955322265625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            22.21031951904297,
+            12.291184425354004,
+            -0.7747955322265625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            4.0,
+            4.0,
+            6.5,
+            6.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v3.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "The object's attire (pajamas) makes its placement on a public street/sidewalk feel slightly awkward.",
+            "Object's attire (pajamas) makes its placement on a public sidewalk feel awkward.",
+            "Surroundings are empty, showing only a generic ground, road, sidewalk, and tree backdrop with no architecture or scene context from the townhouses.",
+            "Object's attire (pajamas) makes its placement on the street/driveway feel slightly awkward.",
+            "Object's attire (pajamas) makes its placement on a public sidewalk feel slightly awkward.",
+            "Object's attire (pajamas) makes its placement on a public street/sidewalk slightly awkward."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the surroundings are empty of significant architectural context (the townhouses are out of frame), and the pajamas make the public street placement awkward."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            21.23714067231772,
+            12.06113457795889,
+            -0.7747955322265625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            5.5,
+            7.0,
+            4.0,
+            4.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_iter1_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Surroundings are empty, showing only a generic paved ground and distant trees with no architecture or scene context.",
+            "Object's attire (pajamas) makes its placement on a public street feel awkward and implausible.",
+            "Surroundings are empty, lacking architectural context from the main townhouse building.",
+            "Object's attire (pajamas) makes its placement on a public sidewalk feel slightly awkward.",
+            "The object's attire (pajamas) makes its placement on a public paved area feel slightly awkward.",
+            "Object's attire (pajamas) makes its placement on a public street feel awkward.",
+            "Object is heavily cropped, only showing the lower half."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped, showing only the lower half, and its attire is somewhat out of place on a public sidewalk; a better placement would be on a townhouse porch, e.g., at pos=(-15.0, -0.8, -1.5)."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c2_v1.png",
+          "azimuth": 103.3,
+          "elevation": 50,
+          "preview_quality": 5.5,
+          "final_quality": 5.0,
+          "camera_position": [
+            24.565855026245117,
+            12.848010063171387,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.955516517162323,
+            -0.2258746474981308,
+            -0.1896544098854065
+          ],
+          "camera_up": [
+            -0.1845676600933075,
+            -0.043629955500364304,
+            0.9818509221076965
+          ],
+          "camera_radius": 3.6458049237188894
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -1.3956236839294434,
+        15.663461685180664,
+        -0.5154252052307129
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.3956236839294434,
+            15.663461685180664,
+            -0.5154252052307129
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.5,
+            5.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The object's attire (pajamas) makes its placement on a public street/sidewalk feel implausible.",
+            "Object is completely hidden from view.",
+            "Object is not visible in the rendered image.",
+            "The object's attire (pajamas) makes its placement on a public sidewalk/pathway feel somewhat awkward, though not entirely implausible for a residential setting."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, with the camera focused on a wall and window, making the object entirely absent from the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_v0.png",
+          "azimuth": 5.3,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.9115614295005798,
+            10.445425033569336,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.09210089594125748,
+            0.9928175806999207,
+            -0.0763588547706604
+          ],
+          "camera_up": [
+            -0.00705330353230238,
+            0.07603240013122559,
+            0.997080385684967
+          ],
+          "camera_radius": 5.335473809823136
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Pajama-Party_1d7be87e_c4_v1.png",
+          "azimuth": 305.3,
+          "elevation": 20,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -5.476614475250244,
+            12.773959159851074,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.8135215640068054,
+            0.5760055184364319,
+            -0.08000179380178452
+          ],
+          "camera_up": [
+            0.06529249995946884,
+            0.04622960835695267,
+            0.9967947006225586
+          ],
+          "camera_radius": 5.0998788132013395
+        }
+      ]
+    }
+  ]
+}

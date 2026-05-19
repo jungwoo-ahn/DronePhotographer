@@ -1,0 +1,491 @@
+{
+  "scene": "Sunlight_4bf975b7",
+  "scene_file": "data/scenes/Sunlight_4bf975b7/Sunlight_4bf975b7.blend",
+  "scene_scale": 0.65,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.6297454833984375,
+        10.606511116027832,
+        -0.8924057483673096
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.6297454833984375,
+            10.606511116027832,
+            -0.8924057483673096
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty.",
+            "The object is not visible in the scene.",
+            "The object is a child, but the scene is an outdoor street with a house and a car. This is not a plausible location for a child to be standing alone.",
+            "Object is not visible in the scene.",
+            "The object is too small for the scene.",
+            "The surroundings are empty, consisting only of a plain background and a road."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is very small in the scene, indicating the scene is likely too large for the object. The child is fully visible and grounded, but the scale issue significantly impacts the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 164.3,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.542417287826538,
+            13.853446006774902,
+            0.10650090873241425
+          ],
+          "camera_forward": [
+            -0.2664894759654999,
+            -0.9480662941932678,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.04698937386274338,
+            -0.16716967523097992,
+            0.9848077297210693
+          ],
+          "camera_radius": 3.5175804210191486
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -13.53364372253418,
+        7.667713165283203,
+        -1.042512394633377e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -13.53364372253418,
+            7.667713165283203,
+            -1.042512394633377e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded and fully visible, but appears too small for the scene, indicating the scene is too large. The surroundings are not empty, showing a residential street with a house and cars."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_v0.png",
+          "azimuth": 65.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -10.462120056152344,
+            6.274408340454102,
+            0.6810749769210815
+          ],
+          "camera_forward": [
+            -0.9076305031776428,
+            0.41171935200691223,
+            -0.08181733638048172
+          ],
+          "camera_up": [
+            -0.07450969517230988,
+            0.03379914164543152,
+            0.9966473579406738
+          ],
+          "camera_radius": 3.4408458812053992
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c1_v1.png",
+          "azimuth": 303.4,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -16.349390029907227,
+            5.811069965362549,
+            0.6810749769210815
+          ],
+          "camera_forward": [
+            0.8320488333702087,
+            0.5486352443695068,
+            -0.08181733638048172
+          ],
+          "camera_up": [
+            0.06830502301454544,
+            0.04503888264298439,
+            0.9966473579406738
+          ],
+          "camera_radius": 3.440845205621123
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        5.56854248046875,
+        -1.1486785411834717,
+        -0.8924053907394409
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.56854248046875,
+            -1.1486785411834717,
+            -0.8924053907394409
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            6.0,
+            4.0,
+            6.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it appears too small for the scene, and the surroundings are empty, indicating a poor placement and an uninteresting shot."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            5.56854248046875,
+            -1.1486785411834717,
+            -0.8924053907394409
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            5.0,
+            4.0,
+            3.0,
+            6.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_iter1_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded and fully visible, but appears too small for the scene, indicating the scene is too large. The surroundings are also empty, contributing to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Sunlight_4bf975b7_Little-child-in-winter-clothes_75f29c9e_c2_v0.png",
+          "azimuth": 69.8,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            8.73386001586914,
+            -2.3132894039154053,
+            0.10650192201137543
+          ],
+          "camera_forward": [
+            -0.9242352247238159,
+            0.3400523066520691,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.16296759247779846,
+            0.059960220009088516,
+            0.9848077893257141
+          ],
+          "camera_radius": 3.517580260043685
+        }
+      ]
+    }
+  ]
+}

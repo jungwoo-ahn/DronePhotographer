@@ -1,0 +1,386 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7775022983551025,
+        1.1439566612243652,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7775022983551025,
+            1.1439566612243652,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            4.0,
+            9.0,
+            4.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_iter0_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The camera view captures the edge of the scene geometry, showing a grey void.",
+            "Background shows empty void/edge of scene",
+            "Object is significantly occluded by foreground props",
+            "The lighting is extremely dark, making the object and ground difficult to see",
+            "The background is mostly a featureless dark void, lacking scene context.",
+            "The object is heavily cropped (head and hand cut off)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily occluded by the green bin and crates, and the background is an empty void, making the placement poor."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_v0.png",
+          "azimuth": 285.0,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.341088771820068,
+            -0.3468015193939209,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.9609954953193665,
+            0.2574978768825531,
+            -0.10090845078229904
+          ],
+          "camera_up": [
+            0.09747008234262466,
+            0.026117024943232536,
+            0.9948956966400146
+          ],
+          "camera_radius": 5.893925417638874
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c0_v1.png",
+          "azimuth": 301.4,
+          "elevation": 35,
+          "preview_quality": 8.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.866844654083252,
+            -1.3521884679794312,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.8472750782966614,
+            0.5171789526939392,
+            -0.12104079872369766
+          ],
+          "camera_up": [
+            0.10331450402736664,
+            0.0630633607506752,
+            0.9926475286483765
+          ],
+          "camera_radius": 4.951359840451718
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.22698659294649,
+        -1.161662636022273,
+        -4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -12.047279357910156,
+            -0.7880053520202637,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            6.0,
+            3.0,
+            1.0,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "The camera view captures the edge of the scene geometry, showing a white void.",
+            "The right side of the frame shows the edge of the scene geometry (grey void).",
+            "Object is clipping through the front of the car.",
+            "The camera is pointing at a blank brick wall with no context",
+            "The object is partially occluded by foreground trash bags.",
+            "The person is significantly cropped (less than 70% visible).",
+            "The edge of the scene geometry (white void) is visible in the background.",
+            "Object is heavily cropped (head and upper body missing).",
+            "Object is not visible in the frame",
+            "Object is heavily obscured by a foreground element.",
+            "The object is completely hidden behind the wall in the foreground.",
+            "The background shows the edge of the scene geometry (white void)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered frame, appearing to be completely occluded by the brick wall."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -11.22698659294649,
+            -1.161662636022273,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            0.0,
+            3.0,
+            1.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_iter1_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Foreground car hood partially occludes the subject's lower legs.",
+            "Object is not visible in the frame.",
+            "Object is completely hidden behind a wall.",
+            "The camera view is blocked by a wall and shows a grey void.",
+            "The camera view shows only a brick wall with no scene context.",
+            "Less than 70% of the object is visible.",
+            "The camera view captures the edge of the scene geometry, showing a grey void on the right.",
+            "Object is completely hidden behind scene geometry or not in frame.",
+            "The object is mostly hidden behind a large trash bin.",
+            "The camera view captures the edge of the scene geometry on the left, showing a white void.",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by a brick wall, making it invisible in the rendered frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Gasoline-walk_9343c2a5_c1_v0.png",
+          "azimuth": 92.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -6.440568923950195,
+            -0.9526835680007935,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9917027354240417,
+            -0.04329859837889671,
+            -0.12104103714227676
+          ],
+          "camera_up": [
+            -0.12092583626508713,
+            -0.005279679782688618,
+            0.9926475286483765
+          ],
+          "camera_radius": 4.95136030843032
+        }
+      ]
+    }
+  ]
+}

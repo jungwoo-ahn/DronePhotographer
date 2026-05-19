@@ -1,0 +1,531 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -16.749664306640625,
+        -3.626893997192383,
+        -0.1173049658536911
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -16.749664306640625,
+            -3.626893997192383,
+            -0.1173049658536911
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            9.0,
+            3.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is not at a realistic scale for the scene.",
+            "Object is underscaled for an adult woman in this environment.",
+            "Surroundings are empty, showing mostly road and sky, with no architecture or significant scene context from the mall.",
+            "Object is placed in an implausible location (sitting on a stool on a sidewalk next to a crosswalk, away from the main building)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object, described as a 'woman' with a real-world height of 1.05m, appears significantly underscaled for an adult in this scene, making her look like a child relative to the building and steps."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 255.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -20.046886444091797,
+            -2.7925684452056885,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.855862557888031,
+            -0.21656636893749237,
+            -0.46967893838882446
+          ],
+          "camera_up": [
+            0.4553280770778656,
+            -0.1152157261967659,
+            0.8828372955322266
+          ],
+          "camera_radius": 4.136111444519937
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 315.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 5.5,
+          "camera_position": [
+            -19.12082290649414,
+            -6.065209865570068,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.615483283996582,
+            0.6329154372215271,
+            -0.469679057598114
+          ],
+          "camera_up": [
+            0.32744377851486206,
+            0.3367179334163666,
+            0.8828372359275818
+          ],
+          "camera_radius": 4.136112042567793
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -8.820803357046115,
+        5.632864544209016,
+        0.2526949867606163
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.766803741455078,
+            6.129940032958984,
+            0.0026949867606163025
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            4.0,
+            3.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 5.0,
+          "vlm_issues": [
+            "Object is not at a realistic scale for the scene.",
+            "Object is placed in an awkward and implausible location (sitting on a small stool in a gravel bed).",
+            "Object is not visible in the rendered frame.",
+            "Surroundings are empty.",
+            "Object is underscaled for an adult woman."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered frame, making it impossible to evaluate its placement, scale, or plausibility. The surroundings are not empty, showing a railing and a palm tree."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -8.820803357046115,
+            5.632864544209016,
+            0.2526949867606163
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            5.0,
+            4.0,
+            3.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_iter1_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not at a realistic scale for the scene.",
+            "Object is underscaled for an adult woman in this environment.",
+            "The surroundings are mostly empty, lacking interesting scene context from the main building.",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object 'Hahaha-woman-on-chair_50c9329e' is not visible in the rendered image, making it impossible to evaluate its placement, scale, or plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_v0.png",
+          "azimuth": 173.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -8.453481674194336,
+            9.014114379882812,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.09945851564407349,
+            -0.9155322313308716,
+            -0.38975468277931213
+          ],
+          "camera_up": [
+            -0.04209307208657265,
+            -0.38747501373291016,
+            0.9209187030792236
+          ],
+          "camera_radius": 3.937336730978024
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c1_v1.png",
+          "azimuth": 11.5,
+          "elevation": 35,
+          "preview_quality": 5.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.956676483154297,
+            1.3855489492416382,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.18920676410198212,
+            0.9299808144569397,
+            -0.3151768743991852
+          ],
+          "camera_up": [
+            -0.062836192548275,
+            0.30884960293769836,
+            0.9490329623222351
+          ],
+          "camera_radius": 4.766681641552929
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -26.506498336791992,
+        12.338831901550293,
+        0.9920000433921814
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -26.506498336791992,
+            12.338831901550293,
+            0.9920000433921814
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            8.5,
+            5.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is placed in a somewhat isolated location in the large open space.",
+            "Object is placed in an awkward and implausible location (sitting on an isolated stool in an empty concrete area, not integrated into the mall's design or a designated seating area).",
+            "Object is placed in a somewhat awkward and isolated location in a large, open paved area, lacking immediate context or interaction with other scene elements.",
+            "Object is not at a realistic scale for an adult woman in this scene.",
+            "The object (a woman) is significantly underscaled for an adult in this environment.",
+            "Object is not at a realistic scale for the scene (woman is 1.05m tall).",
+            "Object is not at a realistic scale for the scene; the 1.05m tall 'woman' is significantly underscaled for an adult in this commercial environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (a woman on a stool) is significantly underscaled for an adult in this environment, and her placement in an isolated, empty concrete area is awkward and not plausible for a commercial mall setting."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_v0.png",
+          "azimuth": 40.4,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -23.129240036010742,
+            8.370566368103027,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.6423476338386536,
+            0.754755973815918,
+            -0.133165180683136
+          ],
+          "camera_up": [
+            -0.08630698919296265,
+            0.1014104038476944,
+            0.9910938739776611
+          ],
+          "camera_radius": 5.357367526066236
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Hahaha-woman-on-chair_50c9329e_c4_v1.png",
+          "azimuth": 223.0,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -28.826072692871094,
+            14.826271057128906,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.6679917573928833,
+            -0.7163335680961609,
+            -0.20162640511989594
+          ],
+          "camera_up": [
+            0.13750886917114258,
+            -0.1474602222442627,
+            0.9794625043869019
+          ],
+          "camera_radius": 3.6216240487368507
+        }
+      ]
+    }
+  ]
+}

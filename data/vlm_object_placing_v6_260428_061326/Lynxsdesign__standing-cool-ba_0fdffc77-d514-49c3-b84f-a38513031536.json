@@ -1,0 +1,133 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536",
+  "object_file": "data/objects/standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536/standing-cool-bald-man_2K_9b68b255-ca14-416e-9ee7-f0992fca7ef2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.458333969116211,
+        -1.3675681352615356,
+        1.3499999046325684
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.458333969116211,
+            -1.3675681352615356,
+            1.3499999046325684
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is on a rooftop, which is not a plausible location for a person.",
+            "The surroundings are empty, consisting only of sky and a rooftop edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a rooftop, which is an implausible location, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v0.png",
+          "azimuth": 121.7,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.0993682146072388,
+            0.7069714665412903,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.7904807329177856,
+            -0.4882107079029083,
+            0.36985206604003906
+          ],
+          "camera_up": [
+            0.3146741986274719,
+            0.1943468451499939,
+            0.929090678691864
+          ],
+          "camera_radius": 4.035692406455193
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v1.png",
+          "azimuth": 120.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.0393028259277344,
+            0.6064105033874512,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8046160340309143,
+            -0.4645453989505768,
+            0.3698521852493286
+          ],
+          "camera_up": [
+            0.3203014135360718,
+            0.18492600321769714,
+            0.9290906190872192
+          ],
+          "camera_radius": 4.035692288300211
+        }
+      ]
+    }
+  ]
+}

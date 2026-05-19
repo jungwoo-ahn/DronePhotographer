@@ -1,0 +1,433 @@
+{
+  "scene": "sea-side-view",
+  "scene_file": "data/scenes/sea-side-view/ocean scene.blend",
+  "scene_scale": 3.0,
+  "object": "Guy-in-casual-outfit_b8a8ab68",
+  "object_file": "data/objects/Guy-in-casual-outfit_b8a8ab68/Guy-in-casual-outfit_b8a8ab68.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -9.375370025634766,
+        11.929222106933594,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.375370025634766,
+            11.929222106933594,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The object is placed in an empty, featureless void with no context or plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but it is placed in an empty void with no context, making the placement implausible and the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_v0.png",
+          "azimuth": 284.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -13.22977066040039,
+            10.961063385009766,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.9654198288917542,
+            0.24249672889709473,
+            -0.09570716321468353
+          ],
+          "camera_up": [
+            0.09282370656728745,
+            0.023315666243433952,
+            0.9954095482826233
+          ],
+          "camera_radius": 4.132358504455907
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c0_v1.png",
+          "azimuth": 344.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -11.043432235717773,
+            6.0734429359436035,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.27342119812965393,
+            0.9598530530929565,
+            -0.06263333559036255
+          ],
+          "camera_up": [
+            0.017158931121230125,
+            0.06023707985877991,
+            0.9980366230010986
+          ],
+          "camera_radius": 6.193160136569061
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -8.484643936157227,
+        17.273574829101562,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.484643936157227,
+            17.273574829101562,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an empty, featureless void with no context or plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene is empty and lacks context, making the placement implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_v0.png",
+          "azimuth": 253.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -12.28916072845459,
+            18.422225952148438,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.952924907207489,
+            -0.2877050042152405,
+            -0.09570740163326263
+          ],
+          "camera_up": [
+            0.09162253886461258,
+            -0.02766255848109722,
+            0.9954094886779785
+          ],
+          "camera_radius": 4.132359932419818
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c1_v1.png",
+          "azimuth": 24.7,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -6.823984146118164,
+            13.663041114807129,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            -0.4159488379955292,
+            0.9043377041816711,
+            -0.09570704400539398
+          ],
+          "camera_up": [
+            -0.0399927981197834,
+            0.0869506448507309,
+            0.9954095482826233
+          ],
+          "camera_radius": 4.132359586246794
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -2.2495594024658203,
+        17.273574829101562,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.2495594024658203,
+            17.273574829101562,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            8.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an empty, featureless void with no context or plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement is not plausible as they are in an empty area with no context. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_v0.png",
+          "azimuth": 287.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.048008918762207,
+            16.105018615722656,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.9514054656028748,
+            0.29269060492515564,
+            -0.09570716321468353
+          ],
+          "camera_up": [
+            0.091476209461689,
+            0.028141865506768227,
+            0.9954095482826233
+          ],
+          "camera_radius": 4.132359788181062
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Guy-in-casual-outfit_b8a8ab68_c2_v1.png",
+          "azimuth": 52.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            0.8948699235916138,
+            14.843283653259277,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            -0.7875914573669434,
+            0.6087198257446289,
+            -0.09570704400539398
+          ],
+          "camera_up": [
+            -0.07572571933269501,
+            0.058527376502752304,
+            0.9954095482826233
+          ],
+          "camera_radius": 4.132359932419818
+        }
+      ]
+    }
+  ]
+}

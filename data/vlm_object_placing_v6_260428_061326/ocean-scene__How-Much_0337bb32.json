@@ -1,0 +1,456 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "How-Much_0337bb32",
+  "object_file": "data/objects/How-Much_0337bb32/How-Much_0337bb32.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -68.45365905761719,
+        -18.18828582763672,
+        1.955062747001648
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -68.45365905761719,
+            -18.18828582763672,
+            1.955062747001648
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            2.0,
+            7.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in the middle of the ocean, which is not a plausible location for a person.",
+            "surroundings_empty=true",
+            "The scene is very empty, with no discernible background details other than water and sky.",
+            "The object is placed in an empty scene.",
+            "The surroundings are empty.",
+            "The object is placed in an empty scene with no context.",
+            "The object is not interacting with the environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the scene is empty and lacks context, resulting in a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_How-Much_0337bb32_c0_v0.png",
+          "azimuth": 343.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -69.96707153320312,
+            -23.138431549072266,
+            3.5144288539886475
+          ],
+          "camera_forward": [
+            0.28793007135391235,
+            0.9417762756347656,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.05076981708407402,
+            0.16606049239635468,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.406105987747548
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_How-Much_0337bb32_c0_v1.png",
+          "azimuth": 262.2,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -71.80101013183594,
+            -17.729755401611328,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            0.8457409739494324,
+            -0.11585204303264618,
+            -0.5208652019500732
+          ],
+          "camera_up": [
+            0.5160460472106934,
+            -0.07068949192762375,
+            0.8536389470100403
+          ],
+          "camera_radius": 4.330032783721723
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        67.13446044921875,
+        -83.27058410644531,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            67.13446044921875,
+            -83.27058410644531,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.0,
+            8.0,
+            2.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "The object is placed in the middle of the ocean, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in the middle of the ocean, which is not a plausible location. The previous attempt also had this issue, and the suggested placement is not meaningfully different."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_How-Much_0337bb32_c1_v0.png",
+          "azimuth": 277.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            63.78175735473633,
+            -83.68818664550781,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            0.8470919728279114,
+            0.1055111438035965,
+            -0.520867109298706
+          ],
+          "camera_up": [
+            0.5168730616569519,
+            0.0643799677491188,
+            0.8536377549171448
+          ],
+          "camera_radius": 4.330039597590676
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_How-Much_0337bb32_c1_v1.png",
+          "azimuth": 92.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            70.50931549072266,
+            -83.1114273071289,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.8526897430419922,
+            -0.04021233320236206,
+            -0.5208677053451538
+          ],
+          "camera_up": [
+            -0.5202894806861877,
+            -0.02453666366636753,
+            0.8536373972892761
+          ],
+          "camera_radius": 4.330035877494865
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        77.98150634765625,
+        -45.305912017822266,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            77.98150634765625,
+            -45.305912017822266,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_How-Much_0337bb32_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "The object is placed in the middle of the ocean, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in the middle of the ocean, which is not a plausible location. The surroundings are also empty, with only water and sky visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_How-Much_0337bb32_c2_v0.png",
+          "azimuth": 73.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            81.21761322021484,
+            -46.276790618896484,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.8176333904266357,
+            0.24530155956745148,
+            -0.5208672881126404
+          ],
+          "camera_up": [
+            -0.498898446559906,
+            0.1496766358613968,
+            0.8536376357078552
+          ],
+          "camera_radius": 4.330037627420073
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_How-Much_0337bb32_c2_v1.png",
+          "azimuth": 103.3,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            81.26949310302734,
+            -44.528663635253906,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.8307417631149292,
+            -0.19637948274612427,
+            -0.5208677053451538
+          ],
+          "camera_up": [
+            -0.5068973898887634,
+            -0.11982567608356476,
+            0.8536373972892761
+          ],
+          "camera_radius": 4.330035239124726
+        }
+      ]
+    }
+  ]
+}

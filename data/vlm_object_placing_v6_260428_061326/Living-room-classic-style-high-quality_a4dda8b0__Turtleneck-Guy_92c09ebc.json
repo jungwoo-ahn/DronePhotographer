@@ -1,0 +1,121 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Turtleneck-Guy_92c09ebc",
+  "object_file": "data/objects/Turtleneck-Guy_92c09ebc/Turtleneck-Guy_92c09ebc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -2.5979223251342773,
+        1.389014720916748,
+        -0.059682369232177734
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.5979223251342773,
+            1.389014720916748,
+            -0.059682369232177734
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            1.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped/partially visible",
+            "Object is not visible in the frame.",
+            "Object is completely hidden/not visible.",
+            "Implausible location (standing on a narrow window ledge)",
+            "Surroundings are empty of meaningful scene context, showing only a blank wall and blurry outdoor trees."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered frame, which only shows a close-up of a plant and a wall, making it impossible to evaluate placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_Turtleneck-Guy_92c09ebc_c2_v0.png",
+          "azimuth": 92.9,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.7848963737487793,
+            1.6616967916488647,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            -0.9985443353652954,
+            -0.05058416351675987,
+            -0.018720919266343117
+          ],
+          "camera_up": [
+            -0.018696945160627365,
+            -0.0009471364319324493,
+            0.9998247623443604
+          ],
+          "camera_radius": 5.447472455901318
+        }
+      ]
+    }
+  ]
+}

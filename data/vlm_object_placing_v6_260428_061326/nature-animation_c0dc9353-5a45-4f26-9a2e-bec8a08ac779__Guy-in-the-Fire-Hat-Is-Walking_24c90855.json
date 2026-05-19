@@ -1,0 +1,124 @@
+{
+  "scene": "nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779",
+  "scene_file": "data/scenes/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779/nature-animation_f7623f71-5cd3-45c1-8c25-50402d8507f8.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-the-Fire-Hat-Is-Walking_24c90855",
+  "object_file": "data/objects/Guy-in-the-Fire-Hat-Is-Walking_24c90855/Guy-in-the-Fire-Hat-Is-Walking_24c90855.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -6.856945514678955,
+        -14.438614845275879,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.856945514678955,
+            -14.438614845275879,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_iter0_v3.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is fully visible, grounded, and not clipping. The scale appears correct for a person in an outdoor environment, however, the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_v0.png",
+          "azimuth": 319.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -10.73503589630127,
+            -19.01150131225586,
+            0.10429053008556366
+          ],
+          "camera_forward": [
+            0.6436522603034973,
+            0.7589685320854187,
+            0.09837953001260757
+          ],
+          "camera_up": [
+            -0.06363094598054886,
+            -0.07503089308738708,
+            0.9951489567756653
+          ],
+          "camera_radius": 5.9968115641742115
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c0_v1.png",
+          "azimuth": 15.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -5.2646965980529785,
+            -20.219240188598633,
+            0.10429053008556366
+          ],
+          "camera_forward": [
+            -0.26426786184310913,
+            0.959418535232544,
+            0.09837953001260757
+          ],
+          "camera_up": [
+            0.026125287637114525,
+            -0.09484725445508957,
+            0.9951489567756653
+          ],
+          "camera_radius": 5.996812896052232
+        }
+      ]
+    }
+  ]
+}

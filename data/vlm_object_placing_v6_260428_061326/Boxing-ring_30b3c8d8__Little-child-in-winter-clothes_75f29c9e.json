@@ -1,0 +1,612 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        30.800575256347656,
+        -1.0828661918640137,
+        5.400154113769531
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.800575256347656,
+            -1.0828661918640137,
+            5.400154113769531
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            9.0,
+            9.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Scale seems slightly off; a 1.7m tall person should be significantly taller than a stadium seat back.",
+            "Object is heavily occluded by the seat in front of it.",
+            "The scene scale is too large; the seat backs are at the head level of the 1.7m tall person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-grounded and fully visible in a plausible location, but the scale is significantly off: a 1.7m person should have seat backs at waist level, not head level."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 4.5,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            30.973297119140625,
+            -3.2774977684020996,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.07014908641576767,
+            0.8913254737854004,
+            -0.4479040205478668
+          ],
+          "camera_up": [
+            -0.035142261534929276,
+            0.4465232789516449,
+            0.8940816521644592
+          ],
+          "camera_radius": 2.6678430578608245
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        30.800575256347656,
+        -3.0807416439056396,
+        5.400154113769531
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.800575256347656,
+            -3.0807416439056396,
+            5.400154113769531
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            6.0,
+            3.0,
+            9.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The foreground seat partially obscures the lower part of the object.",
+            "The object (1.7m tall) appears too small relative to the stadium seats; it should be significantly taller than the seat backs.",
+            "Scale is incorrect: based on the 1.7m height requirement, the stadium seats are far too large, reaching the person's head level instead of their waist.",
+            "Object is almost entirely occluded by a stadium seat.",
+            "Scale seems incorrect; a 1.7m tall person should be significantly taller than the back of a stadium seat.",
+            "The object is too small for the scene; per the 1.7m height requirement, the stadium seat backs should reach the waist or chest, not the head.",
+            "Scale is incorrect; a 1.7m tall person should be significantly taller than the stadium seat backs."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.4,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost completely hidden behind a seat, violating visibility requirements, and appears too small relative to the environment for a 1.7m tall person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c1_v0.png",
+          "azimuth": 195.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            30.227096557617188,
+            -0.9553331732749939,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.232912078499794,
+            -0.8632113933563232,
+            -0.4479040205478668
+          ],
+          "camera_up": [
+            0.11668094247579575,
+            -0.43243908882141113,
+            0.8940816521644592
+          ],
+          "camera_radius": 2.667842767067202
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        27.470781326293945,
+        -3.0807418823242188,
+        4.500153541564941
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.470781326293945,
+            -3.0807418823242188,
+            4.500153541564941
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            3.0,
+            3.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is completely hidden behind the foreground seating structure.",
+            "Scale seems incorrect; a 1.7m tall person should be significantly taller than the back of a stadium seat.",
+            "The object (1.7m tall) appears slightly small relative to the stadium seats; its head is barely above the seat back.",
+            "Object is completely hidden behind the stadium seats.",
+            "Object is heavily occluded by the stadium seat.",
+            "The object (defined as 1.7m tall) is too small relative to the stadium seats; the seat backs reach its head level, making the scene appear oversized.",
+            "The object (1.7m tall) appears much too small relative to the stadium seats; the seat backs reach the person's head level, whereas they should be at waist or mid-back level."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the high backs of the stadium seats, making it impossible to see or evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c2_v0.png",
+          "azimuth": 148.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            28.607887268066406,
+            -1.1957402229309082,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.3820700943470001,
+            -0.6333650946617126,
+            -0.6729570031166077
+          ],
+          "camera_up": [
+            -0.3476046323776245,
+            -0.5762309432029724,
+            0.739681601524353
+          ],
+          "camera_radius": 3.261908081407353
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        24.242220681010743,
+        -5.052454909243984,
+        3.60406756401062
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            24.473968505859375,
+            -4.079679012298584,
+            3.60406756401062
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            3.0,
+            0.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The camera is positioned looking at the legs of stadium seats, obscuring the intended subject.",
+            "Object is not visible in the frame.",
+            "Scale is incorrect; a 1.7m tall person should be much taller than the seat back.",
+            "Object is heavily cropped at the right edge of the frame.",
+            "Object is partially obscured by foreground seating structures.",
+            "The object (1.7m tall) is far too small relative to the stadium seats; the seat back reaches the person's head level when it should be at waist level.",
+            "Scale seems incorrect; if the person is 1.7m tall, they should be taller than the stadium seat backs.",
+            "Object is completely hidden behind the scene geometry (seating structure/wall).",
+            "Object is heavily occluded by the stadium seat."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered image, likely occluded by the foreground structure or positioned outside the camera's field of view."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            24.242220681010743,
+            -5.052454909243984,
+            3.60406756401062
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            3.0,
+            1.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_iter1_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden behind the foreground architecture.",
+            "The object (1.7m tall) is too small relative to the stadium seats; it should be significantly taller than the seat backs.",
+            "The object (1.7m tall) appears much too small relative to the environment; the stadium seat backs are nearly at head height, suggesting they are over 1.5m tall.",
+            "Object is completely hidden behind the foreground seating structure.",
+            "The winter clothing is somewhat incongruous for an indoor boxing arena.",
+            "Object is completely hidden behind the stadium seats.",
+            "The camera view is obstructed by furniture.",
+            "The object is partially occluded by a prominent black railing post in the foreground."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the frame as it is completely occluded by the foreground seating architecture."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Little-child-in-winter-clothes_75f29c9e_c3_v0.png",
+          "azimuth": 346.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            23.596834182739258,
+            -7.782639980316162,
+            5.9726481437683105
+          ],
+          "camera_forward": [
+            0.18844549357891083,
+            0.7971814870834351,
+            -0.5735764503479004
+          ],
+          "camera_up": [
+            0.13195092976093292,
+            0.5581925511360168,
+            0.8191520571708679
+          ],
+          "camera_radius": 3.671594661805879
+        }
+      ]
+    }
+  ]
+}

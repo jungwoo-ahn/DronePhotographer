@@ -1,0 +1,953 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Guy-in-Japan-bomber_e8891318",
+  "object_file": "data/objects/Guy-in-Japan-bomber_e8891318/Guy-in-Japan-bomber_e8891318.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        7.0595808029174805,
+        -17.65276336669922,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.0595808029174805,
+            -17.65276336669922,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            8.0,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is cropped at the top (head is missing)",
+            "clipping with metal frame",
+            "Awkward framing with large foreground wall",
+            "Object is very small in the frame",
+            "Object is clipping through a metal railing/post.",
+            "surroundings_empty",
+            "Object is significantly oversized for the scene (towers over the building door)",
+            "The background is mostly empty sky and a plain ground plane, lacking scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.4,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is far too large for the environment, appearing taller than the bookstore's ground floor, and his head is cut off by the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c0_v0.png",
+          "azimuth": 285.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.9476409554481506,
+            -19.370752334594727,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9626030325889587,
+            0.2705753743648529,
+            0.01358006801456213
+          ],
+          "camera_up": [
+            -0.013073415495455265,
+            -0.003674786537885666,
+            0.9999077916145325
+          ],
+          "camera_radius": 6.386414241239322
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -9.792500495910645,
+        -19.525217056274414,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.792500495910645,
+            -19.525217056274414,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            8.5,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c1_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is clipping through a metal frame",
+            "surroundings_empty=true",
+            "The person is placed in a barren area with no architectural context from the bookstore scene visible.",
+            "The environment looks very sparse and the ground texture is blurry.",
+            "The object is placed in a featureless area far from the main bookstore building.",
+            "Surroundings are empty (only sky and ground visible)",
+            "The background is mostly an empty, low-detail slope, lacking the architectural context of the bookstore scene.",
+            "Object is clipping with the metal railing",
+            "The surroundings are empty and lack scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and visible, the placement is in a completely empty part of the map with no architectural context from the bookstore scene."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.9150424355693928,
+        -18.650597599813747,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.43023261427879333,
+            -19.525217056274414,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            4.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 4.0,
+          "vlm_issues": [
+            "Object is clipping through a metal frame",
+            "Object is clipping through a metal railing",
+            "Surroundings are empty and lack context from the bookstore scene",
+            "Object is not visible",
+            "Object is clipping through the metal railing/frame",
+            "The edge of the ground plane is visible, making the environment look unfinished",
+            "Object is clipping through a metal frame on the sidewalk",
+            "Surroundings are empty (mostly sky and plain ground)",
+            "Render is broken or extremely dark",
+            "The bookstore building is not visible",
+            "Object is clipping through the streetlight pole"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely dark and the object is not visible, resulting in a score of 0."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            0.4443870079992208,
+            -19.040407282934122,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter1_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is clipping through a metal frame",
+            "surroundings_empty=true",
+            "Surroundings are empty as the object is placed at the edge of the scene model",
+            "The edge of the scene geometry is visible, showing a void and a cross-section of the ground",
+            "Top of the hat is slightly cropped by the frame edge",
+            "The bookstore building from the reference image is not visible in this shot",
+            "Object is clipping through a street lamp pole",
+            "Object is clipping through a metal sign frame on the sidewalk",
+            "Surroundings are empty (mostly sky and plain ground)",
+            "Slight cropping at the top of the head",
+            "The placement is in a featureless area of the scene away from the bookstore",
+            "Placement is in a large empty area of the sidewalk",
+            "Object is clipping through the metal frame behind him"
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through a metal railing and is placed at the edge of the environment map where there is no architectural context."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            -0.9150424355693928,
+            -18.650597599813747,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            4.0,
+            2.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v4.png",
+              "quality": 2.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c2_iter2_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is clipping through a metal frame",
+            "Object is clipping through a metal frame structure on the sidewalk",
+            "surroundings_empty=true",
+            "Surroundings are empty and lack context from the main scene (bookstore)",
+            "Object is clipping through the metal frame/railing",
+            "The interesting architecture (bookstore) from the reference image is not visible.",
+            "minor clipping with the metal frame",
+            "The background shows the edge of the environment map with plain grey ground and empty sky."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through a metal railing and the shot lacks any interesting scene context like the bookstore building."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.3026862144470215,
+        2.9442248344421387,
+        -4.95910626341356e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.3026862144470215,
+            2.9442248344421387,
+            -4.95910626341356e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping through a metal railing structure on the sidewalk",
+            "Object is clipping through a metal frame structure on the sidewalk",
+            "Top of the head/hat is slightly cropped by the frame edge",
+            "Object is clipping through a metal railing/frame structure on the sidewalk",
+            "Object is clipping through the metal frame structure on the sidewalk"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the metal railing structure on the sidewalk, which violates the requirement for no clipping through furniture or large props."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        23.1089705675293,
+        -18.080301804765824,
+        -2.47955313170678e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            22.039207458496094,
+            -19.525217056274414,
+            -2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            2.0,
+            3.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter0_v5.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is clipping through the metal railing",
+            "Object is clipping through a metal frame structure on the sidewalk",
+            "Object is clipping through a metal railing structure on the sidewalk",
+            "The composition is poor",
+            "Object appears too large for the scene context",
+            "Object is heavily cropped (head is missing)",
+            "Object is clipping through a metal post/railing on the sidewalk",
+            "The scene background is mostly an empty grey void (edge of the map)",
+            "Object is very far from the camera",
+            "surroundings_empty=true (mostly sky and flat ground)",
+            "Top of the head/hat is slightly cropped"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, he is clearly clipping through a metal sidewalk sign/frame, and he appears significantly oversized compared to the surrounding architecture."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            22.855486024584245,
+            -18.578544302438175,
+            -2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.5,
+            3.0,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v1.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The background is mostly empty sky and a flat plane",
+            "Object is clipping through a metal frame structure on the sidewalk",
+            "surroundings_empty=true",
+            "Object is clipping through a metal railing",
+            "Object is clipping through the metal railing structure on the sidewalk",
+            "Object is very small in the frame",
+            "Object's head is cut off by the frame edge",
+            "Object is clipping through a metal pole/fence structure"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through a metal frame structure on the sidewalk, which is a major placement error."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            23.1089705675293,
+            -18.080301804765824,
+            -2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_iter2_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The composition is poor with a lot of empty sky and road.",
+            "The object is quite small in the frame.",
+            "Object is clipping through a metal railing",
+            "surroundings_empty=true",
+            "Object is clipping through the metal frame structure",
+            "The main scene context (the bookstore) is not visible in this shot.",
+            "Object is clipping through bushes",
+            "Object is heavily cropped (head is missing)",
+            "Object is clipping through a metal post/railing on the sidewalk",
+            "The composition is poor with the object very far away and half the frame being empty.",
+            "Object appears too large relative to the fire hydrant and background building",
+            "Object's head is cropped out of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and their arm/back is clearly clipping through the metal railing structure."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-Japan-bomber_e8891318_c4_v0.png",
+          "azimuth": 0.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            23.20869255065918,
+            -24.428319931030273,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.015702666714787483,
+            0.999587893486023,
+            0.02403091825544834
+          ],
+          "camera_up": [
+            0.0003774608194362372,
+            -0.024027954787015915,
+            0.9997112154960632
+          ],
+          "camera_radius": 6.379560537911964
+        }
+      ]
+    }
+  ]
+}

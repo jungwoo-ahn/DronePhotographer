@@ -1,0 +1,80 @@
+{
+  "scene": "modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351",
+  "scene_file": "data/scenes/modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351/modern-brutalist-concrete-entrance_a5b3d53d-bbe8-43df-a9f8-9932a9556374.blend",
+  "scene_scale": 0.3,
+  "object": "snowman_8184a980-0de6-4705-bcee-a913b4ba7e71",
+  "object_file": "data/objects/snowman_8184a980-0de6-4705-bcee-a913b4ba7e71/snowman_1K_cdac96a3-661a-4b71-abfd-bc8dfeddb26b.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.16670875251293182,
+        0.3313789665699005,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.16670875251293182,
+            0.3313789665699005,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0_v2.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is placed in an indoor hallway, which is not a plausible location for a snowman.",
+            "The snowman is a bit too large for the scene, making it appear slightly out of scale."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but it is placed in an implausible indoor location, and the scene appears to be too large for the snowman."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is out of place in a modern, brutalist architectural setting with no snow or winter elements present."
+    }
+  ]
+}

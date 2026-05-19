@@ -1,0 +1,141 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Proud-Smile_4b7fb083",
+  "object_file": "data/objects/Proud-Smile_4b7fb083/Proud-Smile_4b7fb083.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.4495849609375,
+        -1.3588191270828247,
+        1.350000023841858
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.4495849609375,
+            -1.3588191270828247,
+            1.350000023841858
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            10.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0_v2.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Proud-Smile_4b7fb083_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The object is on a roof, which is not a plausible location for a person.",
+            "The scale of the scene appears too small for the person, as the windows are at chest level."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a roof, which is an implausible location, and the scene scale appears too small relative to the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Proud-Smile_4b7fb083_c0_v0.png",
+          "azimuth": 93.6,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.5511137843132019,
+            -1.0442017316818237,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9525179862976074,
+            -0.05992730334401131,
+            0.2985267639160156
+          ],
+          "camera_up": [
+            0.29793769121170044,
+            0.018744632601737976,
+            0.9544012546539307
+          ],
+          "camera_radius": 5.080001786482302
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Proud-Smile_4b7fb083_c0_v1.png",
+          "azimuth": 123.6,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.174704670906067,
+            0.8170062899589539,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.7737179398536682,
+            -0.5140571594238281,
+            0.370278000831604
+          ],
+          "camera_up": [
+            0.30841246247291565,
+            0.20490863919258118,
+            0.9289209842681885
+          ],
+          "camera_radius": 4.019888777629497
+        }
+      ]
+    }
+  ]
+}

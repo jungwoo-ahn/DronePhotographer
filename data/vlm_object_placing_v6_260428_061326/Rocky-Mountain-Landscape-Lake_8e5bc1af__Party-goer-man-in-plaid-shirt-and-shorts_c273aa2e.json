@@ -1,0 +1,138 @@
+{
+  "scene": "Rocky-Mountain-Landscape-Lake_8e5bc1af",
+  "scene_file": "data/scenes/Rocky-Mountain-Landscape-Lake_8e5bc1af/Rocky-Mountain-Landscape-Lake_8e5bc1af.blend",
+  "scene_scale": 10.0,
+  "object": "Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e",
+  "object_file": "data/objects/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2377.48779296875,
+        -3945.764892578125,
+        670.773681640625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2377.48779296875,
+            -3945.764892578125,
+            670.773681640625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty, consisting only of water and a distant shoreline.",
+            "The object is placed in a body of water, which is not a plausible location for a person.",
+            "The object is placed in a landscape scene, but the object is a person. This is not a plausible location for a person to be standing alone in the middle of a lake.",
+            "The surroundings are empty, with only a flat plane and the sky visible.",
+            "The surroundings are empty.",
+            "The person is standing on a beach next to a lake, which is a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is placed in an implausible location (in the water) with empty surroundings, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rocky-Mountain-Landscape-Lake_8e5bc1af_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v1.png",
+          "azimuth": 352.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2378.31396484375,
+            -3951.796630859375,
+            672.5748901367188
+          ],
+          "camera_forward": [
+            0.1336423009634018,
+            0.9756994843482971,
+            -0.17363835871219635
+          ],
+          "camera_up": [
+            0.02356337383389473,
+            0.17203210294246674,
+            0.9848094582557678
+          ],
+          "camera_radius": 6.348919476918793
+        }
+      ]
+    }
+  ]
+}

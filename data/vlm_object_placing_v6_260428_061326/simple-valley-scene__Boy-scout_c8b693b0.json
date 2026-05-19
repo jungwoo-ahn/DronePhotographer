@@ -1,0 +1,140 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Boy-scout_c8b693b0",
+  "object_file": "data/objects/Boy-scout_c8b693b0/Boy-scout_c8b693b0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.1826492547988892,
+        -0.33740103244781494,
+        -0.9155513048171997
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.1826492547988892,
+            -0.33740103244781494,
+            -0.9155513048171997
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Boy-scout_c8b693b0_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is sitting on a stool in the middle of a body of water, which is an unusual placement."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the placement on a stool in the water is unusual for a boy scout."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Boy-scout_c8b693b0_c0_v0.png",
+          "azimuth": 85.3,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            2.968883514404297,
+            -0.6787191033363342,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9957284927368164,
+            0.08186380565166473,
+            -0.042697276920080185
+          ],
+          "camera_up": [
+            -0.04255370423197746,
+            0.0034985258243978024,
+            0.9990880489349365
+          ],
+          "camera_radius": 4.225242499405108
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Boy-scout_c8b693b0_c0_v1.png",
+          "azimuth": 145.3,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            0.6781514286994934,
+            2.3499362468719482,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.5684372186660767,
+            -0.8209273815155029,
+            -0.05438131093978882
+          ],
+          "camera_up": [
+            -0.030958084389567375,
+            -0.04470932483673096,
+            0.9985202550888062
+          ],
+          "camera_radius": 3.344444897897365
+        }
+      ]
+    }
+  ]
+}

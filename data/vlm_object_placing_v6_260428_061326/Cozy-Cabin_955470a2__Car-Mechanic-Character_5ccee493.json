@@ -1,0 +1,143 @@
+{
+  "scene": "Cozy-Cabin_955470a2",
+  "scene_file": "data/scenes/Cozy-Cabin_955470a2/Cozy-Cabin_955470a2.blend",
+  "scene_scale": 0.45,
+  "object": "Car-Mechanic-Character_5ccee493",
+  "object_file": "data/objects/Car-Mechanic-Character_5ccee493/Car-Mechanic-Character_5ccee493.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.0011258125305176,
+        0.5487775802612305,
+        0.7260408997535706
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.0011258125305176,
+            0.5487775802612305,
+            0.7260408997535706
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is mostly out of frame.",
+            "Object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly out of frame and appears to be too small for the scene, suggesting the scene scale is too large. The object is grounded but the placement is not plausible as it is too high up and not fully visible."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.8322075605392456,
+        -0.3678891062736511,
+        0.7574407458305359
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8322075605392456,
+            -0.3678891062736511,
+            0.7574407458305359
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c1_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The car mechanic character is placed plausibly on the floor in front of the cabin, with good visibility and scale. The scene provides rich context with the cabin interior and snowy exterior visible through the windows."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "scene": "modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272",
+  "scene_file": "data/scenes/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272/modern-industrial-interior-scene_6b8c29e5-47f3-4d13-bc21-c83ef63d7b5a.blend",
+  "scene_scale": 0.5,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.16055485606193542,
+        -1.0786261558532715,
+        -0.004275939427316189
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.16055485606193542,
+            -1.0786261558532715,
+            -0.004275939427316189
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Gasoline-walk_9343c2a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Gasoline-walk_9343c2a5_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Gasoline-walk_9343c2a5_c0_iter0_v1.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Gasoline-walk_9343c2a5_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is clipping with the table.",
+            "Object is embedded in the table."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded but is clipping through the table, indicating it is embedded. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A gasoline walk is an outdoor feature, and this scene appears to be an indoor or abstract environment with a pink wall and some greenery, making the object incompatible."
+    }
+  ]
+}

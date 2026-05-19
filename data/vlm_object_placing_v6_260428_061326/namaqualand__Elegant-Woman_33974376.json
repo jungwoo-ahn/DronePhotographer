@@ -1,0 +1,307 @@
+{
+  "scene": "namaqualand",
+  "scene_file": "data/scenes/namaqualand/Namaqualand.blend",
+  "scene_scale": 1.0,
+  "object": "Elegant-Woman_33974376",
+  "object_file": "data/objects/Elegant-Woman_33974376/Elegant-Woman_33974376.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -14.733052253723145,
+        -9.06275749206543,
+        5.986602306365967
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -14.733052253723145,
+            -9.06275749206543,
+            5.986602306365967
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            8.0,
+            3.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is heavily occluded by foreground elements.",
+            "The scale of the object appears to be too large for the environment. The woman seems to be significantly taller than the surrounding rocks and structures.",
+            "The object is placed in an outdoor desert environment, which is not a plausible location for an elegant woman.",
+            "The surroundings are empty.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Elegant-Woman_33974376_c0_v0.png",
+          "azimuth": 19.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -12.953829765319824,
+            -14.059394836425781,
+            6.427480697631836
+          ],
+          "camera_forward": [
+            -0.3352218270301819,
+            0.9414125680923462,
+            0.03699618950486183
+          ],
+          "camera_up": [
+            0.012410408817231655,
+            -0.034852541983127594,
+            0.9993153810501099
+          ],
+          "camera_radius": 5.322255285410506
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Elegant-Woman_33974376_c0_v1.png",
+          "azimuth": 63.8,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -9.974026679992676,
+            -11.404487609863281,
+            6.427480697631836
+          ],
+          "camera_forward": [
+            -0.896644115447998,
+            0.4412035346031189,
+            0.03699630871415138
+          ],
+          "camera_up": [
+            0.03319527581334114,
+            -0.01633402705192566,
+            0.9993153810501099
+          ],
+          "camera_radius": 5.322255509393161
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -7.5376410484313965,
+        1.0108178853988647,
+        5.969893455505371
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.5376410484313965,
+            1.0108178853988647,
+            5.969893455505371
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            6.0,
+            6.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Elegant-Woman_33974376_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the object appears to be too large for the environment. The woman seems to be significantly taller than the surrounding rocks and structures.",
+            "The scene is very sparse and lacks detail, making it difficult to assess scale and plausibility."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The woman is grounded and mostly visible, but her scale is too large for the desert environment, making her appear out of place. Reducing the scale factor should improve plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Elegant-Woman_33974376_c1_v0.png",
+          "azimuth": 311.3,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -10.13845443725586,
+            -1.2740521430969238,
+            6.427480697631836
+          ],
+          "camera_forward": [
+            0.7502546906471252,
+            0.65911465883255,
+            0.05182403698563576
+          ],
+          "camera_up": [
+            -0.03893351927399635,
+            -0.03420397266745567,
+            0.9986562132835388
+          ],
+          "camera_radius": 3.492026399997117
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Elegant-Woman_33974376_c1_v1.png",
+          "azimuth": 24.6,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -5.329703330993652,
+            -3.8117363452911377,
+            6.427480697631836
+          ],
+          "camera_forward": [
+            -0.4160422682762146,
+            0.9087149500846863,
+            0.03385187312960625
+          ],
+          "camera_up": [
+            0.014091904275119305,
+            -0.030779337510466576,
+            0.9994268417358398
+          ],
+          "camera_radius": 5.323664898797898
+        }
+      ]
+    }
+  ]
+}

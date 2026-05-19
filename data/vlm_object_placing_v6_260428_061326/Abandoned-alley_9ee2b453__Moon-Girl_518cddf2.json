@@ -1,0 +1,139 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Moon-Girl_518cddf2",
+  "object_file": "data/objects/Moon-Girl_518cddf2/Moon-Girl_518cddf2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -10.85316276550293,
+        -1.8478434085845947,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.85316276550293,
+            -1.8478434085845947,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            0.0,
+            3.0,
+            1.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings are empty",
+            "object is at the edge of the scene geometry looking into a void",
+            "surroundings_empty",
+            "Render shows only a brick wall with no context",
+            "Object is not visible in the frame",
+            "Object is completely occluded by a wall",
+            "Object is completely hidden behind walls"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a brick wall and is not visible in the frame at all."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Moon-Girl_518cddf2_c0_v0.png",
+          "azimuth": 95.6,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.482414245605469,
+            -1.4192874431610107,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9862101078033447,
+            -0.09669911861419678,
+            -0.13430887460708618
+          ],
+          "camera_up": [
+            -0.13366788625717163,
+            -0.013106142170727253,
+            0.9909394979476929
+          ],
+          "camera_radius": 4.566136426434799
+        }
+      ]
+    }
+  ]
+}

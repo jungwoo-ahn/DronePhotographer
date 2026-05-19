@@ -1,0 +1,685 @@
+{
+  "scene": "Modern-Art-Gallery_770933c8",
+  "scene_file": "data/scenes/Modern-Art-Gallery_770933c8/Modern-Art-Gallery_770933c8.blend",
+  "scene_scale": 0.8,
+  "object": "Guy-in-casual-outfit_b8a8ab68",
+  "object_file": "data/objects/Guy-in-casual-outfit_b8a8ab68/Guy-in-casual-outfit_b8a8ab68.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        4.058061599731445,
+        -7.03682279586792,
+        0.002399998949840665
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.058061599731445,
+            -7.03682279586792,
+            0.002399998949840665
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            0.0,
+            4.0,
+            7.5,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Object is significantly cropped at the bottom of the frame.",
+            "Surroundings are empty",
+            "Object is largely obscured by foreground furniture, making only a small portion visible.",
+            "The surroundings are empty, showing only a plain textured surface.",
+            "Object is not visible",
+            "Object is not visible in the rendered image.",
+            "awkward_placement"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely absent from the rendered image, which only shows a plain, textured surface, indicating a broken or misdirected camera view."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c0_v0.png",
+          "azimuth": 283.8,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.854909062385559,
+            -8.489188194274902,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.966497004032135,
+            0.23739440739154816,
+            -0.097608782351017
+          ],
+          "camera_up": [
+            0.09479126334190369,
+            0.023282868787646294,
+            0.9952248334884644
+          ],
+          "camera_radius": 6.236073867197645
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -1.9419382810592651,
+        -10.036822319030762,
+        0.0024003982543945312
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.9419382810592651,
+            -10.036822319030762,
+            0.0024003982543945312
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            0.0,
+            9.5,
+            0.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden.",
+            "Object is significantly cropped at the top of the frame.",
+            "Surroundings are empty",
+            "Object is not visible in the frame.",
+            "Render is blank/broken, object not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from the camera's view, and the rendered image shows only an empty corner with no scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_v0.png",
+          "azimuth": 10.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.8846418261528015,
+            -16.03304672241211,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.17281901836395264,
+            0.9801051616668701,
+            -0.09760890156030655
+          ],
+          "camera_up": [
+            -0.0169496051967144,
+            0.0961260050535202,
+            0.9952248334884644
+          ],
+          "camera_radius": 6.236073226808918
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c1_v1.png",
+          "azimuth": 70.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.779592990875244,
+            -12.11928939819336,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.9352054595947266,
+            0.3403869569301605,
+            -0.09760890156030655
+          ],
+          "camera_up": [
+            -0.09172240644693375,
+            0.03338410332798958,
+            0.9952248334884644
+          ],
+          "camera_radius": 6.236073351063452
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        7.058061122894287,
+        0.9631779193878174,
+        2.3841858265427618e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.058061122894287,
+            0.9631779193878174,
+            2.3841858265427618e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            2.0,
+            0.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden.",
+            "Surroundings are empty",
+            "Object is mostly obscured by a wall/pillar.",
+            "Object is heavily occluded by foreground elements (painting stand, spotlights).",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, and the rendered view shows only a blank wall, providing no context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c2_v0.png",
+          "azimuth": 115.9,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            10.633024215698242,
+            2.699086904525757,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.8894919157028198,
+            -0.43191415071487427,
+            -0.1491788625717163
+          ],
+          "camera_up": [
+            -0.1341949701309204,
+            -0.06516166031360626,
+            0.9888102412223816
+          ],
+          "camera_radius": 4.197170634590502
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -3.9419384002685547,
+        14.963177680969238,
+        2.3841858265427618e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.9419384002685547,
+            14.963177680969238,
+            2.3841858265427618e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            0.0,
+            7.5,
+            0.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are empty",
+            "Object is completely hidden."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, and the surroundings are empty, making it impossible to evaluate the placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_v0.png",
+          "azimuth": 36.3,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -0.3373318314552307,
+            10.056100845336914,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.589163601398468,
+            0.8020491003990173,
+            -0.09799732267856598
+          ],
+          "camera_up": [
+            -0.058015771210193634,
+            0.0789787694811821,
+            0.9951866865158081
+          ],
+          "camera_radius": 6.236592665598058
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c3_v1.png",
+          "azimuth": 66.3,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.6332807540893555,
+            12.515828132629395,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.9112553000450134,
+            0.40001288056373596,
+            -0.09799744188785553
+          ],
+          "camera_up": [
+            -0.08973260968923569,
+            0.039389822632074356,
+            0.9951866865158081
+          ],
+          "camera_radius": 6.236592245079259
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -3.9419384002685547,
+        -7.03682279586792,
+        0.0024009705521166325
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.9419384002685547,
+            -7.03682279586792,
+            0.0024009705521166325
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            0.0,
+            9.5,
+            0.0,
+            2.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden.",
+            "Surroundings are empty",
+            "Object is significantly cropped/occluded by foreground elements.",
+            "Object is heavily occluded by a wall.",
+            "Surroundings are empty.",
+            "The render is completely white/blank.",
+            "Object is clipping with the wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the render, which is completely white, indicating it is outside the camera's view and the camera is pointing at an empty area."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Guy-in-casual-outfit_b8a8ab68_c4_v0.png",
+          "azimuth": 75.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.9607499837875366,
+            -8.53043270111084,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.964816153049469,
+            0.2441358119249344,
+            -0.09760867059230804
+          ],
+          "camera_up": [
+            -0.09462627023458481,
+            0.023944124579429626,
+            0.9952248930931091
+          ],
+          "camera_radius": 6.236073924545885
+        }
+      ]
+    }
+  ]
+}

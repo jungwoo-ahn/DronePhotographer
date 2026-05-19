@@ -1,0 +1,546 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Knit-and-Denim_82dd220b",
+  "object_file": "data/objects/Knit-and-Denim_82dd220b/Knit-and-Denim_82dd220b.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        31.004093170166016,
+        -2.2112646102905273,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.004093170166016,
+            -2.2112646102905273,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            7.0,
+            4.0,
+            8.5,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Partial occlusion by foreground seating",
+            "Object is facing away from the camera",
+            "object is partly cut off at the frame edge (head is missing)",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the seating area, but the framing is poor as the head is completely cut off by the top edge of the image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_v0.png",
+          "azimuth": 3.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            31.201215744018555,
+            -5.851020336151123,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.05257120728492737,
+            0.9706971645355225,
+            -0.23448516428470612
+          ],
+          "camera_up": [
+            -0.012680718675255775,
+            0.23414203524589539,
+            0.9721196889877319
+          ],
+          "camera_radius": 3.944340663131675
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c0_v1.png",
+          "azimuth": 231.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            28.15538215637207,
+            0.06283176690340042,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.7597313523292542,
+            -0.6064856648445129,
+            -0.23448526859283447
+          ],
+          "camera_up": [
+            0.18325506150722504,
+            -0.14629055559635162,
+            0.9721196889877319
+          ],
+          "camera_radius": 3.9443401384815306
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        31.004093170166016,
+        -8.204890251159668,
+        5.400154113769531
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.004093170166016,
+            -8.204890251159668,
+            5.400154113769531
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            7.5,
+            9.0,
+            4.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_iter0_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is facing away from the camera",
+            "The object's head is cropped out of the frame",
+            "Large empty black space in the upper half of the frame",
+            "Placement of a stool in the middle of an aisle is slightly awkward",
+            "Top of the head is slightly cropped",
+            "Background is a black void"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cut off by the top edge of the frame, which violates the visibility requirements for a high-quality placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c1_v1.png",
+          "azimuth": 169.5,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            31.668357849121094,
+            -4.620838165283203,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.1771547794342041,
+            -0.9558414816856384,
+            -0.23448516428470612
+          ],
+          "camera_up": [
+            -0.0427316389977932,
+            -0.23055866360664368,
+            0.9721196889877319
+          ],
+          "camera_radius": 3.9443405124895614
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        29.00621795654297,
+        -2.2112646102905273,
+        4.95015287399292
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            29.00621795654297,
+            -2.2112646102905273,
+            4.95015287399292
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            4.0,
+            1.0,
+            2.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v4.png",
+              "quality": 2.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object's head and feet are cropped out of the frame",
+            "Potential clipping with the seats",
+            "Object is almost entirely occluded by the auditorium seating",
+            "Object is clipping through the seating furniture",
+            "Object's head is cropped out of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed directly behind a row of auditorium seats and is almost completely hidden from the camera's view."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c2_v1.png",
+          "azimuth": 179.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            29.093936920166016,
+            3.3726468086242676,
+            6.562668800354004
+          ],
+          "camera_forward": [
+            -0.015468617901206017,
+            -0.9846862554550171,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.0027274764142930508,
+            -0.17362679541110992,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.812742465315914
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        27.34132194519043,
+        -3.210202217102051,
+        4.500152587890625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.34132194519043,
+            -3.210202217102051,
+            4.500152587890625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            0.0,
+            4.0,
+            10.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is facing away from the camera",
+            "Foreground is dark and takes up significant space",
+            "The person's head is cropped out of the frame",
+            "Object is completely occluded by the foreground seating structure.",
+            "Object is very small in the frame",
+            "Object is significantly occluded by foreground seating",
+            "Object is heavily occluded by the seat it is sitting in",
+            "Metadata indicates clipping with the auditorium geometry.",
+            "The person is facing away from the camera",
+            "Object's head is cropped out of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 1.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, likely hidden behind or embedded within the large seating structure in the foreground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Knit-and-Denim_82dd220b_c3_v0.png",
+          "azimuth": 347.2,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            26.312183380126953,
+            -7.739975452423096,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.20689120888710022,
+            0.9106356501579285,
+            -0.3576852083206177
+          ],
+          "camera_up": [
+            0.07924460619688034,
+            0.3487965166568756,
+            0.9338422417640686
+          ],
+          "camera_radius": 5.231805039542901
+        }
+      ]
+    }
+  ]
+}

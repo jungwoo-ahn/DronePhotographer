@@ -1,0 +1,138 @@
+{
+  "scene": "Gas-Station_b8467c86",
+  "scene_file": "data/scenes/Gas-Station_b8467c86/Gas-Station_b8467c86.blend",
+  "scene_scale": 1.0,
+  "object": "Photographer-Standing_aea2700d",
+  "object_file": "data/objects/Photographer-Standing_aea2700d/Photographer-Standing_aea2700d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        85.1250228881836,
+        729.740234375,
+        -1.4993362426757812
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            85.1250228881836,
+            729.740234375,
+            -1.4993362426757812
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            3.0,
+            9.5,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is very small in the frame.",
+            "Object is heavily cropped, showing less than 70%",
+            "Object is placed far from the main scene elements (gas station), lacking relevant context.",
+            "Surroundings are empty around the object.",
+            "Surroundings are mostly empty."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in an empty field far from the gas station, resulting in empty surroundings and a lack of scene context, despite being fully visible and grounded."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Gas-Station_b8467c86_Photographer-Standing_aea2700d_c1_v0.png",
+          "azimuth": 52.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            89.99076080322266,
+            726.0200805664062,
+            0.333343505859375
+          ],
+          "camera_forward": [
+            -0.7823444604873657,
+            0.5981500744819641,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.1379482001066208,
+            0.10546979308128357,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.393251434308111
+        }
+      ]
+    }
+  ]
+}

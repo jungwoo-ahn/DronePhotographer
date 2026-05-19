@@ -1,0 +1,139 @@
+{
+  "scene": "Valley_b592cdfc",
+  "scene_file": "data/scenes/Valley_b592cdfc/Valley_b592cdfc.blend",
+  "scene_scale": 0.5,
+  "object": "Pajama-Party_1d7be87e",
+  "object_file": "data/objects/Pajama-Party_1d7be87e/Pajama-Party_1d7be87e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.5526227951049805,
+        -17.71478271484375,
+        -24.10908317565918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.5526227951049805,
+            -17.71478271484375,
+            -24.10908317565918
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            1.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty.",
+            "The object is not clearly identifiable.",
+            "The object is not visible in the scene.",
+            "Object is not visible in the scene.",
+            "The object is very small in the frame, making it difficult to assess the scale and placement precisely.",
+            "Object is not visible enough."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding. The surroundings are also empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Valley_b592cdfc_Pajama-Party_1d7be87e_c0_v0.png",
+          "azimuth": 22.4,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -2.555645704269409,
+            -22.559812545776367,
+            -22.583850860595703
+          ],
+          "camera_forward": [
+            -0.37528103590011597,
+            0.9105001091957092,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.06617219001054764,
+            0.16054576635360718,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.45789013099447
+        }
+      ]
+    }
+  ]
+}

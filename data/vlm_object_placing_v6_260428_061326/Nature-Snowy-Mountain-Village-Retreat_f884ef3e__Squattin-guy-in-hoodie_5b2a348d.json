@@ -1,0 +1,117 @@
+{
+  "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+  "scene_file": "data/scenes/Nature-Snowy-Mountain-Village-Retreat_f884ef3e/Nature-Snowy-Mountain-Village-Retreat_f884ef3e.blend",
+  "scene_scale": 0.3,
+  "object": "Squattin-guy-in-hoodie_5b2a348d",
+  "object_file": "data/objects/Squattin-guy-in-hoodie_5b2a348d/Squattin-guy-in-hoodie_5b2a348d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        12.983760833740234,
+        14.388837814331055,
+        -9.849014282226562
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.983760833740234,
+            14.388837814331055,
+            -9.849014282226562
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty.",
+            "The object is not visible in the scene.",
+            "Object is too small for the scene.",
+            "The object is not fully visible in the scene, as it is placed in an empty void.",
+            "The object is placed in an empty white void, with no context or background.",
+            "The object is not visible in the rendered image.",
+            "Object is not visible in the scene.",
+            "The object is placed in an empty void with no context or surroundings."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is extremely small relative to the scene, suggesting the scene is too large or the object is too small. The surroundings are empty, which also lowers the quality."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

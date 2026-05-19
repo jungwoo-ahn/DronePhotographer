@@ -1,0 +1,130 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Guy-in-casual-outfit_b8a8ab68",
+  "object_file": "data/objects/Guy-in-casual-outfit_b8a8ab68/Guy-in-casual-outfit_b8a8ab68.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7697608470916748,
+        -0.4245126247406006,
+        -0.9743152856826782
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7697608470916748,
+            -0.4245126247406006,
+            -0.9743152856826782
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a plausible outdoor environment. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_v0.png",
+          "azimuth": 150.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            2.23771595954895,
+            4.869603633880615,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.4939401149749756,
+            -0.8694918751716614,
+            -0.0026458033826202154
+          ],
+          "camera_up": [
+            -0.0013067828258499503,
+            -0.0023005639668554068,
+            0.9999964833259583
+          ],
+          "camera_radius": 6.136788856499264
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Guy-in-casual-outfit_b8a8ab68_c0_v1.png",
+          "azimuth": 40.8,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            3.208738327026367,
+            -5.03364896774292,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.6534183025360107,
+            0.7569923996925354,
+            -0.0026456841733306646
+          ],
+          "camera_up": [
+            -0.0017287847585976124,
+            0.0020027351565659046,
+            0.9999964833259583
+          ],
+          "camera_radius": 6.136789245006311
+        }
+      ]
+    }
+  ]
+}

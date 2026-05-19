@@ -1,0 +1,88 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Squattin-guy-in-hoodie_5b2a348d",
+  "object_file": "data/objects/Squattin-guy-in-hoodie_5b2a348d/Squattin-guy-in-hoodie_5b2a348d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.497663497924805,
+        -1.4068976640701294,
+        1.350000023841858
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.497663497924805,
+            -1.4068976640701294,
+            1.350000023841858
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Squattin-guy-in-hoodie_5b2a348d_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty, consisting only of sky and a wall.",
+            "The surroundings are empty, consisting only of sky and a rooftop edge.",
+            "Object is placed on a rooftop, which is not a plausible location for a person to be sitting.",
+            "The object is on a rooftop, which is not a plausible location for a person to be sitting."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -3.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement on a rooftop is implausible and the surroundings are empty, leading to a low quality score."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

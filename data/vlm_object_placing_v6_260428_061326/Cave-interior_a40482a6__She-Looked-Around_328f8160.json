@@ -1,0 +1,132 @@
+{
+  "scene": "Cave-interior_a40482a6",
+  "scene_file": "data/scenes/Cave-interior_a40482a6/Cave-interior_a40482a6.blend",
+  "scene_scale": 0.5,
+  "object": "She-Looked-Around_328f8160",
+  "object_file": "data/objects/She-Looked-Around_328f8160/She-Looked-Around_328f8160.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -3.2915658950805664,
+        -6.246567726135254,
+        -1.843839168548584
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.2915658950805664,
+            -6.246567726135254,
+            -1.843839168548584
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            3.0,
+            0.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The render shows a large black void/unrendered area behind the character.",
+            "Object is not visible in the frame",
+            "Less than 70% of the object is visible",
+            "Object is heavily obscured by tall grass",
+            "The character is placed at the very edge of the scene geometry.",
+            "Render is too dark to evaluate",
+            "lighting is very dark on the object",
+            "surroundings are empty or look like a broken skybox"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is almost entirely black, and the object is not visible at all, likely hidden in the shadows or behind cave geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_She-Looked-Around_328f8160_c3_v0.png",
+          "azimuth": 163.3,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.2781050205230713,
+            -2.868527412414551,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            -0.25986871123313904,
+            -0.8661875128746033,
+            -0.42683425545692444
+          ],
+          "camera_up": [
+            -0.1226552426815033,
+            -0.40883147716522217,
+            0.9043298959732056
+          ],
+          "camera_radius": 4.232261158242266
+        }
+      ]
+    }
+  ]
+}

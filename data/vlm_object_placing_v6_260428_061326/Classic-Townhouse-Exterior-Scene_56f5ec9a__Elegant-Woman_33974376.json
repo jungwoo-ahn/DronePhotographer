@@ -1,0 +1,162 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 0.75,
+  "object": "Elegant-Woman_33974376",
+  "object_file": "data/objects/Elegant-Woman_33974376/Elegant-Woman_33974376.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -31.822364807128906,
+        20.083580017089844,
+        -0.7747747898101807
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -31.822364807128906,
+            20.083580017089844,
+            -0.7747747898101807
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            6.0,
+            4.0,
+            5.0,
+            4.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "awkward placement (sitting on a stool in the middle of a road/paved area)",
+            "awkward placement (sitting on a stool in the middle of a road)",
+            "placement of a stool in the middle of a paved area lacks context",
+            "Plausibility: sitting on a stool in the middle of a street is unusual",
+            "The placement is in a sparse area of the scene, leading to a somewhat uninteresting composition.",
+            "Object's head is cut off by the frame edge",
+            "surroundings are very empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and scaled correctly, but the framing cuts off the woman's head and the placement of a bar stool in the middle of a street is implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_v0.png",
+          "azimuth": 312.5,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -34.374759674072266,
+            17.74474334716797,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.7255619764328003,
+            0.6648542284965515,
+            -0.17756301164627075
+          ],
+          "camera_up": [
+            0.13091325759887695,
+            0.1199597418308258,
+            0.9841094613075256
+          ],
+          "camera_radius": 3.684726011139536
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Elegant-Woman_33974376_c0_v1.png",
+          "azimuth": 12.5,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -30.67437744140625,
+            14.905340194702148,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.21495398879051208,
+            0.9695954322814941,
+            -0.11695919930934906
+          ],
+          "camera_up": [
+            -0.025314567610621452,
+            0.11418680846691132,
+            0.9931367039680481
+          ],
+          "camera_radius": 5.4520061623992575
+        }
+      ]
+    }
+  ]
+}

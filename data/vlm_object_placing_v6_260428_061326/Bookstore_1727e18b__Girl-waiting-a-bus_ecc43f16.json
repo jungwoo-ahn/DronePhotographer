@@ -1,0 +1,692 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-waiting-a-bus_ecc43f16",
+  "object_file": "data/objects/Girl-waiting-a-bus_ecc43f16/Girl-waiting-a-bus_ecc43f16.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        42.569068908691406,
+        -13.974987030029297,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            42.569068908691406,
+            -13.974987030029297,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            9.0,
+            4.0,
+            9.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "awkward placement in the middle of the road",
+            "background textures appear low quality or stretched",
+            "Object is partly cut off at the top of the frame (head is missing).",
+            "Object's head is cut off by the top of the frame",
+            "Foreground foliage partially occludes the object"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cut off by the top of the frame, which violates the visibility requirements for a high-quality render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_v0.png",
+          "azimuth": 252.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            37.148826599121094,
+            -12.255584716796875,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9531877040863037,
+            -0.30236905813217163,
+            0.002478402340784669
+          ],
+          "camera_up": [
+            -0.002362373284995556,
+            0.0007494466844946146,
+            0.9999969005584717
+          ],
+          "camera_radius": 5.728382256012425
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c0_v1.png",
+          "azimuth": 192.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            41.34799575805664,
+            -8.421218872070312,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.21473440527915955,
+            -0.9766693115234375,
+            0.0024786407593637705
+          ],
+          "camera_up": [
+            -0.000532170757651329,
+            0.00242083752527833,
+            0.9999969005584717
+          ],
+          "camera_radius": 5.728381392385372
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        25.980376626241945,
+        -14.985392655091205,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            25.71698570251465,
+            -15.847439765930176,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            6.0,
+            2.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.5,
+          "vlm_issues": [
+            "object is very small and distant in the frame",
+            "low quality background textures",
+            "surroundings_empty=true",
+            "placement is in a sparse, unfinished-looking area of the scene",
+            "awkward composition with the pole directly in front of the person",
+            "Poor framing/composition",
+            "object's head is cut off by the top of the frame",
+            "Object is clipping with bushes",
+            "The camera angle misses the main architectural context of the bookstore",
+            "placement is in a sparse area of the scene compared to the bookstore",
+            "Object is heavily occluded by foreground bushes and a trash bag",
+            "significant occlusion by foreground vegetation",
+            "The background feels somewhat barren with a lot of empty sky and road",
+            "Foreground bushes partially occlude the object's lower body and bag, creating a cluttered composition."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly hidden behind bushes and a trash bag, and is clearly clipping through the foliage, making for a very poor render."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            25.980376626241945,
+            -14.985392655091205,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0,
+            3.0,
+            8.0,
+            2.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_iter1_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily occluded by foreground elements (trash bag and bushes)",
+            "Background textures appear stretched or broken",
+            "Object is heavily cropped (head is missing)",
+            "Awkward placement in the middle of the road",
+            "Object's head is cut off by the top of the frame",
+            "foreground bushes slightly obstruct the lower half of the composition"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely hidden behind a trash bag and bushes, and her head is cropped out of the frame, making the placement unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_v0.png",
+          "azimuth": 244.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            20.830936431884766,
+            -12.57321834564209,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9055660367012024,
+            -0.42419809103012085,
+            0.002478402340784669
+          ],
+          "camera_up": [
+            -0.002244365867227316,
+            0.0010513323359191418,
+            0.9999969005584717
+          ],
+          "camera_radius": 5.72837828124587
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c1_v1.png",
+          "azimuth": 19.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            27.5903377532959,
+            -19.432857513427734,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.3403782546520233,
+            0.9402838945388794,
+            0.002979675540700555
+          ],
+          "camera_up": [
+            0.0010142461396753788,
+            -0.002801744267344475,
+            0.9999955892562866
+          ],
+          "camera_radius": 4.780262443054461
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        12.609811782836914,
+        -15.847439765930176,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.609811782836914,
+            -15.847439765930176,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            3.0,
+            8.5,
+            3.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The shot feels empty and disconnected from the intended scene layout",
+            "Ground textures appear stretched and low quality",
+            "Object is placed in the middle of the road instead of on the sidewalk",
+            "Scale seems slightly large relative to the background architecture",
+            "background textures appear stretched or missing",
+            "The background is a featureless grey plane, lacking the architectural context of the bookstore",
+            "The foreground is dominated by a large, blurry, featureless grey surface that occludes the bottom of the frame.",
+            "object is placed at the edge of the environment map",
+            "The background is a featureless void/empty plane",
+            "Background horizon appears very flat and low-detail",
+            "The object is quite small and distant in the composition.",
+            "surroundings are empty and low quality",
+            "The camera angle is heavily tilted (Dutch angle), which feels unintentional and disorienting.",
+            "Object's head is cropped out of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 5.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and visible, it is placed in a desolate part of the scene that lacks the bookstore's architectural detail, resulting in a low-quality image with an empty horizon."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c2_v0.png",
+          "azimuth": 294.2,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.423117160797119,
+            -18.17843246459961,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9121174216270447,
+            0.4099215567111969,
+            0.002478283131495118
+          ],
+          "camera_up": [
+            -0.002260464709252119,
+            -0.0010159658268094063,
+            0.9999969005584717
+          ],
+          "camera_radius": 5.728378562184958
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.369816303253174,
+        2.877094268798828,
+        -1.23977656585339e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.369816303253174,
+            2.877094268798828,
+            -1.23977656585339e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            8.0,
+            6.0,
+            8.5,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The ground texture in the foreground is low resolution and appears stretched.",
+            "Ground textures appear stretched and low quality",
+            "The background beyond the sidewalk is very empty and lacks detail",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The lighting on the character is slightly flat compared to the bright sky background.",
+            "The composition feels a bit disconnected from the main scene elements"
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": -1.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The placement is plausible and the object is grounded, but the shot feels empty due to the lack of background detail and poor ground textures."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_v0.png",
+          "azimuth": 249.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -7.696124076843262,
+            4.868518829345703,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9365783929824829,
+            -0.3501722514629364,
+            0.014151979237794876
+          ],
+          "camera_up": [
+            -0.013255737721920013,
+            0.004956200253218412,
+            0.9998998641967773
+          ],
+          "camera_radius": 5.720737661646206
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-waiting-a-bus_ecc43f16_c3_v1.png",
+          "azimuth": 309.5,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.757594585418701,
+            -0.7399113774299622,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.7715473175048828,
+            0.6360145211219788,
+            0.014151860028505325
+          ],
+          "camera_up": [
+            -0.010919846594333649,
+            -0.009001782163977623,
+            0.9998998641967773
+          ],
+          "camera_radius": 5.720736994827045
+        }
+      ]
+    }
+  ]
+}

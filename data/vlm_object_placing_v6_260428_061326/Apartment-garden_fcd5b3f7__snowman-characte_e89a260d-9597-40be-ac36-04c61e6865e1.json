@@ -1,0 +1,136 @@
+{
+  "scene": "Apartment-garden_fcd5b3f7",
+  "scene_file": "data/scenes/Apartment-garden_fcd5b3f7/Apartment-garden_fcd5b3f7.blend",
+  "scene_scale": 0.5,
+  "object": "snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1",
+  "object_file": "data/objects/snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1/snowman-character_2K_e5d72e38-c695-4363-91cb-dae1bfb50216.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        2.025163412094116,
+        -8.678260803222656,
+        1.6358091831207275
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.025163412094116,
+            -8.678260803222656,
+            1.6358091831207275
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c1_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is placed on top of a wall or counter, which is a plausible location, but the camera angle makes it difficult to fully assess the context and scale relative to the rest of the scene. The snowman appears to be the only object in the rendered view, making the surroundings appear empty despite the reference image showing a furnished apartment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, placed plausibly on a surface. However, the scene lacks context and appears empty due to the camera angle and object placement, and the snowman is too high up."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        1.0251634120941162,
+        -6.678260803222656,
+        1.6358091831207275
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.0251634120941162,
+            -6.678260803222656,
+            1.6358091831207275
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v1.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is placed on top of a wall or counter, which is a plausible location, but the camera angle makes it difficult to fully assess the context and scale relative to the rest of the scene. The snowman appears to be the only object in the rendered view, making the surroundings appear empty despite the reference image showing a furnished apartment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, placed plausibly on a surface. However, the camera angle and framing make the surroundings appear empty, and the scale is difficult to judge."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

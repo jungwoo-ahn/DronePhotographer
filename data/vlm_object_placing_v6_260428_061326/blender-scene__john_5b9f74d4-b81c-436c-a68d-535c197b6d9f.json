@@ -1,0 +1,408 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+  "object_file": "data/objects/john_5b9f74d4-b81c-436c-a68d-535c197b6d9f/john_2K_b9d4753f-532d-40dd-8628-708383004936.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.807323932647705,
+        1.4528617858886719,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.807323932647705,
+            1.4528617858886719,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            2.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to evaluate its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_v0.png",
+          "azimuth": 228.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -6.8138604164123535,
+            4.141016006469727,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7443203926086426,
+            -0.6654992699623108,
+            -0.05565813183784485
+          ],
+          "camera_up": [
+            0.04149184003472328,
+            -0.037097908556461334,
+            0.9984498620033264
+          ],
+          "camera_radius": 4.146307935657842
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_v1.png",
+          "azimuth": 288.2,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -7.638601779937744,
+            0.193201944231987,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9484993815422058,
+            0.31185099482536316,
+            -0.0556582510471344
+          ],
+          "camera_up": [
+            0.05287378281354904,
+            0.017384011298418045,
+            0.9984498620033264
+          ],
+          "camera_radius": 4.146307906907134
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -5.807324409484863,
+        2.452861785888672,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.807324409484863,
+            2.452861785888672,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, indicating a placement issue or a problem with the rendering process."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_v0.png",
+          "azimuth": 61.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.3926424980163574,
+            -0.5238842964172363,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.8757271766662598,
+            0.4814351499080658,
+            -0.036360546946525574
+          ],
+          "camera_up": [
+            -0.03186298906803131,
+            0.017516832798719406,
+            0.9993387460708618
+          ],
+          "camera_radius": 6.253497423084387
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_v1.png",
+          "azimuth": 0.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -5.807323932647705,
+            -1.5801807641983032,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9984498620033264,
+            -0.0556582510471344
+          ],
+          "camera_up": [
+            0.0,
+            0.0556582510471344,
+            0.9984498620033264
+          ],
+          "camera_radius": 4.146307993159258
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.8073239326477051,
+        -1.5471383333206177,
+        -0.026998460292816162
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8073239326477051,
+            -1.5471383333206177,
+            -0.026998460292816162
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            1.0,
+            1.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, or scale. The previous attempts also failed to place the object within the camera's view."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_v0.png",
+          "azimuth": 226.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.7520997524261475,
+            1.2085344791412354,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7290305495262146,
+            -0.6822144985198975,
+            -0.05565813183784485
+          ],
+          "camera_up": [
+            0.04063941910862923,
+            -0.03802979364991188,
+            0.9984498620033264
+          ],
+          "camera_radius": 4.146308050660673
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_v1.png",
+          "azimuth": 225.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.65911602973938,
+            1.3046540021896362,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7060106992721558,
+            -0.7060106992721558,
+            -0.0556580126285553
+          ],
+          "camera_up": [
+            0.03935609012842178,
+            -0.03935622423887253,
+            0.9984498620033264
+          ],
+          "camera_radius": 4.146308108162088
+        }
+      ]
+    }
+  ]
+}

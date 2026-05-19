@@ -1,0 +1,137 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 0.5,
+  "object": "Wearied-Urban-Casual_3028143e",
+  "object_file": "data/objects/Wearied-Urban-Casual_3028143e/Wearied-Urban-Casual_3028143e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        6.412720263276011,
+        17.263365429700357,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.774496078491211,
+            16.958948135375977,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter0_v2.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "implausible_placement"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the surroundings are completely empty, showing only a dark, reflective ground and a blurry sky, completely lacking the context of the sandy beach scene."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            6.412720263276011,
+            17.263365429700357,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1_v3.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1_v2.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Wearied-Urban-Casual_3028143e_c4_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "rendering_artifact",
+            "surroundings_empty",
+            "implausible_placement"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed on a generic dark, reflective surface with a featureless dark background, completely lacking the context of the beach scene from the reference image, making its placement implausible and the scene appear unrendered."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

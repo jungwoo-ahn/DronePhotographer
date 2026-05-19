@@ -1,0 +1,143 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-in-purple-jacket-leans-on-rail_fd1924b7",
+  "object_file": "data/objects/Girl-in-purple-jacket-leans-on-rail_fd1924b7/Girl-in-purple-jacket-leans-on-rail_fd1924b7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        18.314163208007812,
+        -12.015541076660156,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            18.314163208007812,
+            -12.015541076660156,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            5.0,
+            5.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "pose suggests leaning on a rail which is missing",
+            "Object is leaning on nothing",
+            "object is standing in the middle of the road",
+            "Object is leaning on thin air (no railing present)",
+            "Placement in the middle of the street is awkward",
+            "Object is leaning on thin air (missing rail)",
+            "top of head is cut off",
+            "The person is in a leaning pose but there is no rail or surface to lean on.",
+            "Placement is in the middle of the road",
+            "Placement in the middle of the street is unrealistic for the pose",
+            "The surroundings are very empty with no architectural context from the reference scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is leaning on thin air in a very empty environment that lacks the bookstore context shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_v1.png",
+          "azimuth": 19.7,
+          "elevation": 35,
+          "preview_quality": 5.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            19.95357322692871,
+            -16.59423828125,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.33709487318992615,
+            0.9414700269699097,
+            -0.0011165895266458392
+          ],
+          "camera_up": [
+            -0.00037642012466676533,
+            0.0010512277949601412,
+            0.9999994039535522
+          ],
+          "camera_radius": 4.912344351697809
+        }
+      ]
+    }
+  ]
+}

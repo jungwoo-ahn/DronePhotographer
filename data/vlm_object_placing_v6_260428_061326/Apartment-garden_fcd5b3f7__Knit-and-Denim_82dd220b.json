@@ -1,0 +1,132 @@
+{
+  "scene": "Apartment-garden_fcd5b3f7",
+  "scene_file": "data/scenes/Apartment-garden_fcd5b3f7/Apartment-garden_fcd5b3f7.blend",
+  "scene_scale": 0.5,
+  "object": "Knit-and-Denim_82dd220b",
+  "object_file": "data/objects/Knit-and-Denim_82dd220b/Knit-and-Denim_82dd220b.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.131591320037842,
+        -7.571832656860352,
+        -0.02319014072418213
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.131591320037842,
+            -7.571832656860352,
+            -0.02319014072418213
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0_v3.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding. The render is too dark to see anything."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_v0.png",
+          "azimuth": 275.6,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.491448163986206,
+            -8.025126457214355,
+            0.7214518189430237
+          ],
+          "camera_forward": [
+            0.9949127435684204,
+            0.09755206108093262,
+            -0.02514510229229927
+          ],
+          "camera_up": [
+            0.025025080889463425,
+            0.002453866880387068,
+            0.9996837973594666
+          ],
+          "camera_radius": 4.704514654614825
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Apartment-garden_fcd5b3f7_Knit-and-Denim_82dd220b_c0_v1.png",
+          "azimuth": 270.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.5134987235069275,
+            -7.57183313369751,
+            0.7214518189430237
+          ],
+          "camera_forward": [
+            0.9994866251945496,
+            -4.362776451216632e-08,
+            -0.03203792870044708
+          ],
+          "camera_up": [
+            0.03203792870044708,
+            -3.3093026097219536e-09,
+            0.9994866251945496
+          ],
+          "camera_radius": 3.720372519235265
+        }
+      ]
+    }
+  ]
+}

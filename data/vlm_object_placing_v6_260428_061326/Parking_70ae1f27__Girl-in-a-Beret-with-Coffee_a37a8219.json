@@ -1,0 +1,306 @@
+{
+  "scene": "Parking_70ae1f27",
+  "scene_file": "data/scenes/Parking_70ae1f27/Parking_70ae1f27.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-in-a-Beret-with-Coffee_a37a8219",
+  "object_file": "data/objects/Girl-in-a-Beret-with-Coffee_a37a8219/Girl-in-a-Beret-with-Coffee_a37a8219.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -21.70114517211914,
+        14.672564506530762,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -21.70114517211914,
+            14.672564506530762,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            1.0,
+            7.0,
+            1.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is completely out of frame.",
+            "The object is a person, and the scene is a parking garage. While a person can be in a parking garage, it is not a typical or interesting placement.",
+            "The scale of the person appears too small for the environment. The person is 1.7m tall, but the visible elements of the parking garage suggest a much larger scale, making the person appear like a miniature figure.",
+            "Render is black."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is black, so the object is not visible and the quality is very low."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v0.png",
+          "azimuth": 122.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -17.209110260009766,
+            17.556400299072266,
+            1.6103241443634033
+          ],
+          "camera_forward": [
+            -0.8287262916564941,
+            -0.5320329070091248,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.14612677693367004,
+            -0.09381186962127686,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.57566360321724
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v1.png",
+          "azimuth": 32.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -18.817310333251953,
+            10.180529594421387,
+            1.6103241443634033
+          ],
+          "camera_forward": [
+            -0.5320327281951904,
+            0.8287264108657837,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.09381178766489029,
+            0.14612683653831482,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.575664458428665
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -6.67636775970459,
+        21.684125900268555,
+        -4.76837158203125e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.67636775970459,
+            21.684125900268555,
+            -4.76837158203125e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is a person, and the scene is a parking garage. While a person can be in a parking garage, it is not a typical or interesting placement.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement in a parking garage with empty surroundings is not ideal, leading to a moderate quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_v0.png",
+          "azimuth": 263.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -11.98420524597168,
+            22.25136947631836,
+            1.6103242635726929
+          ],
+          "camera_forward": [
+            0.9792317748069763,
+            -0.10464950650930405,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.17266489565372467,
+            -0.018452532589435577,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.575665278897003
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Parking_70ae1f27_Girl-in-a-Beret-with-Coffee_a37a8219_c2_v1.png",
+          "azimuth": 84.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.3675490617752075,
+            21.12614631652832,
+            1.6103242635726929
+          ],
+          "camera_forward": [
+            -0.9794129133224487,
+            0.1029403880238533,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.17269670963287354,
+            0.018151257187128067,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.575665757280766
+        }
+      ]
+    }
+  ]
+}

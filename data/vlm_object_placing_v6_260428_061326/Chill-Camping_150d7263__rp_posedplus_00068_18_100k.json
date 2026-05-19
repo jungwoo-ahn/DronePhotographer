@@ -1,0 +1,109 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "rp_posedplus_00068_18_100k",
+  "object_file": "data/objects/rp_posedplus_00068_18_100k/rp_posedplus_00068_18_100k.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        2.2460737228393555,
+        1.8261890411376953,
+        -0.051339417695999146
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.2460737228393555,
+            1.8261890411376953,
+            -0.051339417695999146
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            2.0,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_rp_posedplus_00068_18_100k_c3_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is standing on water, which is not a plausible surface for a person.",
+            "Placement is not plausible for a person.",
+            "Object is standing on an artificial plane that is clipping through the environment.",
+            "The placement surface is not a natural part of the scene and appears to be floating over the water.",
+            "The composition is awkward with a large, empty foreground and the subject being quite far away.",
+            "Object is partially cropped at the top of the frame.",
+            "Significant visual artifact with the sharp edge of the ground plane.",
+            "Object is standing on the edge of a plane, appearing to stand on water.",
+            "Surroundings are empty/lack context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing on water and their head is cut off by the frame edge; they should be moved onto the land near the campfire for a plausible and well-framed shot."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

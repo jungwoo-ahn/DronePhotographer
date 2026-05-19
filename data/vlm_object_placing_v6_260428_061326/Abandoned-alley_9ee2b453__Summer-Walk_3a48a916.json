@@ -1,0 +1,155 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Summer-Walk_3a48a916",
+  "object_file": "data/objects/Summer-Walk_3a48a916/Summer-Walk_3a48a916.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -7.945199012756348,
+        -1.8378229141235352,
+        4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.945199012756348,
+            -1.8378229141235352,
+            4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            1.0,
+            3.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is completely hidden behind a wall",
+            "surroundings are empty",
+            "Object is placed at the very edge of the scene geometry, facing a white void.",
+            "object is heavily cropped",
+            "Surroundings are empty (just a brick wall)",
+            "surroundings_empty=true",
+            "Object is completely hidden behind walls"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a brick wall in the foreground, making it entirely invisible in the rendered image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_v0.png",
+          "azimuth": 120.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.1657891273498535,
+            0.9215705990791321,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.8612897992134094,
+            -0.49726593494415283,
+            -0.10443416982889175
+          ],
+          "camera_up": [
+            -0.09044258296489716,
+            -0.05221719294786453,
+            0.9945318102836609
+          ],
+          "camera_radius": 5.658578488240984
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Summer-Walk_3a48a916_c0_v1.png",
+          "azimuth": 97.1,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 7.5,
+          "camera_position": [
+            -2.4687302112579346,
+            -1.1556928157806396,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9869056940078735,
+            -0.12292544543743134,
+            -0.10443416982889175
+          ],
+          "camera_up": [
+            -0.10363335907459259,
+            -0.012908215634524822,
+            0.9945318102836609
+          ],
+          "camera_radius": 5.658578709444511
+        }
+      ]
+    }
+  ]
+}

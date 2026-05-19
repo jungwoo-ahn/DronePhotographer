@@ -1,0 +1,130 @@
+{
+  "scene": "home-office-with-library-simple",
+  "scene_file": "data/scenes/home-office-with-library-simple/HomeOffice.blend",
+  "scene_scale": 0.75,
+  "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+  "object_file": "data/objects/spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/spider-man-no-way-home-suit_2K_1ac6fb05-8276-4645-a0b1-5dd80f9c74bb.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.5356566905975342,
+        1.8052048683166504,
+        -0.16122521460056305
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.5356566905975342,
+            1.8052048683166504,
+            -0.16122521460056305
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is slightly too large for the scene.",
+            "Object is heavily cropped.",
+            "Object is not visible in the rendered image.",
+            "Object is slightly overlapping with the chair."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding. The rendered image is mostly white with a black rectangle and a sliver of what might be the floor, with no discernible object or scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/home-office-with-library-simple_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_v0.png",
+          "azimuth": 261.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.2934560775756836,
+            2.391141653060913,
+            2.1943764686584473
+          ],
+          "camera_forward": [
+            0.9105299115180969,
+            -0.13933059573173523,
+            -0.38925862312316895
+          ],
+          "camera_up": [
+            0.38477978110313416,
+            -0.05887959152460098,
+            0.921128511428833
+          ],
+          "camera_radius": 4.533683593611798
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A Spider-Man action figure would not naturally be found in a home office with a library."
+    }
+  ]
+}

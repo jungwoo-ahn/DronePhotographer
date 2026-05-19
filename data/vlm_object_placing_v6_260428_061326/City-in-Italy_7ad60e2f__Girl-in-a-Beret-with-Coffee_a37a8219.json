@@ -1,0 +1,733 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-in-a-Beret-with-Coffee_a37a8219",
+  "object_file": "data/objects/Girl-in-a-Beret-with-Coffee_a37a8219/Girl-in-a-Beret-with-Coffee_a37a8219.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        17.119903564453125,
+        -62.165687561035156,
+        -0.12022291868925095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.119903564453125,
+            -62.165687561035156,
+            -0.12022291868925095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            8.0,
+            3.0,
+            1.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Surroundings are empty (edge of map/void visible)",
+            "Object is heavily cropped (head is missing).",
+            "surroundings_empty",
+            "placed at the edge of the scene map",
+            "Object is almost entirely occluded by a foreground pole",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost completely hidden behind a large street pole in the foreground, and the background consists of an empty flat plane at the edge of the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v0.png",
+          "azimuth": 34.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            19.068227767944336,
+            -65.05419921875,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.527613639831543,
+            0.7822199463844299,
+            -0.3312942385673523
+          ],
+          "camera_up": [
+            -0.18525731563568115,
+            0.27465540170669556,
+            0.9435275197029114
+          ],
+          "camera_radius": 3.964952348997624
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v1.png",
+          "azimuth": 334.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.592543601989746,
+            -65.2972412109375,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.41361507773399353,
+            0.8480369448661804,
+            -0.3312942385673523
+          ],
+          "camera_up": [
+            0.145229771733284,
+            0.29776531457901,
+            0.9435275197029114
+          ],
+          "camera_radius": 3.964951146367205
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        17.119903564453125,
+        9.908690452575684,
+        -0.12022315710783005
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.119903564453125,
+            9.908690452575684,
+            -0.12022315710783005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            3.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Surroundings are empty (edge of map/void visible)",
+            "Placement is at the edge of the scene environment",
+            "Object is heavily cropped (head is missing).",
+            "Object is cropped at the top of the frame (head is missing).",
+            "Surroundings are sparse and show the edge of the map/void.",
+            "Placement in the middle of the road is awkward."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly on the street, but the camera framing is too tight, cutting off her head and beret entirely."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_v0.png",
+          "azimuth": 183.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            16.919340133666992,
+            13.3870849609375,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.0543132945895195,
+            -0.9419629573822021,
+            -0.3312942385673523
+          ],
+          "camera_up": [
+            0.01907053031027317,
+            -0.3307448923587799,
+            0.9435275197029114
+          ],
+          "camera_radius": 3.9649507484655757
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c1_v1.png",
+          "azimuth": 6.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            17.526405334472656,
+            6.448313236236572,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.11008225381374359,
+            0.9370837211608887,
+            -0.331294447183609
+          ],
+          "camera_up": [
+            -0.0386524423956871,
+            0.32903191447257996,
+            0.9435274004936218
+          ],
+          "camera_radius": 3.964950853225985
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        13.271271705627441,
+        -14.23272705078125,
+        -0.0528641901910305
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            13.271271705627441,
+            -14.23272705078125,
+            -0.0528641901910305
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            4.0,
+            9.5,
+            8.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with the metal fence behind her.",
+            "Object is significantly occluded by a street lamp pole.",
+            "Object is completely hidden behind the bus stop shelter.",
+            "Minor cropping of the beret at the top of the frame.",
+            "Object is heavily cropped (head and upper body are missing)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely occluded by the bus stop structure, making her invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c2_v0.png",
+          "azimuth": 72.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            18.365066528320312,
+            -15.829025268554688,
+            1.5574604272842407
+          ],
+          "camera_forward": [
+            -0.9397434592247009,
+            0.29449737071990967,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.16570182144641876,
+            0.05192771553993225,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.575666553696102
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        4.174505710601807,
+        -1.2873289585113525,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.174505710601807,
+            -1.2873289585113525,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.5,
+            3.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is likely occluded by or embedded in a wall.",
+            "Object is not visible in the frame.",
+            "Less than 70% of the object is visible.",
+            "Object is heavily occluded by a large foreground fence.",
+            "Object is heavily cropped (head is missing).",
+            "The top of the beret is slightly cropped by the upper frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, appearing to be hidden behind or embedded within a wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_v0.png",
+          "azimuth": 17.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            5.735204219818115,
+            -6.392142295837402,
+            1.5574601888656616
+          ],
+          "camera_forward": [
+            -0.2879299223423004,
+            0.9417763352394104,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.05076976120471954,
+            0.16606050729751587,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.575665377780801
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c3_v1.png",
+          "azimuth": 194.4,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.308027744293213,
+            2.087381601333618,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.2360369861125946,
+            -0.9193033576011658,
+            -0.31490930914878845
+          ],
+          "camera_up": [
+            0.07831480354070663,
+            -0.30501583218574524,
+            0.9491217732429504
+          ],
+          "camera_radius": 3.933246252475312
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        15.370525360107422,
+        -39.07389450073242,
+        -0.1202227994799614
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            15.370525360107422,
+            -39.07389450073242,
+            -0.1202227994799614
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.5,
+            3.0,
+            9.5,
+            6.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, showing only the ground texture.",
+            "Object's head is cut off by the top of the frame.",
+            "The camera angle is from behind the person, obscuring the coffee and beret mentioned in the object name.",
+            "The composition is somewhat plain, focusing heavily on the road surface and side fences with limited architectural context from the city.",
+            "The top of the person's head and the beret are cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object's head is cropped out of the frame and the background lacks any architectural or environmental context, showing only the ground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_v0.png",
+          "azimuth": 17.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            16.418235778808594,
+            -42.39680862426758,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.2837241291999817,
+            0.8998581171035767,
+            -0.33129432797431946
+          ],
+          "camera_up": [
+            -0.09962210804224014,
+            0.3159610331058502,
+            0.9435274600982666
+          ],
+          "camera_radius": 3.96495101107126
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-a-Beret-with-Coffee_a37a8219_c4_v1.png",
+          "azimuth": 77.5,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            19.705415725708008,
+            -40.034915924072266,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.9412232041358948,
+            0.20866400003433228,
+            -0.265627920627594
+          ],
+          "camera_up": [
+            -0.25933152437210083,
+            0.05749218538403511,
+            0.9640756249427795
+          ],
+          "camera_radius": 4.826615588339855
+        }
+      ]
+    }
+  ]
+}

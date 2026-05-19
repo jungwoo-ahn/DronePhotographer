@@ -1,0 +1,563 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "Redhead-Girl-in-\u0430-red-dress_75d57040",
+  "object_file": "data/objects/Redhead-Girl-in-\u0430-red-dress_75d57040/Redhead-Girl-in-\u0430-red-dress_75d57040.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        17.92688751220703,
+        40.31578826904297,
+        0.447929322719574
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.92688751220703,
+            40.31578826904297,
+            0.447929322719574
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            4.0,
+            7.0,
+            3.0,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily occluded by foreground elements (chairs), making it barely visible.",
+            "Object appears too small relative to the furniture (the chair back is disproportionately high for a 1.7m person standing behind it, suggesting the scene is too big or the object is too small).",
+            "Object is heavily cropped at the top of the frame.",
+            "Object is heavily occluded/cropped (less than 70% visible)",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden and not visible in the rendered image, making it impossible to evaluate its placement, scale, or plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_v0.png",
+          "azimuth": 228.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.887073516845703,
+            43.915130615234375,
+            2.0661728382110596
+          ],
+          "camera_forward": [
+            0.7352951169013977,
+            -0.6551239490509033,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.12965233623981476,
+            -0.11551611870527267,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.647483966799568
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_v1.png",
+          "azimuth": 348.3,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            16.87993621826172,
+            35.26025390625,
+            2.991231918334961
+          ],
+          "camera_forward": [
+            0.1905578076839447,
+            0.9201684594154358,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.06935736536979675,
+            0.3349139392375946,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.755251932338627
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.642827033996582,
+        40.31578826904297,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.642827033996582,
+            40.31578826904297,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            10.0,
+            4.0,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The very top of the object's head is slightly cropped by the frame edge.",
+            "Surroundings are empty, showing only a plain floor.",
+            "The surroundings are mostly empty, showing only the floor around the object with no other scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.1,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-placed, visible, and grounded, but the close-up shot reveals only a plain floor, making the surroundings empty. An adjustment to move the object slightly forward and right, along with a slight increase in scale, might reveal more of the scene context and address previous scale concerns."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_v0.png",
+          "azimuth": 335.5,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.39905834197998,
+            35.39228820800781,
+            3.8661727905273438
+          ],
+          "camera_forward": [
+            0.40839317440986633,
+            0.8961368799209595,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.07201075553894043,
+            0.15801315009593964,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.647482869163222
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_v1.png",
+          "azimuth": 275.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.257066249847412,
+            39.79719924926758,
+            3.8661727905273438
+          ],
+          "camera_forward": [
+            0.9802739024162292,
+            0.09438952803611755,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.17284877598285675,
+            0.016643449664115906,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.647483278138328
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        1.7400856018066406,
+        54.883907318115234,
+        0.45683765411376953
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.7400856018066406,
+            54.883907318115234,
+            0.45683765411376953
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.5,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, showing only a plain wall and floor with no other scene context.",
+            "The surroundings are empty, showing only a plain wall and floor without any architectural or furniture context of the auditorium.",
+            "The object is completely obscured by a foreground wall, making it invisible.",
+            "The surroundings are empty, showing only a plain wall and a sliver of floor, with no meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible, hidden behind a large foreground wall, and the rendered view lacks any meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c3_v0.png",
+          "azimuth": 174.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.230468988418579,
+            60.272308349609375,
+            2.0750815868377686
+          ],
+          "camera_forward": [
+            -0.08925561606884003,
+            -0.9807547330856323,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.015738049522042274,
+            -0.17293332517147064,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.64748209738754
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        14.68952751159668,
+        54.07456970214844,
+        0.45683765411376953
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.68952751159668,
+            54.07456970214844,
+            0.45683765411376953
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.5,
+            9.5,
+            1.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v1.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The camera view is too tight and obscured, showing only chair backs and no broader scene context.",
+            "The object is significantly occluded by foreground elements (chair).",
+            "Object is completely hidden by foreground elements (chairs) and darkness, making it invisible.",
+            "The surroundings are empty, showing only chair backs and darkness without any architectural or furniture context of the auditorium.",
+            "The object is significantly obscured by a large foreground pillar, making it difficult to see more than ~50% of it."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden by the chairs in the foreground and the overall darkness of the render, making it invisible. The view provides no meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_v0.png",
+          "azimuth": 206.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            12.702515602111816,
+            58.11271286010742,
+            4.272343158721924
+          ],
+          "camera_forward": [
+            0.3616604804992676,
+            -0.7349910736083984,
+            -0.5735763311386108
+          ],
+          "camera_up": [
+            0.253237247467041,
+            -0.5146462321281433,
+            0.8191521167755127
+          ],
+          "camera_radius": 5.900245702605951
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Redhead-Girl-in-\u0430-red-dress_75d57040_c4_v1.png",
+          "azimuth": 266.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.290753364562988,
+            54.43315505981445,
+            2.0750815868377686
+          ],
+          "camera_forward": [
+            0.982642650604248,
+            -0.06526690721511841,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.1732662171125412,
+            -0.011508327908813953,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.647483336186405
+        }
+      ]
+    }
+  ]
+}

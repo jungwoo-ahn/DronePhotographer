@@ -1,0 +1,865 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "Girl-in-bomber_3d225092",
+  "object_file": "data/objects/Girl-in-bomber_3d225092/Girl-in-bomber_3d225092.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -25.81643295288086,
+        -4.710797309875488,
+        -0.04768218845129013
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -25.81643295288086,
+            -4.710797309875488,
+            -0.04768218845129013
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            4.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "lacks context from the main scene architecture",
+            "Object is relatively small in frame",
+            "top of head is slightly cropped",
+            "Large blurry obstruction in the foreground (broken render or camera clipping)",
+            "surroundings_empty",
+            "surroundings are empty (only road visible)",
+            "Object is partly cut off at the top of the frame (head is cropped)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and correctly scaled, the bottom half of the render is obscured by a massive blurry artifact, suggesting the camera is clipping through a foreground object or the render is partially broken."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_v0.png",
+          "azimuth": 267.8,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -29.345579147338867,
+            -4.575220584869385,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.9085288643836975,
+            -0.03490213304758072,
+            -0.41636180877685547
+          ],
+          "camera_up": [
+            0.416054904460907,
+            -0.015983257442712784,
+            0.9091989994049072
+          ],
+          "camera_radius": 4.205949455850851
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c0_v1.png",
+          "azimuth": 68.5,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -21.62883758544922,
+            -6.360334873199463,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8755999803543091,
+            0.34490808844566345,
+            -0.3381761312484741
+          ],
+          "camera_up": [
+            -0.314644992351532,
+            0.12394202500581741,
+            0.9410828351974487
+          ],
+          "camera_radius": 5.047146509384463
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -39.1212043762207,
+        -4.710797309875488,
+        -0.04768209159374237
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -39.1212043762207,
+            -4.710797309875488,
+            -0.04768209159374237
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            3.0,
+            9.5,
+            3.0,
+            8.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "lacks context from the main scene architecture",
+            "Placement is in the street rather than on the sidewalk",
+            "Lacks the architectural context of the mall building",
+            "surroundings are empty",
+            "lacks architectural context from the mall",
+            "surroundings_empty=true",
+            "object is placed at the edge of the scene map",
+            "the shot is mostly empty sky and road"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the very edge of the scene on a road that leads into an empty sky, lacking any of the interesting architectural context of the mall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_v0.png",
+          "azimuth": 328.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -41.924224853515625,
+            -9.33913516998291,
+            1.573095440864563
+          ],
+          "camera_forward": [
+            0.5101569890975952,
+            0.8423694372177124,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.08995436131954193,
+            0.14853227138519287,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.648482959611867
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c1_v1.png",
+          "azimuth": 268.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -42.65217971801758,
+            -4.636833667755127,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.9089996218681335,
+            -0.019040733575820923,
+            -0.41636180877685547
+          ],
+          "camera_up": [
+            0.41627049446105957,
+            -0.008719476871192455,
+            0.9091989994049072
+          ],
+          "camera_radius": 4.2059498522101855
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -38.753080056274904,
+        1.5408872652919174,
+        -0.08066195249557495
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -39.1212043762207,
+            0.6111106872558594,
+            -0.08066195249557495
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            1.0,
+            2.0,
+            5.0,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head and upper body missing)",
+            "The placement lacks context from the main mall architecture, showing only a plain wall and a tree trunk.",
+            "Object is partially occluded by a palm tree",
+            "Object is heavily cropped (head is missing)",
+            "Object is completely hidden behind the concrete wall",
+            "Placement is in a cramped corner between a wall and a tree",
+            "The framing is very tight, making the environment feel less interesting than the main scene.",
+            "Lacks architectural context from the mall",
+            "The edge of the scene geometry is visible on the left, showing a void.",
+            "View lacks architectural context of the mall",
+            "Object is clipping through the palm tree trunk",
+            "Placement is at the very edge of the modeled environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the large concrete wall in the foreground, making it invisible in the render."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -38.753080056274904,
+            1.5408872652919174,
+            -0.08066195249557495
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            0.0,
+            3.0,
+            1.0,
+            8.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Render shows scene geometry issues (sky visible through ground)",
+            "The background is primarily a plain wall, which lacks the architectural interest of the main mall building.",
+            "Object is not visible in the frame",
+            "The placement is in a relatively dark and cramped corner of the scene.",
+            "Object is completely hidden behind a wooden structure",
+            "The scene's ground plane ends abruptly to the left, showing a void/sky which breaks immersion.",
+            "The object's head is cut off by the top edge of the frame.",
+            "Surroundings lack any context",
+            "The background is somewhat plain, consisting mostly of a concrete wall and a tree trunk, lacking the vibrant architectural context of the mall facade.",
+            "The object is placed in an awkward corner behind a palm tree."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, likely hidden behind the large stone wall or positioned outside the camera's field of view, and the render contains visual artifacts."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_v0.png",
+          "azimuth": 66.8,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -33.77967834472656,
+            -0.5907151103019714,
+            1.540115475654602
+          ],
+          "camera_forward": [
+            -0.9051716327667236,
+            0.38795703649520874,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.15960614383220673,
+            0.06840716302394867,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.648482621937362
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c2_v1.png",
+          "azimuth": 36.8,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -35.660274505615234,
+            -2.5933480262756348,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.5705844163894653,
+            0.7627155780792236,
+            -0.30446404218673706
+          ],
+          "camera_up": [
+            -0.18238121271133423,
+            0.24379387497901917,
+            0.9525238275527954
+          ],
+          "camera_radius": 5.65913709438512
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -20.494522094726562,
+        -0.27587318420410156,
+        0.0026948899030685425
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -20.494522094726562,
+            -0.27587318420410156,
+            0.0026948899030685425
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            8.5,
+            7.5,
+            6.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Minor rendering artifact at the bottom edge of the frame where sky is visible through the ground.",
+            "The background consists mostly of a dark road and sky, lacking the architectural interest of the mall.",
+            "The view faces away from the main architectural interest of the mall.",
+            "The top of the head is cropped by the frame edge.",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The background shows the edge of the world/sky through the ground plane at the horizon."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 1.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and at a realistic scale, but the framing crops the top of the head and the view looks away from the main architectural interest of the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_v0.png",
+          "azimuth": 50.7,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -16.499130249023438,
+            -3.5460638999938965,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.7404884696006775,
+            0.6060827374458313,
+            -0.29041433334350586
+          ],
+          "camera_up": [
+            -0.22473429143428802,
+            0.18394288420677185,
+            0.9569010138511658
+          ],
+          "camera_radius": 5.625519919209217
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c3_v1.png",
+          "azimuth": 244.3,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -23.67690086364746,
+            1.2557021379470825,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.8236483335494995,
+            -0.3963949680328369,
+            -0.4055544435977936
+          ],
+          "camera_up": [
+            0.36543580889701843,
+            -0.17587238550186157,
+            0.9140709042549133
+          ],
+          "camera_radius": 4.1788069038042694
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -25.816431045532227,
+        11.254927635192871,
+        0.9919999241828918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -25.816431045532227,
+            11.254927635192871,
+            0.9919999241828918
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            4.0,
+            2.0,
+            6.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object's head is cut off by the top edge of the frame, which is poor framing.",
+            "Surroundings are empty (only a plain wall and sky visible)",
+            "Object is completely hidden behind a wall",
+            "Minor rendering artifact in the background where the sky is visible through the floor geometry near the railing.",
+            "Object is likely clipping with a wall/glass based on metadata and visual proximity",
+            "Object is heavily cropped (only midsection visible)",
+            "Object is cropped at the top edge of the frame (head is missing)."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the frame, appearing to be occluded by or embedded within a wall, and the background lacks any meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_v0.png",
+          "azimuth": 40.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -22.28795623779297,
+            7.152698040008545,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.6484139561653137,
+            0.753850519657135,
+            -0.10615416616201401
+          ],
+          "camera_up": [
+            -0.0692230686545372,
+            0.08047901839017868,
+            0.9943496584892273
+          ],
+          "camera_radius": 5.552189078645046
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-bomber_3d225092_c4_v1.png",
+          "azimuth": 223.6,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -28.920249938964844,
+            14.514259338378906,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.6840087175369263,
+            -0.7182798981666565,
+            -0.12730276584625244
+          ],
+          "camera_up": [
+            0.0877905935049057,
+            -0.09218896925449371,
+            0.9918639063835144
+          ],
+          "camera_radius": 4.669616395666425
+        }
+      ]
+    }
+  ]
+}

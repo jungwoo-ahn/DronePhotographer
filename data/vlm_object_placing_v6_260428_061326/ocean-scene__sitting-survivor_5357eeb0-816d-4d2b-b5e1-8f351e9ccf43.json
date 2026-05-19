@@ -1,0 +1,236 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43",
+  "object_file": "data/objects/sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43/sitting-survivor-girl-green-top-cowboy_2K_46c39007-4050-4806-8b51-d6a415e7fe97.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -24.969858169555664,
+        -77.75145721435547,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -24.969858169555664,
+            -77.75145721435547,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is grounded, but the surface it is sitting on appears to be water, which is not a typical surface for a person to sit on.",
+            "The surroundings are empty, with only water and sky visible.",
+            "The surroundings are empty.",
+            "The object is grounded, but the surface it is on is not clearly visible or identifiable as a plausible surface in the context of the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly visible and grounded, but the placement on an undefined surface in a dark, empty scene makes the overall quality mediocre."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c0_v0.png",
+          "azimuth": 121.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -22.87226104736328,
+            -76.4861068725586,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.6152355670928955,
+            -0.3711335361003876,
+            -0.6955178380012512
+          ],
+          "camera_up": [
+            -0.5955492258071899,
+            -0.35925787687301636,
+            0.7185088396072388
+          ],
+          "camera_radius": 3.6517473356046977
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -8.699285507202148,
+        -7.245632648468018,
+        1.9552217721939087
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.699285507202148,
+            -7.245632648468018,
+            1.9552217721939087
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            3.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is grounded, but the surface it is sitting on appears to be water, which is not a typical surface for a person to sit on.",
+            "The surroundings are empty, with only water and sky visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded on what appears to be water, which is not a plausible surface for a person to sit on. The surroundings are also empty, consisting only of water and sky."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

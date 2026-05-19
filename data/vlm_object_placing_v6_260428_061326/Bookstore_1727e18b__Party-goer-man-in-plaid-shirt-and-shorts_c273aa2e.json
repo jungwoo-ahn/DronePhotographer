@@ -1,0 +1,727 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e",
+  "object_file": "data/objects/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        48.25168228149414,
+        -13.909733772277832,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            48.25168228149414,
+            -13.909733772277832,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.0,
+            4.0,
+            1.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly occluded by foreground elements.",
+            "Object is rendered in a completely different scene than the provided reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is rendered in a completely different scene (an open road with a hill) than the provided reference image (a bookstore on a street), making its placement irrelevant to the intended context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v0.png",
+          "azimuth": 73.8,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            53.1143684387207,
+            -15.322474479675293,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.9602698683738708,
+            0.2789841294288635,
+            0.007043585646897554
+          ],
+          "camera_up": [
+            0.006763884797692299,
+            -0.001965186558663845,
+            0.9999752044677734
+          ],
+          "camera_radius": 5.110826201642555
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v1.png",
+          "azimuth": 254.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            42.39973068237305,
+            -12.23171329498291,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9612452387809753,
+            -0.2756325304508209,
+            0.005858789198100567
+          ],
+          "camera_up": [
+            -0.005631810519844294,
+            0.001614967593923211,
+            0.9999828338623047
+          ],
+          "camera_radius": 6.126996301335314
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -4.1770172119140625,
+        -21.399547576904297,
+        -1.23977656585339e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.1770172119140625,
+            -21.399547576904297,
+            -1.23977656585339e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            9.5,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The rendered scene does not clearly show the bookstore from the reference image.",
+            "The surroundings are mostly empty sky and road, lacking meaningful scene context from the reference image.",
+            "Object is clipping with the lamppost.",
+            "Object is heavily occluded by the lamppost, making less than 70% visible.",
+            "Surroundings are empty, lacking scene context.",
+            "Surroundings are empty, lacking specific scene context.",
+            "The rendered scene does not match the provided reference image.",
+            "The rendered scene does not show the bookstore from the reference image, making the placement lack context."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.7,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind a lamppost, clipping with it, and the scene is devoid of the bookstore context shown in the reference image, making the surroundings empty and the placement implausible for the intended scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_v0.png",
+          "azimuth": 298.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -9.516892433166504,
+            -24.323043823242188,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8770230412483215,
+            0.4801558554172516,
+            0.01676163449883461
+          ],
+          "camera_up": [
+            -0.014702404849231243,
+            -0.00804932788014412,
+            0.9998595118522644
+          ],
+          "camera_radius": 6.119853239087885
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_v1.png",
+          "azimuth": 358.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -4.291900157928467,
+            -26.461994171142578,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.02268271893262863,
+            0.9995396137237549,
+            0.020149817690253258
+          ],
+          "camera_up": [
+            -0.00045714544830843806,
+            -0.0201446320861578,
+            0.999796986579895
+          ],
+          "camera_radius": 5.102261369714348
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -6.0494704246521,
+        1.0698938369750977,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.0494704246521,
+            1.0698938369750977,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            3.0,
+            6.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The rendered scene does not clearly show the bookstore from the reference image, making the context generic.",
+            "Object is clipping with the street light pole.",
+            "Object is significantly occluded by a foreground element (street light pole)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the sidewalk outside the bookstore and is correctly scaled, but is clipping with a street light pole."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v0.png",
+          "azimuth": 255.2,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -11.665645599365234,
+            2.5537514686584473,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9668051600456238,
+            -0.25544092059135437,
+            0.006139879580587149
+          ],
+          "camera_up": [
+            -0.005936167668551207,
+            0.0015684503596276045,
+            0.999981164932251
+          ],
+          "camera_radius": 5.849979173692491
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v1.png",
+          "azimuth": 195.2,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.645620822906494,
+            6.944705009460449,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.2621845602989197,
+            -0.9649999737739563,
+            0.005858669988811016
+          ],
+          "camera_up": [
+            -0.0015360156539827585,
+            0.005653730593621731,
+            0.9999828338623047
+          ],
+          "camera_radius": 6.126997322796218
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.930157661437988,
+        -6.419919967651367,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.930157661437988,
+            -6.419919967651367,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.5,
+            9.5,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The surroundings are mostly empty sky and road, lacking meaningful scene context from the reference image.",
+            "The wide shot emphasizes the street and sky more than the specific bookstore context.",
+            "The object is quite small in the frame, making it less prominent.",
+            "The surroundings are mostly empty sky and a plain ground plane, lacking rich scene context beyond the immediate foreground elements.",
+            "The rendered scene does not clearly show the bookstore from the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-grounded, fully visible, and plausibly located on the street, but the wide shot reveals a sparse background of mostly plain sky and ground, lacking rich scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_v0.png",
+          "azimuth": 329.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.831223964691162,
+            -11.659931182861328,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5090326070785522,
+            0.8607273101806641,
+            0.005858669988811016
+          ],
+          "camera_up": [
+            -0.002982265781611204,
+            -0.005042827222496271,
+            0.9999828338623047
+          ],
+          "camera_radius": 6.126997643826752
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_v1.png",
+          "azimuth": 269.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.8427083492279053,
+            -6.356170177459717,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9999279975891113,
+            -0.010471613146364689,
+            0.005858789198100567
+          ],
+          "camera_up": [
+            -0.005858468357473612,
+            6.131284317234531e-05,
+            0.9999828338623047
+          ],
+          "camera_radius": 6.126997134084369
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        3.3127965927124023,
+        -6.419919967651367,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.3127965927124023,
+            -6.419919967651367,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The rendered scene does not clearly show the bookstore from the reference image, making the context generic.",
+            "The surroundings are mostly empty sky and road, lacking meaningful scene context from the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded, fully visible, and plausibly scaled, but the rendered view lacks meaningful scene context, showing mostly a generic road and sky instead of the specific bookstore environment from the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_v0.png",
+          "azimuth": 240.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.9646821022033691,
+            -3.385234832763672,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8668819069862366,
+            -0.49847912788391113,
+            0.005858669988811016
+          ],
+          "camera_up": [
+            -0.005078859161585569,
+            0.0029204802121967077,
+            0.9999828338623047
+          ],
+          "camera_radius": 6.126996943396473
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_v1.png",
+          "azimuth": 329.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.2321733981370926,
+            -11.670716285705566,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5060250163078308,
+            0.8624988794326782,
+            0.005858669988811016
+          ],
+          "camera_up": [
+            -0.002964645391330123,
+            -0.005053205881267786,
+            0.9999828338623047
+          ],
+          "camera_radius": 6.126997332524416
+        }
+      ]
+    }
+  ]
+}

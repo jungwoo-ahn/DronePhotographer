@@ -1,0 +1,137 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "Girl-wrapped-herself-in-a-blazer_d175d030",
+  "object_file": "data/objects/Girl-wrapped-herself-in-a-blazer_d175d030/Girl-wrapped-herself-in-a-blazer_d175d030.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.6659529209136963,
+        2.189399242401123,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.6659529209136963,
+            2.189399242401123,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            3.0,
+            7.0,
+            6.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scene is very empty and lacks context for the object.",
+            "The surroundings are empty.",
+            "The surroundings are empty, with only a flat, featureless ground and sky visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scene lacks any context or interesting surroundings, resulting in a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Girl-wrapped-herself-in-a-blazer_d175d030_c0_v0.png",
+          "azimuth": 149.2,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            5.411419868469238,
+            5.117447376251221,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.51120525598526,
+            -0.8575549721717834,
+            0.057171907275915146
+          ],
+          "camera_up": [
+            0.02927444688975811,
+            0.04910838603973389,
+            0.9983643293380737
+          ],
+          "camera_radius": 3.439881249924513
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A girl wearing a blazer and high heels would not naturally be found in a pine forest."
+    }
+  ]
+}

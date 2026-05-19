@@ -1,0 +1,141 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Buyer-in-Beige_5c9ab0f2",
+  "object_file": "data/objects/Buyer-in-Beige_5c9ab0f2/Buyer-in-Beige_5c9ab0f2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7547961473464966,
+        -0.40954792499542236,
+        -0.9726263284683228
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7547961473464966,
+            -0.40954792499542236,
+            -0.9726263284683228
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is partially obscured by foliage.",
+            "The scene is very empty, with no discernible context or background elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but partially obscured by foliage. The scale appears appropriate for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_v0.png",
+          "azimuth": 210.5,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.7137086391448975,
+            4.613688945770264,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.5075126886367798,
+            -0.8615856170654297,
+            -0.01005485188215971
+          ],
+          "camera_up": [
+            0.005103185307234526,
+            -0.00866357609629631,
+            0.9999494552612305
+          ],
+          "camera_radius": 5.879887358963543
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Buyer-in-Beige_5c9ab0f2_c0_v1.png",
+          "azimuth": 101.1,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            2.979234457015991,
+            0.3230396509170532,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9811761975288391,
+            -0.1924992799758911,
+            -0.01540380995720625
+          ],
+          "camera_up": [
+            -0.015115671791136265,
+            -0.0029654407408088446,
+            0.9998813271522522
+          ],
+          "camera_radius": 3.8813234002855936
+        }
+      ]
+    }
+  ]
+}

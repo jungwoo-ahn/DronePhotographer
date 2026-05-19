@@ -1,0 +1,250 @@
+{
+  "scene": "cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68",
+  "scene_file": "data/scenes/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68/cafe-interior-loft-bar_44aee1c5-b5e2-4a44-8c58-ad72287c54af.blend",
+  "scene_scale": 0.65,
+  "object": "Summer-Walk_3a48a916",
+  "object_file": "data/objects/Summer-Walk_3a48a916/Summer-Walk_3a48a916.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.6620387434959412,
+        -4.868048667907715,
+        0.00943497009575367
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.6620387434959412,
+            -4.868048667907715,
+            0.00943497009575367
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not fully visible, only the lower body is visible.",
+            "Object is too large for the scene, appearing to be on top of a table rather than standing on the floor.",
+            "Object is mostly cropped out, only legs and torso are visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded but not fully visible, and it appears to be too large for the scene, suggesting the scene is too small. The previous attempt was also floating, so a significant upward adjustment is needed to place the person on the floor."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c1_v1.png",
+          "azimuth": 165.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            2.0904061794281006,
+            0.46268969774246216,
+            1.212802529335022
+          ],
+          "camera_forward": [
+            -0.2576209306716919,
+            -0.9614540934562683,
+            -0.09611179679632187
+          ],
+          "camera_up": [
+            -0.024875663220882416,
+            -0.09283683449029922,
+            0.9953705668449402
+          ],
+          "camera_radius": 5.648460367032481
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.33796119689941406,
+        0.13195130228996277,
+        0.006702377460896969
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.33796119689941406,
+            0.13195130228996277,
+            0.006702377460896969
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not fully visible, only the lower body is visible.",
+            "Object is too large for the scene, appearing to be on top of a table rather than standing on the floor."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and not clipping, but it is not fully visible as only the lower body is in frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_v0.png",
+          "azimuth": 0.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.3090648055076599,
+            -5.386760711669922,
+            1.212802529335022
+          ],
+          "camera_forward": [
+            -0.0052114794962108135,
+            0.9953096508979797,
+            -0.09660005569458008
+          ],
+          "camera_up": [
+            -0.000505794130731374,
+            0.09659873694181442,
+            0.9953233003616333
+          ],
+          "camera_radius": 5.649043317398503
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68_Summer-Walk_3a48a916_c2_v1.png",
+          "azimuth": 0.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.33796098828315735,
+            -5.386836051940918,
+            1.212802529335022
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9953233003616333,
+            -0.09660005569458008
+          ],
+          "camera_up": [
+            0.0,
+            0.09660005569458008,
+            0.9953233003616333
+          ],
+          "camera_radius": 5.6490430177585935
+        }
+      ]
+    }
+  ]
+}

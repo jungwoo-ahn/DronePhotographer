@@ -1,0 +1,142 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Broadway-Lady_bed11779",
+  "object_file": "data/objects/Broadway-Lady_bed11779/Broadway-Lady_bed11779.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.871152400970459,
+        0.7240958213806152,
+        -0.9935498237609863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.871152400970459,
+            0.7240958213806152,
+            -0.9935498237609863
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Broadway-Lady_bed11779_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on a hill, which is a plausible location for a person to be standing."
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible in a plausible outdoor environment. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Broadway-Lady_bed11779_c0_v0.png",
+          "azimuth": 189.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.7214452028274536,
+            5.916527271270752,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.1615658551454544,
+            -0.9866244792938232,
+            -0.021648816764354706
+          ],
+          "camera_up": [
+            0.003498417790979147,
+            -0.021364277228713036,
+            0.9997656345367432
+          ],
+          "camera_radius": 5.319942741596808
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Broadway-Lady_bed11779_c0_v1.png",
+          "azimuth": 129.3,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.200479030609131,
+            4.056687355041504,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.7736586928367615,
+            -0.6332326531410217,
+            -0.021648580208420753
+          ],
+          "camera_up": [
+            -0.016752639785408974,
+            -0.013711675070226192,
+            0.9997656345367432
+          ],
+          "camera_radius": 5.319942836830817
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A bed is an indoor furniture item and would not naturally be found in an outdoor valley scene."
+    }
+  ]
+}

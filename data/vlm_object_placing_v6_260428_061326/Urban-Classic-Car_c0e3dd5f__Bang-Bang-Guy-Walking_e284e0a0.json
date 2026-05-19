@@ -1,0 +1,448 @@
+{
+  "scene": "Urban-Classic-Car_c0e3dd5f",
+  "scene_file": "data/scenes/Urban-Classic-Car_c0e3dd5f/Urban-Classic-Car_c0e3dd5f.blend",
+  "scene_scale": 1.0,
+  "object": "Bang-Bang-Guy-Walking_e284e0a0",
+  "object_file": "data/objects/Bang-Bang-Guy-Walking_e284e0a0/Bang-Bang-Guy-Walking_e284e0a0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.6221139430999756,
+        -3.903108596801758,
+        0.009858846664428711
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.6221139430999756,
+            -3.903108596801758,
+            0.009858846664428711
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is on top of a car, which is not a plausible location for a person walking."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on top of a car, which is an implausible location for a walking person, despite being grounded and fully visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_v0.png",
+          "azimuth": 118.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            6.20458984375,
+            -1.99024498462677,
+            1.5645134449005127
+          ],
+          "camera_forward": [
+            -0.8654797077178955,
+            -0.4621232748031616,
+            -0.1933569610118866
+          ],
+          "camera_up": [
+            -0.17056532204151154,
+            -0.09107354283332825,
+            0.981128454208374
+          ],
+          "camera_radius": 4.348578232774555
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c0_v1.png",
+          "azimuth": 324.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.9556198120117188,
+            -8.993709564208984,
+            1.5645134449005127
+          ],
+          "camera_forward": [
+            0.5703063607215881,
+            0.8114638924598694,
+            -0.12758122384548187
+          ],
+          "camera_up": [
+            0.0733598917722702,
+            0.1043805181980133,
+            0.9918281435966492
+          ],
+          "camera_radius": 6.4133721373878405
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        1.6221139430999756,
+        -8.903108596801758,
+        -0.18026304244995117
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.6221139430999756,
+            -8.903108596801758,
+            -0.18026304244995117
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is on top of a car, which is not a plausible location for a person walking."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on top of a car, which is not a plausible location for a person walking. The person is fully visible and grounded, with no clipping. The surroundings are not empty, showing a street scene with buildings and cars."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_v0.png",
+          "azimuth": 303.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.5543785095214844,
+            -12.355400085449219,
+            1.5645134449005127
+          ],
+          "camera_forward": [
+            0.8216091394424438,
+            0.5479451417922974,
+            -0.15720883011817932
+          ],
+          "camera_up": [
+            0.1307905614376068,
+            0.08722639828920364,
+            0.9875653982162476
+          ],
+          "camera_radius": 6.4620923598090325
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c1_v1.png",
+          "azimuth": 21.5,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.110541343688965,
+            -12.68170166015625,
+            1.5645134449005127
+          ],
+          "camera_forward": [
+            -0.35606446862220764,
+            0.9039220213890076,
+            -0.236945241689682
+          ],
+          "camera_up": [
+            -0.0868406891822815,
+            0.2204580307006836,
+            0.9715229868888855
+          ],
+          "camera_radius": 4.420116115184102
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        8.622114181518555,
+        -2.903108835220337,
+        0.009858846664428711
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.622114181518555,
+            -2.903108835220337,
+            0.009858846664428711
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            7.0,
+            8.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is on top of a car, which is not a plausible location for a person walking."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.7
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on top of a car, which is not a plausible location for a person walking. The person is fully visible and grounded, but the placement is highly implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_v0.png",
+          "azimuth": 40.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            11.248844146728516,
+            -6.000442981719971,
+            1.5645134449005127
+          ],
+          "camera_forward": [
+            -0.6345837712287903,
+            0.748275637626648,
+            -0.19335708022117615
+          ],
+          "camera_up": [
+            -0.12506133317947388,
+            0.14746737480163574,
+            0.981128454208374
+          ],
+          "camera_radius": 4.348578835869186
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Bang-Bang-Guy-Walking_e284e0a0_c2_v1.png",
+          "azimuth": 8.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            9.488061904907227,
+            -9.064645767211914,
+            1.5645134449005127
+          ],
+          "camera_forward": [
+            -0.1380358189344406,
+            0.9821757078170776,
+            -0.12758122384548187
+          ],
+          "camera_up": [
+            -0.017755869776010513,
+            0.1263395994901657,
+            0.9918281435966492
+          ],
+          "camera_radius": 6.4133728018950285
+        }
+      ]
+    }
+  ]
+}

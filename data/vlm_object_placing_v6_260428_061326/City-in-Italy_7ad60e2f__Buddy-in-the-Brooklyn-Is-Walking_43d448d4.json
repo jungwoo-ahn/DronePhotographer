@@ -1,0 +1,546 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+  "object_file": "data/objects/Buddy-in-the-Brooklyn-Is-Walking_43d448d4/Buddy-in-the-Brooklyn-Is-Walking_43d448d4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        27.335845947265625,
+        -23.25994110107422,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.335845947265625,
+            -23.25994110107422,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            3.0,
+            7.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Large black void in foreground",
+            "The surface the object is walking on appears as a black void/missing texture",
+            "The ground is completely black/untextured",
+            "Surroundings are very sparse",
+            "The ground surface is rendered as a solid black void, indicating a broken texture or missing material.",
+            "Object is heavily cropped (head and upper body missing)",
+            "The ground surface the object is standing on is a solid black untextured block, which appears to be a broken or missing part of the scene geometry.",
+            "Object is partially occluded by a foreground fence"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is correctly placed and scaled on the walkway, the ground texture is completely broken (rendered as pure black), which is a major technical failure."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        20.338333129882812,
+        -41.10359573364258,
+        -0.12022017687559128
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.338333129882812,
+            -41.10359573364258,
+            -0.12022017687559128
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            8.5,
+            8.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Foreground fence partially obscures the subject",
+            "Large black void visible behind the fence",
+            "Large black void on the right side of the frame (scene/texture issue)",
+            "Object is heavily cropped; head and upper body are out of frame.",
+            "Large black void in the foreground due to missing scene geometry/textures"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and in a plausible location, but the framing is poor as the head and upper body are completely cut off by the top of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v0.png",
+          "azimuth": 182.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.15250587463379,
+            -37.30409240722656,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.046567402780056,
+            -0.9521380066871643,
+            -0.3021004796028137
+          ],
+          "camera_up": [
+            0.014757483266294003,
+            -0.3017398416996002,
+            0.9532760977745056
+          ],
+          "camera_radius": 4.24877945075177
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v1.png",
+          "azimuth": 11.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            21.070695877075195,
+            -44.83647537231445,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.18352679908275604,
+            0.9354428052902222,
+            -0.30210039019584656
+          ],
+          "camera_up": [
+            -0.058161020278930664,
+            0.29644888639450073,
+            0.9532760977745056
+          ],
+          "camera_radius": 4.2487779922101945
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        11.241567611694336,
+        -11.01429557800293,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.241567611694336,
+            -11.01429557800293,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.5,
+            4.0,
+            9.5,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The person's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly on the street and is grounded, but the camera framing cuts off the entire head, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v0.png",
+          "azimuth": 130.1,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            15.699630737304688,
+            -7.260257720947266,
+            1.6617130041122437
+          ],
+          "camera_forward": [
+            -0.7533006072044373,
+            -0.6343379020690918,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.13282716274261475,
+            -0.11185082793235779,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.075105010015954
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v1.png",
+          "azimuth": 13.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            12.142510414123535,
+            -14.710110664367676,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.22689969837665558,
+            0.9307796359062195,
+            -0.28664568066596985
+          ],
+          "camera_up": [
+            -0.06788868457078934,
+            0.2784903645515442,
+            0.9580366611480713
+          ],
+          "camera_radius": 4.219208134394599
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.092687606811523,
+        11.727619171142578,
+        -0.05286264047026634
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.092687606811523,
+            11.727619171142578,
+            -0.05286264047026634
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            10.0,
+            10.0,
+            8.5,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's hat is slightly cropped by the frame edge.",
+            "The top of the person's head is slightly cropped by the frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-placed and grounded on a promenade, though the top of the head is slightly cropped by the camera framing."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_v0.png",
+          "azimuth": 189.5,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.130768299102783,
+            17.47582244873047,
+            1.66171395778656
+          ],
+          "camera_forward": [
+            0.16254010796546936,
+            -0.971301794052124,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            0.028660088777542114,
+            -0.17126640677452087,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.075105132657135
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_v1.png",
+          "azimuth": 12.2,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.896575927734375,
+            8.00948715209961,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.20245683193206787,
+            0.936400294303894,
+            -0.2866455614566803
+          ],
+          "camera_up": [
+            -0.06057531014084816,
+            0.2801719307899475,
+            0.9580367207527161
+          ],
+          "camera_radius": 4.219207145506284
+        }
+      ]
+    }
+  ]
+}

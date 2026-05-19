@@ -1,0 +1,402 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 0.75,
+  "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+  "object_file": "data/objects/koky_62993eba-1768-46e1-9a7d-712e0ef109fb/koky_2K_7495bb4f-844d-4a39-be6d-d096ed7b5b75.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -30.77579116821289,
+        22.254249572753906,
+        -0.774766206741333
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -30.77579116821289,
+            22.254249572753906,
+            -0.774766206741333
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            7.0,
+            8.0,
+            9.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is standing on the sidewalk, which is a plausible location, but the scene is an exterior shot of townhouses. It would be more plausible to have the person in front of a door or on a porch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is fully visible and grounded, with no clipping issues. The scale appears correct for a person in this environment. The placement is plausible as they are on the sidewalk in front of townhouses, though not the most engaging placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_v0.png",
+          "azimuth": 212.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -33.72993850708008,
+            26.85580825805664,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.5373642444610596,
+            -0.8370311856269836,
+            -0.10304588079452515
+          ],
+          "camera_up": [
+            0.05566941574215889,
+            -0.08671429753303528,
+            0.9946765899658203
+          ],
+          "camera_radius": 5.611919155522804
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        28.801109313964844,
+        6.5169572830200195,
+        -0.774808406829834
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.801109313964844,
+            6.5169572830200195,
+            -0.774808406829834
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing on the sidewalk, which is a plausible location, but the scene is an exterior shot of townhouses. It would be more plausible to have the person in front of a door or on a porch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but their placement on the sidewalk is less plausible than being near a townhouse entrance. Moving them to the right will place them closer to one of the doors."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_v0.png",
+          "azimuth": 94.6,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            32.358734130859375,
+            6.803196430206299,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9844539165496826,
+            -0.07920711487531662,
+            -0.15676969289779663
+          ],
+          "camera_up": [
+            -0.15626470744609833,
+            -0.012572843581438065,
+            0.9876351952552795
+          ],
+          "camera_radius": 3.785636027019174
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_v1.png",
+          "azimuth": 279.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            25.27690887451172,
+            5.9524712562561035,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.9752047061920166,
+            0.15620216727256775,
+            -0.15676945447921753
+          ],
+          "camera_up": [
+            0.15479633212089539,
+            0.02479427307844162,
+            0.9876352548599243
+          ],
+          "camera_radius": 3.7856366902750764
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.5493888854980469,
+        15.509697914123535,
+        -0.5077714920043945
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.5493888854980469,
+            15.509697914123535,
+            -0.5077714920043945
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing on the sidewalk, which is a plausible location, but the scene is an exterior shot of townhouses. It would be more plausible to have the person in front of a door or on a porch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but their placement on the sidewalk is less plausible than being on a porch or in front of a door."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c2_v1.png",
+          "azimuth": 305.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.01220178604126,
+            12.34985065460205,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.8149162530899048,
+            0.5769927501678467,
+            -0.054688651114702225
+          ],
+          "camera_up": [
+            0.04463351517915726,
+            0.03160218149423599,
+            0.9985034465789795
+          ],
+          "camera_radius": 5.557976399585039
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb",
+  "object_file": "data/objects/standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb/standing-survivor-girl-green-top-cowboy_2K_3fcfa07b-148a-4a23-884e-ba2c5108a1e3.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -25.610515594482422,
+        -2.048524856567383,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -25.610515594482422,
+            -2.048524856567383,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are mostly empty (water and sky), lacking meaningful scene context.",
+            "The immediate surroundings of the object are empty of meaningful scene context.",
+            "Object is placed on an artificial, reflective platform that does not belong in the scene.",
+            "Object is heavily cropped (more than 30% cut off at the top).",
+            "Object is placed on a large, flat, reflective plane that is not part of the natural scene environment, making the placement highly implausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is implausibly placed on a narrow, artificial reflective platform that is not part of the original scene, and the immediate surroundings are empty of relevant context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_v0.png",
+          "azimuth": 215.5,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -27.742279052734375,
+            0.9400968551635742,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            0.5782968401908875,
+            -0.8107422590255737,
+            -0.09093812108039856
+          ],
+          "camera_up": [
+            0.052807971835136414,
+            -0.074034184217453,
+            0.995856523513794
+          ],
+          "camera_radius": 3.8081155956107735
+        }
+      ]
+    }
+  ]
+}

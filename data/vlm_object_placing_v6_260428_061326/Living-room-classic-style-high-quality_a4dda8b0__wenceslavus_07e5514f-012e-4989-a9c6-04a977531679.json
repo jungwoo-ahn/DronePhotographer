@@ -1,0 +1,111 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+  "object_file": "data/objects/wenceslavus_07e5514f-012e-4989-a9c6-04a977531679/wenceslavus_2K_e016770d-2dfc-4024-b9e2-24b1e1ebd3ee.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        1.386762022972107,
+        1.3736990690231323,
+        -0.059682369232177734
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.386762022972107,
+            1.3736990690231323,
+            -0.059682369232177734
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0_v3.png"
+          ],
+          "view_qualities": [
+            0.0,
+            8.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The area around the object is mostly empty (only a wall is visible).",
+            "The area around the object is mostly empty (only a dark wall and plant are visible).",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, which is almost entirely dark, showing only a plant and a dark wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c3_v0.png",
+          "azimuth": 260.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.3623545169830322,
+            1.9742101430892944,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            0.9872326850891113,
+            -0.15812918543815613,
+            -0.019150592386722565
+          ],
+          "camera_up": [
+            0.018909573554992676,
+            -0.003028726205229759,
+            0.9998165965080261
+          ],
+          "camera_radius": 3.8784477446939234
+        }
+      ]
+    }
+  ]
+}

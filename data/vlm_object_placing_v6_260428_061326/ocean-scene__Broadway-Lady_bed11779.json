@@ -1,0 +1,150 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Broadway-Lady_bed11779",
+  "object_file": "data/objects/Broadway-Lady_bed11779/Broadway-Lady_bed11779.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -19.05975341796875,
+        -27.614410400390625,
+        0.6516805291175842
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -19.05975341796875,
+            -27.614410400390625,
+            0.6516805291175842
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Broadway-Lady_bed11779_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded on the shore, fully visible, and appears to be at a plausible scale for the scene. The surroundings provide context with the ship and rocky outcrop."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Broadway-Lady_bed11779_c0_v0.png",
+          "azimuth": 238.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -23.565080642700195,
+            -24.896623611450195,
+            1.5544102191925049
+          ],
+          "camera_forward": [
+            0.8554439544677734,
+            -0.5160366296768188,
+            -0.04383859038352966
+          ],
+          "camera_up": [
+            0.03753761574625969,
+            -0.02264396660029888,
+            0.9990386366844177
+          ],
+          "camera_radius": 5.338469685014952
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Broadway-Lady_bed11779_c0_v1.png",
+          "azimuth": 111.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -14.157576560974121,
+            -25.7031307220459,
+            1.5544102191925049
+          ],
+          "camera_forward": [
+            -0.9307954907417297,
+            -0.3629021644592285,
+            -0.043838709592819214
+          ],
+          "camera_up": [
+            -0.040844131261110306,
+            -0.015924490988254547,
+            0.9990386366844177
+          ],
+          "camera_radius": 5.338468680154223
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A bed is an indoor piece of furniture that would not naturally be placed on a wet, exposed outdoor deck overlooking the ocean."
+    }
+  ]
+}

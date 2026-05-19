@@ -1,0 +1,359 @@
+{
+  "scene": "sea-side-view",
+  "scene_file": "data/scenes/sea-side-view/ocean scene.blend",
+  "scene_scale": 3.0,
+  "object": "The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e",
+  "object_file": "data/objects/The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e/The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.1719493865966797,
+        17.35118865966797,
+        5.068496875537676e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.1719493865966797,
+            17.35118865966797,
+            5.068496875537676e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing in the water, which is not a plausible location for a person on a bar stool.",
+            "The object is placed on a bar stool, which is plausible, but the scene itself is a rocky shore with water, which is not a typical place for a bar stool and a person sitting on it. The scale of the stool relative to the person seems appropriate, but the overall context is odd.",
+            "The person is sitting on a bar stool, which is not a typical item to find on a rocky shore."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a bar stool on a rocky shore, which is a plausible location. The scale appears correct, and the object is fully visible and grounded with no clipping. The surroundings provide good context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_v0.png",
+          "azimuth": 225.6,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.953996658325195,
+            20.075571060180664,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.7099482417106628,
+            -0.6952328681945801,
+            -0.11236012727022171
+          ],
+          "camera_up": [
+            0.08027809113264084,
+            -0.07861441373825073,
+            0.9936675429344177
+          ],
+          "camera_radius": 4.055206265642116
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_v1.png",
+          "azimuth": 351.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.7205967903137207,
+            13.496187210083008,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.14000897109508514,
+            0.9837543964385986,
+            -0.11235988885164261
+          ],
+          "camera_up": [
+            0.015831615775823593,
+            0.11123894900083542,
+            0.9936676025390625
+          ],
+          "camera_radius": 4.055206508164085
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.524574279785156,
+        9.33465576171875,
+        -0.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.524574279785156,
+            9.33465576171875,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The scene is mostly water with a rocky outcrop, and there is no context for a bar stool or a person sitting on one.",
+            "The person is sitting on a bar stool in the water, which is not a plausible location for a person on a bar stool. The scene is a rocky shore with water, which is not a typical place for a bar stool and a person sitting on it.",
+            "The person is sitting on a bar stool in the middle of the water, which is not a plausible location for a person on a bar stool. The scene is a rocky shore with water, which is not a typical place for a bar stool and a person sitting on it.",
+            "The person is sitting on a bar stool in the middle of a reflective surface that appears to be water or a very large puddle, which is not a plausible location for a bar stool and a person sitting on it.",
+            "The object is placed on a bar stool, which is plausible, but the scene itself is a rocky shore with water, which is not a typical place for a bar stool and a person sitting on it. The scale of the stool relative to the person seems appropriate, but the overall context is odd.",
+            "The scale of the bar stool and person seems appropriate relative to each other, but the scene itself is not suitable for this object.",
+            "The person is sitting on a bar stool in the middle of the ocean, which is not a plausible location.",
+            "The person is sitting on a bar stool in the middle of the ocean, which is not a plausible location. The previous attempt also had the person in the water, but on a rocky shore. This is still not a good placement."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the placement on a bar stool in the middle of the water is highly implausible for this scene, which is a rocky shore."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -11.524574279785156,
+            9.33465576171875,
+            -0.25
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            6.0,
+            2.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a bar stool on what appears to be a reflective floor, which is not a plausible location for this object in this scene. The scene is a rocky shore with water, and a bar stool does not fit the environment.",
+            "The scene is mostly water with some rocks, and there are no elements that would typically accompany a bar stool or a person sitting on one, such as a bar, a building, or furniture. This makes the surroundings feel empty and unrealistic for the object.",
+            "The scene is a rocky shore with water, and there is no indication of a place where a bar stool would be present.",
+            "The person is sitting on a bar stool on what appears to be a flat, reflective surface that resembles water. This is not a plausible location for a bar stool and a person sitting on it, especially given the rocky shore visible in the reference image.",
+            "The scale of the bar stool and person relative to the scene seems appropriate, but the context is highly implausible.",
+            "The person is sitting on a bar stool in the water, which is not a plausible location. The scene is a rocky shore with water, and a bar stool does not belong here.",
+            "The person is sitting on a bar stool in the middle of the ocean, which is not a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the placement is highly implausible as the person is sitting on a bar stool in the middle of the ocean with no surrounding context to justify it."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_v1.png",
+          "azimuth": 72.1,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -7.819210529327393,
+            8.137855529785156,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            -0.9369844198226929,
+            0.3026376962661743,
+            -0.17455820739269257
+          ],
+          "camera_up": [
+            -0.166108638048172,
+            0.053651560097932816,
+            0.9846468567848206
+          ],
+          "camera_radius": 4.132005940931578
+        }
+      ]
+    }
+  ]
+}

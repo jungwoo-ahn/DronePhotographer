@@ -1,0 +1,162 @@
+{
+  "scene": "Sunlight_4bf975b7",
+  "scene_file": "data/scenes/Sunlight_4bf975b7/Sunlight_4bf975b7.blend",
+  "scene_scale": 0.65,
+  "object": "snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da",
+  "object_file": "data/objects/snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/snowman_2K_d6c75ad8-d999-438a-a8dd-fa548ce49697.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        6.1641082763671875,
+        -3.491905927658081,
+        -0.8924061059951782
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.1641082763671875,
+            -3.491905927658081,
+            -0.8924061059951782
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            3.0,
+            7.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on a floating platform, not directly on the ground.",
+            "The surroundings are empty.",
+            "The object is not placed in a plausible location.",
+            "The object is too far away and too small in the frame to be evaluated properly.",
+            "The snowman is placed in a suburban street scene, which is not a plausible location for a snowman."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but it is too far away and too small in the frame to assess its placement plausibility or scale accurately. The surroundings are also empty, which is not ideal for training."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_v0.png",
+          "azimuth": 54.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.598878860473633,
+            -6.631898880004883,
+            0.6810749769210815
+          ],
+          "camera_forward": [
+            -0.8081337809562683,
+            0.5721904635429382,
+            -0.13970619440078735
+          ],
+          "camera_up": [
+            -0.114019475877285,
+            0.08073028922080994,
+            0.9901930093765259
+          ],
+          "camera_radius": 5.657083418339147
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Sunlight_4bf975b7_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_v1.png",
+          "azimuth": 250.1,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.3053154945373535,
+            -0.7880124449729919,
+            0.6810749769210815
+          ],
+          "camera_forward": [
+            0.9359393119812012,
+            -0.3388054072856903,
+            -0.09606492519378662
+          ],
+          "camera_up": [
+            0.09032871574163437,
+            -0.032698508352041245,
+            0.9953750967979431
+          ],
+          "camera_radius": 8.0980965420552
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman would not look natural in a sunny suburban scene with no snow."
+    }
+  ]
+}

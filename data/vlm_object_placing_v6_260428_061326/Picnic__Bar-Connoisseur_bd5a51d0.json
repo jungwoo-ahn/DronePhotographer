@@ -1,0 +1,143 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "Bar-Connoisseur_bd5a51d0",
+  "object_file": "data/objects/Bar-Connoisseur_bd5a51d0/Bar-Connoisseur_bd5a51d0.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.47625696659088135,
+        -2.4038267135620117,
+        -0.1098044365644455
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.47625696659088135,
+            -2.4038267135620117,
+            -0.1098044365644455
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            10.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Bar-Connoisseur_bd5a51d0_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The person is sitting on a stool that is too low for the scene, making the person appear too large for the environment.",
+            "The scale of the stool appears too small for the person sitting on it."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly visible and grounded, but the scale of the stool is too small, making the person appear too large for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Bar-Connoisseur_bd5a51d0_c0_v0.png",
+          "azimuth": 315.5,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.091904640197754,
+            -5.0655293464660645,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.7008692026138306,
+            0.7132095098495483,
+            0.010704713873565197
+          ],
+          "camera_up": [
+            -0.007503030356019735,
+            -0.007635144982486963,
+            0.9999427199363708
+          ],
+          "camera_radius": 3.7805567058525202
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Bar-Connoisseur_bd5a51d0_c0_v1.png",
+          "azimuth": 45.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            2.915748357772827,
+            -5.737141132354736,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.7132254838943481,
+            0.7008843421936035,
+            0.008400266058743
+          ],
+          "camera_up": [
+            0.005991456098854542,
+            -0.005887862294912338,
+            0.999964714050293
+          ],
+          "camera_radius": 4.7940611181300055
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A bar connoisseur object, which implies a bar or a person associated with a bar, would not naturally fit into a picnic scene."
+    }
+  ]
+}

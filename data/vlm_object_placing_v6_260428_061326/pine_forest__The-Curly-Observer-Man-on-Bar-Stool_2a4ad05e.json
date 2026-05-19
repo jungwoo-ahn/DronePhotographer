@@ -1,0 +1,140 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e",
+  "object_file": "data/objects/The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e/The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.3068530559539795,
+        -10.98213005065918,
+        0.09720611572265625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.3068530559539795,
+            -10.98213005065918,
+            0.09720611572265625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0,
+            8.0,
+            3.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an empty desert landscape with no context or plausible reason for it to be there.",
+            "The scene is very empty, with only sand and sky visible.",
+            "surroundings_empty=true",
+            "The surroundings are empty, with only sand and sky visible.",
+            "The object is a person sitting on a bar stool in a desert landscape with ruins in the background. While the person is grounded and fully visible, the placement is somewhat unusual. A bar stool in a desert is not a typical scenario, and the scale of the stool relative to the person appears slightly off, making the scene feel a bit surreal rather than plausible.",
+            "The object is placed in a desert landscape with no context or plausible reason for its presence. The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the placement is implausible in an empty desert, and the surroundings are empty, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_v0.png",
+          "azimuth": 95.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            7.242786884307861,
+            -10.472050666809082,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.9925330281257629,
+            -0.10256845504045486,
+            0.06601457297801971
+          ],
+          "camera_up": [
+            0.0656648725271225,
+            0.006785869598388672,
+            0.997818648815155
+          ],
+          "camera_radius": 4.97554848070056
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A man on a bar stool does not naturally belong in a pine forest scene."
+    }
+  ]
+}

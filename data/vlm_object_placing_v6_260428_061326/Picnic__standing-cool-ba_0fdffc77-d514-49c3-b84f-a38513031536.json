@@ -1,0 +1,159 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536",
+  "object_file": "data/objects/standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536/standing-cool-bald-man_2K_9b68b255-ca14-416e-9ee7-f0992fca7ef2.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.5068459510803223,
+        -3.420724391937256,
+        -0.10980445146560669
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.5068459510803223,
+            -3.420724391937256,
+            -0.10980445146560669
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.0,
+            8.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is standing on a stone structure that is not present in the reference image. It is unclear if this is intentional or an error.",
+            "The person is very small relative to the scene, suggesting the scene is too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a plausible location for a picnic scene. The scale appears correct relative to the picnic blanket and chair."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v0.png",
+          "azimuth": 23.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.0747687816619873,
+            -7.043979644775391,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.39693474769592285,
+            0.9172618985176086,
+            0.032763026654720306
+          ],
+          "camera_up": [
+            0.013011769391596317,
+            -0.03006841614842415,
+            0.9994631409645081
+          ],
+          "camera_radius": 3.9940832642258073
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v1.png",
+          "azimuth": 256.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.327150583267212,
+            -2.479004144668579,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.9706128835678101,
+            -0.23840557038784027,
+            0.032763026654720306
+          ],
+          "camera_up": [
+            -0.03181728348135948,
+            0.00781513936817646,
+            0.9994631409645081
+          ],
+          "camera_radius": 3.994083480612715
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is a person, and the scene is a dark, rocky cave, which is not a typical or natural environment for a person to be in."
+    }
+  ]
+}

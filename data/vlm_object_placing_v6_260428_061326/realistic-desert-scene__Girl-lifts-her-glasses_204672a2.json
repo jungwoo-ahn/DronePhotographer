@@ -1,0 +1,162 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "Girl-lifts-her-glasses_204672a2",
+  "object_file": "data/objects/Girl-lifts-her-glasses_204672a2/Girl-lifts-her-glasses_204672a2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        37.80686950683594,
+        585.5208129882812,
+        -33.57086181640625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            37.80686950683594,
+            585.5208129882812,
+            -33.57086181640625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            1.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is mostly occluded by terrain.",
+            "The surroundings are empty, with only a barren landscape visible.",
+            "Object is not visible in the scene.",
+            "The scene is empty and lacks context.",
+            "Surroundings are empty.",
+            "The object is not visible in the rendered image.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, grounding, clipping, or scale. The surroundings are also empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_v0.png",
+          "azimuth": 357.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            37.516910552978516,
+            579.7969360351562,
+            -31.862926483154297
+          ],
+          "camera_forward": [
+            0.049824293702840805,
+            0.9835466146469116,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.00878535583615303,
+            0.1734255999326706,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.980291564529212
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Girl-lifts-her-glasses_204672a2_c0_v1.png",
+          "azimuth": 117.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            42.90886688232422,
+            588.1316528320312,
+            -31.862926483154297
+          ],
+          "camera_forward": [
+            -0.8766873478889465,
+            -0.4486265182495117,
+            -0.17364774644374847
+          ],
+          "camera_up": [
+            -0.15458333492279053,
+            -0.07910457253456116,
+            0.9848078489303589
+          ],
+          "camera_radius": 5.980292977329459
+        }
+      ]
+    }
+  ]
+}

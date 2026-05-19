@@ -1,0 +1,159 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "Redhead-Girl-in-\u0430-red-dress_75d57040",
+  "object_file": "data/objects/Redhead-Girl-in-\u0430-red-dress_75d57040/Redhead-Girl-in-\u0430-red-dress_75d57040.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        37.76611328125,
+        585.47998046875,
+        -33.583221435546875
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            37.76611328125,
+            585.47998046875,
+            -33.583221435546875
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            1.0,
+            7.0,
+            1.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "Object is completely hidden behind walls",
+            "The rendered image is black",
+            "The rendered image has a very sparse background with little detail."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is black and the object is completely hidden behind walls, indicating a failed render or placement that is entirely out of view. The surroundings are also empty, contributing to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_v0.png",
+          "azimuth": 357.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            37.50180435180664,
+            580.0757446289062,
+            -31.964977264404297
+          ],
+          "camera_forward": [
+            0.04810723289847374,
+            0.9836322069168091,
+            -0.17364728450775146
+          ],
+          "camera_up": [
+            0.008482561446726322,
+            0.17343996465206146,
+            0.9848079085350037
+          ],
+          "camera_radius": 5.647507244027783
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c1_v1.png",
+          "azimuth": 117.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            42.582767486572266,
+            587.9447631835938,
+            -31.964977264404297
+          ],
+          "camera_forward": [
+            -0.8766902685165405,
+            -0.44862058758735657,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            -0.1545843929052353,
+            -0.07910405844449997,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.647479534036097
+        }
+      ]
+    }
+  ]
+}

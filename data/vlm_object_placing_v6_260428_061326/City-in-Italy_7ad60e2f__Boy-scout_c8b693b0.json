@@ -1,0 +1,610 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Boy-scout_c8b693b0",
+  "object_file": "data/objects/Boy-scout_c8b693b0/Boy-scout_c8b693b0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        8.141837120056152,
+        -52.25046920776367,
+        -0.052863117307424545
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.141837120056152,
+            -52.25046920776367,
+            -0.052863117307424545
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            7.0,
+            3.0,
+            3.0,
+            4.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "The placement in the middle of the street/pavement without context is awkward.",
+            "Surroundings are empty (only pavement visible)",
+            "Object is heavily cropped (head and back cut off)",
+            "surroundings_empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is poorly framed with the head and back cut off, and the tight shot shows no scene context other than the pavement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_v0.png",
+          "azimuth": 218.0,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            6.129428386688232,
+            -49.67470169067383,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.5723575949668884,
+            -0.732584536075592,
+            -0.36841103434562683
+          ],
+          "camera_up": [
+            0.22681623697280884,
+            -0.2903120517730713,
+            0.9296630024909973
+          ],
+          "camera_radius": 3.7437059033683346
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c0_v1.png",
+          "azimuth": 337.4,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            6.885693550109863,
+            -55.26816177368164,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.35726505517959595,
+            0.8582744002342224,
+            -0.36841103434562683
+          ],
+          "camera_up": [
+            0.1415785849094391,
+            0.3401208519935608,
+            0.9296630024909973
+          ],
+          "camera_radius": 3.743705600863724
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        14.739242622458098,
+        -65.57086184657227,
+        -0.12022315710783005
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.089723587036133,
+            -65.19586181640625,
+            -0.12022315710783005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            2.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The object is placed at the edge of the map, showing a void/empty horizon.",
+            "surroundings_empty=true",
+            "The placement lacks any architectural or environmental context from the city scene.",
+            "The character is sitting in mid-air/on a fence rail in an unnatural way.",
+            "Object is clipping with the fence.",
+            "Severe clipping with the fence",
+            "The object is severely clipping through the metal fence.",
+            "The placement in the middle of the road against a fence is awkward and lacks context.",
+            "The placement is awkward, sitting right on a barrier.",
+            "The object is clipping through the metal fence.",
+            "The character is partially occluded by a foreground lamp post.",
+            "The character is clipping through the metal fence.",
+            "Object's head is cropped out of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is sitting directly inside a metal fence, causing significant clipping through his torso and legs."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            14.522736277317444,
+            -65.44586183651693,
+            -0.12022315710783005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter1_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Placement in the middle of the pavement is awkward.",
+            "Object is clipping through the metal fence rails.",
+            "surroundings_empty=true",
+            "The object (stool and person's back) is clipping through the metal fence.",
+            "The object is heavily cropped, with the top of the head cut off.",
+            "The object is clipping through the metal fence rails.",
+            "The object is clipping through the metal fence/rack it is sitting on.",
+            "Object is placed at the edge of the scene geometry, resulting in a barren background.",
+            "The background is a dark void, lacking scene context.",
+            "The placement is awkward, sitting on a stool directly against a fence.",
+            "The framing is too tight."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is severely clipping through the metal fence bars he is sitting on, and the camera framing is so tight that his head is cut off."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            14.739242622458098,
+            -65.57086184657227,
+            -0.12022315710783005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.5,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_iter2_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The sitting pose is incompatible with the thin fence structure.",
+            "surroundings_empty=true",
+            "The background is a dark void, lacking scene context.",
+            "The object is severely clipping through the horizontal bars of the metal fence.",
+            "The placement is physically impossible as the person is sitting inside the fence structure.",
+            "The object is placed at the edge of the scene looking into a void, lacking any city context.",
+            "Object is clipping significantly through the metal fence rails."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.8,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is placed directly on top of a fence, causing the metal rails to pass through his body and legs, which is a major clipping violation."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c1_v0.png",
+          "azimuth": 46.9,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            17.12592124938965,
+            -67.80427551269531,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.6739421486854553,
+            0.6306636333465576,
+            -0.38479262590408325
+          ],
+          "camera_up": [
+            -0.2809610664844513,
+            0.2629186809062958,
+            0.923003077507019
+          ],
+          "camera_radius": 3.777003149635753
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.1939520835876465,
+        -0.11900223046541214,
+        -0.05286502465605736
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.1939520835876465,
+            -0.11900223046541214,
+            -0.05286502465605736
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.5,
+            4.0,
+            8.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is likely occluded by scene geometry (walls)",
+            "Object is not visible in the frame",
+            "Surroundings are empty",
+            "The object is clipping through the wooden railing.",
+            "The stool and the character's legs are clipping into the stone steps.",
+            "The object is heavily occluded by the foreground fence bars.",
+            "The sitting pose lacks a visible seat or ledge, making the placement look unnatural."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind walls in the rendered view, and the visible environment lacks any meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_v0.png",
+          "azimuth": 18.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.209458351135254,
+            -3.2259469032287598,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.28882431983947754,
+            0.8836590051651001,
+            -0.3684118092060089
+          ],
+          "camera_up": [
+            -0.11445688456296921,
+            0.3501812219619751,
+            0.9296627044677734
+          ],
+          "camera_radius": 3.7437057600766797
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Boy-scout_c8b693b0_c2_v1.png",
+          "azimuth": 135.7,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.691566467285156,
+            3.465136766433716,
+            1.3599281311035156
+          ],
+          "camera_forward": [
+            -0.6878048181533813,
+            -0.7048197388648987,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.12127841264009476,
+            -0.12427859753370285,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.203397130866293
+        }
+      ]
+    }
+  ]
+}

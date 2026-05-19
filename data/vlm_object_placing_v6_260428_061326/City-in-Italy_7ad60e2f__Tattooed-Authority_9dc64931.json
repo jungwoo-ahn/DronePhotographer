@@ -1,0 +1,715 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "Tattooed-Authority_9dc64931",
+  "object_file": "data/objects/Tattooed-Authority_9dc64931/Tattooed-Authority_9dc64931.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        10.296991348266602,
+        2.1579275131225586,
+        -0.22149339318275452
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.296991348266602,
+            2.1579275131225586,
+            -0.22149339318275452
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.5,
+            3.5,
+            8.5,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly cropped at the top of the frame (head and upper torso are cut off).",
+            "Object is significantly cropped at the top of the frame.",
+            "Surroundings are mostly empty, showing only a railing, flat ground, and distant ocean/sky, lacking the rich city context visible in the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": 0.0,
+            "up": -0.2
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly cropped at the top of the frame, and the camera angle provides very little interesting context from the city environment, showing mostly empty ground, railing, and distant ocean/sky."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c0_v0.png",
+          "azimuth": 301.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.738250732421875,
+            0.6082994341850281,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.845140278339386,
+            0.5118353366851807,
+            -0.15415070950984955
+          ],
+          "camera_up": [
+            0.1318550854921341,
+            0.0798540934920311,
+            0.9880473613739014
+          ],
+          "camera_radius": 3.1327493903826413
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        3.2969906330108643,
+        -23.842071533203125,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.2969906330108643,
+            -23.842071533203125,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            9.5,
+            2.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with the fence it is sitting on.",
+            "Object is partly cut off at the top of the frame (head is cropped).",
+            "The object (person) appears to be slightly clipping with the box it is sitting on.",
+            "The rendered environment (ocean/sky background, flat ground) does not match the city context of the reference scene, making the placement implausible for the intended scene.",
+            "Surroundings are mostly empty, lacking significant scene context.",
+            "The area around the object is mostly empty (pure sky/ocean, flat ground) with minimal scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.1
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is cropped, clipping with the surface it's on, and placed in an extremely sparse environment that does not reflect the city scene from the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_v0.png",
+          "azimuth": 293.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.9091698527336121,
+            -25.66223907470703,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.9162086844444275,
+            0.39647865295410156,
+            -0.05801953747868538
+          ],
+          "camera_up": [
+            0.053247708827257156,
+            0.023042310029268265,
+            0.9983154535293579
+          ],
+          "camera_radius": 4.640878734651954
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c1_v1.png",
+          "azimuth": 233.4,
+          "elevation": 35,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.2365136742591858,
+            -21.56916046142578,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.800865113735199,
+            -0.5947746634483337,
+            -0.06970038264989853
+          ],
+          "camera_up": [
+            0.055956676602363586,
+            -0.04155711084604263,
+            0.9975679516792297
+          ],
+          "camera_radius": 3.8814434731217613
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        10.296991348266602,
+        7.157927989959717,
+        -0.021145610138773918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.296991348266602,
+            7.157927989959717,
+            -0.021145610138773918
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            2.0,
+            9.0,
+            3.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_iter0_v4.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The surroundings are empty, lacking any architectural or environmental context from the reference scene.",
+            "Object is heavily cropped, with the head and upper torso completely cut off at the top of the frame.",
+            "The object is placed in an environment that does not match the reference scene (appears to be on a rooftop or isolated platform overlooking the ocean, not a city street)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in an environment that completely disconnects from the provided reference scene, appearing on an isolated platform overlooking the ocean rather than within the city street, and the surroundings are empty of scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_v0.png",
+          "azimuth": 177.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            10.46992301940918,
+            10.96617317199707,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.04525270313024521,
+            -0.9965410232543945,
+            -0.06970026344060898
+          ],
+          "camera_up": [
+            -0.003161778673529625,
+            -0.0696285143494606,
+            0.9975679516792297
+          ],
+          "camera_radius": 3.881442065859765
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c2_v1.png",
+          "azimuth": 1.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            10.37697696685791,
+            2.5755279064178467,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.017422901466488838,
+            0.9981634020805359,
+            -0.05801965668797493
+          ],
+          "camera_up": [
+            -0.0010125746484845877,
+            0.05801082029938698,
+            0.9983154535293579
+          ],
+          "camera_radius": 4.640877678784183
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        6.296990394592285,
+        6.157927513122559,
+        -0.04808921366930008
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.296990394592285,
+            6.157927513122559,
+            -0.04808921366930008
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.5,
+            9.0,
+            9.5,
+            7.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v1.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is slightly cropped at the top of the frame (top of the head is cut off).",
+            "Object is placed in a highly implausible location (sitting on a stool in the middle of a road).",
+            "Object is completely hidden or not rendered.",
+            "The surroundings are empty, lacking any architectural or environmental context from the reference scene.",
+            "The object (person) is placed implausibly in the middle of the road, which is not a typical or safe place for someone to sit."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, which shows only a dark, empty corner instead of the expected city street environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_v0.png",
+          "azimuth": 67.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            9.054656028747559,
+            4.998712062835693,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9174637198448181,
+            0.38566628098487854,
+            -0.0975799560546875
+          ],
+          "camera_up": [
+            -0.0899553969502449,
+            0.03781367838382721,
+            0.9952276945114136
+          ],
+          "camera_radius": 3.085696797701374
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c3_v1.png",
+          "azimuth": 244.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.8706345558166504,
+            7.829073429107666,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.8961455821990967,
+            -0.43707939982414246,
+            -0.07671139389276505
+          ],
+          "camera_up": [
+            0.06894781440496445,
+            -0.03362791985273361,
+            0.997053325176239
+          ],
+          "camera_radius": 3.886599890650297
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        9.296990394592285,
+        12.157927513122559,
+        -0.021145621314644814
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.296990394592285,
+            12.157927513122559,
+            -0.021145621314644814
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            5.0,
+            3.0,
+            3.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v3.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is placed in a somewhat implausible location, sitting on a stool in a very open and empty part of the street/plaza.",
+            "Object is placed in a highly implausible location for a 'City-in-Italy' scene, appearing on an isolated, empty paved area that lacks integration with the main city environment shown in the reference image.",
+            "Object is placed in a highly implausible location (sitting on a stool in the middle of a wide, open paved area).",
+            "The background beyond the brick building is a flat, artificial blue plane, further detracting from the realism of the scene.",
+            "Object is placed in a highly implausible location (sitting on a stool on a barren, empty surface, completely detached from the city street context shown in the reference image).",
+            "The immediate surroundings are empty, lacking any architectural or environmental context from the reference scene.",
+            "The surroundings are empty, lacking any architectural or environmental context from the reference scene.",
+            "The surroundings are empty, lacking interesting architectural or environmental context from the reference scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed on a barren, empty surface with only sky and water visible, completely detached from the 'City-in-Italy' scene context, making the surroundings empty and the placement highly implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_v0.png",
+          "azimuth": 179.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            9.343976974487305,
+            15.148964881896973,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.015645334497094154,
+            -0.995936393737793,
+            -0.08869002014398575
+          ],
+          "camera_up": [
+            -0.0013931167777627707,
+            -0.08867907524108887,
+            0.9960592985153198
+          ],
+          "camera_radius": 3.0791982987706676
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Tattooed-Authority_9dc64931_c4_v1.png",
+          "azimuth": 2.2,
+          "elevation": 50,
+          "preview_quality": 5.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.411824226379395,
+            9.16872787475586,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.038236647844314575,
+            0.9953250885009766,
+            -0.08869025856256485
+          ],
+          "camera_up": [
+            -0.003404641756787896,
+            0.08862488716840744,
+            0.996059238910675
+          ],
+          "camera_radius": 3.079198359072869
+        }
+      ]
+    }
+  ]
+}

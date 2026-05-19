@@ -1,0 +1,274 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Turtleneck-Guy_92c09ebc",
+  "object_file": "data/objects/Turtleneck-Guy_92c09ebc/Turtleneck-Guy_92c09ebc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.8291547894477844,
+        0.12632298469543457,
+        -8.359013463632436e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8291547894477844,
+            0.12632298469543457,
+            -8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            4.0,
+            4.0,
+            0.0,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The background is dominated by a featureless grey void or thick fog, lacking scene detail.",
+            "Object is not visible",
+            "Render is too dark/broken",
+            "surroundings are empty, showing only a plain wall and floor with no scene context",
+            "surroundings_empty=true",
+            "The render is extremely dark and lacks any visible scene context from the reference image.",
+            "surroundings_empty",
+            "object is quite small in the frame",
+            "heavy fog obscures the object and scene details"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is almost entirely black, making the object and the scene context completely invisible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c0_v0.png",
+          "azimuth": 347.8,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.8220319747924805,
+            -4.465914726257324,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.20984052121639252,
+            0.9705510139465332,
+            -0.11831171065568924
+          ],
+          "camera_up": [
+            0.025002196431159973,
+            0.11563974618911743,
+            0.9929764866828918
+          ],
+          "camera_radius": 4.8617852234805365
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -10.810956954956055,
+        -0.8396577835083008,
+        -4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.810956954956055,
+            -0.8396577835083008,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            0.0,
+            4.0,
+            0.0,
+            2.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is not visible in the render.",
+            "Object is not visible",
+            "The camera is facing a brick wall which likely occludes the object",
+            "The background is a featureless wall, making the surroundings feel empty.",
+            "The scene is extremely dark.",
+            "The view is completely blocked by a wall.",
+            "Less than 70% of the object is visible.",
+            "The object's head is cut off by the top of the frame.",
+            "The object is likely placed outside the main lit area of the scene or behind a wall.",
+            "Object is not visible in the frame",
+            "Object is heavily occluded by a foreground trash bin."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, which is extremely dark and appears to show the edge of the scene geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Turtleneck-Guy_92c09ebc_c1_v0.png",
+          "azimuth": 91.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.124979496002197,
+            -0.7624477744102478,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9884511828422546,
+            -0.020704971626400948,
+            -0.1501186192035675
+          ],
+          "camera_up": [
+            -0.1500856876373291,
+            -0.003143720095977187,
+            0.9886679649353027
+          ],
+          "camera_radius": 3.8929281814846233
+        }
+      ]
+    }
+  ]
+}

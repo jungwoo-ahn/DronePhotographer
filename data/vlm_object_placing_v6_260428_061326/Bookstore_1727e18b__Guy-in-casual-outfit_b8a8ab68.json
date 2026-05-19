@@ -1,0 +1,457 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Guy-in-casual-outfit_b8a8ab68",
+  "object_file": "data/objects/Guy-in-casual-outfit_b8a8ab68/Guy-in-casual-outfit_b8a8ab68.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -7.939977169036865,
+        -15.800240516662598,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.939977169036865,
+            -15.800240516662598,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            9.0,
+            4.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The ground plane ends abruptly, showing no scene architecture or context beyond a few props.",
+            "The camera is facing away from the main scene architecture, showing the edge of the environment.",
+            "Render is too dark",
+            "surroundings are very empty, missing scene context like the building",
+            "Object is not visible",
+            "surroundings_empty",
+            "Object is heavily occluded by a foreground element.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is extremely dark and the object is not visible at all, making it impossible to evaluate its placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c0_v0.png",
+          "azimuth": 346.6,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -9.286385536193848,
+            -21.45186996459961,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.23173634707927704,
+            0.9727268218994141,
+            0.01004135049879551
+          ],
+          "camera_up": [
+            -0.002327054040506482,
+            -0.009767984971404076,
+            0.99994957447052
+          ],
+          "camera_radius": 5.850873043253534
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        3.2947440147399902,
+        -6.4379730224609375,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.2947440147399902,
+            -6.4379730224609375,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            9.5,
+            6.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The edge of the scene geometry (the grey void) is clearly visible in the background.",
+            "The person is placed in the middle of a street far from the main architectural interest of the scene.",
+            "The surroundings are very empty, with the ground plane ending abruptly in the background.",
+            "The person is standing in the middle of the street, which is slightly awkward.",
+            "The surroundings are empty, showing only a plain ground and sky.",
+            "The camera is pointing directly at a dark wall, providing no scene context.",
+            "The person is placed in a sparse area of the scene, facing away from the main architecture.",
+            "Object is not visible in the render.",
+            "The object is placed far from the main scene architecture (the bookstore) seen in the reference image.",
+            "The ground plane appears to end abruptly in the background, making the environment look unfinished."
+          ],
+          "vlm_adjustment": {
+            "forward": -5.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely dark and shows only a close-up of a brick wall; the object is not visible at all, suggesting it is either occluded or the camera is misplaced."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_v0.png",
+          "azimuth": 329.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.21364295482635498,
+            -11.689582824707031,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5060105323791504,
+            0.8624740839004517,
+            0.009581463411450386
+          ],
+          "camera_up": [
+            -0.004848513752222061,
+            -0.008264160715043545,
+            0.999954104423523
+          ],
+          "camera_radius": 6.127934436568285
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c1_v1.png",
+          "azimuth": 300.0,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.9782475233078003,
+            -9.482336044311523,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8659857511520386,
+            0.4999769330024719,
+            0.009581463411450386
+          ],
+          "camera_up": [
+            -0.008297777734696865,
+            -0.004790753126144409,
+            0.999954104423523
+          ],
+          "camera_radius": 6.127934436568285
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        38.871360778808594,
+        -15.800240516662598,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            38.871360778808594,
+            -15.800240516662598,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            6.0,
+            3.0,
+            8.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The placement is at the edge of the scene geometry, showing a flat background field instead of the bookstore architecture.",
+            "The surroundings are very empty and lack the architectural context of the bookstore.",
+            "The person is placed in a desolate area far from the main scene interest.",
+            "The person is placed at the very edge of the scene geometry, making the background look like an empty void of clouds.",
+            "The placement is far from the main architectural interest (the bookstore) shown in the reference image.",
+            "The background shows the edge of the scene geometry where the ground plane ends.",
+            "The composition is repetitive of previous attempts that were also at the scene's perimeter.",
+            "The placement lacks the architectural context of the bookstore seen in the reference image.",
+            "The camera angle is tilted awkwardly (Dutch angle).",
+            "The person is placed at the very edge of the scene geometry, looking out into a void.",
+            "The background shows the edge of the scene geometry (grey void).",
+            "The person is quite small in the frame.",
+            "The background geometry appears distorted, showing a steep grey plane that looks like a scene boundary or broken terrain.",
+            "The person is significantly oversized compared to the building and street lamps in the background.",
+            "The surroundings are empty and lack architectural context.",
+            "The person is standing on the very edge of a curb/step.",
+            "The person is heavily cropped, with the head and upper torso completely out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.6,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The scale is completely incorrect as the person towers over the distant building and streetlights, and the background environment looks like a broken scene edge."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_v0.png",
+          "azimuth": 309.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            34.17991638183594,
+            -19.68134307861328,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.7704778909683228,
+            0.6373946666717529,
+            0.009581463411450386
+          ],
+          "camera_up": [
+            -0.0073826429434120655,
+            -0.006107455585151911,
+            0.999954104423523
+          ],
+          "camera_radius": 6.127935632953571
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-casual-outfit_b8a8ab68_c2_v1.png",
+          "azimuth": 249.6,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            33.16450500488281,
+            -13.677881240844727,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9372389316558838,
+            -0.3485560715198517,
+            0.009581224992871284
+          ],
+          "camera_up": [
+            -0.008980294689536095,
+            0.003339785849675536,
+            0.999954104423523
+          ],
+          "camera_radius": 6.12793683906533
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e",
+  "object_file": "data/objects/snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e/snowman-3d-illustration_8a079e99-46ed-4719-9ddd-f3e657aaf5a4.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        12.34677505493164,
+        -4.956878662109375,
+        -0.02114543691277504
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.34677505493164,
+            -4.956878662109375,
+            -0.02114543691277504
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            6.0,
+            5.0,
+            9.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Plausibility: Object is placed in an awkward or unnatural location.",
+            "Object is out of context for the scene (snowman in a non-winter, seaside city).",
+            "Object is not plausible in this environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is fully visible, grounded, and at a plausible scale on the platform, but its presence in a non-winter, seaside city environment is highly implausible."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A snowman, by its nature, requires snow and cold temperatures to exist naturally, neither of which are present in this clear, non-snowy city scene."
+    }
+  ]
+}

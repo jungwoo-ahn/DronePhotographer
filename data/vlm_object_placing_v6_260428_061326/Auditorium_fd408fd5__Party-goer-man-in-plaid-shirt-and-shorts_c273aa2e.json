@@ -1,0 +1,698 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e",
+  "object_file": "data/objects/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        11.510035514831543,
+        54.13243865966797,
+        0.45683813095092773
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.510035514831543,
+            54.13243865966797,
+            0.45683813095092773
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            9.5,
+            1.0,
+            1.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object appears to be clipping with furniture",
+            "Object is clipping with foreground chair.",
+            "The surroundings are empty/lack context.",
+            "Object is heavily obscured by furniture",
+            "Object is not visible in the frame.",
+            "Object is heavily occluded by other chairs, making it mostly invisible.",
+            "Object is completely obscured by a foreground chair."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely obscured by the rows of chairs, with only a small portion of its head visible, and appears to be clipping with the chairs."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v0.png",
+          "azimuth": 276.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.4601945877075195,
+            53.45383834838867,
+            2.25803804397583
+          ],
+          "camera_forward": [
+            0.9786702990531921,
+            0.10977574437856674,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.17256604135036469,
+            0.0193562600761652,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.348653866354936
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        9.89135456085205,
+        37.94563674926758,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.89135456085205,
+            37.94563674926758,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The area around the object is mostly empty, with no architecture, furniture, props, vegetation, or other scene detail visible.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)"
+          ],
+          "vlm_adjustment": {
+            "forward": -1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is severely cropped, with only the lower half visible, and the background is entirely empty, showing no context of the auditorium."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_v0.png",
+          "azimuth": 286.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.066483020782471,
+            36.175907135009766,
+            4.049129009246826
+          ],
+          "camera_forward": [
+            0.9422774910926819,
+            0.2862856090068817,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.16614902019500732,
+            0.050479769706726074,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.348652678703439
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_v1.png",
+          "azimuth": 346.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.511550903320312,
+            32.01628494262695,
+            4.049129009246826
+          ],
+          "camera_forward": [
+            0.2232079803943634,
+            0.9591790437698364,
+            -0.17364834249019623
+          ],
+          "camera_up": [
+            0.03935760632157326,
+            0.16912931203842163,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.348652659926338
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        9.891355514526367,
+        48.06238555908203,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.891355514526367,
+            48.06238555908203,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            10.0,
+            9.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the stage of the auditorium and is at a realistic scale, but a significant portion of the object is cropped out of the frame on the right side."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v0.png",
+          "azimuth": 268.6,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.8053925037384033,
+            48.211124420166016,
+            4.049129009246826
+          ],
+          "camera_forward": [
+            0.9845138192176819,
+            -0.02406136691570282,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.17359614372253418,
+            -0.004242571536451578,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.348653704549168
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v1.png",
+          "azimuth": 18.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            11.823038101196289,
+            42.28919982910156,
+            4.049129009246826
+          ],
+          "camera_forward": [
+            -0.3124842345714569,
+            0.933916449546814,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.05509939789772034,
+            0.1646745800971985,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.348652509709532
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        20.95233726501465,
+        43.07145309448242,
+        0.45683830976486206
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.95233726501465,
+            43.07145309448242,
+            0.45683830976486206
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            4.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden.",
+            "The render is too dark to identify the object.",
+            "Object is not visible in the rendered image.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view in the rendered image, making it impossible to evaluate its placement, scale, or plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_v0.png",
+          "azimuth": 180.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            20.94171142578125,
+            49.15922546386719,
+            2.25803804397583
+          ],
+          "camera_forward": [
+            0.0017188687343150377,
+            -0.9848062992095947,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.000303019885905087,
+            -0.1736477166414261,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.348654078956504
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c3_v1.png",
+          "azimuth": 86.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            27.025287628173828,
+            42.64678955078125,
+            2.25803804397583
+          ],
+          "camera_forward": [
+            -0.9824088215827942,
+            0.06869674474000931,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.17322498559951782,
+            0.012113131582736969,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.348652343062758
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        7.463334560394287,
+        41.99233627319336,
+        2.247929573059082
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.463334560394287,
+            41.99233627319336,
+            2.247929573059082
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            0.0,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, making it impossible to evaluate its placement, scale, or plausibility. The render shows only a close-up of a blue-lit wall structure."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_v0.png",
+          "azimuth": 267.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.4949066638946533,
+            42.19336700439453,
+            5.212060928344727
+          ],
+          "camera_forward": [
+            0.8703407645225525,
+            -0.04408909007906914,
+            -0.49047237634658813
+          ],
+          "camera_up": [
+            0.48984426259994507,
+            -0.024814242497086525,
+            0.8714567422866821
+          ],
+          "camera_radius": 4.957308615296297
+        }
+      ]
+    }
+  ]
+}

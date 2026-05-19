@@ -1,0 +1,426 @@
+{
+  "scene": "namaqualand",
+  "scene_file": "data/scenes/namaqualand/Namaqualand.blend",
+  "scene_scale": 2.0,
+  "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+  "object_file": "data/objects/luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/luke_2K_b5a0590c-f246-4616-9d9a-1d84a8a1e366.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        10.230843544006348,
+        6.708797931671143,
+        9.119733810424805
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.230843544006348,
+            6.708797931671143,
+            9.119733810424805
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            3.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scene is too small for the object",
+            "Object is heavily cropped.",
+            "Object is not fully visible",
+            "The surroundings are empty",
+            "Object is embedded in the floor",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding. The camera appears to be focused on a white block in the foreground, with no sign of the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v1.png",
+          "azimuth": 131.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            14.10417366027832,
+            10.07583236694336,
+            11.635172843933105
+          ],
+          "camera_forward": [
+            -0.7091948986053467,
+            -0.6164939403533936,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.258125901222229,
+            -0.22438539564609528,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.715508798426447
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        8.896978378295898,
+        17.379716873168945,
+        9.589838027954102
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.896978378295898,
+            17.379716873168945,
+            9.589838027954102
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            7.0,
+            6.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scene is too small for the object.",
+            "The scene is too small for the object"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person appears too large for the environment, suggesting the scene is too small. The object is mostly visible and grounded, but the scale issue significantly impacts the plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v0.png",
+          "azimuth": 351.2,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.111823081970215,
+            12.307920455932617,
+            12.10527515411377
+          ],
+          "camera_forward": [
+            0.14375963807106018,
+            0.9286310076713562,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            0.052324194461107254,
+            0.3379938006401062,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.715506332066579
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v1.png",
+          "azimuth": 51.2,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            12.89670467376709,
+            14.163853645324707,
+            12.10527515411377
+          ],
+          "camera_forward": [
+            -0.7323381304740906,
+            0.5888150334358215,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.2665492594242096,
+            0.21431118249893188,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.715506128709164
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.8937893509864807,
+        -5.295986175537109,
+        9.15779972076416
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.8937893509864807,
+            -5.295986175537109,
+            9.15779972076416
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is heavily cropped.",
+            "The scene is too small for the object.",
+            "The scene is too small for the object"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped and the scene appears too small for the person, indicating a scale issue. The object is grounded and not clipping, but the framing and scale prevent a higher score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v0.png",
+          "azimuth": 16.5,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.3514156341552734,
+            -10.216851234436035,
+            11.673236846923828
+          ],
+          "camera_forward": [
+            -0.26688724756240845,
+            0.9009959101676941,
+            -0.34201982617378235
+          ],
+          "camera_up": [
+            -0.097138911485672,
+            0.3279353380203247,
+            0.9396927356719971
+          ],
+          "camera_radius": 5.7155062538521895
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v1.png",
+          "azimuth": 76.5,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.884196758270264,
+            -6.494077205657959,
+            11.673236846923828
+          ],
+          "camera_forward": [
+            -0.9137289524078369,
+            0.21936681866645813,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            -0.3325698673725128,
+            0.07984299957752228,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.71550672313851
+        }
+      ]
+    }
+  ]
+}

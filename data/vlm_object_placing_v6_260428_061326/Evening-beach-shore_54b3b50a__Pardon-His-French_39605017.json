@@ -1,0 +1,96 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 0.5,
+  "object": "Pardon-His-French_39605017",
+  "object_file": "data/objects/Pardon-His-French_39605017/Pardon-His-French_39605017.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -2.1055424213409424,
+        14.07890796661377,
+        3.378997917025117e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.1055424213409424,
+            14.07890796661377,
+            3.378997917025117e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            9.5,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Pardon-His-French_39605017_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty.",
+            "surroundings_empty",
+            "Object is placed in an environment that does not match the reference scene (beach).",
+            "The ground surface in the rendered image (flat, reflective) is inconsistent with the sandy dune environment shown in the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a dark, empty environment that does not resemble the beach scene from the reference image, and the surroundings are empty."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

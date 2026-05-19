@@ -1,0 +1,647 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "Young-Tall-Guy-Talking-by-Phone_7e126859",
+  "object_file": "data/objects/Young-Tall-Guy-Talking-by-Phone_7e126859/Young-Tall-Guy-Talking-by-Phone_7e126859.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.294320821762085,
+        12.155258178710938,
+        -0.02114563062787056
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.294320821762085,
+            12.155258178710938,
+            -0.02114563062787056
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            2.0,
+            9.5,
+            0.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty (just a wall).",
+            "Object is likely clipping with the wall.",
+            "Object is significantly out of scale with the environment, appearing much too large for the buildings and doorways.",
+            "Object is at an unrealistic scale for the scene.",
+            "Surroundings are empty (mostly a blank wall).",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, and the rendered view consists almost entirely of a blank wall with no meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_v0.png",
+          "azimuth": 71.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.30349063873291,
+            10.469486236572266,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9476979374885559,
+            0.31893566250801086,
+            0.012191991321742535
+          ],
+          "camera_up": [
+            0.01155516505241394,
+            -0.003888804465532303,
+            0.9999256730079651
+          ],
+          "camera_radius": 5.335406515754041
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        3.294320821762085,
+        7.155257701873779,
+        -0.03399896249175072
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.294320821762085,
+            7.155257701873779,
+            -0.03399896249175072
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            3.0,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.0,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-grounded and scaled appropriately for the scene, but the camera angle heavily crops the object, showing only the lower half."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_v0.png",
+          "azimuth": 188.8,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.4857563972473145,
+            12.378268241882324,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.15297849476337433,
+            -0.9881812930107117,
+            0.009760626591742039
+          ],
+          "camera_up": [
+            -0.0014932862250134349,
+            0.009645720012485981,
+            0.9999523758888245
+          ],
+          "camera_radius": 5.337180806829251
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_v1.png",
+          "azimuth": 11.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            4.114067077636719,
+            3.0897698402404785,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.1976420134305954,
+            0.9801953434944153,
+            0.012438139878213406
+          ],
+          "camera_up": [
+            0.0024584827478975058,
+            -0.012192751280963421,
+            0.9999226331710815
+          ],
+          "camera_radius": 4.213320219007184
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        8.29432201385498,
+        -23.844741821289062,
+        -0.04808921366930008
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.29432201385498,
+            -23.844741821289062,
+            -0.04808921366930008
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (head cropped).",
+            "Minor cropping at the top of the object's head.",
+            "Object is clipping with the base of the traffic light pole."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": 0.1,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cropped out of the frame, and their left foot appears to be clipping with the base of the traffic light pole, though the overall scale and location are plausible for a city scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_v0.png",
+          "azimuth": 80.6,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            14.275870323181152,
+            -24.834980010986328,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9865533113479614,
+            0.1633225530385971,
+            0.006184820551425219
+          ],
+          "camera_up": [
+            0.0061017596162855625,
+            -0.0010102157248184085,
+            0.9999808669090271
+          ],
+          "camera_radius": 6.110033677830884
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.9983056248518203,
+        -27.321052203048414,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.705679178237915,
+            -26.844743728637695,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Surroundings are empty (mostly sky and water with minimal context).",
+            "Object is partly cut off at the frame edge (head cropped).",
+            "Surroundings are empty (mostly sky, water, and plain ground)."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object's head is cropped, and the surroundings are mostly empty sky and water, making the shot uninteresting."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -2.9983056248518203,
+            -27.321052203048414,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1_v4.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter1_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (head cropped).",
+            "The immediate surroundings of the object are mostly empty, consisting of a plain concrete platform, ocean, and sky, with very distant and blurry scene details."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the sidewalk in a city scene with appropriate scale and rich surroundings, but the head is cropped out of the frame, making the object not fully visible."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        6.294320583343506,
+        4.155257701873779,
+        -0.04808950051665306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.294320583343506,
+            4.155257701873779,
+            -0.04808950051665306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            4.0,
+            9.5,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are mostly empty, consisting of ocean and sky with minimal architectural context.",
+            "Object is partly cut off at the frame edge (head cropped).",
+            "Surroundings are empty (only dark walls and floor are visible, no scene context).",
+            "The object is completely hidden or the render is too dark to see anything."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, which is almost entirely dark, showing only plain walls and floor with no discernible scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_v0.png",
+          "azimuth": 184.3,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.898041725158691,
+            9.425605773925781,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.07497675716876984,
+            -0.997160017490387,
+            0.007094844244420528
+          ],
+          "camera_up": [
+            -0.0005320243653841317,
+            0.007074868772178888,
+            0.9999748468399048
+          ],
+          "camera_radius": 5.33915939354772
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_v1.png",
+          "azimuth": 7.6,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.84282922744751,
+            0.04438072443008423,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.13225100934505463,
+            0.9911749958992004,
+            0.00904111098498106
+          ],
+          "camera_up": [
+            0.0011957433307543397,
+            -0.008961689658463001,
+            0.9999591112136841
+          ],
+          "camera_radius": 4.2158271024259175
+        }
+      ]
+    }
+  ]
+}

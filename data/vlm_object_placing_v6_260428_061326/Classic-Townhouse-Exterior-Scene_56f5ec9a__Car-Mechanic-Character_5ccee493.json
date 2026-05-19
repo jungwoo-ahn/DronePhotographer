@@ -1,0 +1,806 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 1.0,
+  "object": "Car-Mechanic-Character_5ccee493",
+  "object_file": "data/objects/Car-Mechanic-Character_5ccee493/Car-Mechanic-Character_5ccee493.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        39.957759857177734,
+        1.2528266906738281,
+        -1.033094048500061
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            39.957759857177734,
+            1.2528266906738281,
+            -1.033094048500061
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            4.0,
+            9.5,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "surroundings are empty and lack scene context",
+            "Minor cropping at the top of the frame (top of head).",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is correctly grounded and fully visible, but the shot lacks any meaningful scene context or architecture, showing only a flat ground and a background image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_v0.png",
+          "azimuth": 333.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            38.083255767822266,
+            -2.4420230388641357,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.4445558190345764,
+            0.8762673139572144,
+            -0.18581093847751617
+          ],
+          "camera_up": [
+            0.08406736701726913,
+            0.16570571064949036,
+            0.9825854897499084
+          ],
+          "camera_radius": 4.413238340423452
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c0_v1.png",
+          "azimuth": 87.9,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            44.09812545776367,
+            1.1010067462921143,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9819256067276001,
+            0.03600558266043663,
+            -0.18581105768680573
+          ],
+          "camera_up": [
+            -0.18568627536296844,
+            0.006808839272707701,
+            0.9825854897499084
+          ],
+          "camera_radius": 4.413237778874463
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        36.96017837524414,
+        20.73709487915039,
+        -0.9509856700897217
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            36.96017837524414,
+            20.73709487915039,
+            -0.9509856700897217
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            8.5,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are empty and lack scene context (townhouses not visible)",
+            "surroundings are empty and lack scene context (townhouses are not visible)",
+            "Object is heavily cropped (head/shoulders missing)",
+            "surroundings_empty",
+            "The background consists of a plain white wall and a flat tree backdrop, missing the townhouse architecture."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is significantly cropped at the top of the frame and the background lacks any architectural context from the townhouse scene, making the placement feel disconnected from the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_v0.png",
+          "azimuth": 45.6,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            40.732540130615234,
+            17.042926788330078,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.7082511782646179,
+            0.6935704946517944,
+            -0.1316821575164795
+          ],
+          "camera_up": [
+            -0.09408333152532578,
+            0.09213315695524216,
+            0.9912919998168945
+          ],
+          "camera_radius": 5.47226490960466
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c1_v1.png",
+          "azimuth": 349.9,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            35.847007751464844,
+            14.487792015075684,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.1743059754371643,
+            0.9785478115081787,
+            -0.10982555150985718
+          ],
+          "camera_up": [
+            0.019259769469499588,
+            0.10812360048294067,
+            0.9939509034156799
+          ],
+          "camera_radius": 6.508535026749683
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        17.475910186767578,
+        1.2528266906738281,
+        -1.0330959558486938
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.475910186767578,
+            1.2528266906738281,
+            -1.0330959558486938
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            4.0,
+            6.0,
+            8.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "background lacks the primary scene architecture (townhouses)",
+            "surroundings are empty and lack scene context (townhouses are not visible)",
+            "minor cropping at the top of the frame",
+            "The placement is in a relatively plain area of the scene, missing the primary townhouse architecture shown in the reference."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is grounded and fully visible, but the placement is in a desolate area of the map where the townhouses are not visible, providing no meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_v0.png",
+          "azimuth": 334.7,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            15.219493865966797,
+            -3.5206592082977295,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.42272910475730896,
+            0.8942902088165283,
+            -0.14678272604942322
+          ],
+          "camera_up": [
+            0.06272877752780914,
+            0.13270369172096252,
+            0.9891687631607056
+          ],
+          "camera_radius": 5.4944135297739765
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c2_v1.png",
+          "azimuth": 86.8,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            21.612598419189453,
+            1.021550178527832,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.981053352355957,
+            0.05484931543469429,
+            -0.18581153452396393
+          ],
+          "camera_up": [
+            -0.18552181124687195,
+            0.010372298769652843,
+            0.9825854301452637
+          ],
+          "camera_radius": 4.413238694108536
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -50.52578421895649,
+        12.90933919834162,
+        -1.1209814548492432
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -51.46842575073242,
+            13.243145942687988,
+            -1.1209814548492432
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            3.0,
+            4.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The background lacks the primary scene architecture (townhouses).",
+            "The background lacks the primary architectural context of the scene (the townhouses).",
+            "Surroundings are empty pavement with no architectural context",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "surroundings are empty and lack scene context (townhouses not visible)",
+            "foreground tree is distracting and bisects the character",
+            "The surroundings are quite empty, consisting only of pavement and a distant treeline.",
+            "surroundings are empty and lack the primary scene architecture (townhouses)",
+            "Object is heavily cropped (head and upper torso missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is severely cropped with the head and upper body out of frame, and the background lacks any recognizable scene architecture from the townhouse exterior."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -50.52578421895649,
+            12.90933919834162,
+            -1.1209814548492432
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            3.0,
+            4.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_iter1_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The primary architectural feature of the scene (the townhouses) is not visible in this shot, making the background feel somewhat generic.",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "Surroundings are empty and lack scene context (townhouses not visible)",
+            "The primary scene architecture (townhouses) is not visible in the background, making the surroundings feel empty and lacking context.",
+            "surroundings are empty and lack scene context (townhouses are not visible)",
+            "surroundings_empty",
+            "The primary scene architecture (townhouses) is not visible, making the background feel empty and lacking context.",
+            "The background lacks the primary architectural context of the townhouses.",
+            "Object is heavily cropped (head and upper torso missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is significantly cropped with the head and upper body missing, and the shot lacks the architectural context of the townhouses."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c3_v0.png",
+          "azimuth": 357.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -50.84693145751953,
+            6.56979513168335,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.05012296885251999,
+            0.9894402027130127,
+            -0.13599899411201477
+          ],
+          "camera_up": [
+            0.00688060512766242,
+            0.13582482933998108,
+            0.9907089471817017
+          ],
+          "camera_radius": 6.54819643960002
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.5095682144165039,
+        20.73709487915039,
+        -0.7545003890991211
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5095682144165039,
+            20.73709487915039,
+            -0.7545003890991211
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            7.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "Object is clipping through the planter wall and vegetation.",
+            "The character is partially occluded by a small tree in the foreground.",
+            "The background lacks the primary architectural context of the townhouses."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered image, and the background consists only of a generic wall and shutter with no recognizable scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_v0.png",
+          "azimuth": 65.7,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.010691165924072,
+            18.24460220336914,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9082531929016113,
+            0.4100920259952545,
+            -0.08307047933340073
+          ],
+          "camera_up": [
+            -0.07571066170930862,
+            0.03418479859828949,
+            0.9965436458587646
+          ],
+          "camera_radius": 6.182827013378062
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Car-Mechanic-Character_5ccee493_c4_v1.png",
+          "azimuth": 11.3,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.7342339754104614,
+            14.512474060058594,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.19532924890518188,
+            0.9775273203849792,
+            -0.07928940653800964
+          ],
+          "camera_up": [
+            -0.015536444261670113,
+            0.07775235176086426,
+            0.9968516230583191
+          ],
+          "camera_radius": 6.467960853170972
+        }
+      ]
+    }
+  ]
+}

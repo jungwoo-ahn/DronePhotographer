@@ -1,0 +1,298 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Pajama-Party_1d7be87e",
+  "object_file": "data/objects/Pajama-Party_1d7be87e/Pajama-Party_1d7be87e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        28.98647689819336,
+        -6.226754188537598,
+        4.950153350830078
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.98647689819336,
+            -6.226754188537598,
+            4.950153350830078
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            2.0,
+            7.5,
+            3.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Top of the head is slightly cropped",
+            "Object is clipping into the auditorium seat behind it.",
+            "Object is clipping into the armrest of the auditorium seat",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The person is standing in the middle of a row of auditorium seats, which is slightly awkward but physically possible.",
+            "Object is clipping with the seats",
+            "Object is almost entirely hidden behind auditorium seating",
+            "Object is clipping with the armrest of the auditorium chair on the right."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost completely obscured by the auditorium seats, with only the top of the head visible, which also indicates clipping through the furniture."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_v0.png",
+          "azimuth": 223.5,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            26.63199234008789,
+            -3.7456443309783936,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.6399144530296326,
+            -0.6743295788764954,
+            -0.3684957027435303
+          ],
+          "camera_up": [
+            0.2536555826663971,
+            -0.2672974765300751,
+            0.9296294450759888
+          ],
+          "camera_radius": 3.9407464525230647
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c1_v1.png",
+          "azimuth": 163.5,
+          "elevation": 35,
+          "preview_quality": 7.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            30.2244815826416,
+            -2.0473172664642334,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.27119871973991394,
+            -0.9155523777008057,
+            -0.29701027274131775
+          ],
+          "camera_up": [
+            -0.08435530960559845,
+            -0.2847793698310852,
+            0.9548742771148682
+          ],
+          "camera_radius": 4.778109011177372
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        28.98647689819336,
+        -2.231004238128662,
+        4.950153350830078
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.98647689819336,
+            -2.231004238128662,
+            4.950153350830078
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            2.0,
+            7.5,
+            2.0,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Likely clipping with the auditorium seat",
+            "Object is clipping through the auditorium seat in front",
+            "Awkward framing",
+            "Object is not visible in the frame",
+            "Object is significantly obscured by a chair in the foreground",
+            "The top of the person's head is slightly cropped by the top edge of the frame.",
+            "Object is mostly hidden behind a chair",
+            "Object is heavily cropped (head and feet missing)",
+            "Object is clipping with the seating furniture",
+            "Object is clipping through the auditorium seating",
+            "Object is likely occluded by the auditorium seating",
+            "Object is almost entirely hidden behind the auditorium seats",
+            "Scene is too dark to identify the object"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, likely occluded by the rows of seats or lost in the extreme darkness."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Pajama-Party_1d7be87e_c2_v0.png",
+          "azimuth": 179.0,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            29.07793426513672,
+            3.008638381958008,
+            6.475383758544922
+          ],
+          "camera_forward": [
+            -0.017187083140015602,
+            -0.9846577644348145,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.0030305355321615934,
+            -0.17362165451049805,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.457888188111696
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,676 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.9723840951919556,
+        -9.576282501220703,
+        -0.11999998241662979
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.9723840951919556,
+            -9.576282501220703,
+            -0.11999998241662979
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            7.5,
+            5.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top of the frame",
+            "Object is slightly cropped at the top of the frame.",
+            "Object is completely occluded or not in frame.",
+            "minor cropping at the top of the frame",
+            "object is partially occluded by a pole in the foreground"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, likely occluded by the bar counter or the large palm tree in the foreground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 282.3,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.3506883382797241,
+            -10.300830841064453,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9656139612197876,
+            0.2105378806591034,
+            -0.15252354741096497
+          ],
+          "camera_up": [
+            0.1490224301815033,
+            0.0324922539293766,
+            0.9882998466491699
+          ],
+          "camera_radius": 3.5652132159270082
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 222.3,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.5345861911773682,
+            -5.722173690795898,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.6696237921714783,
+            -0.7359070181846619,
+            -0.10022398084402084
+          ],
+          "camera_up": [
+            0.06745193898677826,
+            -0.07412882894277573,
+            0.9949648976325989
+          ],
+          "camera_radius": 5.319395425995066
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.027616024017334,
+        -0.5762823820114136,
+        -0.1199999675154686
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.027616024017334,
+            -0.5762823820114136,
+            -0.1199999675154686
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            9.5,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is positioned too close to the camera.",
+            "Object is likely clipping with the wall.",
+            "Object is almost entirely occluded by the building structure.",
+            "Object is heavily cropped at the top of the frame, missing the head and upper torso.",
+            "Object is heavily cropped; head and chair are not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The woman is almost completely hidden behind the bar's wall structure, making the placement invalid as she is not visible to the camera."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_v0.png",
+          "azimuth": 351.2,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.788282871246338,
+            -5.489890098571777,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.15214045345783234,
+            0.9827673435211182,
+            -0.10498402267694473
+          ],
+          "camera_up": [
+            0.016061071306467056,
+            0.10374818742275238,
+            0.994473934173584
+          ],
+          "camera_radius": 5.085776746937102
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c1_v1.png",
+          "azimuth": 291.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -6.068614482879639,
+            -2.1436820030212402,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9255614876747131,
+            0.35900169610977173,
+            -0.12022367119789124
+          ],
+          "camera_up": [
+            0.11208739131689072,
+            0.04347582533955574,
+            0.9927468299865723
+          ],
+          "camera_radius": 4.464233049627017
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -2.027616024017334,
+        -6.576282501220703,
+        -9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.027616024017334,
+            -6.576282501220703,
+            -9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top of the frame",
+            "Object is positioned very close to the table behind it.",
+            "Object's head is cut off at the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head and upper torso are cut off by the top edge of the frame, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_v0.png",
+          "azimuth": 39.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.7235148549079895,
+            -9.925564765930176,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.6319790482521057,
+            0.7693837881088257,
+            -0.0930110514163971
+          ],
+          "camera_up": [
+            -0.05903688818216324,
+            0.07187281548976898,
+            0.9956650733947754
+          ],
+          "camera_radius": 4.43702517910739
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c2_v1.png",
+          "azimuth": 318.4,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            -5.32874870300293,
+            -10.294438362121582,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.6617358326911926,
+            0.745330810546875,
+            -0.08116410672664642
+          ],
+          "camera_up": [
+            0.05388703569769859,
+            0.06069431081414223,
+            0.9967007637023926
+          ],
+          "camera_radius": 5.0619106656122845
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -4.027616024017334,
+        -9.576282501220703,
+        5.9604645663569045e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.027616024017334,
+            -9.576282501220703,
+            5.9604645663569045e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            0.0,
+            3.5,
+            8.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is placed very close to the edge of the deck.",
+            "Camera is facing a wall",
+            "Object is heavily cropped at the top of the frame (head is missing).",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible as the camera is positioned directly against a wooden wall, providing no scene context or visibility of the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c3_v1.png",
+          "azimuth": 78.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.6912463903427124,
+            -10.236902236938477,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9740771055221558,
+            0.1928722858428955,
+            -0.11821215599775314
+          ],
+          "camera_up": [
+            -0.11596079915761948,
+            0.02296098694205284,
+            0.9929883480072021
+          ],
+          "camera_radius": 3.5310851286487432
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -4.027616024017334,
+        -1.5762823820114136,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.027616024017334,
+            -1.5762823820114136,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top of the frame (head is missing).",
+            "Minor cropping at the top of the frame.",
+            "The top of the woman's head is cut off by the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cut off by the top edge of the frame, violating the requirement for the object to be mostly visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_v0.png",
+          "azimuth": 32.6,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -1.6924060583114624,
+            -5.227747917175293,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.5364353060722351,
+            0.8388003706932068,
+            -0.0930110514163971
+          ],
+          "camera_up": [
+            -0.05011158809065819,
+            0.07835741341114044,
+            0.9956650733947754
+          ],
+          "camera_radius": 4.437025071639628
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Hahaha-woman-on-chair_50c9329e_c4_v1.png",
+          "azimuth": 228.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -6.56308650970459,
+            0.6906901001930237,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.74024897813797,
+            -0.6618590354919434,
+            -0.11821203678846359
+          ],
+          "camera_up": [
+            0.08812415599822998,
+            -0.0787922590970993,
+            0.9929883480072021
+          ],
+          "camera_radius": 3.53108430996964
+        }
+      ]
+    }
+  ]
+}

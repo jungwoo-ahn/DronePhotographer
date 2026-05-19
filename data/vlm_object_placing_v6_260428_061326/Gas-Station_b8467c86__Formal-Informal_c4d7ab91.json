@@ -1,0 +1,131 @@
+{
+  "scene": "Gas-Station_b8467c86",
+  "scene_file": "data/scenes/Gas-Station_b8467c86/Gas-Station_b8467c86.blend",
+  "scene_scale": 1.0,
+  "object": "Formal-Informal_c4d7ab91",
+  "object_file": "data/objects/Formal-Informal_c4d7ab91/Formal-Informal_c4d7ab91.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        85.22050476074219,
+        729.835693359375,
+        -1.500557541847229
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            85.22050476074219,
+            729.835693359375,
+            -1.500557541847229
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            2.0,
+            9.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Surroundings are empty. The main scene element (gas station) is not visible.",
+            "The main scene element (gas station) is not visible.",
+            "The area around the object is mostly empty ground, with no architecture, furniture, props, vegetation, or other scene detail visible.",
+            "Object is partly cut off at the frame edge (head is missing).",
+            "The camera angle provides no scene context, showing only the object on empty ground."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is cropped at the top, and the surroundings are empty, showing only ground with no scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Gas-Station_b8467c86_Formal-Informal_c4d7ab91_c4_v0.png",
+          "azimuth": 52.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            89.8426742553711,
+            726.3017578125,
+            0.21929103136062622
+          ],
+          "camera_forward": [
+            -0.7823441624641418,
+            0.5981506109237671,
+            -0.17364762723445892
+          ],
+          "camera_up": [
+            -0.1379479616880417,
+            0.105469711124897,
+            0.9848078489303589
+          ],
+          "camera_radius": 6.067209597106981
+        }
+      ]
+    }
+  ]
+}

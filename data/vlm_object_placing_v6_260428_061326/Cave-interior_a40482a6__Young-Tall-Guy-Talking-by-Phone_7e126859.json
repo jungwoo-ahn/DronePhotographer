@@ -1,0 +1,109 @@
+{
+  "scene": "Cave-interior_a40482a6",
+  "scene_file": "data/scenes/Cave-interior_a40482a6/Cave-interior_a40482a6.blend",
+  "scene_scale": 0.5,
+  "object": "Young-Tall-Guy-Talking-by-Phone_7e126859",
+  "object_file": "data/objects/Young-Tall-Guy-Talking-by-Phone_7e126859/Young-Tall-Guy-Talking-by-Phone_7e126859.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.19162780046463013,
+        3.103370428085327,
+        -1.0949525833129883
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.19162780046463013,
+            3.103370428085327,
+            -1.0949525833129883
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            0.0,
+            9.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Lower body is not visible",
+            "Surroundings are empty",
+            "Object is not visible",
+            "Object is significantly occluded by a rock (lower half hidden).",
+            "Object is clipping through boulders",
+            "Render is too dark/broken",
+            "Object appears to be clipping through the boulders",
+            "Object is heavily occluded by rocks in the foreground"
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is almost entirely black, making it impossible to see the object or any meaningful scene context."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

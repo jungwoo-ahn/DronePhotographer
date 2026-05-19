@@ -1,0 +1,453 @@
+{
+  "scene": "Modern-Villa-visualization_f8062f29",
+  "scene_file": "data/scenes/Modern-Villa-visualization_f8062f29/Modern-Villa-visualization_f8062f29.blend",
+  "scene_scale": 2.0,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        4.838069915771484,
+        -15.234537124633789,
+        -1.7983152866363525
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.838069915771484,
+            -15.234537124633789,
+            -1.7983152866363525
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            1.0,
+            8.0,
+            7.0,
+            8.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is a child, but the reference scene is a modern villa which is not a typical environment for a child to be alone in.",
+            "Object is not visible",
+            "The object is a child, but the scene implies an adult scale.",
+            "The object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, grounding, clipping, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 359.2,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.793136119842529,
+            -18.45248031616211,
+            -0.22276827692985535
+          ],
+          "camera_forward": [
+            0.013120131567120552,
+            0.9396010041236877,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.004775337874889374,
+            0.3419868052005768,
+            0.9396926164627075
+          ],
+          "camera_radius": 3.5832283405272674
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c0_v1.png",
+          "azimuth": 239.2,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.073716640472412,
+            -13.586651802062988,
+            -0.22276827692985535
+          ],
+          "camera_forward": [
+            0.8071582317352295,
+            -0.48116299510002136,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.29378148913383484,
+            -0.17512916028499603,
+            0.9396926164627075
+          ],
+          "camera_radius": 3.5832279914334966
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        14.313461303710938,
+        -17.603384017944336,
+        -1.7983179092407227
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.313461303710938,
+            -17.603384017944336,
+            -1.7983179092407227
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is a child, but the reference scene is a modern villa which is not a typical environment for a child to be alone in.",
+            "The object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, likely due to being outside the camera's view or occluded by the environment. The placement is also questionable as a child alone in a modern villa is not a typical scenario."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_v0.png",
+          "azimuth": 340.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            13.209831237792969,
+            -20.790477752685547,
+            -0.7994109392166138
+          ],
+          "camera_forward": [
+            0.3222467601299286,
+            0.9305930137634277,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.05682079866528511,
+            0.16408857703208923,
+            0.9848077893257141
+          ],
+          "camera_radius": 3.5175816664606425
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c1_v1.png",
+          "azimuth": 240.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            11.526369094848633,
+            -15.994255065917969,
+            -0.22277100384235382
+          ],
+          "camera_forward": [
+            0.813797652721405,
+            -0.46984636783599854,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.29619815945625305,
+            -0.17101003229618073,
+            0.9396926164627075
+          ],
+          "camera_radius": 3.583228590269808
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        14.313461303710938,
+        -22.341079711914062,
+        -1.6600000858306885
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.313461303710938,
+            -22.341079711914062,
+            -1.6600000858306885
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            2.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is a child, but the reference scene is a modern villa which is not a typical environment for a child to be alone in.",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, and the scene is not a typical environment for a child to be alone in."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_v0.png",
+          "azimuth": 347.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            13.554753303527832,
+            -25.627403259277344,
+            -0.6610928773880005
+          ],
+          "camera_forward": [
+            0.2215336710214615,
+            0.959567129611969,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.039062365889549255,
+            0.16919761896133423,
+            0.9848077297210693
+          ],
+          "camera_radius": 3.5175808700559283
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_Little-child-in-winter-clothes_75f29c9e_c2_v1.png",
+          "azimuth": 220.5,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            12.223370552062988,
+            -19.893898010253906,
+            -0.08445294201374054
+          ],
+          "camera_forward": [
+            0.6102815270423889,
+            -0.7145478129386902,
+            -0.34202027320861816
+          ],
+          "camera_up": [
+            0.22212430834770203,
+            -0.26007431745529175,
+            0.9396925568580627
+          ],
+          "camera_radius": 3.583228423926398
+        }
+      ]
+    }
+  ]
+}

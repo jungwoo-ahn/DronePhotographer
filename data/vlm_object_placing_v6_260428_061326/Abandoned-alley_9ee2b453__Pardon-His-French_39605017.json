@@ -1,0 +1,143 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Pardon-His-French_39605017",
+  "object_file": "data/objects/Pardon-His-French_39605017/Pardon-His-French_39605017.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -12.051703453063965,
+        -1.7584114074707031,
+        -6.269260097724327e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -12.051703453063965,
+            -1.7584114074707031,
+            -6.269260097724327e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            1.0,
+            3.0,
+            1.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible",
+            "Object is heavily cropped (head is cut off)",
+            "Object is significantly obscured by foreground elements (trash bin)",
+            "Less than 70% of the object is visible",
+            "Object is not visible in the frame",
+            "Object may be occluded by the door or positioned outside the camera's field of view",
+            "Object is heavily occluded by a dumpster",
+            "Object is not visible (likely occluded by the wall)",
+            "Surroundings are empty (only a brick wall is visible)",
+            "Object is likely behind or inside the brick wall",
+            "The top of the head is slightly cropped by the frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, appearing to be occluded by or embedded within the brick wall that fills the entire frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Pardon-His-French_39605017_c1_v0.png",
+          "azimuth": 94.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -7.921113014221191,
+            -1.4188146591186523,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.990238606929779,
+            -0.08141254633665085,
+            -0.11313477903604507
+          ],
+          "camera_up": [
+            -0.11275435984134674,
+            -0.009270017966628075,
+            0.993579626083374
+          ],
+          "camera_radius": 4.328926427952847
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 1.0,
+  "object": "Bald-Worker-Hands-on-His-Hips_7d114532",
+  "object_file": "data/objects/Bald-Worker-Hands-on-His-Hips_7d114532/Bald-Worker-Hands-on-His-Hips_7d114532.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        11.324095726013184,
+        21.351879119873047,
+        0.22841912508010864
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.324095726013184,
+            21.351879119873047,
+            0.22841912508010864
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            3.0,
+            9.0,
+            9.5,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is placed behind a foreground grid/window frame which partially obstructs the view and makes the framing awkward.",
+            "Object is clipping through multiple auditorium seats."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The worker is standing directly inside a row of auditorium seats, causing significant clipping through his legs and lower body; he should be moved into the aisle."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_v0.png",
+          "azimuth": 129.3,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            15.529200553894043,
+            24.793718338012695,
+            2.6060304641723633
+          ],
+          "camera_forward": [
+            -0.73908531665802,
+            -0.6049343347549438,
+            -0.2963230311870575
+          ],
+          "camera_up": [
+            -0.2293066382408142,
+            -0.18768537044525146,
+            0.9550877809524536
+          ],
+          "camera_radius": 5.9314585416930745
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c2_v1.png",
+          "azimuth": 69.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            16.651418685913086,
+            19.338851928710938,
+            1.9242440462112427
+          ],
+          "camera_forward": [
+            -0.9212326407432556,
+            0.3481045365333557,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.16243797540664673,
+            0.06138019263744354,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.942093106607688
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.240761756896973,
+        21.435211181640625,
+        0.22396470606327057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.240761756896973,
+            21.435211181640625,
+            0.22396470606327057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            10.0,
+            9.5,
+            9.0,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The object is clipping through the armrest of a seat.",
+            "The foreground grid/window frame significantly obstructs the view, making the framing poor.",
+            "The object is very small in the frame due to the distance.",
+            "The foreground stage edge partially obscures the person's lower legs and feet."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.4,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping through the armrest of one of the auditorium seats, which is a major placement error despite the plausible location."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_v0.png",
+          "azimuth": 87.1,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.928435325622559,
+            21.147085189819336,
+            1.919790267944336
+          ],
+          "camera_forward": [
+            -0.9835465550422668,
+            0.049824465066194534,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.1734258383512497,
+            0.008785251528024673,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.9420932432789355
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c3_v1.png",
+          "azimuth": 310.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.936201333999634,
+            17.706483840942383,
+            1.919790267944336
+          ],
+          "camera_forward": [
+            0.7443702816963196,
+            0.6447939276695251,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.13125267624855042,
+            0.11369448900222778,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.942093307226031
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        3.2407617568969727,
+        21.435211181640625,
+        1.1239646673202515
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.2407617568969727,
+            21.435211181640625,
+            1.1239646673202515
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.5,
+            9.5,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v5.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The surroundings are very empty, showing only a textured wall and floor without any of the auditorium's characteristic features like seats or stage equipment."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is perfectly grounded and scaled, but the tight framing against a single wall lacks the necessary scene context to feel like a complete shot of the auditorium."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_v0.png",
+          "azimuth": 117.9,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.273777961730957,
+            24.100055694580078,
+            2.6060304641723633
+          ],
+          "camera_forward": [
+            -0.8753746151924133,
+            -0.4634868800640106,
+            -0.1374744027853012
+          ],
+          "camera_up": [
+            -0.12149518728256226,
+            -0.06432832032442093,
+            0.9905053377151489
+          ],
+          "camera_radius": 5.884655221839725
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Bald-Worker-Hands-on-His-Hips_7d114532_c4_v1.png",
+          "azimuth": 27.9,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.783527374267578,
+            16.632762908935547,
+            2.6060304641723633
+          ],
+          "camera_forward": [
+            -0.46305689215660095,
+            0.8745623230934143,
+            -0.1439410150051117
+          ],
+          "camera_up": [
+            -0.06735426187515259,
+            0.1272101253271103,
+            0.9895862936973572
+          ],
+          "camera_radius": 5.632555613169133
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Modern-Thinker_ae3a6545",
+  "object_file": "data/objects/Modern-Thinker_ae3a6545/Modern-Thinker_ae3a6545.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -5.943586826324463,
+        -1.7681728601455688,
+        -4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.943586826324463,
+            -1.7681728601455688,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            0.0,
+            4.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Object is completely hidden behind a wall",
+            "surroundings are empty",
+            "The view is completely occluded by a brick wall",
+            "The object is placed at the very edge of the modeled environment, facing a white void.",
+            "Surroundings are empty (just a brick wall)",
+            "object is cropped at the top (head missing)",
+            "surroundings_empty",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a brick wall in the rendered image, making the placement invalid for evaluation."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Modern-Thinker_ae3a6545_c0_v0.png",
+          "azimuth": 98.3,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            -1.3022080659866333,
+            -1.091068983078003,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9768263101577759,
+            -0.1425035446882248,
+            -0.15969707071781158
+          ],
+          "camera_up": [
+            -0.1580243706703186,
+            -0.023053277283906937,
+            0.9871660470962524
+          ],
+          "camera_radius": 4.854211271542221
+        }
+      ]
+    }
+  ]
+}

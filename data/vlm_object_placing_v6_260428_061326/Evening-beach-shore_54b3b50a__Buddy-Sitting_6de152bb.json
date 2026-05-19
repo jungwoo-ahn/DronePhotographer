@@ -1,0 +1,139 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 1.0,
+  "object": "Buddy-Sitting_6de152bb",
+  "object_file": "data/objects/Buddy-Sitting_6de152bb/Buddy-Sitting_6de152bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.073616981506348,
+        37.339412689208984,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.073616981506348,
+            37.339412689208984,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            3.0,
+            2.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Surroundings are empty, showing only a dark reflective surface and sky, not the sandy beach environment.",
+            "The surface the object is placed on is very dark and reflective, not clearly identifiable as the sandy beach from the reference image, and lacks any other scene context.",
+            "The object is sitting on a dark, reflective surface that does not match the sandy dune environment of the scene.",
+            "Object is placed on a dark, reflective surface that does not match the sandy dune environment of the scene.",
+            "An unnatural light blue square is visible in the sky.",
+            "Object is placed on a reflective water surface that does not match the sandy dune environment of the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed on a vast, reflective water surface, making the surroundings empty and the placement inconsistent with the sandy dune environment shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Evening-beach-shore_54b3b50a_Buddy-Sitting_6de152bb_c1_v0.png",
+          "azimuth": 344.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.369226455688477,
+            34.76459503173828,
+            0.5553544759750366
+          ],
+          "camera_forward": [
+            0.2630402743816376,
+            0.9615129828453064,
+            -0.07938898354768753
+          ],
+          "camera_up": [
+            0.020948609337210655,
+            0.07657523453235626,
+            0.996843695640564
+          ],
+          "camera_radius": 2.7265858690194924
+        }
+      ]
+    }
+  ]
+}

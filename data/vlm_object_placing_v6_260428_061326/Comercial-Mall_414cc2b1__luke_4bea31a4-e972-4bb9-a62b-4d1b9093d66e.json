@@ -1,0 +1,742 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+  "object_file": "data/objects/luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/luke_2K_b5a0590c-f246-4616-9d9a-1d84a8a1e366.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -8.94361400604248,
+        16.596942901611328,
+        3.1948090963851428e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.94361400604248,
+            16.596942901611328,
+            3.1948090963851428e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.0,
+            3.0,
+            9.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking meaningful scene context.",
+            "Object is mostly obscured by other scene elements (pillar and railing).",
+            "Object is significantly cropped by the foreground, with only the upper half visible.",
+            "Object is heavily cropped (more than 30% cut off)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and in a plausible location outside a mall, but the object is heavily cropped with the head and upper torso cut off, and the immediate surroundings are empty, showing only ground texture."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v0.png",
+          "azimuth": 67.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.974424123764038,
+            14.538637161254883,
+            1.5958632230758667
+          ],
+          "camera_forward": [
+            -0.9098437428474426,
+            0.3768696188926697,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.16043007373809814,
+            0.06645220518112183,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.610368837175591
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v1.png",
+          "azimuth": 7.5,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -8.273725509643555,
+            11.508637428283691,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.12468764185905457,
+            0.9470961689949036,
+            -0.2957395613193512
+          ],
+          "camera_up": [
+            -0.03860178962349892,
+            0.2932094633579254,
+            0.9552686214447021
+          ],
+          "camera_radius": 5.598285953750046
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -32.005218505859375,
+        -1.5862432718276978,
+        -0.08067474514245987
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -32.005218505859375,
+            -1.5862432718276978,
+            -0.08067474514245987
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            9.0,
+            4.0,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is plausibly placed and scaled, fully visible and grounded, but the surroundings are empty, showing only a street, sky, and a plain wall instead of the main building."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v0.png",
+          "azimuth": 67.2,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -27.27402114868164,
+            -3.5750553607940674,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8766440153121948,
+            0.3685070276260376,
+            -0.30935072898864746
+          ],
+          "camera_up": [
+            -0.285179078578949,
+            0.1198781281709671,
+            0.9509479999542236
+          ],
+          "camera_radius": 5.6309999679283615
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v1.png",
+          "azimuth": 200.3,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -33.22318649291992,
+            1.7063475847244263,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.31331056356430054,
+            -0.8469873070716858,
+            -0.42947524785995483
+          ],
+          "camera_up": [
+            0.14900048077106476,
+            -0.4028000235557556,
+            0.9030786156654358
+          ],
+          "camera_radius": 4.206323519853506
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -36.88363265991211,
+        -1.5862435102462769,
+        -0.0806809514760971
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -36.88363265991211,
+            -1.5862435102462769,
+            -0.0806809514760971
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.0,
+            9.0,
+            9.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the outdoor ground next to the building, is fully visible, correctly scaled, and not clipping, with sufficient surrounding context visible including a lamp post and varied ground textures."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v0.png",
+          "azimuth": 70.4,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -32.04879379272461,
+            -3.3078529834747314,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8958474397659302,
+            0.3189968466758728,
+            -0.3093516230583191
+          ],
+          "camera_up": [
+            -0.29142698645591736,
+            0.10377252846956253,
+            0.9509477019309998
+          ],
+          "camera_radius": 5.631002762391583
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v1.png",
+          "azimuth": 322.1,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -40.03627395629883,
+            -5.63599157333374,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.5841530561447144,
+            0.7503777742385864,
+            -0.3093516230583191
+          ],
+          "camera_up": [
+            0.1900300681591034,
+            0.24410448968410492,
+            0.9509477019309998
+          ],
+          "camera_radius": 5.6310025295197015
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -20.47441864013672,
+        -8.238628387451172,
+        -0.04768175631761551
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -20.47441864013672,
+            -8.238628387451172,
+            -0.04768175631761551
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            3.0,
+            4.0,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking meaningful scene context.",
+            "Object is partly cut off at the frame edge (more than 30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped, with the head missing, and the surroundings are empty, showing only the road surface without any architectural context of the mall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_v0.png",
+          "azimuth": 73.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 5.0,
+          "camera_position": [
+            -16.191495895385742,
+            -9.531719207763672,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8990553021430969,
+            0.2714408338069916,
+            -0.34353959560394287
+          ],
+          "camera_up": [
+            -0.32887715101242065,
+            0.09929383546113968,
+            0.9391381740570068
+          ],
+          "camera_radius": 5.023173133929893
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_v1.png",
+          "azimuth": 13.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -19.672760009765625,
+            -11.656514167785645,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.20696720480918884,
+            0.8824084997177124,
+            -0.4225160479545593
+          ],
+          "camera_up": [
+            -0.09648202359676361,
+            0.41135266423225403,
+            0.9063554406166077
+          ],
+          "camera_radius": 4.188240242052685
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -24.909339904785156,
+        8.614081382751465,
+        1.1519997119903564
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -24.909339904785156,
+            8.614081382751465,
+            1.1519997119903564
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed and scaled on a mall balcony, but the background is mostly empty sky and plain ground, lacking interesting scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_v0.png",
+          "azimuth": 42.7,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -21.42888069152832,
+            4.842343330383301,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.6757158637046814,
+            0.7322664260864258,
+            -0.08481726050376892
+          ],
+          "camera_up": [
+            -0.05751965567469597,
+            0.06233343854546547,
+            0.996396541595459
+          ],
+          "camera_radius": 5.245512065892118
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_v1.png",
+          "azimuth": 286.9,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -28.268367767333984,
+            7.593530654907227,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.949489951133728,
+            0.2884770333766937,
+            -0.12349039316177368
+          ],
+          "camera_up": [
+            0.11815731972455978,
+            0.03589879348874092,
+            0.9923457503318787
+          ],
+          "camera_radius": 3.6742871254802987
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Retro-Chic:-Urban-Stroll_748406ce",
+  "object_file": "data/objects/Retro-Chic:-Urban-Stroll_748406ce/Retro-Chic:-Urban-Stroll_748406ce.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.1633012294769287,
+        -28.9241943359375,
+        1.955041527748108
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.1633012294769287,
+            -28.9241943359375,
+            1.955041527748108
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is too small for the scene.",
+            "The object is placed in the middle of the ocean, which is not a plausible location for a person.",
+            "The object is placed in an ocean scene, which is not a plausible environment for a person.",
+            "The surroundings are empty.",
+            "The surroundings are empty, consisting only of water and sky.",
+            "The object is placed in an implausible location.",
+            "The object is placed in an empty ocean with no context or plausible reason for being there."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly visible and grounded, but it is placed in an implausible location on a small rock in the middle of the ocean, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Retro-Chic:-Urban-Stroll_748406ce_c0_v0.png",
+          "azimuth": 204.1,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.13423596322536469,
+            -23.787986755371094,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            0.3848392069339752,
+            -0.8603192567825317,
+            -0.3342896103858948
+          ],
+          "camera_up": [
+            0.13650061190128326,
+            -0.30515098571777344,
+            0.942470371723175
+          ],
+          "camera_radius": 6.244484909536647
+        }
+      ]
+    }
+  ]
+}

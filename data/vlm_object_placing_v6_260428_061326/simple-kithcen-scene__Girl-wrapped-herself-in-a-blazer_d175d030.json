@@ -1,0 +1,418 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-wrapped-herself-in-a-blazer_d175d030",
+  "object_file": "data/objects/Girl-wrapped-herself-in-a-blazer_d175d030/Girl-wrapped-herself-in-a-blazer_d175d030.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.7068381309509277,
+        -0.5544911026954651,
+        -0.0001722872257232666
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7068381309509277,
+            -0.5544911026954651,
+            -0.0001722872257232666
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped, only showing the lower half of the person.",
+            "Object is partially cropped.",
+            "Object is heavily cropped, only legs and torso are visible.",
+            "The scale of the scene appears too large for the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped, with only the lower half of the person visible. The scale of the scene also appears too large for the person, as the kitchen counters seem to be at head height."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c0_v1.png",
+          "azimuth": 116.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            1.3464908599853516,
+            0.961194634437561,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.8689159750938416,
+            -0.43133366107940674,
+            -0.2427680343389511
+          ],
+          "camera_up": [
+            -0.21745018661022186,
+            -0.10794321447610855,
+            0.9700843691825867
+          ],
+          "camera_radius": 3.7280712152583955
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.7068381905555725,
+        0.4455088973045349,
+        0.15000003576278687
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7068381905555725,
+            0.4455088973045349,
+            0.15000003576278687
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is partially cropped."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly visible and grounded in the kitchen scene, but the top of her head is slightly cropped, and the scale appears to be correct for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_v0.png",
+          "azimuth": 7.1,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.2855015993118286,
+            -2.9371819496154785,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.12105472385883331,
+            0.9718853831291199,
+            -0.201951801776886
+          ],
+          "camera_up": [
+            -0.024961551651358604,
+            0.20040322840213776,
+            0.9793954491615295
+          ],
+          "camera_radius": 3.6698389840826984
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c1_v1.png",
+          "azimuth": 337.1,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.0332953929901123,
+            -2.694655418395996,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            0.3811061978340149,
+            0.9022047519683838,
+            -0.2019520401954651
+          ],
+          "camera_up": [
+            0.07858441025018692,
+            0.18603526055812836,
+            0.9793953895568848
+          ],
+          "camera_radius": 3.6698388967832365
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.7068381905555725,
+        1.4455089569091797,
+        0.15000003576278687
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7068381905555725,
+            1.4455089569091797,
+            0.15000003576278687
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-placed in the kitchen, standing on the floor in front of the counter. The scale appears correct, with the counter at waist height. The person is fully visible and not clipping with any objects."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_v0.png",
+          "azimuth": 5.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.18812765181064606,
+            -3.751298666000366,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.0984322652220726,
+            0.9861640334129333,
+            -0.1333852857351303
+          ],
+          "camera_up": [
+            -0.013247786089777946,
+            0.1327257752418518,
+            0.9910642504692078
+          ],
+          "camera_radius": 5.396616348381425
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Girl-wrapped-herself-in-a-blazer_d175d030_c2_v1.png",
+          "azimuth": 25.4,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.4307070970535278,
+            -3.056150436401367,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.42473095655441284,
+            0.8944813013076782,
+            -0.13966700434684753
+          ],
+          "camera_up": [
+            -0.05990804731845856,
+            0.12616614997386932,
+            0.99019855260849
+          ],
+          "camera_radius": 5.165426584853624
+        }
+      ]
+    }
+  ]
+}

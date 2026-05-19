@@ -1,0 +1,261 @@
+{
+  "scene": "Modern-pool-villa_f3b34ecc",
+  "scene_file": "data/scenes/Modern-pool-villa_f3b34ecc/Modern-pool-villa_f3b34ecc.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-in-Pink-Down-Jacket_bdab3cc4",
+  "object_file": "data/objects/Girl-in-Pink-Down-Jacket_bdab3cc4/Girl-in-Pink-Down-Jacket_bdab3cc4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        13.89140510559082,
+        10.63829231262207,
+        -2.7824673652648926
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            13.89140510559082,
+            10.63829231262207,
+            -2.7824673652648926
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is underwater in a swimming pool.",
+            "Object is barely visible and mostly out of frame.",
+            "The object is placed in a location that is not consistent with the reference image. The reference image shows an outdoor pool area, but the object is placed in an indoor room with a tiled wall.",
+            "Object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed underwater in a swimming pool, which is not a plausible location for a person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v0.png",
+          "azimuth": 55.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            18.688940048217773,
+            7.341037273406982,
+            -1.0542958974838257
+          ],
+          "camera_forward": [
+            -0.81160569190979,
+            0.5578014254570007,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.14310802519321442,
+            0.09835544973611832,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.072463097709513
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        11.840657234191895,
+        2.4352974891662598,
+        -3.224060297012329
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.840657234191895,
+            2.4352974891662598,
+            -3.224060297012329
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is underwater in a swimming pool.",
+            "Object is partially out of frame.",
+            "Object is partially obscured by a tree branch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and mostly visible, but it is placed underwater in the swimming pool, which is not a plausible location for a person. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-pool-villa_f3b34ecc_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_v1.png",
+          "azimuth": 233.7,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            7.93823766708374,
+            5.30190896987915,
+            0.8681526184082031
+          ],
+          "camera_forward": [
+            0.6601778268814087,
+            -0.48494890332221985,
+            -0.5735763311386108
+          ],
+          "camera_up": [
+            0.4622613489627838,
+            -0.33956483006477356,
+            0.8191521167755127
+          ],
+          "camera_radius": 6.339759210292014
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e",
+  "object_file": "data/objects/snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e/snowman-3d-illustration_8a079e99-46ed-4719-9ddd-f3e657aaf5a4.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.5042718648910522,
+        -2.5247180461883545,
+        -0.40197572112083435
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.5042718648910522,
+            -2.5247180461883545,
+            -0.40197572112083435
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is heavily occluded by trees.",
+            "Object is partially occluded by tree.022",
+            "Object is slightly overlapping with tree.022."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is almost entirely hidden behind trees, making it impossible to assess its placement or scale within the scene. The small visible portion suggests it is grounded, but the occlusion prevents a proper evaluation."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_v1.png",
+          "azimuth": 9.7,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            1.9152024984359741,
+            -10.779001235961914,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.16848459839820862,
+            0.9856752753257751,
+            -0.007564190309494734
+          ],
+          "camera_up": [
+            -0.001274510403163731,
+            0.007456044666469097,
+            0.9999713897705078
+          ],
+          "camera_radius": 8.421952960302857
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is a winter object and would not naturally appear in a grassy, outdoor picnic scene."
+    }
+  ]
+}

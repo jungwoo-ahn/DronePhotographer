@@ -1,0 +1,150 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "Girl-walk_544c79c8",
+  "object_file": "data/objects/Girl-walk_544c79c8/Girl-walk_544c79c8.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.4971833825111389,
+        -3.424753427505493,
+        -0.10980437695980072
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.4971833825111389,
+            -3.424753427505493,
+            -0.10980437695980072
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-walk_544c79c8_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is slightly too large for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly on the ground in a natural environment, and the scale appears correct relative to the surrounding elements."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Girl-walk_544c79c8_c0_v0.png",
+          "azimuth": 174.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.11730557680130005,
+            0.44953665137290955,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.0975496768951416,
+            -0.9948887825012207,
+            0.02608305774629116
+          ],
+          "camera_up": [
+            0.0025452659465372562,
+            0.025958573445677757,
+            0.9996597766876221
+          ],
+          "camera_radius": 3.939640006690413
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Girl-walk_544c79c8_c0_v1.png",
+          "azimuth": 114.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.0479888916015625,
+            -1.8165916204452515,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.9103738069534302,
+            -0.4129638671875,
+            0.02608305774629116
+          ],
+          "camera_up": [
+            0.02375337854027748,
+            0.010775108821690083,
+            0.9996597766876221
+          ],
+          "camera_radius": 3.939640072881821
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The scene depicts a natural outdoor environment with a waterfall and rocky terrain, which is not a typical setting for a picnic."
+    }
+  ]
+}

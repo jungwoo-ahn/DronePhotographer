@@ -1,0 +1,295 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Girl-in-a-Beret-with-Coffee_a37a8219",
+  "object_file": "data/objects/Girl-in-a-Beret-with-Coffee_a37a8219/Girl-in-a-Beret-with-Coffee_a37a8219.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.802800416946411,
+        2.0166006088256836,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.802800416946411,
+            2.0166006088256836,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            3.0,
+            9.0,
+            3.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is quite small in the frame",
+            "Object's head is cut off",
+            "Object is clipping into the brick wall",
+            "The edge of the scene geometry is visible, showing a grey void in the foreground and right side",
+            "Object is heavily cropped (head is missing)",
+            "The camera framing shows the edge of the ground plane and the empty void below.",
+            "Object is clipping into the wall"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": -0.3,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cut off by the top of the frame, and her left side is visibly clipping into the brick wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v0.png",
+          "azimuth": 3.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.5961663722991943,
+            -1.461438536643982,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.058498818427324295,
+            0.9846474528312683,
+            -0.16446049511432648
+          ],
+          "camera_up": [
+            -0.009753555990755558,
+            0.1641710251569748,
+            0.9863836765289307
+          ],
+          "camera_radius": 3.7016154564434407
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v1.png",
+          "azimuth": 303.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.2592692375183105,
+            -0.921899139881134,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.8299477100372314,
+            0.5472497940063477,
+            -0.10818730294704437
+          ],
+          "camera_up": [
+            0.09031992405653,
+            0.0595550462603569,
+            0.994130551815033
+          ],
+          "camera_radius": 5.482463166530189
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.818622589111328,
+        -1.847322940826416,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.818622589111328,
+            -1.847322940826416,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            0.0,
+            3.0,
+            1.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible",
+            "The background is mostly empty/blank",
+            "The view is just a flat brick wall",
+            "The object is not visible in the frame",
+            "Object is completely hidden/not visible in the frame",
+            "Camera is facing a wall",
+            "Surroundings are empty",
+            "The background is a plain, featureless wall",
+            "The foreground car hood heavily crops the lower legs of the person",
+            "The scene is extremely dark/underexposed",
+            "The top of the object's head is cut off"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, which shows only a close-up of a brick wall, likely indicating the object is placed behind the geometry or the camera is misaligned."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Girl-in-a-Beret-with-Coffee_a37a8219_c1_v0.png",
+          "azimuth": 95.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.396757125854492,
+            -1.444901704788208,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9874687790870667,
+            -0.0898665264248848,
+            -0.1297280639410019
+          ],
+          "camera_up": [
+            -0.12919417023658752,
+            -0.011757471598684788,
+            0.9915496110916138
+          ],
+          "camera_radius": 4.612736308821036
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "Guy-in-green-bomber_6a08ce9e",
+  "object_file": "data/objects/Guy-in-green-bomber_6a08ce9e/Guy-in-green-bomber_6a08ce9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.83811092376709,
+        0.4220746159553528,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.83811092376709,
+            0.4220746159553528,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image.",
+            "The object is partially obscured by the foreground elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, making it impossible to assess its placement or visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Guy-in-green-bomber_6a08ce9e_c0_v0.png",
+          "azimuth": 273.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -6.834029197692871,
+            0.15666641294956207,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9965648651123047,
+            0.066191665828228,
+            -0.049770839512348175
+          ],
+          "camera_up": [
+            0.04966142773628235,
+            0.0032983708661049604,
+            0.9987606406211853
+          ],
+          "camera_radius": 4.118766784887019
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1",
+  "object_file": "data/objects/snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1/snowman-character_2K_e5d72e38-c695-4363-91cb-dae1bfb50216.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.862166166305542,
+        -1.601980447769165,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.862166166305542,
+            -1.601980447769165,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            2.0,
+            2.0,
+            2.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is placed in an unusual location, an abandoned-looking interior with barrels and crates, which is not a typical environment for a snowman.",
+            "Surroundings are empty.",
+            "Object is not visible in the image.",
+            "Object is not visible",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, therefore the quality is very low."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_v0.png",
+          "azimuth": 225.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.196902751922607,
+            1.7327567338943481,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7054304480552673,
+            -0.7054304480552673,
+            -0.06881654262542725
+          ],
+          "camera_up": [
+            0.048660676926374435,
+            -0.04866061359643936,
+            0.9976293444633484
+          ],
+          "camera_radius": 4.813250024982473
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_v1.png",
+          "azimuth": 228.2,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.377852916717529,
+            1.5414071083068848,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7437085509300232,
+            -0.6649525165557861,
+            -0.0688166618347168
+          ],
+          "camera_up": [
+            0.05130120366811752,
+            -0.04586850479245186,
+            0.9976293444633484
+          ],
+          "camera_radius": 4.813249727779644
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -6.862166404724121,
+        2.398019790649414,
+        -0.026998370885849
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.862166404724121,
+            2.398019790649414,
+            -0.026998370885849
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            7.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the scene appears too large for the snowman. The snowman is 1.5m tall, but the furniture and environment elements seem to dwarf it, suggesting the scene is scaled up significantly.",
+            "The snowman is placed in an unusual location, an abandoned-looking interior with barrels and crates, which is not a typical environment for a snowman."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but the environment is not suitable for a snowman, and the scale of the scene appears too large."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_v0.png",
+          "azimuth": 15.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -5.641567707061768,
+            -2.1573150157928467,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.25820544362068176,
+            0.9636359214782715,
+            -0.06881678104400635
+          ],
+          "camera_up": [
+            -0.01781110092997551,
+            0.06647190451622009,
+            0.9976293444633484
+          ],
+          "camera_radius": 4.813249777313451
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c2_v1.png",
+          "azimuth": 30.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.504150867462158,
+            -1.686181664466858,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.4988146126270294,
+            0.8639723658561707,
+            -0.06881678104400635
+          ],
+          "camera_up": [
+            -0.03440839424729347,
+            0.05959707871079445,
+            0.9976293444633484
+          ],
+          "camera_radius": 4.813249925914866
+        }
+      ]
+    }
+  ]
+}

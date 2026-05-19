@@ -1,0 +1,120 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Photographer-on-a-bar-stool_57bd3c47",
+  "object_file": "data/objects/Photographer-on-a-bar-stool_57bd3c47/Photographer-on-a-bar-stool_57bd3c47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.6354390382766724,
+        -0.5401908159255981,
+        -0.9825530052185059
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.6354390382766724,
+            -0.5401908159255981,
+            -0.9825530052185059
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in a body of water, which is an unusual location for a photographer on a bar stool.",
+            "The object is sitting on a chair, but the chair is placed on a grassy hill, which is an unusual location for a chair and a photographer.",
+            "Render is black.",
+            "The object is sitting on a bar stool in the middle of a grassy field with a small body of water. This is an unusual placement for a photographer on a bar stool."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is completely black, making it impossible to evaluate the object placement, visibility, or surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Photographer-on-a-bar-stool_57bd3c47_c0_v0.png",
+          "azimuth": 97.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.152276039123535,
+            -0.07511807978153229,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9918037056922913,
+            -0.12177849560976028,
+            -0.038670267909765244
+          ],
+          "camera_up": [
+            -0.03838203102350235,
+            -0.004712697118520737,
+            0.9992520213127136
+          ],
+          "camera_radius": 3.894016484376776
+        }
+      ]
+    }
+  ]
+}

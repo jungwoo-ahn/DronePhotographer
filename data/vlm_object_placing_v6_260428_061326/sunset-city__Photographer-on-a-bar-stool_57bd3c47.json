@@ -1,0 +1,432 @@
+{
+  "scene": "sunset-city",
+  "scene_file": "data/scenes/sunset-city/Sunset city.blend",
+  "scene_scale": 1.0,
+  "object": "Photographer-on-a-bar-stool_57bd3c47",
+  "object_file": "data/objects/Photographer-on-a-bar-stool_57bd3c47/Photographer-on-a-bar-stool_57bd3c47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -31.93167495727539,
+        22.228057861328125,
+        -1.1427991921664216e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -31.93167495727539,
+            22.228057861328125,
+            -1.1427991921664216e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            3.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The background is empty, which is not ideal for training.",
+            "The object is not visible in the rendered image.",
+            "The rendered image shows a person sitting on a chair in a desert-like environment, which does not match the reference image of a city street at night.",
+            "The surroundings are empty.",
+            "The object is placed in an empty void with no context or background."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image does not contain the specified object and appears to be from a completely different scene, making it impossible to evaluate the placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c0_v0.png",
+          "azimuth": 14.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -30.982633590698242,
+            18.531789779663086,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            -0.23489739000797272,
+            0.9148639440536499,
+            -0.3284008800983429
+          ],
+          "camera_up": [
+            -0.08167006075382233,
+            0.3180835545063019,
+            0.944538414478302
+          ],
+          "camera_radius": 4.287291468617778
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        15.176469802856445,
+        2.34475040435791,
+        -0.006613790988922119
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            15.176469802856445,
+            2.34475040435791,
+            -0.006613790988922119
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            7.0,
+            6.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The background is empty, which is not ideal for training.",
+            "The object is too small for the scene, suggesting the scene is too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The photographer on the bar stool is grounded and fully visible, but appears too small for the scene, indicating the scene might be too large. The surroundings are not empty, providing context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_v0.png",
+          "azimuth": 307.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            12.148906707763672,
+            0.021619049832224846,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.7489492297172546,
+            0.5746889710426331,
+            -0.32985997200012207
+          ],
+          "camera_up": [
+            0.26169553399086,
+            0.20080599188804626,
+            0.9440298676490784
+          ],
+          "camera_radius": 4.2903092036823995
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c1_v1.png",
+          "azimuth": 247.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            10.683444023132324,
+            4.205821990966797,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.8909945487976074,
+            -0.3690619170665741,
+            -0.26442763209342957
+          ],
+          "camera_up": [
+            0.24429933726787567,
+            -0.10119195282459259,
+            0.9644055366516113
+          ],
+          "camera_radius": 5.2435243269289735
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        6.305455207824707,
+        12.133456230163574,
+        0.13792365789413452
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.305455207824707,
+            12.133456230163574,
+            0.13792365789413452
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            7.0,
+            6.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The background is empty, which is not ideal for training.",
+            "The object is too small for the scene, suggesting the scene is too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The photographer is grounded and mostly visible, but appears too small for the scene, suggesting the scene is too large. The surroundings are not empty, providing good context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_v0.png",
+          "azimuth": 157.4,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            8.17436695098877,
+            16.623228073120117,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            -0.3733021914958954,
+            -0.8968009948730469,
+            -0.23747308552265167
+          ],
+          "camera_up": [
+            -0.09125974029302597,
+            -0.21923759579658508,
+            0.9713941216468811
+          ],
+          "camera_radius": 5.191214552899997
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Photographer-on-a-bar-stool_57bd3c47_c2_v1.png",
+          "azimuth": 217.4,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            2.916994571685791,
+            16.565378189086914,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.5940365791320801,
+            -0.7769677042961121,
+            -0.20842689275741577
+          ],
+          "camera_up": [
+            0.12659330666065216,
+            -0.1655774861574173,
+            0.97803795337677
+          ],
+          "camera_radius": 5.8669774288356455
+        }
+      ]
+    }
+  ]
+}

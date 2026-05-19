@@ -1,0 +1,138 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "Guy-in-yellow-jacket_660f924e",
+  "object_file": "data/objects/Guy-in-yellow-jacket_660f924e/Guy-in-yellow-jacket_660f924e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        187.66549682617188,
+        510.7455749511719,
+        -34.51237487792969
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            187.66549682617188,
+            510.7455749511719,
+            -34.51237487792969
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            7.0,
+            1.0,
+            7.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The rendered image is completely black, indicating a rendering error or an issue with the object's placement that makes it invisible.",
+            "The object is placed in a desert landscape with no context for a person to be there.",
+            "The surroundings are empty.",
+            "Object is not visible in the rendered image.",
+            "The rendered image is black and does not show the scene or the object.",
+            "The rendered image is completely black."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, making it impossible to evaluate the object's visibility, placement, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Guy-in-yellow-jacket_660f924e_c0_v0.png",
+          "azimuth": 342.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            185.68130493164062,
+            504.4525146484375,
+            -32.573707580566406
+          ],
+          "camera_forward": [
+            0.2961370348930359,
+            0.939227819442749,
+            -0.17364880442619324
+          ],
+          "camera_up": [
+            0.052217140793800354,
+            0.16561183333396912,
+            0.9848076701164246
+          ],
+          "camera_radius": 6.877358222867329
+        }
+      ]
+    }
+  ]
+}

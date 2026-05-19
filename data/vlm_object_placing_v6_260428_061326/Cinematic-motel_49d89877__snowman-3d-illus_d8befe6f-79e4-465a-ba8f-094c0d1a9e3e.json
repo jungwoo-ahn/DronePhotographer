@@ -1,0 +1,110 @@
+{
+  "scene": "Cinematic-motel_49d89877",
+  "scene_file": "data/scenes/Cinematic-motel_49d89877/Cinematic-motel_49d89877.blend",
+  "scene_scale": 0.65,
+  "object": "snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e",
+  "object_file": "data/objects/snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e/snowman-3d-illustration_8a079e99-46ed-4719-9ddd-f3e657aaf5a4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        6.0835089683532715,
+        -3.9847984313964844,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.0835089683532715,
+            -3.9847984313964844,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is a bit too large for the scene, making it appear slightly out of scale.",
+            "The snowman is placed in an environment that does not match its nature. A snowman belongs in a snowy environment, not in front of a motel."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but it is placed in an implausible environment for a snowman, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cinematic-motel_49d89877_snowman-3d-illus_d8befe6f-79e4-465a-ba8f-094c0d1a9e3e_c0_v1.png",
+          "azimuth": 246.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.1583502292633057,
+            -0.00462461169809103,
+            1.1987950801849365
+          ],
+          "camera_forward": [
+            0.9178419709205627,
+            -0.3952852785587311,
+            -0.03627263009548187
+          ],
+          "camera_up": [
+            0.033314481377601624,
+            -0.0143474405631423,
+            0.9993419051170349
+          ],
+          "camera_radius": 10.133649575298277
+        }
+      ]
+    }
+  ]
+}

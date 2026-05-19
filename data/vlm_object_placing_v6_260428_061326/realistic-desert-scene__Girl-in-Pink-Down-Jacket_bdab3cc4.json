@@ -1,0 +1,137 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "Girl-in-Pink-Down-Jacket_bdab3cc4",
+  "object_file": "data/objects/Girl-in-Pink-Down-Jacket_bdab3cc4/Girl-in-Pink-Down-Jacket_bdab3cc4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        187.55409240722656,
+        510.6341247558594,
+        -34.5556755065918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            187.55409240722656,
+            510.6341247558594,
+            -34.5556755065918
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            7.0,
+            2.0,
+            2.0,
+            4.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible in the scene.",
+            "Surroundings are empty.",
+            "Object is not visible in the rendered image.",
+            "The surroundings are empty.",
+            "The render is black and the object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is black, making it impossible to evaluate the object's visibility, placement, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v0.png",
+          "azimuth": 342.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            185.80357360839844,
+            505.08221435546875,
+            -32.8275032043457
+          ],
+          "camera_forward": [
+            0.29613858461380005,
+            0.9392273426055908,
+            -0.17364880442619324
+          ],
+          "camera_up": [
+            0.052217379212379456,
+            0.16561175882816315,
+            0.9848076701164246
+          ],
+          "camera_radius": 6.072446371966938
+        }
+      ]
+    }
+  ]
+}

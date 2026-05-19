@@ -1,0 +1,95 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797",
+  "object_file": "data/objects/young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/young-guy-keeps-his-hands-in-pockets_2K_5666adde-dee9-4946-b966-512aea6a2b47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.6330586671829224,
+        1.353878378868103,
+        -0.05968213081359863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.6330586671829224,
+            1.353878378868103,
+            -0.05968213081359863
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            1.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty (blank wall).",
+            "Object is completely hidden from view.",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, and the rendered view consists almost entirely of a blank wall, providing no meaningful context."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

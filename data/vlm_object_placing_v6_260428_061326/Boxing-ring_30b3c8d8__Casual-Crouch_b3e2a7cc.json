@@ -1,0 +1,306 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Casual-Crouch_b3e2a7cc",
+  "object_file": "data/objects/Casual-Crouch_b3e2a7cc/Casual-Crouch_b3e2a7cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        30.9083251953125,
+        -1.9740514755249023,
+        5.400152683258057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.9083251953125,
+            -1.9740514755249023,
+            5.400152683258057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            4.0,
+            4.0,
+            8.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly occluded by the stadium seating.",
+            "Object is significantly occluded by foreground furniture (seat).",
+            "The object is significantly occluded by the stadium seating in the foreground.",
+            "The top of the person's head is slightly cut off by the frame edge.",
+            "Object is heavily occluded by the seats in front, with less than 30% visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the arena seats but is mostly hidden behind the row of chairs in front of them, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_v0.png",
+          "azimuth": 4.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.092790603637695,
+            -4.5474772453308105,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.06569485366344452,
+            0.9164907336235046,
+            -0.39462506771087646
+          ],
+          "camera_up": [
+            -0.028214676305651665,
+            0.39361512660980225,
+            0.9188422560691833
+          ],
+          "camera_radius": 2.9879254147966257
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c0_v1.png",
+          "azimuth": 184.9,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            30.687946319580078,
+            0.5965487360954285,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.0784849151968956,
+            -0.9154841303825378,
+            -0.39462506771087646
+          ],
+          "camera_up": [
+            0.03370770812034607,
+            -0.39318281412124634,
+            0.9188422560691833
+          ],
+          "camera_radius": 2.9879253549511104
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        30.908327102661133,
+        -6.968739032745361,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.908327102661133,
+            -6.968739032745361,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.0,
+            2.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly occluded by the stadium seating."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind the stadium seats, with only the top of their head visible, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_v0.png",
+          "azimuth": 170.6,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.3297119140625,
+            -4.423354148864746,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.1500704288482666,
+            -0.9065042734146118,
+            -0.3946249485015869
+          ],
+          "camera_up": [
+            -0.06445223838090897,
+            -0.3893260359764099,
+            0.9188423156738281
+          ],
+          "camera_radius": 2.9879252801442147
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Casual-Crouch_b3e2a7cc_c1_v1.png",
+          "azimuth": 20.6,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.816089630126953,
+            -9.38379955291748,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.32328730821609497,
+            0.8600909113883972,
+            -0.39462506771087646
+          ],
+          "camera_up": [
+            -0.13884568214416504,
+            0.3693924844264984,
+            0.9188422560691833
+          ],
+          "camera_radius": 2.987925349963984
+        }
+      ]
+    }
+  ]
+}

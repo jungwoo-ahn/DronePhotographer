@@ -1,0 +1,763 @@
+{
+  "scene": "Convention-room_55574faf",
+  "scene_file": "data/scenes/Convention-room_55574faf/Convention-room_55574faf.blend",
+  "scene_scale": 0.8,
+  "object": "Casual-Crouch_b3e2a7cc",
+  "object_file": "data/objects/Casual-Crouch_b3e2a7cc/Casual-Crouch_b3e2a7cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.08704149723052979,
+        -0.6771191954612732,
+        -0.320000022649765
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.08704149723052979,
+            -0.6771191954612732,
+            -0.320000022649765
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            9.5,
+            9.5,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with the auditorium chair.",
+            "Object is clipping with the chair it is placed on.",
+            "Object is clipping with the chair in front.",
+            "The person is crouching on top of the chair, which is an awkward and implausible posture for sitting in an auditorium.",
+            "Object is heavily occluded by the chair in front.",
+            "Object is significantly occluded by foreground elements and the chair it is sitting on, making less than 70% visible.",
+            "The object's 'crouch' pose is not suitable for sitting in an auditorium chair, leading to awkward placement and clipping."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.1,
+            "right": 0.0,
+            "up": -0.3
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping significantly with the auditorium chair and is placed in an awkward, implausible crouching position on top of it rather than sitting in it, though the object is mostly visible, grounded, and the scale is appropriate for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c0_v1.png",
+          "azimuth": 229.6,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.7852907180786133,
+            1.7674269676208496,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.7471150159835815,
+            -0.6358447670936584,
+            -0.1937023401260376
+          ],
+          "camera_up": [
+            0.14751169085502625,
+            -0.12554241716861725,
+            0.9810603260993958
+          ],
+          "camera_radius": 3.9413264619068786
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        3.0870416164398193,
+        1.3228808641433716,
+        -0.320000022649765
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.0870416164398193,
+            1.3228808641433716,
+            -0.320000022649765
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            3.0,
+            9.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partially obscured by the chair in front.",
+            "Object is clipping with the auditorium chair.",
+            "Object is clipping with the chair it is placed on.",
+            "Object is clipping with the chair in front."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.1,
+            "right": 0.0,
+            "up": 0.05
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed sitting in an auditorium chair at a realistic scale within a rich environment, but their back is clipping with the chair's backrest."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_v0.png",
+          "azimuth": 212.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.0438543558120728,
+            4.493288040161133,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.531448245048523,
+            -0.8246467709541321,
+            -0.19370198249816895
+          ],
+          "camera_up": [
+            0.10492995381355286,
+            -0.16281943023204803,
+            0.9810604453086853
+          ],
+          "camera_radius": 3.941326824858647
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c1_v1.png",
+          "azimuth": 243.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.44740062952041626,
+            3.0927979946136475,
+            0.7759512066841125
+          ],
+          "camera_forward": [
+            0.880570113658905,
+            -0.4409565031528473,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.15526817739009857,
+            -0.0777522549033165,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.1019507669417195
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        11.337043000612342,
+        -0.6779929023344253,
+        0.3200000822544098
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.837043762207031,
+            -0.6771202087402344,
+            0.3200000822544098
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            2.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Object is completely hidden.",
+            "Object is completely hidden from view.",
+            "Object is not visible in the rendered image.",
+            "Object is heavily obscured by the chairs, making it difficult to identify.",
+            "Object appears to be clipping with the chair it is placed on."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind the foreground chairs, making it impossible to evaluate its placement or scale."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            11.337043000612342,
+            -0.6779929023344253,
+            0.3200000822544098
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            0.0,
+            3.0,
+            0.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_iter1_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is very small and partially obscured by the chair in front.",
+            "Object is not visible in the rendered image.",
+            "Object is significantly too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.4
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (person-sitting) is not visible in the rendered image, which appears identical to the reference image without the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c2_v0.png",
+          "azimuth": 188.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.732315063476562,
+            3.2283079624176025,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.15293215215206146,
+            -0.9878818988800049,
+            -0.026477893814444542
+          ],
+          "camera_up": [
+            0.004050818271934986,
+            -0.026166195049881935,
+            0.9996494054794312
+          ],
+          "camera_radius": 3.9847907877870714
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        9.087042808532715,
+        -1.6771191358566284,
+        -0.3199999928474426
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.087042808532715,
+            -1.6771191358566284,
+            -0.3199999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.5,
+            9.0,
+            9.5,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the stage, is well-scaled for the environment, and is fully visible with rich surroundings, although the crouching pose on the stage is a bit unusual."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_v0.png",
+          "azimuth": 179.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            9.10084056854248,
+            2.275688886642456,
+            0.7759509682655334
+          ],
+          "camera_forward": [
+            -0.0034375637769699097,
+            -0.9848017692565918,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.0006061244639568031,
+            -0.1736469268798828,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.1019494011611615
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c3_v1.png",
+          "azimuth": 45.0,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            10.911397933959961,
+            -3.501474142074585,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            -0.6793725490570068,
+            0.6793724894523621,
+            -0.2773192822933197
+          ],
+          "camera_up": [
+            -0.19609445333480835,
+            0.19609424471855164,
+            0.9607778191566467
+          ],
+          "camera_radius": 2.822145157193202
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        10.087042808532715,
+        -2.677119255065918,
+        -0.3199999928474426
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.087042808532715,
+            -2.677119255065918,
+            -0.3199999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.5,
+            7.5,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is somewhat small and partially obscured by chairs in the foreground.",
+            "Object is somewhat far away and partially obscured by the pillar/wall and chairs.",
+            "Object is significantly cropped by the frame.",
+            "Object is quite small in the frame.",
+            "Object is partly obscured by foreground chairs and cut off by the frame edge.",
+            "Object is partially obscured by a chair."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": -0.2,
+            "up": 0.2
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed and scaled in the convention room, but a significant portion of the object is cropped by the camera frame, particularly on the right and bottom."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Casual-Crouch_b3e2a7cc_c4_v0.png",
+          "azimuth": 258.6,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            6.863987922668457,
+            -2.0272371768951416,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.9560548663139343,
+            -0.1927744299173355,
+            -0.22090056538581848
+          ],
+          "camera_up": [
+            0.21654243767261505,
+            -0.0436626635491848,
+            0.9752963185310364
+          ],
+          "camera_radius": 3.4811476485240807
+        }
+      ]
+    }
+  ]
+}

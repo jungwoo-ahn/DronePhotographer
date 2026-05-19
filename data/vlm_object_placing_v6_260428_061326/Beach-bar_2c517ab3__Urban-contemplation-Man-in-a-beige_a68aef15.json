@@ -1,0 +1,584 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Urban-contemplation-Man-in-a-beige_a68aef15",
+  "object_file": "data/objects/Urban-contemplation-Man-in-a-beige_a68aef15/Urban-contemplation-Man-in-a-beige_a68aef15.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.8564937114715576,
+        -7.692173004150391,
+        -1.4901161193847656e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.8564937114715576,
+            -7.692173004150391,
+            -1.4901161193847656e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.5,
+            9.5,
+            1.0,
+            2.0,
+            8.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Render is too dark to see any context",
+            "Top of the head is slightly cropped by the frame edge.",
+            "Object is mostly hidden behind a wall",
+            "Object is completely hidden behind a wall",
+            "Object is significantly occluded by a foreground pillar."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is entirely occluded by a dark wall or structure, making it invisible in the rendered frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_v0.png",
+          "azimuth": 295.6,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.5021785497665405,
+            -9.301379203796387,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.8996204137802124,
+            0.4310258626937866,
+            -0.06999862939119339
+          ],
+          "camera_up": [
+            0.06312711536884308,
+            0.03024524822831154,
+            0.9975470900535583
+          ],
+          "camera_radius": 3.8433070664171307
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c0_v1.png",
+          "azimuth": 78.6,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.449843406677246,
+            -8.819990158081055,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9792446494102478,
+            0.19745023548603058,
+            -0.045752596110105515
+          ],
+          "camera_up": [
+            -0.044849950820207596,
+            0.009043342433869839,
+            0.9989528059959412
+          ],
+          "camera_radius": 5.784316151967242
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -1.2268396615982056,
+        -9.775506973266602,
+        -1.9073488033427566e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.2268396615982056,
+            -9.775506973266602,
+            -1.9073488033427566e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            6.5,
+            0.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0_v2.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly occluded by the foreground table and bench.",
+            "Lower legs are not visible.",
+            "Object is completely hidden behind a wall or out of frame.",
+            "The top of the person's head and hand are cropped by the top edge of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image as the camera is pointed directly at a wooden wall, likely occluding the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c1_v1.png",
+          "azimuth": 203.1,
+          "elevation": 20,
+          "preview_quality": 6.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.362929582595825,
+            -4.767514705657959,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.3918858468532562,
+            -0.9187637567520142,
+            -0.04794447496533394
+          ],
+          "camera_up": [
+            0.018810395151376724,
+            -0.044100359082221985,
+            0.9988499879837036
+          ],
+          "camera_radius": 5.526630822024432
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.14350628852844238,
+        -7.692173004150391,
+        -9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.14350628852844238,
+            -7.692173004150391,
+            -9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.5,
+            10.0,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is not visible in the frame; it is likely occluded by the wall or positioned outside the camera's field of view.",
+            "Top of the head is slightly cropped by the frame edge.",
+            "The top of the person's head and hat are slightly cropped by the upper frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind the wall of the structure, making the render useless for evaluation."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -0.14350628852844238,
+        -9.69217300415039,
+        -0.11999993771314621
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.14350628852844238,
+            -9.69217300415039,
+            -0.11999993771314621
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.5,
+            10.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is almost entirely occluded by a wooden pillar.",
+            "The framing is very tight and awkward.",
+            "The top of the person's head is cut off by the frame edge.",
+            "Only a small portion of the person is visible.",
+            "The top of the person's head is cropped by the upper edge of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is positioned directly behind a large wooden pillar, making them almost completely invisible in the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c3_v1.png",
+          "azimuth": 93.4,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.552371025085449,
+            -9.353775978088379,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9960179924964905,
+            -0.05917417258024216,
+            -0.06668296456336975
+          ],
+          "camera_up": [
+            -0.06656558811664581,
+            -0.00395473325625062,
+            0.9977742433547974
+          ],
+          "camera_radius": 5.805212701780668
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        5.856494426727295,
+        -8.44217300415039,
+        -1.9073486612342094e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.856494426727295,
+            -8.44217300415039,
+            -1.9073486612342094e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            6.0,
+            0.0,
+            10.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "A large pillar in the foreground partially obstructs the view and creates awkward framing.",
+            "Object is not visible in the frame due to extreme darkness or occlusion.",
+            "The top of the person's head is cropped by the frame edge.",
+            "The render is too dark to evaluate."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is almost entirely black, making it impossible to see the object or the scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Urban-contemplation-Man-in-a-beige_a68aef15_c4_v0.png",
+          "azimuth": 89.8,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.5807466506958,
+            -8.45517349243164,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9975410103797913,
+            0.003482311498373747,
+            -0.06999886780977249
+          ],
+          "camera_up": [
+            -0.06999844312667847,
+            0.00024435322848148644,
+            0.9975470900535583
+          ],
+          "camera_radius": 3.8433071870940965
+        }
+      ]
+    }
+  ]
+}

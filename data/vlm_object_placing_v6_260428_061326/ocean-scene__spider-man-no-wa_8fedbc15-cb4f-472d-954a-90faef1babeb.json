@@ -1,0 +1,111 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+  "object_file": "data/objects/spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/spider-man-no-way-home-suit_2K_1ac6fb05-8276-4645-a0b1-5dd80f9c74bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        72.67391204833984,
+        -50.613502502441406,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            72.67391204833984,
+            -50.613502502441406,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scene is too small for the object, making it appear tiny and out of place.",
+            "The object is placed in an empty ocean with no context or plausible location.",
+            "The object is placed in the middle of the ocean, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 10.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an implausible location in the middle of the ocean, and the scale of the scene is too small for the object."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

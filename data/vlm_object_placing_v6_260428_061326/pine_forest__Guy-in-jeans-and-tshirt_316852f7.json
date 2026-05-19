@@ -1,0 +1,143 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-jeans-and-tshirt_316852f7",
+  "object_file": "data/objects/Guy-in-jeans-and-tshirt_316852f7/Guy-in-jeans-and-tshirt_316852f7.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -11.079367637634277,
+        -33.2276725769043,
+        0.03087329864501953
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.079367637634277,
+            -33.2276725769043,
+            0.03087329864501953
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v3.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The rendered image is completely black, making it impossible to evaluate the object's placement or visibility.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, so the object is not visible and its placement cannot be evaluated."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_v0.png",
+          "azimuth": 348.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -12.254085540771484,
+            -39.16043472290039,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            0.19395077228546143,
+            0.9795234799385071,
+            0.05400775000452995
+          ],
+          "camera_up": [
+            -0.01049015298485756,
+            -0.052979182451963425,
+            0.9985405206680298
+          ],
+          "camera_radius": 6.06323082810395
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Guy-in-jeans-and-tshirt_316852f7_c0_v1.png",
+          "azimuth": 48.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.528805255889893,
+            -37.211387634277344,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.7513167858123779,
+            0.6577280759811401,
+            0.05400775000452995
+          ],
+          "camera_up": [
+            0.040636248886585236,
+            -0.03557431697845459,
+            0.9985405206680298
+          ],
+          "camera_radius": 6.063228842340822
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A person dressed in jeans and a t-shirt would not look natural in a pine forest scene, as it is not appropriate attire for such an environment."
+    }
+  ]
+}

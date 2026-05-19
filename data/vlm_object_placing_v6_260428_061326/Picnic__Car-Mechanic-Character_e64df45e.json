@@ -1,0 +1,143 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "Car-Mechanic-Character_e64df45e",
+  "object_file": "data/objects/Car-Mechanic-Character_e64df45e/Car-Mechanic-Character_e64df45e.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.2721424102783203,
+        -1.905428171157837,
+        -0.36170494556427
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.2721424102783203,
+            -1.905428171157837,
+            -0.36170494556427
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is sitting on a tire which is floating in water. The object is not grounded on a stable surface.",
+            "The object is not plausible in this environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not plausible in this environment and is not grounded on a stable surface as it is sitting on a floating tire."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Car-Mechanic-Character_e64df45e_c0_v0.png",
+          "azimuth": 21.4,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.780909538269043,
+            -5.755349159240723,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.36400124430656433,
+            0.928821861743927,
+            -0.06923218816518784
+          ],
+          "camera_up": [
+            -0.02526123635470867,
+            0.06445902585983276,
+            0.9976005554199219
+          ],
+          "camera_radius": 4.222913051422383
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Car-Mechanic-Character_e64df45e_c0_v1.png",
+          "azimuth": 302.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.8542864322662354,
+            -5.108776092529297,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.8470941781997681,
+            0.529323160648346,
+            -0.04741792753338814
+          ],
+          "camera_up": [
+            0.04021269455552101,
+            0.025127656757831573,
+            0.9988751411437988
+          ],
+          "camera_radius": 6.105442679185418
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A car mechanic character is not a natural fit for a picnic scene, especially given the context of the image which shows a picnic blanket and basket."
+    }
+  ]
+}

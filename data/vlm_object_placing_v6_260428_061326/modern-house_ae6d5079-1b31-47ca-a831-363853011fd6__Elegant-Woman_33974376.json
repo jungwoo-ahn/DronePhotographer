@@ -1,0 +1,452 @@
+{
+  "scene": "modern-house_ae6d5079-1b31-47ca-a831-363853011fd6",
+  "scene_file": "data/scenes/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6/modern-house_60db5c3b-f812-491d-b177-e1e8fa8f6f08.blend",
+  "scene_scale": 2.5,
+  "object": "Elegant-Woman_33974376",
+  "object_file": "data/objects/Elegant-Woman_33974376/Elegant-Woman_33974376.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -18.7658748626709,
+        -54.74626541137695,
+        -0.7050442695617676
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -18.7658748626709,
+            -54.74626541137695,
+            -0.7050442695617676
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            2.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is not placed in a plausible location.",
+            "The scene is mostly empty, with only grass and sky visible.",
+            "The object is placed in an empty, featureless environment.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but it is placed in an empty, featureless environment and not in a plausible location, which significantly lowers the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_v0.png",
+          "azimuth": 1.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -18.673307418823242,
+            -60.04942321777344,
+            0.867428183555603
+          ],
+          "camera_forward": [
+            -0.01718735136091709,
+            0.9846578240394592,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.0030305914115160704,
+            0.1736215353012085,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.532153360062643
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c0_v1.png",
+          "azimuth": 301.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -23.103984832763672,
+            -57.35286331176758,
+            1.7742438316345215
+          ],
+          "camera_forward": [
+            0.805474042892456,
+            0.4839771091938019,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            0.29316848516464233,
+            0.17615318298339844,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.635638328418875
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -28.851564407348633,
+        -44.66057586669922,
+        -0.7050347328186035
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -28.851564407348633,
+            -44.66057586669922,
+            -0.7050347328186035
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scene is mostly empty, with only grass and sky visible.",
+            "The object is not placed in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is placed on a grassy lawn in front of a house, which is not a plausible location for a person to be sitting on a stool."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_v0.png",
+          "azimuth": 221.3,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -32.19182205200195,
+            -40.85844039916992,
+            1.7742527723312378
+          ],
+          "camera_forward": [
+            0.620198667049408,
+            -0.705957293510437,
+            -0.3420203626155853
+          ],
+          "camera_up": [
+            0.2257341742515564,
+            -0.25694751739501953,
+            0.9396925568580627
+          ],
+          "camera_radius": 5.635638582251957
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c1_v1.png",
+          "azimuth": 281.3,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -33.8144416809082,
+            -45.65225601196289,
+            1.7742527723312378
+          ],
+          "camera_forward": [
+            0.9214764833450317,
+            0.18412885069847107,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            0.33538979291915894,
+            0.06701724976301193,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.635640914342857
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        21.576881408691406,
+        -7.679715633392334,
+        0.05917775630950928
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            21.576881408691406,
+            -7.679715633392334,
+            0.05917775630950928
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.5,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The object is not placed in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The woman is grounded and fully visible, but her placement on the deck is not plausible given the context of a modern house exterior. The scene has rich surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_v0.png",
+          "azimuth": 190.5,
+          "elevation": 20,
+          "preview_quality": 7.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            20.654590606689453,
+            -2.703479766845703,
+            2.5384652614593506
+          ],
+          "camera_forward": [
+            0.17124541103839874,
+            -0.923957347869873,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.06232832744717598,
+            -0.33629298210144043,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.6356377837353495
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Elegant-Woman_33974376_c2_v1.png",
+          "azimuth": 4.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            22.002254486083984,
+            -12.966594696044922,
+            1.6316498517990112
+          ],
+          "camera_forward": [
+            -0.0789806991815567,
+            0.981635570526123,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.013926414772868156,
+            0.17308875918388367,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.53215111784572
+        }
+      ]
+    }
+  ]
+}

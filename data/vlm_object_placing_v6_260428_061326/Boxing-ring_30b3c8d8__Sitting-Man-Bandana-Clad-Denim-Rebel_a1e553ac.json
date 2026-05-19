@@ -1,0 +1,460 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+  "object_file": "data/objects/Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        31.017866134643555,
+        -2.1974923610687256,
+        5.400151252746582
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.017866134643555,
+            -2.1974923610687256,
+            5.400151252746582
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            3.0,
+            3.0,
+            5.5,
+            7.5,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v3.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is very small in the frame",
+            "Object is a sitting person placed on the floor in an aisle instead of in a seat, which looks awkward.",
+            "Object is mostly occluded by the seat in front of it.",
+            "Placement in the middle of a walkway/aisle is slightly awkward",
+            "Object is sitting on the floor of the seating tier rather than in a chair",
+            "The top of the person's head is cropped out of the frame",
+            "The object is clipping into the seat to its left (viewer's right)",
+            "The framing is very tight, slightly cutting off the top of the head"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The man is placed in a plausible location (stadium seating), but he is almost entirely occluded by the chair in front of him, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_v0.png",
+          "azimuth": 2.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            31.238658905029297,
+            -6.5560078620910645,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.04935294762253761,
+            0.9742420315742493,
+            -0.2200380265712738
+          ],
+          "camera_up": [
+            -0.011132369749248028,
+            0.21975623071193695,
+            0.9754912853240967
+          ],
+          "camera_radius": 4.616986575329593
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_v1.png",
+          "azimuth": 201.4,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            29.768342971801758,
+            0.9909160137176514,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.3506759703159332,
+            -0.8948195576667786,
+            -0.27626851201057434
+          ],
+          "camera_up": [
+            0.10080409049987793,
+            -0.2572213411331177,
+            0.9610804915428162
+          ],
+          "camera_radius": 3.74144471507792
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        27.35509490966797,
+        -3.196430206298828,
+        4.500152587890625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.35509490966797,
+            -3.196430206298828,
+            4.500152587890625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            5.0,
+            8.0,
+            6.5,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v4.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scale of the person relative to the stadium seating appears slightly too large; the stool and person occupy almost the entire width of the walkway.",
+            "Object is placed in a walkway/aisle, which is an awkward location for a spectator to sit on a stool.",
+            "Object is clipping with the chair geometry",
+            "Object is mostly occluded by the chair it is sitting in",
+            "The sitting person is placed on a stool in the middle of an aisle, which is an awkward and unrealistic placement for a stadium/arena setting.",
+            "Object is clipping with the seat.",
+            "Object is a sitting person placed in an aisle instead of in a seat, which looks slightly awkward.",
+            "Object is almost entirely hidden behind the seat back.",
+            "Object is heavily occluded by the seat in front.",
+            "Object is likely clipping into the seat."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting in a seat but is almost completely obscured by the seat's backrest from this camera angle, making the placement ineffective for a render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_v0.png",
+          "azimuth": 347.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.5,
+          "camera_position": [
+            26.584749221801758,
+            -6.533167839050293,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.1970832496881485,
+            0.853662371635437,
+            -0.4820983111858368
+          ],
+          "camera_up": [
+            0.10844838619232178,
+            0.46974217891693115,
+            0.8761171102523804
+          ],
+          "camera_radius": 4.185816476232168
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_v1.png",
+          "azimuth": 148.2,
+          "elevation": 50,
+          "preview_quality": 6.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            29.159658432006836,
+            -0.28596583008766174,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.46167469024658203,
+            -0.7446057200431824,
+            -0.4820983111858368
+          ],
+          "camera_up": [
+            -0.2540443241596222,
+            -0.409731924533844,
+            0.8761171102523804
+          ],
+          "camera_radius": 4.185816326715632
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        31.017866134643555,
+        -8.191117286682129,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.017866134643555,
+            -8.191117286682129,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            8.0,
+            6.0,
+            8.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the top edge of the frame.",
+            "Object is placed in an aisle, blocking the walkway.",
+            "The background is completely black, lacking the context of the boxing arena seen in the reference.",
+            "The person is sitting on a stool in a walkway behind the seats rather than in a seat, which is slightly awkward but plausible for a spectator or staff member.",
+            "Object is a sitting person on a stool placed in a walkway/aisle, which is an awkward location for a spectator."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-grounded and clearly visible, but placing a person on a stool in the middle of a stadium aisle is an awkward choice, and the lack of visible arena context in the background makes the shot feel isolated."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_v0.png",
+          "azimuth": 240.0,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            26.682287216186523,
+            -5.68796968460083,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.8497538566589355,
+            -0.4906056821346283,
+            -0.19293636083602905
+          ],
+          "camera_up": [
+            0.16708776354789734,
+            -0.0964682325720787,
+            0.981211245059967
+          ],
+          "camera_radius": 5.2282062904983455
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_v1.png",
+          "azimuth": 170.0,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            31.612525939941406,
+            -4.8186354637146,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.1668900102376938,
+            -0.9464797377586365,
+            -0.2762677073478699
+          ],
+          "camera_up": [
+            -0.047973450273275375,
+            -0.2720705568790436,
+            0.9610807299613953
+          ],
+          "camera_radius": 3.7414437910846265
+        }
+      ]
+    }
+  ]
+}

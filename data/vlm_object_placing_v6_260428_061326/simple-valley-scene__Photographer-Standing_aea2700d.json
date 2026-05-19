@@ -1,0 +1,138 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Photographer-Standing_aea2700d",
+  "object_file": "data/objects/Photographer-Standing_aea2700d/Photographer-Standing_aea2700d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7857422828674316,
+        0.559505820274353,
+        -0.7424567341804504
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7857422828674316,
+            0.559505820274353,
+            -0.7424567341804504
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            8.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Photographer-Standing_aea2700d_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The photographer is standing in a natural landscape, which is a plausible location. The object is fully visible, grounded, and not clipping with any scene elements. The scale appears appropriate for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Photographer-Standing_aea2700d_c0_v0.png",
+          "azimuth": 124.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            4.237613201141357,
+            4.063847064971924,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.8196327686309814,
+            -0.5717839598655701,
+            0.03557019308209419
+          ],
+          "camera_up": [
+            0.02917303703725338,
+            0.02035123109817505,
+            0.9993671774864197
+          ],
+          "camera_radius": 6.148202220287935
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Photographer-Standing_aea2700d_c0_v1.png",
+          "azimuth": 64.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            4.760784149169922,
+            -2.0386767387390137,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9049957990646362,
+            0.4239308834075928,
+            0.03557019308209419
+          ],
+          "camera_up": [
+            0.03221127390861511,
+            -0.015088818036019802,
+            0.9993671774864197
+          ],
+          "camera_radius": 6.148202375402271
+        }
+      ]
+    }
+  ]
+}

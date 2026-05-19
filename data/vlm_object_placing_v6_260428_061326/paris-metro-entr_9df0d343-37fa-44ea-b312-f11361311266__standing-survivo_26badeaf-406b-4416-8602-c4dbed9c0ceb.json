@@ -1,0 +1,109 @@
+{
+  "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+  "scene_file": "data/scenes/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266/paris-metro-entrance-square-pigalle_ac73342f-25be-4f35-a845-d6fbcc540ba8.blend",
+  "scene_scale": 2.0,
+  "object": "standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb",
+  "object_file": "data/objects/standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb/standing-survivor-girl-green-top-cowboy_2K_3fcfa07b-148a-4a23-884e-ba2c5108a1e3.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -39.86570739746094,
+        24.771289825439453,
+        6.002330780029297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -39.86570739746094,
+            24.771289825439453,
+            6.002330780029297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v2.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not grounded on a surface, it is floating in the air."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -5.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is floating significantly above the ground, and the previous attempts also failed to ground the object, indicating a need for a large downward adjustment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_v0.png",
+          "azimuth": 32.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -36.868648529052734,
+            20.012042999267578,
+            3.3802812099456787
+          ],
+          "camera_forward": [
+            -0.45962318778038025,
+            0.7298687100410461,
+            0.5060021877288818
+          ],
+          "camera_up": [
+            0.2696366608142853,
+            -0.42817553877830505,
+            0.8625321984291077
+          ],
+          "camera_radius": 6.2054763296350695
+        }
+      ]
+    }
+  ]
+}

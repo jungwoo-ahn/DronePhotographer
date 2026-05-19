@@ -1,0 +1,392 @@
+{
+  "scene": "modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d",
+  "scene_file": "data/scenes/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d/modern-dark-bedroom_4998bbdf-bd20-48ff-8236-25186413783f.blend",
+  "scene_scale": 3.0,
+  "object": "Girl-lifts-her-glasses_204672a2",
+  "object_file": "data/objects/Girl-lifts-her-glasses_204672a2/Girl-lifts-her-glasses_204672a2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        14.904377937316895,
+        -21.927494049072266,
+        0.1885901242494583
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.904377937316895,
+            -21.927494049072266,
+            0.1885901242494583
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            7.0,
+            7.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is partially cropped.",
+            "Object may be overlapping with: pillow.001, matress, blanket. Check visually if there is actual clipping.",
+            "Object is heavily cropped.",
+            "Object is partially occluded by foreground plants.",
+            "Render is black."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is completely black, making it impossible to evaluate the object's visibility, placement, or any other aspect of the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c0_v0.png",
+          "azimuth": 130.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            19.23634147644043,
+            -18.175029754638672,
+            1.8965280055999756
+          ],
+          "camera_forward": [
+            -0.7443703413009644,
+            -0.6447938680648804,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.13125237822532654,
+            -0.11369447410106659,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.980296585325753
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.904376983642578,
+        -16.927494049072266,
+        0.18230792880058289
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.904376983642578,
+            -16.927494049072266,
+            0.18230792880058289
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object may be overlapping with: pillow.001, matress, blanket. Check visually if there is actual clipping.",
+            "Object is partially cropped."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but is partially cropped and appears to be overlapping with the bed. Moving the person slightly to the right and away from the bed should resolve these issues."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_v0.png",
+          "azimuth": 266.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.183846473693848,
+            -16.577611923217773,
+            1.890246033668518
+          ],
+          "camera_forward": [
+            0.9829709529876709,
+            -0.06012098863720894,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.1733240932226181,
+            -0.01060109119862318,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.980295832206541
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c1_v1.png",
+          "azimuth": 86.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            16.62550926208496,
+            -17.267391204833984,
+            1.890246033668518
+          ],
+          "camera_forward": [
+            -0.9830743074417114,
+            0.05840533971786499,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17334257066249847,
+            0.010298396460711956,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.980295673360045
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        16.904376983642578,
+        -18.927494049072266,
+        0.5418798923492432
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.904376983642578,
+            -18.927494049072266,
+            0.5418798923492432
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0_v3.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            6.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is very far from the camera.",
+            "Object is partially cropped."
+          ],
+          "vlm_adjustment": {
+            "forward": -10.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is extremely far away and barely visible, making it impossible to assess its placement or scale accurately. The previous attempts also suffered from partial cropping and being too far away."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d_Girl-lifts-her-glasses_204672a2_c2_v0.png",
+          "azimuth": 120.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            21.867759704589844,
+            -16.0618839263916,
+            2.2498180866241455
+          ],
+          "camera_forward": [
+            -0.8528684973716736,
+            -0.49240389466285706,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.15038371086120605,
+            -0.0868242159485817,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.980296146784883
+        }
+      ]
+    }
+  ]
+}

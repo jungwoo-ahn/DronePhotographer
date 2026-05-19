@@ -1,0 +1,155 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Summer-Walk_3a48a916",
+  "object_file": "data/objects/Summer-Walk_3a48a916/Summer-Walk_3a48a916.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        2.3698935508728027,
+        1.3568305969238281,
+        -0.05968238413333893
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.3698935508728027,
+            1.3568305969238281,
+            -0.05968238413333893
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            9.5,
+            0.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The surroundings are empty, showing only blurry outdoor elements.",
+            "The object is placed completely outside the main scene context (living room).",
+            "Object is not visible in the frame.",
+            "Object is heavily occluded by the window frame and the edge of the image.",
+            "The object (placeholder box) is visually floating, despite metadata indicating it is grounded.",
+            "The intended object (a person) is not rendered; a placeholder box is shown instead.",
+            "Only a small portion of the object is visible (less than 30%).",
+            "The camera is pointed at an uninteresting exterior wall, making the surroundings empty of relevant scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (a person) is completely absent from the rendered frame, as the camera is pointed at an exterior wall instead of the living room interior where the object would plausibly be placed. The surroundings are empty of meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_v0.png",
+          "azimuth": 10.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.0015881061553955,
+            -2.1894800662994385,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            -0.17526842653751373,
+            0.9839515089988708,
+            -0.03347208350896835
+          ],
+          "camera_up": [
+            -0.005869884509593248,
+            0.03295337036252022,
+            0.9994396567344666
+          ],
+          "camera_radius": 3.6879841923043912
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_Summer-Walk_3a48a916_c1_v1.png",
+          "azimuth": 270.0,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.896071434020996,
+            1.3568309545516968,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            0.9997376799583435,
+            -4.300958522662768e-08,
+            -0.022903183475136757
+          ],
+          "camera_up": [
+            0.022903183475136757,
+            -3.1134899103335556e-08,
+            0.9997376799583435
+          ],
+          "camera_radius": 5.325059792133675
+        }
+      ]
+    }
+  ]
+}

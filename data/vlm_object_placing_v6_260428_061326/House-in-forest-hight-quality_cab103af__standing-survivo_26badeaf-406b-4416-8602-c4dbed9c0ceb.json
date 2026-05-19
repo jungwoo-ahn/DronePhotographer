@@ -1,0 +1,385 @@
+{
+  "scene": "House-in-forest-hight-quality_cab103af",
+  "scene_file": "data/scenes/House-in-forest-hight-quality_cab103af/House-in-forest-hight-quality_cab103af.blend",
+  "scene_scale": 0.6666666666666666,
+  "object": "standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb",
+  "object_file": "data/objects/standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb/standing-survivor-girl-green-top-cowboy_2K_3fcfa07b-148a-4a23-884e-ba2c5108a1e3.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        15.10051441192627,
+        7.91182804107666,
+        -1.2636139392852783
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            15.10051441192627,
+            7.91182804107666,
+            -1.2636139392852783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            8.0,
+            2.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only water and a distant hill visible.",
+            "Object is standing in water, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is standing in water which is not a plausible location, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c0_v1.png",
+          "azimuth": 221.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            12.692118644714355,
+            10.68237018585205,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            0.5847710967063904,
+            -0.6727021932601929,
+            -0.45333707332611084
+          ],
+          "camera_up": [
+            0.29741570353507996,
+            -0.34213799238204956,
+            0.8913391828536987
+          ],
+          "camera_radius": 4.466633168612076
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.3464062213897705,
+        10.862649917602539,
+        -1.2636152505874634
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.3464062213897705,
+            10.862649917602539,
+            -1.2636152505874634
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only water and a distant hill visible.",
+            "Object is standing in water, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in the water which is not a plausible location for a person. The surroundings are also quite empty."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        16.084123611450195,
+        -3.8914594650268555,
+        0.10521268844604492
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.084123611450195,
+            -3.8914594650268555,
+            0.10521268844604492
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only water and a distant hill visible.",
+            "Object is standing in water, which is not a plausible location for a person.",
+            "Object is standing on the ground outside the house, which is a plausible location, but the previous attempts were in the water. This is a better location, but still not ideal as it's not interacting with the house or deck.",
+            "Object is standing on the ground, which is not a plausible location for a person in this scene. The house has a deck and a dock, which would be more appropriate locations.",
+            "The scale of the house appears too small for the person.",
+            "Object is standing on a muddy slope, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 1.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in the water which is not a plausible location for a person. The surroundings are also quite empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_v0.png",
+          "azimuth": 99.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            19.700464248657227,
+            -3.2603063583374023,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            -0.9761590957641602,
+            -0.17036691308021545,
+            -0.1344936341047287
+          ],
+          "camera_up": [
+            -0.13249094784259796,
+            -0.023123281076550484,
+            0.9909144639968872
+          ],
+          "camera_radius": 3.8546733944081613
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb_c2_v1.png",
+          "azimuth": 159.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            18.016971588134766,
+            1.390294075012207,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            -0.3423192501068115,
+            -0.9354307055473328,
+            -0.08824378997087479
+          ],
+          "camera_up": [
+            -0.030325928702950478,
+            -0.08286920189857483,
+            0.9960989356040955
+          ],
+          "camera_radius": 5.745872446618162
+        }
+      ]
+    }
+  ]
+}

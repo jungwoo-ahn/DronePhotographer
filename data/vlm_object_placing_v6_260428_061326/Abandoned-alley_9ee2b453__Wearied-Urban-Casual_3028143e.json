@@ -1,0 +1,134 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Wearied-Urban-Casual_3028143e",
+  "object_file": "data/objects/Wearied-Urban-Casual_3028143e/Wearied-Urban-Casual_3028143e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -7.019768238067627,
+        -1.8783729076385498,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.019768238067627,
+            -1.8783729076385498,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            1.0,
+            2.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Placement is outside the main scene area",
+            "Object is not visible",
+            "Object is completely hidden behind a wall",
+            "Object is heavily cropped (head missing)",
+            "Surroundings are empty (plain wall)",
+            "Surroundings are just a plain brick wall",
+            "Surroundings are empty/void",
+            "Camera view is blocked by a wall",
+            "Object is heavily cropped (head and upper body missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a brick wall in the rendered view, making it impossible to evaluate placement or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Wearied-Urban-Casual_3028143e_c0_v0.png",
+          "azimuth": 98.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            -1.2488579750061035,
+            -1.0673245191574097,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9864504337310791,
+            -0.1386365443468094,
+            -0.08772367238998413
+          ],
+          "camera_up": [
+            -0.08686995506286621,
+            -0.01220875233411789,
+            0.9961448311805725
+          ],
+          "camera_radius": 5.960176526814065
+        }
+      ]
+    }
+  ]
+}

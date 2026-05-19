@@ -1,0 +1,561 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 1.0,
+  "object": "Car-Mechanic-Character_e64df45e",
+  "object_file": "data/objects/Car-Mechanic-Character_e64df45e/Car-Mechanic-Character_e64df45e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -29.778568267822266,
+        -8.940179824829102,
+        -0.05960214138031006
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -29.778568267822266,
+            -8.940179824829102,
+            -0.05960214138031006
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            8.5,
+            4.0,
+            4.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "surroundings_empty is true",
+            "awkward placement in the middle of the road",
+            "strange framing with large blurry foreground",
+            "surroundings_empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is correctly grounded and scaled, but the rendered view shows only the road surface with no architectural context from the mall, making the surroundings appear empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c0_v1.png",
+          "azimuth": 13.0,
+          "elevation": 20,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -28.418745040893555,
+            -14.830222129821777,
+            2.7107839584350586
+          ],
+          "camera_forward": [
+            -0.21138478815555573,
+            0.915608286857605,
+            -0.3420203626155853
+          ],
+          "camera_up": [
+            -0.07693777978420258,
+            0.3332544267177582,
+            0.9396925568580627
+          ],
+          "camera_radius": 6.649568239694441
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -35.322227478027344,
+        -4.505256652832031,
+        0.003367006778717041
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -35.322227478027344,
+            -4.505256652832031,
+            0.003367006778717041
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            8.0,
+            3.0,
+            7.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty is true",
+            "object is placed at the edge of the scene map with no background context",
+            "The bottom half of the image contains a large visual artifact or strange reflection that obscures the scene.",
+            "The character is very small in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the very edge of the scene where the environment ends, resulting in a completely empty background despite being grounded and visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_v0.png",
+          "azimuth": 264.6,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -39.438880920410156,
+            -4.116118907928467,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            0.8769773840904236,
+            -0.08289867639541626,
+            -0.47332704067230225
+          ],
+          "camera_up": [
+            0.47122642397880554,
+            -0.04454359784722328,
+            0.8808867931365967
+          ],
+          "camera_radius": 4.98937401269432
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c1_v1.png",
+          "azimuth": 68.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -31.482934951782227,
+            -6.04086446762085,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.8178909420967102,
+            0.3271329402923584,
+            -0.47332704067230225
+          ],
+          "camera_up": [
+            -0.43947747349739075,
+            0.17577838897705078,
+            0.8808867931365967
+          ],
+          "camera_radius": 4.989373167492304
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -38.648414611816406,
+        -0.07033252716064453,
+        -0.10077810287475586
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -38.648414611816406,
+            -0.07033252716064453,
+            -0.10077810287475586
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.0,
+            4.0,
+            8.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The background consists only of a plain asphalt/gravel texture with no architectural context visible.",
+            "surroundings_empty is true",
+            "lack of architectural context in the frame",
+            "the camera angle shows mostly empty pavement with very little scene context",
+            "The camera view shows the edge of the ground plane/map at the bottom of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the camera framing shows almost no scene context, resulting in a shot that is mostly empty ground texture."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c2_v1.png",
+          "azimuth": 3.6,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -38.25062561035156,
+            -6.393025875091553,
+            1.5864830017089844
+          ],
+          "camera_forward": [
+            -0.06183641776442528,
+            0.9828644394874573,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.01090343575924635,
+            0.17330557107925415,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.556030049557448
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -36.43095397949219,
+        16.560630798339844,
+        1.2400002479553223
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -36.43095397949219,
+            16.560630798339844,
+            1.2400002479553223
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            8.0,
+            0.0,
+            9.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The render is extremely blurry and the object is not identifiable.",
+            "The object appears to be inside or behind a structure, making it invisible.",
+            "The background context is missing.",
+            "The character and the tire they are sitting on are clipping through the glass wall of the building."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely blurry and the object is not visible or identifiable, suggesting it is either occluded or the render is broken."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_v0.png",
+          "azimuth": 42.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -32.134681701660156,
+            11.904804229736328,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.6701046824455261,
+            0.7261855006217957,
+            -0.15366965532302856
+          ],
+          "camera_up": [
+            -0.10421253740787506,
+            0.11293409764766693,
+            0.988122284412384
+          ],
+          "camera_radius": 6.523344594328135
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Car-Mechanic-Character_e64df45e_c4_v1.png",
+          "azimuth": 165.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -34.87688446044922,
+            22.702255249023438,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.24239367246627808,
+            -0.9579305052757263,
+            -0.15366989374160767
+          ],
+          "camera_up": [
+            -0.037696387618780136,
+            -0.14897455275058746,
+            0.9881222248077393
+          ],
+          "camera_radius": 6.523344996361823
+        }
+      ]
+    }
+  ]
+}

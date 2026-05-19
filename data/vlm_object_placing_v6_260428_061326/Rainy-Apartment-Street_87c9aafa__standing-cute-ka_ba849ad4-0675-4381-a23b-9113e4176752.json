@@ -1,0 +1,452 @@
+{
+  "scene": "Rainy-Apartment-Street_87c9aafa",
+  "scene_file": "data/scenes/Rainy-Apartment-Street_87c9aafa/Rainy-Apartment-Street_87c9aafa.blend",
+  "scene_scale": 1.0,
+  "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752",
+  "object_file": "data/objects/standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752/standing-cute-kawaii-girl-colorful_2K_a773b272-fda2-43ae-95cf-80423f542fcd.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.3516724407672882,
+        24.74846649169922,
+        -0.001013040542602539
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.3516724407672882,
+            24.74846649169922,
+            -0.001013040542602539
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            7.0,
+            2.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only a blank wall and floor visible.",
+            "Object is not visible in the scene.",
+            "The object is not visible in the scene, so its scale and placement cannot be evaluated.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding. The render is also very dark and blurry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_v0.png",
+          "azimuth": 190.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.9571746587753296,
+            28.11370849609375,
+            1.1294634342193604
+          ],
+          "camera_forward": [
+            0.17540088295936584,
+            -0.9748375415802002,
+            -0.13757288455963135
+          ],
+          "camera_up": [
+            0.024361951276659966,
+            -0.13539864122867584,
+            0.9904916286468506
+          ],
+          "camera_radius": 3.6013142713288606
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_v1.png",
+          "azimuth": 0.3,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.32549920678138733,
+            19.749879837036133,
+            1.1294634342193604
+          ],
+          "camera_forward": [
+            -0.005212492309510708,
+            0.995503306388855,
+            -0.09458301961421967
+          ],
+          "camera_up": [
+            -0.0004952331073582172,
+            0.0945817232131958,
+            0.9955169558525085
+          ],
+          "camera_radius": 5.124893225980114
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        1.7453556060791016,
+        29.84124755859375,
+        0.05678558349609375
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.7453556060791016,
+            29.84124755859375,
+            0.05678558349609375
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            1.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, resulting in a very low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_v0.png",
+          "azimuth": 178.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.891627550125122,
+            35.077850341796875,
+            1.1294634342193604
+          ],
+          "camera_forward": [
+            -0.027833454310894012,
+            -0.9964563846588135,
+            -0.07937199622392654
+          ],
+          "camera_up": [
+            -0.002216079505160451,
+            -0.07934105396270752,
+            0.9968450665473938
+          ],
+          "camera_radius": 5.3473395894035
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_v1.png",
+          "azimuth": 356.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.3981705904006958,
+            24.614120483398438,
+            1.1294634342193604
+          ],
+          "camera_forward": [
+            0.06606481224298477,
+            0.9946535229682922,
+            -0.07937151938676834
+          ],
+          "camera_up": [
+            0.005260262172669172,
+            0.07919701933860779,
+            0.9968451261520386
+          ],
+          "camera_radius": 5.3473387192721225
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.547053873538971,
+        36.731483459472656,
+        0.4575004577636719
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.547053873538971,
+            36.731483459472656,
+            0.4575004577636719
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is partially obscured by the edge of the frame.",
+            "The object is partially obscured by foliage."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and appears to be at a plausible scale for the scene, but is partially cut off by the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_v0.png",
+          "azimuth": 182.1,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.36388468742370605,
+            41.726783752441406,
+            1.1294634342193604
+          ],
+          "camera_forward": [
+            0.03664359822869301,
+            -0.9993230104446411,
+            -0.003281424520537257
+          ],
+          "camera_up": [
+            0.00012033942039124668,
+            -0.0032792172860354185,
+            0.9999946355819702
+          ],
+          "camera_radius": 5.043620892530303
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rainy-Apartment-Street_87c9aafa_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_v1.png",
+          "azimuth": 358.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.43734410405158997,
+            31.493988037109375,
+            1.1294634342193604
+          ],
+          "camera_forward": [
+            0.02094232104718685,
+            0.999775767326355,
+            -0.0031309830956161022
+          ],
+          "camera_up": [
+            6.557118467753753e-05,
+            0.003130296478047967,
+            0.9999951124191284
+          ],
+          "camera_radius": 5.281565061019077
+        }
+      ]
+    }
+  ]
+}

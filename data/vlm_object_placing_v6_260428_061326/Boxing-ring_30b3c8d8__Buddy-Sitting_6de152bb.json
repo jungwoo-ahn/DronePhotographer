@@ -1,0 +1,138 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.0,
+  "object": "Buddy-Sitting_6de152bb",
+  "object_file": "data/objects/Buddy-Sitting_6de152bb/Buddy-Sitting_6de152bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        20.776683807373047,
+        -1.366491436958313,
+        3.6001014709472656
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.776683807373047,
+            -1.366491436958313,
+            3.6001014709472656
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            3.0,
+            9.5,
+            5.0,
+            6.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Awkward placement (sitting on the floor in an aisle instead of a seat)",
+            "Object is too large for the scene (scale issue)",
+            "Object is sitting on the floor in an aisle instead of in a seat",
+            "Lighting is too dark to clearly see the object",
+            "Object is mostly occluded by the seat",
+            "Slight cropping of the head at the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting in a seat as expected for the scene, but they are almost entirely occluded by the seat back and the low-light conditions, failing the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buddy-Sitting_6de152bb_c0_v1.png",
+          "azimuth": 1.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.827930450439453,
+            -4.035428047180176,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            -0.018633294850587845,
+            0.9704262614250183,
+            -0.24067756533622742
+          ],
+          "camera_up": [
+            -0.00462043471634388,
+            0.24063321948051453,
+            0.9706051349639893
+          ],
+          "camera_radius": 2.8522365309898174
+        }
+      ]
+    }
+  ]
+}

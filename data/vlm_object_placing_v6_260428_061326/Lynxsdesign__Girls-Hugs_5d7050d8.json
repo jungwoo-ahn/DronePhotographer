@@ -1,0 +1,121 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Girls-Hugs_5d7050d8",
+  "object_file": "data/objects/Girls-Hugs_5d7050d8/Girls-Hugs_5d7050d8.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.508172988891602,
+        -1.4174072742462158,
+        1.3455002307891846
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.508172988891602,
+            -1.4174072742462158,
+            1.3455002307891846
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Girls-Hugs_5d7050d8_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not in a plausible location.",
+            "Object is placed on a rooftop, which is not a plausible location for two people to be hugging.",
+            "The surroundings are empty, consisting only of sky and trees.",
+            "Object is not in a plausible scale.",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is a person hugging another person, and they are placed on a rooftop, which is not a plausible location for this activity. The rest of the placement criteria are met."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Girls-Hugs_5d7050d8_c0_v0.png",
+          "azimuth": 105.6,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.02569923736155033,
+            -0.16587787866592407,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9166452288627625,
+            -0.25593188405036926,
+            0.30701857805252075
+          ],
+          "camera_up": [
+            0.2957088053226471,
+            0.08256340026855469,
+            0.9517034888267517
+          ],
+          "camera_radius": 4.727772417556039
+        }
+      ]
+    }
+  ]
+}

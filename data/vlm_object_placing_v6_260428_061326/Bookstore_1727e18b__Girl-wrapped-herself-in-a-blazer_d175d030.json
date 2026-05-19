@@ -1,0 +1,295 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-wrapped-herself-in-a-blazer_d175d030",
+  "object_file": "data/objects/Girl-wrapped-herself-in-a-blazer_d175d030/Girl-wrapped-herself-in-a-blazer_d175d030.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        14.489623069763184,
+        -10.222722053527832,
+        -0.06638694554567337
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.489623069763184,
+            -10.222722053527832,
+            -0.06638694554567337
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            5.0,
+            3.0,
+            4.0,
+            4.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Scale feels slightly small for the environment.",
+            "Object is placed in the middle of an empty road, which feels awkward.",
+            "scene background looks incomplete/ends abruptly",
+            "awkward placement in the middle of the road",
+            "lacks scene context",
+            "The background is very sparse and shows the edge of the scene environment.",
+            "Object is heavily cropped (head and shoulders missing)",
+            "The top of the head is slightly cropped by the frame edge.",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and in a plausible street location, but the framing is poor as the head and upper torso are completely cut off."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_v0.png",
+          "azimuth": 293.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            9.69653034210205,
+            -12.296878814697266,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9177332520484924,
+            0.397138386964798,
+            -0.006841085851192474
+          ],
+          "camera_up": [
+            0.006278417073190212,
+            0.0027169708628207445,
+            0.9999765753746033
+          ],
+          "camera_radius": 5.26828755999901
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c0_v1.png",
+          "azimuth": 244.0,
+          "elevation": 10,
+          "preview_quality": 5.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            9.795554161071777,
+            -7.933271884918213,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8987730145454407,
+            -0.43836086988449097,
+            -0.006841205060482025
+          ],
+          "camera_up": [
+            0.006148814223706722,
+            -0.0029990277253091335,
+            0.9999765753746033
+          ],
+          "camera_radius": 5.268287605254431
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        23.851890563964844,
+        -8.350268363952637,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            23.851890563964844,
+            -8.350268363952637,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.5,
+            3.0,
+            4.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object's head is cut off by the top frame edge.",
+            "Object is placed in the middle of the road, which is an awkward and unrealistic location.",
+            "Object is placed in the middle of an empty road.",
+            "The framing is poor, obscuring the subject's face.",
+            "Placement in the middle of the road is somewhat awkward and lacks the architectural context of the bookstore storefront seen in the reference.",
+            "The surroundings are very empty, lacking the architectural context of the bookstore.",
+            "The main scene context (the bookstore) is not visible.",
+            "The placement in the middle of a road is uninteresting.",
+            "The background is very sparse and looks like the edge of the environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object's head is cut off by the frame edge, and she is placed in the middle of the street, repeating a placement issue noted in previous attempts."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-wrapped-herself-in-a-blazer_d175d030_c1_v1.png",
+          "azimuth": 27.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            26.25534439086914,
+            -12.987000465393066,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.46018916368484497,
+            0.887794554233551,
+            -0.006841443479061127
+          ],
+          "camera_up": [
+            -0.003148447722196579,
+            0.006073929835110903,
+            0.9999765753746033
+          ],
+          "camera_radius": 5.26828886674917
+        }
+      ]
+    }
+  ]
+}

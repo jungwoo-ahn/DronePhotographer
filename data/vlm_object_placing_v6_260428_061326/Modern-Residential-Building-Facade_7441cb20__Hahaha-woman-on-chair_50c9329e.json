@@ -1,0 +1,161 @@
+{
+  "scene": "Modern-Residential-Building-Facade_7441cb20",
+  "scene_file": "data/scenes/Modern-Residential-Building-Facade_7441cb20/Modern-Residential-Building-Facade_7441cb20.blend",
+  "scene_scale": 1.0,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        20.612035751342773,
+        -14.604276657104492,
+        -0.027896776795387268
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.612035751342773,
+            -14.604276657104492,
+            -0.027896776795387268
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            5.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The surroundings are empty, with only a road and sidewalk visible.",
+            "surroundings_empty=true",
+            "The person is sitting on a chair in the middle of a road, which is an unusual and implausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the surroundings are empty, which lowers the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 83.0,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            24.914058685302734,
+            -15.132498741149902,
+            2.225832939147949
+          ],
+          "camera_forward": [
+            -0.9233230948448181,
+            0.11336979269981384,
+            -0.36690834164619446
+          ],
+          "camera_up": [
+            -0.36417344212532043,
+            0.04471489414572716,
+            0.9302570819854736
+          ],
+          "camera_radius": 4.885255071438751
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Residential-Building-Facade_7441cb20_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 315.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            18.207063674926758,
+            -17.009248733520508,
+            2.225832939147949
+          ],
+          "camera_forward": [
+            0.6317887902259827,
+            0.6317884922027588,
+            -0.44909489154815674
+          ],
+          "camera_up": [
+            0.3175581097602844,
+            0.3175579905509949,
+            0.8934840559959412
+          ],
+          "camera_radius": 4.080083267259804
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A person sitting on a chair in the middle of a street is an unusual and potentially dangerous situation, making it unlikely to appear natural in a typical scene."
+    }
+  ]
+}

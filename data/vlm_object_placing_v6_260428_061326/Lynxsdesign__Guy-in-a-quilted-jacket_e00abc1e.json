@@ -1,0 +1,134 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Guy-in-a-quilted-jacket_e00abc1e",
+  "object_file": "data/objects/Guy-in-a-quilted-jacket_e00abc1e/Guy-in-a-quilted-jacket_e00abc1e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.510498046875,
+        -1.4197324514389038,
+        1.3477500677108765
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.510498046875,
+            -1.4197324514389038,
+            1.3477500677108765
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "Object is not fully visible.",
+            "Object is not plausible in this environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a rooftop, which is not a plausible location for a person to be standing. The object is also not fully visible and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_v0.png",
+          "azimuth": 106.4,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.04883429408073425,
+            -0.07784749567508698,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9131441116333008,
+            -0.26875296235084534,
+            0.30649587512016296
+          ],
+          "camera_up": [
+            0.294025719165802,
+            0.08653662353754044,
+            0.9518719911575317
+          ],
+          "camera_radius": 4.825438026449242
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Guy-in-a-quilted-jacket_e00abc1e_c0_v1.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.39453837275505066,
+            0.9566184282302856,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8243454098701477,
+            -0.4759358763694763,
+            0.3064957559108734
+          ],
+          "camera_up": [
+            0.265433132648468,
+            0.15324781835079193,
+            0.9518720507621765
+          ],
+          "camera_radius": 4.825437964688377
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Photographer-Standing_aea2700d",
+  "object_file": "data/objects/Photographer-Standing_aea2700d/Photographer-Standing_aea2700d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        30.554481506347656,
+        1.0018954277038574,
+        5.062653064727783
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.554481506347656,
+            1.0018954277038574,
+            5.062653064727783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            3.0,
+            9.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (head and shoulders missing)",
+            "Object's head is cut off by the frame edge",
+            "Object is clipping with the seat in front of it",
+            "Object is clipping through a chair seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The photographer is significantly cropped at the top of the frame and is clipping through the seat of a chair directly behind them; moving them forward and slightly right will fix both issues."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_v0.png",
+          "azimuth": 5.1,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.00736427307129,
+            -4.072566986083984,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.08692043274641037,
+            0.9739260077476501,
+            -0.20955419540405273
+          ],
+          "camera_up": [
+            -0.018628135323524475,
+            0.20872458815574646,
+            0.9777970314025879
+          ],
+          "camera_radius": 5.418262509479901
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c3_v1.png",
+          "azimuth": 305.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            25.54338836669922,
+            -2.519960403442383,
+            6.895327568054199
+          ],
+          "camera_forward": [
+            0.8057202696800232,
+            0.56626957654953,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.14207008481025696,
+            0.09984844923019409,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.393216435457957
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        28.667600631713867,
+        -4.103785991668701,
+        4.725152969360352
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.667600631713867,
+            -4.103785991668701,
+            4.725152969360352
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            2.0,
+            3.0,
+            1.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is clipping with the seating structure/steps",
+            "Object is likely clipping with the seats (AUDITORIO_.196, AUDITORIO_.214)",
+            "Object's left leg is clipping through the floor/step geometry.",
+            "Object's head is cut off by the frame edge",
+            "Object is almost entirely hidden behind the auditorium seats.",
+            "Object is clipping through the auditorium seat.",
+            "Only the top of the head is visible.",
+            "Object is almost entirely occluded by the auditorium seating"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The photographer is almost completely occluded by the foreground seating, making the placement unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Photographer-Standing_aea2700d_c4_v0.png",
+          "azimuth": 189.5,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            28.007781982421875,
+            -0.1608618050813675,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.1554127335548401,
+            -0.928710401058197,
+            -0.3366657793521881
+          ],
+          "camera_up": [
+            0.05556590110063553,
+            -0.332048624753952,
+            0.9416242241859436
+          ],
+          "camera_radius": 4.554479182012237
+        }
+      ]
+    }
+  ]
+}

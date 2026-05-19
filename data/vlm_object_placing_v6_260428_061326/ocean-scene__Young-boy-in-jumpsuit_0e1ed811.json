@@ -1,0 +1,138 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Young-boy-in-jumpsuit_0e1ed811",
+  "object_file": "data/objects/Young-boy-in-jumpsuit_0e1ed811/Young-boy-in-jumpsuit_0e1ed811.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -62.93138122558594,
+        -56.0542106628418,
+        1.9553914070129395
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -62.93138122558594,
+            -56.0542106628418,
+            1.9553914070129395
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is not in a plausible location.",
+            "Object is not plausible in this scene. A person standing in the middle of the ocean is not a realistic scenario.",
+            "The surroundings are empty.",
+            "The scale of the person relative to the ship is too small. The person should be much larger if they were on the ship.",
+            "The object is placed in the water, which is not a plausible location for a person.",
+            "The object is not in a plausible scale."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is a person placed on what appears to be water, which is not a plausible location. The scale also appears incorrect, as the person seems too large for the environment. The surroundings are also empty, consisting only of water and sky."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Young-boy-in-jumpsuit_0e1ed811_c1_v1.png",
+          "azimuth": 343.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -64.5023422241211,
+            -61.426483154296875,
+            3.633737802505493
+          ],
+          "camera_forward": [
+            0.2764025926589966,
+            0.9452237486839294,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.048737168312072754,
+            0.16666826605796814,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.843464482314143
+        }
+      ]
+    }
+  ]
+}

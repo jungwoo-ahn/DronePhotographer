@@ -1,0 +1,474 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Moon-Girl_518cddf2",
+  "object_file": "data/objects/Moon-Girl_518cddf2/Moon-Girl_518cddf2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.2150561809539795,
+        0.23627729713916779,
+        -0.1199999526143074
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.2150561809539795,
+            0.23627729713916779,
+            -0.1199999526143074
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            4.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is heavily cropped",
+            "Object's head is cut off by the top of the frame",
+            "Object is clipping with the picnic table bench",
+            "Object is not visible in the frame (likely occluded by the building wall)."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind the building wall in the rendered view, making it impossible to evaluate placement quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_v0.png",
+          "azimuth": 352.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.846479654312134,
+            -4.761957168579102,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.12491149455308914,
+            0.9887763261795044,
+            -0.0819660872220993
+          ],
+          "camera_up": [
+            0.01027308963239193,
+            0.08131975680589676,
+            0.9966351389884949
+          ],
+          "camera_radius": 5.150146348387686
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c1_v1.png",
+          "azimuth": 22.8,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -0.16903755068778992,
+            -4.631008625030518,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.386327862739563,
+            0.9190376400947571,
+            -0.07823459059000015
+          ],
+          "camera_up": [
+            -0.03031710721552372,
+            0.07212159037590027,
+            0.9969349503517151
+          ],
+          "camera_radius": 5.386986795662389
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        5.784943580627441,
+        -9.76372241973877,
+        -1.1920929132713809e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.784943580627441,
+            -9.76372241973877,
+            -1.1920929132713809e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is heavily cropped",
+            "head and upper body are out of frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and in a plausible location, but it is heavily cropped with the head and upper body missing from the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_v0.png",
+          "azimuth": 276.3,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            1.4197579622268677,
+            -10.245643615722656,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.991736114025116,
+            0.1094885766506195,
+            -0.066870778799057
+          ],
+          "camera_up": [
+            0.06646695733070374,
+            0.007337871473282576,
+            0.9977616667747498
+          ],
+          "camera_radius": 4.4930927691309845
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c2_v1.png",
+          "azimuth": 141.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.086122512817383,
+            -5.643178462982178,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.6242733001708984,
+            -0.7792205810546875,
+            -0.05566086620092392
+          ],
+          "camera_up": [
+            -0.03480147942900658,
+            -0.04343948885798454,
+            0.9984497427940369
+          ],
+          "camera_radius": 5.364461236940796
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        1.7849438190460205,
+        1.2362773418426514,
+        -1.7881394143159923e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.7849438190460205,
+            1.2362773418426514,
+            -1.7881394143159923e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0_v3.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty (just a wall)",
+            "Object is completely hidden behind a wall",
+            "object is heavily cropped",
+            "head is cut off by the top of the frame",
+            "Object is completely occluded by the palm tree or the building wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the frame, likely hidden behind the large palm tree trunk or the building wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c3_v0.png",
+          "azimuth": 335.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.2802318334579468,
+            -3.35894775390625,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.4092252254486084,
+            0.9105674028396606,
+            -0.058324314653873444
+          ],
+          "camera_up": [
+            0.023908447474241257,
+            0.05319879576563835,
+            0.9982976913452148
+          ],
+          "camera_radius": 5.126580343590366
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        0.7849437594413757,
+        -2.7637226581573486,
+        -5.9604645663569045e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.7849437594413757,
+            -2.7637226581573486,
+            -5.9604645663569045e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Moon-Girl_518cddf2_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is almost completely hidden behind a wall",
+            "Object is clipping through the bar counter",
+            "Only the top of the head is visible through a window",
+            "Object's head is cut off by the top of the frame",
+            "Object is heavily cropped"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed behind a solid wall, with only a tiny portion of the head visible through a narrow window, violating the visibility requirement."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

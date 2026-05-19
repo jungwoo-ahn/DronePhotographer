@@ -1,0 +1,310 @@
+{
+  "scene": "Modern-Warehouse_a5eea495",
+  "scene_file": "data/scenes/Modern-Warehouse_a5eea495/Modern-Warehouse_a5eea495.blend",
+  "scene_scale": 1.0,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.7308197021484375,
+        -1.7965373992919922,
+        0.030000001192092896
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.7308197021484375,
+            -1.7965373992919922,
+            0.030000001192092896
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting in the middle of a large empty warehouse, which is not a plausible location for a person to be sitting on a chair.",
+            "The scale of the person relative to the scene appears too small. The chair seems too low, and the person's head is well below the level of the windows and the overhead structures.",
+            "The person is sitting on the floor, which is not a typical place to sit in a warehouse.",
+            "The object is partially cut off by the right edge of the frame.",
+            "The person is sitting on a stool in the middle of a large warehouse floor, which is an unusual placement."
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is fully visible and grounded, with no clipping. However, the placement on a stool in the middle of a large warehouse is unusual and lacks context, leading to a moderate quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 41.3,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            6.169991970062256,
+            -5.711264133453369,
+            1.4930140972137451
+          ],
+          "camera_forward": [
+            -0.6499748229980469,
+            0.7398506999015808,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.1146080270409584,
+            0.1304555982351303,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.412338180413581
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 101.3,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.840659141540527,
+            -0.775490403175354,
+            1.4930140972137451
+          ],
+          "camera_forward": [
+            -0.9657169580459595,
+            -0.19296914339065552,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.17028190195560455,
+            -0.03402553126215935,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.41233822446452
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        3.7308197021484375,
+        11.203462600708008,
+        1.3519086837768555
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.7308197021484375,
+            11.203462600708008,
+            1.3519086837768555
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            3.0,
+            3.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a chair in a warehouse, which is not a typical or plausible location for this activity. The scale also appears slightly off, with the chair seeming a bit low for the person.",
+            "The scale of the person relative to the scene appears too small. The chair seems too low, and the person's head is well below the level of the windows and the overhead structures.",
+            "The person is sitting in the middle of a large empty warehouse, which is not a plausible location for a person to be sitting on a chair.",
+            "The person is sitting on a chair in a large empty warehouse, which is not a typical or plausible location for this activity. While there are stairs and some industrial elements, it's not a place one would expect to find someone casually sitting.",
+            "The person is sitting in a large empty warehouse, which is not a plausible location for a person to be sitting on a chair."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement in an empty warehouse is implausible, and the scale appears too small for the scene, with the person and chair being significantly lower than expected relative to the surrounding structures."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_v0.png",
+          "azimuth": 153.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            6.039599418640137,
+            15.874922752380371,
+            1.649999976158142
+          ],
+          "camera_forward": [
+            -0.4425777494907379,
+            -0.8954882621765137,
+            0.047177720814943314
+          ],
+          "camera_up": [
+            0.020903022959828377,
+            0.0422942191362381,
+            0.9988865256309509
+          ],
+          "camera_radius": 5.219373615775406
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Warehouse_a5eea495_Hahaha-woman-on-chair_50c9329e_c2_v1.png",
+          "azimuth": 353.4,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            3.131899118423462,
+            6.02714204788208,
+            1.649999976158142
+          ],
+          "camera_forward": [
+            0.11480919271707535,
+            0.9922666549682617,
+            0.04717748239636421
+          ],
+          "camera_up": [
+            -0.005422451067715883,
+            -0.0468648262321949,
+            0.9988865256309509
+          ],
+          "camera_radius": 5.219373401652564
+        }
+      ]
+    }
+  ]
+}

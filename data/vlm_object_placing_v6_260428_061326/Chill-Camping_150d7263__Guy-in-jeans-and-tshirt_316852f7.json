@@ -1,0 +1,99 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "Guy-in-jeans-and-tshirt_316852f7",
+  "object_file": "data/objects/Guy-in-jeans-and-tshirt_316852f7/Guy-in-jeans-and-tshirt_316852f7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -10.630130767822266,
+        1.8769760131835938,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.630130767822266,
+            1.8769760131835938,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Scale seems too large compared to background elements",
+            "Object is partly cut off at the frame edge",
+            "The background is completely obscured by fog/haze, providing no scene context.",
+            "The person is standing on an unnatural, flat reflective platform that doesn't match the scene terrain",
+            "Scale is completely incorrect; the person is far too large compared to the van",
+            "surroundings_empty",
+            "Broken ground plane/environment"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.3,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is massive compared to the van, making it look like a toy, and he is standing on a strange artificial platform instead of the natural ground."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

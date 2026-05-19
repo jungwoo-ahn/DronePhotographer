@@ -1,0 +1,114 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da",
+  "object_file": "data/objects/snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/snowman_2K_d6c75ad8-d999-438a-a8dd-fa548ce49697.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.1902451515197754,
+        -9.488911628723145,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.1902451515197754,
+            -9.488911628723145,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            8.5,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is clipping with the bench/table set",
+            "Object is partially occluded by a pillar",
+            "Thematic mismatch: a snowman on a tropical beach is not a plausible real-world scenario.",
+            "Plausibility: A snowman at a beach bar is highly unrealistic"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is clipping into the wooden bench and is partially obscured by a structural pillar, and the placement on a sunny beach is fundamentally implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da_c0_v1.png",
+          "azimuth": 149.7,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.0100204944610596,
+            -2.3010189533233643,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.5044539570808411,
+            -0.8632695078849792,
+            -0.017087537795305252
+          ],
+          "camera_up": [
+            -0.00862112082540989,
+            -0.0147533118724823,
+            0.9998539686203003
+          ],
+          "camera_radius": 8.379070232360617
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is made of ice and would melt in a tropical beach environment, making it an absurd pairing."
+    }
+  ]
+}

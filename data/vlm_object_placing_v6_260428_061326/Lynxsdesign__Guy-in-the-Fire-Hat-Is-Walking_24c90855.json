@@ -1,0 +1,111 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Guy-in-the-Fire-Hat-Is-Walking_24c90855",
+  "object_file": "data/objects/Guy-in-the-Fire-Hat-Is-Walking_24c90855/Guy-in-the-Fire-Hat-Is-Walking_24c90855.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -4.425572395324707,
+        -1.3348064422607422,
+        1.350000023841858
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.425572395324707,
+            -1.3348064422607422,
+            1.350000023841858
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is mostly out of frame.",
+            "The scale of the person relative to the building appears too large.",
+            "The person is on a roof, which is not a plausible location for a person to be walking."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -3.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a roof, which is an implausible location, and the scale appears too large for the building."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_v0.png",
+          "azimuth": 116.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            0.057006653398275375,
+            0.8514936566352844,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8590772151947021,
+            -0.41899994015693665,
+            0.2939819097518921
+          ],
+          "camera_up": [
+            0.2642292082309723,
+            0.12887315452098846,
+            0.9558109641075134
+          ],
+          "camera_radius": 5.057060893169467
+        }
+      ]
+    }
+  ]
+}

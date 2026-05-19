@@ -1,0 +1,396 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "Smirk-Guy-in-an-Orange-Hat_3ff0e79c",
+  "object_file": "data/objects/Smirk-Guy-in-an-Orange-Hat_3ff0e79c/Smirk-Guy-in-an-Orange-Hat_3ff0e79c.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -6.780278205871582,
+        2.479907512664795,
+        -0.02699911594390869
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.780278205871582,
+            2.479907512664795,
+            -0.02699911594390869
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is slightly too large for the scene. The person's head is close to the top of the frame, and the scale of the surrounding objects suggests the scene is a bit too small for a person of this height.",
+            "The object is slightly too large for the scene. The person's waist is at the level of the top of the crates, which are likely meant to be furniture. The person should be scaled down slightly.",
+            "The scale of the person appears to be too large for the scene. The person's waist is roughly at the height of the top of the barrels, which would imply the barrels are very short or the person is very tall."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scale of the person appears too large for the scene, suggesting the scene is too small."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_v0.png",
+          "azimuth": 64.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.3501715660095215,
+            -0.13342587649822235,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.900288999080658,
+            0.433279812335968,
+            -0.04181305691599846
+          ],
+          "camera_up": [
+            -0.03767680749297142,
+            0.018132563680410385,
+            0.9991254806518555
+          ],
+          "camera_radius": 6.102623157407101
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_v1.png",
+          "azimuth": 0.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -6.780278205871582,
+            -1.4534410238265991,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9979507923126221,
+            -0.06398602575063705
+          ],
+          "camera_up": [
+            0.0,
+            0.06398602575063705,
+            0.9979507923126221
+          ],
+          "camera_radius": 4.049404016842086
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.7802780866622925,
+        -1.520092487335205,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7802780866622925,
+            -1.520092487335205,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is slightly too large for the scene. The person's head is close to the top of the frame, and the scale of the surrounding objects suggests the scene is a bit too small for a person of this height.",
+            "The object is slightly too large for the scene. The person's waist is at the level of the top of the crates, which are likely meant to be furniture. The person should be scaled down slightly."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.9,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a plausible location within the scene, but appears slightly too large for the surrounding environment, suggesting a minor scale adjustment is needed."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_v0.png",
+          "azimuth": 226.2,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.6192128658294678,
+            1.2023484706878662,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7202811241149902,
+            -0.6907249093055725,
+            -0.06398578733205795
+          ],
+          "camera_up": [
+            0.0461825393140316,
+            -0.04428717866539955,
+            0.9979507923126221
+          ],
+          "camera_radius": 4.049403545822465
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -5.780278205871582,
+        2.479907512664795,
+        -0.026998251676559448
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.780278205871582,
+            2.479907512664795,
+            -0.026998251676559448
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is slightly too large for the scene. The person's waist is at the level of the top of the crates, which are likely meant to be furniture. The person should be scaled down slightly."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.9,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but appears slightly too large for the scene, with their waist aligning with the top of the crates, suggesting a slight scaling down is needed."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_v0.png",
+          "azimuth": 60.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.5147168040275574,
+            -0.45086589455604553,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.873008131980896,
+            0.48590993881225586,
+            -0.04181293770670891
+          ],
+          "camera_up": [
+            -0.036535028368234634,
+            0.020335029810667038,
+            0.9991254806518555
+          ],
+          "camera_radius": 6.102623313679949
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_v1.png",
+          "azimuth": 0.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -5.780278205871582,
+            -1.4534410238265991,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9979507923126221,
+            -0.06398578733205795
+          ],
+          "camera_up": [
+            0.0,
+            0.06398578733205795,
+            0.9979507923126221
+          ],
+          "camera_radius": 4.049403781332282
+        }
+      ]
+    }
+  ]
+}

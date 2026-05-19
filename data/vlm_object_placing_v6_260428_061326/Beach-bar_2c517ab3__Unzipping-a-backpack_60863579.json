@@ -1,0 +1,652 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Unzipping-a-backpack_60863579",
+  "object_file": "data/objects/Unzipping-a-backpack_60863579/Unzipping-a-backpack_60863579.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.135780096054077,
+        -1.6844465732574463,
+        -9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.135780096054077,
+            -1.6844465732574463,
+            -9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            4.0,
+            0.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Camera is pointing directly at a wall",
+            "Object is not visible in the frame",
+            "The person's head is cut off by the top edge of the frame.",
+            "Scale is slightly off (person appears too small relative to the bar counter)",
+            "Object is partially cropped (head is cut off)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image shows only a close-up of a wooden wall; the object is completely invisible and the surroundings provide no context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_v0.png",
+          "azimuth": 350.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.8786678314208984,
+            -6.27117395401001,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.15922769904136658,
+            0.9831012487411499,
+            -0.09032458811998367
+          ],
+          "camera_up": [
+            0.014441234059631824,
+            0.0891626700758934,
+            0.9959123730659485
+          ],
+          "camera_radius": 4.7424392696206334
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c0_v1.png",
+          "azimuth": 208.7,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.662118673324585,
+            1.103467345237732,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.4760572910308838,
+            -0.8695364594459534,
+            -0.1314375400543213
+          ],
+          "camera_up": [
+            0.0631193220615387,
+            -0.11528997868299484,
+            0.9913244247436523
+          ],
+          "camera_radius": 3.317070812413665
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.8642200231552124,
+        -0.6844464540481567,
+        -9.536744016713783e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.8642200231552124,
+            -0.6844464540481567,
+            -9.536744016713783e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            2.0,
+            9.5,
+            8.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Poor camera framing",
+            "Object is occluded by the building structure",
+            "Object is mostly hidden behind a wooden structure (occlusion)",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely hidden behind the wooden wall of the beach bar structure and is not visible in the rendered frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c1_v1.png",
+          "azimuth": 102.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.9684672355651855,
+            -0.0019329522037878633,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9681991934776306,
+            -0.21287214756011963,
+            -0.1314375400543213
+          ],
+          "camera_up": [
+            -0.1283714324235916,
+            -0.028224170207977295,
+            0.9913244247436523
+          ],
+          "camera_radius": 3.317070506939629
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.1357799768447876,
+        -1.6844465732574463,
+        -9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.1357799768447876,
+            -1.6844465732574463,
+            -9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            3.5,
+            0.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Poor camera framing",
+            "Camera is pointing directly at a wall",
+            "Object is not visible in the frame",
+            "The foreground bar counter partially obscures the person.",
+            "Object is significantly occluded by a pillar",
+            "Object is heavily cropped (head is missing)",
+            "Clipping with existing furniture (stools)",
+            "Minor cropping at the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, making it invisible in the rendered frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c2_v0.png",
+          "azimuth": 174.5,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.16885536909103394,
+            1.4793123006820679,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.0950143113732338,
+            -0.9867606163024902,
+            -0.1314373016357422
+          ],
+          "camera_up": [
+            -0.01259780302643776,
+            -0.13083218038082123,
+            0.9913244843482971
+          ],
+          "camera_radius": 3.3170707686140806
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.135780096054077,
+        -3.684446334838867,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.135780096054077,
+            -3.684446334838867,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            1.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Camera is pointing directly at a wall",
+            "Poor camera framing",
+            "Object is not visible in the frame",
+            "Object's legs are clipping through the table's diagonal support structure",
+            "Object is clipping with the wooden table/bench in the foreground."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by a wall, making it invisible in the rendered frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c3_v0.png",
+          "azimuth": 177.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.8894137144088745,
+            1.1788970232009888,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.05040451139211655,
+            -0.995000422000885,
+            -0.08621818572282791
+          ],
+          "camera_up": [
+            -0.004361975006759167,
+            -0.0861077755689621,
+            0.9962762594223022
+          ],
+          "camera_radius": 4.961208188939681
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.1357799768447876,
+        -5.684446334838867,
+        -1.1920929132713809e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.1357799768447876,
+            -5.684446334838867,
+            -1.1920929132713809e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            10.0,
+            3.5,
+            10.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Poor camera framing",
+            "Object is completely hidden behind a wall",
+            "Object is heavily cropped (head is out of frame)",
+            "View is significantly obstructed by a large foreground object"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is entirely obscured by a wooden wall in the foreground, making the placement and framing unsuccessful."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_v0.png",
+          "azimuth": 325.8,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.4124767780303955,
+            -9.034502983093262,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.5590658187866211,
+            0.822640061378479,
+            -0.10348282009363174
+          ],
+          "camera_up": [
+            0.058165907859802246,
+            0.08558867126703262,
+            0.9946312308311462
+          ],
+          "camera_radius": 4.160169832449219
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Unzipping-a-backpack_60863579_c4_v1.png",
+          "azimuth": 265.8,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -4.992281436920166,
+            -5.32780647277832,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9936007261276245,
+            -0.07296562939882278,
+            -0.08621818572282791
+          ],
+          "camera_up": [
+            0.08598664402961731,
+            -0.006314527243375778,
+            0.9962762594223022
+          ],
+          "camera_radius": 4.961207739911216
+        }
+      ]
+    }
+  ]
+}

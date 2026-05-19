@@ -1,0 +1,162 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "Proud-Smile_4b7fb083",
+  "object_file": "data/objects/Proud-Smile_4b7fb083/Proud-Smile_4b7fb083.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        187.6092071533203,
+        510.68927001953125,
+        -34.52547073364258
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            187.6092071533203,
+            510.68927001953125,
+            -34.52547073364258
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            6.0,
+            2.0,
+            1.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Proud-Smile_4b7fb083_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in a desert scene, which is not a plausible location for a person.",
+            "The object is very small in the frame, making it difficult to assess its placement and scale accurately.",
+            "Render is black.",
+            "Object is not visible.",
+            "The background is empty, with only a sky and mountains visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is completely black, making it impossible to evaluate the object's visibility, placement, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Proud-Smile_4b7fb083_c0_v0.png",
+          "azimuth": 282.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            181.72811889648438,
+            509.3854675292969,
+            -32.732967376708984
+          ],
+          "camera_forward": [
+            0.9614641070365906,
+            0.21315065026283264,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.16953188180923462,
+            0.037584107369184494,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.284916021427848
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Proud-Smile_4b7fb083_c0_v1.png",
+          "azimuth": 342.5,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            185.79779052734375,
+            504.9441833496094,
+            -32.732967376708984
+          ],
+          "camera_forward": [
+            0.2961371839046478,
+            0.9392280578613281,
+            -0.17364750802516937
+          ],
+          "camera_up": [
+            0.0522167943418026,
+            0.16561058163642883,
+            0.9848078489303589
+          ],
+          "camera_radius": 6.284927847667348
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is a person, but the scene is described as a realistic desert scene, and the provided image does not depict a desert environment."
+    }
+  ]
+}

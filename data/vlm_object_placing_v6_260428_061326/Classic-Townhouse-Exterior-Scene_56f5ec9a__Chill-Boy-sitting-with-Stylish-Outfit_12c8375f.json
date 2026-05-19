@@ -1,0 +1,531 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 1.0,
+  "object": "Chill-Boy-sitting-with-Stylish-Outfit_12c8375f",
+  "object_file": "data/objects/Chill-Boy-sitting-with-Stylish-Outfit_12c8375f/Chill-Boy-sitting-with-Stylish-Outfit_12c8375f.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -34.863685607910156,
+        19.35635757446289,
+        -1.1209728717803955
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -34.863685607910156,
+            19.35635757446289,
+            -1.1209728717803955
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            6.0,
+            3.0,
+            9.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head and upper body missing)",
+            "The person is sitting on an extremely thin or invisible stool in the middle of a paved area, which looks slightly unnatural without supporting furniture like a bench.",
+            "awkward placement (sitting in the middle of a paved area)",
+            "surroundings_empty",
+            "scale seems slightly small for the environment",
+            "minor cropping at the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and placed in a plausible outdoor setting, but the framing is poor as the head and upper torso are completely cropped out of the image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_v1.png",
+          "azimuth": 213.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -36.87919616699219,
+            22.355754852294922,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.5356860756874084,
+            -0.7971854209899902,
+            -0.2784525156021118
+          ],
+          "camera_up": [
+            0.1553054302930832,
+            -0.2311190813779831,
+            0.9604499936103821
+          ],
+          "camera_radius": 3.955321263504537
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -48.3527946472168,
+        35.843048095703125,
+        -1.1209471225738525
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -48.3527946472168,
+            35.843048095703125,
+            -1.1209471225738525
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            6.0,
+            3.0,
+            4.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Surroundings are empty and lack meaningful context.",
+            "The person is sitting on a very thin, barely visible stool in an open paved area, which looks unnatural.",
+            "The surroundings are very empty, showing a flat featureless plane and distant trees with no architectural context from the townhouse scene.",
+            "Object is sitting on an invisible or extremely thin support, making the pose look unnatural.",
+            "The stool is extremely thin and looks unnatural in this setting",
+            "The camera is positioned at the edge of the scene geometry, showing a plain white wall and a gradient void.",
+            "Minor cropping at the top of the head/hat.",
+            "Object is heavily cropped (head is missing)",
+            "The placement on a stool in the middle of a sidewalk/curb feels isolated and lacks environmental storytelling.",
+            "Surroundings are empty (only pavement visible)",
+            "The placement lacks interesting foreground context compared to the townhouse architecture seen in the reference.",
+            "Placement on a stool in the middle of a paved area lacks context",
+            "Placement on the very edge of the curb is slightly awkward."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cut off by the top of the frame, and the stool they are sitting on is too thin to look realistic in an outdoor setting."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_v0.png",
+          "azimuth": 216.7,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -50.512420654296875,
+            38.74040985107422,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.573989987373352,
+            -0.7700671553611755,
+            -0.2784457802772522
+          ],
+          "camera_up": [
+            0.1664060652256012,
+            -0.2232511341571808,
+            0.9604519605636597
+          ],
+          "camera_radius": 3.9553135177829204
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        55.0637092590332,
+        5.867247581481934,
+        -1.0330816507339478
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            55.0637092590332,
+            5.867247581481934,
+            -1.0330816507339478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            3.5,
+            4.0,
+            7.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v2.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The object is placed in an empty area far from the townhouse architecture shown in the reference.",
+            "Surroundings are empty and lack meaningful context.",
+            "The head is slightly cropped at the top of the frame.",
+            "The person is sitting on a small stool in the middle of a large, empty paved area, which looks unnatural.",
+            "The placement is on a large, featureless paved surface which lacks the architectural context of the townhouse seen in the reference image.",
+            "The person is sitting on a stool in an open paved area without any nearby architecture or furniture from the main scene.",
+            "The person is sitting in an open paved area without supporting furniture or architectural context, which looks unnatural.",
+            "The edge of the ground geometry is visible, making the scene look artificial.",
+            "The background appears to be a flat backdrop rather than the actual 3D environment of the townhouse.",
+            "The immediate surroundings are empty and lack architectural or decorative context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a non-descript area with a flat image backdrop, failing to show any of the townhouse architecture or street context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_v0.png",
+          "azimuth": 245.7,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            50.01774597167969,
+            8.145587921142578,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.8980095386505127,
+            -0.40546679496765137,
+            -0.1708085685968399
+          ],
+          "camera_up": [
+            0.15567547082901,
+            -0.07029023766517639,
+            0.9853042364120483
+          ],
+          "camera_radius": 5.741387717673498
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -1.8903064727783203,
+        20.855146408081055,
+        -0.6857681274414062
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.8903064727783203,
+            20.855146408081055,
+            -0.6857681274414062
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            1.0,
+            6.5,
+            7.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v3.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Minor clipping with the wall behind the character.",
+            "Object is not visible in the frame.",
+            "Surroundings lack context.",
+            "The framing is too tight and lacks context.",
+            "The person is placed in a dark, shadowed area, making them difficult to see clearly.",
+            "The camera is pointing directly at a wall.",
+            "The object is significantly occluded by foreground vegetation (tall grass/reeds).",
+            "The object appears to be slightly clipping into the wall behind him.",
+            "A large pole in the foreground partially occludes the view and creates a poor composition.",
+            "Object is not clearly identifiable.",
+            "Object is almost entirely hidden behind a wall or in deep shadow."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a dark alcove or behind a wall, making it nearly invisible and impossible to evaluate properly."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c4_v0.png",
+          "azimuth": 67.5,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.2247314453125,
+            18.73642921447754,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9182778000831604,
+            0.3803631365299225,
+            -0.10995351523160934
+          ],
+          "camera_up": [
+            -0.1015838235616684,
+            0.042077336460351944,
+            0.9939367175102234
+          ],
+          "camera_radius": 5.659345464771533
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "scene": "Modern-Art-Gallery_770933c8",
+  "scene_file": "data/scenes/Modern-Art-Gallery_770933c8/Modern-Art-Gallery_770933c8.blend",
+  "scene_scale": 0.8,
+  "object": "Car-Mechanic-Character_e64df45e",
+  "object_file": "data/objects/Car-Mechanic-Character_e64df45e/Car-Mechanic-Character_e64df45e.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.8619585037231445,
+        3.7670745849609375,
+        0.0024002075660973787
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.8619585037231445,
+            3.7670745849609375,
+            0.0024002075660973787
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            9.0,
+            7.5,
+            0.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Render is completely blue/broken, object is not visible.",
+            "Implausible location for the object",
+            "Object is completely hidden behind scene geometry.",
+            "Surroundings are empty (no scene context visible).",
+            "Object is completely hidden/not visible in the frame.",
+            "Surroundings are empty.",
+            "Object does not belong in this environment",
+            "Object is clipping with the wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely blue, showing neither the object nor any scene context. This indicates a broken render, making the object entirely invisible and the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Car-Mechanic-Character_e64df45e_c0_v0.png",
+          "azimuth": 353.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            2.1338095664978027,
+            -2.5261354446411133,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.11408144235610962,
+            0.9859769344329834,
+            -0.1217985674738884
+          ],
+          "camera_up": [
+            0.013999180868268013,
+            0.12099137902259827,
+            0.9925548434257507
+          ],
+          "camera_radius": 6.47693809644192
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A car mechanic character's attire and typical environment are completely incongruous with the clean and sophisticated setting of a modern art gallery."
+    }
+  ]
+}

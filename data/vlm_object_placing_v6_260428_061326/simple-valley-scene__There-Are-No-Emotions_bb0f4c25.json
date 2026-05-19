@@ -1,0 +1,142 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "There-Are-No-Emotions_bb0f4c25",
+  "object_file": "data/objects/There-Are-No-Emotions_bb0f4c25/There-Are-No-Emotions_bb0f4c25.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.7945492267608643,
+        -1.19930100440979,
+        -0.8405683040618896
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7945492267608643,
+            -1.19930100440979,
+            -0.8405683040618896
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is standing in a small puddle of water, which is a bit unusual but not impossible.",
+            "surroundings_empty=true",
+            "Object is partially cut off by the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is fully visible, grounded, and not clipping with any objects. The scale appears correct for the environment, and the placement in a natural landscape is plausible, although standing in a puddle is slightly odd."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_v0.png",
+          "azimuth": 6.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.1257438659667969,
+            -6.8925676345825195,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.11665908992290497,
+            0.9930716156959534,
+            0.014122179709374905
+          ],
+          "camera_up": [
+            0.0016476551536470652,
+            -0.0140257328748703,
+            0.9999002814292908
+          ],
+          "camera_radius": 5.767236799609716
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_There-Are-No-Emotions_bb0f4c25_c0_v1.png",
+          "azimuth": 66.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.470367193222046,
+            -3.4667320251464844,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9183548092842102,
+            0.3955060541629791,
+            0.014122418127954006
+          ],
+          "camera_up": [
+            0.012970645911991596,
+            -0.005586146842688322,
+            0.9999002814292908
+          ],
+          "camera_radius": 5.7672368125285205
+        }
+      ]
+    }
+  ]
+}

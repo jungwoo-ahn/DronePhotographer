@@ -1,0 +1,159 @@
+{
+  "scene": "sunset-city",
+  "scene_file": "data/scenes/sunset-city/Sunset city.blend",
+  "scene_scale": 1.0,
+  "object": "snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb",
+  "object_file": "data/objects/snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb/snow-man_3e91a802-580f-4dcb-9784-13ca7a511fab.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        16.13802146911621,
+        1.1650216579437256,
+        -0.0066130757331848145
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.13802146911621,
+            1.1650216579437256,
+            -0.0066130757331848145
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            8.0,
+            9.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is placed in an empty environment with no context.",
+            "The snowman is a bit small for the scene, suggesting the scene might be too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but it is placed in an empty environment with no context, which significantly reduces the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_v0.png",
+          "azimuth": 46.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            17.61391830444336,
+            -0.2306649088859558,
+            0.5457280278205872
+          ],
+          "camera_forward": [
+            -0.7155362367630005,
+            0.676649272441864,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.12616832554340363,
+            0.11931142210960388,
+            0.9848077893257141
+          ],
+          "camera_radius": 2.1050638789793683
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_v1.png",
+          "azimuth": 303.1,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.027338027954102,
+            0.44097673892974854,
+            1.7676312923431396
+          ],
+          "camera_forward": [
+            0.5384753346443176,
+            0.3510274887084961,
+            -0.7660443782806396
+          ],
+          "camera_up": [
+            0.6417298913002014,
+            0.4183380901813507,
+            0.6427876949310303
+          ],
+          "camera_radius": 2.2149045152082443
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman would not naturally be found in a city scene during sunset, as it implies cold weather conditions that are unlikely in such an environment."
+    }
+  ]
+}

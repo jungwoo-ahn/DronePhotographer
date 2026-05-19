@@ -1,0 +1,381 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+  "object_file": "data/objects/spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/spider-man-no-way-home-suit_2K_1ac6fb05-8276-4645-a0b1-5dd80f9c74bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -5.484362602233887,
+        -1.3891146183013916,
+        -0.7424567341804504
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.484362602233887,
+            -1.3891146183013916,
+            -0.7424567341804504
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is not interacting with any part of the scene, it is just standing on the ground.",
+            "The object is standing on a small puddle, which is not a typical surface for a person to stand on."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible, grounded, and not clipping. The placement is plausible for a character in an outdoor environment, but it lacks interaction with the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_v0.png",
+          "azimuth": 124.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.6050797700881958,
+            1.9894609451293945,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.8217493891716003,
+            -0.5690063834190369,
+            0.030978653579950333
+          ],
+          "camera_up": [
+            0.025468850508332253,
+            0.017635608091950417,
+            0.9995200634002686
+          ],
+          "camera_radius": 5.958864929142376
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.734362781047821,
+        -0.3891145586967468,
+        -0.9703197479248047
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.734362781047821,
+            -0.3891145586967468,
+            -0.9703197479248047
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is not interacting with any part of the scene, it is just standing on the ground.",
+            "The object is standing on a small puddle, which is not a typical surface for a person to stand on."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is standing on a puddle and not interacting with the scene, which is not ideal."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_v0.png",
+          "azimuth": 101.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            5.081321716308594,
+            0.7940993905067444,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9798978567123413,
+            -0.19936257600784302,
+            -0.0074004014022648335
+          ],
+          "camera_up": [
+            -0.007251835893839598,
+            -0.0014754049479961395,
+            0.9999726414680481
+          ],
+          "camera_radius": 5.9836165044590715
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_v1.png",
+          "azimuth": 210.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.7554361820220947,
+            4.719240665435791,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.509027361869812,
+            -0.8607184886932373,
+            -0.007400639820843935
+          ],
+          "camera_up": [
+            0.003767182817682624,
+            -0.006370070856064558,
+            0.9999726414680481
+          ],
+          "camera_radius": 5.983615976509744
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.7343628406524658,
+        -1.1391146183013916,
+        -0.8279945850372314
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7343628406524658,
+            -1.1391146183013916,
+            -0.8279945850372314
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is not interacting with any part of the scene, it is just standing on the ground.",
+            "The object is standing on a small puddle, which is not a typical surface for a person to stand on.",
+            "The object is standing on a small rock, which is not a typical surface for a person to stand on."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is standing on a puddle and not interacting with the scene, which makes the placement less plausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_v0.png",
+          "azimuth": 71.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.8771274089813232,
+            -3.071305990219116,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.945388674736023,
+            0.3255232870578766,
+            0.016578316688537598
+          ],
+          "camera_up": [
+            0.01567508466541767,
+            -0.005397434812039137,
+            0.999862551689148
+          ],
+          "camera_radius": 5.967148630915105
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_v1.png",
+          "azimuth": 205.4,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.280019283294678,
+            4.222024917602539,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.4288760721683502,
+            -0.9032111763954163,
+            0.016578078269958496
+          ],
+          "camera_up": [
+            -0.0071107796393334866,
+            0.01497562974691391,
+            0.999862551689148
+          ],
+          "camera_radius": 5.967148590959911
+        }
+      ]
+    }
+  ]
+}

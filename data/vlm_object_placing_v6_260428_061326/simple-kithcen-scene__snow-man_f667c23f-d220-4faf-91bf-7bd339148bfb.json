@@ -1,0 +1,136 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 0.5,
+  "object": "snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb",
+  "object_file": "data/objects/snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb/snow-man_3e91a802-580f-4dcb-9784-13ca7a511fab.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.9234693050384521,
+        -0.5972957611083984,
+        -2.9802322387695312e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.9234693050384521,
+            -0.5972957611083984,
+            -2.9802322387695312e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png"
+          ],
+          "view_qualities": [
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The snowman is placed in a kitchen, which is an implausible location for a snowman. The scale also appears to be too large for the scene, as the snowman is 1.5m tall and appears to be taller than the kitchen counter."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and mostly visible, but its placement in a kitchen is implausible and its scale appears too large for the scene."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -0.9234693050384521,
+            -0.5972957611083984,
+            -2.9802322387695312e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter1.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is not a plausible object for a kitchen scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is fully visible, grounded, and not clipping, but its placement in a kitchen is implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_v0.png",
+          "azimuth": 0.0,
+          "elevation": 15.0,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.9234690070152283,
+            -2.589658260345459,
+            0.7280183434486389
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9659258127212524,
+            -0.2588190734386444
+          ],
+          "camera_up": [
+            0.0,
+            0.2588190734386444,
+            0.9659258127212524
+          ],
+          "camera_radius": 2.1212067688114793
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is an outdoor decoration and would not naturally be found inside a kitchen."
+    }
+  ]
+}

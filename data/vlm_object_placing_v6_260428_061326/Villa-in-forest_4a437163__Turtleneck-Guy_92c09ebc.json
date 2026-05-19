@@ -1,0 +1,434 @@
+{
+  "scene": "Villa-in-forest_4a437163",
+  "scene_file": "data/scenes/Villa-in-forest_4a437163/Villa-in-forest_4a437163.blend",
+  "scene_scale": 2.0,
+  "object": "Turtleneck-Guy_92c09ebc",
+  "object_file": "data/objects/Turtleneck-Guy_92c09ebc/Turtleneck-Guy_92c09ebc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        17.823183059692383,
+        -21.598325729370117,
+        -1.2902157306671143
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.823183059692383,
+            -21.598325729370117,
+            -1.2902157306671143
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            6.0,
+            7.0,
+            8.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing on the ground outside the house, which is a plausible location, but the house itself is elevated and appears to be on a slope, making the placement slightly awkward as they are not interacting with the house.",
+            "The person appears to be too small for the scene. The house in the background looks like a miniature model, and the person is standing on what appears to be a pile of compost or mulch.",
+            "The object is too small for the scene, making the scene appear too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears extremely small in the scene, suggesting the scene is too large for the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_v0.png",
+          "azimuth": 81.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            22.463685989379883,
+            -22.333309173583984,
+            2.6898019313812256
+          ],
+          "camera_forward": [
+            -0.8090670108795166,
+            0.1281435191631317,
+            -0.5735762715339661
+          ],
+          "camera_up": [
+            -0.5665146112442017,
+            0.08972707390785217,
+            0.8191521167755127
+          ],
+          "camera_radius": 6.157516615446768
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c0_v1.png",
+          "azimuth": 20.7,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            19.728313446044922,
+            -26.64011001586914,
+            1.3616825342178345
+          ],
+          "camera_forward": [
+            -0.33215752243995667,
+            0.8790299892425537,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            -0.12089541554450989,
+            0.31994062662124634,
+            0.9396926760673523
+          ],
+          "camera_radius": 6.006802398334976
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        5.509771347045898,
+        -16.67296028137207,
+        -2.4360342025756836
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.509771347045898,
+            -16.67296028137207,
+            -2.4360342025756836
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing in the water, which is not ideal for a person, but it is a plausible location for a person to be in a pond or lake.",
+            "The person is standing on the ground outside the house, which is a plausible location, but the house itself is elevated and appears to be on a slope, making the placement slightly awkward as they are not interacting with the house.",
+            "The person is standing in the water, which is not ideal for a person. The house is elevated and appears to be on a slope, making the placement slightly awkward as they are not interacting with the house.",
+            "The person is standing in the water, which is a plausible location given the scene, but it is not ideal as they are not interacting with the house or the immediate surroundings in a meaningful way. The scale also appears slightly off, with the person seeming a bit small relative to the house.",
+            "The person is standing on the ice near the house, which is a plausible location, but the scale of the person relative to the house appears to be too small, making the house look like a miniature model.",
+            "The person appears to be too small for the scene. The house in the background looks like a miniature model, and the person is standing on what appears to be a pile of compost or mulch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but appears too small for the scene, and is awkwardly placed outside the elevated house."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c1_v1.png",
+          "azimuth": 349.7,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            4.546076774597168,
+            -21.975826263427734,
+            0.21586400270462036
+          ],
+          "camera_forward": [
+            0.1680191457271576,
+            0.9245495200157166,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            0.061153944581747055,
+            0.3365083932876587,
+            0.9396926760673523
+          ],
+          "camera_radius": 6.006800899983293
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        5.509771347045898,
+        -26.5236873626709,
+        -2.4360337257385254
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.509771347045898,
+            -26.5236873626709,
+            -2.4360337257385254
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing on the ground outside the house, which is a plausible location, but the house itself is elevated and appears to be on a slope, making the placement slightly awkward as they are not interacting with the house.",
+            "The person is standing behind a dense bush, making it difficult to see them clearly and interact with the scene.",
+            "The person appears to be too small for the scene. The house in the background looks like a miniature model, and the person is standing on what appears to be a pile of compost or mulch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but their placement behind a bush obstructs the view and interaction with the scene. Moving them slightly to the right would improve visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_v0.png",
+          "azimuth": 33.6,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.109795570373535,
+            -30.437040328979492,
+            1.5439832210540771
+          ],
+          "camera_forward": [
+            -0.4533118009567261,
+            0.6822892427444458,
+            -0.5735762715339661
+          ],
+          "camera_up": [
+            -0.31741228699684143,
+            0.47774389386177063,
+            0.8191521167755127
+          ],
+          "camera_radius": 6.157515458688912
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Turtleneck-Guy_92c09ebc_c2_v1.png",
+          "azimuth": 283.6,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.9431618452072144,
+            -27.62846565246582,
+            1.5439832210540771
+          ],
+          "camera_forward": [
+            0.7961839437484741,
+            0.19261695444583893,
+            -0.5735763311386108
+          ],
+          "camera_up": [
+            0.5574938654899597,
+            0.13487175107002258,
+            0.8191521167755127
+          ],
+          "camera_radius": 6.157514781090066
+        }
+      ]
+    }
+  ]
+}

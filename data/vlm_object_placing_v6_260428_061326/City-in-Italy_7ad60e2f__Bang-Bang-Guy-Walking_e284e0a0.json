@@ -1,0 +1,574 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Bang-Bang-Guy-Walking_e284e0a0",
+  "object_file": "data/objects/Bang-Bang-Guy-Walking_e284e0a0/Bang-Bang-Guy-Walking_e284e0a0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -6.943299770355225,
+        -63.13710021972656,
+        -0.0528639517724514
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.943299770355225,
+            -63.13710021972656,
+            -0.0528639517724514
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            8.0,
+            2.0,
+            3.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The background lacks any architectural or city context from the reference scene, showing only sea and sky.",
+            "Surroundings are empty/lack context",
+            "The top of the character's head is slightly cropped by the frame edge.",
+            "surroundings_empty=true",
+            "The object is placed in an empty void, missing all scene context from the reference image.",
+            "The camera framing shows the edge of the ground geometry (black void at the bottom).",
+            "The placement is in a very large, featureless area that feels disconnected from the main city context.",
+            "surroundings_empty",
+            "Object is heavily cropped (head and upper torso missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a completely empty environment that lacks any of the buildings or street details shown in the reference scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_v0.png",
+          "azimuth": 317.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -11.162869453430176,
+            -67.70980072021484,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.6683350205421448,
+            0.7242671251296997,
+            -0.16960369050502777
+          ],
+          "camera_up": [
+            0.11501843482255936,
+            0.12464418262243271,
+            0.985512375831604
+          ],
+          "camera_radius": 6.4842368605273535
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c0_v1.png",
+          "azimuth": 7.4,
+          "elevation": 50,
+          "preview_quality": 5.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.4202375411987305,
+            -67.1644515991211,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.12453947216272354,
+            0.9588994383811951,
+            -0.25495439767837524
+          ],
+          "camera_up": [
+            -0.032837048172950745,
+            0.2528309226036072,
+            0.9669530987739563
+          ],
+          "camera_radius": 4.452428897191412
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        4.252719402313232,
+        -2.258741855621338,
+        -0.05286383256316185
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.252719402313232,
+            -2.258741855621338,
+            -0.05286383256316185
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.0,
+            7.0,
+            3.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The background lacks the architectural detail of the main city street, showing only a fence and the sea.",
+            "Surroundings are empty (only a wall is visible)",
+            "Object is completely hidden behind a wall",
+            "The placement is very cramped between the foreground fence and the building wall.",
+            "The object is heavily cropped, with the head and upper torso missing from the frame.",
+            "The character is clipping through the wooden trellis/fence attached to the wall behind him.",
+            "Minor cropping at the top of the head."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a wall in the foreground, making it invisible and providing no scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_v0.png",
+          "azimuth": 17.1,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.774514198303223,
+            -7.205414295196533,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.28794190287590027,
+            0.9359696507453918,
+            -0.20260873436927795
+          ],
+          "camera_up": [
+            -0.0595751628279686,
+            0.19365200400352478,
+            0.9792597889900208
+          ],
+          "camera_radius": 5.487841040716968
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c1_v1.png",
+          "azimuth": 194.5,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            3.2358806133270264,
+            1.6730799674987793,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.2421056628227234,
+            -0.9361534118652344,
+            -0.2549542784690857
+          ],
+          "camera_up": [
+            0.06383533775806427,
+            -0.2468334138393402,
+            0.9669530987739563
+          ],
+          "camera_radius": 4.452432491598203
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        14.049237251281738,
+        -49.14207458496094,
+        -0.12022315710783005
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.049237251281738,
+            -49.14207458496094,
+            -0.12022315710783005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            2.0,
+            8.0,
+            3.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is quite small in the frame.",
+            "Object is severely clipping through a metal fence.",
+            "Object is clipping through the fence.",
+            "The person is clipping through the metal fence.",
+            "Surroundings are empty and lack the architectural context of the scene.",
+            "The surroundings are empty, showing only a plain ground plane and the sea, missing the city context from the reference.",
+            "The placement is awkward as the person is walking directly into/through a barrier.",
+            "The object is clipping through the metal fence.",
+            "The background to the left is quite empty, showing only the sea and sky, which lacks the architectural richness of the main scene.",
+            "The background lacks the architectural detail of the city shown in the reference image, focusing on the sea-facing edge instead.",
+            "Object is partially cut off at the top of the frame (head is missing)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the metal fence, and the background is an empty void that doesn't reflect the city environment shown in the reference."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.101351737976074,
+        31.6791934967041,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.101351737976074,
+            31.6791934967041,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            10.0,
+            1.0,
+            4.0,
+            9.5,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is completely hidden behind a wall.",
+            "The object is heavily cropped, with the head and upper body out of frame.",
+            "Surroundings lack any meaningful context.",
+            "The object is completely hidden behind a wall or other scene geometry."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is entirely occluded by a wall in the foreground, making it impossible to see or evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_v0.png",
+          "azimuth": 10.0,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.181806564331055,
+            25.551631927490234,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.17113251984119415,
+            0.9705402255058289,
+            -0.16960345208644867
+          ],
+          "camera_up": [
+            -0.029451336711645126,
+            0.16702678799629211,
+            0.985512375831604
+          ],
+          "camera_radius": 6.4842397560814975
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Bang-Bang-Guy-Walking_e284e0a0_c3_v1.png",
+          "azimuth": 310.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.3349552154541016,
+            27.679712295532227,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.7549464106559753,
+            0.6334750056266785,
+            -0.16960357129573822
+          ],
+          "camera_up": [
+            0.12992389500141144,
+            0.10901904851198196,
+            0.985512375831604
+          ],
+          "camera_radius": 6.484239066663961
+        }
+      ]
+    }
+  ]
+}

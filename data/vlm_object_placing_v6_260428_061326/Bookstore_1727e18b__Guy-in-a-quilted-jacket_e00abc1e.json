@@ -1,0 +1,649 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Guy-in-a-quilted-jacket_e00abc1e",
+  "object_file": "data/objects/Guy-in-a-quilted-jacket_e00abc1e/Guy-in-a-quilted-jacket_e00abc1e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        10.77099323272705,
+        -13.941351890563965,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.77099323272705,
+            -13.941351890563965,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            5.0,
+            3.0,
+            9.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is heavily cropped (head cut off)",
+            "The background looks unfinished with a flat horizon line.",
+            "scale seems slightly too large for the scene",
+            "Object is heavily cropped (head is missing)",
+            "surroundings are empty on the right side",
+            "Surroundings are empty/lack context from the bookstore scene",
+            "The person is placed in the middle of the road which is slightly awkward."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 0.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and the right side of the image is a featureless grey plane, resulting in poor composition and visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c0_v0.png",
+          "azimuth": 265.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            5.078044891357422,
+            -13.453293800354004,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9963451027870178,
+            -0.08541703969240189,
+            0.0006238658679649234
+          ],
+          "camera_up": [
+            -0.0006215751636773348,
+            5.341342694009654e-05,
+            0.9999998211860657
+          ],
+          "camera_radius": 5.755593238375917
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        22.005714416503906,
+        -13.941351890563965,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            22.005714416503906,
+            -13.941351890563965,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            4.0,
+            4.0,
+            4.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "object is heavily cropped (head cut off)",
+            "The bookstore from the reference scene is not visible, making the placement feel out of context.",
+            "surroundings_empty=true",
+            "The bookstore from the reference scene is not visible, providing less context for the placement.",
+            "The background horizon looks unfinished and empty.",
+            "The horizon line and distant field look somewhat flat and unfinished.",
+            "The person is standing in the middle of the street rather than on the sidewalk.",
+            "The surroundings are very sparse and look like the edge of the environment.",
+            "object is slightly cropped at the top"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -0.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, which is a recurring issue in this scene; moving the object further from the camera should help fit it in the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c2_v0.png",
+          "azimuth": 352.9,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            21.299476623535156,
+            -19.611370086669922,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.12360141426324844,
+            0.9923317432403564,
+            0.0006238658679649234
+          ],
+          "camera_up": [
+            -7.709782948950306e-05,
+            -0.0006190836429595947,
+            0.9999998211860657
+          ],
+          "camera_radius": 5.755594729632749
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -0.46372759342193604,
+        -6.451537609100342,
+        -0.06638818979263306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.46372759342193604,
+            -6.451537609100342,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            9.0,
+            8.0,
+            3.0,
+            3.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v5.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The bookstore from the reference scene is not visible, losing the intended context.",
+            "The bookstore from the reference scene is not visible, making the placement feel out of context.",
+            "surroundings_empty=true",
+            "The background horizon looks unfinished and empty.",
+            "The object is very small in the frame, making it difficult to see details.",
+            "minor cropping of the hat at the top of the frame",
+            "the bookstore from the reference scene is not visible",
+            "The background horizon appears empty/unfinished.",
+            "The bookstore from the reference scene is not visible, making the placement feel disconnected from the primary environment context.",
+            "The person appears slightly underscaled compared to the street lamps.",
+            "The composition is dominated by a dark, uninteresting wall.",
+            "placement feels out of context",
+            "The person is standing in the middle of the road, which is an awkward and unsafe-looking placement.",
+            "surroundings are empty",
+            "The person is standing in the middle of the street, which is slightly less natural than the sidewalk."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a barren area of the map where the bookstore is not visible, resulting in empty surroundings and a complete lack of scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_v0.png",
+          "azimuth": 329.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.3465137481689453,
+            -11.384834289550781,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5045276284217834,
+            0.8633953332901001,
+            0.0006239850772544742
+          ],
+          "camera_up": [
+            -0.0003148135729134083,
+            -0.0005387483979575336,
+            0.9999998211860657
+          ],
+          "camera_radius": 5.755593569766358
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c3_v1.png",
+          "azimuth": 269.7,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.177481174468994,
+            -6.421620845794678,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9999861121177673,
+            -0.005236048251390457,
+            0.0006241042865440249
+          ],
+          "camera_up": [
+            -0.0006240949151106179,
+            3.42252133123111e-06,
+            0.9999998211860657
+          ],
+          "camera_radius": 5.75559402698562
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        37.950018116467675,
+        -13.521900068538995,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            38.85779571533203,
+            -13.941351890563965,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            3.0,
+            3.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "The bookstore from the reference scene is not visible, losing the intended context.",
+            "object is heavily cropped (head cut off)",
+            "The background horizon looks unfinished and empty.",
+            "The bookstore from the reference scene is not visible, making the placement feel out of context.",
+            "The ground texture and background elements (like the black box) look unfinished.",
+            "object is heavily occluded by a tree",
+            "The placement is in a relatively empty area of the scene, far from the bookstore context.",
+            "The top of the hat is slightly cropped at the frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped with their head out of frame, and the primary scene context (the bookstore) is completely missing from the view."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            37.950018116467675,
+            -13.521900068538995,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.5,
+            6.0,
+            6.0,
+            4.0,
+            3.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1.png",
+              "quality": 4.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_iter1_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The bookstore from the reference scene is not visible, losing the intended context.",
+            "object is heavily cropped (head cut off)",
+            "The background horizon looks unfinished and empty.",
+            "The bookstore from the reference scene is not visible, making the placement feel out of context.",
+            "The horizon line looks artificial and unfinished.",
+            "The transition between the road and the background field is jarring and looks unfinished.",
+            "The bookstore context is lost as it appears as a distant, flat backdrop.",
+            "Placement in the middle of an empty road feels sterile and lacks urban detail.",
+            "The background landscape (green hill) appears low-detail/unfinished."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped with their head completely out of frame, and the placement lacks any visual connection to the bookstore shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-a-quilted-jacket_e00abc1e_c4_v1.png",
+          "azimuth": 251.4,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            32.534629821777344,
+            -11.699419975280762,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9477682113647461,
+            -0.3189592659473419,
+            0.0006236274493858218
+          ],
+          "camera_up": [
+            -0.0005910783656872809,
+            0.00019884068751707673,
+            0.9999998211860657
+          ],
+          "camera_radius": 5.755595099857909
+        }
+      ]
+    }
+  ]
+}

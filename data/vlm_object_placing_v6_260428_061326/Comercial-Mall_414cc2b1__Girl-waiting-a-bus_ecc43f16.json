@@ -1,0 +1,610 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "Girl-waiting-a-bus_ecc43f16",
+  "object_file": "data/objects/Girl-waiting-a-bus_ecc43f16/Girl-waiting-a-bus_ecc43f16.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -19.613155364990234,
+        -3.8294248580932617,
+        -0.11730504035949707
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -19.613155364990234,
+            -3.8294248580932617,
+            -0.11730504035949707
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            10.0,
+            4.0,
+            9.0,
+            3.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head is out of frame)",
+            "Object is heavily cropped (head cut off)",
+            "Surroundings are empty/broken (mall missing)",
+            "Object's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object's head is cut off by the top of the frame, and the background fails to show any of the mall architecture from the reference image, resulting in an empty-looking scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_v0.png",
+          "azimuth": 58.1,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -15.006708145141602,
+            -6.696686267852783,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8123518824577332,
+            0.5056443810462952,
+            -0.2905309200286865
+          ],
+          "camera_up": [
+            -0.24665257334709167,
+            0.15352758765220642,
+            0.9568656086921692
+          ],
+          "camera_radius": 5.914405157727273
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c0_v1.png",
+          "azimuth": 358.1,
+          "elevation": 35,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -19.769975662231445,
+            -8.556720733642578,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.03131023421883583,
+            0.9438364505767822,
+            -0.3289262056350708
+          ],
+          "camera_up": [
+            0.010905589908361435,
+            0.32874536514282227,
+            0.9443556070327759
+          ],
+          "camera_radius": 5.283139604443993
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -28.483001708984375,
+        -7.3773651123046875,
+        -0.04768209904432297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -28.483001708984375,
+            -7.3773651123046875,
+            -0.04768209904432297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            8.0,
+            3.0,
+            4.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is standing in the middle of the road instead of the sidewalk",
+            "Object is standing in the middle of the road lane, which is slightly implausible for waiting for a bus.",
+            "surroundings are empty",
+            "Object is standing in the middle of the road, which is an unsafe and implausible location for waiting for a bus.",
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped (head is out of frame)",
+            "object is placed in the middle of the road"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and she is standing in the middle of the street rather than on the sidewalk."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_v0.png",
+          "azimuth": 76.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            -24.87100601196289,
+            -8.231204986572266,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8956092596054077,
+            0.21171307563781738,
+            -0.39123085141181946
+          ],
+          "camera_up": [
+            -0.3807376027107239,
+            0.09000257402658463,
+            0.9202925562858582
+          ],
+          "camera_radius": 4.358016975012637
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c1_v1.png",
+          "azimuth": 16.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -27.41645050048828,
+            -10.932365417480469,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.26445579528808594,
+            0.8814769387245178,
+            -0.3912307322025299
+          ],
+          "camera_up": [
+            -0.11242429167032242,
+            0.37472960352897644,
+            0.9202926158905029
+          ],
+          "camera_radius": 4.358017385322938
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -4.534411430358887,
+        7.701376914978027,
+        -0.11730512976646423
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.534411430358887,
+            7.701376914978027,
+            -0.11730512976646423
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            4.0,
+            9.0,
+            4.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object's head is cut off by the top of the frame",
+            "Object is partially cut off at the top of the frame",
+            "Framing lacks context of the mall architecture"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is now correctly placed on the sidewalk rather than the road, but the framing is too tight, cutting off the person's head and excluding the mall architecture from the background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_v0.png",
+          "azimuth": 157.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -3.0961296558380127,
+            11.122913360595703,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.3541911542415619,
+            -0.8425874710083008,
+            -0.405703067779541
+          ],
+          "camera_up": [
+            -0.15721628069877625,
+            -0.37400272488594055,
+            0.914004921913147
+          ],
+          "camera_radius": 4.394907318978095
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c3_v1.png",
+          "azimuth": 58.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            0.3192339837551117,
+            4.738699436187744,
+            1.5915498733520508
+          ],
+          "camera_forward": [
+            -0.8405833840370178,
+            0.513094425201416,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.14821748435497284,
+            0.09047252684831619,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.937635239516556
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -20.50013542175293,
+        5.0404229164123535,
+        0.9919998049736023
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -20.50013542175293,
+            5.0404229164123535,
+            0.9919998049736023
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            1.0,
+            1.0,
+            7.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty (just a wall)",
+            "Object is not visible or is completely occluded by scene geometry",
+            "Object is completely hidden behind a wall",
+            "Object is very close to the glass railing",
+            "Object is clipping with glass and wall structures",
+            "Object's head is cut off by the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a wooden wall in this framing, making it invisible and the shot useless."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_v0.png",
+          "azimuth": 225.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -24.542036056518555,
+            9.040217399597168,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.707637369632721,
+            -0.7002659440040588,
+            -0.09421749413013458
+          ],
+          "camera_up": [
+            0.06696964800357819,
+            -0.06627218425273895,
+            0.9955516457557678
+          ],
+          "camera_radius": 5.820970526243325
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-waiting-a-bus_ecc43f16_c4_v1.png",
+          "azimuth": 40.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -16.792034149169922,
+            0.7293565273284912,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.6491975784301758,
+            0.7547619342803955,
+            -0.09421737492084503
+          ],
+          "camera_up": [
+            -0.061439067125320435,
+            0.07142936438322067,
+            0.9955516457557678
+          ],
+          "camera_radius": 5.820970034740567
+        }
+      ]
+    }
+  ]
+}

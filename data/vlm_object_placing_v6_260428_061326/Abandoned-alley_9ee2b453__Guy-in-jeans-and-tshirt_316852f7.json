@@ -1,0 +1,118 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Guy-in-jeans-and-tshirt_316852f7",
+  "object_file": "data/objects/Guy-in-jeans-and-tshirt_316852f7/Guy-in-jeans-and-tshirt_316852f7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.806659698486328,
+        -0.8693792819976807,
+        -8.359013463632436e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.806659698486328,
+            -0.8693792819976807,
+            -8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            2.0,
+            4.0,
+            1.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Surroundings are empty/uninteresting",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "object is tightly cropped at the top",
+            "Lighting is extremely dark/underexposed",
+            "lighting is very dark/underexposed",
+            "Render shows only a wall surface",
+            "background is a plain, uninteresting wall",
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is heavily cropped (only feet visible)",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely missing from the rendered frame, which only shows a brick wall and some utility doors, likely because the object is occluded or out of the camera's field of view."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

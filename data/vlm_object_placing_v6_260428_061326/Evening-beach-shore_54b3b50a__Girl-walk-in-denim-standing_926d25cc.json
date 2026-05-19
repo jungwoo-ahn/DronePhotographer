@@ -1,0 +1,114 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 0.5,
+  "object": "Girl-walk-in-denim-standing_926d25cc",
+  "object_file": "data/objects/Girl-walk-in-denim-standing_926d25cc/Girl-walk-in-denim-standing_926d25cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        5.916823387145996,
+        8.101274490356445,
+        1.6894989585125586e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.916823387145996,
+            8.101274490356445,
+            1.6894989585125586e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            0.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty",
+            "Object is not visible in the frame.",
+            "Object is not visible",
+            "Surroundings are empty.",
+            "Render is broken/incomplete"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered frame, and the surroundings are empty, showing only sky and ocean."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Evening-beach-shore_54b3b50a_Girl-walk-in-denim-standing_926d25cc_c0_v0.png",
+          "azimuth": 18.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.80667781829834,
+            2.453092098236084,
+            0.2776772379875183
+          ],
+          "camera_forward": [
+            -0.31644803285598755,
+            0.9457635283470154,
+            0.07343011349439621
+          ],
+          "camera_up": [
+            0.023299671709537506,
+            -0.0696355327963829,
+            0.997300386428833
+          ],
+          "camera_radius": 5.962433140532789
+        }
+      ]
+    }
+  ]
+}

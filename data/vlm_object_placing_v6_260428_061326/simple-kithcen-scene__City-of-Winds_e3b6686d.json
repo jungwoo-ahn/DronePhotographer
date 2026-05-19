@@ -1,0 +1,93 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 1.0,
+  "object": "City-of-Winds_e3b6686d",
+  "object_file": "data/objects/City-of-Winds_e3b6686d/City-of-Winds_e3b6686d.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.6408845782279968,
+        -0.4885374903678894,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.6408845782279968,
+            -0.4885374903678894,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_City-of-Winds_e3b6686d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_City-of-Winds_e3b6686d_c0_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_City-of-Winds_e3b6686d_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the kitchen, standing on the floor in front of the counter. The scale appears correct, with the counter at waist height. The object is fully visible and not clipping with any geometry. The surroundings are rich with kitchen details."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_City-of-Winds_e3b6686d_c0_v0.png",
+          "azimuth": 0.0,
+          "elevation": 15.0,
+          "preview_quality": 8.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -0.6408849954605103,
+            -6.656948566436768,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9928468465805054,
+            -0.11939486116170883
+          ],
+          "camera_up": [
+            0.0,
+            0.11939486116170883,
+            0.9928468465805054
+          ],
+          "camera_radius": 6.350368504832693
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object 'City-of-Winds_e3b6686d' appears to be a large, outdoor structure, which would not naturally fit within a simple kitchen scene."
+    }
+  ]
+}

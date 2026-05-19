@@ -1,0 +1,732 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-in-Pink-Down-Jacket_bdab3cc4",
+  "object_file": "data/objects/Girl-in-Pink-Down-Jacket_bdab3cc4/Girl-in-Pink-Down-Jacket_bdab3cc4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -9.820195198059082,
+        -8.318191528320312,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.820195198059082,
+            -8.318191528320312,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            4.0,
+            6.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The placement is in a relatively featureless area of the scene compared to the bookstore storefront.",
+            "The background field appears to be a flat, tilted texture plane, making the environment look artificial.",
+            "head is cut off by the frame edge",
+            "scale appears slightly too large",
+            "Object scale appears too large for the scene context",
+            "Object is heavily cropped (head is missing)",
+            "surroundings_empty",
+            "surroundings_empty is true",
+            "The camera is facing away from the main scene assets (the bookstore), showing only a flat plane and sky."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and visible, she is placed in an empty part of the scene map facing away from the bookstore, resulting in a lack of meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v0.png",
+          "azimuth": 273.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            -15.633577346801758,
+            -8.622858047485352,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9986281991004944,
+            0.05233578383922577,
+            0.0016518068732693791
+          ],
+          "camera_up": [
+            -0.0016495413146913052,
+            -8.648430230095983e-05,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.862356551393857
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v1.png",
+          "azimuth": 144.3,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -6.423191547393799,
+            -3.5907604694366455,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.5835402011871338,
+            -0.8120825290679932,
+            0.0016516876639798284
+          ],
+          "camera_up": [
+            0.0009637974435463548,
+            0.0013413301203399897,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.862357235148264
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        44.48095703125,
+        -13.935550689697266,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            44.48095703125,
+            -13.935550689697266,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            8.0,
+            3.0,
+            4.0,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The background appears to be a flat texture plane, lacking depth and realism.",
+            "The framing is poor, showing only the back of the person.",
+            "The person is significantly occluded by a lamp post in the foreground.",
+            "The placement is at the edge of the modeled environment, causing the horizon to look artificial where the road meets the sky.",
+            "The background environment looks artificial with a flat, featureless horizon.",
+            "The composition is poor with a large empty foreground.",
+            "The bookstore, which is the main feature of the scene, is not visible in this frame.",
+            "The object is heavily cropped (head and upper body are missing).",
+            "Object is heavily occluded by foreground foliage.",
+            "The bookstore from the reference image is not visible.",
+            "The background and ground appear to be a flat, tilted texture plane, creating an artificial look.",
+            "The background is uninteresting and lacks the context of the bookstore.",
+            "The surroundings are very empty and featureless.",
+            "The bookstore context is completely missing from this view."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind foreground leaves, and the background is a low-quality flat texture that doesn't match the bookstore environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c1_v0.png",
+          "azimuth": 253.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            38.913963317871094,
+            -12.233550071716309,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9563034176826477,
+            -0.29237133264541626,
+            0.0016518068732693791
+          ],
+          "camera_up": [
+            -0.0015796480001881719,
+            0.00048288513789884746,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.862355954061875
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        16.394153594970703,
+        -8.318191528320312,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.394153594970703,
+            -8.318191528320312,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            4.0,
+            3.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Standing in the middle of the road is a bit generic compared to the bookstore storefront.",
+            "The background appears to be a flat texture plane, lacking depth.",
+            "The background horizon appears as a flat, artificial plane.",
+            "The background looks artificial and lacks depth.",
+            "The placement in the middle of the empty road is uninteresting and lacks the context of the bookstore storefront.",
+            "The background is a flat, low-detail texture plane that lacks depth and realism.",
+            "The environment looks artificial with a flat, untextured ground plane in the foreground.",
+            "The placement is in a sparse area of the scene, far from the bookstore storefront shown in the reference.",
+            "The background is a flat, featureless plane that makes the environment look artificial and unfinished.",
+            "The placement is in a sparse area of the scene, lacking the architectural detail of the bookstore storefront.",
+            "The placement lacks any architectural context from the bookstore scene.",
+            "The background appears to be a flat, artificial texture plane, lacking depth and realism.",
+            "The placement is in a generic area of the scene, missing the context of the bookstore storefront.",
+            "The surroundings are empty, showing only a flat ground plane and sky.",
+            "The scene looks very empty and artificial in this specific location."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a featureless area of the scene with no visible architecture or props, making the environment look like an empty void."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c2_v0.png",
+          "azimuth": 284.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.768528938293457,
+            -9.815054893493652,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9663747549057007,
+            0.25713256001472473,
+            0.0016516876639798284
+          ],
+          "camera_up": [
+            -0.001596151734702289,
+            -0.0004247018077876419,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.862358394226184
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.330381155014038,
+        -10.190644264221191,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.330381155014038,
+            -10.190644264221191,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            3.0,
+            3.0,
+            7.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The framing through a window makes the object very small and hard to see.",
+            "The surroundings are empty and uninteresting.",
+            "The background is a flat, blurry texture plane lacking any detail.",
+            "The framing is too tight for the object's height.",
+            "The placement is in the middle of a road, far from the main scene context (the bookstore).",
+            "The background appears to be a flat texture plane meeting the sky, which looks artificial.",
+            "The background appears to be a flat texture plane, making the environment look artificial.",
+            "The framing is very wide, making the subject feel disconnected from the environment.",
+            "The surroundings are very empty, lacking the architectural detail of the bookstore.",
+            "Standing in the middle of the road is less natural than being on the sidewalk.",
+            "The background horizon appears as a flat, artificial plane, which reduces realism.",
+            "Standing in the middle of the road is a less interesting placement than near the bookstore storefront.",
+            "The object is heavily cropped; the head and upper body are not visible.",
+            "The background horizon looks artificial where the ground plane ends abruptly."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a desolate area of the scene with empty surroundings and an artificial-looking horizon, failing to utilize the interesting bookstore context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_v0.png",
+          "azimuth": 308.1,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            -6.911413192749023,
+            -13.782632827758789,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.786933958530426,
+            0.6170350313186646,
+            0.0016516876639798284
+          ],
+          "camera_up": [
+            -0.0012997551821172237,
+            -0.0010191705077886581,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.862357153809453
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c3_v1.png",
+          "azimuth": 278.1,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -8.093666076660156,
+            -11.010881423950195,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9900223016738892,
+            0.14090117812156677,
+            0.0016516876639798284
+          ],
+          "camera_up": [
+            -0.0016351905651390553,
+            -0.0002328606933588162,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.862357509666739
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        8.904338836669922,
+        -13.935550689697266,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.904338836669922,
+            -13.935550689697266,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            4.0,
+            3.0,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is heavily cropped; the head and upper body are out of frame.",
+            "The background is a flat void, making the scene look unfinished.",
+            "The placement in the middle of the road is somewhat generic and lacks interaction with the bookstore scene context.",
+            "The object is clipping with the street light pole.",
+            "The object's head is cut off by the top of the frame.",
+            "The placement is in a generic empty area of the scene.",
+            "The placement is far from the main architectural interest (the bookstore).",
+            "The framing is obstructed by a large street light pole in the foreground.",
+            "The low camera angle emphasizes the empty street and lack of environment detail.",
+            "The surroundings are empty and the background is a flat texture plane.",
+            "The background is empty and lacks depth, appearing as a flat plane.",
+            "The surroundings are very empty, consisting mostly of a flat ground plane and sky.",
+            "The bookstore context is completely missing from this view.",
+            "The main architectural context (the bookstore) is missing from this view."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped with their head and shoulders out of frame, and the view is significantly obstructed by a foreground pole."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-Pink-Down-Jacket_bdab3cc4_c4_v0.png",
+          "azimuth": 297.7,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            5.5401763916015625,
+            -15.701775550842285,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8853907585144043,
+            0.4648405611515045,
+            0.0025306157767772675
+          ],
+          "camera_up": [
+            -0.002240621019154787,
+            -0.001176279503852129,
+            0.9999967813491821
+          ],
+          "camera_radius": 3.862140795754573
+        }
+      ]
+    }
+  ]
+}

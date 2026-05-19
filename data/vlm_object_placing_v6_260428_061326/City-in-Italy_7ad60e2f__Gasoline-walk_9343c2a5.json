@@ -1,0 +1,761 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        15.11398696899414,
+        -29.18404197692871,
+        -0.1202227994799614
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            15.11398696899414,
+            -29.18404197692871,
+            -0.1202227994799614
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            3.0,
+            10.0,
+            6.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Surroundings are empty (only ground texture visible)",
+            "object is unrecognizable",
+            "Object is heavily cropped (head and upper body missing)",
+            "object is heavily cropped",
+            "Object's head is cropped out of the frame.",
+            "object is too close to camera",
+            "Ground texture appears distorted/wavy"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is positioned far too close to the camera, resulting in extreme cropping (less than 70% visible) and making it impossible to identify as a person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_v0.png",
+          "azimuth": 74.3,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            18.73320198059082,
+            -30.201356887817383,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.915207028388977,
+            0.25725260376930237,
+            -0.31018900871276855
+          ],
+          "camera_up": [
+            -0.2986164391040802,
+            0.0839371457695961,
+            0.9506748914718628
+          ],
+          "camera_radius": 4.208922447226954
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c0_v1.png",
+          "azimuth": 14.3,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            16.297353744506836,
+            -33.826576232910156,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.2392805814743042,
+            0.9387354850769043,
+            -0.24803324043750763
+          ],
+          "camera_up": [
+            -0.06126397103071213,
+            0.24034811556339264,
+            0.9687515497207642
+          ],
+          "camera_radius": 5.151199977384723
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        7.066847324371338,
+        -16.238643646240234,
+        -0.05286430940032005
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.066847324371338,
+            -16.238643646240234,
+            -0.05286430940032005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            10.0,
+            8.5,
+            10.0,
+            10.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Minor cropping at the top of the frame (beanie).",
+            "Camera view is blocked by a wall or the object is clipping",
+            "Surroundings are empty/unrecognizable",
+            "Object is not visible"
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image shows only a dark, textured surface (likely a wall), making the object completely invisible and the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_v0.png",
+          "azimuth": 18.4,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.579113960266113,
+            -20.784687042236328,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.3067951500415802,
+            0.9222601056098938,
+            -0.2351871281862259
+          ],
+          "camera_up": [
+            -0.07423662394285202,
+            0.2231634110212326,
+            0.971950113773346
+          ],
+          "camera_radius": 5.126834471283241
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c1_v1.png",
+          "azimuth": 78.4,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            12.709052085876465,
+            -17.396821975708008,
+            1.6285526752471924
+          ],
+          "camera_forward": [
+            -0.9646932482719421,
+            0.1980232149362564,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17010147869586945,
+            0.034916918724775314,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.0002515859309735
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.168588638305664,
+        -45.97806930541992,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.168588638305664,
+            -45.97806930541992,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            10.0,
+            9.0,
+            4.0,
+            3.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Minor cropping at the top of the frame (beanie).",
+            "Object is heavily occluded by the fence structure.",
+            "The background shows the edge of the environment (flat plane and horizon), which looks unfinished.",
+            "Object is completely hidden behind a wall",
+            "surroundings_empty",
+            "Only the head and shoulders are visible through the gaps in the fence.",
+            "Object is heavily cropped at the top; the head and shoulders are missing."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 4.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the large building wall in the foreground, making it impossible to see or evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_v0.png",
+          "azimuth": 38.7,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.769890785217285,
+            -50.473228454589844,
+            1.6285523176193237
+          ],
+          "camera_forward": [
+            -0.6157438158988953,
+            0.7685739398002625,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.10857228189706802,
+            0.13552019000053406,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.000249122375116
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c2_v1.png",
+          "azimuth": 279.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.510596752166748,
+            -46.93863296508789,
+            1.6285523176193237
+          ],
+          "camera_forward": [
+            0.971016526222229,
+            0.16423526406288147,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.17121635377407074,
+            0.028959019109606743,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.000249499855515
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        23.16112518310547,
+        35.892822265625,
+        -0.052864547818899155
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            23.16112518310547,
+            35.892822265625,
+            -0.052864547818899155
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            4.0,
+            9.0,
+            9.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Minor cropping at the top of the frame (beanie).",
+            "The surroundings are empty, showing only a flat ground and the horizon, which lacks the architectural context of the Italian city scene.",
+            "Surroundings are mostly empty ground and sky.",
+            "The object is placed at the edge of the map, walking into an empty void/horizon."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is correctly grounded and fully visible, but the shot lacks any environmental context from the city scene, resulting in a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_v0.png",
+          "azimuth": 179.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            23.21361541748047,
+            39.65192794799805,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.013342230580747128,
+            -0.9555045962333679,
+            -0.2946743071079254
+          ],
+          "camera_up": [
+            -0.0041143703274428844,
+            -0.2946455776691437,
+            0.9555977582931519
+          ],
+          "camera_radius": 4.179067469446789
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c3_v1.png",
+          "azimuth": 2.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            23.305442810058594,
+            32.1361198425293,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.03668321669101715,
+            0.9548933506011963,
+            -0.29467451572418213
+          ],
+          "camera_up": [
+            -0.01131188590079546,
+            0.2944573163986206,
+            0.9555976986885071
+          ],
+          "camera_radius": 4.179068637202429
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        26.31000518798828,
+        10.701777458190918,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            26.31000518798828,
+            10.701777458190918,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            4.0,
+            10.0,
+            9.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Minor cropping at the top of the frame (beanie).",
+            "The surroundings are empty, showing only a flat ground and the horizon, which lacks the architectural context of the Italian city scene.",
+            "The background is relatively sparse (mostly sea and sky) compared to the architectural detail shown in the reference image.",
+            "The foreground railing is quite dominant and obscures the lower part of the scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is correctly grounded and fully visible, but the placement is in a void-like area of the map with no visible buildings or city props, making the shot uninteresting."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_v0.png",
+          "azimuth": 60.7,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            29.58852767944336,
+            8.861956596374512,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.833347499370575,
+            0.4676527976989746,
+            -0.2946740686893463
+          ],
+          "camera_up": [
+            -0.2569761872291565,
+            0.14420832693576813,
+            0.9555978178977966
+          ],
+          "camera_radius": 4.179069373512307
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Gasoline-walk_9343c2a5_c4_v1.png",
+          "azimuth": 176.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            26.52641487121582,
+            14.455018043518066,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.05500785633921623,
+            -0.9540134072303772,
+            -0.29467371106147766
+          ],
+          "camera_up": [
+            -0.016962524503469467,
+            -0.2941851019859314,
+            0.9555979371070862
+          ],
+          "camera_radius": 4.1790690731050235
+        }
+      ]
+    }
+  ]
+}

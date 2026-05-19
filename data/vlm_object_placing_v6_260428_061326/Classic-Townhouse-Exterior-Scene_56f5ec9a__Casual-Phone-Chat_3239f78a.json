@@ -1,0 +1,569 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 1.0,
+  "object": "Casual-Phone-Chat_3239f78a",
+  "object_file": "data/objects/Casual-Phone-Chat_3239f78a/Casual-Phone-Chat_3239f78a.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -9.563905715942383,
+        -0.30756187438964844,
+        -1.0330969095230103
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.563905715942383,
+            -0.30756187438964844,
+            -1.0330969095230103
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            5.0,
+            3.0,
+            1.0,
+            4.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "awkward placement (sitting in the street/gutter)",
+            "visual artifacts on the ground surface",
+            "Object is heavily cropped (head/upper body missing)",
+            "Object is almost entirely occluded by a tree trunk in the foreground.",
+            "Object is placed inside a water feature/gutter, which is implausible",
+            "surroundings_empty",
+            "minor cropping at the top of the frame",
+            "awkward placement (sitting on a stool in the gutter/street)"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost completely hidden behind a tree trunk, making the placement unusable for a clear shot."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_v0.png",
+          "azimuth": 216.8,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 5.0,
+          "camera_position": [
+            -11.400747299194336,
+            2.147794485092163,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.5691910982131958,
+            -0.7608533501625061,
+            -0.31164664030075073
+          ],
+          "camera_up": [
+            0.18668368458747864,
+            -0.24954524636268616,
+            0.9501980543136597
+          ],
+          "camera_radius": 3.422537473887226
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c0_v1.png",
+          "azimuth": 75.1,
+          "elevation": 50,
+          "preview_quality": 5.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            -6.600617408752441,
+            -1.0960320234298706,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.91824871301651,
+            0.24432706832885742,
+            -0.3116465210914612
+          ],
+          "camera_up": [
+            -0.30116772651672363,
+            0.08013462275266647,
+            0.9501981139183044
+          ],
+          "camera_radius": 3.422537360687531
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        3.925203323364258,
+        -1.806351661682129,
+        -0.9509971141815186
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.925203323364258,
+            -1.806351661682129,
+            -0.9509971141815186
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            4.0,
+            9.0,
+            9.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "top of the head is slightly cropped",
+            "object is placed at the edge of the scene environment",
+            "awkward placement (sitting on a stool in the middle of a sidewalk with no context)",
+            "Placing a stool in the middle of a sidewalk is slightly awkward.",
+            "The townhouses from the reference image are not visible.",
+            "The background is a flat billboard/image, suggesting the object is placed in an unfinished or 'backstage' area of the scene.",
+            "surroundings are empty/featureless"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and visible, it is placed in a low-detail area of the map where the background is a flat image and the primary scene architecture (the townhouses) is completely missing."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_v0.png",
+          "azimuth": 331.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.443269729614258,
+            -4.490869522094727,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.4627467095851898,
+            0.8382640480995178,
+            -0.2884075343608856
+          ],
+          "camera_up": [
+            0.1393822878599167,
+            0.2524905502796173,
+            0.9575077295303345
+          ],
+          "camera_radius": 3.3868692929997137
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c1_v1.png",
+          "azimuth": 79.1,
+          "elevation": 35,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.762434005737305,
+            -2.545286178588867,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9556286334991455,
+            0.1840251088142395,
+            -0.23001877963542938
+          ],
+          "camera_up": [
+            -0.22586894035339355,
+            0.043495532125234604,
+            0.973186194896698
+          ],
+          "camera_radius": 4.1639510850154124
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -50.03123474121094,
+        23.673076629638672,
+        -0.950965166091919
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -50.03123474121094,
+            23.673076629638672,
+            -0.950965166091919
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            8.0,
+            3.0,
+            3.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "placement is a bit random in the middle of the sidewalk",
+            "placement feels like it's at the edge of the environment",
+            "surroundings are mostly empty pavement",
+            "no architectural context from the townhouse scene is visible",
+            "lacks architectural context from the scene",
+            "The top of the person's head is cut off by the frame edge.",
+            "background lacks the architectural detail of the main townhouse scene",
+            "The background is empty and lacks context.",
+            "surroundings are empty/broken (backdrop is a flat plane)",
+            "object is placed at the edge of the scene environment",
+            "object is placed in a sparse area of the scene far from the main architecture",
+            "surroundings are very empty and lack scene context",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is significantly cropped at the top, and the background lacks any architectural or environmental detail, making the shot uninteresting."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -3.568746566772461,
+        17.67791748046875,
+        -0.7879738807678223
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.568746566772461,
+            17.67791748046875,
+            -0.7879738807678223
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.5,
+            6.5,
+            3.0,
+            9.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v1.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "view from behind hides the main action (phone chat)",
+            "top of the head is slightly cropped",
+            "object is heavily cropped (head is missing)",
+            "placement is in the middle of a walkway without much context",
+            "The person is in a sitting pose but there is no visible chair or bench, making them appear to be sitting on thin air."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cropped out of the frame, and the view from behind doesn't capture the intended 'phone chat' activity."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_v0.png",
+          "azimuth": 10.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.6964879035949707,
+            13.061615943908691,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.18328018486499786,
+            0.9699829816818237,
+            -0.15981686115264893
+          ],
+          "camera_up": [
+            -0.029672635719180107,
+            0.1570381075143814,
+            0.9871466755867004
+          ],
+          "camera_radius": 4.867945163591915
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Casual-Phone-Chat_3239f78a_c4_v1.png",
+          "azimuth": 310.7,
+          "elevation": 10,
+          "preview_quality": 6.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -7.130451679229736,
+            14.614368438720703,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.748389720916748,
+            0.6437168121337891,
+            -0.15981698036193848
+          ],
+          "camera_up": [
+            0.1211627945303917,
+            0.10421633720397949,
+            0.9871466755867004
+          ],
+          "camera_radius": 4.86794483299545
+        }
+      ]
+    }
+  ]
+}

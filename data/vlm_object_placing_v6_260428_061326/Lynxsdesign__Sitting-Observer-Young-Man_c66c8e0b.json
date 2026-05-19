@@ -1,0 +1,301 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Sitting-Observer-Young-Man_c66c8e0b",
+  "object_file": "data/objects/Sitting-Observer-Young-Man_c66c8e0b/Sitting-Observer-Young-Man_c66c8e0b.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.450605869293213,
+        -1.3598397970199585,
+        -0.14999985694885254
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.450605869293213,
+            -1.3598397970199585,
+            1.3500001430511475
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Object is not in a plausible location.",
+            "Object is placed on a roof, which is not a plausible location for a person to sit.",
+            "The surroundings are empty, consisting only of sky and a roof edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -3.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an implausible location on a roof with empty surroundings, leading to a low quality score."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -4.450605869293213,
+            -1.3598397970199585,
+            -0.14999985694885254
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter1_v2.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_iter1_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a table, which is an unusual but not impossible placement. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_v0.png",
+          "azimuth": 93.4,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            0.5203210115432739,
+            -1.0645126104354858,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9980219006538391,
+            -0.0592934675514698,
+            -0.020894750952720642
+          ],
+          "camera_up": [
+            -0.020857976749539375,
+            -0.0012391152558848262,
+            0.9997816681861877
+          ],
+          "camera_radius": 5.023643803846797
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c0_v1.png",
+          "azimuth": 105.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.3594072461128235,
+            -0.07100091129541397,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9657149314880371,
+            -0.25876253843307495,
+            -0.020894750952720642
+          ],
+          "camera_up": [
+            -0.02018279954791069,
+            -0.005407888907939196,
+            0.9997816681861877
+          ],
+          "camera_radius": 5.023644100467364
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.367272138595581,
+        0.7234933972358704,
+        0.17850002646446228
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.367272138595581,
+            0.7234933972358704,
+            0.17850002646446228
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a shelf in a modern living room, which is a plausible location. The scale appears correct, and the object is fully visible and grounded without clipping."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_v0.png",
+          "azimuth": 318.6,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -5.237969875335693,
+            -2.532674789428711,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            0.660429835319519,
+            0.7491105198860168,
+            0.05163165181875229
+          ],
+          "camera_up": [
+            -0.03414454683661461,
+            -0.03872954472899437,
+            0.9986661672592163
+          ],
+          "camera_radius": 4.353788604324226
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Sitting-Observer-Young-Man_c66c8e0b_c1_v1.png",
+          "azimuth": 348.6,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.225285530090332,
+            -3.5317800045013428,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            0.1973937302827835,
+            0.9789636731147766,
+            0.05163141340017319
+          ],
+          "camera_up": [
+            -0.010205312632024288,
+            -0.05061279237270355,
+            0.9986662268638611
+          ],
+          "camera_radius": 4.353788433195551
+        }
+      ]
+    }
+  ]
+}

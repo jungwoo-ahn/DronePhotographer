@@ -1,0 +1,165 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Formal-Informal_c4d7ab91",
+  "object_file": "data/objects/Formal-Informal_c4d7ab91/Formal-Informal_c4d7ab91.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -10.741556167602539,
+        -0.7702564001083374,
+        -8.359013463632436e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.741556167602539,
+            -0.7702564001083374,
+            -8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.5,
+            1.0,
+            0.0,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible",
+            "Render is too dark/broken",
+            "The view shows only a blank wall and ground",
+            "Object is heavily cropped",
+            "Object is mostly occluded by a trash bin",
+            "The top of the person's head is slightly cropped by the upper frame edge.",
+            "Object is heavily occluded by a trash bin",
+            "Less than 70% of the object is visible",
+            "Camera is likely inside geometry or looking into a void",
+            "Object is completely hidden behind the wall or out of frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, which appears to be looking into a dark void or through geometry, making the placement invalid."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_v0.png",
+          "azimuth": 90.9,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.944401741027832,
+            -0.7106055021286011,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9893266558647156,
+            -0.015541637316346169,
+            -0.14488349854946136
+          ],
+          "camera_up": [
+            -0.14486563205718994,
+            -0.0022757172118872404,
+            0.9894487261772156
+          ],
+          "camera_radius": 3.998054659819094
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Formal-Informal_c4d7ab91_c0_v1.png",
+          "azimuth": 280.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -14.47191333770752,
+            -1.481859564781189,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.9719228744506836,
+            0.18540412187576294,
+            -0.144883394241333
+          ],
+          "camera_up": [
+            0.14231711626052856,
+            0.027148405089974403,
+            0.9894487261772156
+          ],
+          "camera_radius": 3.9980552013554638
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,869 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Buyer-in-Beige_5c9ab0f2",
+  "object_file": "data/objects/Buyer-in-Beige_5c9ab0f2/Buyer-in-Beige_5c9ab0f2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        12.268198013305664,
+        -38.32758712768555,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.268198013305664,
+            -38.32758712768555,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            10.0,
+            8.5,
+            9.5,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The background shows the edge of the scene geometry (flat blue horizon)",
+            "The person's head and neck are cropped out of the frame",
+            "surroundings_empty",
+            "Minor cropping at the top of the frame",
+            "Object is heavily occluded by a fence/lattice structure"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed behind a lattice fence which occludes the majority of their body, making the object placement poor for visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_v0.png",
+          "azimuth": 21.2,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.644257545471191,
+            -41.875282287597656,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.34693798422813416,
+            0.8944597244262695,
+            -0.28209188580513
+          ],
+          "camera_up": [
+            -0.10201137512922287,
+            0.2630009949207306,
+            0.9593873620033264
+          ],
+          "camera_radius": 4.220266662936265
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c0_v1.png",
+          "azimuth": 81.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            16.028621673583984,
+            -38.909732818603516,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.948093831539154,
+            0.14677277207374573,
+            -0.28209188580513
+          ],
+          "camera_up": [
+            -0.27877122163772583,
+            0.043156132102012634,
+            0.9593873620033264
+          ],
+          "camera_radius": 4.220266585257394
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        1.0721783638000488,
+        -19.084430694580078,
+        -0.0528639517724514
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.0721783638000488,
+            -19.084430694580078,
+            -0.0528639517724514
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            10.0,
+            1.0,
+            2.0,
+            10.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is likely occluded by the wall or outside the field of view",
+            "Object is not visible in the frame",
+            "Less than 70% of the object is visible",
+            "The camera view is blocked by a wall or door",
+            "The view shows the edge of the scene geometry (grey void on the left)",
+            "The object is heavily occluded by the interior wall and window frame, making it barely visible.",
+            "Object is heavily occluded by the bus stop structure"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall or door in this close-up shot, making it impossible to evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_v0.png",
+          "azimuth": 24.3,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.0677223205566406,
+            -23.504072189331055,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.40097954869270325,
+            0.8880713582038879,
+            -0.2248212844133377
+          ],
+          "camera_up": [
+            -0.09251723438501358,
+            0.20490284264087677,
+            0.9744000434875488
+          ],
+          "camera_radius": 5.181351085270366
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c1_v1.png",
+          "azimuth": 142.2,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            4.645382881164551,
+            -14.477882385253906,
+            1.6813424825668335
+          ],
+          "camera_forward": [
+            -0.6035956144332886,
+            -0.7781508564949036,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.10642993450164795,
+            -0.13720877468585968,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.082396979535502
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        10.168943405151367,
+        -50.22336196899414,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.168943405151367,
+            -50.22336196899414,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            10.0,
+            6.0,
+            4.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is cropped out of the frame.",
+            "The top of the person's head is slightly cropped by the top edge of the frame.",
+            "The background behind the fence appears to be the edge of the scene geometry or an unrendered void.",
+            "The person is placed behind a fence, which partially obscures the lower body and looks awkward",
+            "The background shows the edge of the scene geometry (flat blue horizon)",
+            "The surroundings are empty, showing only a flat ground and the edge of the scene geometry."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in an empty part of the scene with no surrounding context, and the top of the head is cropped."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_v0.png",
+          "azimuth": 32.4,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.292776107788086,
+            -55.14573287963867,
+            1.681342601776123
+          ],
+          "camera_forward": [
+            -0.527686595916748,
+            0.8315005898475647,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.09304540604352951,
+            0.14661601185798645,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.0823958231905975
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c2_v1.png",
+          "azimuth": 332.4,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.5916948318481445,
+            -55.15318298339844,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.45420023798942566,
+            0.8688045740127563,
+            -0.1971820592880249
+          ],
+          "camera_up": [
+            0.09135371446609497,
+            0.1747434139251709,
+            0.9803668856620789
+          ],
+          "camera_radius": 5.854597783985656
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        6.017479124991343,
+        -68.1362953118883,
+        -0.052864547818899155
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.27068567276001,
+            -68.0670166015625,
+            -0.052864547818899155
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The background shows the edge of the scene geometry (black void)",
+            "The person's head is cropped out of the frame.",
+            "The person is placed at the very edge of the modeled environment, away from the city context.",
+            "The surroundings are empty and lack meaningful architectural context",
+            "The surroundings are empty, showing only the ground and the edge of the scene geometry (blue horizon).",
+            "The background is empty, showing only the ground and a dark void."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame and the background lacks any architectural context from the scene, making the placement feel isolated and poorly framed."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            6.017479124991343,
+            -68.1362953118883,
+            -0.052864547818899155
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are empty, showing only a plain ground texture and a black void/edge of the scene.",
+            "The object is placed at the edge of the scene geometry.",
+            "The surroundings are empty, showing only a flat plane and the horizon.",
+            "The surroundings are very sparse in this view, showing only a flat ground and a fence",
+            "The top of the person's head is slightly cropped by the top edge of the frame",
+            "The background shows the edge of the scene geometry (dark blue void)",
+            "The camera is positioned at the very edge of the environment geometry.",
+            "The top of the person's hat is slightly cropped by the upper edge of the frame.",
+            "The person's head is completely cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed at the edge of the map looking into a void, and the framing slightly crops the top of the head."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c3_v0.png",
+          "azimuth": 324.7,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            2.80294132232666,
+            -72.67634582519531,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.5665125250816345,
+            0.8001142144203186,
+            -0.19718217849731445
+          ],
+          "camera_up": [
+            0.11394324153661728,
+            0.16092777252197266,
+            0.9803668856620789
+          ],
+          "camera_radius": 5.854598109772098
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -6.282849376012835,
+        -48.92330093539969,
+        -0.05286383256316185
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.674712181091309,
+            -49.173736572265625,
+            -0.05286383256316185
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            4.0,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 4.0,
+          "vlm_issues": [
+            "The placement is at the very edge of the modeled environment.",
+            "The surroundings are empty, showing only the ground texture.",
+            "The surroundings are empty, showing only a plain ground texture.",
+            "The background shows the edge of the scene geometry (blue void).",
+            "The surroundings are mostly empty ground and sky, lacking the architectural detail shown in the reference image.",
+            "The object is placed at the edge of the scene geometry, looking out into a void.",
+            "The person's head is cropped out of the frame.",
+            "The surroundings are empty, showing only a plain ground texture and a horizon/void.",
+            "The object is placed at the edge of the scene geometry, away from the city context.",
+            "The background shows the edge of the scene geometry (horizon line/void) on the left side of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is correctly grounded and fully visible, but the placement is in a desolate area of the map where the edge of the world is visible, providing no meaningful context."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -6.282849376012835,
+            -48.92330093539969,
+            -0.05286383256316185
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            3.0,
+            3.0,
+            3.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_iter1_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The object is placed at the edge of the map, lacking architectural context from the city.",
+            "The surroundings are empty, showing only a plain ground texture and the edge of the scene geometry (dark void).",
+            "The surroundings are mostly empty ground with very little architectural context visible.",
+            "The object is placed at the edge of the scene geometry, away from the city context.",
+            "The surroundings are empty, showing only a plain ground texture and a horizon line.",
+            "The object is placed at the edge of the scene geometry, resulting in a visible void/horizon in the background.",
+            "The placement is at the edge of the modeled environment.",
+            "The surroundings are very empty, showing only a plain ground texture and the edge of the scene.",
+            "The person's head is completely cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and placed in a plausible city environment, but the framing is poor with the head entirely cut off by the top edge of the image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Buyer-in-Beige_5c9ab0f2_c4_v0.png",
+          "azimuth": 349.7,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.277499675750732,
+            -54.39651107788086,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.17529182136058807,
+            0.9645683169364929,
+            -0.19718194007873535
+          ],
+          "camera_up": [
+            0.03525656461715698,
+            0.1940043568611145,
+            0.9803668856620789
+          ],
+          "camera_radius": 5.854598272665312
+        }
+      ]
+    }
+  ]
+}

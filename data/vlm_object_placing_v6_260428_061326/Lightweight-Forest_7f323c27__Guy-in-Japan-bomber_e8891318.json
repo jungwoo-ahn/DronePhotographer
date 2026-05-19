@@ -1,0 +1,637 @@
+{
+  "scene": "Lightweight-Forest_7f323c27",
+  "scene_file": "data/scenes/Lightweight-Forest_7f323c27/Lightweight-Forest_7f323c27.blend",
+  "scene_scale": 0.3,
+  "object": "Guy-in-Japan-bomber_e8891318",
+  "object_file": "data/objects/Guy-in-Japan-bomber_e8891318/Guy-in-Japan-bomber_e8891318.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -10.695456504821777,
+        20.900291442871094,
+        0.18002697825431824
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.695456504821777,
+            20.900291442871094,
+            0.18002697825431824
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            9.0,
+            9.0,
+            4.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (head cropped).",
+            "surroundings_empty",
+            "The area around the object is mostly empty, lacking immediate scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the immediate surroundings are empty, and the object is very small in a wide shot, leading to a low quality score due to the 'surroundings_empty' constraint."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_v0.png",
+          "azimuth": 39.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.691421031951904,
+            15.973325729370117,
+            0.1969018429517746
+          ],
+          "camera_forward": [
+            -0.626188337802887,
+            0.7705243229866028,
+            0.11908165365457535
+          ],
+          "camera_up": [
+            0.07510194182395935,
+            -0.09241286665201187,
+            0.9928844571113586
+          ],
+          "camera_radius": 6.348825507775205
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c0_v1.png",
+          "azimuth": 339.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -12.96031665802002,
+            14.96921157836914,
+            0.1969018429517746
+          ],
+          "camera_forward": [
+            0.35419961810112,
+            0.9275571703910828,
+            0.1190812960267067
+          ],
+          "camera_up": [
+            -0.04248086363077164,
+            -0.1112462654709816,
+            0.9928845167160034
+          ],
+          "camera_radius": 6.348825057137043
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -1.2184689044952393,
+        3.525812864303589,
+        -0.040326762944459915
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.2184689044952393,
+            3.525812864303589,
+            -0.040326762944459915
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            9.5,
+            0.0,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is small in the frame, making it less of a focal point.",
+            "Object is completely hidden (out of frame).",
+            "The immediate surroundings around the object are mostly empty, consisting of plain ground with minimal detail.",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely out of frame, and the rendered image shows only barren ground, providing no meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_v0.png",
+          "azimuth": 329.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            -4.44072961807251,
+            -1.9444999694824219,
+            0.1969018429517746
+          ],
+          "camera_forward": [
+            0.5057049989700317,
+            0.8585168719291687,
+            0.0849190279841423
+          ],
+          "camera_up": [
+            -0.043099697679281235,
+            -0.07316868752241135,
+            0.9963878393173218
+          ],
+          "camera_radius": 6.353232696101682
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c1_v1.png",
+          "azimuth": 0.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.1963075399398804,
+            -2.8229503631591797,
+            0.1969018429517746
+          ],
+          "camera_forward": [
+            -0.0034780476707965136,
+            0.9963817596435547,
+            0.08491914719343185
+          ],
+          "camera_up": [
+            0.00029642393928952515,
+            -0.08491862565279007,
+            0.9963878393173218
+          ],
+          "camera_radius": 6.353232695245045
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        3.473764291429145,
+        1.9652878602708697,
+        -0.11656691133975983
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.5200247764587402,
+            1.946315050125122,
+            -0.11656691133975983
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            3.0,
+            4.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is clipping with the metal frame it is leaning on.",
+            "Object is small in the frame, making it less of a focal point.",
+            "Surroundings are empty, consisting of barren ground and sky with distant mountains.",
+            "Object is clipping with a thin metal frame directly behind its legs."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -0.1,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping with the metal frame, which is passing through their back. Additionally, the immediate surroundings are empty, showing only barren ground and sky."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            3.473764291429145,
+            1.9652878602708697,
+            -0.11656691133975983
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            4.0,
+            4.0,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is small in the frame, making it less of a focal point."
+          ],
+          "vlm_adjustment": {
+            "forward": -3.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed and grounded in the scene, but the surroundings are empty, and the object is too small in the frame, limiting the overall quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c2_v0.png",
+          "azimuth": 6.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.137394428253174,
+            -4.348734378814697,
+            0.1969018429517746
+          ],
+          "camera_forward": [
+            -0.10424941033124924,
+            0.9918667674064636,
+            0.07302280515432358
+          ],
+          "camera_up": [
+            0.007632953114807606,
+            -0.07262277603149414,
+            0.9973302483558655
+          ],
+          "camera_radius": 6.356536042923674
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -5.956963062286377,
+        8.264307022094727,
+        0.2015613317489624
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.956963062286377,
+            8.264307022094727,
+            0.2015613317489624
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            4.0,
+            4.0,
+            8.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is very small in the frame, making it less of a focal point.",
+            "The person is leaning on a prop (rail) that does not connect to anything in the scene, making the pose feel somewhat out of place in an open field.",
+            "The object (person leaning on a stool) feels somewhat out of place in this vast, empty wilderness scene.",
+            "The object (person on a stool) feels somewhat out of place in this vast, natural wilderness scene."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and plausible in the scene, but it is very small in the frame and the surroundings are empty, resulting in a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_Guy-in-Japan-bomber_e8891318_c4_v0.png",
+          "azimuth": 354.1,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.609572410583496,
+            1.949135661125183,
+            0.1969018429517746
+          ],
+          "camera_forward": [
+            0.10201963782310486,
+            0.9872235655784607,
+            0.12239935249090195
+          ],
+          "camera_up": [
+            -0.012581747025251389,
+            -0.12175098061561584,
+            0.9924809336662292
+          ],
+          "camera_radius": 6.348803847566461
+        }
+      ]
+    }
+  ]
+}

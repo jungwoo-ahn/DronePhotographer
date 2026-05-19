@@ -1,0 +1,626 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "Young-boy-in-jumpsuit_0e1ed811",
+  "object_file": "data/objects/Young-boy-in-jumpsuit_0e1ed811/Young-boy-in-jumpsuit_0e1ed811.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.7294795513153076,
+        -18.86854362487793,
+        -0.021145621314644814
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.7294795513153076,
+            -18.86854362487793,
+            -0.021145621314644814
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            9.5,
+            3.0,
+            1.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with the fence.",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, making it invisible in the rendered scene. The camera view shows an interior wall, while the object is likely placed in the outdoor city environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_v0.png",
+          "azimuth": 231.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -6.926612854003906,
+            -15.565725326538086,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.7858363389968872,
+            -0.6183922290802002,
+            -0.0072342283092439175
+          ],
+          "camera_up": [
+            0.005685055628418922,
+            -0.004473723005503416,
+            0.9999738335609436
+          ],
+          "camera_radius": 5.390500069981171
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c0_v1.png",
+          "azimuth": 291.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.926449775695801,
+            -20.94718360900879,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.9284636974334717,
+            0.3713589906692505,
+            -0.006902715191245079
+          ],
+          "camera_up": [
+            0.006409042980521917,
+            0.0025635224301368,
+            0.9999761581420898
+          ],
+          "camera_radius": 5.644660937657476
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        4.2705206871032715,
+        -25.86854362487793,
+        -0.021145246922969818
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.2705206871032715,
+            -25.86854362487793,
+            -0.021145246922969818
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.0,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-placed and scaled on the pier, but the background consists mostly of sky and water, lacking interesting scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c1_v0.png",
+          "azimuth": 275.9,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.6365264654159546,
+            -26.24407958984375,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.994647204875946,
+            0.10278661549091339,
+            -0.010575172491371632
+          ],
+          "camera_up": [
+            0.01051915530115366,
+            0.0010870392434298992,
+            0.9999440908432007
+          ],
+          "camera_radius": 3.72557351246533
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.7294792532920837,
+        9.131458282470703,
+        -0.04808931052684784
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7294792532920837,
+            9.131458282470703,
+            -0.04808931052684784
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            4.0,
+            9.5,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "Surroundings are empty around the object.",
+            "Object is partly cut off at the frame edge.",
+            "Object is clipping with the fence.",
+            "Surroundings are empty.",
+            "Object is clipping with the building wall.",
+            "Object is mostly hidden/occluded by a large foreground element."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely obscured by a large, dark foreground block, making it barely visible and its immediate surroundings empty."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        2.2705209255218506,
+        -11.868541717529297,
+        -0.021145639941096306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.2705209255218506,
+            -11.868541717529297,
+            -0.021145639941096306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            1.0,
+            9.5,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty around the object.",
+            "Object is completely hidden behind a building.",
+            "Object is completely hidden."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, with the camera showing only a window and a black area, indicating the object is likely behind a wall or outside the camera's frustum."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_v0.png",
+          "azimuth": 201.9,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.5339896082878113,
+            -7.548784255981445,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.3729749321937561,
+            -0.9278042912483215,
+            -0.008298615925014019
+          ],
+          "camera_up": [
+            0.0030952715314924717,
+            -0.00769976107403636,
+            0.9999655485153198
+          ],
+          "camera_radius": 4.712621530185059
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c3_v1.png",
+          "azimuth": 24.5,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            4.485329627990723,
+            -16.728496551513672,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.41468238830566406,
+            0.9099374413490295,
+            -0.007234347518533468
+          ],
+          "camera_up": [
+            -0.00300005660392344,
+            0.006582966074347496,
+            0.9999738335609436
+          ],
+          "camera_radius": 5.390500423816352
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        2.2705209255218506,
+        -20.86854362487793,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.2705209255218506,
+            -20.86854362487793,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            9.5,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty around the object.",
+            "Object is completely hidden.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, and the visible surroundings are an uninteresting plain wall with a small window."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Young-boy-in-jumpsuit_0e1ed811_c4_v0.png",
+          "azimuth": 282.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.19193172454834,
+            -22.08954620361328,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.9758935570716858,
+            0.2181379795074463,
+            -0.006902715191245079
+          ],
+          "camera_up": [
+            0.0067365034483373165,
+            0.0015056557022035122,
+            0.9999761581420898
+          ],
+          "camera_radius": 5.644660789824853
+        }
+      ]
+    }
+  ]
+}

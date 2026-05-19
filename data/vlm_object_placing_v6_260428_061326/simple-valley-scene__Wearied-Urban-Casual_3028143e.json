@@ -1,0 +1,408 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Wearied-Urban-Casual_3028143e",
+  "object_file": "data/objects/Wearied-Urban-Casual_3028143e/Wearied-Urban-Casual_3028143e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.582399368286133,
+        -3.4871511459350586,
+        -0.7424567937850952
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.582399368286133,
+            -3.4871511459350586,
+            -0.7424567937850952
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            9.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is a person, and the scene is a natural landscape. While a person can be in a landscape, the placement on top of a hill feels a bit arbitrary without more context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is fully visible, grounded, and not clipping. The scale appears correct for the environment, and the placement on the grassy hill is plausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_v0.png",
+          "azimuth": 199.0,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.479687690734863,
+            2.0229763984680176,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.32537245750427246,
+            -0.9449504613876343,
+            0.03466130793094635
+          ],
+          "camera_up": [
+            -0.011284631676971912,
+            0.03277290612459183,
+            0.9993991255760193
+          ],
+          "camera_radius": 5.852101630927715
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Wearied-Urban-Casual_3028143e_c0_v1.png",
+          "azimuth": 139.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.7591332197189331,
+            0.911013126373291,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.6556647419929504,
+            -0.7542561292648315,
+            0.0346614271402359
+          ],
+          "camera_up": [
+            0.022740058600902557,
+            0.02615920826792717,
+            0.9993991255760193
+          ],
+          "camera_radius": 5.852101630927715
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.5823991298675537,
+        0.762848973274231,
+        -1.005361795425415
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5823991298675537,
+            0.762848973274231,
+            -1.005361795425415
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is a person, and the scene is a natural landscape. While a person can be in a landscape, the placement on top of a hill feels a bit arbitrary without more context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a natural landscape. The placement on the hill is a bit arbitrary, but acceptable. The scale appears correct."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_v0.png",
+          "azimuth": 126.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.132248401641846,
+            4.1882405281066895,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.8089730143547058,
+            -0.5877532362937927,
+            -0.010430818423628807
+          ],
+          "camera_up": [
+            -0.008438742719590664,
+            -0.006131035275757313,
+            0.9999455809593201
+          ],
+          "camera_radius": 5.881951941660917
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Wearied-Urban-Casual_3028143e_c1_v1.png",
+          "azimuth": 203.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.85943341255188,
+            6.127205848693848,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.39070990681648254,
+            -0.920454740524292,
+            -0.010430937632918358
+          ],
+          "camera_up": [
+            0.004075693432241678,
+            -0.009601728059351444,
+            0.9999455809593201
+          ],
+          "camera_radius": 5.881952184864442
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.5823990106582642,
+        -0.48715096712112427,
+        -0.7424556016921997
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5823990106582642,
+            -0.48715096712112427,
+            -0.7424556016921997
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is a person, and the scene is a natural landscape. While a person can be in a landscape, the placement on top of a hill feels a bit arbitrary without more context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a natural landscape scene. The placement on the hill is plausible, though a bit arbitrary without more context. The scale appears correct."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_v0.png",
+          "azimuth": 213.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.7563507556915283,
+            4.400306224822998,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.5443117618560791,
+            -0.8381665945053101,
+            0.03466154634952545
+          ],
+          "camera_up": [
+            -0.01887800358235836,
+            0.029069634154438972,
+            0.9993991255760193
+          ],
+          "camera_radius": 5.852101867732892
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Wearied-Urban-Casual_3028143e_c2_v1.png",
+          "azimuth": 98.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            5.18564510345459,
+            0.34403687715530396,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9891814589500427,
+            -0.142543226480484,
+            0.0346614271402359
+          ],
+          "camera_up": [
+            0.034307051450014114,
+            0.004943741485476494,
+            0.9993991255760193
+          ],
+          "camera_radius": 5.852101628381423
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "scene": "Apartment-garden_fcd5b3f7",
+  "scene_file": "data/scenes/Apartment-garden_fcd5b3f7/Apartment-garden_fcd5b3f7.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-the-Fire-Hat-Is-Walking_24c90855",
+  "object_file": "data/objects/Guy-in-the-Fire-Hat-Is-Walking_24c90855/Guy-in-the-Fire-Hat-Is-Walking_24c90855.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.8976984024047852,
+        -6.6011223793029785,
+        1.6358087062835693
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.8976984024047852,
+            -6.6011223793029785,
+            1.6358087062835693
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            1.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v2.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty, consisting only of sky and a rooftop edge.",
+            "The object is placed on a rooftop, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed on a rooftop, which is not a plausible location for a person, and the render is too dark to properly assess the scene."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

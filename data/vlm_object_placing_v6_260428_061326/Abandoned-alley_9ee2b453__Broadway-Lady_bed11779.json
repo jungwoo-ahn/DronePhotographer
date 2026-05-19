@@ -1,0 +1,143 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Broadway-Lady_bed11779",
+  "object_file": "data/objects/Broadway-Lady_bed11779/Broadway-Lady_bed11779.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.8385848999023438,
+        -0.9511452913284302,
+        4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.8385848999023438,
+            -0.9511452913284302,
+            4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            2.0,
+            3.0,
+            1.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is almost entirely occluded by a wall",
+            "Object is completely hidden behind a wall",
+            "The top of the character's hat is slightly cropped by the upper frame edge.",
+            "surroundings are empty",
+            "Surroundings are empty (just a wall)",
+            "Object is clipping through the environment",
+            "surroundings_empty",
+            "render shows a white void instead of the scene context",
+            "Object is heavily cropped (head is cut off)",
+            "Poor framing",
+            "object slightly cropped at top"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed inside or directly behind a brick wall, making it almost entirely invisible and causing significant clipping with the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Broadway-Lady_bed11779_c0_v0.png",
+          "azimuth": 93.6,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.41110163927078247,
+            -0.735505998134613,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9841777086257935,
+            -0.06191928684711456,
+            -0.16601265966892242
+          ],
+          "camera_up": [
+            -0.16568507254123688,
+            -0.010424007661640644,
+            0.9861236214637756
+          ],
+          "camera_radius": 3.654673794952699
+        }
+      ]
+    }
+  ]
+}

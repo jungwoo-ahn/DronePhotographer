@@ -1,0 +1,143 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Retro-Chic:-Urban-Stroll_748406ce",
+  "object_file": "data/objects/Retro-Chic:-Urban-Stroll_748406ce/Retro-Chic:-Urban-Stroll_748406ce.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -12.078424453735352,
+        -0.8191512823104858,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -12.078424453735352,
+            -0.8191512823104858,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            8.0,
+            3.0,
+            1.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible",
+            "Placement is too close to the camera.",
+            "Object is heavily cropped (head and feet are out of frame).",
+            "Scale seems slightly too large relative to the car",
+            "Lower half of the person is not visible.",
+            "Object is heavily occluded by a large foreground element.",
+            "Object is heavily cropped (head and feet are out of frame)",
+            "Object is likely occluded by the building structure",
+            "Object is not visible in the frame",
+            "Camera is pointing at a brick wall",
+            "The view is completely blocked by a brick wall"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a brick wall in the foreground, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Retro-Chic:-Urban-Stroll_748406ce_c1_v0.png",
+          "azimuth": 91.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -8.230149269104004,
+            -0.7519791126251221,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9902361035346985,
+            -0.017284462228417397,
+            -0.13832451403141022
+          ],
+          "camera_up": [
+            -0.13830344378948212,
+            -0.002414078451693058,
+            0.990386962890625
+          ],
+          "camera_radius": 4.046755872265492
+        }
+      ]
+    }
+  ]
+}

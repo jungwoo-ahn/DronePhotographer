@@ -1,0 +1,428 @@
+{
+  "scene": "modern-house_ae6d5079-1b31-47ca-a831-363853011fd6",
+  "scene_file": "data/scenes/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6/modern-house_60db5c3b-f812-491d-b177-e1e8fa8f6f08.blend",
+  "scene_scale": 2.5,
+  "object": "Bar-Connoisseur_bd5a51d0",
+  "object_file": "data/objects/Bar-Connoisseur_bd5a51d0/Bar-Connoisseur_bd5a51d0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -5.267454147338867,
+        -27.80025863647461,
+        -0.7050633430480957
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.267454147338867,
+            -27.80025863647461,
+            -0.7050633430480957
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an empty area with no context.",
+            "The object is too small for the scene.",
+            "The object is placed in an outdoor grassy area, which is not a typical or plausible location for a bar connoisseur sitting on a stool."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is significantly too small for the scene, making the scale factor incorrect."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c0_v0.png",
+          "azimuth": 302.0,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -9.893993377685547,
+            -30.691240310668945,
+            1.9257895946502686
+          ],
+          "camera_forward": [
+            0.7969046831130981,
+            0.49796104431152344,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.29004955291748047,
+            0.18124303221702576,
+            0.9396926164627075
+          ],
+          "camera_radius": 6.056733918909211
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -15.353143692016602,
+        -47.971641540527344,
+        -0.7050251960754395
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -15.353143692016602,
+            -47.971641540527344,
+            -0.7050251960754395
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in an empty area with no context.",
+            "The object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but appears too small for the scene, suggesting the scene is too large. The placement is plausible as it is on the lawn in front of the house."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_v0.png",
+          "azimuth": 293.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -20.374971389770508,
+            -50.10327911376953,
+            1.9258273839950562
+          ],
+          "camera_forward": [
+            0.8649917244911194,
+            0.3671669065952301,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.3148312270641327,
+            0.13363786041736603,
+            0.9396926164627075
+          ],
+          "camera_radius": 6.056733210353291
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c1_v1.png",
+          "azimuth": 78.4,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -10.00905704498291,
+            -49.068626403808594,
+            1.9258273839950562
+          ],
+          "camera_forward": [
+            -0.9204995632171631,
+            0.18895173072814941,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.33503448963165283,
+            0.06877264380455017,
+            0.9396926164627075
+          ],
+          "camera_radius": 6.056733603995479
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        11.542027473449707,
+        -17.714569091796875,
+        0.059195101261138916
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.542027473449707,
+            -17.714569091796875,
+            0.059195101261138916
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears too small for the scene, suggesting the scene is too large. The placement on the deck is plausible, and the surroundings are not empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_v0.png",
+          "azimuth": 79.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            17.170862197875977,
+            -18.71721649169922,
+            1.712540864944458
+          ],
+          "camera_forward": [
+            -0.9695464372634888,
+            0.17270223796367645,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.17095713317394257,
+            0.030451958999037743,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.951691772867685
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Bar-Connoisseur_bd5a51d0_c2_v1.png",
+          "azimuth": 19.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            13.488125801086426,
+            -23.090606689453125,
+            1.712540864944458
+          ],
+          "camera_forward": [
+            -0.3352084457874298,
+            0.9260030388832092,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.05910628288984299,
+            0.1632792353630066,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.951691542528664
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,767 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+  "object_file": "data/objects/Buddy-in-the-Brooklyn-Is-Walking_43d448d4/Buddy-in-the-Brooklyn-Is-Walking_43d448d4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        25.80214500427246,
+        -12.017372131347656,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            25.80214500427246,
+            -12.017372131347656,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            2.0,
+            9.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (head and shoulders missing)",
+            "Major scale mismatch: person is much larger than streetlights in the background",
+            "object is heavily cropped",
+            "surroundings_empty is true",
+            "the background lacks meaningful scene context"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.3,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is severely cropped with the head and upper body out of frame, and there is a massive scale discrepancy where the person towers over the streetlights in the background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_v0.png",
+          "azimuth": 27.8,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            27.5762996673584,
+            -15.382356643676758,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.4663861393928528,
+            0.8845801949501038,
+            -0.0013596570352092385
+          ],
+          "camera_up": [
+            -0.000634164665825665,
+            0.0012027062475681305,
+            0.9999990463256836
+          ],
+          "camera_radius": 3.8664891431227613
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_v1.png",
+          "azimuth": 248.3,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.38703727722168,
+            -9.862439155578613,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9291321635246277,
+            -0.36974668502807617,
+            -0.000887230911757797
+          ],
+          "camera_up": [
+            0.0008243921911343932,
+            -0.00032795764855109155,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.869081684140301
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -9.774469375610352,
+        4.834709644317627,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.774469375610352,
+            4.834709644317627,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            3.0,
+            3.0,
+            8.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head and shoulders missing)",
+            "surroundings_empty=true",
+            "The main scene context (the bookstore) is completely missing from this view, leaving the character in an empty void with just two trees.",
+            "The camera angle provides very little scene context compared to the reference image"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head and shoulders are cut off by the top of the frame, and the shot lacks the architectural context of the bookstore seen in the reference."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v0.png",
+          "azimuth": 250.8,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -14.352593421936035,
+            6.428981304168701,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9443758130073547,
+            -0.32886654138565063,
+            -0.0010668792529031634
+          ],
+          "camera_up": [
+            0.0010075665777549148,
+            -0.0003507716755848378,
+            0.9999994039535522
+          ],
+          "camera_radius": 4.89692884085731
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v1.png",
+          "azimuth": 190.8,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            -10.816522598266602,
+            10.297345161437988,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.18738122284412384,
+            -0.982286810874939,
+            -0.0009300270467065275
+          ],
+          "camera_up": [
+            0.000174281420186162,
+            -0.0009135514847002923,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.604038635608963
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        1.460252285003662,
+        -8.272464752197266,
+        -0.06638818979263306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.460252285003662,
+            -8.272464752197266,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            9.5,
+            9.5,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The camera angle shows a very empty part of the scene, missing the bookstore and architectural context entirely.",
+            "surroundings_empty=true",
+            "Object is not visible",
+            "Render is extremely dark",
+            "The scene context (bookstore) is missing from this view."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in an extremely dark render that shows only a plain brick wall with no meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v0.png",
+          "azimuth": 334.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.0488234758377075,
+            -13.532851219177246,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.4305109977722168,
+            0.9025849103927612,
+            -0.000887230911757797
+          ],
+          "camera_up": [
+            0.00038198617403395474,
+            0.0008007903816178441,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.869081442942374
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v1.png",
+          "azimuth": 274.5,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.349913597106934,
+            -8.729734420776367,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9969169497489929,
+            0.07845893502235413,
+            -0.0008873501210473478
+          ],
+          "camera_up": [
+            0.0008846076088957489,
+            6.971091352170333e-05,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.869080758701881
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        35.16441345214844,
+        -10.144918441772461,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            35.16441345214844,
+            -10.144918441772461,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            6.5,
+            6.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v2.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The background is mostly empty sky, making the composition less interesting than the bookstore front.",
+            "The foreground is a large, featureless surface that makes the shot uninteresting.",
+            "Object is heavily cropped (head is missing)",
+            "The person is very small in the frame and facing away from the camera.",
+            "The foreground is dominated by bushes which partially obscure the lower half of the person.",
+            "The top of the person's head/cap is slightly cropped by the top frame edge.",
+            "The background is mostly empty road and field, missing the bookstore context.",
+            "The surroundings are very empty, missing the architectural context of the bookstore seen in the reference.",
+            "The camera angle faces away from the bookstore, resulting in a less interesting background of a road and a hill."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cropped out and the background is an empty road/field that completely misses the bookstore context shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_v0.png",
+          "azimuth": 73.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            40.75828552246094,
+            -11.780681610107422,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.9598049521446228,
+            0.2806665599346161,
+            -0.0008873501210473478
+          ],
+          "camera_up": [
+            -0.0008516657981090248,
+            0.00024910972570069134,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.869081562271876
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_v1.png",
+          "azimuth": 254.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            29.56205177307129,
+            -8.538467407226562,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9612613320350647,
+            -0.275637149810791,
+            -0.0008873501210473478
+          ],
+          "camera_up": [
+            0.000852963887155056,
+            -0.00024462799774482846,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.869082801267418
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.4122014045715332,
+        -13.889825820922852,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.4122014045715332,
+            -13.889825820922852,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            10.0,
+            3.0,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v2.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The background is mostly empty sky, lacking the architectural context of the bookstore.",
+            "The surroundings are very sparse, making for an uninteresting composition.",
+            "The surroundings are mostly empty sky and a flat plane, lacking the architectural context of the bookstore.",
+            "The composition is uninteresting and does not utilize the scene's assets.",
+            "The surroundings are mostly empty road and sky, lacking the architectural context of the bookstore.",
+            "The camera angle is tilted and the composition is uninteresting.",
+            "The object is placed in a barren part of the map far from the main scene features.",
+            "The composition is uninteresting as it ignores the main architectural features of the scene.",
+            "The surroundings are very empty, consisting mostly of pavement and sky, missing the bookstore context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and fully visible, the placement is in a barren part of the scene that completely misses the bookstore architecture, resulting in a low-quality composition."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_v0.png",
+          "azimuth": 347.4,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.6253257989883423,
+            -19.317033767700195,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.21814318001270294,
+            0.97591632604599,
+            -0.0009301462559960783
+          ],
+          "camera_up": [
+            0.00020289461826905608,
+            0.0009077476570382714,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.604038741969122
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_v1.png",
+          "azimuth": 317.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.357123374938965,
+            -18.17989730834961,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.6768757104873657,
+            0.7360967993736267,
+            -0.0008875885396264493
+          ],
+          "camera_up": [
+            0.0006008365890011191,
+            0.000653306080494076,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.869081562271876
+        }
+      ]
+    }
+  ]
+}

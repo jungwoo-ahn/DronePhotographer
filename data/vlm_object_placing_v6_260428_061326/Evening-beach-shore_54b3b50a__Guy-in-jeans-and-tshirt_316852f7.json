@@ -1,0 +1,101 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-jeans-and-tshirt_316852f7",
+  "object_file": "data/objects/Guy-in-jeans-and-tshirt_316852f7/Guy-in-jeans-and-tshirt_316852f7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.1824913024902344,
+        7.001959800720215,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.1824913024902344,
+            7.001959800720215,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v3.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the beach and is fully visible and grounded. However, the scene is dominated by empty sky and water, making the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Evening-beach-shore_54b3b50a_Guy-in-jeans-and-tshirt_316852f7_c1_v0.png",
+          "azimuth": 27.6,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.49113479256629944,
+            1.8877851963043213,
+            0.2776772379875183
+          ],
+          "camera_forward": [
+            -0.46170350909233093,
+            0.8831575512886047,
+            0.0828409269452095
+          ],
+          "camera_up": [
+            0.038379937410354614,
+            -0.0734138935804367,
+            0.9965627789497375
+          ],
+          "camera_radius": 5.777557066692738
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,594 @@
+{
+  "scene": "Convention-room_55574faf",
+  "scene_file": "data/scenes/Convention-room_55574faf/Convention-room_55574faf.blend",
+  "scene_scale": 0.8,
+  "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+  "object_file": "data/objects/luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/luke_2K_b5a0590c-f246-4616-9d9a-1d84a8a1e366.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.06067550182342529,
+        -1.703485131263733,
+        -0.3199999928474426
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.06067550182342529,
+            -1.703485131263733,
+            -0.3199999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            1.0,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with scene geometry (hidden behind a wall or outside the visible scene).",
+            "Object is not visible",
+            "Object is completely hidden."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, as the rendered image is identical to the reference image. This indicates a severe placement issue, likely being behind a wall or outside the camera's frustum, thus warranting the lowest score for visibility and implying clipping."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v0.png",
+          "azimuth": 270.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -5.317732334136963,
+            -1.7504216432571411,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.9957337379455566,
+            0.00868978351354599,
+            -0.0918632373213768
+          ],
+          "camera_up": [
+            0.09185973554849625,
+            0.0008016350911930203,
+            0.9957716464996338
+          ],
+          "camera_radius": 5.498858035266997
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v1.png",
+          "azimuth": 178.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.16393160820007324,
+            3.6741368770599365,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            -0.019116220995783806,
+            -0.9955881237983704,
+            -0.09186334908008575
+          ],
+          "camera_up": [
+            -0.001763481879606843,
+            -0.09184642136096954,
+            0.9957716464996338
+          ],
+          "camera_radius": 5.498857650381515
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        2.060675621032715,
+        1.296514868736267,
+        -0.3199999928474426
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.060675621032715,
+            1.296514868736267,
+            -0.3199999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            3.0,
+            3.0,
+            9.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "Object is clipping with furniture (Auditorium chair.050).",
+            "Object is clipping with scene geometry (wall/pillar)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.7,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping with the wall/pillar on the left and is significantly cropped by the left edge of the frame, though the scale and location type are plausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v0.png",
+          "azimuth": 224.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.7359338998794556,
+            5.106400966644287,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.7028868198394775,
+            -0.7053447961807251,
+            -0.0918632373213768
+          ],
+          "camera_up": [
+            0.0648435652256012,
+            -0.06507046520709991,
+            0.9957716464996338
+          ],
+          "camera_radius": 5.498857856415925
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v1.png",
+          "azimuth": 314.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.4346851408481598,
+            -1.1728507280349731,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.7038043141365051,
+            0.6964723467826843,
+            -0.13994935154914856
+          ],
+          "camera_up": [
+            0.09947599470615387,
+            0.09843955934047699,
+            0.9901586771011353
+          ],
+          "camera_radius": 3.6922289380667355
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        8.060675621032715,
+        4.296514987945557,
+        -0.3199999928474426
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.060675621032715,
+            4.296514987945557,
+            -0.3199999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed in the convention room, standing on the floor near the stage, and appears to be at a realistic scale within the scene. The object is mostly visible and the surroundings provide good context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v0.png",
+          "azimuth": 301.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.489431619644165,
+            1.4622236490249634,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.8462991118431091,
+            0.5247275233268738,
+            -0.09186311811208725
+          ],
+          "camera_up": [
+            0.07807382196187973,
+            0.04840775206685066,
+            0.9957716464996338
+          ],
+          "camera_radius": 5.4988582899942715
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v1.png",
+          "azimuth": 1.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.229621887207031,
+            -1.079444169998169,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            -0.03127793222665787,
+            0.9952802658081055,
+            -0.09186334908008575
+          ],
+          "camera_up": [
+            -0.002885499969124794,
+            0.09181802719831467,
+            0.9957716464996338
+          ],
+          "camera_radius": 5.498858319294682
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        5.060676097869873,
+        -1.703485131263733,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.060676097869873,
+            -1.703485131263733,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the stage next to the podium in a convention room, is fully visible, correctly scaled, and the surroundings provide rich context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_v0.png",
+          "azimuth": 258.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -0.2042727917432785,
+            -0.6035798788070679,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.978342592716217,
+            -0.20438644289970398,
+            -0.032740894705057144
+          ],
+          "camera_up": [
+            0.032049018889665604,
+            -0.006695261690765619,
+            0.9994638562202454
+          ],
+          "camera_radius": 5.441313721581419
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_v1.png",
+          "azimuth": 110.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            10.098672866821289,
+            0.18014496564865112,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            -0.9361699819564819,
+            -0.35001978278160095,
+            -0.03274077549576759
+          ],
+          "camera_up": [
+            -0.030667345970869064,
+            -0.011466138996183872,
+            0.9994638562202454
+          ],
+          "camera_radius": 5.441313250555492
+        }
+      ]
+    }
+  ]
+}

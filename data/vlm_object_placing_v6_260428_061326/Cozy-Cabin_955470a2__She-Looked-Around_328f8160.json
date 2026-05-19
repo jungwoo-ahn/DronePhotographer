@@ -1,0 +1,109 @@
+{
+  "scene": "Cozy-Cabin_955470a2",
+  "scene_file": "data/scenes/Cozy-Cabin_955470a2/Cozy-Cabin_955470a2.blend",
+  "scene_scale": 0.45,
+  "object": "She-Looked-Around_328f8160",
+  "object_file": "data/objects/She-Looked-Around_328f8160/She-Looked-Around_328f8160.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.1243393421173096,
+        -0.5780088305473328,
+        0.7260408997535706
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.1243393421173096,
+            -0.5780088305473328,
+            0.7260408997535706
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is partially cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and not clipping, but it is partially cropped out of the frame, reducing the overall quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cozy-Cabin_955470a2_She-Looked-Around_328f8160_c0_v0.png",
+          "azimuth": 267.2,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.364748954772949,
+            -0.35845598578453064,
+            1.3444844484329224
+          ],
+          "camera_forward": [
+            0.9987270832061768,
+            -0.04884598031640053,
+            0.012582847848534584
+          ],
+          "camera_up": [
+            -0.012567825615406036,
+            0.0006146820960566401,
+            0.9999208450317383
+          ],
+          "camera_radius": 4.536803565309023
+        }
+      ]
+    }
+  ]
+}
