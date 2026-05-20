@@ -88,9 +88,17 @@ def get_aabb_corners(min_v, max_v):
 
 
 def compute_camera_to_object_angles(cam_pos, obj_pos, object_rotation_xyz_rad):
-    """Camera position expressed in object-local frame -> (azimuth_deg, elevation_deg).
+    """Spherical angles of the cam->obj vector (the camera's look direction
+    toward the subject), expressed in object-local frame.
 
-    Drops camera roll. Azimuth in [0, 360), elevation in [-90, 90].
+    Returns (azimuth_deg, elevation_deg). Azimuth in [0, 360), elevation in
+    [-90, 90]. Convention (v2):
+      - elevation = -90  =>  cam->obj points straight down (camera ABOVE the
+        subject, top-down view)
+      - elevation = 0    =>  cam->obj is horizontal (eye-level)
+      - elevation = +90  =>  cam->obj points straight up (camera BELOW, bottom-up view)
+      - azimuth  = atan2 of cam->obj projected onto object's local XY plane,
+        starting from object's +X axis.
     """
     d_world = cam_pos - obj_pos
     if object_rotation_xyz_rad is None:
@@ -99,8 +107,10 @@ def compute_camera_to_object_angles(cam_pos, obj_pos, object_rotation_xyz_rad):
         rx, ry, rz = (float(v) for v in object_rotation_xyz_rad)
         inv_rot = Euler((rx, ry, rz), "XYZ").to_matrix().transposed()
         d_local = inv_rot @ d_world
-    elevation_deg = degrees(atan2(d_local.z, sqrt(d_local.x ** 2 + d_local.y ** 2)))
-    azimuth_deg = degrees(atan2(d_local.y, d_local.x)) % 360
+    # cam->obj direction = -(cam - obj) = -d_local; elev of that vector flips
+    # sign, azim shifts by 180.
+    elevation_deg = degrees(atan2(-d_local.z, sqrt(d_local.x ** 2 + d_local.y ** 2)))
+    azimuth_deg = degrees(atan2(-d_local.y, -d_local.x)) % 360
     return azimuth_deg, elevation_deg
 
 
@@ -136,10 +146,12 @@ def projected_bbox_full(projected_pts):
 
 
 def compute_3d_metrics(cam_pos, obj_pos):
-    """Camera-object geometry -> elevation, azimuth, distance."""
+    """Camera-object geometry -> (elevation_deg, azimuth_deg, distance) of the
+    cam->obj vector in world frame. Convention v2 (see
+    compute_camera_to_object_angles)."""
     d = cam_pos - obj_pos
-    elevation_deg = degrees(atan2(d.z, sqrt(d.x ** 2 + d.y ** 2)))
-    azimuth_deg = degrees(atan2(d.y, d.x)) % 360
+    elevation_deg = degrees(atan2(-d.z, sqrt(d.x ** 2 + d.y ** 2)))
+    azimuth_deg = degrees(atan2(-d.y, -d.x)) % 360
     distance = d.length
     return elevation_deg, azimuth_deg, distance
 

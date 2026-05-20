@@ -9,8 +9,8 @@ _V5_KEY_SET = set(V5_SCORE_KEYS)
 V5_KEY_DESCRIPTIONS = {
     "occupancy": "percent of the image area covered by the visible subject bbox (0-100).",
     "body_in_frame_ratio": "percent of the subject's full bbox that lies inside the image; 100 means fully framed, less means partly cropped (0-100).",
-    "cam_to_obj_azimuth_deg": "camera position around the object's up axis, in object-local frame, in degrees (0-360). 0 = camera at object's right side; 90 = camera in front of object (viewing the object's front); 180 = left side; 270 = behind the object (viewing the back).",
-    "cam_to_obj_elevation_deg": "camera tilt relative to the object's horizon, in degrees (-90 to +90). +90 = camera directly above object (top-down view, looking down); 0 = eye-level / horizontal; -90 = camera directly below object (bottom-up view, looking up).",
+    "cam_to_obj_azimuth_deg": "azimuth of the cam->obj vector (the direction the camera looks at the subject), in object-local frame, in degrees (0-360). The value tells which direction the camera is looking in the subject's local axes; the camera itself sits at the OPPOSITE side. 0 = looking toward subject's local +X (camera at subject's -X / left side); 90 = looking toward subject's +Y / front (camera behind subject, viewing its back); 180 = looking toward -X (camera at right side); 270 = looking toward -Y (camera in front of subject, viewing its front).",
+    "cam_to_obj_elevation_deg": "vertical angle of the cam->obj vector (the camera's look direction toward the subject), in degrees (-90 to +90). -90 = camera directly above subject, looking straight DOWN (top-down view); 0 = eye-level / horizontal look direction; +90 = camera directly below subject, looking straight UP (bottom-up view).",
     "object_center_x": "pixel x of the full bbox center. May be OUTSIDE [0, 1024) when the subject is partially cut off.",
     "object_center_y": "pixel y of the full bbox center. May be OUTSIDE [0, 768) when the subject is partially cut off.",
     "bbox_x_offset": "half-width of the full bbox in pixels (so the full bbox spans center_x +/- bbox_x_offset).",
