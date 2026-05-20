@@ -77,3 +77,16 @@ Configs live in `configs/`. Key sections:
 - `runs/<timestamp>_<run_name>/` — training outputs (config, checkpoints, final model + processor, summary)
 - `repos/` — external repos (e.g., GroundingDINO); gitignored
 - `blender/` — Blender binary; gitignored
+
+## Convention notes
+
+### `cam_to_obj_{azimuth,elevation}_deg` convention (v2 since `cam_to_obj_v2` branch)
+
+These two annotation fields describe the **cam→obj vector** (the direction the camera looks toward the subject), expressed in object-local frame:
+
+- `cam_to_obj_elevation_deg`: `-90` = camera directly above subject (top-down view, cam→obj points straight down); `0` = eye-level; `+90` = camera directly below (bottom-up view, cam→obj points straight up).
+- `cam_to_obj_azimuth_deg`: in `[0, 360)`. `0` = looking toward subject's local +X (camera at subject's left side); `90` = looking toward subject's +Y / front (camera behind subject); `180` = looking toward -X (camera at right side); `270` = looking toward -Y (camera in front of subject, viewing its front).
+
+A directory containing v2-convention annotations carries the sentinel file `_cam_to_obj_convention_v2.flag`. The migration that converted v1 (obj→cam direction) → v2 was applied via `scripts/migrate_cam_to_obj_sign_v2.py` (idempotent; preserves `.bak` files per annotations.json).
+
+**v1-obsolete checkpoints**: any model under `runs/` trained before this convention flip learned the v1 (camera-above = +90) sign. Predictions from those checkpoints are inverted relative to v2 annotations. Either retrain or wrap inference with `elev → −elev` and `azim → (azim+180)%360`.
