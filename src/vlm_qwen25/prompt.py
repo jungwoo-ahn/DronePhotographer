@@ -9,8 +9,8 @@ _V5_KEY_SET = set(V5_SCORE_KEYS)
 V5_KEY_DESCRIPTIONS = {
     "occupancy": "percent of the image area covered by the visible subject bbox (0-100).",
     "body_in_frame_ratio": "percent of the subject's full bbox that lies inside the image; 100 means fully framed, less means partly cropped (0-100).",
-    "cam_to_obj_azimuth_deg": "camera yaw around the object's up axis, in degrees (0-360, where 0 means viewing the object's front).",
-    "cam_to_obj_elevation_deg": "camera tilt above the object's horizon, in degrees (-90 = top-down, 0 = eye-level, 90 = bottom-up).",
+    "cam_to_obj_azimuth_deg": "camera position around the object's up axis, in object-local frame, in degrees (0-360). 0 = camera at object's right side; 90 = camera in front of object (viewing the object's front); 180 = left side; 270 = behind the object (viewing the back).",
+    "cam_to_obj_elevation_deg": "camera tilt relative to the object's horizon, in degrees (-90 to +90). +90 = camera directly above object (top-down view, looking down); 0 = eye-level / horizontal; -90 = camera directly below object (bottom-up view, looking up).",
     "object_center_x": "pixel x of the full bbox center. May be OUTSIDE [0, 1024) when the subject is partially cut off.",
     "object_center_y": "pixel y of the full bbox center. May be OUTSIDE [0, 768) when the subject is partially cut off.",
     "bbox_x_offset": "half-width of the full bbox in pixels (so the full bbox spans center_x +/- bbox_x_offset).",
