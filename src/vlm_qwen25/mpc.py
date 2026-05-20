@@ -292,6 +292,91 @@ def generate_local_candidate_actions(
     return list(dedup.values())
 
 
+def _build_template_constraint(
+    tokenizer,
+    score_keys: Sequence[str],
+    padded_prompt_len: int,
+    max_value_digits: int = 4,
+):
+    """Build a ``prefix_allowed_tokens_fn`` that forces JSON-template emission.
+
+    The model is constrained to emit ``{"k1":<digits>,"k2":<digits>,...,"kN":<digits>}``,
+    matching the schema the model was trained on. At each generation step the
+    function returns either a single template-token (when we're inside a
+    template chunk like ``,"key":``) or the set of allowed value tokens (digits,
+    leading minus, or the terminator that closes the value).
+
+    Padded-prompt-aware: callers must pass the post-padding prompt length so we
+    know where generation began in ``input_ids``.
+    """
+    score_keys = list(score_keys)
+    if not score_keys:
+        raise ValueError("score_keys is empty")
+
+    chunks = [tokenizer.encode(f'{{"{score_keys[0]}":', add_special_tokens=False)]
+    for k in score_keys[1:]:
+        chunks.append(tokenizer.encode(f',"{k}":', add_special_tokens=False))
+    chunks.append(tokenizer.encode("}", add_special_tokens=False))
+
+    digit_ids = [tokenizer.encode(str(d), add_special_tokens=False)[0] for d in range(10)]
+    minus_ids = tokenizer.encode("-", add_special_tokens=False)
+    minus_id = minus_ids[0] if minus_ids else None
+    eos_id = getattr(tokenizer, "eos_token_id", None)
+    n_keys = len(score_keys)
+
+    def allowed(_batch_idx: int, input_ids) -> list[int]:
+        gen = input_ids[padded_prompt_len:].tolist()
+        pos = 0
+
+        for key_idx in range(n_keys):
+            # Template chunk before value `key_idx`
+            tpl = chunks[key_idx]
+            for tok_id in tpl:
+                if pos >= len(gen):
+                    return [tok_id]
+                pos += 1  # trust that we forced the correct token earlier
+
+            # Value: leading minus (optional) + 1..max_value_digits digits + terminator
+            value_chars = 0
+            saw_minus = False
+            terminator = chunks[key_idx + 1][0]
+            while pos < len(gen):
+                tok = gen[pos]
+                if tok == minus_id and not saw_minus and value_chars == 0:
+                    saw_minus = True
+                    pos += 1
+                    continue
+                if tok in digit_ids:
+                    value_chars += 1
+                    pos += 1
+                    continue
+                break  # must be the terminator -> stop walking; advance to next template chunk
+
+            if pos == len(gen):
+                allowed_set: list[int] = []
+                if value_chars == 0 and not saw_minus and minus_id is not None:
+                    allowed_set.append(minus_id)
+                if value_chars < max_value_digits:
+                    allowed_set.extend(digit_ids)
+                if value_chars >= 1:
+                    allowed_set.append(terminator)
+                if not allowed_set:
+                    allowed_set = [terminator]
+                return allowed_set
+
+        # All values emitted; force closing brace
+        final = chunks[-1]
+        for tok_id in final:
+            if pos >= len(gen):
+                return [tok_id]
+            pos += 1
+
+        # Done — emit eos so generate() stops
+        return [eos_id] if eos_id is not None else [chunks[-1][-1]]
+
+    return allowed
+
+
 def score_action_candidates(
     *,
     model,
@@ -303,6 +388,7 @@ def score_action_candidates(
     rotation_representation: str,
     max_new_tokens: int,
     candidate_batch_size: int,
+    force_template: bool = False,
 ) -> list[CandidateScore]:
     import torch
 
@@ -335,6 +421,7 @@ def score_action_candidates(
                     messages,
                     tokenize=False,
                     add_generation_prompt=True,
+                    enable_thinking=False,
                 )
             )
 
@@ -353,28 +440,54 @@ def score_action_candidates(
         if pad_token_id is None:
             pad_token_id = getattr(processor.tokenizer, "eos_token_id", None)
 
-        with torch.inference_mode():
-            generated_ids = model.generate(
-                **inputs,
-                do_sample=False,
-                max_new_tokens=int(max_new_tokens),
-                pad_token_id=pad_token_id,
+        generate_kwargs: dict = dict(
+            do_sample=False,
+            max_new_tokens=int(max_new_tokens),
+            pad_token_id=pad_token_id,
+        )
+        if force_template:
+            padded_len = int(inputs["input_ids"].shape[1])
+            generate_kwargs["prefix_allowed_tokens_fn"] = _build_template_constraint(
+                processor.tokenizer,
+                score_keys=target_score_keys,
+                padded_prompt_len=padded_len,
             )
 
-        for row, candidate in enumerate(batch_candidates):
-            prompt_len = int(inputs["attention_mask"][row].sum().item())
-            generated_text = processor.decode(
-                generated_ids[row, prompt_len:],
-                skip_special_tokens=True,
-            )
-            predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
-            scored.append(
-                CandidateScore(
-                    candidate=candidate,
-                    generated_text=generated_text,
-                    predicted_scores=predicted_scores,
+        with torch.inference_mode():
+            generated_ids = model.generate(**inputs, **generate_kwargs)
+
+        # When constraining, generated_text starts right after the padded prompt
+        # (same offset for every row since they were padded to the same length).
+        if force_template:
+            padded_len = int(inputs["input_ids"].shape[1])
+            for row, candidate in enumerate(batch_candidates):
+                generated_text = processor.decode(
+                    generated_ids[row, padded_len:],
+                    skip_special_tokens=True,
                 )
-            )
+                predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
+                scored.append(
+                    CandidateScore(
+                        candidate=candidate,
+                        generated_text=generated_text,
+                        predicted_scores=predicted_scores,
+                    )
+                )
+        else:
+            for row, candidate in enumerate(batch_candidates):
+                prompt_len = int(inputs["attention_mask"][row].sum().item())
+                generated_text = processor.decode(
+                    generated_ids[row, prompt_len:],
+                    skip_special_tokens=True,
+                )
+                predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
+                scored.append(
+                    CandidateScore(
+                        candidate=candidate,
+                        generated_text=generated_text,
+                        predicted_scores=predicted_scores,
+                    )
+                )
     return scored
 
 
@@ -418,6 +531,7 @@ def score_action_candidates_vllm(
             messages,
             tokenize=False,
             add_generation_prompt=True,
+            enable_thinking=False,
         )
         prompts.append({
             "prompt": text,
@@ -552,6 +666,7 @@ def score_with_lookahead_vllm(
             ]
             text = processor.apply_chat_template(
                 messages, tokenize=False, add_generation_prompt=True,
+                enable_thinking=False,
             )
             composed_prompts.append({
                 "prompt": text,
