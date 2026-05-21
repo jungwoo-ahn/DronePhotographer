@@ -292,6 +292,21 @@ def generate_local_candidate_actions(
     return list(dedup.values())
 
 
+# Per-key digit caps, sized to the actual training-data range.
+# The training collator only optimizes digit tokens — it never teaches the model
+# when to STOP emitting them — so we have to enforce this at inference time.
+_V5_KEY_MAX_DIGITS = {
+    "occupancy": 3,                  # 0-100
+    "body_in_frame_ratio": 3,        # 0-100
+    "cam_to_obj_azimuth_deg": 3,     # 0-359
+    "cam_to_obj_elevation_deg": 2,   # 0-90 (sign handled separately)
+    "object_center_x": 4,            # 0-1024 typical
+    "object_center_y": 4,            # 0-768 typical
+    "bbox_x_offset": 4,              # 0-512 half-width typical
+    "bbox_y_offset": 4,              # 0-384 half-height typical
+}
+
+
 def _build_template_constraint(
     tokenizer,
     score_keys: Sequence[str],
@@ -305,6 +320,11 @@ def _build_template_constraint(
     function returns either a single template-token (when we're inside a
     template chunk like ``,"key":``) or the set of allowed value tokens (digits,
     leading minus, or the terminator that closes the value).
+
+    The per-value digit cap follows ``_V5_KEY_MAX_DIGITS`` when the key is known;
+    otherwise falls back to ``max_value_digits``. This matters because the
+    training loss only signals on digit content, not on when to emit the comma —
+    so without a tight cap, the model just keeps writing digits.
 
     Padded-prompt-aware: callers must pass the post-padding prompt length so we
     know where generation began in ``input_ids``.
@@ -323,6 +343,9 @@ def _build_template_constraint(
     minus_id = minus_ids[0] if minus_ids else None
     eos_id = getattr(tokenizer, "eos_token_id", None)
     n_keys = len(score_keys)
+    per_key_caps = [
+        _V5_KEY_MAX_DIGITS.get(k, max_value_digits) for k in score_keys
+    ]
 
     def allowed(_batch_idx: int, input_ids) -> list[int]:
         gen = input_ids[padded_prompt_len:].tolist()
@@ -353,10 +376,11 @@ def _build_template_constraint(
                 break  # must be the terminator -> stop walking; advance to next template chunk
 
             if pos == len(gen):
+                cap = per_key_caps[key_idx]
                 allowed_set: list[int] = []
                 if value_chars == 0 and not saw_minus and minus_id is not None:
                     allowed_set.append(minus_id)
-                if value_chars < max_value_digits:
+                if value_chars < cap:
                     allowed_set.extend(digit_ids)
                 if value_chars >= 1:
                     allowed_set.append(terminator)
@@ -396,6 +420,10 @@ def score_action_candidates(
         raise ValueError("candidate_batch_size must be positive")
     if not candidates:
         raise ValueError("candidate list is empty")
+    # Decoder-only generation requires left-padding so every row's last token
+    # is the final prompt token. Right-padding makes the model continue from
+    # PAD tokens and emit gibberish for shorter prompts in the batch.
+    processor.tokenizer.padding_side = "left"
     scored: list[CandidateScore] = []
     for start in range(0, len(candidates), candidate_batch_size):
         batch_candidates = list(candidates[start : start + candidate_batch_size])
@@ -456,38 +484,22 @@ def score_action_candidates(
         with torch.inference_mode():
             generated_ids = model.generate(**inputs, **generate_kwargs)
 
-        # When constraining, generated_text starts right after the padded prompt
-        # (same offset for every row since they were padded to the same length).
-        if force_template:
-            padded_len = int(inputs["input_ids"].shape[1])
-            for row, candidate in enumerate(batch_candidates):
-                generated_text = processor.decode(
-                    generated_ids[row, padded_len:],
-                    skip_special_tokens=True,
+        # With left-padding, every row's generation starts at the same offset:
+        # the padded input length. Use that, not per-row attention_mask sum.
+        padded_len = int(inputs["input_ids"].shape[1])
+        for row, candidate in enumerate(batch_candidates):
+            generated_text = processor.decode(
+                generated_ids[row, padded_len:],
+                skip_special_tokens=True,
+            )
+            predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
+            scored.append(
+                CandidateScore(
+                    candidate=candidate,
+                    generated_text=generated_text,
+                    predicted_scores=predicted_scores,
                 )
-                predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
-                scored.append(
-                    CandidateScore(
-                        candidate=candidate,
-                        generated_text=generated_text,
-                        predicted_scores=predicted_scores,
-                    )
-                )
-        else:
-            for row, candidate in enumerate(batch_candidates):
-                prompt_len = int(inputs["attention_mask"][row].sum().item())
-                generated_text = processor.decode(
-                    generated_ids[row, prompt_len:],
-                    skip_special_tokens=True,
-                )
-                predicted_scores = parse_scores_from_text(generated_text, score_keys=target_score_keys)
-                scored.append(
-                    CandidateScore(
-                        candidate=candidate,
-                        generated_text=generated_text,
-                        predicted_scores=predicted_scores,
-                    )
-                )
+            )
     return scored
 
 

@@ -746,7 +746,7 @@ def main() -> None:
             raise RuntimeError(
                 "Failed to parse every candidate prediction. "
                 "This usually means the model output was truncated or not valid JSON. "
-                "Try increasing --max_new_tokens."
+                "Try increasing --max_new_tokens, or pass --force_template."
             )
 
         ranked_candidates: list[dict[str, object]] = []
