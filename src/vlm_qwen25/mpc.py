@@ -295,9 +295,13 @@ def generate_local_candidate_actions(
 # Per-key digit caps, sized to the actual training-data range.
 # The training collator only optimizes digit tokens — it never teaches the model
 # when to STOP emitting them — so we have to enforce this at inference time.
+# Caps reflect the COMMON value range, not the absolute max: tighter caps keep
+# the noisy model from overshooting. e.g. occupancy is technically 0-100 but
+# values of 100 are rare; capping at 2 produces 0-99 which is in-range almost
+# always, and 100 truncated to 10 is far less wrong than 346 unbounded.
 _V5_KEY_MAX_DIGITS = {
-    "occupancy": 3,                  # 0-100
-    "body_in_frame_ratio": 3,        # 0-100
+    "occupancy": 2,                  # 0-99 typical (100 is rare edge case)
+    "body_in_frame_ratio": 2,        # 0-99 typical (100 is rare edge case)
     "cam_to_obj_azimuth_deg": 3,     # 0-359
     "cam_to_obj_elevation_deg": 2,   # 0-90 (sign handled separately)
     "object_center_x": 4,            # 0-1024 typical
