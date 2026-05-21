@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 """Generate MPC target_json from natural language shot descriptions using an LLM.
 
+Targets the v6 (V5_SCORE_KEYS) trained model: occupancy / body_in_frame_ratio /
+cam_to_obj_azimuth_deg / cam_to_obj_elevation_deg / object_center_x / object_center_y
+/ bbox_x_offset / bbox_y_offset.
+
+Adapted from the earlier `generate_target.py` (which targeted the older
+with_c2o 6D-vector schema) by replacing the camera 6D vectors with the simpler
+2-angle representation that v6 uses, and dropping aspect_ratio (no v5 equivalent).
+
 Usage:
     python scripts/generate_target.py "left face from above, wide shot"
-    python scripts/generate_target.py --backend claude-cli "정면 클로즈업"
+    python scripts/generate_target.py --backend claude-cli "front centered close-up"
     python scripts/generate_target.py --generate-script "over shoulder follow shot"
 """
 from __future__ import annotations
 
 import argparse
 import json
-import math
 import os
 import re
 import subprocess
@@ -24,137 +31,115 @@ if str(REPO_ROOT) not in sys.path:
 
 
 SYSTEM_PROMPT = textwrap.dedent("""\
-You are a drone cinematography expert that converts natural language shot descriptions
-into precise numerical target parameters for a Model Predictive Control (MPC) camera system.
+You are a drone cinematography expert that converts natural language shot
+descriptions into precise numerical target parameters for a Model Predictive
+Control (MPC) camera system.
 
 ## Project context
 
 A drone camera moves through a 3D scene to photograph a human subject.
-The MPC optimizer iteratively adjusts the camera pose to minimize error between
-the model's predicted scores and the target values you produce.
+The trained model predicts 8 scores per frame; the MPC optimizer iteratively
+adjusts the camera pose to minimize error between predicted and target values.
 
 ## Output format
 
-Return EXACTLY one JSON object with these fields:
-- Bbox composition (at least occupancy):
-  - center_x (float 0-1, default 0.5): horizontal position of subject in frame
-  - center_y (float 0-1, default 0.5): vertical position (0=top, 1=bottom)
-  - occupancy (float 0.1-0.6): fraction of frame area occupied by subject
-  - aspect_ratio (float 0.5-2.0): subject bbox width/height ratio
-- Camera-to-object 6D orientation (all required):
-  - camera_to_object_fx, fy, fz: object forward vector in camera frame
-  - camera_to_object_ux, uy, uz: object up vector in camera frame
+Return EXACTLY one JSON object. Keys you may emit (all optional except occupancy):
 
-## camera_to_object_6d: what each value means
+- "center_x" (float 0-1, default 0.5): horizontal position of subject bbox center
+  in the frame (0 = left edge, 1 = right edge). The MPC compiler converts this
+  to pixel coordinates using the actual render resolution.
+- "center_y" (float 0-1, default 0.5): vertical position (0 = top, 1 = bottom).
+- "occupancy" (float 0-1, REQUIRED): fraction of frame area the subject's bbox
+  should occupy. The compiler converts this to 0-100 percent for the model.
+- "body_in_frame_ratio" (float 0-1, default 1.0): fraction of the subject's
+  full body inside the frame. 1.0 = fully visible; less = intentionally
+  cropped. Compiler scales to 0-100.
+- "cam_to_obj_azimuth_deg" (float 0-360): angle of the CAMERA AROUND the
+  subject in the horizontal plane. The training convention encodes this as
+  atan2(cam_y - obj_y, cam_x - obj_x), so the absolute direction depends on
+  the scene's coordinate frame. Most scenes are noisy on this axis; OMIT this
+  key unless the user explicitly asks for a specific compass-style direction.
+- "cam_to_obj_elevation_deg" (float -90 to +90): camera height angle.
+    - +90 → camera DIRECTLY ABOVE the subject (top-down / bird's eye)
+    - +45 → high angle (drone hovering above)
+    -   0 → eye-level
+    - -45 → low angle (hero shot / looking up at subject)
+    - -90 → camera below the subject (worm's eye)
 
-The 6D values describe how the subject appears relative to the camera.
+## Shot size (occupancy) guide
 
-### Forward vector (fx, fy, fz) — "where is the camera relative to the subject?"
+- Extreme wide / establishing: 0.05 - 0.15
+- Wide / full shot: 0.15 - 0.25
+- Medium shot: 0.25 - 0.40
+- Close-up: 0.40 - 0.55
+- Extreme close-up: 0.55 - 0.70
 
-- **fy** (most important): front vs back
-  - fy ≈ +1.0 → camera sees the subject's FACE (front view)
-  - fy ≈  0.0 → side profile (90° side view)
-  - fy ≈ -1.0 → camera sees the subject's BACK
-- **fx**: which side profile is visible
-  - fx ≈ +1.0 → camera is on subject's LEFT → left profile visible
-  - fx ≈  0.0 → straight front or back (no lateral offset)
-  - fx ≈ -1.0 → camera is on subject's RIGHT → right profile visible
-- **fz**: camera height
-  - fz > 0 → camera is BELOW subject (low angle / hero shot)
-  - fz ≈ 0 → eye level
-  - fz < 0 → camera is ABOVE subject (high angle / aerial)
+## Framing (center_x, center_y)
 
-### Up vector (ux, uy, uz) — "how is the camera tilted?"
-
-- **ux**: subject tilt (roll) — usually ≈ 0 (subject appears upright)
-- **uy**: camera pitch indicator
-  - uy > 0 → camera looking UP (low angle)
-  - uy ≈ 0 → camera horizontal (eye level)
-  - uy < 0 → camera looking DOWN (high angle)
-  - uy ≈ -1.0 → complete top-down bird's eye
-- **uz**: how level the camera is — usually ≈ 1.0 (upright camera)
-
-### Constraints
-- Forward and up vectors MUST be orthogonal: fx*ux + fy*uy + fz*uz ≈ 0
-- Each vector should be approximately unit length
-- Round values to 1 decimal place
-
-## Bbox composition guide
-
-- **Shot size** (occupancy):
-  - Extreme wide / establishing: 0.10 - 0.15
-  - Wide / full shot: 0.15 - 0.25
-  - Medium shot: 0.30 - 0.40
-  - Close-up: 0.45 - 0.55
-  - Extreme close-up: 0.55 - 0.65
-- **Framing** (center_x, center_y):
-  - Centered: center_x=0.5, center_y=0.5
-  - Rule of thirds: center_x ∈ {0.333, 0.667}, center_y ∈ {0.333, 0.667}
-  - Lead room: offset center AWAY from subject's gaze direction
-- **Aspect ratio**:
-  - Portrait: 0.6 - 0.8
-  - Square: 1.0
-  - Landscape / cinematic: 1.3 - 2.0
+- Centered: center_x=0.5, center_y=0.5
+- Rule of thirds: center_x ∈ {0.333, 0.667}, center_y ∈ {0.333, 0.667}
+- Lead room: offset center AWAY from the subject's gaze / motion direction.
+  Typical low-angle hero: center_y ≈ 0.55-0.65 (subject sits in lower-frame).
+  Typical high-angle aerial: center_y ≈ 0.4-0.5.
 
 ## Examples
 
 User: "front eye-level, centered, medium shot"
 ```json
-{"center_x":0.5,"center_y":0.5,"occupancy":0.4,"aspect_ratio":1.0,"camera_to_object_fx":0.0,"camera_to_object_fy":1.0,"camera_to_object_fz":0.0,"camera_to_object_ux":0.0,"camera_to_object_uy":0.0,"camera_to_object_uz":1.0}
+{"center_x":0.5,"center_y":0.5,"occupancy":0.35,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":0}
 ```
 
-User: "behind and above, aerial follow shot, wide"
+User: "aerial top-down, centered, wide"
 ```json
-{"center_x":0.5,"center_y":0.5,"occupancy":0.3,"aspect_ratio":1.2,"camera_to_object_fx":0.0,"camera_to_object_fy":-0.7,"camera_to_object_fz":-0.5,"camera_to_object_ux":0.0,"camera_to_object_uy":-0.5,"camera_to_object_uz":0.8}
+{"center_x":0.5,"center_y":0.5,"occupancy":0.2,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":85}
 ```
 
-User: "left profile portrait, close-up"
+User: "low-angle hero shot, looking up at subject, medium"
 ```json
-{"center_x":0.45,"center_y":0.5,"occupancy":0.45,"aspect_ratio":0.75,"camera_to_object_fx":0.7,"camera_to_object_fy":0.5,"camera_to_object_fz":0.0,"camera_to_object_ux":0.0,"camera_to_object_uy":0.0,"camera_to_object_uz":1.0}
+{"center_x":0.5,"center_y":0.6,"occupancy":0.4,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":-30}
 ```
 
-User: "rule of thirds top-right, front, wide shot"
+User: "rule of thirds top-right, eye-level, wide shot"
 ```json
-{"center_x":0.667,"center_y":0.333,"occupancy":0.25,"aspect_ratio":1.0,"camera_to_object_fx":0.0,"camera_to_object_fy":1.0,"camera_to_object_fz":0.0,"camera_to_object_ux":0.0,"camera_to_object_uy":0.0,"camera_to_object_uz":1.0}
+{"center_x":0.667,"center_y":0.333,"occupancy":0.2,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":0}
 ```
 
-User: "hero shot from low right, looking up at subject"
+User: "tight portrait, slightly high angle, centered"
 ```json
-{"center_x":0.5,"center_y":0.5,"occupancy":0.4,"aspect_ratio":1.0,"camera_to_object_fx":-0.5,"camera_to_object_fy":0.7,"camera_to_object_fz":0.4,"camera_to_object_ux":-0.3,"camera_to_object_uy":0.4,"camera_to_object_uz":0.8}
+{"center_x":0.5,"center_y":0.45,"occupancy":0.55,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":15}
 ```
 
-User: "over-the-shoulder, subject on right with lead room left"
+User: "subject cropped (only torso visible), close-up"
 ```json
-{"center_x":0.6,"center_y":0.45,"occupancy":0.35,"aspect_ratio":1.3,"camera_to_object_fx":0.6,"camera_to_object_fy":-0.5,"camera_to_object_fz":-0.2,"camera_to_object_ux":0.0,"camera_to_object_uy":-0.2,"camera_to_object_uz":0.95}
+{"center_x":0.5,"center_y":0.5,"occupancy":0.5,"body_in_frame_ratio":0.6,"cam_to_obj_elevation_deg":0}
 ```
 
-User: "top-down bird's eye, centered"
+User: "over shoulder, subject lead-room to the right"
 ```json
-{"center_x":0.5,"center_y":0.5,"occupancy":0.35,"aspect_ratio":1.0,"camera_to_object_fx":0.0,"camera_to_object_fy":0.0,"camera_to_object_fz":0.0,"camera_to_object_ux":0.0,"camera_to_object_uy":-1.0,"camera_to_object_uz":0.0}
+{"center_x":0.35,"center_y":0.5,"occupancy":0.35,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":-5}
 ```
 
-User: "right side, eye level, medium"
+User: "bird's eye view, subject small in lower-third"
 ```json
-{"center_x":0.55,"center_y":0.5,"occupancy":0.35,"aspect_ratio":1.0,"camera_to_object_fx":-1.0,"camera_to_object_fy":0.0,"camera_to_object_fz":0.0,"camera_to_object_ux":0.0,"camera_to_object_uy":0.0,"camera_to_object_uz":1.0}
-```
-
-User: "front, slightly from above, close-up, centered"
-```json
-{"center_x":0.5,"center_y":0.5,"occupancy":0.5,"aspect_ratio":0.8,"camera_to_object_fx":0.0,"camera_to_object_fy":0.8,"camera_to_object_fz":-0.3,"camera_to_object_ux":0.0,"camera_to_object_uy":-0.4,"camera_to_object_uz":0.9}
+{"center_x":0.5,"center_y":0.667,"occupancy":0.15,"body_in_frame_ratio":1.0,"cam_to_obj_elevation_deg":80}
 ```
 
 ## Instructions
 
-Given the user's shot description, output ONLY a single JSON object (no markdown, no explanation).
-Ensure the forward and up vectors are orthogonal and approximately unit length.
+Given the user's shot description, output ONLY a single JSON object (no markdown,
+no explanation). Omit keys you have no clear intent to constrain. Default
+body_in_frame_ratio to 1.0 unless the user explicitly asks for cropping.
 """)
 
-
-REQUIRED_C2O_KEYS = [
-    "camera_to_object_fx", "camera_to_object_fy", "camera_to_object_fz",
-    "camera_to_object_ux", "camera_to_object_uy", "camera_to_object_uz",
-]
-COMPOSITION_KEYS = ["center_x", "center_y", "occupancy", "aspect_ratio"]
+# Score keys the v6 model emits and the LLM may target.
+V6_TARGET_KEYS = {
+    "center_x",
+    "center_y",
+    "occupancy",
+    "body_in_frame_ratio",
+    "cam_to_obj_azimuth_deg",
+    "cam_to_obj_elevation_deg",
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -162,14 +147,19 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("description", nargs="?", help="Shot description (interactive if omitted)")
     p.add_argument("--backend", default="gateway", choices=["gateway", "claude-cli"],
                    help="LLM backend: 'gateway' (Letsur/OpenAI-compatible) or 'claude-cli'")
-    p.add_argument("--model", default="gemini-2.5-flash", help="Model name for gateway backend")
+    p.add_argument("--model", default="gemini-2.5-flash",
+                   help="Model name for gateway backend")
     p.add_argument("--api_key_env", default="LETSUR_API_KEY")
     p.add_argument("--base_url", default="https://gateway.letsur.ai/v1")
     p.add_argument("--generate-script", action="store_true",
                    help="Also generate a shell script for infer_mpc_blender.py")
     p.add_argument("--run_dir", default="outputs/Namaqualand_namaqualand_v3_260331_054741")
-    p.add_argument("--model_path", default="runs/20260403_151944_qwen35_vl_2b_1xh200_with_c2o_5k/final")
-    p.add_argument("--config", default="configs/qwen35_vl_2b_1xh200_with_c2o_5k.yaml")
+    p.add_argument(
+        "--model_path",
+        default="/home/nas5/jungwooahn/projects/DronePhotographer/runs/"
+                "20260514_122526_qwen35_vl_2b_1xh200_v5/checkpoints/checkpoint-26000",
+    )
+    p.add_argument("--config", default="configs/qwen35_vl_2b_1xh200_v5.yaml")
     return p.parse_args()
 
 
@@ -190,7 +180,7 @@ def call_gateway(description: str, args: argparse.Namespace) -> str:
         ],
         temperature=0.2,
     )
-    return response.choices[0].message.content.strip()
+    return (response.choices[0].message.content or "").strip()
 
 
 def call_claude_cli(description: str) -> str:
@@ -216,49 +206,35 @@ def extract_json(text: str) -> dict:
 
 
 def validate_target(target: dict) -> dict:
-    for key in REQUIRED_C2O_KEYS:
-        if key not in target:
-            raise ValueError(f"Missing required key: {key}")
-
     if "occupancy" not in target:
-        raise ValueError("Missing required key: occupancy")
+        raise ValueError("target must specify 'occupancy'")
 
-    fx = target["camera_to_object_fx"]
-    fy = target["camera_to_object_fy"]
-    fz = target["camera_to_object_fz"]
-    ux = target["camera_to_object_ux"]
-    uy = target["camera_to_object_uy"]
-    uz = target["camera_to_object_uz"]
+    if not (0.0 < float(target["occupancy"]) <= 1.0):
+        raise ValueError(f"occupancy out of range (0..1]: {target['occupancy']}")
+    for k in ("center_x", "center_y"):
+        if k in target and not (0.0 <= float(target[k]) <= 1.0):
+            raise ValueError(f"{k} out of range [0..1]: {target[k]}")
+    if "body_in_frame_ratio" in target:
+        v = float(target["body_in_frame_ratio"])
+        if not (0.0 <= v <= 1.0):
+            raise ValueError(f"body_in_frame_ratio out of range [0..1]: {v}")
+    if "cam_to_obj_azimuth_deg" in target:
+        target["cam_to_obj_azimuth_deg"] = float(target["cam_to_obj_azimuth_deg"]) % 360.0
+    if "cam_to_obj_elevation_deg" in target:
+        v = float(target["cam_to_obj_elevation_deg"])
+        if not (-90.0 <= v <= 90.0):
+            raise ValueError(f"cam_to_obj_elevation_deg out of range [-90, +90]: {v}")
 
-    dot = fx * ux + fy * uy + fz * uz
-    if abs(dot) > 0.1:
-        print(f"Warning: f·u = {dot:.3f} (should be ~0). Orthogonalizing...", file=sys.stderr)
-        f_norm_sq = fx * fx + fy * fy + fz * fz
-        if f_norm_sq > 1e-6:
-            proj = dot / f_norm_sq
-            ux -= proj * fx
-            uy -= proj * fy
-            uz -= proj * fz
-        u_norm = math.sqrt(ux * ux + uy * uy + uz * uz)
-        if u_norm > 1e-6:
-            ux /= u_norm
-            uy /= u_norm
-            uz /= u_norm
-        target["camera_to_object_ux"] = round(ux, 2)
-        target["camera_to_object_uy"] = round(uy, 2)
-        target["camera_to_object_uz"] = round(uz, 2)
-
+    unknown = [k for k in target if k not in V6_TARGET_KEYS]
+    if unknown:
+        raise ValueError(
+            f"unrecognized target keys for v6 schema: {unknown}. "
+            f"Allowed: {sorted(V6_TARGET_KEYS)}"
+        )
     return target
 
 
-def describe_target(target: dict) -> str:
-    from src.vlm_qwen25.mpc import _describe_targets
-    weights = {k: 1.0 for k in target if k.startswith(("bbox_", "camera_to_object_"))}
-    weights.update({k: 1.0 for k in COMPOSITION_KEYS if k in target})
-    return _describe_targets(target, weights)
-
-
-def generate_shell_script(description: str, target: dict, args: argparse.Namespace) -> str:
+def generate_shell_script(description: str, target: dict, args: argparse.Namespace) -> tuple[str, str]:
     safe_name = re.sub(r"[^a-z0-9]+", "_", description.lower()).strip("_")[:40]
     target_json_str = json.dumps(target, separators=(",", ":"))
 
@@ -273,9 +249,6 @@ def generate_shell_script(description: str, target: dict, args: argparse.Namespa
     BLENDER_BIN="blender/blender"
     BLENDER_THREADS="${{BLENDER_THREADS:-4}}"
     CANDIDATE_BATCH_SIZE="${{CANDIDATE_BATCH_SIZE:-96}}"
-
-    DEFAULT_SCORE_WEIGHTS='{{"bbox_occupancy_ratio":2.0,"bbox_margin_top":1.0,"bbox_margin_bottom":1.0,"bbox_margin_left":1.0,"bbox_margin_right":1.0,"bbox_aspect_ratio":1.0,"bbox_centroid_offset":2.0,"camera_to_object_fx":1.0,"camera_to_object_fy":1.0,"camera_to_object_fz":1.0,"camera_to_object_ux":1.0,"camera_to_object_uy":1.0,"camera_to_object_uz":1.0}}'
-    SCORE_WEIGHTS_JSON="${{SCORE_WEIGHTS_JSON:-$DEFAULT_SCORE_WEIGHTS}}"
 
     export OMP_NUM_THREADS="${{BLENDER_THREADS}}"
     export OPENBLAS_NUM_THREADS="${{BLENDER_THREADS}}"
@@ -295,51 +268,32 @@ def generate_shell_script(description: str, target: dict, args: argparse.Namespa
       --max_candidates 720 \\
       --candidate_batch_size "${{CANDIDATE_BATCH_SIZE}}" \\
       --max_new_tokens 256 \\
-      --score_weights_json "${{SCORE_WEIGHTS_JSON}}" \\
-      --translation_penalty_weight 0.0 \\
-      --rotation_penalty_weight 0.0 \\
-      --blender_threads "${{BLENDER_THREADS}}" \\
-      --disable_roll \\
       --target_json '{target_json_str}'
     """)
-
-    script_path = REPO_ROOT / "scripts" / f"infer_mpc_namaqualand_{safe_name}.sh"
-    script_path.write_text(script)
-    script_path.chmod(0o755)
-    return str(script_path)
+    return script, safe_name
 
 
-def main() -> None:
+def main():
     args = parse_args()
-
-    description = args.description
+    description = args.description or input("Shot description: ").strip()
     if not description:
-        description = input("Describe the shot: ").strip()
-        if not description:
-            print("No description provided.", file=sys.stderr)
-            sys.exit(1)
-
-    print(f"Generating target for: \"{description}\"", file=sys.stderr)
+        print("Error: empty description.", file=sys.stderr)
+        sys.exit(1)
 
     if args.backend == "gateway":
         raw = call_gateway(description, args)
     else:
         raw = call_claude_cli(description)
 
-    target = extract_json(raw)
-    target = validate_target(target)
-    human = describe_target(target)
-
-    result = {
-        "description": description,
-        "target_json": target,
-        "human_readable": human,
-    }
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    target = validate_target(extract_json(raw))
+    print(json.dumps(target, indent=2))
 
     if args.generate_script:
-        path = generate_shell_script(description, target, args)
-        print(f"\nScript saved: {path}", file=sys.stderr)
+        script, name = generate_shell_script(description, target, args)
+        out_path = Path("scripts") / f"infer_mpc_{name}.sh"
+        out_path.write_text(script)
+        out_path.chmod(0o755)
+        print(f"\nShell script written: {out_path}")
 
 
 if __name__ == "__main__":

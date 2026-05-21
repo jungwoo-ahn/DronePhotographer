@@ -4,9 +4,12 @@ import json
 import math
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Mapping
+from typing import Mapping, Sequence
 
+from src.scoring.bbox_control import V5_SCORE_KEYS
 from src.scoring.evaluator import ALL_SUPPORTED_SCORE_KEYS
+
+_V5_KEY_SET = frozenset(V5_SCORE_KEYS)
 
 DEFAULT_SCORE_WEIGHTS = {
     "bbox_occupancy_ratio": 2.0,
@@ -161,17 +164,44 @@ def composition_to_margin_targets(
 def compile_score_targets(
     spec: Mapping[str, float],
     frame_aspect_ratio: float = 4.0 / 3.0,
+    score_keys_hint: Sequence[str] | None = None,
+    frame_resolution: tuple[int, int] | None = None,
 ) -> dict[str, float]:
+    """Compile a high-level preset/spec into per-score-key target values.
+
+    `score_keys_hint`: list of score keys the model emits. When any V5_SCORE_KEYS
+    are present, the function emits v5-namespace targets (e.g. ``occupancy``,
+    ``object_center_x``) directly. Otherwise it falls back to the legacy
+    bbox-margin namespace (``bbox_occupancy_ratio``, ``bbox_margin_*``).
+
+    `frame_resolution`: (width, height) in pixels — required to translate
+    0-1 fractional center positions into v5's pixel-coordinate targets.
+    Defaults to (1024, 768).
+    """
     raw_spec = {str(key): float(value) for key, value in spec.items()}
     targets: dict[str, float] = {}
+
+    v5_mode = bool(score_keys_hint) and any(k in _V5_KEY_SET for k in score_keys_hint)
 
     for key in ALL_SUPPORTED_SCORE_KEYS:
         if key in raw_spec:
             targets[key] = float(raw_spec[key])
 
     if "occupancy" in raw_spec:
-        targets["bbox_occupancy_ratio"] = float(raw_spec["occupancy"])
-    if "aspect_ratio" in raw_spec:
+        occ = float(raw_spec["occupancy"])
+        if v5_mode:
+            # v5 occupancy is 0-100 (int). Treat 0..1 as fractions, >1 as already pct.
+            targets["occupancy"] = occ * 100.0 if 0.0 <= occ <= 1.0 else occ
+        else:
+            targets["bbox_occupancy_ratio"] = occ
+
+    # v5's body_in_frame_ratio is 0-100. Same fraction-vs-percent normalization.
+    if v5_mode and "body_in_frame_ratio" in raw_spec:
+        bif = float(raw_spec["body_in_frame_ratio"])
+        targets["body_in_frame_ratio"] = bif * 100.0 if 0.0 <= bif <= 1.0 else bif
+
+    if "aspect_ratio" in raw_spec and not v5_mode:
+        # v5 schema has no direct aspect_ratio key; skip in v5 mode.
         targets["bbox_aspect_ratio"] = float(raw_spec["aspect_ratio"])
 
     has_center = "center_x" in raw_spec or "center_y" in raw_spec
@@ -180,24 +210,32 @@ def compile_score_targets(
             raise ValueError("center_x and center_y must be provided together")
         center_x = float(raw_spec["center_x"])
         center_y = float(raw_spec["center_y"])
-        centered = abs(center_x - 0.5) < 1e-6 and abs(center_y - 0.5) < 1e-6
-        if centered and "bbox_centroid_offset" not in targets:
-            targets["bbox_centroid_offset"] = 0.0
-        if "occupancy" in raw_spec and "aspect_ratio" in raw_spec:
-            targets.update(
-                composition_to_margin_targets(
-                    center_x=center_x,
-                    center_y=center_y,
-                    occupancy=float(raw_spec["occupancy"]),
-                    aspect_ratio=float(raw_spec["aspect_ratio"]),
-                    frame_aspect_ratio=frame_aspect_ratio,
+
+        if v5_mode:
+            width, height = frame_resolution if frame_resolution else (1024, 768)
+            cx_pixel = center_x * width if 0.0 <= center_x <= 1.0 else center_x
+            cy_pixel = center_y * height if 0.0 <= center_y <= 1.0 else center_y
+            targets["object_center_x"] = cx_pixel
+            targets["object_center_y"] = cy_pixel
+        else:
+            centered = abs(center_x - 0.5) < 1e-6 and abs(center_y - 0.5) < 1e-6
+            if centered and "bbox_centroid_offset" not in targets:
+                targets["bbox_centroid_offset"] = 0.0
+            if "occupancy" in raw_spec and "aspect_ratio" in raw_spec:
+                targets.update(
+                    composition_to_margin_targets(
+                        center_x=center_x,
+                        center_y=center_y,
+                        occupancy=float(raw_spec["occupancy"]),
+                        aspect_ratio=float(raw_spec["aspect_ratio"]),
+                        frame_aspect_ratio=frame_aspect_ratio,
+                    )
                 )
-            )
-        elif not centered:
-            raise ValueError(
-                "off-center composition targets require occupancy and aspect_ratio "
-                "so bbox margins can be derived"
-            )
+            elif not centered:
+                raise ValueError(
+                    "off-center composition targets require occupancy and aspect_ratio "
+                    "so bbox margins can be derived"
+                )
 
     if not targets:
         raise ValueError(
@@ -249,6 +287,8 @@ def build_target_objective(
     target_json_text: str | None = None,
     score_weights_json_text: str | None = None,
     frame_aspect_ratio: float = 4.0 / 3.0,
+    score_keys_hint: Sequence[str] | None = None,
+    frame_resolution: tuple[int, int] | None = None,
 ) -> TargetObjective:
     raw_spec: dict[str, float] = {}
     if preset_name:
@@ -260,7 +300,12 @@ def build_target_objective(
     if target_json_text:
         raw_spec.update(_load_json_dict(target_json_text))
 
-    score_targets = compile_score_targets(raw_spec, frame_aspect_ratio=frame_aspect_ratio)
+    score_targets = compile_score_targets(
+        raw_spec,
+        frame_aspect_ratio=frame_aspect_ratio,
+        score_keys_hint=score_keys_hint,
+        frame_resolution=frame_resolution,
+    )
     weight_spec = _load_json_dict(score_weights_json_text) if score_weights_json_text else None
     score_weights = compile_score_weights(score_targets, weights_spec=weight_spec)
     objective_name = preset_name if preset_name else "custom_target"
@@ -270,3 +315,86 @@ def build_target_objective(
         score_targets=score_targets,
         score_weights=score_weights,
     )
+
+
+def build_target_objective_schedule(
+    *,
+    preset_name: str | None = None,
+    target_json_text: str | None = None,
+    schedule_json_text: str | None = None,
+    default_weights_json_text: str | None = None,
+    frame_aspect_ratio: float = 4.0 / 3.0,
+    score_keys_hint: Sequence[str] | None = None,
+    frame_resolution: tuple[int, int] | None = None,
+) -> list[tuple[int, TargetObjective]]:
+    """Build a list of (until_step_exclusive, TargetObjective) phases.
+
+    `schedule_json_text` is a JSON list of phases, each phase a dict with:
+      - "until_step": int (exclusive upper bound; the last phase typically uses a very large int)
+      - "preset" (optional): name of a TARGET_PRESETS entry
+      - "target" (optional): dict of raw spec overrides
+      - "weights" (optional): dict of weight overrides for this phase
+
+    If `schedule_json_text` is None, returns a single phase (until_step=10^9) using
+    the top-level preset_name/target_json_text/default_weights_json_text.
+    """
+    if not schedule_json_text:
+        obj = build_target_objective(
+            preset_name=preset_name,
+            target_json_text=target_json_text,
+            score_weights_json_text=default_weights_json_text,
+            frame_aspect_ratio=frame_aspect_ratio,
+            score_keys_hint=score_keys_hint,
+            frame_resolution=frame_resolution,
+        )
+        return [(1_000_000_000, obj)]
+
+    payload = json.loads(schedule_json_text) if not Path(schedule_json_text).exists() \
+        else json.loads(Path(schedule_json_text).read_text(encoding="utf-8"))
+    if not isinstance(payload, list) or not payload:
+        raise ValueError("objective schedule JSON must be a non-empty list of phases")
+
+    base_weights = _load_json_dict(default_weights_json_text) if default_weights_json_text else {}
+    schedule: list[tuple[int, TargetObjective]] = []
+    for i, phase in enumerate(payload):
+        if not isinstance(phase, dict):
+            raise ValueError(f"phase {i} must be a JSON object")
+        until = int(phase.get("until_step", 1_000_000_000))
+        phase_preset = phase.get("preset", preset_name)
+        # Merge base target spec with per-phase overrides
+        target_overrides: dict[str, float] = {}
+        if target_json_text:
+            target_overrides.update(_load_json_dict(target_json_text))
+        if "target" in phase:
+            target_overrides.update({str(k): float(v) for k, v in phase["target"].items()})
+        target_json_for_phase = json.dumps(target_overrides) if target_overrides else None
+
+        phase_weights = dict(base_weights)
+        if "weights" in phase:
+            phase_weights.update({str(k): float(v) for k, v in phase["weights"].items()})
+        weights_json_for_phase = json.dumps(phase_weights) if phase_weights else None
+
+        obj = build_target_objective(
+            preset_name=phase_preset,
+            target_json_text=target_json_for_phase,
+            score_weights_json_text=weights_json_for_phase,
+            frame_aspect_ratio=frame_aspect_ratio,
+            score_keys_hint=score_keys_hint,
+            frame_resolution=frame_resolution,
+        )
+        schedule.append((until, obj))
+
+    # Sort by until_step so binary-walking is monotone
+    schedule.sort(key=lambda pair: pair[0])
+    return schedule
+
+
+def objective_for_step(
+    schedule: Sequence[tuple[int, TargetObjective]],
+    step_idx: int,
+) -> TargetObjective:
+    """Pick the phase whose `until_step` first exceeds `step_idx`. Falls back to last."""
+    for until, obj in schedule:
+        if step_idx < until:
+            return obj
+    return schedule[-1][1]

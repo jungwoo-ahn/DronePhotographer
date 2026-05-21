@@ -38,8 +38,54 @@ from src.vlm_qwen25.objective import (
 )
 
 
+def _load_inference_config(path: str) -> dict:
+    """Load a YAML inference preset and flatten it to argparse-style overrides.
+
+    YAML schema:
+        name: human-readable name
+        description: shot description
+        target: {center_x, center_y, occupancy, body_in_frame_ratio, ...}
+        weights: {key: float, ...}     # optional
+        mpc:
+          num_steps: 50
+          translation_values_m: [-0.2, -0.1, 0, 0.1, 0.2]
+          rotation_values_deg: [-5, 0, 5]
+          max_translation_norm_m: 0.3
+          max_rotation_norm_deg: 7.5
+          max_candidates: 720
+          max_new_tokens: 256
+          disable_roll: false        # optional
+          # ... any other --flag from infer_mpc_blender.py
+    """
+    cfg = yaml.safe_load(open(path))
+    overrides: dict = {}
+    if cfg.get("target") is not None:
+        overrides["target_json"] = json.dumps(cfg["target"], separators=(",", ":"))
+        # YAML target is authoritative — clear the default --target_preset so we
+        # don't pull in legacy bbox_* keys the v6 model doesn't predict.
+        overrides["target_preset"] = None
+    if cfg.get("weights") is not None:
+        overrides["score_weights_json"] = json.dumps(cfg["weights"], separators=(",", ":"))
+    mpc = cfg.get("mpc") or {}
+    for k, v in mpc.items():
+        if k in ("translation_values_m", "rotation_values_deg") and isinstance(v, (list, tuple)):
+            overrides[k] = ",".join(str(x) for x in v)
+        else:
+            overrides[k] = v
+    return overrides
+
+
 def parse_args() -> argparse.Namespace:
+    # Pre-parse just --inference_config so we can use it to set defaults.
+    pre = argparse.ArgumentParser(add_help=False)
+    pre.add_argument("--inference_config", type=str, default=None,
+                     help="YAML preset that supplies target/weights/MPC defaults")
+    pre_args, _ = pre.parse_known_args()
+    yaml_defaults = _load_inference_config(pre_args.inference_config) if pre_args.inference_config else {}
+
     parser = argparse.ArgumentParser(description="True Blender-in-the-loop MPC rollout.")
+    parser.add_argument("--inference_config", type=str, default=None,
+                        help="YAML preset that supplies target/weights/MPC defaults")
     parser.add_argument("--run_dir", type=str, required=True, help="original rendered scene run directory")
     parser.add_argument("--model_path", type=str, required=True, help="trained model directory, usually runs/<run>/final")
     parser.add_argument("--config", type=str, default=None, help="optional training config override")
@@ -124,6 +170,16 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Fix rz=0 in candidate rotation (no roll, pitch+yaw only)",
     )
+    parser.add_argument(
+        "--force_template",
+        action="store_true",
+        help="Force the model to emit a valid JSON template via prefix_allowed_tokens_fn "
+             "(digits-only at value positions, fixed scaffolding tokens elsewhere). "
+             "Skips chain-of-thought entirely and guarantees parseable output.",
+    )
+    # YAML preset values become the defaults; explicit CLI args still override.
+    if yaml_defaults:
+        parser.set_defaults(**yaml_defaults)
     return parser.parse_args()
 
 
@@ -412,6 +468,7 @@ def main() -> None:
     resolution = options.get("resolution", [1024, 768])
     frame_aspect_ratio = float(resolution[0]) / float(resolution[1])
 
+    frame_resolution = (int(resolution[0]), int(resolution[1]))
     if args.objective_schedule_json:
         objective_schedule = build_target_objective_schedule(
             preset_name=args.target_preset,
@@ -419,6 +476,8 @@ def main() -> None:
             schedule_json_text=args.objective_schedule_json,
             default_weights_json_text=args.score_weights_json,
             frame_aspect_ratio=frame_aspect_ratio,
+            score_keys_hint=score_keys,
+            frame_resolution=frame_resolution,
         )
         target_objective = objective_schedule[0][1]
     else:
@@ -427,6 +486,8 @@ def main() -> None:
             target_json_text=args.target_json,
             score_weights_json_text=args.score_weights_json,
             frame_aspect_ratio=frame_aspect_ratio,
+            score_keys_hint=score_keys,
+            frame_resolution=frame_resolution,
         )
         objective_schedule = [(int(args.num_steps) + 1, target_objective)]
 
@@ -493,11 +554,12 @@ def main() -> None:
             trust_remote_code=trust_remote_code,
         )
         model.eval()
-        try:
-            model = torch.compile(model, mode="reduce-overhead")
-            print("torch.compile applied (mode=reduce-overhead)", flush=True)
-        except Exception as e:
-            print(f"torch.compile skipped: {e}", flush=True)
+        if os.environ.get("DRONE_TORCH_COMPILE", "0") == "1":
+            try:
+                model = torch.compile(model, mode="reduce-overhead")
+                print("torch.compile applied (mode=reduce-overhead)", flush=True)
+            except Exception as e:
+                print(f"torch.compile skipped: {e}", flush=True)
 
     caption = None
     detector = None
@@ -677,13 +739,14 @@ def main() -> None:
                     rotation_representation=rotation_representation,
                     max_new_tokens=int(args.max_new_tokens),
                     candidate_batch_size=int(args.candidate_batch_size),
+                    force_template=bool(args.force_template),
                 )
         parse_success_count = sum(1 for item in scored_candidates if item.predicted_scores is not None)
         if parse_success_count == 0:
             raise RuntimeError(
                 "Failed to parse every candidate prediction. "
                 "This usually means the model output was truncated or not valid JSON. "
-                "Try increasing --max_new_tokens."
+                "Try increasing --max_new_tokens, or pass --force_template."
             )
 
         ranked_candidates: list[dict[str, object]] = []

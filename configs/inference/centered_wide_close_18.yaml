@@ -1,0 +1,18 @@
+# Translated from infer_mpc_centered_wide_close_18.sh
+name: centered_wide_close_18
+description: "centered wide close 18"
+
+target:
+  center_x: 0.5
+  center_y: 0.5
+  occupancy: 0.48
+  body_in_frame_ratio: 1.0
+
+mpc:
+  num_steps: 16
+  translation_values_m: [-0.12, -0.06, 0.0, 0.06, 0.12]
+  rotation_values_deg: [-3.0, 0.0, 3.0]
+  max_translation_norm_m: 0.18
+  max_rotation_norm_deg: 4.5
+  max_candidates: 720
+  max_new_tokens: 128

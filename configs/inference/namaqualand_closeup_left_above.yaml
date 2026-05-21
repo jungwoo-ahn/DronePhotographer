@@ -1,0 +1,20 @@
+# Translated from infer_mpc_namaqualand_closeup_left_above.sh
+name: namaqualand_closeup_left_above
+description: "namaqualand closeup left above"
+
+target:
+  center_x: 0.5
+  center_y: 0.5
+  occupancy: 0.5
+  body_in_frame_ratio: 1.0
+  cam_to_obj_elevation_deg: 19
+
+mpc:
+  num_steps: 50
+  translation_values_m: [-0.2, -0.1, 0.0, 0.1, 0.2]
+  rotation_values_deg: [-5.0, 0.0, 5.0]
+  max_translation_norm_m: 0.3
+  max_rotation_norm_deg: 7.5
+  max_candidates: 720
+  max_new_tokens: 256
+  disable_roll: true
