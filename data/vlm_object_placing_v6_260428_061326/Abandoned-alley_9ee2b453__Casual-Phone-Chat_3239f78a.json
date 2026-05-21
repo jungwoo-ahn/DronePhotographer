@@ -1,0 +1,242 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Casual-Phone-Chat_3239f78a",
+  "object_file": "data/objects/Casual-Phone-Chat_3239f78a/Casual-Phone-Chat_3239f78a.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.7979698181152344,
+        1.0894696712493896,
+        1.2538520195448655e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7979698181152344,
+            1.0894696712493896,
+            1.2538520195448655e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            1.0,
+            3.0,
+            2.0,
+            6.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Extreme fog/low contrast makes the object and scene details very difficult to see clearly.",
+            "Lighting is very dark, making the seat and ground contact hard to see.",
+            "composition is uninteresting",
+            "Object is completely occluded by the green bin or other scene geometry.",
+            "Background appears to be an empty void/edge of scene",
+            "Object is heavily occluded by foreground objects",
+            "lighting is very dark",
+            "Object is heavily cropped (head is missing)",
+            "Lighting is very dark"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely hidden behind the green trash bin or other objects in the scene, failing the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c0_v0.png",
+          "azimuth": 308.3,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 6.5,
+          "camera_position": [
+            -4.864665508270264,
+            -1.3324600458145142,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.771233856678009,
+            0.609083890914917,
+            -0.18497337400913239
+          ],
+          "camera_up": [
+            0.1451626867055893,
+            0.1146426796913147,
+            0.9827435612678528
+          ],
+          "camera_radius": 4.1027871764917725
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.77977180480957,
+        -0.8424921035766602,
+        -1.6718026927264873e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.77977180480957,
+            -0.8424921035766602,
+            -1.6718026927264873e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            8.5,
+            3.0,
+            0.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Casual-Phone-Chat_3239f78a_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is not visible in the render.",
+            "The lighting is very dark and the context is poor.",
+            "The lighting is very poor, making it difficult to see the environment.",
+            "The surroundings are extremely empty and lack the detail shown in the reference scene.",
+            "The camera appears to be facing a wall or is inside geometry.",
+            "Less than 70% of the object is visible",
+            "The person's head is cut off at the top of the frame.",
+            "The surroundings are very empty and dark, providing little scene context.",
+            "Object is heavily occluded by a car in the foreground",
+            "The scene is extremely dark and lacks context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the dark, poorly framed render, making it impossible to evaluate placement."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "scene": "Off-road-near-the-lake_02431e02",
+  "scene_file": "data/scenes/Off-road-near-the-lake_02431e02/Off-road-near-the-lake_02431e02.blend",
+  "scene_scale": 1.0,
+  "object": "snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb",
+  "object_file": "data/objects/snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb/snow-man_3e91a802-580f-4dcb-9784-13ca7a511fab.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -13.530688285827637,
+        -19.291126251220703,
+        0.10089874267578125
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -13.530688285827637,
+            -19.291126251220703,
+            0.10089874267578125
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            9.0,
+            8.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "The snowman is very small compared to the car and the environment, suggesting the scene might be too large for the snowman."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but the surroundings are empty, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_v0.png",
+          "azimuth": 158.5,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -12.9114408493042,
+            -17.719074249267578,
+            1.4781494140625
+          ],
+          "camera_forward": [
+            -0.30022016167640686,
+            -0.7621535658836365,
+            -0.5735762715339661
+          ],
+          "camera_up": [
+            -0.2102164626121521,
+            -0.5336654186248779,
+            0.8191521167755127
+          ],
+          "camera_radius": 2.1798242368843983
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_snow-man_f667c23f-d220-4faf-91bf-7bd339148bfb_c0_v1.png",
+          "azimuth": 350.3,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -13.8153715133667,
+            -20.956588745117188,
+            1.4781494140625
+          ],
+          "camera_forward": [
+            0.1380186825990677,
+            0.807440996170044,
+            -0.5735763907432556
+          ],
+          "camera_up": [
+            0.09664171934127808,
+            0.5653762221336365,
+            0.8191520571708679
+          ],
+          "camera_radius": 2.1798230713552607
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is made of snow and would melt in this off-road, near-the-lake scene which does not appear to be cold enough for snow."
+    }
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Guy-ties-his-shoelaces_ea5503cf",
+  "object_file": "data/objects/Guy-ties-his-shoelaces_ea5503cf/Guy-ties-his-shoelaces_ea5503cf.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        28.981243133544922,
+        -3.2351760864257812,
+        4.95015287399292
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.981243133544922,
+            -3.2351760864257812,
+            4.95015287399292
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            2.0,
+            3.0,
+            3.0,
+            9.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Placement in a narrow aisle is awkward",
+            "Object is significantly occluded by a foreground seat",
+            "Object is clipping through the back of the auditorium seat",
+            "Object is clipping through the seat geometry",
+            "Object is significantly occluded by the auditorium seats",
+            "Object is heavily cropped (head and arms are out of frame)",
+            "Object is clipping with the furniture",
+            "Object is significantly occluded by the foreground seats",
+            "Object is clipping with the auditorium seating",
+            "Object is almost entirely occluded by the auditorium seats"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost completely hidden behind and clipping through the auditorium seats, making the placement unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c1_v0.png",
+          "azimuth": 332.3,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            27.511186599731445,
+            -6.035220623016357,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.4238204061985016,
+            0.8072585463523865,
+            -0.41074302792549133
+          ],
+          "camera_up": [
+            0.19093066453933716,
+            0.3636692464351654,
+            0.9117511510848999
+          ],
+          "camera_radius": 3.7190448419709297
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        28.981245040893555,
+        -8.229863166809082,
+        4.950152397155762
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.981245040893555,
+            -8.229863166809082,
+            4.950152397155762
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            7.0,
+            3.0,
+            3.0,
+            7.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Object is clipping through the auditorium seat behind him",
+            "Top of the head is slightly cropped by the frame edge",
+            "The background is a black void, lacking environmental context beyond the immediate seating area.",
+            "Object is clipping through the red auditorium seat on the left",
+            "Object is clipping through the auditorium seats (both front and back rows).",
+            "The person is facing away from the camera.",
+            "Object is clipping with the seat geometry",
+            "Foreground seat partially occludes the lower body",
+            "Object is almost entirely occluded by the auditorium seat back",
+            "Placement is extremely cramped.",
+            "Object's head is cut off by the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.8,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping through the auditorium seats in a very cramped placement, which violates the requirement against clipping through large furniture."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_v0.png",
+          "azimuth": 234.1,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            26.41950035095215,
+            -6.375469207763672,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.7385561466217041,
+            -0.5346257090568542,
+            -0.41074347496032715
+          ],
+          "camera_up": [
+            0.33271917700767517,
+            -0.2408488243818283,
+            0.9117509722709656
+          ],
+          "camera_radius": 3.719044938132143
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c2_v1.png",
+          "azimuth": 181.5,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            28.86022186279297,
+            -3.608203887939453,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.02501629665493965,
+            -0.9553258419036865,
+            -0.29449406266212463
+          ],
+          "camera_up": [
+            0.007709097117185593,
+            -0.2943931519985199,
+            0.9556533098220825
+          ],
+          "camera_radius": 5.0203946767168155
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        28.981245040893555,
+        -1.2373002767562866,
+        4.950153350830078
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.981245040893555,
+            -1.2373002767562866,
+            4.950153350830078
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            6.5,
+            3.0,
+            3.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v1.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping through the auditorium seat behind him",
+            "The person is heavily occluded by a foreground seat",
+            "Object is heavily cropped, with the head and hands out of frame",
+            "Significant occlusion by foreground seats makes the framing awkward",
+            "Object is clipping with the auditorium seat in front of him",
+            "Object is clipping through the auditorium seat cushion",
+            "Top of the head is cropped by the frame edge",
+            "The top of the head is slightly cropped by the frame edge",
+            "Minor clipping with the auditorium seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.4,
+            "right": 0.6,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the armrest of the seat in front of him and is heavily occluded by a seat in the foreground, making for a poor composition."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_v0.png",
+          "azimuth": 352.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            28.546579360961914,
+            -4.369771480560303,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.12531501054763794,
+            0.9030980467796326,
+            -0.41074326634407043
+          ],
+          "camera_up": [
+            0.05645434185862541,
+            0.4068450927734375,
+            0.9117510318756104
+          ],
+          "camera_radius": 3.719044351148032
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Guy-ties-his-shoelaces_ea5503cf_c3_v1.png",
+          "azimuth": 22.1,
+          "elevation": 50,
+          "preview_quality": 6.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            30.171049118041992,
+            -4.167433261871338,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.3430230915546417,
+            0.8447635173797607,
+            -0.41074293851852417
+          ],
+          "camera_up": [
+            -0.1545315384864807,
+            0.3805650472640991,
+            0.9117512106895447
+          ],
+          "camera_radius": 3.719044697729105
+        }
+      ]
+    }
+  ]
+}

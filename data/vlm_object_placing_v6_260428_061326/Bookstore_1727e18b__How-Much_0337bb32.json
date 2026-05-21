@@ -1,0 +1,740 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "How-Much_0337bb32",
+  "object_file": "data/objects/How-Much_0337bb32/How-Much_0337bb32.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.341752052307129,
+        -19.625686645507812,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.341752052307129,
+            -19.625686645507812,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            2.0,
+            9.5,
+            9.5,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (more than 30% cut off)",
+            "Surroundings are empty.",
+            "Object is in an implausible location (on an empty rooftop).",
+            "Object is at an extremely unrealistic scale, appearing minuscule in the scene.",
+            "The rendered environment does not match the reference scene, showing an open landscape instead of a bookstore street.",
+            "Surroundings are empty, lacking scene context from the reference image"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on an empty rooftop, which is an implausible location for a casual pose, and the rendered view shows mostly empty sky and roof, leading to empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c0_v0.png",
+          "azimuth": 301.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.085893154144287,
+            -22.30716323852539,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8553313612937927,
+            0.5180069804191589,
+            -0.008780442178249359
+          ],
+          "camera_up": [
+            0.007510452996939421,
+            0.004548544995486736,
+            0.9999614357948303
+          ],
+          "camera_radius": 5.22238941695051
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c0_v1.png",
+          "azimuth": 1.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.4319219589233398,
+            -23.93035316467285,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.02094125561416149,
+            0.9997249841690063,
+            -0.010556100867688656
+          ],
+          "camera_up": [
+            -0.00022107205586507916,
+            0.010553785599768162,
+            0.999944269657135
+          ],
+          "camera_radius": 4.3608802297642235
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        42.535728454589844,
+        -12.135871887207031,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            42.535728454589844,
+            -12.135871887207031,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            2.0,
+            9.5,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is placed in an environment that does not match the reference scene (Bookstore_1727e18b).",
+            "The rendered scene does not match the reference scene; the object is placed in a rural outdoor setting instead of the bookstore.",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-placed, scaled, and fully visible within the rendered image, but the rendered scene is completely different from the provided reference scene (a rural road/field instead of a bookstore), making the placement fundamentally incorrect for the intended context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c1_v0.png",
+          "azimuth": 74.2,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            47.28831100463867,
+            -13.480716705322266,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.9621773362159729,
+            0.27226850390434265,
+            -0.009201949462294579
+          ],
+          "camera_up": [
+            -0.008854317478835583,
+            0.002505379496142268,
+            0.9999576807022095
+          ],
+          "camera_radius": 4.987448247124764
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c1_v1.png",
+          "azimuth": 254.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            37.55744171142578,
+            -10.717769622802734,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9617042541503906,
+            -0.27394866943359375,
+            -0.008780442178249359
+          ],
+          "camera_up": [
+            0.008444513194262981,
+            -0.0024054860696196556,
+            0.9999614357948303
+          ],
+          "camera_radius": 5.222388823459397
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -4.275608539581299,
+        2.8437561988830566,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.275608539581299,
+            2.8437561988830566,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            4.0,
+            3.0,
+            4.0,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (more than 30% cut off)",
+            "Object is almost entirely obscured by a large foreground element.",
+            "Surroundings are empty.",
+            "Object is not mostly visible.",
+            "Object is heavily occluded by the foreground pole, less than 30% is visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely obscured by a large foreground element, making it impossible to evaluate its scale or full placement, though it is grounded and the surroundings are not empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c2_v0.png",
+          "azimuth": 280.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -9.358549118041992,
+            1.8649359941482544,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9819208383560181,
+            0.18908831477165222,
+            -0.00878068059682846
+          ],
+          "camera_up": [
+            0.008622284047305584,
+            0.0016602923860773444,
+            0.9999614357948303
+          ],
+          "camera_radius": 5.222390432733219
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c2_v1.png",
+          "azimuth": 220.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.664762020111084,
+            6.756300926208496,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.6547155976295471,
+            -0.7558243274688721,
+            -0.00878068059682846
+          ],
+          "camera_up": [
+            0.005749057047069073,
+            -0.006636918988078833,
+            0.9999614357948303
+          ],
+          "camera_radius": 5.222390101747863
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.831565856933594,
+        -2.773604154586792,
+        -1.23977656585339e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.831565856933594,
+            -2.773604154586792,
+            -1.23977656585339e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            9.5,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with the street light pole."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the sidewalk and fully visible with good scale and rich surroundings, but is clipping with the street light pole."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c3_v0.png",
+          "azimuth": 253.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.8683998584747314,
+            -1.3034471273422241,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9588118195533752,
+            -0.28401321172714233,
+            0.004044565372169018
+          ],
+          "camera_up": [
+            -0.003877994604408741,
+            0.0011487675365060568,
+            0.9999918341636658
+          ],
+          "camera_radius": 5.21400863018335
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c3_v1.png",
+          "azimuth": 314.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.164966106414795,
+            -6.427427291870117,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.7083339691162109,
+            0.7058659195899963,
+            0.004044326953589916
+          ],
+          "camera_up": [
+            -0.002864810638129711,
+            -0.0028547225520014763,
+            0.9999918341636658
+          ],
+          "camera_radius": 5.214008607320079
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        10.704018592834473,
+        -14.008325576782227,
+        -0.06638818979263306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.704018592834473,
+            -14.008325576782227,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            9.0,
+            4.0,
+            2.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_How-Much_0337bb32_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is placed in a generic outdoor environment that does not match the provided reference scene (Bookstore_1727e18b), making its placement implausible within the context of the task.",
+            "The rendered scene does not match the reference scene; the object is placed in an outdoor street setting instead of the bookstore.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "The rendered scene does not match the reference scene (Bookstore_1727e18b). The object is placed in an outdoor street environment with trees, completely lacking the bookstore context shown in the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered scene does not match the reference scene, showing an outdoor street instead of the bookstore. This fundamental mismatch makes it impossible to evaluate the object's plausible placement within the intended environment. The object itself is grounded, visible, and not clipping within the scene it is rendered in, but that scene is incorrect."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c4_v0.png",
+          "azimuth": 234.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            6.469006538391113,
+            -11.031908988952637,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8181180953979492,
+            -0.5749832391738892,
+            -0.008780442178249359
+          ],
+          "camera_up": [
+            0.007183750160038471,
+            -0.005048752296715975,
+            0.9999614357948303
+          ],
+          "camera_radius": 5.222391611155047
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_How-Much_0337bb32_c4_v1.png",
+          "azimuth": 264.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.548182487487793,
+            -13.548179626464844,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9960026741027832,
+            -0.08889102935791016,
+            -0.008780322968959808
+          ],
+          "camera_up": [
+            0.008745575323700905,
+            -0.0007803720654919744,
+            0.9999614357948303
+          ],
+          "camera_radius": 5.222391291583052
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.1144293546676636,
+        -0.26918113231658936,
+        -0.919563889503479
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.1144293546676636,
+            -0.26918113231658936,
+            -0.919563889503479
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is a person sitting on a chair in a landscape. This is a plausible location and the scale seems appropriate for the environment.",
+            "The object is sitting on a stool which is placed on a rock, which is partially submerged in water. This is an unusual placement.",
+            "The chair appears to be floating slightly above the water, despite the metadata stating the object is grounded.",
+            "The scale of the scene seems a bit off. The chair the person is sitting on appears to be too low relative to the person's height, suggesting the scene might be slightly too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.1,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, sitting on a chair in a landscape. However, the scale of the scene appears slightly too large, as the chair seems too low for the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 145.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            1.8295313119888306,
+            4.030364513397217,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.564674973487854,
+            -0.824687123298645,
+            -0.03214551880955696
+          ],
+          "camera_up": [
+            -0.01816101185977459,
+            -0.026523802429437637,
+            0.9994832277297974
+          ],
+          "camera_radius": 5.259243332591117
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 205.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.365964412689209,
+            4.430136203765869,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.43186235427856445,
+            -0.9013664722442627,
+            -0.03214563801884651
+          ],
+          "camera_up": [
+            0.013889538124203682,
+            -0.028990047052502632,
+            0.9994831681251526
+          ],
+          "camera_radius": 5.2592433779243635
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.6144293546676636,
+        0.9808188676834106,
+        -0.9750468730926514
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.6144293546676636,
+            0.9808188676834106,
+            -0.9750468730926514
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            6.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is a person sitting on a chair in a landscape. This is a plausible location and the scale seems appropriate for the environment.",
+            "The object is sitting on a stool which is placed on a rock, which is partially submerged in water. This is an unusual placement."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a stool which is placed on a rock in the water, which is an unusual but not impossible placement. The scale and visibility are good."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_v0.png",
+          "azimuth": 190.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -1.5192842483520508,
+            6.1125078201293945,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.17348915338516235,
+            -0.9839065670967102,
+            -0.042770761996507645
+          ],
+          "camera_up": [
+            0.007427158299833536,
+            -0.04212095960974693,
+            0.9990848898887634
+          ],
+          "camera_radius": 5.267039740025218
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Hahaha-woman-on-chair_50c9329e_c1_v1.png",
+          "azimuth": 130.0,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.377316474914551,
+            4.330291271209717,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.765343427658081,
+            -0.6421993970870972,
+            -0.042770761996507645
+          ],
+          "camera_up": [
+            -0.03276422619819641,
+            -0.02749261073768139,
+            0.9990848898887634
+          ],
+          "camera_radius": 5.267039807924434
+        }
+      ]
+    }
+  ]
+}

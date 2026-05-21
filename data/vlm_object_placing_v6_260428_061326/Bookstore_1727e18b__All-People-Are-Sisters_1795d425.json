@@ -1,0 +1,911 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 1.0,
+  "object": "All-People-Are-Sisters_1795d425",
+  "object_file": "data/objects/All-People-Are-Sisters_1795d425/All-People-Are-Sisters_1795d425.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        27.872119903564453,
+        -15.908276557922363,
+        -0.10213376581668854
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.872119903564453,
+            -15.908276557922363,
+            -0.10213376581668854
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            8.0,
+            3.0,
+            4.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "lacks scene context",
+            "Object is heavily cropped (head is missing)",
+            "surroundings_empty",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly cropped at the top of the frame, with the head and upper torso missing, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_v0.png",
+          "azimuth": 246.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            22.912397384643555,
+            -13.731110572814941,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.9135061502456665,
+            -0.4010011851787567,
+            -0.06858951598405838
+          ],
+          "camera_up": [
+            0.06280483305454254,
+            -0.027569446712732315,
+            0.9976449608802795
+          ],
+          "camera_radius": 5.520199604969308
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c0_v1.png",
+          "azimuth": 276.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            22.488290786743164,
+            -16.502656936645508,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.9916201829910278,
+            0.10947577655315399,
+            -0.06858951598405838
+          ],
+          "camera_up": [
+            0.068175308406353,
+            0.0075265089981257915,
+            0.9976449608802795
+          ],
+          "camera_radius": 5.52020002337445
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        11.361772737964843,
+        -29.678384726759376,
+        -0.10213853418827057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.587932586669922,
+            -30.311765670776367,
+            -0.10213853418827057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            3.0,
+            5.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 5.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "Surroundings are empty; the object is placed in a void with no scene context visible.",
+            "The background contains a large featureless grey plane, suggesting the object is at the edge of the scene's modeled area.",
+            "The main scene architecture (bookstore) is not visible in this frame.",
+            "Object is heavily cropped; the head is out of frame.",
+            "The main architectural feature (the bookstore) is not visible in this shot.",
+            "Object is partially cropped (head is out of frame)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing on a plain surface with only sky in the background, completely missing the bookstore architecture shown in the reference."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            11.361772737964843,
+            -29.678384726759376,
+            -0.10213853418827057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            4.0,
+            8.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "The object is heavily cropped, with the head out of frame.",
+            "Object is heavily cropped; the head is out of frame.",
+            "Surroundings are empty and lack context from the main bookstore scene.",
+            "The surroundings are empty with no scene context visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a completely empty area of the scene with no buildings or props visible, making the shot uninteresting and lacking context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c1_v0.png",
+          "azimuth": 284.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            6.108423233032227,
+            -30.997934341430664,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.967587947845459,
+            0.2430410534143448,
+            -0.06859046220779419
+          ],
+          "camera_up": [
+            0.0665239617228508,
+            0.0167097095400095,
+            0.9976449012756348
+          ],
+          "camera_radius": 5.520199680552175
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        36.51421356201172,
+        -13.027579307556152,
+        -0.10213758051395416
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            36.51421356201172,
+            -13.027579307556152,
+            -0.10213758051395416
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            3.0,
+            4.0,
+            4.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "The placement on the road is a bit generic compared to the bookstore storefront.",
+            "Object is heavily cropped; the top of the head is out of frame.",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "Object is placed in a barren area of the scene away from the main architecture.",
+            "Placement in the middle of the street is less interesting than the sidewalk.",
+            "The person is standing in the middle of the road, which is a bit of an awkward and uninteresting placement for a bookstore scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing in the middle of the road and her head is cut off by the top of the frame, violating visibility requirements."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_v0.png",
+          "azimuth": 53.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            39.337703704833984,
+            -15.155233383178711,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            -0.7942412495613098,
+            0.5985041260719299,
+            -0.10475509613752365
+          ],
+          "camera_up": [
+            -0.08366116136312485,
+            0.06304316967725754,
+            0.994498074054718
+          ],
+          "camera_radius": 3.6922514094287333
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c2_v1.png",
+          "azimuth": 251.8,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            31.36865234375,
+            -11.33580493927002,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.9477347731590271,
+            -0.3115993142127991,
+            -0.06859022378921509
+          ],
+          "camera_up": [
+            0.06515880674123764,
+            -0.021423107013106346,
+            0.9976449012756348
+          ],
+          "camera_radius": 5.520200522761191
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        17.347582411988107,
+        -9.14513756483635,
+        -0.10213853418827057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.349328994750977,
+            -10.146881103515625,
+            -0.10213853418827057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            3.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 4.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "The background is relatively sparse compared to the main scene features.",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "Placement in the middle of the road is generic.",
+            "Surroundings are empty and lack context from the main scene (bookstore).",
+            "The placement in the middle of the road is generic and lacks the context of the bookstore storefront.",
+            "The placement is generic and far from the main scene architecture (the bookstore).",
+            "Surroundings are empty/lack context; the bookstore is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped with the head and upper body missing, and the background is completely empty, lacking any of the bookstore context from the reference image."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            17.347582411988107,
+            -9.14513756483635,
+            -0.10213853418827057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "The placement is in a generic road area far from the main scene interest (the bookstore).",
+            "The placement in the middle of the road is generic and lacks the architectural context of the bookstore storefront.",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "The bookstore building is not visible in this frame, making the placement feel disconnected from the scene's main theme.",
+            "The placement in the middle of the road is generic and lacks interaction with the main scene elements like the bookstore storefront.",
+            "Object is heavily cropped; the head is out of frame.",
+            "Surroundings are empty/lack context; the bookstore is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off and the background is completely empty, lacking the bookstore context shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_v0.png",
+          "azimuth": 266.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            11.938968658447266,
+            -8.852217674255371,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.9961850047111511,
+            -0.053951445966959,
+            -0.06859046220779419
+          ],
+          "camera_up": [
+            0.06849008798599243,
+            -0.0037093462888151407,
+            0.9976449012756348
+          ],
+          "camera_radius": 5.520200543681445
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c3_v1.png",
+          "azimuth": 248.8,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            12.297613143920898,
+            -7.186384201049805,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.9301280975341797,
+            -0.3607729375362396,
+            -0.06859034299850464
+          ],
+          "camera_up": [
+            0.06394843757152557,
+            -0.024803893640637398,
+            0.9976449012756348
+          ],
+          "camera_radius": 5.520200533558741
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        30.75281524658203,
+        -30.311765670776367,
+        -0.10213662683963776
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.75281524658203,
+            -30.311765670776367,
+            -0.10213662683963776
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            4.0,
+            6.0,
+            2.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_iter0_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped (head missing)",
+            "Placement is generic and lacks the bookstore context seen in the reference image",
+            "Object is heavily cropped (head and upper torso missing).",
+            "Object is heavily cropped (head is missing)",
+            "The foreground is quite empty, making the shot feel a bit distant and less engaging.",
+            "The foreground and immediate surroundings are relatively sparse compared to the bookstore storefront.",
+            "Object is placed in a void far from the bookstore",
+            "The placement is in a generic area far from the main bookstore storefront.",
+            "The placement is in a generic area far from the main scene interest (the bookstore)."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a featureless area far from the bookstore, and the camera framing crops out the head, making the shot unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_v0.png",
+          "azimuth": 17.4,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            31.810043334960938,
+            -33.68538284301758,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            -0.29739564657211304,
+            0.9489901661872864,
+            -0.10475462675094604
+          ],
+          "camera_up": [
+            -0.03132596239447594,
+            0.09996107220649719,
+            0.994498074054718
+          ],
+          "camera_radius": 3.6922533143223846
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_All-People-Are-Sisters_1795d425_c4_v1.png",
+          "azimuth": 295.8,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            25.876203536987305,
+            -32.669212341308594,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.8981984257698059,
+            0.43420618772506714,
+            -0.06859010457992554
+          ],
+          "camera_up": [
+            0.06175300478935242,
+            0.029852455481886864,
+            0.9976449012756348
+          ],
+          "camera_radius": 5.520199842515457
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+  "scene_file": "data/scenes/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266/paris-metro-entrance-square-pigalle_ac73342f-25be-4f35-a845-d6fbcc540ba8.blend",
+  "scene_scale": 2.0,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        34.343788146972656,
+        247.2342529296875,
+        6.0023193359375
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            34.343788146972656,
+            247.2342529296875,
+            6.0023193359375
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Hahaha-woman-on-chair_50c9329e_c0_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a chair on a balcony, which is a plausible location. However, the chair appears to be floating slightly above the balcony floor, which is a minor grounding issue."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.05
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a chair on a balcony, which is a plausible location and the person is mostly visible. There is a minor grounding issue with the chair appearing to float slightly above the balcony floor."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -7.661362171173096,
+        -9.738425254821777,
+        6.002330780029297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.661362171173096,
+            -9.738425254821777,
+            6.002330780029297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Hahaha-woman-on-chair_50c9329e_c1_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The previous attempt noted a slight floating issue, which has been corrected. The current placement is good, but the chair is very close to the edge of the balcony, which could be perceived as slightly precarious."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is now grounded and fully visible, sitting plausibly on a chair on a balcony. The scale appears correct for the scene, and there is no clipping. The chair has been moved slightly away from the edge for a more secure placement."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

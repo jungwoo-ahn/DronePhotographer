@@ -1,0 +1,114 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "There-Are-No-Emotions_bb0f4c25",
+  "object_file": "data/objects/There-Are-No-Emotions_bb0f4c25/There-Are-No-Emotions_bb0f4c25.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        2.3671934604644775,
+        0.3541306257247925,
+        -0.05968809872865677
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.3671934604644775,
+            0.3541306257247925,
+            -0.05968809872865677
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            1.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped/partially visible (less than 30% visible)",
+            "object clipping with plant",
+            "Object is too dark to clearly identify",
+            "object clipping with wall",
+            "object heavily obscured",
+            "Object is almost entirely obscured by darkness and appears to be clipping with the wall/curtain"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost completely obscured by darkness and the scene geometry (wall/curtain), making it less than 30% visible and likely clipping. It is impossible to properly evaluate its scale or placement due to the extreme lack of visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_There-Are-No-Emotions_bb0f4c25_c1_v0.png",
+          "azimuth": 285.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.238494873046875,
+            -0.8799593448638916,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            0.9657987356185913,
+            0.2587848901748657,
+            -0.016223032027482986
+          ],
+          "camera_up": [
+            0.015670234337449074,
+            0.004198875743895769,
+            0.9998683929443359
+          ],
+          "camera_radius": 4.833344591746975
+        }
+      ]
+    }
+  ]
+}

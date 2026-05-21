@@ -1,0 +1,719 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "Girl-walk_544c79c8",
+  "object_file": "data/objects/Girl-walk_544c79c8/Girl-walk_544c79c8.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.713120222091675,
+        15.14781665802002,
+        -0.02114543877542019
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.713120222091675,
+            15.14781665802002,
+            -0.02114543877542019
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            8.0,
+            7.5,
+            1.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "object is not visible",
+            "Top of the head is slightly cropped by the frame edge.",
+            "Object is heavily cropped (head is missing)",
+            "Object is completely hidden behind scene geometry",
+            "object is hidden behind a wall"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind a brick wall, with only a faint silhouette visible through a window, failing the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_v0.png",
+          "azimuth": 16.5,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.6074855327606201,
+            11.415257453918457,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.2840103805065155,
+            0.9588026404380798,
+            -0.0059613389894366264
+          ],
+          "camera_up": [
+            -0.0016931068385019898,
+            0.005715851206332445,
+            0.9999822378158569
+          ],
+          "camera_radius": 3.9607297402694255
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c0_v1.png",
+          "azimuth": 254.8,
+          "elevation": 20,
+          "preview_quality": 7.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            -8.205021858215332,
+            16.63993263244629,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.965008556842804,
+            -0.26218679547309875,
+            -0.004077737219631672
+          ],
+          "camera_up": [
+            0.003935141954571009,
+            -0.0010689243208616972,
+            0.9999917149543762
+          ],
+          "camera_radius": 5.737625853294717
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        5.609797635969641,
+        -25.352295334614055,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.286880016326904,
+            -25.852184295654297,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "Top of the head is slightly cropped by the frame edge.",
+            "The background lacks the architectural detail and buildings shown in the reference image, resulting in an empty-looking environment.",
+            "object is placed in a void-like area far from the city architecture",
+            "surroundings_empty",
+            "surroundings are empty",
+            "Object is heavily cropped at the top of the frame; the head and shoulders are missing."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and fully visible, it is placed in a completely empty part of the scene with no architectural context, violating the surroundings requirement."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            5.609797635969641,
+            -25.352295334614055,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            3.0,
+            4.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c1_iter1_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "Surroundings are empty, showing the edge of the scene.",
+            "The object is placed at the edge of the scene geometry, looking out into a void/sea.",
+            "Placement is at the very edge of the modeled environment.",
+            "The background is empty and lacks the city context shown in the reference image.",
+            "Object is clipping through the fence."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is walking directly through a metal fence at the edge of the map where no buildings are visible, resulting in severe clipping and empty surroundings."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.2868802547454834,
+        -20.852184295654297,
+        -0.021145641803741455
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.2868802547454834,
+            -20.852184295654297,
+            -0.021145641803741455
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            0.0,
+            7.0,
+            3.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "The object is placed at the edge of the scene geometry, resulting in an empty background and visible map boundaries.",
+            "The edge of the scene (empty horizon) is visible on the left side of the frame.",
+            "Object is heavily cropped; the head is out of frame.",
+            "The camera is positioned inside a building facing a wall, providing no view of the object or the intended street scene.",
+            "Surroundings are empty, showing the edge of the scene.",
+            "The object is partially occluded by a trash bin and a fence."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible as the camera is pointed directly at an interior wall, which also contradicts the outdoor street context shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c2_v0.png",
+          "azimuth": 40.6,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            4.820258140563965,
+            -23.80792808532715,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.6507624983787537,
+            0.7592579126358032,
+            -0.005961577408015728
+          ],
+          "camera_up": [
+            -0.0038796362932771444,
+            0.00452645868062973,
+            0.9999822378158569
+          ],
+          "camera_radius": 3.9607299735274433
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        9.286879539489746,
+        15.14781665802002,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.286879539489746,
+            15.14781665802002,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            0.0,
+            9.5,
+            3.0,
+            9.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The placement is at the edge of the scene with no architectural context.",
+            "Object is not visible in the frame.",
+            "surroundings_empty=true",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "The camera is pointed at a wall/window, completely obscuring the object.",
+            "The top of the head is slightly cropped."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall or window in the current render, making it impossible to evaluate placement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c3_v1.png",
+          "azimuth": 62.1,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            14.316383361816406,
+            12.484831809997559,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.8837583661079407,
+            0.4679257571697235,
+            -0.0040779756382107735
+          ],
+          "camera_up": [
+            -0.0036039503756910563,
+            0.001908252015709877,
+            0.9999916553497314
+          ],
+          "camera_radius": 5.737626003926244
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        5.286880016326904,
+        8.147817611694336,
+        -0.04808919131755829
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.286880016326904,
+            8.147817611694336,
+            -0.04808919131755829
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            3.0,
+            9.5,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "Object is clipping through the metal fence.",
+            "Surroundings are empty, showing the edge of the scene.",
+            "Surroundings are empty, showing only a dark wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the frame, which shows only a dark wall and empty ground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_v0.png",
+          "azimuth": 185.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.820011138916016,
+            13.086772918701172,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.09410345554351807,
+            -0.9955111145973206,
+            -0.010108612477779388
+          ],
+          "camera_up": [
+            0.0009512229007668793,
+            -0.010063758119940758,
+            0.9999489188194275
+          ],
+          "camera_radius": 5.01839289095425
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-walk_544c79c8_c4_v1.png",
+          "azimuth": 68.3,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.896281242370605,
+            6.313514232635498,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9290851950645447,
+            0.36972764134407043,
+            -0.010108612477779388
+          ],
+          "camera_up": [
+            -0.00939224660396576,
+            0.003737612394616008,
+            0.9999489188194275
+          ],
+          "camera_radius": 5.018393129983651
+        }
+      ]
+    }
+  ]
+}

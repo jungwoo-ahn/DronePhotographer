@@ -1,0 +1,136 @@
+{
+  "scene": "Lightweight-Forest_7f323c27",
+  "scene_file": "data/scenes/Lightweight-Forest_7f323c27/Lightweight-Forest_7f323c27.blend",
+  "scene_scale": 1.0,
+  "object": "City-of-Winds_e3b6686d",
+  "object_file": "data/objects/City-of-Winds_e3b6686d/City-of-Winds_e3b6686d.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -10.126327514648438,
+        63.60285949707031,
+        0.39971399307250977
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.126327514648438,
+            63.60285949707031,
+            0.39971399307250977
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            4.0,
+            9.5,
+            9.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty",
+            "Surroundings are empty, lacking context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-grounded, fully visible, and at a plausible scale. However, the camera angle provides an empty background of only ground and sky, lacking any meaningful scene context like the distant mountains visible in the reference image, which forces the quality score to be 4 or less."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lightweight-Forest_7f323c27_City-of-Winds_e3b6686d_c0_v1.png",
+          "azimuth": 27.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.261411190032959,
+            58.00432205200195,
+            0.6563394665718079
+          ],
+          "camera_forward": [
+            -0.4540495276451111,
+            0.8872902393341064,
+            0.08096339553594589
+          ],
+          "camera_up": [
+            0.03688247874379158,
+            -0.07207463681697845,
+            0.996717095375061
+          ],
+          "camera_radius": 6.294221962825986
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A city or urban structure, implied by 'City-of-Winds', would not naturally appear in this open, sparse, non-urban landscape."
+    }
+  ]
+}

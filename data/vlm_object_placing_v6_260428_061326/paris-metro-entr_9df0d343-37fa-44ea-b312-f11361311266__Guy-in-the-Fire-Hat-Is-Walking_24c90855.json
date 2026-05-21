@@ -1,0 +1,69 @@
+{
+  "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+  "scene_file": "data/scenes/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266/paris-metro-entrance-square-pigalle_ac73342f-25be-4f35-a845-d6fbcc540ba8.blend",
+  "scene_scale": 2.0,
+  "object": "Guy-in-the-Fire-Hat-Is-Walking_24c90855",
+  "object_file": "data/objects/Guy-in-the-Fire-Hat-Is-Walking_24c90855/Guy-in-the-Fire-Hat-Is-Walking_24c90855.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        56.49783706665039,
+        -27.118633270263672,
+        6.002330780029297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            56.49783706665039,
+            -27.118633270263672,
+            6.002330780029297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not in a plausible location, it is on top of a lamppost."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.7
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly visible and grounded, but is in an implausible location on top of a lamppost. Moving the person to the ground would make the placement plausible."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

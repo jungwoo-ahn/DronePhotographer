@@ -1,0 +1,139 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7946414947509766,
+        0.4655442237854004,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7946414947509766,
+            0.4655442237854004,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Gasoline-walk_9343c2a5_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible.",
+            "The object is partially obscured by a wall.",
+            "Object is partially cropped out of the frame.",
+            "Object is heavily cropped.",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Gasoline-walk_9343c2a5_c0_v0.png",
+          "azimuth": 282.8,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.460690021514893,
+            -0.3673619031906128,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9721263647079468,
+            0.2208615243434906,
+            -0.0786798894405365
+          ],
+          "camera_up": [
+            0.07672465592622757,
+            0.0174313522875309,
+            0.9968999028205872
+          ],
+          "camera_radius": 3.8807323494536647
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is a gasoline walk, which is an artificial structure, and the scene appears to be a natural, rocky, and barren landscape."
+    }
+  ]
+}

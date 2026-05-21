@@ -1,0 +1,701 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-in-sportswear-standing_cbf7dfde",
+  "object_file": "data/objects/Girl-in-sportswear-standing_cbf7dfde/Girl-in-sportswear-standing_cbf7dfde.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.2122840881347656,
+        -17.75515365600586,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.2122840881347656,
+            -17.75515365600586,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            2.0,
+            9.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "Object is significantly too large for the scene (towers over street lamp and building features)",
+            "object is very small in frame",
+            "missing scene context (bookstore not visible)",
+            "surroundings_empty",
+            "Object's head is cut off by the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is far too large for the environment, appearing as a giant next to the building and street lamp, and her head is cropped out of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_v0.png",
+          "azimuth": 299.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -1.5418556928634644,
+            -20.455881118774414,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8694937229156494,
+            0.49394121766090393,
+            0.001643700641579926
+          ],
+          "camera_up": [
+            -0.0014292038977146149,
+            -0.0008118670666590333,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.511330856526968
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c0_v1.png",
+          "azimuth": 280.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.1690049171447754,
+            -18.723400115966797,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.984194278717041,
+            0.1770845651626587,
+            0.0016434622230008245
+          ],
+          "camera_up": [
+            -0.0016175017226487398,
+            -0.00029095771606080234,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.51133057533884
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        16.3194580078125,
+        -15.88270092010498,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.3194580078125,
+            -15.88270092010498,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            3.0,
+            8.5,
+            4.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "The scale of the fire hydrant relative to the person suggests the person might be slightly undersized for the environment.",
+            "The main architectural elements of the scene (the bookstore) are not visible in this shot, leaving the background very empty.",
+            "Object is significantly too large for the scene",
+            "Object is heavily cropped (head is missing)",
+            "The background lacks architectural context from the main scene (the bookstore), showing only sky and a flat horizon.",
+            "Placement is at the edge of the environment geometry, causing the street to end abruptly into clouds",
+            "Object's head is cut off by the top of the frame",
+            "The object is quite small in the frame and the composition is somewhat empty despite the presence of props."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.6,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and her scale is far too large compared to the bookstore storefront in the background."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -2.405076265335083,
+        -4.647979259490967,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.405076265335083,
+            -4.647979259490967,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            4.0,
+            8.5,
+            3.0,
+            4.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The character is placed in a very empty part of the scene, far from the main architectural interest.",
+            "surroundings_empty=true",
+            "Object is standing in the middle of the road, which is an awkward placement.",
+            "The placement is in a featureless area of the scene, missing the bookstore context.",
+            "Scale seems slightly too large relative to the street lamp and distant fire hydrant.",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The object is relatively small in the frame and heavily backlit, making it appear as a silhouette.",
+            "Object is significantly undersized for the environment (door handles and windows are too high relative to the person)",
+            "The placement is somewhat distant from the primary architectural interest (the bookstore entrance)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.4,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is much too small compared to the bookstore architecture, with door features appearing at shoulder height instead of waist/hand level."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c2_v0.png",
+          "azimuth": 325.7,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -5.345116138458252,
+            -8.957916259765625,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5635251998901367,
+            0.8260970711708069,
+            0.0017224978655576706
+          ],
+          "camera_up": [
+            -0.0009706465061753988,
+            -0.001422970206476748,
+            0.9999985098838806
+          ],
+          "camera_radius": 5.262925995757623
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        25.681726455688477,
+        -12.13779354095459,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            25.681726455688477,
+            -12.13779354095459,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            6.0,
+            3.0,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "Surroundings are empty and lack context from the main scene.",
+            "The character is placed in a sparse area of the scene, missing the architectural context of the bookstore.",
+            "Object is cropped at the top (head is missing)",
+            "The placement is in a barren part of the scene far from the architectural detail.",
+            "The background lacks any architectural context from the bookstore scene",
+            "Object is heavily cropped (head is missing).",
+            "Object appears significantly too large relative to the street lamps in the background.",
+            "The fire hydrant is significantly oversized relative to the person, suggesting the person is too small for the scene props.",
+            "The placement in the middle of the road is somewhat awkward and lacks the architectural context of the bookstore seen in the reference image.",
+            "Minor cropping at the top of the head."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.6,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is poorly framed with the head cut off, placed in an empty area of the scene, and appears much too large compared to the environment's street lamps."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_v0.png",
+          "azimuth": 26.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            27.262954711914062,
+            -15.337165832519531,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.44306978583335876,
+            0.8964836001396179,
+            0.0025180988013744354
+          ],
+          "camera_up": [
+            0.0011157164117321372,
+            -0.0022574318572878838,
+            0.9999968409538269
+          ],
+          "camera_radius": 3.6352796524191646
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c3_v1.png",
+          "azimuth": 248.1,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.608592987060547,
+            -10.098406791687012,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9278349876403809,
+            -0.3729872703552246,
+            0.0016435814322903752
+          ],
+          "camera_up": [
+            -0.0015250211581587791,
+            0.0006129196262918413,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.511331375643473
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -8.022436141967773,
+        -6.520432472229004,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.022436141967773,
+            -6.520432472229004,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            8.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The character is placed in a sparse area of the scene, far from the bookstore architecture shown in the reference.",
+            "surroundings_empty=true",
+            "The person appears slightly large relative to the door and lamp posts in the background.",
+            "The character is placed in a barren area of the scene, far from the bookstore building shown in the reference.",
+            "The character is placed in the middle of a large, empty expanse of asphalt, far from the interesting architecture of the bookstore.",
+            "The object's head is cut off by the top of the frame, making it not fully visible.",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The scale of the person relative to the fire hydrant suggests she is slightly too large for the environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is grounded and fully visible, but the placement is in a completely empty part of the environment with no architectural context from the bookstore."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_v0.png",
+          "azimuth": 269.9,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -13.490130424499512,
+            -6.510889053344727,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9999971389770508,
+            -0.001745383720844984,
+            0.0016433430137112737
+          ],
+          "camera_up": [
+            -0.0016433405689895153,
+            2.864870339180925e-06,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.511330842268346
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-sportswear-standing_cbf7dfde_c4_v1.png",
+          "azimuth": 329.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -10.764548301696777,
+            -11.250823020935059,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5015102028846741,
+            0.8651501536369324,
+            0.0016432238044217229
+          ],
+          "camera_up": [
+            -0.0008240752504207194,
+            -0.0014216485433280468,
+            0.9999986290931702
+          ],
+          "camera_radius": 5.5113312756054
+        }
+      ]
+    }
+  ]
+}

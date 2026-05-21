@@ -1,0 +1,450 @@
+{
+  "scene": "Modern-Villa-visualization_f8062f29",
+  "scene_file": "data/scenes/Modern-Villa-visualization_f8062f29/Modern-Villa-visualization_f8062f29.blend",
+  "scene_scale": 2.0,
+  "object": "standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536",
+  "object_file": "data/objects/standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536/standing-cool-bald-man_2K_9b68b255-ca14-416e-9ee7-f0992fca7ef2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        12.086080551147461,
+        3.857710123062134,
+        -0.2000027298927307
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.086080551147461,
+            3.857710123062134,
+            -0.2000027298927307
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            1.0,
+            8.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image.",
+            "Object is standing in a swimming pool, which is not a plausible location for a person.",
+            "Object is floating."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.1
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is a person who is supposed to be grounded, but the metadata indicates it is floating. The person is fully visible and not clipping with any objects, and the surroundings are not empty. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v0.png",
+          "azimuth": 204.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.548973083496094,
+            9.348512649536133,
+            0.43449389934539795
+          ],
+          "camera_forward": [
+            0.4193946123123169,
+            -0.9076529741287231,
+            0.016559721902012825
+          ],
+          "camera_up": [
+            -0.006945998873561621,
+            0.015032547526061535,
+            0.9998628497123718
+          ],
+          "camera_radius": 6.081810184643398
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v1.png",
+          "azimuth": 341.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            10.14681339263916,
+            -1.8716071844100952,
+            0.43449389934539795
+          ],
+          "camera_forward": [
+            0.32056909799575806,
+            0.9470803737640381,
+            0.016559602692723274
+          ],
+          "camera_up": [
+            -0.0053092497400939465,
+            -0.015685416758060455,
+            0.9998629093170166
+          ],
+          "camera_radius": 6.081810635465353
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        14.454928398132324,
+        -0.8799844980239868,
+        -0.19883733987808228
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.454928398132324,
+            -0.8799844980239868,
+            -0.19883733987808228
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is standing in a swimming pool, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly visible and grounded, but is standing in a swimming pool which is not a plausible location for a person. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_v0.png",
+          "azimuth": 26.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            17.134899139404297,
+            -6.302491188049316,
+            0.43449389934539795
+          ],
+          "camera_forward": [
+            -0.44300907850265503,
+            0.8963605761528015,
+            0.016752218827605247
+          ],
+          "camera_up": [
+            0.0074223983101546764,
+            -0.015018150210380554,
+            0.9998596906661987
+          ],
+          "camera_radius": 6.081688645255537
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c1_v1.png",
+          "azimuth": 233.5,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.41058349609375,
+            2.1126739978790283,
+            0.43449389934539795
+          ],
+          "camera_forward": [
+            0.8036937713623047,
+            -0.5947022438049316,
+            0.020138852298259735
+          ],
+          "camera_up": [
+            -0.016188720241189003,
+            0.011979096569120884,
+            0.9997971653938293
+          ],
+          "camera_radius": 5.070881272376443
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        12.086080551147461,
+        -22.19961166381836,
+        -1.6600003242492676
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.086080551147461,
+            -22.19961166381836,
+            -1.6600003242492676
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is standing in a swimming pool, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is standing in a swimming pool, which is not a plausible location for a person. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_v0.png",
+          "azimuth": 38.6,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            14.5491304397583,
+            -25.28502082824707,
+            0.43449389934539795
+          ],
+          "camera_forward": [
+            -0.589870035648346,
+            0.7389174103736877,
+            -0.32565999031066895
+          ],
+          "camera_up": [
+            -0.2031726837158203,
+            0.25450992584228516,
+            0.9454869627952576
+          ],
+          "camera_radius": 4.469146337472996
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Villa-visualization_f8062f29_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c2_v1.png",
+          "azimuth": 211.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            9.999828338623047,
+            -18.84790802001953,
+            0.43449389934539795
+          ],
+          "camera_forward": [
+            0.49963152408599854,
+            -0.802691638469696,
+            -0.3256601095199585
+          ],
+          "camera_up": [
+            0.17209120094776154,
+            -0.27647626399993896,
+            0.9454869031906128
+          ],
+          "camera_radius": 4.469146497516026
+        }
+      ]
+    }
+  ]
+}

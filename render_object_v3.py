@@ -18,11 +18,13 @@ from render_object import (
     apply_scene_scale,
     auto_place_object,
     configure_gpu,
+    discover_valid_anchors,
     ensure_camera,
     parse_args,
     place_imported_object,
     prepare_camera,
     sample_pose,
+    sample_pose_around_anchor,
     set_render_settings,
     set_sky,
     set_sky_if_no_native_lighting,
@@ -86,9 +88,17 @@ def get_aabb_corners(min_v, max_v):
 
 
 def compute_camera_to_object_angles(cam_pos, obj_pos, object_rotation_xyz_rad):
-    """Camera position expressed in object-local frame -> (azimuth_deg, elevation_deg).
+    """Spherical angles of the cam->obj vector (the camera's look direction
+    toward the subject), expressed in object-local frame.
 
-    Drops camera roll. Azimuth in [0, 360), elevation in [-90, 90].
+    Returns (azimuth_deg, elevation_deg). Azimuth in [0, 360), elevation in
+    [-90, 90]. Convention (v2):
+      - elevation = -90  =>  cam->obj points straight down (camera ABOVE the
+        subject, top-down view)
+      - elevation = 0    =>  cam->obj is horizontal (eye-level)
+      - elevation = +90  =>  cam->obj points straight up (camera BELOW, bottom-up view)
+      - azimuth  = atan2 of cam->obj projected onto object's local XY plane,
+        starting from object's +X axis.
     """
     d_world = cam_pos - obj_pos
     if object_rotation_xyz_rad is None:
@@ -97,8 +107,10 @@ def compute_camera_to_object_angles(cam_pos, obj_pos, object_rotation_xyz_rad):
         rx, ry, rz = (float(v) for v in object_rotation_xyz_rad)
         inv_rot = Euler((rx, ry, rz), "XYZ").to_matrix().transposed()
         d_local = inv_rot @ d_world
-    elevation_deg = degrees(atan2(d_local.z, sqrt(d_local.x ** 2 + d_local.y ** 2)))
-    azimuth_deg = degrees(atan2(d_local.y, d_local.x)) % 360
+    # cam->obj direction = -(cam - obj) = -d_local; elev of that vector flips
+    # sign, azim shifts by 180.
+    elevation_deg = degrees(atan2(-d_local.z, sqrt(d_local.x ** 2 + d_local.y ** 2)))
+    azimuth_deg = degrees(atan2(-d_local.y, -d_local.x)) % 360
     return azimuth_deg, elevation_deg
 
 
@@ -134,10 +146,12 @@ def projected_bbox_full(projected_pts):
 
 
 def compute_3d_metrics(cam_pos, obj_pos):
-    """Camera-object geometry -> elevation, azimuth, distance."""
+    """Camera-object geometry -> (elevation_deg, azimuth_deg, distance) of the
+    cam->obj vector in world frame. Convention v2 (see
+    compute_camera_to_object_angles)."""
     d = cam_pos - obj_pos
-    elevation_deg = degrees(atan2(d.z, sqrt(d.x ** 2 + d.y ** 2)))
-    azimuth_deg = degrees(atan2(d.y, d.x)) % 360
+    elevation_deg = degrees(atan2(-d.z, sqrt(d.x ** 2 + d.y ** 2)))
+    azimuth_deg = degrees(atan2(-d.y, -d.x)) % 360
     distance = d.length
     return elevation_deg, azimuth_deg, distance
 
@@ -649,12 +663,59 @@ def main(argv):
     # ------------------------------------------------------------------
     # Phase 3: Render loop
     # ------------------------------------------------------------------
-    all_poses = [
-        (idx, sample_pose(obj_pos, args.camera_radius_range, args.camera_direction_offsets, args.hemisphere))
-        for idx in range(args.num_images)
-    ]
+    if args.local_dense:
+        anchors, n_attempts = discover_valid_anchors(
+            obj_pos,
+            args.anchor_radius_range,
+            args.num_anchors_per_placement,
+            args.anchor_max_attempts,
+            args.anchor_min_clearance,
+        )
+        if args.worker_index == 0:
+            with (run_dir / "anchors.json").open("w", encoding="utf-8") as f:
+                json.dump({
+                    "anchors": [vec(a) for a in anchors],
+                    "target": args.num_anchors_per_placement,
+                    "discovered": len(anchors),
+                    "discovery_attempts": n_attempts,
+                    "radius_range": list(args.anchor_radius_range),
+                    "ball_radius": args.anchor_ball_radius,
+                    "min_clearance": args.anchor_min_clearance,
+                    "object_position": vec(obj_pos),
+                }, f, indent=2)
+        pitch_lerp = (
+            float(args.pitch_lerp_near[0]),
+            float(args.pitch_lerp_far[0]),
+            float(args.pitch_lerp_near[1]),
+            float(args.pitch_lerp_far[1]),
+            float(args.pitch_lerp_near[2]),
+            float(args.pitch_lerp_far[2]),
+        )
+        all_poses = []
+        idx = 0
+        for anchor_id, anchor in enumerate(anchors):
+            for _ in range(args.num_images_per_anchor):
+                pose = sample_pose_around_anchor(
+                    anchor, obj_pos, args.anchor_ball_radius,
+                    args.camera_direction_offsets, pitch_lerp=pitch_lerp,
+                )
+                pose["anchor_id"] = anchor_id
+                pose["anchor_position"] = vec(anchor)
+                all_poses.append((idx, pose))
+                idx += 1
+        total_images = len(all_poses)
+        print(
+            f"local_dense: {len(anchors)}/{args.num_anchors_per_placement} anchors found "
+            f"in {n_attempts} attempts; {total_images} total poses queued."
+        )
+    else:
+        all_poses = [
+            (idx, sample_pose(obj_pos, args.camera_radius_range, args.camera_direction_offsets, args.hemisphere))
+            for idx in range(args.num_images)
+        ]
+        total_images = args.num_images
     my_poses = [(idx, pose) for idx, pose in all_poses if idx % args.num_workers == args.worker_index]
-    print(f"Worker {args.worker_index}/{args.num_workers}: rendering {len(my_poses)}/{args.num_images} images")
+    print(f"Worker {args.worker_index}/{args.num_workers}: rendering {len(my_poses)}/{total_images} images")
 
     annotations = []
     if args.num_workers > 1:
@@ -687,6 +748,9 @@ def main(argv):
             "final_forward": vec(pose["final_forward"]),
             "final_up": vec(pose["final_up"]),
         }
+        if "anchor_id" in pose:
+            entry["anchor_id"] = pose["anchor_id"]
+            entry["anchor_position"] = pose["anchor_position"]
         if args.render_depth:
             depth_ext = "exr" if args.depth_format == "OPEN_EXR" else "png"
             entry["depth"] = f"depth/img_{idx:04d}.{depth_ext}"
@@ -847,6 +911,14 @@ def main(argv):
             "render_depth": args.render_depth,
             "depth_format": args.depth_format,
             "depth_max": args.depth_max,
+            "local_dense": args.local_dense,
+            "num_anchors_per_placement": args.num_anchors_per_placement if args.local_dense else None,
+            "num_images_per_anchor": args.num_images_per_anchor if args.local_dense else None,
+            "anchor_radius_range": list(args.anchor_radius_range) if args.local_dense else None,
+            "anchor_ball_radius": args.anchor_ball_radius if args.local_dense else None,
+            "anchor_min_clearance": args.anchor_min_clearance if args.local_dense else None,
+            "pitch_lerp_near": list(args.pitch_lerp_near) if args.local_dense else None,
+            "pitch_lerp_far": list(args.pitch_lerp_far) if args.local_dense else None,
         },
     }
 

@@ -1,0 +1,112 @@
+{
+  "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+  "scene_file": "data/scenes/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266/paris-metro-entrance-square-pigalle_ac73342f-25be-4f35-a845-d6fbcc540ba8.blend",
+  "scene_scale": 2.0,
+  "object": "Stop-This-Baboonery_1b4ee493",
+  "object_file": "data/objects/Stop-This-Baboonery_1b4ee493/Stop-This-Baboonery_1b4ee493.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -17.637447357177734,
+        170.5441131591797,
+        6.002330780029297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -17.637447357177734,
+            170.5441131591797,
+            6.002330780029297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            1.0,
+            7.0,
+            1.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Stop-This-Baboonery_1b4ee493_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Render is black.",
+            "Object is heavily cropped.",
+            "Object is not visible.",
+            "Object is floating."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is floating and not grounded, which is a critical issue. The object is also not in a plausible location for a person."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

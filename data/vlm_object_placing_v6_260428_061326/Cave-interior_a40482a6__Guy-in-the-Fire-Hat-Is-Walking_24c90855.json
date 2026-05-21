@@ -1,0 +1,567 @@
+{
+  "scene": "Cave-interior_a40482a6",
+  "scene_file": "data/scenes/Cave-interior_a40482a6/Cave-interior_a40482a6.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-the-Fire-Hat-Is-Walking_24c90855",
+  "object_file": "data/objects/Guy-in-the-Fire-Hat-Is-Walking_24c90855/Guy-in-the-Fire-Hat-Is-Walking_24c90855.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -3.1622776985168457,
+        2.3827202320098877,
+        -0.6646370887756348
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.1622776985168457,
+            2.3827202320098877,
+            -0.6646370887756348
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            1.0,
+            6.0,
+            4.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is not visible due to extreme darkness.",
+            "Lighting is too dark to see the object.",
+            "lighting is very dark",
+            "top of the object is slightly cropped",
+            "Object is completely hidden behind a large rock.",
+            "The render is too dark to see anything.",
+            "ground surface looks like a flat polygon edge",
+            "Object is likely occluded by rocks.",
+            "Object is completely hidden behind a rock wall or in total darkness."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the render, likely occluded by the cave wall or lost in the extreme darkness of the foreground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_v0.png",
+          "azimuth": 0.0,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.162277936935425,
+            -1.530828595161438,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9930635094642639,
+            -0.11757943034172058
+          ],
+          "camera_up": [
+            0.0,
+            0.11757943034172058,
+            0.9930635094642639
+          ],
+          "camera_radius": 4.081961146578618
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c1_v1.png",
+          "azimuth": 345.7,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -4.128920555114746,
+            -1.4095702171325684,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            0.24528570473194122,
+            0.9622941017150879,
+            -0.11757954955101013
+          ],
+          "camera_up": [
+            0.02904203161597252,
+            0.11393643170595169,
+            0.9930634498596191
+          ],
+          "camera_radius": 4.081961292598244
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -4.162277698516846,
+        0.13272029161453247,
+        -0.7347512245178223
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.162277698516846,
+            0.13272029161453247,
+            -0.7347512245178223
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            8.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Lighting is extremely dark, making the object nearly impossible to see.",
+            "Object is not visible due to extreme darkness.",
+            "Object is likely hidden behind cave geometry.",
+            "The render shows only a dark wall.",
+            "Object is almost entirely hidden behind a large rock."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, which shows only a dark, unlit cave wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c2_v0.png",
+          "azimuth": 353.5,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -4.60530424118042,
+            -3.755671977996826,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            0.11216583102941513,
+            0.9844672083854675,
+            -0.13506734371185303
+          ],
+          "camera_up": [
+            0.01529005914926529,
+            0.1341991126537323,
+            0.9908364415168762
+          ],
+          "camera_radius": 4.102443965471654
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -4.162277698516846,
+        -0.8672796487808228,
+        -0.7347526550292969
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.162277698516846,
+            -0.8672796487808228,
+            -0.7347526550292969
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            4.0,
+            1.0,
+            8.0,
+            1.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scene lighting is insufficient to see the object.",
+            "Object is not visible due to extreme darkness.",
+            "Lighting is too dark to see the object.",
+            "Object is likely hidden behind cave geometry.",
+            "The surface the object is standing on is a flat brown plane that is clipping through the cave wall.",
+            "The placement looks artificial due to the flat ground plane not matching the cave geometry.",
+            "Object is not visible due to extreme darkness and occlusion by cave walls.",
+            "The cave asset itself is floating in mid-air relative to the background landscape, which makes the person's placement on its floor look unrealistic."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by the dark cave wall and cannot be seen in the render; it needs to be moved into the lit opening of the cave."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c3_v1.png",
+          "azimuth": 158.7,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -2.35062575340271,
+            3.7793681621551514,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            -0.3611906170845032,
+            -0.9264062643051147,
+            -0.10636124014854431
+          ],
+          "camera_up": [
+            -0.03863576799631119,
+            -0.09909586608409882,
+            0.9943275451660156
+          ],
+          "camera_radius": 5.136887498991924
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -5.064110190474147,
+        2.564806052709994,
+        -0.7347507476806641
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.162277698516846,
+            2.1327202320098877,
+            -0.7347507476806641
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0_v3.png"
+          ],
+          "view_qualities": [
+            0.0,
+            1.0,
+            4.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The scene is too dark to see the object.",
+            "Object is not visible in the frame.",
+            "Object is not visible due to extreme darkness.",
+            "surroundings_empty=true",
+            "The object appears to be hidden behind a large rock.",
+            "The background is mostly a dark void with a simple gradient, lacking the cave's architectural context.",
+            "The lighting in the cave interior is too dark to see the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible due to the extreme darkness of the cave interior, making the placement impossible to evaluate."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -5.064110190474147,
+            2.564806052709994,
+            -0.7347507476806641
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v4.png"
+          ],
+          "view_qualities": [
+            0.0,
+            9.0,
+            0.0,
+            0.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Guy-in-the-Fire-Hat-Is-Walking_24c90855_c4_iter1_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is not visible due to extreme darkness.",
+            "Object is placed against a featureless dark wall.",
+            "The render is too dark to see anything.",
+            "Lighting on the object does not match the scene environment.",
+            "Slight cropping at the bottom of the frame.",
+            "Object is not visible in the frame, likely occluded by the large rock structure.",
+            "The camera is pointed at a dark wall with no context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible due to the extreme darkness of the cave interior and the camera being pointed directly at a dark rock wall."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

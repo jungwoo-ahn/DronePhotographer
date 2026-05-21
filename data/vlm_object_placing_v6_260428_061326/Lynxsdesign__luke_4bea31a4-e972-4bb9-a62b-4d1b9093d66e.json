@@ -1,0 +1,133 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+  "object_file": "data/objects/luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/luke_2K_b5a0590c-f246-4616-9d9a-1d84a8a1e366.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.518414497375488,
+        -1.427648901939392,
+        1.3477500677108765
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.518414497375488,
+            -1.427648901939392,
+            1.3477500677108765
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is on a rooftop, which is not a plausible location for a person to be standing casually.",
+            "The scale of the scene appears too large for the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a rooftop, which is an implausible location for casual standing, and the scale of the scene appears too large for the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v0.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.6439290642738342,
+            0.8092859387397766,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8220866322517395,
+            -0.4746320843696594,
+            0.31448042392730713
+          ],
+          "camera_up": [
+            0.2723481357097626,
+            0.15724006295204163,
+            0.9492639303207397
+          ],
+          "camera_radius": 4.551065565404341
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v1.png",
+          "azimuth": 108.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.5702129006385803,
+            0.3145773708820343,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9120893478393555,
+            -0.3122779130935669,
+            0.26566052436828613
+          ],
+          "camera_up": [
+            0.25133752822875977,
+            0.0860520750284195,
+            0.9640666246414185
+          ],
+          "camera_radius": 5.442992012868891
+        }
+      ]
+    }
+  ]
+}

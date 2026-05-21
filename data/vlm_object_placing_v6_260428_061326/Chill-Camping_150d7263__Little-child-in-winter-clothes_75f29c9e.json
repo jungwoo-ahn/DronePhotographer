@@ -1,0 +1,140 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.69586181640625,
+        1.7937345504760742,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.69586181640625,
+            1.7937345504760742,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            4.0,
+            3.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The platform looks like a technical artifact",
+            "The object is standing on an artificial dark rectangular patch that doesn't blend with the environment",
+            "Visible clipping of a large grey plane through the terrain to the left of the object",
+            "head is out of frame",
+            "Object is standing on a visible, non-diegetic geometric plane/platform",
+            "Object is labeled as 1.7m tall but appears as a small child relative to the van",
+            "object is heavily cropped",
+            "Large clipping plane artifact visible behind the object"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the child is grounded and logically placed, there is a massive, distracting geometric plane clipping through the scene directly behind the object, which significantly degrades the render quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_Little-child-in-winter-clothes_75f29c9e_c0_v1.png",
+          "azimuth": 306.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -5.474585056304932,
+            0.4966679513454437,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            0.778790295124054,
+            0.5679033994674683,
+            -0.2664045989513397
+          ],
+          "camera_up": [
+            0.21525217592716217,
+            0.15696470439434052,
+            0.9638612866401672
+          ],
+          "camera_radius": 2.4231604333490364
+        }
+      ]
+    }
+  ]
+}

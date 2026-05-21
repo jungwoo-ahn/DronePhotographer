@@ -1,0 +1,161 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Guy-in-Japan-bomber_e8891318",
+  "object_file": "data/objects/Guy-in-Japan-bomber_e8891318/Guy-in-Japan-bomber_e8891318.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.073275327682495,
+        1.1021385192871094,
+        -4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.073275327682495,
+            1.1021385192871094,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            3.0,
+            3.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Heavy fog/haze obscures the object and scene details.",
+            "object appears too small relative to surroundings",
+            "Object is heavily occluded by the car in the foreground.",
+            "Object is heavily cropped (head and shoulders missing)",
+            "object is mostly occluded by scene props",
+            "background is a featureless void"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly hidden behind the car, with more than 50% of their body occluded, which violates the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_v0.png",
+          "azimuth": 12.9,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.7208356857299805,
+            -4.802921772003174,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.22257643938064575,
+            0.9718198180198669,
+            -0.07762680947780609
+          ],
+          "camera_up": [
+            -0.01733018457889557,
+            0.075667604804039,
+            0.9969825148582458
+          ],
+          "camera_radius": 6.185574713675341
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Guy-in-Japan-bomber_e8891318_c0_v1.png",
+          "azimuth": 285.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            -9.2057466506958,
+            -0.5410518646240234,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.9632710814476013,
+            0.2581074833869934,
+            -0.07409043610095978
+          ],
+          "camera_up": [
+            0.07156587392091751,
+            0.019175976514816284,
+            0.9972515106201172
+          ],
+          "camera_radius": 6.470686452229831
+        }
+      ]
+    }
+  ]
+}

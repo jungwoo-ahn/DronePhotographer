@@ -1,0 +1,335 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 1.0,
+  "object": "Bang-Bang-Guy-Walking_e284e0a0",
+  "object_file": "data/objects/Bang-Bang-Guy-Walking_e284e0a0/Bang-Bang-Guy-Walking_e284e0a0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.37962937355041504,
+        -1.4680235385894775,
+        -5.960464477539063e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.37962937355041504,
+            -1.4680235385894775,
+            -5.960464477539063e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly within the kitchen scene, appearing to be of appropriate scale and fully visible without any clipping or grounding issues."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c0_v0.png",
+          "azimuth": 0.0,
+          "elevation": 15.0,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            0.379628986120224,
+            -7.570815563201904,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9924347400665283,
+            -0.12277336418628693
+          ],
+          "camera_up": [
+            0.0,
+            0.12277336418628693,
+            0.9924347400665283
+          ],
+          "camera_radius": 6.286648020270005
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.37962937355041504,
+        -2.4680235385894775,
+        -4.470348358154297e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.37962937355041504,
+            -2.4680235385894775,
+            -4.470348358154297e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v2.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing in the middle of the floor, which is not a very natural placement in a kitchen. They are also facing away from the main kitchen area."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but their placement in the scene is awkward, and they are not interacting with the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_v0.png",
+          "azimuth": 195.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.671481728553772,
+            1.4547746181488037,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            0.25445958971977234,
+            -0.9496557712554932,
+            -0.1827681064605713
+          ],
+          "camera_up": [
+            0.04730396717786789,
+            -0.17654040455818176,
+            0.9831560254096985
+          ],
+          "camera_radius": 4.33255796953921
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c1_v1.png",
+          "azimuth": 182.7,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.18832120299339294,
+            1.5886476039886475,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            0.04631293937563896,
+            -0.9820646643638611,
+            -0.18276798725128174
+          ],
+          "camera_up": [
+            0.00860946998000145,
+            -0.1825650930404663,
+            0.9831560850143433
+          ],
+          "camera_radius": 4.332557995334297
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.620370626449585,
+        -2.4680235385894775,
+        1.1920928955078125e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.620370626449585,
+            -2.4680235385894775,
+            1.1920928955078125e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v3.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is standing in the middle of the floor, which is not a very natural placement in a kitchen. They are also facing away from the main kitchen area."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but their placement in the middle of the floor facing away from the kitchen is not ideal. Moving them to the right would place them closer to the counter area."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_v0.png",
+          "azimuth": 170.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.04991704970598221,
+            1.537459373474121,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.16226749122142792,
+            -0.969672679901123,
+            -0.1827681064605713
+          ],
+          "camera_up": [
+            -0.030165372416377068,
+            -0.18026156723499298,
+            0.9831560254096985
+          ],
+          "camera_radius": 4.332558224050726
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Bang-Bang-Guy-Walking_e284e0a0_c2_v1.png",
+          "azimuth": 150.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.4102189540863037,
+            1.0490610599517822,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.491578072309494,
+            -0.8514381051063538,
+            -0.18276798725128174
+          ],
+          "camera_up": [
+            -0.09138407558202744,
+            -0.15828166902065277,
+            0.9831560850143433
+          ],
+          "camera_radius": 4.332557942024451
+        }
+      ]
+    }
+  ]
+}

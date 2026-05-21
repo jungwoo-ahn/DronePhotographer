@@ -1,0 +1,758 @@
+{
+  "scene": "Modern-Art-Gallery_770933c8",
+  "scene_file": "data/scenes/Modern-Art-Gallery_770933c8/Modern-Art-Gallery_770933c8.blend",
+  "scene_scale": 0.8,
+  "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+  "object_file": "data/objects/Buddy-in-the-Brooklyn-Is-Walking_43d448d4/Buddy-in-the-Brooklyn-Is-Walking_43d448d4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.0960235595703125,
+        -2.9988603591918945,
+        0.0024005891755223274
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.0960235595703125,
+            -2.9988603591918945,
+            0.0024005891755223274
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            0.0,
+            1.0,
+            9.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily occluded by foreground element.",
+            "Object is likely clipping with the column.",
+            "Object is almost entirely occluded by a large column.",
+            "Surroundings are empty (only a plain wall is visible).",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, making its placement impossible to evaluate, and the visible surroundings are just a plain wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_v0.png",
+          "azimuth": 350.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.104020595550537,
+            -8.74194622039795,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.16912630200386047,
+            0.9791367650032043,
+            -0.11263884603977203
+          ],
+          "camera_up": [
+            0.019172219559550285,
+            0.11099520325660706,
+            0.9936360120773315
+          ],
+          "camera_radius": 5.98190051779517
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c0_v1.png",
+          "azimuth": 290.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.3736367225646973,
+            -5.011303424835205,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.9325203895568848,
+            0.3431008756160736,
+            -0.11263896524906158
+          ],
+          "camera_up": [
+            0.10571089386940002,
+            0.03889398276805878,
+            0.9936359524726868
+          ],
+          "camera_radius": 5.981901110662968
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.9039764404296875,
+        10.001139640808105,
+        0.0023999870754778385
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.9039764404296875,
+            10.001139640808105,
+            0.0023999870754778385
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            3.5,
+            0.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily occluded by foreground element.",
+            "Object is not visible in the frame.",
+            "Object is heavily occluded by a foreground element.",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely absent from the rendered image, which only shows a close-up of a display stand."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v0.png",
+          "azimuth": 193.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -4.2249298095703125,
+            15.677599906921387,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.2252088487148285,
+            -0.9677775502204895,
+            -0.11263896524906158
+          ],
+          "camera_up": [
+            0.02552969940006733,
+            -0.10970766097307205,
+            0.9936359524726868
+          ],
+          "camera_radius": 5.981901628799483
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v1.png",
+          "azimuth": 133.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.3515058755874634,
+            13.983348846435547,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.725515604019165,
+            -0.6789253354072571,
+            -0.11263884603977203
+          ],
+          "camera_up": [
+            -0.08224459737539291,
+            -0.07696320116519928,
+            0.9936360120773315
+          ],
+          "camera_radius": 5.981901130591297
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.0960235595703125,
+        -6.9988603591918945,
+        0.00239982595667243
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.0960235595703125,
+            -6.9988603591918945,
+            0.00239982595667243
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            0.0,
+            1.0,
+            0.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The render is completely blank/white, showing no scene context.",
+            "surroundings_empty is true, which limits quality to <= 4.",
+            "Surroundings are empty.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely blank/white, meaning the object is not visible and there is no scene context. The object is reported as grounded, but this cannot be visually verified."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v0.png",
+          "azimuth": 24.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            4.540645599365234,
+            -12.289505958557129,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.4167827069759369,
+            0.902000367641449,
+            -0.11263896524906158
+          ],
+          "camera_up": [
+            -0.04724663496017456,
+            0.10225111991167068,
+            0.9936359524726868
+          ],
+          "camera_radius": 5.981900732024718
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c2_v1.png",
+          "azimuth": 324.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.263499140739441,
+            -11.761287689208984,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.5727639198303223,
+            0.8119445443153381,
+            -0.11263907700777054
+          ],
+          "camera_up": [
+            0.0649288147687912,
+            0.09204243868589401,
+            0.9936359524726868
+          ],
+          "camera_radius": 5.981901210304609
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        1.096023440361023,
+        2.0011396408081055,
+        0.0023999810218811035
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.096023440361023,
+            2.0011396408081055,
+            0.0023999810218811035
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            4.0,
+            9.5,
+            4.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily occluded by a large foreground sculpture, making it not fully visible.",
+            "Object is not visible in the frame.",
+            "Object is heavily occluded by foreground elements (column and display panels), with less than 70% visible.",
+            "Object is partly cut off at the frame edge.",
+            "The render is completely blank/white, showing no scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible, and the render is completely blank, showing no scene context, indicating a broken or misdirected camera view."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_v0.png",
+          "azimuth": 226.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.110490322113037,
+            6.035041332244873,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.7171670794487,
+            -0.6877382397651672,
+            -0.11263884603977203
+          ],
+          "camera_up": [
+            0.08129823952913284,
+            -0.07796220481395721,
+            0.9936360120773315
+          ],
+          "camera_radius": 5.981901130591297
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c3_v1.png",
+          "azimuth": 106.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.692740440368652,
+            3.6271369457244873,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.9541823267936707,
+            -0.27721574902534485,
+            -0.11263896524906158
+          ],
+          "camera_up": [
+            -0.10816650092601776,
+            -0.031425200402736664,
+            0.9936359524726868
+          ],
+          "camera_radius": 5.9819008117380355
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        4.0960235595703125,
+        12.001139640808105,
+        -2.3841858265427618e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.0960235595703125,
+            12.001139640808105,
+            -2.3841858265427618e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            0.0,
+            3.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v4.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "The render is almost entirely a blank wall, showing no meaningful scene context.",
+            "The render is completely blank/white, showing no scene context.",
+            "surroundings_empty is true, which limits quality to <= 4.",
+            "Object is significantly occluded by a large foreground pillar/wall, making it not fully visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely blank, indicating a broken render or an issue with the camera placement, making it impossible to evaluate the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_v0.png",
+          "azimuth": 164.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.415977478027344,
+            16.665756225585938,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            -0.2697683870792389,
+            -0.9533413648605347,
+            -0.13551853597164154
+          ],
+          "camera_up": [
+            -0.036898959428071976,
+            -0.13039839267730713,
+            0.9907748103141785
+          ],
+          "camera_radius": 5.032238584741334
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Art-Gallery_770933c8_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c4_v1.png",
+          "azimuth": 352.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.3756582736968994,
+            6.217698574066162,
+            1.350000023841858
+          ],
+          "camera_forward": [
+            0.12280922383069992,
+            0.985971212387085,
+            -0.11304298788309097
+          ],
+          "camera_up": [
+            0.013972283340990543,
+            0.11217616498470306,
+            0.9935901165008545
+          ],
+          "camera_radius": 5.982442289760328
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 1.0,
+  "object": "Car-Mechanic-Character_5ccee493",
+  "object_file": "data/objects/Car-Mechanic-Character_5ccee493/Car-Mechanic-Character_5ccee493.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.5981361865997314,
+        -0.445789098739624,
+        -8.940696716308594e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5981361865997314,
+            -0.445789098739624,
+            -8.940696716308594e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_5ccee493_c0_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The car mechanic is standing plausibly in a kitchen, grounded on the floor, and is fully visible with no clipping. The scale appears correct for the environment."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A car mechanic character would not naturally be found in a simple kitchen scene."
+    }
+  ]
+}

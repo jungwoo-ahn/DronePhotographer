@@ -1,0 +1,133 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e",
+  "object_file": "data/objects/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.478880882263184,
+        -1.388115406036377,
+        1.3499999046325684
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.478880882263184,
+            -1.388115406036377,
+            1.3499999046325684
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a roof, which is not a plausible location for a party-goer.",
+            "The scale of the scene appears too large for the person, as the roofline is at chest height."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is placed on a roof which is not a plausible location, and the scene scale appears too large for the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v0.png",
+          "azimuth": 97.3,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.543824315071106,
+            -0.7446916699409485,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9476835131645203,
+            -0.12140094488859177,
+            0.29522499442100525
+          ],
+          "camera_up": [
+            0.29283204674720764,
+            0.03751256316900253,
+            0.9554277658462524
+          ],
+          "camera_radius": 5.132446485036954
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v1.png",
+          "azimuth": 117.7,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.00453083124011755,
+            0.9657287001609802,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8459295630455017,
+            -0.44412311911582947,
+            0.29522499442100525
+          ],
+          "camera_up": [
+            0.2613903880119324,
+            0.13723288476467133,
+            0.9554277658462524
+          ],
+          "camera_radius": 5.132446641816513
+        }
+      ]
+    }
+  ]
+}

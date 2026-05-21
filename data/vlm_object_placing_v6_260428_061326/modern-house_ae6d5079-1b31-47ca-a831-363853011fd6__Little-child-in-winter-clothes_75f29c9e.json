@@ -1,0 +1,454 @@
+{
+  "scene": "modern-house_ae6d5079-1b31-47ca-a831-363853011fd6",
+  "scene_file": "data/scenes/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6/modern-house_60db5c3b-f812-491d-b177-e1e8fa8f6f08.blend",
+  "scene_scale": 2.5,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -5.425818920135498,
+        -51.49189758300781,
+        -0.7050538063049316
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.425818920135498,
+            -51.49189758300781,
+            -0.7050538063049316
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            2.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is not placed in a plausible location.",
+            "The object is very small in the frame, making it difficult to assess the scale and placement accurately.",
+            "The object is placed in an empty scene with no context.",
+            "The surroundings are empty.",
+            "The object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an empty, implausible location with no surrounding context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 11.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.7476301193237305,
+            -54.7957763671875,
+            0.2938529849052429
+          ],
+          "camera_forward": [
+            -0.19802308082580566,
+            0.9646932482719421,
+            -0.17364834249019623
+          ],
+          "camera_up": [
+            -0.034916818141937256,
+            0.1701016128063202,
+            0.9848077297210693
+          ],
+          "camera_radius": 3.5175801710835573
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c0_v1.png",
+          "azimuth": 311.6,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.523714065551758,
+            -53.354496002197266,
+            1.6635262966156006
+          ],
+          "camera_forward": [
+            0.6125604510307312,
+            0.5438565611839294,
+            -0.5735762715339661
+          ],
+          "camera_up": [
+            0.42891925573349,
+            0.38081225752830505,
+            0.8191521763801575
+          ],
+          "camera_radius": 3.671594974310245
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -25.597198486328125,
+        -44.768104553222656,
+        -0.7050442695617676
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -25.597198486328125,
+            -44.768104553222656,
+            -0.7050442695617676
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is very small in the frame, making it difficult to assess the scale and placement accurately.",
+            "The object is not placed in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded and fully visible, but is very small in the frame, making it difficult to assess scale and placement accurately. The previous attempt was also criticized for being too small and in an implausible location."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_v0.png",
+          "azimuth": 342.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -26.617021560668945,
+            -47.982994079589844,
+            0.2938629984855652
+          ],
+          "camera_forward": [
+            0.29777634143829346,
+            0.938709557056427,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.05250592529773712,
+            0.16551963984966278,
+            0.9848077893257141
+          ],
+          "camera_radius": 3.517580022816673
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c1_v1.png",
+          "azimuth": 282.4,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -28.33718490600586,
+            -45.37052917480469,
+            1.6635363101959229
+          ],
+          "camera_forward": [
+            0.8000431656837463,
+            0.17590077221393585,
+            -0.5735763907432556
+          ],
+          "camera_up": [
+            0.5601961612701416,
+            0.12316711246967316,
+            0.8191520571708679
+          ],
+          "camera_radius": 3.6715955140904515
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -8.787714958190918,
+        -17.872934341430664,
+        0.059195101261138916
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.787714958190918,
+            -17.872934341430664,
+            0.059195101261138916
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is very small in the frame, making it difficult to assess the scale and placement accurately.",
+            "The object is not placed in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded on a wooden deck, which is a plausible location. However, the child is very small in the frame, making it difficult to assess scale and placement accurately."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_v0.png",
+          "azimuth": 287.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -11.470561027526855,
+            -18.69316291809082,
+            2.4277753829956055
+          ],
+          "camera_forward": [
+            0.7833589911460876,
+            0.2394968867301941,
+            -0.5735764503479004
+          ],
+          "camera_up": [
+            0.5485138297080994,
+            0.16769762337207794,
+            0.8191520571708679
+          ],
+          "camera_radius": 3.67159508794819
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-house_ae6d5079-1b31-47ca-a831-363853011fd6_Little-child-in-winter-clothes_75f29c9e_c2_v1.png",
+          "azimuth": 101.7,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.040574073791504,
+            -17.30402946472168,
+            2.4277753829956055
+          ],
+          "camera_forward": [
+            -0.8021323680877686,
+            -0.16611354053020477,
+            -0.5735765099525452
+          ],
+          "camera_up": [
+            -0.5616592168807983,
+            -0.11631374806165695,
+            0.8191519975662231
+          ],
+          "camera_radius": 3.671594811970318
+        }
+      ]
+    }
+  ]
+}

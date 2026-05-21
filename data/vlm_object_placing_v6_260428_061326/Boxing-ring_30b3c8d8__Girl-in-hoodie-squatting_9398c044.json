@@ -1,0 +1,435 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Girl-in-hoodie-squatting_9398c044",
+  "object_file": "data/objects/Girl-in-hoodie-squatting_9398c044/Girl-in-hoodie-squatting_9398c044.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        31.07134437561035,
+        -8.137638092041016,
+        5.400152683258057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.07134437561035,
+            -8.137638092041016,
+            5.400152683258057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            2.0,
+            9.0,
+            3.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Less than 70% of the object is visible.",
+            "Object is mostly hidden behind furniture (seats).",
+            "Object is heavily occluded by furniture (seats).",
+            "Object is mostly occluded by a seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely occluded by the arena seating, with only the top of the hoodie visible, which violates the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_v0.png",
+          "azimuth": 171.9,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            31.48906898498535,
+            -5.202549457550049,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.13187913596630096,
+            -0.926631510257721,
+            -0.3520823121070862
+          ],
+          "camera_up": [
+            -0.049608904868364334,
+            -0.3485698103904724,
+            0.9359690546989441
+          ],
+          "camera_radius": 3.3257160064771116
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c0_v1.png",
+          "azimuth": 291.9,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            28.320619583129883,
+            -9.24342155456543,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.8684261441230774,
+            0.34910473227500916,
+            -0.3520823121070862
+          ],
+          "camera_up": [
+            0.32667478919029236,
+            0.13132226467132568,
+            0.9359690546989441
+          ],
+          "camera_radius": 3.325716750254535
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        27.408573150634766,
+        -3.1429505348205566,
+        4.500153064727783
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.408573150634766,
+            -3.1429505348205566,
+            4.500153064727783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            9.5,
+            9.0,
+            0.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "Object is completely hidden behind furniture (seats).",
+            "Object is almost entirely hidden behind furniture (seats).",
+            "Object is completely hidden behind the foreground structure or seats.",
+            "Less than 70% of the object is visible.",
+            "Object is completely hidden behind the foreground structure (wall/seating tier)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the back of a stadium seat, making it impossible to see or evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c1_v1.png",
+          "azimuth": 346.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            26.701400756835938,
+            -6.022037982940674,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.1972733438014984,
+            0.8031520843505859,
+            -0.5621654391288757
+          ],
+          "camera_up": [
+            0.1340954750776291,
+            0.5459380745887756,
+            0.8270248174667358
+          ],
+          "camera_radius": 3.818774929995411
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        31.07134437561035,
+        -1.1450750827789307,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.07134437561035,
+            -1.1450750827789307,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            9.0,
+            4.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Less than 70% of the object is visible.",
+            "Object is heavily occluded by furniture (seats).",
+            "Object is heavily occluded by the seats in front."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.2,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind the stadium seating, which violates the visibility requirements."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_v0.png",
+          "azimuth": 1.9,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            31.16963768005371,
+            -4.108109474182129,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.031031999737024307,
+            0.9354543685913086,
+            -0.35208263993263245
+          ],
+          "camera_up": [
+            -0.011673283763229847,
+            0.35188907384872437,
+            0.9359689354896545
+          ],
+          "camera_radius": 3.325715552257534
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-hoodie-squatting_9398c044_c2_v1.png",
+          "azimuth": 178.6,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.14377784729004,
+            1.8187044858932495,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.022867854684591293,
+            -0.9356895685195923,
+            -0.3520825207233429
+          ],
+          "camera_up": [
+            -0.008602197282016277,
+            -0.3519774377346039,
+            0.9359689354896545
+          ],
+          "camera_radius": 3.3257154909294853
+        }
+      ]
+    }
+  ]
+}

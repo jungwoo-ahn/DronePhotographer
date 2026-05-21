@@ -1,0 +1,682 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 0.75,
+  "object": "Guy-in-a-quilted-jacket_e00abc1e",
+  "object_file": "data/objects/Guy-in-a-quilted-jacket_e00abc1e/Guy-in-a-quilted-jacket_e00abc1e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        4.130363464355469,
+        4.328060150146484,
+        -0.7748162746429443
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.130363464355469,
+            4.328060150146484,
+            -0.7748162746429443
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            6.5,
+            9.5,
+            9.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v1.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is placed on a road, which is plausible, but the main architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses themselves) are not visible in the frame, making the placement feel generic rather than specific to the scene.",
+            "Surroundings are empty/not visible",
+            "Object is not visible",
+            "Object is heavily cropped at the top.",
+            "Render is almost entirely black"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is almost entirely black, and the object is not visible, making it impossible to evaluate its placement, scale, or plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_v0.png",
+          "azimuth": 94.1,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.56848430633545,
+            4.717869758605957,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.992104172706604,
+            -0.0711149349808693,
+            -0.10330531746149063
+          ],
+          "camera_up": [
+            -0.10304094105958939,
+            -0.007385998964309692,
+            0.9946497082710266
+          ],
+          "camera_radius": 5.596208350523135
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c0_v1.png",
+          "azimuth": 154.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.626174449920654,
+            9.467981338500977,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.4346725046634674,
+            -0.8951725959777832,
+            -0.09861990809440613
+          ],
+          "camera_up": [
+            -0.04307745397090912,
+            -0.08871424943208694,
+            0.9951251745223999
+          ],
+          "camera_radius": 5.851520848858122
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.606929779052734,
+        6.576245307922363,
+        -0.774808406829834
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.606929779052734,
+            6.576245307922363,
+            -0.774808406829834
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.0,
+            9.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The main architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses) are not visible, making the placement feel generic rather than specific to the scene.",
+            "The main architectural features of the scene (the townhouses) are not visible, making the placement feel generic rather than specific to the scene.",
+            "The object is quite small in the frame.",
+            "The object is heavily cropped, with only the lower half of the person visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-grounded and fully visible at a plausible scale and location, but the defining architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses) are not visible, making the surroundings feel generic and not specific to the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_v0.png",
+          "azimuth": 300.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -14.823620796203613,
+            4.689023017883301,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.8527405261993408,
+            0.5002998113632202,
+            -0.15011225640773773
+          ],
+          "camera_up": [
+            0.12947386503219604,
+            0.07596186548471451,
+            0.9886689782142639
+          ],
+          "camera_radius": 3.937146170930834
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c1_v1.png",
+          "azimuth": 0.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -11.56704044342041,
+            0.8625531792640686,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.00694715790450573,
+            0.9951010346412659,
+            -0.09861859679222107
+          ],
+          "camera_up": [
+            -0.0006884748581796885,
+            0.09861619770526886,
+            0.9951252937316895
+          ],
+          "camera_radius": 5.851519316961889
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -35.21287155151367,
+        25.685813903808594,
+        -0.7747586965560913
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -35.21287155151367,
+            25.685813903808594,
+            -0.7747586965560913
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            4.0,
+            3.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The main architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses) are not visible, making the placement feel generic rather than specific to the scene.",
+            "The object is heavily cropped, with more than 30% of its body (head and shoulders) cut off at the top of the frame.",
+            "Surroundings are mostly empty, consisting of a plain wall and generic background trees, lacking specific architectural context.",
+            "Object is significantly cropped at the top of the frame (more than 30% of the object is cut off)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped, with a significant portion of the person's upper body missing, and the specific architectural context of the townhouses is not visible in the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c2_v0.png",
+          "azimuth": 216.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -37.43122863769531,
+            28.683748245239258,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.5880842804908752,
+            -0.7947496771812439,
+            -0.150099515914917
+          ],
+          "camera_up": [
+            0.08928266167640686,
+            -0.1206584945321083,
+            0.9886708855628967
+          ],
+          "camera_radius": 3.9371317888089874
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        36.729042053222656,
+        8.824430465698242,
+        -0.8407460451126099
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            36.729042053222656,
+            8.824430465698242,
+            -0.8407460451126099
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            7.0,
+            9.5,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is very small in the frame, making it hard to appreciate its details.",
+            "The main architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses) are not visible, making the placement feel generic rather than specific to the scene.",
+            "The main architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses) are not visible in the frame, making the placement feel generic rather than specific to the scene.",
+            "The object is heavily cropped, with more than 30% of its body (head and upper torso) cut off at the top of the frame.",
+            "Surroundings are empty/not visible: The main architectural features of the 'Classic-Townhouse-Exterior-Scene' (the townhouses) are not visible, making the placement feel generic rather than specific to the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped, with the head and upper body missing, and the background lacks the defining architectural features of the townhouse scene, making the surroundings appear generic."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_v0.png",
+          "azimuth": 36.3,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            38.936920166015625,
+            5.818770408630371,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.5836867690086365,
+            0.7945927381515503,
+            -0.16712898015975952
+          ],
+          "camera_up": [
+            -0.09894260764122009,
+            0.1346939355134964,
+            0.9859350323677063
+          ],
+          "camera_radius": 3.9587743446557937
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c3_v1.png",
+          "azimuth": 96.3,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            40.43595886230469,
+            9.233677864074707,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9799809455871582,
+            -0.10819075256586075,
+            -0.16712898015975952
+          ],
+          "camera_up": [
+            -0.16611967980861664,
+            -0.01833975501358509,
+            0.9859350323677063
+          ],
+          "camera_radius": 3.958773936252603
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -4.862377166748047,
+        14.444893836975098,
+        -0.5040798187255859
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.862377166748047,
+            14.444893836975098,
+            -0.5040798187255859
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            0.0,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is heavily obscured by a foreground plant, making a significant portion of its body (more than 30%) invisible.",
+            "Object is not visible in the rendered image.",
+            "The rendered image does not appear to be of the specified scene 'Classic-Townhouse-Exterior-Scene_56f5ec9a'; it shows an interior setting with a couch and plants.",
+            "The object is clipping slightly with the doorframe/wall on its right side."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely absent from the rendered image, which also depicts an interior scene instead of the expected exterior townhouse."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Guy-in-a-quilted-jacket_e00abc1e_c4_v0.png",
+          "azimuth": 7.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -4.126461029052734,
+            8.77865219116211,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.12862367928028107,
+            0.9903474450111389,
+            -0.051651448011398315
+          ],
+          "camera_up": [
+            -0.006652467884123325,
+            0.051221251487731934,
+            0.9986651539802551
+          ],
+          "camera_radius": 5.799164039901568
+        }
+      ]
+    }
+  ]
+}

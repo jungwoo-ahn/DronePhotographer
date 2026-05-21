@@ -1,0 +1,85 @@
+{
+  "scene": "Rocky-Beach-Landscape_0d65b1fb",
+  "scene_file": "data/scenes/Rocky-Beach-Landscape_0d65b1fb/Rocky-Beach-Landscape_0d65b1fb.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-lifts-her-glasses_204672a2",
+  "object_file": "data/objects/Girl-lifts-her-glasses_204672a2/Girl-lifts-her-glasses_204672a2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.7139320373535156,
+        0.545881986618042,
+        8.973634719848633
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.7139320373535156,
+            0.545881986618042,
+            8.973634719848633
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png"
+          ],
+          "view_qualities": [
+            8.0,
+            1.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Beach-Landscape_0d65b1fb_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is floating in the sky."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -8.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is floating high in the sky and is not grounded. The scene is also very empty with no context."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

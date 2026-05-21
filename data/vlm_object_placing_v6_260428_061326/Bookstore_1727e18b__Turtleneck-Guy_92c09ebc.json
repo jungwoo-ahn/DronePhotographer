@@ -1,0 +1,741 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Turtleneck-Guy_92c09ebc",
+  "object_file": "data/objects/Turtleneck-Guy_92c09ebc/Turtleneck-Guy_92c09ebc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        44.49881362915039,
+        -13.917691230773926,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            44.49881362915039,
+            -13.917691230773926,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.0,
+            8.5,
+            2.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty of meaningful scene context.",
+            "The rendered view completely misses the intended scene (bookstore) and instead displays a generic outdoor background.",
+            "Object is heavily obscured by foreground foliage."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily obscured by foreground foliage, and the rendered image completely misses the intended bookstore scene, showing a generic, empty outdoor background instead."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_v0.png",
+          "azimuth": 71.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            49.845943450927734,
+            -15.73800277709961,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.9466491937637329,
+            0.322265625,
+            -0.00033517280826345086
+          ],
+          "camera_up": [
+            -0.00031730468617752194,
+            0.00010797477443702519,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.690722571724797
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c0_v1.png",
+          "azimuth": 253.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            39.097145080566406,
+            -12.2662353515625,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.956304669380188,
+            -0.29237183928489685,
+            -0.0003350535989739001
+          ],
+          "camera_up": [
+            0.00032038529752753675,
+            -9.805193985812366e-05,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.6907224041407485
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        29.51918601989746,
+        -12.04523754119873,
+        -0.06638818979263306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            29.51918601989746,
+            -12.04523754119873,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            5.5,
+            4.0,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v2.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v4.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty of meaningful scene context.",
+            "The object is very small in the frame.",
+            "The rendered view completely misses the intended scene (bookstore) and instead displays a generic outdoor background.",
+            "The rendered view completely misses the intended scene (bookstore) and instead displays a generic outdoor background, making the placement awkward for the given scene context.",
+            "Object is heavily occluded by foliage, making less than 70% of it visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the rendered view completely misses the bookstore scene, showing only a generic outdoor background with empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_v0.png",
+          "azimuth": 50.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            33.86512756347656,
+            -15.653307914733887,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.7693994045257568,
+            0.6387678980827332,
+            -0.0003349343896843493
+          ],
+          "camera_up": [
+            -0.0002577087143436074,
+            0.0002139328425982967,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.690726701098946
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c1_v1.png",
+          "azimuth": 110.3,
+          "elevation": 10,
+          "preview_quality": 5.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            34.816837310791016,
+            -10.085577011108398,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.9378889203071594,
+            -0.34693554043769836,
+            -0.0003348151803947985
+          ],
+          "camera_up": [
+            -0.000314007920678705,
+            -0.00011619050928857177,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.690726638254974
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -6.057427883148193,
+        2.9343903064727783,
+        -1.23977656585339e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.057427883148193,
+            2.9343903064727783,
+            -1.23977656585339e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            9.0,
+            1.0,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v1.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is very small in the frame, making it hard to appreciate the details of the object.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (Turtleneck-Guy) is completely obscured by the tree trunk in the rendered image, making it invisible. The metadata confirms the object is grounded."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_v0.png",
+          "azimuth": 281.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -11.58654499053955,
+            1.7792973518371582,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9788036346435547,
+            0.2044825404882431,
+            0.011417542584240437
+          ],
+          "camera_up": [
+            -0.011176247149705887,
+            -0.002334901364520192,
+            0.9999347925186157
+          ],
+          "camera_radius": 5.68303458750297
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c2_v1.png",
+          "azimuth": 221.8,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -8.514790534973145,
+            5.682800769805908,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.6664303541183472,
+            -0.7453621029853821,
+            0.017490850761532784
+          ],
+          "camera_up": [
+            -0.01165817305445671,
+            0.013039050623774529,
+            0.9998469948768616
+          ],
+          "camera_radius": 3.7395052405821896
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -4.18497371673584,
+        -13.917691230773926,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.18497371673584,
+            -13.917691230773926,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            9.5,
+            2.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty of meaningful scene context.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "The object is very small in the frame.",
+            "Surroundings are empty of meaningful scene context. The bookstore building is not visible.",
+            "The surroundings are empty of meaningful scene context.",
+            "The rendered view completely misses the intended scene (bookstore) and instead displays a generic outdoor background.",
+            "The object is placed in a generic street scene, not utilizing the specific context of the bookstore."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a generic outdoor scene that completely differs from the intended bookstore environment, and the surroundings are sparse, forcing a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_v0.png",
+          "azimuth": 285.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.742783069610596,
+            -14.884326934814453,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9650163650512695,
+            0.26218917965888977,
+            -0.000513271486852318
+          ],
+          "camera_up": [
+            0.000495325424708426,
+            0.00013453741848934442,
+            0.9999998807907104
+          ],
+          "camera_radius": 3.7511839309017194
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c3_v1.png",
+          "azimuth": 345.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -5.62785530090332,
+            -19.37877655029297,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.25544583797454834,
+            0.9668232798576355,
+            -0.0003348151803947985
+          ],
+          "camera_up": [
+            8.548903133487329e-05,
+            0.00032371722045354545,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.6907249388489625
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        3.304839611053467,
+        -12.04523754119873,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.304839611053467,
+            -12.04523754119873,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            6.0,
+            9.5,
+            4.0,
+            9.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is very small in the frame.",
+            "Surroundings are empty of meaningful scene context.",
+            "The background appears artificial and disconnected from the bookstore scene."
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-grounded, fully visible, and at a plausible scale, but the surroundings are empty and generic, lacking meaningful context from the bookstore scene, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_v0.png",
+          "azimuth": 285.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.1355676651000977,
+            -13.564227104187012,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9631626009941101,
+            0.268919438123703,
+            -0.0003350535989739001
+          ],
+          "camera_up": [
+            0.00032267242204397917,
+            9.024103928823024e-05,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.690725567288841
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Turtleneck-Guy_92c09ebc_c4_v1.png",
+          "azimuth": 345.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.900119423866272,
+            -17.516263961791992,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.2486899197101593,
+            0.9685831069946289,
+            -0.0003348151803947985
+          ],
+          "camera_up": [
+            8.326593524543568e-05,
+            0.0003242961538489908,
+            0.9999999403953552
+          ],
+          "camera_radius": 5.6907260909886865
+        }
+      ]
+    }
+  ]
+}

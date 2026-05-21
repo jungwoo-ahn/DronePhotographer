@@ -1,0 +1,134 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "Fitness-Girl_0a34a1cb",
+  "object_file": "data/objects/Fitness-Girl_0a34a1cb/Fitness-Girl_0a34a1cb.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.521791398525238,
+        -0.44936129450798035,
+        -0.09106729924678802
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.521791398525238,
+            -0.44936129450798035,
+            -0.09106729924678802
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0_v3.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Fitness-Girl_0a34a1cb_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Fitness-Girl_0a34a1cb_c0_v0.png",
+          "azimuth": 23.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            1.070911169052124,
+            -4.060500144958496,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.40327170491218567,
+            0.9143392443656921,
+            0.036819521337747574
+          ],
+          "camera_up": [
+            0.014858383685350418,
+            -0.03368835896253586,
+            0.9993219375610352
+          ],
+          "camera_radius": 3.990116814119967
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Fitness-Girl_0a34a1cb_c0_v1.png",
+          "azimuth": 323.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.0930705070495605,
+            -5.328895568847656,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.5904349684715271,
+            0.8067270517349243,
+            0.02404140681028366
+          ],
+          "camera_up": [
+            -0.0141990277916193,
+            -0.01940043456852436,
+            0.9997109770774841
+          ],
+          "camera_radius": 6.075187483198269
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A fitness girl would not naturally be found on a sheer rock face."
+    }
+  ]
+}

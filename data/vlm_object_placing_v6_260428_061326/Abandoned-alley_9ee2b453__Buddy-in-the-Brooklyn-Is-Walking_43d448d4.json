@@ -1,0 +1,131 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+  "object_file": "data/objects/Buddy-in-the-Brooklyn-Is-Walking_43d448d4/Buddy-in-the-Brooklyn-Is-Walking_43d448d4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.8012889623641968,
+        1.1201698780059814,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8012889623641968,
+            1.1201698780059814,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            4.0,
+            7.5,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "Object is heavily occluded by scene props (trash bins/blocks)",
+            "The background is mostly a dark, empty wall with no scene context.",
+            "Object is too far from the camera and small in frame",
+            "The lighting is poor, making the scene uninteresting.",
+            "Minor cropping of the head at the top of the frame",
+            "The surroundings are very dark and featureless, particularly the large blank wall on the right.",
+            "The lighting is very poor, making the environment indistinguishable."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly hidden behind trash bins and yellow blocks, making them barely visible and poorly framed in the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Buddy-in-the-Brooklyn-Is-Walking_43d448d4_c1_v1.png",
+          "azimuth": 300.0,
+          "elevation": 35,
+          "preview_quality": 7.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.999585151672363,
+            -1.3037173748016357,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.8602419495582581,
+            0.49666088819503784,
+            -0.11537651717662811
+          ],
+          "camera_up": [
+            0.09991897642612457,
+            0.057688284665346146,
+            0.9933218359947205
+          ],
+          "camera_radius": 5.006337845849527
+        }
+      ]
+    }
+  ]
+}

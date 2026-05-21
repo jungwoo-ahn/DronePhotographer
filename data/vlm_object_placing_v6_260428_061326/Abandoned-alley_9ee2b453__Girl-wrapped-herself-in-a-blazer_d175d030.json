@@ -1,0 +1,274 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Girl-wrapped-herself-in-a-blazer_d175d030",
+  "object_file": "data/objects/Girl-wrapped-herself-in-a-blazer_d175d030/Girl-wrapped-herself-in-a-blazer_d175d030.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.8790925741195679,
+        1.0423662662506104,
+        8.359013463632436e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8790925741195679,
+            1.0423662662506104,
+            8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            3.0,
+            3.0,
+            8.5,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "object is heavily occluded by the green bin",
+            "placement in a dark, uninteresting corner",
+            "Placement is in a dark corner with little context",
+            "object scale is too small for the scene",
+            "poor lighting/visibility against dark background",
+            "Object appears to be floating due to pose and dark ground",
+            "lack of contact shadows makes the object appear to float visually",
+            "Lighting is extremely dark and inconsistent with the scene",
+            "object is heavily cropped (head cut off)",
+            "surroundings_empty",
+            "lighting mismatch makes the object look poorly integrated",
+            "The right side of the frame shows a large empty grey void, likely the edge of the scene geometry."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "Although metadata says grounded, the character's pose and the pitch-black ground make her appear to be floating in a dark void, and the lighting is completely broken compared to the reference scene."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -10.860894203186035,
+        -0.889595627784729,
+        -8.359013463632436e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.860894203186035,
+            -0.889595627784729,
+            -8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            0.0,
+            2.0,
+            0.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden behind or inside a wall",
+            "The render is extremely dark and lacks context",
+            "Object is not visible in the render",
+            "The view shows only a brick wall with no context",
+            "surroundings are empty/uninteresting",
+            "poor framing",
+            "surroundings_empty=true",
+            "object is completely hidden behind a wall",
+            "object is heavily occluded by the green trash bin"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the frame, which only shows a close-up of a brick wall, suggesting it is either occluded or embedded within the geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_v0.png",
+          "azimuth": 91.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.51806640625,
+            -0.7834595441818237,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9904959201812744,
+            -0.02420707792043686,
+            -0.1353951096534729
+          ],
+          "camera_up": [
+            -0.13535469770431519,
+            -0.0033080067951232195,
+            0.9907916784286499
+          ],
+          "camera_radius": 4.520389290181118
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Girl-wrapped-herself-in-a-blazer_d175d030_c1_v1.png",
+          "azimuth": 271.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -16.08196449279785,
+            -1.0171961784362793,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.9933052659034729,
+            0.024275775998830795,
+            -0.11293958127498627
+          ],
+          "camera_up": [
+            0.11290587484836578,
+            0.0027593171689659357,
+            0.9936018586158752
+          ],
+          "camera_radius": 5.370135742407954
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-in-purple-jacket-leans-on-rail_fd1924b7",
+  "object_file": "data/objects/Girl-in-purple-jacket-leans-on-rail_fd1924b7/Girl-in-purple-jacket-leans-on-rail_fd1924b7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.433251098492119,
+        -4.157182738613891,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7064893245697021,
+            -4.342432022094727,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            2.0,
+            2.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "object is heavily cropped (head missing)",
+            "visible seam/artifact in the background environment",
+            "implausible placement (standing on water)",
+            "object is standing on water",
+            "Placement is implausible",
+            "pose (leaning on rail) is unsupported by any geometry",
+            "Object is leaning on a non-existent rail",
+            "surroundings are empty",
+            "Scale is too large compared to the van",
+            "pose 'leans on rail' has no rail to lean on",
+            "Pose (leaning) doesn't match environment (no rail)",
+            "Object is too large for the scene (towers over the chair and van).",
+            "Object is standing on water",
+            "The ground appears to be a floating plane, which looks unnatural.",
+            "object is leaning on nothing"
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing on the water surface instead of the land, and appears too large relative to the van in the background."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -1.95348835576134,
+            -5.311447748793934,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter1_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Surroundings are empty/lack context",
+            "Object is heavily cropped (head missing)",
+            "Object is leaning on an invisible rail",
+            "Placement is implausible for a person",
+            "Object pose (leaning on a rail) does not match the environment as no rail is present",
+            "The ground plane appears as a floating rectangle with broken reflections",
+            "Object appears to be standing on water",
+            "Surroundings are empty",
+            "object is standing on water",
+            "Implausible location",
+            "Object is clipping through the folding chair",
+            "broken skybox/scene edge visible",
+            "Object is leaning on nothing (pose mismatch with environment)",
+            "Object is standing on water",
+            "Object is standing on the water surface instead of the land",
+            "surroundings are empty",
+            "object is leaning on nothing",
+            "Object is leaning on nothing (implausible pose)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the frame, she is leaning against thin air (no rail present), and she is placed on the water surface instead of the campsite ground."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            -2.433251098492119,
+            -4.157182738613891,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.5,
+            2.0,
+            2.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter2_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object pose (leaning) has no supporting geometry (rail) to lean on",
+            "Broken render artifact in background",
+            "standing on water or a void instead of the camping ground",
+            "Object is leaning on an invisible rail",
+            "Object pose (leaning) has no supporting structure (no rail)",
+            "Object is standing on the water surface, which is unrealistic given the attire (boots and puffer jacket)",
+            "Placement is disconnected from the main camping area shown in the reference",
+            "Placement is implausible",
+            "Object's head is cut off by the frame",
+            "object is leaning on a non-existent rail",
+            "surroundings_empty",
+            "Missing rail for the pose",
+            "Object is standing on water"
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing on the water surface instead of the ground, her head is cropped out of the frame, and she is leaning on an invisible rail."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

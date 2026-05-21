@@ -1,0 +1,586 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-waiting-a-bus_ecc43f16",
+  "object_file": "data/objects/Girl-waiting-a-bus_ecc43f16/Girl-waiting-a-bus_ecc43f16.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        24.101804733276367,
+        -67.07955169677734,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            24.101804733276367,
+            -67.07955169677734,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            3.0,
+            9.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "scene edge/void is visible in background",
+            "Object is heavily cropped (head missing)",
+            "The top of the person's head is cropped out of the frame.",
+            "Background contains a large black void/broken render",
+            "Object appears significantly oversized relative to the surrounding props like the trash can and bike rack.",
+            "The background is a dark, empty void, suggesting the object is placed at the very edge of the scene geometry.",
+            "surroundings are empty",
+            "Object is placed at the edge of the scene geometry, resulting in a void/empty horizon background."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the edge of the map resulting in a void background, and the framing crops the top of the person's head."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_v0.png",
+          "azimuth": 17.8,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            25.547710418701172,
+            -71.58302307128906,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.2974846363067627,
+            0.9265567660331726,
+            -0.2302074134349823
+          ],
+          "camera_up": [
+            -0.07037332653999329,
+            0.21918724477291107,
+            0.973141610622406
+          ],
+          "camera_radius": 5.069799529519485
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c0_v1.png",
+          "azimuth": 77.8,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            29.405174255371094,
+            -68.22618103027344,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.9572738409042358,
+            0.20696978271007538,
+            -0.20196616649627686
+          ],
+          "camera_up": [
+            -0.1974049210548401,
+            0.0426805317401886,
+            0.9793925285339355
+          ],
+          "camera_radius": 5.724636029663295
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        8.074868359475737,
+        -64.00559763521325,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.05715274810791,
+            -62.181297302246094,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            6.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "Object is placed at the edge of the scene geometry",
+            "The object is placed near the edge of the scene geometry, revealing a flat void/horizon that breaks immersion.",
+            "surroundings_empty=true",
+            "Object is heavily cropped (head missing)",
+            "Object is placed at the edge of the scene map, overlooking a void background.",
+            "Surroundings are empty (edge of map void)",
+            "Object is placed at the edge of the scene map, resulting in empty surroundings and a visible void/horizon.",
+            "The background lacks any architectural context from the city scene.",
+            "The top of the person's head is slightly cropped by the frame.",
+            "Object is placed at the edge of the scene map overlooking a void."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the very edge of the environment geometry, resulting in a void background and empty surroundings."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            9.413632490159989,
+            -63.54984481962327,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            4.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Object is placed at the edge of the scene geometry, showing a void background.",
+            "surroundings_empty=true",
+            "Object is heavily cropped (head missing)",
+            "Object is placed at the edge of the scene map, overlooking a void background.",
+            "Object is placed at the edge of the scene geometry overlooking a void",
+            "Object is placed at the edge of the scene map overlooking a void",
+            "Object is placed at the edge of the scene map overlooking a void background.",
+            "Object's head is cropped at the top of the frame",
+            "Surroundings are empty/unfinished in the background."
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the extreme edge of the scene geometry, resulting in a large empty void in the background instead of the city context."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            8.074868359475737,
+            -64.00559763521325,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            4.0,
+            3.0,
+            2.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_iter2_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is placed at the edge of the scene geometry, showing a void background.",
+            "surroundings_empty=true",
+            "Object is heavily cropped (head missing)",
+            "The top of the person's head is cut off by the top edge of the frame.",
+            "Surroundings are empty and lack context.",
+            "Object is placed at the edge of the scene geometry, overlooking a void.",
+            "Placement is awkward, behind a fence facing away from the street context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the very edge of the scene map, resulting in an empty void background and the top of the person is cropped out of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c2_v0.png",
+          "azimuth": 355.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.764294147491455,
+            -67.7041244506836,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.08011648058891296,
+            0.9540808796882629,
+            -0.2886364758014679
+          ],
+          "camera_up": [
+            0.024152493104338646,
+            0.28762421011924744,
+            0.9574387669563293
+          ],
+          "camera_radius": 4.136001620211759
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        23.052175521850586,
+        -52.03490447998047,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            23.052175521850586,
+            -52.03490447998047,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            8.0,
+            3.0,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is placed at the edge of the scene geometry, showing a void background.",
+            "surroundings_empty=true",
+            "The framing is tight and crops the top of the head slightly.",
+            "The placement breaks immersion by showing the limits of the 3D model.",
+            "A large pole in the foreground partially obscures the object.",
+            "Object is placed at the edge of the scene geometry, revealing a flat void/horizon.",
+            "Placement is not plausible for 'waiting a bus' as no bus stop is nearby.",
+            "Object is placed at the very edge of the scene geometry, revealing a large black void in the foreground.",
+            "The background lacks any meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the very edge of the scene geometry, resulting in a distracting void background and empty surroundings, further marred by a foreground pole."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-waiting-a-bus_ecc43f16_c3_v0.png",
+          "azimuth": 9.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            23.683916091918945,
+            -55.692291259765625,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.16296525299549103,
+            0.9434678554534912,
+            -0.2886360287666321
+          ],
+          "camera_up": [
+            -0.04912862181663513,
+            0.28442421555519104,
+            0.9574388861656189
+          ],
+          "camera_radius": 4.136005880513291
+        }
+      ]
+    }
+  ]
+}

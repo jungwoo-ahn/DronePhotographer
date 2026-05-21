@@ -1,0 +1,664 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-in-sportswear-standing_cbf7dfde",
+  "object_file": "data/objects/Girl-in-sportswear-standing_cbf7dfde/Girl-in-sportswear-standing_cbf7dfde.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.8881015777587891,
+        58.0786247253418,
+        0.45683860778808594
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.8881015777587891,
+            58.0786247253418,
+            0.45683860778808594
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            8.5,
+            1.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is heavily occluded by foreground furniture.",
+            "Object is completely hidden behind a wall or pillar.",
+            "Object is completely hidden behind walls",
+            "surroundings are empty (just a plain wall and floor)",
+            "surroundings_empty",
+            "Minor cropping at the top of the head."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a foreground pillar, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c0_v0.png",
+          "azimuth": 170.1,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.828159213066101,
+            63.464908599853516,
+            2.1220221519470215
+          ],
+          "camera_forward": [
+            -0.1693171113729477,
+            -0.9701433181762695,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.02985510788857937,
+            -0.17106236517429352,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.715644936711917
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        8.981501579284668,
+        32.17974090576172,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.981501579284668,
+            32.17974090576172,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.0,
+            8.5,
+            9.5,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Minor cropping at the top of the frame.",
+            "Minor cropping at the top of the head."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-placed on the stage and correctly scaled, though the foreground is dominated by the empty stage surface."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_v0.png",
+          "azimuth": 46.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            12.927870750427246,
+            28.395309448242188,
+            3.913111925125122
+          ],
+          "camera_forward": [
+            -0.7107952237129211,
+            0.6816278696060181,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.12533217668533325,
+            0.12018930912017822,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.7156438678077555
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c2_v1.png",
+          "azimuth": 106.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            12.408586502075195,
+            33.17539978027344,
+            5.212060928344727
+          ],
+          "camera_forward": [
+            -0.8109848499298096,
+            -0.23561236262321472,
+            -0.5355281829833984
+          ],
+          "camera_up": [
+            -0.5142644047737122,
+            -0.14940734207630157,
+            0.8445173501968384
+          ],
+          "camera_radius": 4.639216019687862
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        28.027331416682003,
+        20.403641829077703,
+        0.44792938232421875
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.596324920654297,
+            19.23029899597168,
+            0.44792938232421875
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            0.0,
+            1.0,
+            1.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Potential clipping with seats.",
+            "Object is not visible in the frame.",
+            "The object is significantly occluded by foreground furniture (seats).",
+            "Object is likely clipping with or hidden behind the auditorium seats.",
+            "Surroundings are empty.",
+            "Awkward framing with large foreground elements blocking the view.",
+            "The camera view is obstructed by structural beams in the foreground.",
+            "Only the legs are visible.",
+            "The camera view is obstructed.",
+            "The object is almost entirely occluded by the auditorium seating.",
+            "Object is completely hidden behind a wall or surface.",
+            "Object is almost entirely hidden behind a chair.",
+            "Object is completely hidden behind the auditorium seats."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by the auditorium seats in the foreground, making it invisible in the rendered image."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            28.027331416682003,
+            20.403641829077703,
+            0.44792938232421875
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            5.0,
+            2.0,
+            1.0,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_iter1_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Poor framing/occlusion.",
+            "The camera view is partially obstructed by a large structure on the right.",
+            "Object is mostly hidden behind a seat.",
+            "Object is not visible in the frame, likely occluded by the pillar on the left or the rows of chairs.",
+            "The object is very small in the frame due to distance.",
+            "The object is not visible in the frame.",
+            "The camera view is obstructed by the auditorium seats."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely hidden behind the scene's architecture or furniture, making the placement invalid for a rendered shot."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_v0.png",
+          "azimuth": 18.7,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            29.70003890991211,
+            15.461836814880371,
+            3.047921895980835
+          ],
+          "camera_forward": [
+            -0.30127760767936707,
+            0.8900865912437439,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            -0.10965603590011597,
+            0.3239648938179016,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.829182035504528
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c3_v1.png",
+          "azimuth": 318.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            24.418636322021484,
+            16.29595375061035,
+            2.113112211227417
+          ],
+          "camera_forward": [
+            0.6499748826026917,
+            0.739850640296936,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.11460807174444199,
+            0.13045555353164673,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.715646558317362
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        3.7207913398742676,
+        45.93852233886719,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.7207913398742676,
+            45.93852233886719,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            8.5,
+            1.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Minor cropping at the top of the frame.",
+            "Object is completely hidden behind a pillar or wall structure.",
+            "Minor cropping at the top of the head."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a large architectural element in the foreground, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_v0.png",
+          "azimuth": 143.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.843588352203369,
+            48.80731964111328,
+            5.212060928344727
+          ],
+          "camera_forward": [
+            -0.5023380517959595,
+            -0.6788713932037354,
+            -0.5355278849601746
+          ],
+          "camera_up": [
+            -0.3185440003871918,
+            -0.43048790097236633,
+            0.8445175290107727
+          ],
+          "camera_radius": 4.639217946887376
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-in-sportswear-standing_cbf7dfde_c4_v1.png",
+          "azimuth": 83.5,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            9.153346061706543,
+            45.31956100463867,
+            3.913111925125122
+          ],
+          "camera_forward": [
+            -0.9784772396087646,
+            0.11148343980312347,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17253199219703674,
+            0.01965748332440853,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.7156453903443545
+        }
+      ]
+    }
+  ]
+}

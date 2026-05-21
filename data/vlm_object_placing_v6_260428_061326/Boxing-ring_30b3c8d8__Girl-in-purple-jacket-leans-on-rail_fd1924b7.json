@@ -1,0 +1,1035 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Girl-in-purple-jacket-leans-on-rail_fd1924b7",
+  "object_file": "data/objects/Girl-in-purple-jacket-leans-on-rail_fd1924b7/Girl-in-purple-jacket-leans-on-rail_fd1924b7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        28.945358276367188,
+        -2.938082218170166,
+        4.95015287399292
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.945358276367188,
+            -2.938082218170166,
+            4.95015287399292
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            3.0,
+            3.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is leaning on a seat instead of a rail as described",
+            "Object is clipping into the seat behind her.",
+            "Object is clipping through the auditorium seat.",
+            "Head is cut off by the frame edge",
+            "The character is clipping through the auditorium seat behind her.",
+            "Object is clipping with the seat behind her"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.2,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's jacket and arm are clearly intersecting with the backrest of the stadium seat, which is a significant clipping issue despite the plausible location and scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_v0.png",
+          "azimuth": 172.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            29.46328353881836,
+            0.8428712487220764,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.12876828014850616,
+            -0.9400328397750854,
+            -0.3158433735370636
+          ],
+          "camera_up": [
+            -0.042864833027124405,
+            -0.3129211664199829,
+            0.9488113522529602
+          ],
+          "camera_radius": 4.288803085792451
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c0_v1.png",
+          "azimuth": 0.7,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            29.013517379760742,
+            -8.516667366027832,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.01191216055303812,
+            0.9749688506126404,
+            -0.22202225029468536
+          ],
+          "camera_up": [
+            -0.0027124634943902493,
+            0.2220056802034378,
+            0.9750416278839111
+          ],
+          "camera_radius": 5.912295770731356
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        30.524291660785305,
+        -6.427448273938078,
+        5.2089026832580565
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.61025619506836,
+            -5.934893608093262,
+            5.118902683258057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 1.0,
+          "vlm_issues": [
+            "Object is clipping into the seating area",
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is leaning on nothing (no rail present)",
+            "Surroundings are mostly empty/black",
+            "Object is leaning on thin air/clipping into a seat instead of a rail",
+            "Object is clipping into the seating structure",
+            "Object is clipping into the seats behind her",
+            "WARNING: Object is EMBEDDED 0.09m into the floor",
+            "Object is not leaning on a rail as described in its metadata",
+            "Object is EMBEDDED 0.09m into the floor",
+            "Object is not leaning on a rail as described",
+            "Object is leaning on a seat instead of a rail",
+            "Object is clipping into the seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.09
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is embedded in the floor and the background is a black void, failing hard requirements for grounding and interesting surroundings."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            30.61025619506836,
+            -5.934893608093262,
+            5.163902683258057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v4.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 1.0,
+          "vlm_issues": [
+            "Object is EMBEDDED in the floor",
+            "Object is clipping into a seat.",
+            "Object is clipping into the stadium seating behind her.",
+            "Object is leaning on a seat instead of a rail as described",
+            "Object is leaning on a seat instead of a rail as described.",
+            "Object is clipping into the seat behind her",
+            "Object is heavily cropped (only legs/lower torso visible)",
+            "Object is clipping into the seat it is leaning on",
+            "The background is an empty black void",
+            "WARNING: Object is EMBEDDED 0.09m into the floor",
+            "Object is partially obscured by the seating row (less than 70% visible)",
+            "Object is not leaning on a rail as described.",
+            "Object is EMBEDDED 0.09m into the floor",
+            "Object is not leaning on a rail as described",
+            "Object is EMBEDDED 0.09m into the floor."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.09
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is programmatically embedded in the floor and fails to interact with a railing as specified in its description."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            30.524291660785305,
+            -6.427448273938078,
+            5.2089026832580565
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.5,
+            4.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter2_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object's head is cut off by the top of the frame.",
+            "Object is clipping into the seat behind her.",
+            "Object is standing in a seat location instead of an aisle or leaning on a rail.",
+            "Object is not leaning on a rail as described in the metadata.",
+            "Object is clipping into the seat she is leaning on.",
+            "Top of the head is slightly cropped.",
+            "Object is intended to lean on a rail, but no rail is present in this aisle location.",
+            "The jacket color appears reddish-brown rather than purple.",
+            "The object is leaning on thin air rather than a rail, though the placement in the aisle is plausible.",
+            "Object is leaning on a seat instead of a rail as described in its name."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping into the seat behind her and is leaning on furniture instead of a rail as intended by the asset name."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_v0.png",
+          "azimuth": 195.7,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            29.491609573364258,
+            -2.7535641193389893,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.2615664303302765,
+            -0.9305527210235596,
+            -0.2562315762042999
+          ],
+          "camera_up": [
+            0.06933632493019104,
+            -0.24667204916477203,
+            0.9666154384613037
+          ],
+          "camera_radius": 4.177082711819851
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_v1.png",
+          "azimuth": 165.7,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            31.725534439086914,
+            -1.7147890329360962,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.2418229728937149,
+            -0.9487087726593018,
+            -0.20364990830421448
+          ],
+          "camera_up": [
+            -0.050301313400268555,
+            -0.1973399668931961,
+            0.9790437817573547
+          ],
+          "camera_radius": 5.151339950127933
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        24.218111236889726,
+        -4.736704028011423,
+        3.526567134857178
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            23.617691040039062,
+            -3.9370193481445312,
+            3.4915671348571777
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v4.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 1.0,
+          "vlm_issues": [
+            "Object is EMBEDDED in the floor.",
+            "Object is EMBEDDED in the floor",
+            "Object is clipping into a seat.",
+            "Object is not visible in the frame.",
+            "Object is clipping into a seat",
+            "Object is heavily occluded by foreground furniture",
+            "Object is clipping into the seat behind her.",
+            "Object is completely hidden behind scene geometry."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.07
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, likely hidden behind a wall or pillar, and is also embedded in the floor."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            24.218111236889726,
+            -4.736704028011423,
+            3.526567134857178
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            1.0,
+            2.0,
+            3.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter1_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is completely hidden behind the foreground structure.",
+            "Object is clipping into the seat behind her.",
+            "Object is heavily cropped; head and feet are out of frame.",
+            "Less than 70% of the object is visible.",
+            "The object's pose 'leans on rail' is not utilized as she is standing in an aisle.",
+            "The pose 'leans-on-rail' is not utilized correctly as she is facing away from the rail.",
+            "The camera view is blocked.",
+            "Object is almost entirely occluded by a chair in the foreground.",
+            "Object is completely occluded by a seat."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the large black wall/structure in the foreground of the render."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        27.313573509461,
+        -4.927056597761775,
+        4.5701530647277835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.613441467285156,
+            -4.9359564781188965,
+            4.500153064727783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v2.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 1.0,
+          "vlm_issues": [
+            "Object is EMBEDDED in the floor.",
+            "The character's leaning pose is unnatural as there is no rail to lean on in the aisle.",
+            "Object is clipping with the seating structure.",
+            "Object is mostly hidden behind a foreground seat.",
+            "Object is completely hidden behind the seating structure.",
+            "Object is completely hidden behind the auditorium seating.",
+            "Object is clipping into the seat in front of her.",
+            "Object is EMBEDDED 0.07m into the floor."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.07
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is embedded in the floor and her leaning pose is contextually inappropriate for an open aisle without a railing."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            27.613441467285156,
+            -4.9359564781188965,
+            4.535153064727783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 1.0,
+          "vlm_issues": [
+            "Clipping with auditorium seating.",
+            "Object is EMBEDDED in the floor.",
+            "Object is EMBEDDED in the floor",
+            "Object is leaning on thin air/clipping into seats instead of a rail",
+            "WARNING: Object is EMBEDDED 0.07m into the floor",
+            "Object is completely hidden behind the foreground seating structure.",
+            "Object is clipping into the seating structure behind her",
+            "Object is heavily obscured by a foreground seat",
+            "Object is clipping into the seating structure",
+            "Object is mostly hidden behind a large seat in the foreground.",
+            "Object is embedded in the floor.",
+            "Object is almost entirely hidden behind the foreground seats",
+            "Object is EMBEDDED 0.07m into the floor."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.6,
+            "right": 0.0,
+            "up": 0.07
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is embedded in the floor and clipping significantly into the auditorium seating; additionally, her leaning pose does not align with any geometry in this location."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            27.313573509461,
+            -4.927056597761775,
+            4.5701530647277835
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            1.0,
+            3.0,
+            1.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is clipping into the seat structure.",
+            "Object is heavily occluded by foreground seating.",
+            "The character's pose is 'leaning on a rail', but there is no rail present at this location, making the posture look unnatural and physically impossible.",
+            "Object is clipping into the seat behind her.",
+            "Object is completely hidden behind the foreground seating structure.",
+            "Object is completely hidden behind the foreground seats.",
+            "Potential clipping with auditorium seats.",
+            "Object pose 'leans on rail' does not match the environment as there is no rail at this specific spot.",
+            "Minor clipping with the seat armrest.",
+            "Object is significantly occluded by a foreground seat and cropped by the frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is entirely obscured by the large concrete seating tier in the foreground, making the placement invalid for a render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_v0.png",
+          "azimuth": 4.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            27.586427688598633,
+            -8.733552932739258,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.06562405824661255,
+            0.9154998660087585,
+            -0.396930068731308
+          ],
+          "camera_up": [
+            -0.028379574418067932,
+            0.395914226770401,
+            0.9178488850593567
+          ],
+          "camera_radius": 4.4749955152643635
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_v1.png",
+          "azimuth": 88.3,
+          "elevation": 50,
+          "preview_quality": 5.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            31.128156661987305,
+            -5.040270805358887,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.9174447655677795,
+            0.027229078114032745,
+            -0.3969302773475647
+          ],
+          "camera_up": [
+            -0.396755576133728,
+            0.011775429360568523,
+            0.9178487658500671
+          ],
+          "camera_radius": 4.474995233994249
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "She-Looked-Around_328f8160",
+  "object_file": "data/objects/She-Looked-Around_328f8160/She-Looked-Around_328f8160.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.410319447517395,
+        -1.5172507762908936,
+        -0.08574789762496948
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.410319447517395,
+            -1.5172507762908936,
+            -0.08574789762496948
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.0,
+            7.0,
+            8.0,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_She-Looked-Around_328f8160_c0_iter0_v5.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is not visible in the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_She-Looked-Around_328f8160_c0_v0.png",
+          "azimuth": 30.0,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.173715114593506,
+            -4.571542739868164,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.4998232126235962,
+            0.8657193183898926,
+            0.026586303487420082
+          ],
+          "camera_up": [
+            0.013293113559484482,
+            -0.023024437949061394,
+            0.9996465444564819
+          ],
+          "camera_radius": 3.574361454350538
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_She-Looked-Around_328f8160_c0_v1.png",
+          "azimuth": 277.1,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.049670696258545,
+            -2.0727720260620117,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.9921159148216248,
+            0.12357432395219803,
+            0.02086539939045906
+          ],
+          "camera_up": [
+            -0.02070539817214012,
+            -0.0025790310464799404,
+            0.9997822642326355
+          ],
+          "camera_radius": 4.531876593050126
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object appears to be a person looking around, which would be out of place in this abstract, rocky scene."
+    }
+  ]
+}

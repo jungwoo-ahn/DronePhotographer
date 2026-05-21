@@ -1,0 +1,359 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752",
+  "object_file": "data/objects/standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752/standing-cute-kawaii-girl-colorful_2K_a773b272-fda2-43ae-95cf-80423f542fcd.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        61.74578094482422,
+        -18.1534366607666,
+        1.9548825025558472
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            61.74578094482422,
+            -18.1534366607666,
+            1.9548825025558472
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an empty expanse of water with no context or plausible reason for a person to be there.",
+            "The surroundings are empty.",
+            "The scale of the person appears too small for the scene. The person is 1.7m tall, but the rocks and the ship appear much larger than they should be relative to a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an implausible and empty environment, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c0_v1.png",
+          "azimuth": 260.0,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            58.37844467163086,
+            -17.55968475341797,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            0.8443329334259033,
+            -0.14887861907482147,
+            -0.5147203207015991
+          ],
+          "camera_up": [
+            0.5069006085395813,
+            -0.08938013762235641,
+            0.8573581576347351
+          ],
+          "camera_radius": 4.361954052601346
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -19.60708999633789,
+        -7.306387424468994,
+        1.955062747001648
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -19.60708999633789,
+            -7.306387424468994,
+            1.955062747001648
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The object is placed in an empty expanse of water with no context or plausible reason for a person to be there."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an implausible location in the water with no context, and the surroundings are empty, leading to a low quality score."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        72.59282684326172,
+        -66.96515655517578,
+        1.9553914070129395
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            72.59282684326172,
+            -66.96515655517578,
+            1.9553914070129395
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            7.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The object is placed in an empty expanse of water with no context or plausible reason for a person to be there."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an empty expanse of water with no context or plausible reason for a person to be there, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c2_v0.png",
+          "azimuth": 107.8,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            75.84842681884766,
+            -65.9198989868164,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.8163695335388184,
+            -0.2621072232723236,
+            -0.5146266222000122
+          ],
+          "camera_up": [
+            -0.489991158246994,
+            -0.1573188751935959,
+            0.8574143648147583
+          ],
+          "camera_radius": 4.361638701707232
+        }
+      ]
+    }
+  ]
+}

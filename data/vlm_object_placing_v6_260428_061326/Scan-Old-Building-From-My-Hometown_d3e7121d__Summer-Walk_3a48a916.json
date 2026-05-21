@@ -1,0 +1,432 @@
+{
+  "scene": "Scan-Old-Building-From-My-Hometown_d3e7121d",
+  "scene_file": "data/scenes/Scan-Old-Building-From-My-Hometown_d3e7121d/Scan-Old-Building-From-My-Hometown_d3e7121d.blend",
+  "scene_scale": 0.9090909090909091,
+  "object": "Summer-Walk_3a48a916",
+  "object_file": "data/objects/Summer-Walk_3a48a916/Summer-Walk_3a48a916.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.40999695658683777,
+        11.603423118591309,
+        -1.5635833740234375
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.40999695658683777,
+            11.603423118591309,
+            -1.5635833740234375
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            2.0,
+            7.0,
+            3.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0.png",
+              "quality": 6.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is partially occluded by foliage.",
+            "Object is heavily cropped and mostly hidden behind a wall and tree.",
+            "Object is not visible in the rendered image.",
+            "Object is partially obscured by a tree."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black and the object is not visible, indicating a rendering error or that the object is not in the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c0_v0.png",
+          "azimuth": 327.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.4157443046569824,
+            6.974978446960449,
+            -0.7827568650245667
+          ],
+          "camera_forward": [
+            0.5445302128791809,
+            0.8385029435157776,
+            -0.019990738481283188
+          ],
+          "camera_up": [
+            0.010887718759477139,
+            0.01676565408706665,
+            0.9998001456260681
+          ],
+          "camera_radius": 5.57375164253534
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        1.590003252029419,
+        16.603424072265625,
+        -1.6948307752609253
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.590003252029419,
+            16.603424072265625,
+            -1.6948307752609253
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            6.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is partially occluded by foliage.",
+            "Object is partially occluded by a tree.",
+            "Object is heavily cropped and mostly hidden behind a wall and tree."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped and mostly hidden behind a wall and tree, making it impossible to assess its placement or scale. The previous attempt also suffered from similar issues, indicating a need for a significantly different camera position."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_v0.png",
+          "azimuth": 21.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.6484432220458984,
+            11.482893943786621,
+            -0.7827568650245667
+          ],
+          "camera_forward": [
+            -0.3726309835910797,
+            0.9269484281539917,
+            -0.04373473674058914
+          ],
+          "camera_up": [
+            -0.01631251536309719,
+            0.040578678250312805,
+            0.9990431666374207
+          ],
+          "camera_radius": 5.593646821077398
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c1_v1.png",
+          "azimuth": 129.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            4.369496822357178,
+            18.894662857055664,
+            -0.7827568650245667
+          ],
+          "camera_forward": [
+            -0.7698947191238403,
+            -0.6346526145935059,
+            -0.06691942363977432
+          ],
+          "camera_up": [
+            -0.05163666605949402,
+            -0.04256599396467209,
+            0.9977583885192871
+          ],
+          "camera_radius": 3.7158094849597916
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        4.506669998168945,
+        -17.47991371154785,
+        -1.3869619369506836
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.506669998168945,
+            -17.47991371154785,
+            -1.3869619369506836
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            7.0,
+            8.0,
+            8.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is partially occluded by foliage.",
+            "Object is completely hidden behind a wall and tree.",
+            "Object is heavily cropped and mostly hidden behind a wall and tree."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall and tree, making it impossible to evaluate its placement or visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_v0.png",
+          "azimuth": 58.8,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.227243423461914,
+            -20.338794708251953,
+            -0.7827568650245667
+          ],
+          "camera_forward": [
+            -0.8553025126457214,
+            0.5179897546768188,
+            0.012007826007902622
+          ],
+          "camera_up": [
+            0.010271051898598671,
+            -0.006220399402081966,
+            0.9999278783798218
+          ],
+          "camera_radius": 5.551763502669962
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Scan-Old-Building-From-My-Hometown_d3e7121d_Summer-Walk_3a48a916_c2_v1.png",
+          "azimuth": 358.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.431232452392578,
+            -21.081256866455078,
+            -0.7827568650245667
+          ],
+          "camera_forward": [
+            0.020938923582434654,
+            0.999611496925354,
+            0.018395740538835526
+          ],
+          "camera_up": [
+            -0.00038525290437974036,
+            -0.01839170604944229,
+            0.9998307824134827
+          ],
+          "camera_radius": 3.6524549185567
+        }
+      ]
+    }
+  ]
+}

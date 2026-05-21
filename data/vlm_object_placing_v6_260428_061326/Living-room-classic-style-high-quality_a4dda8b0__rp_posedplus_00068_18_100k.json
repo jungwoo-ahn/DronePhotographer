@@ -1,0 +1,120 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "rp_posedplus_00068_18_100k",
+  "object_file": "data/objects/rp_posedplus_00068_18_100k/rp_posedplus_00068_18_100k.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.321568489074707,
+        -1.6914944648742676,
+        -0.0596880204975605
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.321568489074707,
+            -1.6914944648742676,
+            -0.0596880204975605
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped and obscured, with less than 30% of its body visible.",
+            "Surroundings are empty (mostly a blank wall).",
+            "Object is almost entirely obscured by foreground elements (plant), making it impossible to identify or properly evaluate.",
+            "Object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the render, which mostly shows a blank wall with minimal sky context at the very top, indicating the camera is pointed incorrectly."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_rp_posedplus_00068_18_100k_c2_v0.png",
+          "azimuth": 177.9,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.451275587081909,
+            1.8458255529403687,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            -0.03662574663758278,
+            -0.9988362789154053,
+            -0.03137855604290962
+          ],
+          "camera_up": [
+            -0.0011499334359541535,
+            -0.031357478350400925,
+            0.9995075464248657
+          ],
+          "camera_radius": 3.627028159442312
+        }
+      ]
+    }
+  ]
+}

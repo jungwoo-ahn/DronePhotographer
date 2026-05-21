@@ -1,0 +1,128 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "Broadway-Lady_bed11779",
+  "object_file": "data/objects/Broadway-Lady_bed11779/Broadway-Lady_bed11779.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        2.366854190826416,
+        -4.560715675354004,
+        -0.1098044365644455
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.366854190826416,
+            -4.560715675354004,
+            -0.1098044365644455
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            10.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Broadway-Lady_bed11779_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The object is standing on a fallen tree, which is not a typical place to stand.",
+            "Object is partially cropped out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and not clipping, but it is partially cropped out of frame, reducing the overall quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Broadway-Lady_bed11779_c0_v1.png",
+          "azimuth": 200.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.5156069993972778,
+            0.36444661021232605,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.351813405752182,
+            -0.9359846115112305,
+            0.012654487043619156
+          ],
+          "camera_up": [
+            -0.004452400840818882,
+            0.011845343746244907,
+            0.9999199509620667
+          ],
+          "camera_radius": 5.29628937502466
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A bed is an indoor furniture item and would not naturally be found on a picnic site with a waterfall."
+    }
+  ]
+}

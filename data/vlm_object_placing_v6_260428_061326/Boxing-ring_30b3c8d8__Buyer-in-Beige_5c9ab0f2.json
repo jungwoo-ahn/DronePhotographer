@@ -1,0 +1,607 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.0,
+  "object": "Buyer-in-Beige_5c9ab0f2",
+  "object_file": "data/objects/Buyer-in-Beige_5c9ab0f2/Buyer-in-Beige_5c9ab0f2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        20.668935775756836,
+        -4.474238395690918,
+        3.6001029014587402
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.668935775756836,
+            -4.474238395690918,
+            3.6001029014587402
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            8.0,
+            9.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is quite small in the frame",
+            "Object is heavily cropped (head is cut off)",
+            "Minor cropping at the top of the head",
+            "Scene is very dark, making the object hard to see clearly"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the aisle of the arena, but the camera framing cuts off their head, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_v0.png",
+          "azimuth": 194.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            19.219091415405273,
+            1.1725338697433472,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.24836465716362,
+            -0.9673163890838623,
+            -0.051126785576343536
+          ],
+          "camera_up": [
+            0.012714719399809837,
+            -0.04952054098248482,
+            0.9986921548843384
+          ],
+          "camera_radius": 5.915866652206492
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c0_v1.png",
+          "azimuth": 254.4,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.311002731323242,
+            -2.978276252746582,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.9617792963981628,
+            -0.2685336768627167,
+            -0.05357448756694794
+          ],
+          "camera_up": [
+            0.05160093307495117,
+            -0.014407264068722725,
+            0.9985638856887817
+          ],
+          "camera_radius": 5.652852887657765
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        20.668935775756836,
+        -1.474238395690918,
+        3.600101947784424
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.668935775756836,
+            -1.474238395690918,
+            3.600101947784424
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            3.0,
+            4.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is clipping through the back of a seat",
+            "Object is clipping through the stadium seats",
+            "Object is heavily occluded by the stadium seats (lower body not visible)",
+            "The lighting is extremely poor, making the scene look incomplete.",
+            "Object is clipping through the stadium seats in front of him",
+            "The background is a black void, lacking the arena context shown in the reference image.",
+            "Background is completely black/unlit",
+            "Lighting is very dark, making the object difficult to see clearly"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.8,
+            "right": -1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing too close to the seats, causing clipping and significant occlusion of their lower body, and the scene is very dark."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_v0.png",
+          "azimuth": 3.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            20.874717712402344,
+            -5.273886203765869,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            -0.05391332879662514,
+            0.9954793453216553,
+            -0.07819335162639618
+          ],
+          "camera_up": [
+            -0.004228607285767794,
+            0.07807892560958862,
+            0.9969382286071777
+          ],
+          "camera_radius": 3.9356159625366884
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c2_v1.png",
+          "azimuth": 201.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            18.541728973388672,
+            3.953752040863037,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.36439961194992065,
+            -0.9298381209373474,
+            -0.05112690478563309
+          ],
+          "camera_up": [
+            0.018654942512512207,
+            -0.047602031379938126,
+            0.9986921548843384
+          ],
+          "camera_radius": 5.915867115674266
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        20.668935775756836,
+        -0.47423839569091797,
+        3.600102186203003
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.668935775756836,
+            -0.47423839569091797,
+            3.600102186203003
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            4.0,
+            3.0,
+            4.0,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_iter0_v5.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is heavily cropped (head and upper body are out of frame)",
+            "Object is clipping through the stadium seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.4,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing too close to the stadium seat, causing their legs to clip through the furniture; moving them forward would resolve this."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_v0.png",
+          "azimuth": 272.4,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.823919296264648,
+            -0.6773043870925903,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.9972358345985413,
+            0.0417964942753315,
+            -0.06143045052886009
+          ],
+          "camera_up": [
+            0.06137656047940254,
+            0.0025725506711751223,
+            0.998111367225647
+          ],
+          "camera_radius": 4.952253972070374
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c3_v1.png",
+          "azimuth": 2.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.913068771362305,
+            -6.299054145812988,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            -0.04182104021310806,
+            0.9978161454200745,
+            -0.051126666367053986
+          ],
+          "camera_up": [
+            -0.002140970202162862,
+            0.0510818213224411,
+            0.9986921548843384
+          ],
+          "camera_radius": 5.915867324738522
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        19.918935775756836,
+        -3.474238395690918,
+        3.300103187561035
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            19.918935775756836,
+            -3.474238395690918,
+            3.300103187561035
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            4.0,
+            9.0,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (head and upper body are out of frame)",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and placed in a plausible stadium environment, but more than 30% of the object (head and upper torso) is cropped out of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_v0.png",
+          "azimuth": 310.3,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            17.016817092895508,
+            -5.935412883758545,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            0.7534077167510986,
+            0.6389360427856445,
+            -0.15536247193813324
+          ],
+          "camera_up": [
+            0.1184900552034378,
+            0.10048683732748032,
+            0.9878575205802917
+          ],
+          "camera_radius": 4.0226713617737015
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Buyer-in-Beige_5c9ab0f2_c4_v1.png",
+          "azimuth": 176.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.305307388305664,
+            2.342874765396118,
+            4.604790687561035
+          ],
+          "camera_forward": [
+            -0.0659274160861969,
+            -0.9925854802131653,
+            -0.10211573541164398
+          ],
+          "camera_up": [
+            -0.006767684128135443,
+            -0.10189122706651688,
+            0.9947725534439087
+          ],
+          "camera_radius": 5.974135538137517
+        }
+      ]
+    }
+  ]
+}

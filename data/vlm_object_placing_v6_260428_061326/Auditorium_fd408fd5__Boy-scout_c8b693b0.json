@@ -1,0 +1,751 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 1.0,
+  "object": "Boy-scout_c8b693b0",
+  "object_file": "data/objects/Boy-scout_c8b693b0/Boy-scout_c8b693b0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        15.296404838562012,
+        19.490854263305664,
+        0.22841894626617432
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            15.296404838562012,
+            19.490854263305664,
+            0.22841894626617432
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            8.5,
+            4.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_iter0_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is significantly occluded by foreground furniture (chairs)",
+            "Object is in a sitting pose but is placed on a chair base without a seat in the middle of the aisle.",
+            "Object is clipping through the chair it is sitting on."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.1,
+            "right": 0.0,
+            "up": 0.15
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in an auditorium seat, but their body is significantly clipping through the chair's geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_v0.png",
+          "azimuth": 136.4,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            18.74997329711914,
+            23.11745834350586,
+            1.6412124633789062
+          ],
+          "camera_forward": [
+            -0.6791427135467529,
+            -0.713170051574707,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.11975114792585373,
+            -0.1257510483264923,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.203400578804569
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c0_v1.png",
+          "azimuth": 16.4,
+          "elevation": 10,
+          "preview_quality": 5.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            16.710351943969727,
+            14.686675071716309,
+            1.6412124633789062
+          ],
+          "camera_forward": [
+            -0.27805206179618835,
+            0.944739818572998,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.04902814328670502,
+            0.16658315062522888,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.203399731138893
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        13.448359314725527,
+        15.796335496425375,
+        0.22396470606327057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.296404838562012,
+            15.490854263305664,
+            0.22396470606327057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            6.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "Significant occlusion by foreground chairs.",
+            "Object is in a sitting pose but is placed in the aisle without a seat.",
+            "Object is significantly occluded by foreground furniture (chairs)",
+            "Placement is unrealistic for the character's pose.",
+            "Object is in a sitting pose but is not correctly aligned with a seat, appearing to sit on the chair frame/air.",
+            "Object is in a sitting pose but is placed on a small stool in the middle of the aisle instead of a proper auditorium chair.",
+            "Object is clipping through the chairs."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is clipping through the auditorium chairs and his sitting pose is not properly aligned with a seat, making the placement look broken."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            13.448359314725527,
+            15.796335496425375,
+            0.22396470606327057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            8.5,
+            8.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is clipping through the chair in front of it.",
+            "Object is in a sitting pose but is placed in the aisle instead of on a seat.",
+            "Object is placed in the middle of the aisle on a small stool rather than in an actual auditorium seat."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": 0.8,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is in a sitting pose but is placed in the aisle, clipping through the chair structure in front of him; he should be moved onto an actual seat."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_v0.png",
+          "azimuth": 184.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.064154624938965,
+            20.789506912231445,
+            1.6367583274841309
+          ],
+          "camera_forward": [
+            0.0755535438656807,
+            -0.9819052815437317,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.013322106562554836,
+            -0.17313632369041443,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.203398902087362
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c1_v1.png",
+          "azimuth": 124.4,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            17.580469131469727,
+            18.62565040588379,
+            1.6367583274841309
+          ],
+          "camera_forward": [
+            -0.8125780820846558,
+            -0.5563840866088867,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.14327925443649292,
+            -0.09810544550418854,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.203397703613673
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        18.296405792236328,
+        20.490854263305664,
+        0.22841913998126984
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            18.296405792236328,
+            20.490854263305664,
+            0.22841913998126984
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            9.0,
+            3.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is significantly occluded by foreground furniture (chairs)",
+            "Object is in a sitting pose but is placed on a stool in the middle of the aisle instead of in an auditorium seat.",
+            "Object is clipping through the chair it is placed on",
+            "The person is sitting on a stool in the middle of the aisle rather than in an auditorium seat."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is heavily occluded by multiple rows of chairs, with only his head and shoulders visible, and he is clearly clipping through the seat geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c2_v1.png",
+          "azimuth": 88.8,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            23.303237915039062,
+            20.385976791381836,
+            1.6412122249603271
+          ],
+          "camera_forward": [
+            -0.9845917820930481,
+            0.02062404341995716,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.1736101359128952,
+            0.003636476816609502,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.20339800922807
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.296404838562012,
+        29.490854263305664,
+        0.22841915488243103
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.296404838562012,
+            29.490854263305664,
+            0.22841915488243103
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            9.0,
+            5.5,
+            3.0,
+            8.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v2.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Significant occlusion by foreground chairs.",
+            "Only the head and shoulders are visible.",
+            "Object is in a sitting pose but is placed on a small stool in the aisle instead of in an auditorium seat.",
+            "Object is in a sitting pose but is placed in the aisle instead of on a seat.",
+            "Object is significantly occluded by foreground furniture (chairs).",
+            "Object is in a sitting pose but is placed on a stool in the aisle instead of an auditorium seat."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely hidden behind rows of auditorium chairs, violating the requirement for the object to be mostly visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c3_v0.png",
+          "azimuth": 55.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            12.40866470336914,
+            26.63275909423828,
+            1.6412124633789062
+          ],
+          "camera_forward": [
+            -0.808674156665802,
+            0.5620431900024414,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.1425909548997879,
+            0.099103182554245,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.203400212246455
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        2.29640531539917,
+        22.490854263305664,
+        1.1239646673202515
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.29640531539917,
+            22.490854263305664,
+            1.1239646673202515
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            10.0,
+            9.0,
+            9.0,
+            9.5,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The object is partially occluded by a structural pillar in the foreground."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is plausibly sitting on the edge of the stage, but a foreground pillar partially obstructs the view; moving him slightly to the left would improve visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_v0.png",
+          "azimuth": 144.8,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.183138370513916,
+            26.583059310913086,
+            2.5367584228515625
+          ],
+          "camera_forward": [
+            -0.5676750540733337,
+            -0.8047305941581726,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.10009648650884628,
+            -0.14189572632312775,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.203398471095063
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Boy-scout_c8b693b0_c4_v1.png",
+          "azimuth": 84.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.283725738525391,
+            22.036972045898438,
+            2.5367584228515625
+          ],
+          "camera_forward": [
+            -0.9807547330856323,
+            0.08925564587116241,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.17293332517147064,
+            0.015738096088171005,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.20339921853019
+        }
+      ]
+    }
+  ]
+}

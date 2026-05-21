@@ -1,0 +1,159 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "Mechanic-Character_05c46069",
+  "object_file": "data/objects/Mechanic-Character_05c46069/Mechanic-Character_05c46069.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        37.95707702636719,
+        585.6710205078125,
+        -33.525352478027344
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            37.95707702636719,
+            585.6710205078125,
+            -33.525352478027344
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Mechanic-Character_05c46069_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "surroundings_empty=true",
+            "The surroundings are empty, with only a barren landscape visible.",
+            "The object is grounded, but the ground appears to be uneven, and the object is standing on a slope."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the surroundings are empty, which lowers the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Mechanic-Character_05c46069_c0_v0.png",
+          "azimuth": 357.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            37.6336784362793,
+            579.2870483398438,
+            -31.637495040893555
+          ],
+          "camera_forward": [
+            0.04982440173625946,
+            0.9835466146469116,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            0.008785373531281948,
+            0.17342548072338104,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.665110089828373
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_Mechanic-Character_05c46069_c0_v1.png",
+          "azimuth": 57.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            43.32404708862305,
+            582.198974609375,
+            -31.637495040893555
+          ],
+          "camera_forward": [
+            -0.8268643021583557,
+            0.5349221229553223,
+            -0.17364834249019623
+          ],
+          "camera_up": [
+            -0.14579860866069794,
+            0.09432130306959152,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.665093774815501
+        }
+      ]
+    }
+  ]
+}

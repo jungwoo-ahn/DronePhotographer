@@ -1,0 +1,98 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 0.5,
+  "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+  "object_file": "data/objects/koky_62993eba-1768-46e1-9a7d-712e0ef109fb/koky_2K_7495bb4f-844d-4a39-be6d-d096ed7b5b75.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        2.7642812728881836,
+        17.94873046875,
+        1.6894989585125586e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.7642812728881836,
+            17.94873046875,
+            1.6894989585125586e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.5,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The rendered scene does not match the reference image; it appears as a dark, abstract environment instead of a beach.",
+            "There is an unnatural light streak on the right side of the image.",
+            "The rendered environment does not match the reference scene (reflective floor instead of sand, abstract background).",
+            "The surroundings are mostly empty, lacking detailed context around the object.",
+            "The surroundings are mostly empty, lacking detailed context around the object such as sand, driftwood, or the ocean.",
+            "The ground the object is standing on does not match the sandy beach environment shown in the reference image; it appears as a dark, reflective surface."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in an abstract, empty environment that does not resemble the beach scene from the reference image, with a reflective floor instead of sand and a plain hazy background."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

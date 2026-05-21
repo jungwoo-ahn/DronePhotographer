@@ -1,0 +1,71 @@
+{
+  "scene": "italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6",
+  "scene_file": "data/scenes/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6/italian-cafe_61ba9dfe-fd8c-4953-af72-4204117f6103.blend",
+  "scene_scale": 0.7142857142857143,
+  "object": "Office-Move_3d4b091c",
+  "object_file": "data/objects/Office-Move_3d4b091c/Office-Move_3d4b091c.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.1697516441345215,
+        2.7209177017211914,
+        0.011397900991141796
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.1697516441345215,
+            2.7209177017211914,
+            0.011397900991141796
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Office-Move_3d4b091c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Office-Move_3d4b091c_c0_iter0_v2.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Office-Move_3d4b091c_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is a person holding boxes, but the scene is an outdoor cafe. This is not a plausible location for a person to be moving boxes."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the placement is not plausible as a person moving boxes in an outdoor cafe scene."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "The object is a stack of moving boxes, which would not naturally be found in an Italian cafe scene."
+    }
+  ]
+}

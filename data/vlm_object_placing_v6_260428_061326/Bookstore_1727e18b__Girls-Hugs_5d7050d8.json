@@ -1,0 +1,715 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girls-Hugs_5d7050d8",
+  "object_file": "data/objects/Girls-Hugs_5d7050d8/Girls-Hugs_5d7050d8.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        23.880491256713867,
+        -19.556386947631836,
+        -2.47955313170678e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            23.880491256713867,
+            -19.556386947631836,
+            -2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            6.0,
+            3.0,
+            9.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "visible edge of scene geometry (gray void)",
+            "The scene context (bookstore) is not visible in this shot.",
+            "The object is heavily cropped, with the upper bodies and heads completely out of frame.",
+            "Object is cropped at the top (heads are missing)",
+            "Scale feels slightly off relative to the background building",
+            "The background is very sparse and the horizon line is unnaturally flat."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and placed in a plausible outdoor setting, it is severely cropped, making it impossible to see the full interaction or the people's faces."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_v0.png",
+          "azimuth": 4.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 7.5,
+          "camera_position": [
+            24.290264129638672,
+            -25.13642692565918,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.07323608547449112,
+            0.9972847104072571,
+            0.007723536808043718
+          ],
+          "camera_up": [
+            0.0005656604189425707,
+            -0.00770279485732317,
+            0.9999701976776123
+          ],
+          "camera_radius": 5.629943885703555
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c0_v1.png",
+          "azimuth": 298.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            18.972801208496094,
+            -22.243268966674805,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8771200180053711,
+            0.48020920157432556,
+            0.0077234175987541676
+          ],
+          "camera_up": [
+            -0.006774605251848698,
+            -0.003708894830197096,
+            0.9999701976776123
+          ],
+          "camera_radius": 5.629943640877413
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        7.028411865234375,
+        -4.576758861541748,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.028411865234375,
+            -4.576758861541748,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.5,
+            7.0,
+            0.0,
+            7.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The scene feels disconnected from the primary architecture of the bookstore.",
+            "Visible edge of scene geometry (gray void) in the background",
+            "Object is not visible in the frame.",
+            "The placement is in the middle of a road, lacking the context of the bookstore building shown in the reference.",
+            "The camera is focused on a dark wooden shelf or wall, providing no context of the scene or the object.",
+            "The edge of the scene geometry (gray void) is visible on the right side of the frame.",
+            "visible edge of scene geometry (gray void)",
+            "Large pole in foreground is distracting"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered image, which appears to be a close-up of an interior shelf or wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_v0.png",
+          "azimuth": 232.8,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            2.571775197982788,
+            -1.193987488746643,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.7965230345726013,
+            -0.6045939922332764,
+            -0.004141632933169603
+          ],
+          "camera_up": [
+            0.0032989224418997765,
+            -0.0025040432810783386,
+            0.9999914169311523
+          ],
+          "camera_radius": 5.637707325512714
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c1_v1.png",
+          "azimuth": 292.8,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.8705276250839233,
+            -6.744933605194092,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9218552708625793,
+            0.3875121772289276,
+            -0.004141513723880053
+          ],
+          "camera_up": [
+            0.0038178996182978153,
+            0.001604922697879374,
+            0.9999914169311523
+          ],
+          "camera_radius": 5.637707283222726
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        46.34993362426758,
+        -15.811479568481445,
+        -0.06639190763235092
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            46.34993362426758,
+            -15.811479568481445,
+            -0.06639190763235092
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            4.0,
+            3.0,
+            4.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is quite small in the frame.",
+            "Less than 10% of the object is visible.",
+            "Surroundings are very sparse, showing only a railing and some bushes.",
+            "Visible edge of scene geometry (gray void) in the background",
+            "Object is heavily occluded by foliage (bushes).",
+            "The bookstore context is not visible.",
+            "Object is clipping with bushes.",
+            "The background shows the edge of the scene geometry (gray void).",
+            "Visible edge of scene geometry (gray void) in the background.",
+            "The main scene context (the bookstore) is not visible.",
+            "Placement on the curb edge is awkward.",
+            "Object is very small in the frame",
+            "The bookstore itself is not visible in the frame, making the location feel generic.",
+            "The bookstore context is completely missing from this view",
+            "The scene context (bookstore) is not visible in this shot.",
+            "Object is clipping through the bushes."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely obscured by foreground foliage and a railing, failing the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c2_v0.png",
+          "azimuth": 98.5,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            51.63003921508789,
+            -15.02236270904541,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.9890065789222717,
+            -0.14780794084072113,
+            -0.00434082979336381
+          ],
+          "camera_up": [
+            -0.004293166100978851,
+            -0.0006415052339434624,
+            0.9999905824661255
+          ],
+          "camera_radius": 5.383420538921789
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        1.4110510349273682,
+        -17.68393325805664,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.4110510349273682,
+            -17.68393325805664,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            3.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Visible edge of scene geometry (gray void) on the right side of the frame.",
+            "The object is placed in a barren area of the map, far from the main architecture.",
+            "The background shows the edge of the scene geometry (gray void) at the horizon.",
+            "The surroundings are empty; the bookstore architecture is not visible.",
+            "The primary architecture of the bookstore is not visible in this shot, making the context feel generic.",
+            "The surroundings are empty and lack any meaningful scene context from the bookstore.",
+            "The object is heavily cropped, with heads and upper bodies missing from the frame.",
+            "The bookstore building is not visible, losing scene context.",
+            "The object is placed in a featureless area of the scene, appearing to be in a void."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and fully visible, it is placed in an empty part of the scene where the bookstore building is completely missing from the background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c3_v0.png",
+          "azimuth": 297.3,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -2.7244951725006104,
+            -19.81844711303711,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8886063098907471,
+            0.45864373445510864,
+            -0.004979307763278484
+          ],
+          "camera_up": [
+            0.004424725659191608,
+            0.0022837051656097174,
+            0.9999876022338867
+          ],
+          "camera_radius": 4.705091543720852
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        3.2835044860839844,
+        -12.066573143005371,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.2835044860839844,
+            -12.066573143005371,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            7.0,
+            3.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The background shows the edge of the scene geometry (flat horizon/void).",
+            "Visible edge of scene geometry (gray void) on the right side of the frame.",
+            "The surroundings are empty, showing only a plain road and sky.",
+            "The object is placed in the middle of the street rather than on the sidewalk.",
+            "The surroundings are empty and lack any architectural context from the bookstore scene.",
+            "The background shows the edge of the scene geometry (gray void).",
+            "The object is placed in a barren area of the map, far from the main bookstore architecture.",
+            "The edge of the scene geometry (gray void) is clearly visible in the background, making the environment look unfinished.",
+            "The camera angle is tilted awkwardly.",
+            "The object is placed in the middle of the street, which is an awkward location for this interaction.",
+            "The surroundings feel empty and disconnected from the intended scene context.",
+            "The object is placed in a barren area far from the main scene elements.",
+            "The object is placed far from the main bookstore architecture.",
+            "The edge of the scene geometry is visible in the background.",
+            "Placement in the middle of the road is slightly awkward.",
+            "The object is placed in the middle of a road, far from the bookstore architecture.",
+            "The placement is far from the main architectural detail of the bookstore."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a barren part of the map with no architectural context, making the surroundings feel empty and showing the edge of the world geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girls-Hugs_5d7050d8_c4_v0.png",
+          "azimuth": 345.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.8920680284500122,
+            -17.485858917236328,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.248687744140625,
+            0.9685748815536499,
+            -0.004141752142459154
+          ],
+          "camera_up": [
+            0.0010299872374162078,
+            0.004011637531220913,
+            0.9999914169311523
+          ],
+          "camera_radius": 5.637707388947697
+        }
+      ]
+    }
+  ]
+}

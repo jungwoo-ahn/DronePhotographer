@@ -1,0 +1,130 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Formal-Informal_c4d7ab91",
+  "object_file": "data/objects/Formal-Informal_c4d7ab91/Formal-Informal_c4d7ab91.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.5285208225250244,
+        1.458416223526001,
+        -0.059682369232177734
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.5285208225250244,
+            1.458416223526001,
+            -0.059682369232177734
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            3.0,
+            1.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty",
+            "Object is not visible in the frame.",
+            "Object is not visible",
+            "Object is heavily occluded and cropped",
+            "Object is not visible in the rendered image.",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (a person) is completely absent from the rendered image, which only shows a close-up of a plant. The surroundings are also empty of meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_Formal-Informal_c4d7ab91_c0_v0.png",
+          "azimuth": 91.9,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.308412551879883,
+            1.6188735961914062,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            -0.9992486834526062,
+            -0.03314856439828873,
+            -0.02007988840341568
+          ],
+          "camera_up": [
+            -0.020068850368261337,
+            -0.0006657059420831501,
+            0.9997983574867249
+          ],
+          "camera_radius": 4.9038294636283135
+        }
+      ]
+    }
+  ]
+}

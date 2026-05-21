@@ -1,0 +1,563 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Student-Girl_b16f4246",
+  "object_file": "data/objects/Student-Girl_b16f4246/Student-Girl_b16f4246.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.0425026416778564,
+        -0.7578356266021729,
+        -1.9073488033427566e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.0425026416778564,
+            -0.7578356266021729,
+            -1.9073488033427566e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            9.5,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping through the umbrella pole.",
+            "object is mostly occluded by a pillar",
+            "Object is heavily cropped (head and feet missing)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind a structural pillar in the scene, failing the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_v0.png",
+          "azimuth": 351.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -2.8914082050323486,
+            -6.178830623626709,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.1544584184885025,
+            0.9863508939743042,
+            -0.057047925889492035
+          ],
+          "camera_up": [
+            0.008825925178825855,
+            0.05636105686426163,
+            0.998371422290802
+          ],
+          "camera_radius": 5.568537243290634
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c0_v1.png",
+          "azimuth": 291.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -5.383805274963379,
+            -2.0471372604370117,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.929398775100708,
+            0.3586251735687256,
+            -0.08721161633729935
+          ],
+          "camera_up": [
+            0.08136434853076935,
+            0.03139599412679672,
+            0.9961898326873779
+          ],
+          "camera_radius": 3.705048009481588
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.12583589553833,
+        -2.674502372741699,
+        -9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.12583589553833,
+            -2.674502372741699,
+            -9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            8.0,
+            3.0,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object's head is cut off by the frame edge.",
+            "Object is heavily cropped; the head and upper torso are out of frame.",
+            "The object is completely occluded by the wooden wall in the foreground.",
+            "Object's leg is clipping through the foreground bench.",
+            "Object is partially occluded by the picnic table bench."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is entirely hidden behind the wooden wall, making the placement invalid for a render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_v0.png",
+          "azimuth": 218.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.979490280151367,
+            0.8874409198760986,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.6237725019454956,
+            -0.7785954475402832,
+            -0.06853492558002472
+          ],
+          "camera_up": [
+            0.042850907891988754,
+            -0.05348677933216095,
+            0.9976487159729004
+          ],
+          "camera_radius": 4.661712463384896
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c1_v1.png",
+          "azimuth": 349.6,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.7723515033721924,
+            -6.197088241577148,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.1798313558101654,
+            0.979823887348175,
+            -0.0872112587094307
+          ],
+          "camera_up": [
+            0.015743309631943703,
+            0.08577850461006165,
+            0.9961898326873779
+          ],
+          "camera_radius": 3.7050478606729964
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        2.874164342880249,
+        -8.6745023727417,
+        -5.9604645663569045e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.874164342880249,
+            -8.6745023727417,
+            -5.9604645663569045e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            3.0,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is significantly occluded by a large pillar in the foreground.",
+            "Object is heavily occluded by a structural pillar.",
+            "The top of the object's hat is slightly cropped by the frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is positioned directly behind a large wooden pillar, which occludes more than half of her body, making the placement poor."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_v0.png",
+          "azimuth": 100.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.396750450134277,
+            -8.027986526489258,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.979823887348175,
+            -0.1798313856124878,
+            -0.08721161633729935
+          ],
+          "camera_up": [
+            -0.08577883988618851,
+            -0.015743443742394447,
+            0.9961898326873779
+          ],
+          "camera_radius": 3.705047900891535
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c3_v1.png",
+          "azimuth": 258.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.4949729442596436,
+            -7.543047904968262,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9769154191017151,
+            -0.20586830377578735,
+            -0.057047806680202484
+          ],
+          "camera_up": [
+            0.05582183226943016,
+            -0.011763294227421284,
+            0.998371422290802
+          ],
+          "camera_radius": 5.568536900768243
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.12583577632904053,
+        -9.6745023727417,
+        -2.9802322831784522e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.12583577632904053,
+            -9.6745023727417,
+            -2.9802322831784522e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            10.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is significantly occluded by a large pillar in the foreground."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing directly behind a large structural pillar, which occludes a significant portion of her body, making the placement poor for a clear view."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_v0.png",
+          "azimuth": 273.6,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.70019268989563,
+            -9.899381637573242,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9942240715026855,
+            0.06255102157592773,
+            -0.0872114971280098
+          ],
+          "camera_up": [
+            0.08703940361738205,
+            0.0054760705679655075,
+            0.9961898326873779
+          ],
+          "camera_radius": 3.705047971776709
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Student-Girl_b16f4246_c4_v1.png",
+          "azimuth": 93.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.350396156311035,
+            -9.329967498779297,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9964014291763306,
+            -0.06268809735774994,
+            -0.057047806680202484
+          ],
+          "camera_up": [
+            -0.05693523958325386,
+            -0.003581990022212267,
+            0.998371422290802
+          ],
+          "camera_radius": 5.568536972350072
+        }
+      ]
+    }
+  ]
+}

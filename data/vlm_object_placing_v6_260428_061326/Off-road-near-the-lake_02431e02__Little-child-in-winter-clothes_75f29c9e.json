@@ -1,0 +1,156 @@
+{
+  "scene": "Off-road-near-the-lake_02431e02",
+  "scene_file": "data/scenes/Off-road-near-the-lake_02431e02/Off-road-near-the-lake_02431e02.blend",
+  "scene_scale": 1.0,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -13.505840301513672,
+        -42.76226043701172,
+        -1.407135009765625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -13.505840301513672,
+            -42.76226043701172,
+            -1.407135009765625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is a child, but the scene is an off-road industrial area with a vehicle and a tower. This is not a plausible location for a child."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded and fully visible, but the placement is implausible given the industrial off-road environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 175.0,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -13.225350379943848,
+            -39.55624771118164,
+            0.1684120148420334
+          ],
+          "camera_forward": [
+            -0.08189970999956131,
+            -0.9361168742179871,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            -0.029809126630425453,
+            -0.34071841835975647,
+            0.9396926760673523
+          ],
+          "camera_radius": 3.5832304595533437
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Little-child-in-winter-clothes_75f29c9e_c0_v1.png",
+          "azimuth": 48.6,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -11.401455879211426,
+            -44.617523193359375,
+            0.9614455103874207
+          ],
+          "camera_forward": [
+            -0.6144552230834961,
+            0.5417146682739258,
+            -0.5735765099525452
+          ],
+          "camera_up": [
+            -0.4302462935447693,
+            0.3793127238750458,
+            0.8191519975662231
+          ],
+          "camera_radius": 3.671594747034345
+        }
+      ]
+    }
+  ]
+}

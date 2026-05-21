@@ -91,6 +91,45 @@ def test_elevation_clamped_to_pm90():
     assert low["cam_to_obj_elevation_deg"] == -90
 
 
+def test_cam_to_obj_v2_sign_convention():
+    """v2 convention: elevation/azimuth describe the cam->obj vector.
+
+    Mirrors the formulas in render_object_v3.compute_3d_metrics and
+    compute_camera_to_object_angles. If the production code drifts away
+    from this convention, this test catches it.
+    """
+    import math
+
+    def angles_v2(cam, obj):
+        dx, dy, dz = cam[0] - obj[0], cam[1] - obj[1], cam[2] - obj[2]
+        horiz = math.sqrt(dx * dx + dy * dy)
+        elev = math.degrees(math.atan2(-dz, horiz))
+        azim = math.degrees(math.atan2(-dy, -dx)) % 360
+        return round(azim), round(elev)
+
+    # cam directly above obj -> cam->obj points down -> elev = -90
+    az, el = angles_v2((0.0, 0.0, 5.0), (0.0, 0.0, 0.0))
+    assert el == -90, f"cam above should be -90, got {el}"
+    # cam directly below -> cam->obj points up -> elev = +90
+    az, el = angles_v2((0.0, 0.0, -5.0), (0.0, 0.0, 0.0))
+    assert el == 90
+    # eye-level
+    az, el = angles_v2((5.0, 0.0, 0.0), (0.0, 0.0, 0.0))
+    assert el == 0
+    # cam at obj's +X (right side) -> cam->obj points -X -> azim = 180
+    az, el = angles_v2((5.0, 0.0, 0.0), (0.0, 0.0, 0.0))
+    assert az == 180
+    # cam at obj's +Y (in front) -> cam->obj points -Y -> azim = 270
+    az, el = angles_v2((0.0, 5.0, 0.0), (0.0, 0.0, 0.0))
+    assert az == 270
+    # cam at -X (left side) -> cam->obj points +X -> azim = 0
+    az, el = angles_v2((-5.0, 0.0, 0.0), (0.0, 0.0, 0.0))
+    assert az == 0
+    # cam at -Y (behind) -> cam->obj points +Y -> azim = 90
+    az, el = angles_v2((0.0, -5.0, 0.0), (0.0, 0.0, 0.0))
+    assert az == 90
+
+
 def test_none_bbox_zeroes_image_fields_keeps_angles():
     scores = compute_v5_scores(W, H, None, 30.0, 10.0)
     assert scores["occupancy"] == 0

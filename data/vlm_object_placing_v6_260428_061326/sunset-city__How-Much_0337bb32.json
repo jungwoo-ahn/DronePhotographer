@@ -1,0 +1,446 @@
+{
+  "scene": "sunset-city",
+  "scene_file": "data/scenes/sunset-city/Sunset city.blend",
+  "scene_scale": 1.0,
+  "object": "How-Much_0337bb32",
+  "object_file": "data/objects/How-Much_0337bb32/How-Much_0337bb32.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -23.887317657470703,
+        8.247831344604492,
+        -6.659619202764588e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -23.887317657470703,
+            8.247831344604492,
+            -6.659619202764588e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            7.0,
+            2.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "The object is not placed in a plausible location.",
+            "The surroundings are empty, with only a flat plane and a building facade visible.",
+            "surroundings_empty=true",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in an empty, undefined space, which is not a plausible location for a person in a city scene. The surroundings are also empty, lacking any context or detail."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_How-Much_0337bb32_c0_v0.png",
+          "azimuth": 352.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -24.580873489379883,
+            3.118178367614746,
+            1.5593650341033936
+          ],
+          "camera_forward": [
+            0.13195055723190308,
+            0.9759279489517212,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.02326645702123642,
+            0.1720823496580124,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.406105918838608
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_How-Much_0337bb32_c0_v1.png",
+          "azimuth": 183.1,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -24.07002830505371,
+            11.62149429321289,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.05043499544262886,
+            -0.9312564134597778,
+            -0.3608570694923401
+          ],
+          "camera_up": [
+            0.019514814019203186,
+            -0.3603290021419525,
+            0.9326211214065552
+          ],
+          "camera_radius": 3.902918873945519
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -31.840641021728516,
+        9.165521621704102,
+        -1.2024037232549745e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -31.840641021728516,
+            9.165521621704102,
+            -1.2024037232549745e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "The surroundings are empty.",
+            "The object is not placed in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, and the surroundings are empty, indicating a poor placement and framing."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_How-Much_0337bb32_c1_v0.png",
+          "azimuth": 187.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -32.299171447753906,
+            12.512869834899902,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.12657146155834198,
+            -0.9239924550056458,
+            -0.360856831073761
+          ],
+          "camera_up": [
+            0.04897405952215195,
+            -0.35751810669898987,
+            0.9326212406158447
+          ],
+          "camera_radius": 3.902919663784486
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_How-Much_0337bb32_c1_v1.png",
+          "azimuth": 247.8,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -34.96879577636719,
+            10.442097663879395,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.863486647605896,
+            -0.3523823618888855,
+            -0.3608566224575043
+          ],
+          "camera_up": [
+            0.33410659432411194,
+            -0.13634617626667023,
+            0.9326213002204895
+          ],
+          "camera_radius": 3.902920623999377
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -3.698110818862915,
+        2.4357869625091553,
+        0.13792401552200317
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.698110818862915,
+            2.4357869625091553,
+            0.13792401552200317
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_How-Much_0337bb32_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is not placed in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is visible and grounded, but standing in an odd spot behind a tree on a sidewalk, which is not a plausible location for a person to be standing in this urban environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_How-Much_0337bb32_c2_v0.png",
+          "azimuth": 208.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -5.325767993927002,
+            5.396483421325684,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.4552572965621948,
+            -0.8281102776527405,
+            -0.32706907391548157
+          ],
+          "camera_up": [
+            0.15756677091121674,
+            -0.2866128087043762,
+            0.945000410079956
+          ],
+          "camera_radius": 3.835729061142903
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_How-Much_0337bb32_c2_v1.png",
+          "azimuth": 148.8,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.1394749879837036,
+            6.660597324371338,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            -0.5040923357009888,
+            -0.8323554396629333,
+            -0.23038096725940704
+          ],
+          "camera_up": [
+            -0.11934355646371841,
+            -0.19705964624881744,
+            0.9731005430221558
+          ],
+          "camera_radius": 5.262458528368858
+        }
+      ]
+    }
+  ]
+}

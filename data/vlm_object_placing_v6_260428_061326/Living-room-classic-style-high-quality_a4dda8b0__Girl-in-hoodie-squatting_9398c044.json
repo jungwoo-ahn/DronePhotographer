@@ -1,0 +1,123 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Girl-in-hoodie-squatting_9398c044",
+  "object_file": "data/objects/Girl-in-hoodie-squatting_9398c044/Girl-in-hoodie-squatting_9398c044.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -0.4401150941848755,
+        -1.45317804813385,
+        -0.0597815066576004
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.4401150941848755,
+            -1.45317804813385,
+            -0.0597815066576004
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            5.0,
+            7.0,
+            0.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object's pose (squatting) outside a window is somewhat unusual.",
+            "Object is completely hidden.",
+            "The surroundings are empty/uninteresting.",
+            "The scene is extremely dark, making details hard to discern.",
+            "Object is obscured by reflections and haze on the window.",
+            "The scene is quite dark, making details hard to discern.",
+            "The overall render is very dark, making details hard to discern."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a plain wall, making it impossible to evaluate its placement or scale, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_Girl-in-hoodie-squatting_9398c044_c3_v0.png",
+          "azimuth": 176.2,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.2436351180076599,
+            1.504968523979187,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            -0.06568051129579544,
+            -0.9888680577278137,
+            -0.1335141807794571
+          ],
+          "camera_up": [
+            -0.008848471567034721,
+            -0.1332206428050995,
+            0.9910469055175781
+          ],
+          "camera_radius": 3.0684300875270707
+        }
+      ]
+    }
+  ]
+}

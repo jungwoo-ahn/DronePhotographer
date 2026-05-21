@@ -1,0 +1,131 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -8.025978088378906,
+        -1.9186018705368042,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.025978088378906,
+            -1.9186018705368042,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            1.0,
+            3.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is completely hidden behind a wall",
+            "The object is facing a blank wall with no scene context visible",
+            "Scale inconsistency: a 'little child' should not be 1.7m tall",
+            "Surroundings are empty (just a wall)",
+            "surroundings_empty",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, which only shows a close-up of a brick wall and a flat ground plane."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 97.4,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.681303024291992,
+            -1.4842045307159424,
+            0.9989069104194641
+          ],
+          "camera_forward": [
+            -0.9766054749488831,
+            -0.12683866918087006,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17220193147659302,
+            -0.022365109995007515,
+            0.9848077297210693
+          ],
+          "camera_radius": 3.517579802534433
+        }
+      ]
+    }
+  ]
+}

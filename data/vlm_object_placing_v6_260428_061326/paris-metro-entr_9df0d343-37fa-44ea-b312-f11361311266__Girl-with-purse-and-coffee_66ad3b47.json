@@ -1,0 +1,126 @@
+{
+  "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+  "scene_file": "data/scenes/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266/paris-metro-entrance-square-pigalle_ac73342f-25be-4f35-a845-d6fbcc540ba8.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-with-purse-and-coffee_66ad3b47",
+  "object_file": "data/objects/Girl-with-purse-and-coffee_66ad3b47/Girl-with-purse-and-coffee_66ad3b47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        58.948814392089844,
+        158.17828369140625,
+        6.002330780029297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            58.948814392089844,
+            158.17828369140625,
+            6.002330780029297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not in a plausible location"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but sitting on a tall stool in the middle of a street is not a plausible location for a person."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -62.124855041503906,
+        59.3426399230957,
+        6.002330780029297
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -62.124855041503906,
+            59.3426399230957,
+            6.002330780029297
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png"
+          ],
+          "view_qualities": [
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly on a stool on the street, is fully visible, grounded, and not clipping with any objects. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

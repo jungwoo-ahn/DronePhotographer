@@ -1,0 +1,646 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-in-hoodie-squatting_9398c044",
+  "object_file": "data/objects/Girl-in-hoodie-squatting_9398c044/Girl-in-hoodie-squatting_9398c044.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -6.822022438049316,
+        -47.971168518066406,
+        -0.052864547818899155
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.822022438049316,
+            -47.971168518066406,
+            -0.052864547818899155
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            6.0,
+            9.5,
+            4.0,
+            10.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "The object is placed at the very edge of the scene geometry, resulting in a sparse background that shows the horizon line."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is correctly grounded and visible, but the tight camera framing shows only the pavement, providing no architectural or environmental context from the city scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_v0.png",
+          "azimuth": 349.3,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.626709938049316,
+            -52.2298583984375,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.17627756297588348,
+            0.9329221844673157,
+            -0.31397831439971924
+          ],
+          "camera_up": [
+            0.05829530581831932,
+            0.3085190951824188,
+            0.9494301676750183
+          ],
+          "camera_radius": 4.702652137532236
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c0_v1.png",
+          "azimuth": 262.8,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -11.121894836425781,
+            -47.4279670715332,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.9419436454772949,
+            -0.11899551004171371,
+            -0.31397807598114014
+          ],
+          "camera_up": [
+            0.31150227785110474,
+            -0.03935187682509422,
+            0.9494302272796631
+          ],
+          "camera_radius": 4.702653376482744
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        11.371508598327637,
+        20.954326629638672,
+        -0.12022291868925095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.371508598327637,
+            20.954326629638672,
+            -0.12022291868925095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            9.0,
+            8.0,
+            4.0,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are empty (just a wall/ground texture).",
+            "Object is not visible in the frame.",
+            "The background is very sparse and lacks the architectural detail seen in the reference image.",
+            "The object is placed at the edge of the scene geometry, causing a visible horizon line where the road ends abruptly."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, which only shows a close-up of a textured surface, likely a wall or the ground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_v0.png",
+          "azimuth": 9.3,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            12.071907997131348,
+            16.677244186401367,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.1527092158794403,
+            0.932539165019989,
+            -0.32718589901924133
+          ],
+          "camera_up": [
+            -0.052874524146318436,
+            0.32288527488708496,
+            0.9449599981307983
+          ],
+          "camera_radius": 4.729204404221033
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c1_v1.png",
+          "azimuth": 126.5,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            14.85546588897705,
+            23.532320022583008,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.7596125602722168,
+            -0.5620838403701782,
+            -0.3271857798099518
+          ],
+          "camera_up": [
+            -0.26301050186157227,
+            -0.1946176141500473,
+            0.9449600577354431
+          ],
+          "camera_radius": 4.729205995415765
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        14.170515060424805,
+        -10.184602737426758,
+        -0.1202230378985405
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.170515060424805,
+            -10.184602737426758,
+            -0.1202230378985405
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            9.5,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping through the railing.",
+            "The object is clipping into the fence post.",
+            "Object is partially occluded by a railing post.",
+            "The surroundings are mostly empty sky and ground.",
+            "The object is clipping through the metal fence.",
+            "The object is clipping through the base of the metal fence.",
+            "The object's arm is clipping through the black fence post."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -0.4,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the vertical post of the metal fence, which violates the hard requirement for no clipping."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c2_v0.png",
+          "azimuth": 71.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            18.470317840576172,
+            -11.648375511169434,
+            1.0724949836730957
+          ],
+          "camera_forward": [
+            -0.9322674870491028,
+            0.31736981868743896,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.16438394784927368,
+            0.05596088990569115,
+            0.9848077297210693
+          ],
+          "camera_radius": 4.696116615027783
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        9.566187174454589,
+        -68.00765906596068,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.2747435569763184,
+            -71.06295776367188,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            2.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The placement lacks any architectural context from the Italian city scene.",
+            "The surroundings are empty, showing only the ground texture without any architectural or environmental context.",
+            "Surroundings are empty (just ground texture and a black void).",
+            "Surroundings are empty and lack context.",
+            "The location is not plausible for a city scene as it's just a void background.",
+            "The surroundings are empty; the object is placed at the edge of the scene geometry with no architectural context visible.",
+            "The object is placed at the edge of the scene geometry, resulting in a void in the background.",
+            "surroundings_empty",
+            "The object is placed at the edge of the scene geometry, showing the void.",
+            "The object is placed at the very edge of the scene geometry, looking out into a void.",
+            "The object is placed at the edge of the scene geometry, resulting in a void background."
+          ],
+          "vlm_adjustment": {
+            "forward": 15.0,
+            "right": -5.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and visible, but it is placed on a bare plane at the edge of the map with no scene context visible, resulting in a quality score of 2."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            9.566187174454589,
+            -68.00765906596068,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            4.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is placed at the edge of the map, resulting in a void background.",
+            "The background is empty and shows the edge of the scene geometry (void).",
+            "The surroundings are empty, showing only the ground texture without any architectural or environmental context.",
+            "surroundings_empty",
+            "The object is placed in an area with no visible scene context, showing only a plain ground and a dark void background.",
+            "The placement lacks any interesting architectural context from the city scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 15.0,
+            "right": 5.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the edge of the scene geometry, resulting in a completely empty background with no architectural context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-hoodie-squatting_9398c044_c3_v0.png",
+          "azimuth": 262.5,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.626891613006592,
+            -67.62069702148438,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.8926041722297668,
+            -0.11751285195350647,
+            -0.43525683879852295
+          ],
+          "camera_up": [
+            0.43153321743011475,
+            -0.05681201070547104,
+            0.9003063440322876
+          ],
+          "camera_radius": 3.481403067012818
+        }
+      ]
+    }
+  ]
+}

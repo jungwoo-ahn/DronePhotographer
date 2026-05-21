@@ -1,0 +1,616 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.40764060616493225,
+        6.268578052520752,
+        -0.021145617589354515
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.40764060616493225,
+            6.268578052520752,
+            -0.021145617589354515
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            5.0,
+            3.0,
+            9.5,
+            6.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "Object placement is a bit unusual for a casual city scene (sitting on a high stool behind a fence).",
+            "Placement is somewhat awkward; the person is sitting on a stool on the sidewalk facing a plain wall, with their back to the street.",
+            "Object is clipping with the concrete block/wall.",
+            "Surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely absent from the rendered image, which only shows a dark, empty corner, making it impossible to evaluate its placement, scale, or visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 75.8,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            4.609536170959473,
+            5.2053351402282715,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9685555100440979,
+            0.24508212506771088,
+            -0.04283638671040535
+          ],
+          "camera_up": [
+            -0.04152752459049225,
+            0.010508129373192787,
+            0.999082088470459
+          ],
+          "camera_radius": 4.395379983958223
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 193.6,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.8176500201225281,
+            11.333324432373047,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.2349926233291626,
+            -0.9713435173034668,
+            -0.03564099222421646
+          ],
+          "camera_up": [
+            0.008380585350096226,
+            -0.034641679376363754,
+            0.9993646740913391
+          ],
+          "camera_radius": 5.261743926375322
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.5923594236373901,
+        -19.731422424316406,
+        -0.02114560455083847
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5923594236373901,
+            -19.731422424316406,
+            -0.02114560455083847
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            2.0,
+            9.5,
+            3.0,
+            1.0,
+            6.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_iter0_v5.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object's placement on an isolated, open rooftop feels somewhat unnatural and random, lacking a clear purpose for sitting there.",
+            "Object is sitting on top of a thin metal fence, which is implausible and unsafe.",
+            "Object is not visible in the frame.",
+            "The visible surroundings are mostly a blank wall, sky, and water, lacking interesting context.",
+            "Object is placed in an implausible location (sitting on a stool in an empty, open area behind a fence, facing away from the restaurant).",
+            "surroundings_empty=true",
+            "Object is almost entirely occluded by a large wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost completely hidden behind a large wall, making it not visible and the immediate surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_v0.png",
+          "azimuth": 288.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -5.525208950042725,
+            -21.410701751708984,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.946047842502594,
+            0.3220609128475189,
+            -0.03564111143350601
+          ],
+          "camera_up": [
+            0.0337396115064621,
+            0.011485965922474861,
+            0.9993646740913391
+          ],
+          "camera_radius": 5.261743303339366
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c2_v1.png",
+          "azimuth": 345.8,
+          "elevation": 50,
+          "preview_quality": 6.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.4266843795776367,
+            -23.028644561767578,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.24494203925132751,
+            0.9680014252662659,
+            -0.05455842986702919
+          ],
+          "camera_up": [
+            0.013383579440414906,
+            0.05289141833782196,
+            0.9985105991363525
+          ],
+          "camera_radius": 3.4786100979826813
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        4.40764045715332,
+        1.2685778141021729,
+        -0.021145818755030632
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.40764045715332,
+            1.2685778141021729,
+            -0.021145818755030632
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            2.0,
+            9.5,
+            9.0,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "The surroundings are empty, showing only a plain wall and floor.",
+            "The object is likely behind the visible wall, implying clipping.",
+            "The person is placed in a highly implausible and unsafe location, sitting on top of a street lamp post.",
+            "The object is clipping with the street lamp post."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, with the camera showing only a dark, plain wall and floor, indicating it is likely behind the wall and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_v0.png",
+          "azimuth": 188.4,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.6812949180603027,
+            6.187376976013184,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.14598099887371063,
+            -0.9885820746421814,
+            -0.03734979033470154
+          ],
+          "camera_up": [
+            0.005456054583191872,
+            -0.03694913163781166,
+            0.9993022680282593
+          ],
+          "camera_radius": 5.025446743583241
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c3_v1.png",
+          "azimuth": 248.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            0.37768250703811646,
+            2.8641510009765625,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.9289230704307556,
+            -0.3677864968776703,
+            -0.0428365059196949
+          ],
+          "camera_up": [
+            0.03982836753129959,
+            -0.01576918363571167,
+            0.999082088470459
+          ],
+          "camera_radius": 4.3953800382012185
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        5.40764045715332,
+        -3.7314226627349854,
+        -0.03461799398064613
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.40764045715332,
+            -3.7314226627349854,
+            -0.03461799398064613
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            2.0,
+            5.0,
+            9.5,
+            2.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden behind a large concrete structure.",
+            "The person is sitting in a precarious and unnatural position.",
+            "The placement of the person sitting on the fence is implausible and unsafe.",
+            "The object (person on a stool) is implausibly placed on top of a street fence.",
+            "The surroundings are empty, showing only a plain wall and sky.",
+            "The stool's legs are clipping through the fence bars.",
+            "The object's placement on a stool directly on top of a thin metal fence railing is highly implausible and unsafe for a person.",
+            "Object is clipping with the fence.",
+            "The person is implausibly sitting on a stool on top of a thin metal fence, which is an unsafe and unnatural placement."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by a large concrete structure, making it invisible, and the visible surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_v0.png",
+          "azimuth": 71.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.633024215698242,
+            -4.81062126159668,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9466995000839233,
+            0.3167612552642822,
+            -0.058500561863183975
+          ],
+          "camera_up": [
+            -0.05547748878598213,
+            0.0185624398291111,
+            0.9982873797416687
+          ],
+          "camera_radius": 3.4814624074379776
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Hahaha-woman-on-chair_50c9329e_c4_v1.png",
+          "azimuth": 247.7,
+          "elevation": 10,
+          "preview_quality": 5.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.5865079164505005,
+            -1.7541325092315674,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.9245336055755615,
+            -0.37917906045913696,
+            -0.03822106495499611
+          ],
+          "camera_up": [
+            0.03536250442266464,
+            -0.014503205195069313,
+            0.9992693066596985
+          ],
+          "camera_radius": 5.263629880606701
+        }
+      ]
+    }
+  ]
+}

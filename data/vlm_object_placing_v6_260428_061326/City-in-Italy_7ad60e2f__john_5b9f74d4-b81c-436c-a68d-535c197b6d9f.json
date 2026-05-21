@@ -1,0 +1,728 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+  "object_file": "data/objects/john_5b9f74d4-b81c-436c-a68d-535c197b6d9f/john_2K_b9d4753f-532d-40dd-8628-708383004936.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        10.301375389099121,
+        -23.837688446044922,
+        -0.021145621314644814
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.301375389099121,
+            -23.837688446044922,
+            -0.021145621314644814
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            9.5,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top (head and upper torso are cut off).",
+            "Surroundings are empty, lacking any meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and not clipping, but is heavily cropped at the top, and the surroundings are empty, providing no scene context for evaluation."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_v0.png",
+          "azimuth": 158.0,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            12.226706504821777,
+            -19.072328567504883,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.37460628151893616,
+            -0.9271827936172485,
+            0.0014896824723109603
+          ],
+          "camera_up": [
+            0.0005580748547799885,
+            0.0013811973622068763,
+            0.9999988675117493
+          ],
+          "camera_radius": 5.191195441358211
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_v1.png",
+          "azimuth": 65.4,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            15.662154197692871,
+            -26.292043685913086,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.909235417842865,
+            0.41628026962280273,
+            0.0012987093068659306
+          ],
+          "camera_up": [
+            0.0011808412382379174,
+            -0.0005406108102761209,
+            0.9999991655349731
+          ],
+          "camera_radius": 5.940939715024192
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        8.301375389099121,
+        -16.837690353393555,
+        -0.04808911681175232
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.301375389099121,
+            -16.837690353393555,
+            -0.04808911681175232
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            9.5,
+            9.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking any meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-placed, scaled, and fully visible, but the surroundings are empty, showing only sky, sea, and a railing, which limits the quality score to 4."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_v0.png",
+          "azimuth": 182.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.085732460021973,
+            -10.662473678588867,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.0348992794752121,
+            -0.9993859529495239,
+            -0.003121207933872938
+          ],
+          "camera_up": [
+            0.0001089438155759126,
+            -0.0031193061731755733,
+            0.9999951124191284
+          ],
+          "camera_radius": 6.225176566932362
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_v1.png",
+          "azimuth": 70.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.152141571044922,
+            -18.53640365600586,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9437943696975708,
+            0.3305118680000305,
+            -0.003752536606043577
+          ],
+          "camera_up": [
+            -0.003541674930602312,
+            0.0012401894200593233,
+            0.9999929666519165
+          ],
+          "camera_radius": 5.195053363733409
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        2.301375150680542,
+        12.162311553955078,
+        -0.02114558033645153
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.301375150680542,
+            12.162311553955078,
+            -0.02114558033645153
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            0.0,
+            9.5,
+            1.0,
+            9.5,
+            1.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v5.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking any meaningful scene context.",
+            "Object is completely hidden.",
+            "A large dark area in the foreground obstructs the view and makes the composition poor.",
+            "Surroundings are empty (dark room with only windows visible, no other context).",
+            "Render is almost entirely black, making evaluation impossible.",
+            "The object is extremely small in the frame, making it difficult to appreciate its details.",
+            "The rendered view lacks meaningful scene context.",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by a wall, making it impossible to evaluate its placement or scale, and the surrounding view provides no meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_v0.png",
+          "azimuth": 11.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.522695779800415,
+            6.105235576629639,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.19765722751617432,
+            0.9802703857421875,
+            0.0012392239877954125
+          ],
+          "camera_up": [
+            0.00024492377997376025,
+            -0.0012147790985181928,
+            0.9999992251396179
+          ],
+          "camera_radius": 6.221956935747333
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_v1.png",
+          "azimuth": 71.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.172531604766846,
+            10.52298641204834,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.947767436504364,
+            0.3189587891101837,
+            0.0014899208908900619
+          ],
+          "camera_up": [
+            0.0014121118001639843,
+            -0.0004751887172460556,
+            0.9999988675117493
+          ],
+          "camera_radius": 5.191195372466974
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        6.301375389099121,
+        12.162311553955078,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.301375389099121,
+            12.162311553955078,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            9.5,
+            4.0,
+            9.5,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top (head and upper torso are cut off).",
+            "Surroundings are empty, lacking any meaningful scene context.",
+            "Object is completely hidden.",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, and the visible background consists of mostly plain industrial structures and distant sky/ocean, lacking the detailed street context of the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_v0.png",
+          "azimuth": 6.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.968700885772705,
+            6.019472599029541,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.10799931734800339,
+            0.9941502213478088,
+            0.0012392239877954125
+          ],
+          "camera_up": [
+            0.0001338411238975823,
+            -0.001231975038535893,
+            0.9999992251396179
+          ],
+          "camera_radius": 6.221957098602679
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c3_v1.png",
+          "azimuth": 123.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.668352127075195,
+            14.382424354553223,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.8348461985588074,
+            -0.5504800081253052,
+            0.0018985697533935308
+          ],
+          "camera_up": [
+            0.0015849596820771694,
+            0.0010452128481119871,
+            0.9999982118606567
+          ],
+          "camera_radius": 4.098584145508566
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        9.301375389099121,
+        4.162312030792236,
+        -0.02114562876522541
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.301375389099121,
+            4.162312030792236,
+            -0.02114562876522541
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty, lacking any meaningful scene context.",
+            "Object is completely hidden."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, and the rendered scene shows only a dark, empty corner with no discernible context, making the placement entirely unplausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_v0.png",
+          "azimuth": 178.9,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.400042533874512,
+            9.300971031188965,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.019197367131710052,
+            -0.9998146295547485,
+            0.001489801681600511
+          ],
+          "camera_up": [
+            2.8621596356970258e-05,
+            0.0014895267086103559,
+            0.9999988675117493
+          ],
+          "camera_radius": 5.191195244103223
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c4_v1.png",
+          "azimuth": 2.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            9.54348373413086,
+            -0.9715886116027832,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.04710635170340538,
+            0.9988887906074524,
+            0.001489801681600511
+          ],
+          "camera_up": [
+            7.017970347078517e-05,
+            -0.0014881477691233158,
+            0.9999988675117493
+          ],
+          "camera_radius": 5.191195216744073
+        }
+      ]
+    }
+  ]
+}

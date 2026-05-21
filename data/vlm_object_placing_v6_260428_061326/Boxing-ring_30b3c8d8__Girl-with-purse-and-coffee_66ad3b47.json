@@ -1,0 +1,696 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Girl-with-purse-and-coffee_66ad3b47",
+  "object_file": "data/objects/Girl-with-purse-and-coffee_66ad3b47/Girl-with-purse-and-coffee_66ad3b47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        28.957012176513672,
+        -3.259408473968506,
+        4.950153350830078
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.957012176513672,
+            -3.259408473968506,
+            4.950153350830078
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            5.0,
+            3.0,
+            5.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "object is awkwardly placed (bar stool in a stadium aisle)",
+            "minor cropping of the head",
+            "head is cropped out of frame",
+            "Object is clipping through the auditorium seats.",
+            "Object is clipping through the stadium seat armrest and back.",
+            "awkward placement: sitting on a bar stool in a stadium aisle",
+            "Object is clipping through a chair in the auditorium seating."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.4,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the back of the auditorium seat in front of her, which is a major placement error."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c0_v0.png",
+          "azimuth": 32.7,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.720481872558594,
+            -7.5639543533325195,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.5229033827781677,
+            0.8145054578781128,
+            -0.2513023316860199
+          ],
+          "camera_up": [
+            -0.13576370477676392,
+            0.21147359907627106,
+            0.9679086208343506
+          ],
+          "camera_radius": 5.476847881984385
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        27.625093460083008,
+        -3.259408473968506,
+        4.500153064727783
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.625093460083008,
+            -3.259408473968506,
+            4.500153064727783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            3.0,
+            9.0,
+            6.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "object is heavily cropped (head is cut off)",
+            "minor cropping of the head",
+            "object is almost entirely hidden behind furniture",
+            "object is likely clipping through the stadium seat",
+            "placement is implausible (bar stool in a stadium aisle)",
+            "minor clipping with the seat back behind her",
+            "Object is clipping through the stadium seating.",
+            "object is awkwardly placed (sitting on a bar stool in a stadium aisle)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost completely obscured by the stadium seating, with only the top of the head visible, and is likely clipping through the chair geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_v0.png",
+          "azimuth": 345.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            26.743091583251953,
+            -6.645464897155762,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.22471891343593597,
+            0.8627089262008667,
+            -0.4530283808708191
+          ],
+          "camera_up": [
+            0.1141945943236351,
+            0.43839970231056213,
+            0.8914961218833923
+          ],
+          "camera_radius": 4.247012652200689
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c1_v1.png",
+          "azimuth": 205.3,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            26.129749298095703,
+            -0.09598340094089508,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.38098788261413574,
+            -0.8059860467910767,
+            -0.4530283808708191
+          ],
+          "camera_up": [
+            0.19360516965389252,
+            -0.40957507491111755,
+            0.8914961218833923
+          ],
+          "camera_radius": 4.247012631148958
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        28.957012176513672,
+        -8.254096031188965,
+        4.950150966644287
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.957012176513672,
+            -8.254096031188965,
+            4.950150966644287
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            7.0,
+            3.0,
+            6.0,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is heavily cropped (head is cut off)",
+            "object's head is cropped out of the frame",
+            "object is clipping through the auditorium seats",
+            "The object is sitting on a stool placed awkwardly in the middle of stadium seating rows, which is an unnatural location for a standalone stool.",
+            "The object is sitting on a bar stool in the middle of a stadium aisle, which is an awkward and unrealistic location for such furniture.",
+            "awkward placement of a bar stool in a stadium aisle",
+            "placement on a bar stool in a stadium aisle is awkward"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.2,
+            "right": 0.8,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clearly clipping through the back of the auditorium seat and her head is cut off by the top edge of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c2_v1.png",
+          "azimuth": 181.6,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            28.83250617980957,
+            -3.7967424392700195,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.026760075241327286,
+            -0.9580203294754028,
+            -0.28544870018959045
+          ],
+          "camera_up": [
+            0.007970185950398445,
+            -0.2853373885154724,
+            0.9583939909934998
+          ],
+          "camera_radius": 4.869649886274761
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        28.957012176513672,
+        -6.25622034072876,
+        4.950153827667236
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.957012176513672,
+            -6.25622034072876,
+            4.950153827667236
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            3.0,
+            9.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "object's head is cropped out of the frame",
+            "object is heavily occluded by the seats",
+            "The object is clipping through the stadium seating.",
+            "The placement of a bar stool in a stadium aisle is contextually unusual.",
+            "only the top of the head is visible",
+            "awkward placement: bar stool in a stadium aisle",
+            "object is awkwardly placed (sitting on a stool in a narrow stadium aisle)",
+            "placement of a bar stool in stadium seating is awkward"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is almost entirely hidden behind the stadium seating, with only the top of her head visible, which violates the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c3_v0.png",
+          "azimuth": 193.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            28.163949966430664,
+            -2.8482348918914795,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.21190066635608673,
+            -0.910589873790741,
+            -0.3548579812049866
+          ],
+          "camera_up": [
+            0.0804288387298584,
+            -0.3456231951713562,
+            0.9349201917648315
+          ],
+          "camera_radius": 4.00915010524705
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        22.630407333374023,
+        -4.258345603942871,
+        3.154067039489746
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            22.630407333374023,
+            -4.258345603942871,
+            3.154067039489746
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            1.0,
+            9.5,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "sitting on a stool in an aisle is unusual for this venue",
+            "object is not visible in the frame",
+            "placement on stairs is awkward",
+            "Object is clipping through the seat it is sitting on.",
+            "poor framing with large foreground object blocking the view",
+            "object is completely occluded by a large foreground structure",
+            "object is heavily occluded by foreground furniture"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is entirely hidden behind a large dark wall or platform in the foreground, making it invisible to the camera."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_v0.png",
+          "azimuth": 310.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            18.57227325439453,
+            -7.761233806610107,
+            4.728264808654785
+          ],
+          "camera_forward": [
+            0.7454946637153625,
+            0.6434937119483948,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.13145063817501068,
+            0.11346519738435745,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.587197307093945
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Girl-with-purse-and-coffee_66ad3b47_c4_v1.png",
+          "azimuth": 250.8,
+          "elevation": 20,
+          "preview_quality": 6.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            17.7996768951416,
+            -2.5761075019836426,
+            5.644805431365967
+          ],
+          "camera_forward": [
+            0.8874235153198242,
+            -0.30903366208076477,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            0.3229956030845642,
+            -0.11247905343770981,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.689434162793184
+        }
+      ]
+    }
+  ]
+}

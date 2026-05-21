@@ -1,0 +1,405 @@
+{
+  "scene": "namaqualand",
+  "scene_file": "data/scenes/namaqualand/Namaqualand.blend",
+  "scene_scale": 2.0,
+  "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+  "object_file": "data/objects/spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/spider-man-no-way-home-suit_2K_1ac6fb05-8276-4645-a0b1-5dd80f9c74bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -17.723440170288086,
+        -18.577754974365234,
+        10.14926528930664
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -17.723440170288086,
+            -18.577754974365234,
+            10.14926528930664
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The scale of the person seems slightly too large for the environment. The rocks and terrain appear to be scaled down relative to the person.",
+            "The object is very small in the scene, which makes it difficult to assess its scale relative to the environment.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scale of the person appears slightly too large for the environment, suggesting the scene might be scaled down."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_v0.png",
+          "azimuth": 335.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -19.311351776123047,
+            -22.111019134521484,
+            12.854961395263672
+          ],
+          "camera_forward": [
+            0.3647349774837494,
+            0.811572253704071,
+            -0.45641958713531494
+          ],
+          "camera_up": [
+            0.18709683418273926,
+            0.41630953550338745,
+            0.889764666557312
+          ],
+          "camera_radius": 4.725061881452356
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_v1.png",
+          "azimuth": 52.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -14.662629127502441,
+            -20.951963424682617,
+            12.854961395263672
+          ],
+          "camera_forward": [
+            -0.7030520439147949,
+            0.5453431606292725,
+            -0.4564193785190582
+          ],
+          "camera_up": [
+            -0.36064204573631287,
+            0.27974268794059753,
+            0.8897647857666016
+          ],
+          "camera_radius": 4.725063117680488
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.28772258758545,
+        6.765676975250244,
+        9.123390197753906
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.28772258758545,
+            6.765676975250244,
+            9.123390197753906
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            3.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person seems slightly too large for the environment. The rocks and terrain appear to be scaled down relative to the person.",
+            "The object is very small in the scene, which makes it difficult to assess its scale relative to the environment.",
+            "The object is not placed in a plausible location within the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scale is too large for the environment, and the placement is not plausible. The surroundings are empty, which also lowers the quality."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.9506683349609375,
+        -3.9052422046661377,
+        9.213505744934082
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.9506683349609375,
+            -3.9052422046661377,
+            9.213505744934082
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person seems slightly too large for the environment. The rocks and terrain appear to be scaled down relative to the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scale appears slightly too large for the environment, making the rocks and terrain seem scaled down relative to the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_v0.png",
+          "azimuth": 18.1,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.7100117206573486,
+            -9.28796100616455,
+            11.99327564239502
+          ],
+          "camera_forward": [
+            -0.2919404208660126,
+            0.8931926488876343,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            -0.10625755786895752,
+            0.32509541511535645,
+            0.9396926760673523
+          ],
+          "camera_radius": 6.308413003983645
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_v1.png",
+          "azimuth": 318.1,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.8312313556671143,
+            -8.120237350463867,
+            11.99327564239502
+          ],
+          "camera_forward": [
+            0.6275574564933777,
+            0.6994239687919617,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.22841224074363708,
+            0.25456950068473816,
+            0.9396926164627075
+          ],
+          "camera_radius": 6.308412682736768
+        }
+      ]
+    }
+  ]
+}

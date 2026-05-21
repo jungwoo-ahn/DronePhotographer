@@ -1,0 +1,696 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-waiting-a-bus_ecc43f16",
+  "object_file": "data/objects/Girl-waiting-a-bus_ecc43f16/Girl-waiting-a-bus_ecc43f16.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        19.538183212280273,
+        43.14109420776367,
+        0.4568382501602173
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            19.538183212280273,
+            43.14109420776367,
+            0.4568382501602173
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            7.5,
+            1.0,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is almost entirely occluded by furniture.",
+            "Object is completely hidden behind the auditorium chairs.",
+            "The auditorium chairs appear slightly oversized relative to the person's 1.7m height."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely occluded by the rows of chairs in the foreground, making the placement invalid for this camera angle."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_v0.png",
+          "azimuth": 26.0,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            22.03094482421875,
+            38.03017807006836,
+            2.1656930446624756
+          ],
+          "camera_forward": [
+            -0.4317115247249603,
+            0.8851392865180969,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.07612234354019165,
+            0.15607386827468872,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.937635038747585
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c0_v1.png",
+          "azimuth": 86.0,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            25.21074867248535,
+            42.74443054199219,
+            2.1656930446624756
+          ],
+          "camera_forward": [
+            -0.982408881187439,
+            0.0686965137720108,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.17322498559951782,
+            0.012113058939576149,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.937636332452521
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        7.802752494812012,
+        54.06718444824219,
+        0.44792941212654114
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.802752494812012,
+            54.06718444824219,
+            0.44792941212654114
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            9.0,
+            1.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The foreground pillar heavily occludes the scene and makes the composition poor.",
+            "Object is completely occluded by the auditorium chairs in the foreground.",
+            "Object is completely hidden behind the auditorium chairs.",
+            "The camera is focused on the back of a chair, and the person is not visible in the frame.",
+            "The object's feet are slightly cut off at the bottom of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely hidden behind the backs of the auditorium chairs in the foreground, making the placement invalid."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_v0.png",
+          "azimuth": 225.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.7191860675811768,
+            58.024436950683594,
+            2.1567840576171875
+          ],
+          "camera_forward": [
+            0.7072161436080933,
+            -0.6853405237197876,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.12470140308141708,
+            -0.12084396183490753,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.9376376888974525
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c1_v1.png",
+          "azimuth": 285.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.3338892459869385,
+            52.50933837890625,
+            2.1567840576171875
+          ],
+          "camera_forward": [
+            0.9471303820610046,
+            0.2697969675064087,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.16700443625450134,
+            0.04757246747612953,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.93763646420713
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        5.779401779174805,
+        47.18779373168945,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.779401779174805,
+            47.18779373168945,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            0.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The view is completely occluded by a pillar.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a pillar in the foreground, making it impossible to see or evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_v0.png",
+          "azimuth": 81.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            11.397355079650879,
+            46.30804443359375,
+            3.95678448677063
+          ],
+          "camera_forward": [
+            -0.9729505181312561,
+            0.1523602455854416,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.17155735194683075,
+            0.026865147054195404,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.9376380000892155
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c2_v1.png",
+          "azimuth": 21.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.826494216918945,
+            41.88262939453125,
+            3.95678448677063
+          ],
+          "camera_forward": [
+            -0.35452771186828613,
+            0.9187799096107483,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.06251275539398193,
+            0.1620054841041565,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.937637749128117
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        9.826102256774902,
+        35.452362060546875,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            9.826102256774902,
+            35.452362060546875,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            10.0,
+            10.0,
+            9.0,
+            9.5,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The person's head is cut off by the top edge of the frame, resulting in poor composition."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and placed in a plausible location, but the framing is poor as the person's head is cut off by the top of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_v0.png",
+          "azimuth": 297.8,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.796004772186279,
+            32.80029296875,
+            3.95678448677063
+          ],
+          "camera_forward": [
+            0.8711422085762024,
+            0.4593012034893036,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.15360593795776367,
+            0.08098714798688889,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.937637347590339
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c3_v1.png",
+          "azimuth": 357.8,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.607812881469727,
+            29.7701358795166,
+            3.95678448677063
+          ],
+          "camera_forward": [
+            0.03780466690659523,
+            0.9840818643569946,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.006665985565632582,
+            0.17352022230625153,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.937636738068487
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        4.970061779022217,
+        37.071041107177734,
+        2.247929573059082
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.970061779022217,
+            37.071041107177734,
+            2.247929573059082
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0,
+            4.0,
+            9.0,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The person's head is cut off by the top edge of the frame, resulting in poor composition."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and the scale is correct, but the framing is poor as the head is completely cut off by the top of the image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Girl-waiting-a-bus_ecc43f16_c4_v0.png",
+          "azimuth": 67.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.208307266235352,
+            34.85831832885742,
+            3.9567854404449463
+          ],
+          "camera_forward": [
+            -0.9071905016899109,
+            0.3832123577594757,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.15996204316616058,
+            0.06757045537233353,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.937638030204546
+        }
+      ]
+    }
+  ]
+}

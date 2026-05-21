@@ -1,0 +1,160 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-yellow-jacket_660f924e",
+  "object_file": "data/objects/Guy-in-yellow-jacket_660f924e/Guy-in-yellow-jacket_660f924e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.6202147603034973,
+        3.809446334838867,
+        -0.027446746826171875
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.6202147603034973,
+            3.809446334838867,
+            -0.027446746826171875
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            3.0,
+            6.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Guy-in-yellow-jacket_660f924e_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in a desert environment, which is not a plausible location for a person.",
+            "The surroundings are empty, lacking any context or detail.",
+            "The object is placed in an empty, featureless environment, which is not plausible for a person.",
+            "The object is not visible in the rendered image.",
+            "The scene is a desert with ruins, which is not a plausible environment for a person to be standing in the middle of."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, and the surroundings are empty and lack context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Guy-in-yellow-jacket_660f924e_c2_v0.png",
+          "azimuth": 160.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.5389257669448853,
+            10.044672966003418,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.3269098103046417,
+            -0.9440589547157288,
+            0.04339040070772171
+          ],
+          "camera_up": [
+            0.014198065735399723,
+            0.04100172966718674,
+            0.999058187007904
+          ],
+          "camera_radius": 6.616545131449577
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Guy-in-yellow-jacket_660f924e_c2_v1.png",
+          "azimuth": 100.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.859220027923584,
+            5.057188510894775,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.9810339212417603,
+            -0.1889173686504364,
+            0.04339040070772171
+          ],
+          "camera_up": [
+            0.042607590556144714,
+            0.008204882964491844,
+            0.999058187007904
+          ],
+          "camera_radius": 6.616545005331638
+        }
+      ]
+    }
+  ]
+}

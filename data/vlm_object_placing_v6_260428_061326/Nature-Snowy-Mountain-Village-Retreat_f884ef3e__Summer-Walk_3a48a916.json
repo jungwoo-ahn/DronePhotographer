@@ -1,0 +1,140 @@
+{
+  "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+  "scene_file": "data/scenes/Nature-Snowy-Mountain-Village-Retreat_f884ef3e/Nature-Snowy-Mountain-Village-Retreat_f884ef3e.blend",
+  "scene_scale": 0.3,
+  "object": "Summer-Walk_3a48a916",
+  "object_file": "data/objects/Summer-Walk_3a48a916/Summer-Walk_3a48a916.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.6843404769897461,
+        5.158934116363525,
+        -9.849014282226562
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.6843404769897461,
+            5.158934116363525,
+            -9.849014282226562
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            7.0,
+            2.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty.",
+            "The object is not in the scene.",
+            "Object is not visible in the scene.",
+            "The object is placed in an empty void with no context or surroundings.",
+            "The rendered image is mostly white and does not show the scene or the object."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded but appears extremely small in the scene, indicating a scale mismatch where the scene is too large for the person. The surroundings are also empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Summer-Walk_3a48a916_c0_v0.png",
+          "azimuth": 339.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.2754197120666504,
+            -0.00016961809888016433,
+            -8.205423355102539
+          ],
+          "camera_forward": [
+            0.34971216320991516,
+            0.9206235408782959,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.06166369467973709,
+            0.16233080625534058,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.758333221450267
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is a person dressed for warm weather, which is incongruous with a snowy mountain village scene."
+    }
+  ]
+}

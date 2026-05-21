@@ -1,0 +1,266 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Redhead-Girl-in-\u0430-red-dress_75d57040",
+  "object_file": "data/objects/Redhead-Girl-in-\u0430-red-dress_75d57040/Redhead-Girl-in-\u0430-red-dress_75d57040.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -35.871788024902344,
+        -61.53575897216797,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -35.871788024902344,
+            -61.53575897216797,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only water and sky visible.",
+            "The scale of the person relative to the environment is not plausible. The person appears to be standing on a small, isolated pillar in the middle of a vast body of water, which is not a realistic scenario.",
+            "Object is mostly out of frame.",
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty.",
+            "Object is not plausible in this environment.",
+            "The object is placed in an empty environment with no context or plausible location.",
+            "The object is placed in an environment that does not match its type. A person in a red dress is not plausible in this ocean scene with a ship and a seagull."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but its placement and scale are highly implausible for the given scene, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c0_v1.png",
+          "azimuth": 352.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -36.56865692138672,
+            -66.9013671875,
+            3.573295831680298
+          ],
+          "camera_forward": [
+            0.1268385797739029,
+            0.9766055345535278,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.022365035489201546,
+            0.1722017079591751,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.647485320374862
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        7.516407489776611,
+        -83.2298583984375,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.516407489776611,
+            -83.2298583984375,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            6.0,
+            2.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person relative to the environment is not plausible. The person appears to be standing on a small, isolated rock in the middle of a vast body of water, which is not a realistic scenario.",
+            "The scale of the person relative to the environment is not plausible. The person appears to be standing on a small, isolated platform in the middle of a vast body of water, which is not a realistic scenario.",
+            "The scale of the person relative to the environment is not plausible. The person appears to be standing on a small, isolated pillar in the middle of a vast body of water, which is not a realistic scenario.",
+            "The surroundings are empty, with only water and sky visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement on a small rock in the middle of the water is not plausible, and the scale appears incorrect for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Redhead-Girl-in-\u0430-red-dress_75d57040_c2_v1.png",
+          "azimuth": 32.2,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            10.399625778198242,
+            -87.80833435058594,
+            3.573295831680298
+          ],
+          "camera_forward": [
+            -0.5247804522514343,
+            0.8333377242088318,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.09253297001123428,
+            0.1469399631023407,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.647486668672738
+        }
+      ]
+    }
+  ]
+}

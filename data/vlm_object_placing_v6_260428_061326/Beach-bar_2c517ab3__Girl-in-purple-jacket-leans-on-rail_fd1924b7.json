@@ -1,0 +1,502 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Girl-in-purple-jacket-leans-on-rail_fd1924b7",
+  "object_file": "data/objects/Girl-in-purple-jacket-leans-on-rail_fd1924b7/Girl-in-purple-jacket-leans-on-rail_fd1924b7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.9892965514702086,
+        -1.4226441897718403,
+        -0.11999998241662979
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.8568447828292847,
+            -1.6918216943740845,
+            -0.11999998241662979
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object pose (leaning) is poorly aligned with the environment; she is positioned inside the counter volume.",
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is clipping through the bar counter.",
+            "Object is clipping into the bar counter",
+            "Object is clipping through a bar stool (stool.005).",
+            "Object is clipping into the bar counter."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.6,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping significantly through the bar counter, which is a major violation of the placement rules, despite the scale and context being appropriate."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            0.9892965514702086,
+            -1.4226441897718403,
+            -0.11999998241662979
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is clipping into the bar counter.",
+            "Object is clipping significantly into the bar counter.",
+            "Top of the head is slightly cropped.",
+            "Object is clipping significantly into the bar counter"
+          ],
+          "vlm_adjustment": {
+            "forward": -0.4,
+            "right": 0.2,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping heavily into the wooden bar counter, with her torso embedded in the wood, although the scale and grounding are correct."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        5.856845378875732,
+        -7.691821575164795,
+        -0.119999960064888
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.856845378875732,
+            -7.691821575164795,
+            -0.119999960064888
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            8.0,
+            1.0,
+            7.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is completely hidden behind the bar counter structure.",
+            "Object is completely hidden behind the palm tree trunk.",
+            "Object pose (leaning) is intended for a rail, but leaning against the wall is a reasonable substitute.",
+            "Object is slightly clipping into the wooden wall/post.",
+            "The camera view is obstructed by furniture.",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a wooden wall in the foreground, making it invisible in the rendered frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c3_v0.png",
+          "azimuth": 288.1,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.234157919883728,
+            -9.202749252319336,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9475905299186707,
+            0.3097201883792877,
+            -0.07839372009038925
+          ],
+          "camera_up": [
+            0.07451444119215012,
+            0.02435515634715557,
+            0.996922492980957
+          ],
+          "camera_radius": 4.979467948140865
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.41449337514863427,
+        -0.8694502956211466,
+        8.940697071579962e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.1431552171707153,
+            -0.6918216943740845,
+            8.940697071579962e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            6.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "Object pose (leaning) is unsupported by the environment; she is leaning into empty space.",
+            "Object pose (leaning) is unsupported by the environment (no rail).",
+            "Object pose (leaning) is unsupported by the environment (no rail or counter nearby).",
+            "Minor clipping with the palm tree trunk.",
+            "Object is clipping with the palm tree trunk.",
+            "Object pose (leaning) is not perfectly aligned with the supporting structure.",
+            "Object is completely hidden behind the palm tree trunk.",
+            "Object is clipping through the wooden pillar while leaning.",
+            "Object's head is cropped out of the frame.",
+            "Object is clipping with the palm tree trunk (bark)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed directly inside or behind the large palm tree trunk, making them completely invisible and causing significant clipping."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -0.41449337514863427,
+            -0.8694502956211466,
+            8.940697071579962e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v4.png"
+          ],
+          "view_qualities": [
+            5.0,
+            3.0,
+            5.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object pose (leaning) is unsupported by the environment (no rail or counter).",
+            "Object pose (leaning) is not physically supported by the environment (no rail).",
+            "Object pose (leaning) is unsupported by the environment (no rail or counter behind her).",
+            "Object is heavily cropped (head and shoulders out of frame).",
+            "Object pose (leaning) is unsupported by the environment (leaning into empty air)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the frame, and her leaning pose is physically impossible as there is no surface supporting her back in this location."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_v0.png",
+          "azimuth": 12.1,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.7549693584442139,
+            -6.324504375457764,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.20938707888126373,
+            0.9767032265663147,
+            -0.046987347304821014
+          ],
+          "camera_up": [
+            -0.009849405847489834,
+            0.04594344645738602,
+            0.9988954663276672
+          ],
+          "camera_radius": 5.659155694681937
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_v1.png",
+          "azimuth": 282.1,
+          "elevation": 35,
+          "preview_quality": 5.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            -5.1697916984558105,
+            -1.8888976573944092,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9763628244400024,
+            0.20931389927864075,
+            -0.053882792592048645
+          ],
+          "camera_up": [
+            0.0526856891810894,
+            0.011294850148260593,
+            0.9985472559928894
+          ],
+          "camera_radius": 4.955090526885563
+        }
+      ]
+    }
+  ]
+}

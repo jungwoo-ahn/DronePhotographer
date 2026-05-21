@@ -1,0 +1,136 @@
+{
+  "scene": "Rocky-Mountain-Landscape-Lake_8e5bc1af",
+  "scene_file": "data/scenes/Rocky-Mountain-Landscape-Lake_8e5bc1af/Rocky-Mountain-Landscape-Lake_8e5bc1af.blend",
+  "scene_scale": 10.0,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        638.4736328125,
+        -4186.99462890625,
+        670.773681640625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            638.4736328125,
+            -4186.99462890625,
+            670.773681640625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            2.0,
+            3.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in the middle of a lake, which is not a plausible location for a person to be standing.",
+            "The object is not placed in a plausible location.",
+            "The surroundings are empty, with only water and distant trees visible.",
+            "The object is placed in an empty void with no context or environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an empty void with no environmental context, making the placement implausible and the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rocky-Mountain-Landscape-Lake_8e5bc1af_Gasoline-walk_9343c2a5_c0_v0.png",
+          "azimuth": 359.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            638.3931884765625,
+            -4192.75390625,
+            672.455078125
+          ],
+          "camera_forward": [
+            0.013754235580563545,
+            0.9847114086151123,
+            -0.17364998161792755
+          ],
+          "camera_up": [
+            0.0024252673611044884,
+            0.17363303899765015,
+            0.9848074316978455
+          ],
+          "camera_radius": 6.000236875358381
+        }
+      ]
+    }
+  ]
+}

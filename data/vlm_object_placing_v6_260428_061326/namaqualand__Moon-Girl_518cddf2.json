@@ -1,0 +1,454 @@
+{
+  "scene": "namaqualand",
+  "scene_file": "data/scenes/namaqualand/Namaqualand.blend",
+  "scene_scale": 2.0,
+  "object": "Moon-Girl_518cddf2",
+  "object_file": "data/objects/Moon-Girl_518cddf2/Moon-Girl_518cddf2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        8.886350631713867,
+        8.032034873962402,
+        9.129051208496094
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.886350631713867,
+            8.032034873962402,
+            9.129051208496094
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            8.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is heavily cropped.",
+            "Object is mostly out of frame.",
+            "Object is not visible in the rendered image.",
+            "Object is not visible.",
+            "Object is mostly occluded by fog and the foreground elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly hidden by fog and foreground elements, making it impossible to assess its placement or scale accurately. The object is also heavily cropped."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Moon-Girl_518cddf2_c0_v0.png",
+          "azimuth": 134.5,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            12.4796781539917,
+            11.563188552856445,
+            11.61747932434082
+          ],
+          "camera_forward": [
+            -0.6702360510826111,
+            -0.6586394906044006,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            -0.24394585192203522,
+            -0.23972509801387787,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.619014480018187
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Moon-Girl_518cddf2_c0_v1.png",
+          "azimuth": 74.5,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            13.741083145141602,
+            6.685698509216309,
+            11.61747932434082
+          ],
+          "camera_forward": [
+            -0.9055164456367493,
+            0.2511219084262848,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.32958102226257324,
+            0.09140090644359589,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.619014522448862
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        8.886350631713867,
+        17.369089126586914,
+        9.588410377502441
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.886350631713867,
+            17.369089126586914,
+            9.588410377502441
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            9.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the camera is too close, resulting in heavy cropping."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Moon-Girl_518cddf2_c1_v0.png",
+          "azimuth": 351.2,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.11561393737793,
+            12.390434265136719,
+            12.076837539672852
+          ],
+          "camera_forward": [
+            0.14375971257686615,
+            0.9286310076713562,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            0.052324194461107254,
+            0.3379938006401062,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.619013196490111
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Moon-Girl_518cddf2_c1_v1.png",
+          "azimuth": 51.2,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            12.812623977661133,
+            14.212284088134766,
+            12.076837539672852
+          ],
+          "camera_forward": [
+            -0.7323380708694458,
+            0.5888150334358215,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.2665491998195648,
+            0.21431122720241547,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.619013291959152
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.8831614255905151,
+        -5.306613922119141,
+        9.157146453857422
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.8831614255905151,
+            -5.306613922119141,
+            9.157146453857422
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/namaqualand_Moon-Girl_518cddf2_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is mostly out of frame.",
+            "Object is heavily cropped.",
+            "Object is slightly out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped and mostly out of frame, making it impossible to assess its placement or scale accurately. The previous attempts also suffered from similar issues, indicating a need for a significant adjustment in camera position to capture the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Moon-Girl_518cddf2_c2_v0.png",
+          "azimuth": 16.4,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.305586099624634,
+            -10.139599800109863,
+            11.645573616027832
+          ],
+          "camera_forward": [
+            -0.2653141915798187,
+            0.9014603495597839,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            -0.09656641632318497,
+            0.32810449600219727,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.619013673835298
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/namaqualand_Moon-Girl_518cddf2_c2_v1.png",
+          "azimuth": 76.4,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            5.779861927032471,
+            -6.491250514984131,
+            11.645573616027832
+          ],
+          "camera_forward": [
+            -0.91334468126297,
+            0.22096116840839386,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            -0.33243003487586975,
+            0.0804232507944107,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.619013599581605
+        }
+      ]
+    }
+  ]
+}

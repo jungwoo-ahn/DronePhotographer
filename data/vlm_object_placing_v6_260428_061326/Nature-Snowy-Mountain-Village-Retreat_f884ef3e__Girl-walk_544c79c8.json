@@ -1,0 +1,405 @@
+{
+  "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+  "scene_file": "data/scenes/Nature-Snowy-Mountain-Village-Retreat_f884ef3e/Nature-Snowy-Mountain-Village-Retreat_f884ef3e.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-walk_544c79c8",
+  "object_file": "data/objects/Girl-walk_544c79c8/Girl-walk_544c79c8.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        42.55671691894531,
+        2.9028759002685547,
+        -32.83005142211914
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            42.55671691894531,
+            2.9028759002685547,
+            -32.83005142211914
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            9.0,
+            7.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The object is not placed in the scene.",
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The object is placed in an empty skybox with no context or relation to the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an empty skybox with no relation to the scene, and the surroundings are empty, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c0_v1.png",
+          "azimuth": 66.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            48.026268005371094,
+            0.5246474146842957,
+            -31.07156753540039
+          ],
+          "camera_forward": [
+            -0.9031277894973755,
+            0.3926912546157837,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            -0.15924601256847382,
+            0.06924226135015488,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.218056376511148
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        66.43072509765625,
+        37.00859832763672,
+        -32.830047607421875
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            66.43072509765625,
+            37.00859832763672,
+            -32.830047607421875
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is not placed in the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, indicating it was not placed in the scene. The surroundings are also empty, which is not ideal for training."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c1_v1.png",
+          "azimuth": 353.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            65.70387268066406,
+            31.088830947875977,
+            -31.071563720703125
+          ],
+          "camera_forward": [
+            0.12001727521419525,
+            0.9774671792984009,
+            -0.17364834249019623
+          ],
+          "camera_up": [
+            0.021162323653697968,
+            0.17235399782657623,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.218056285446658
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        73.25186920166016,
+        13.134588241577148,
+        -32.83005142211914
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            73.25186920166016,
+            13.134588241577148,
+            -32.83005142211914
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is not placed in the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is not placed within the scene, making the placement implausible. The scale appears correct for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_v0.png",
+          "azimuth": 85.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            79.19930267333984,
+            12.687397956848145,
+            -31.07156753540039
+          ],
+          "camera_forward": [
+            -0.9820355772972107,
+            0.07383982837200165,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            -0.173159658908844,
+            0.0130199259147048,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.218055022525838
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Girl-walk_544c79c8_c2_v1.png",
+          "azimuth": 277.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            67.34004211425781,
+            12.345781326293945,
+            -31.07156753540039
+          ],
+          "camera_forward": [
+            0.9761566519737244,
+            0.1302473098039627,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            0.17212305963039398,
+            0.022966042160987854,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.218052858545164
+        }
+      ]
+    }
+  ]
+}

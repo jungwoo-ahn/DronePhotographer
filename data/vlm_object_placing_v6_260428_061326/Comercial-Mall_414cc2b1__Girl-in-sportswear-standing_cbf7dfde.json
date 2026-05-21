@@ -1,0 +1,611 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "Girl-in-sportswear-standing_cbf7dfde",
+  "object_file": "data/objects/Girl-in-sportswear-standing_cbf7dfde/Girl-in-sportswear-standing_cbf7dfde.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -10.778563499450684,
+        -5.638654708862305,
+        -0.047682151198387146
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.778563499450684,
+            -5.638654708862305,
+            -0.047682151198387146
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            10.0,
+            8.5,
+            9.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Placement is very close to the edge of the map.",
+            "The edge of the scene geometry is visible, showing the skybox underneath the road.",
+            "Minor cropping at the top of the head."
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is correctly grounded and scaled, but the camera angle shows only empty asphalt and a curb, failing to capture any of the interesting mall architecture from the reference scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_v0.png",
+          "azimuth": 38.3,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.389794826507568,
+            -9.929579734802246,
+            1.6175010204315186
+          ],
+          "camera_forward": [
+            -0.6103630661964417,
+            0.7728539109230042,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.10762352496385574,
+            0.1362750232219696,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.715646433177408
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c0_v1.png",
+          "azimuth": 98.3,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.278224945068359,
+            -4.982126712799072,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.9345377087593079,
+            -0.13633444905281067,
+            -0.32871299982070923
+          ],
+          "camera_up": [
+            -0.3252699673175812,
+            -0.04745173081755638,
+            0.944429874420166
+          ],
+          "camera_radius": 5.089285300967073
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -32.953182220458984,
+        0.5702390670776367,
+        -0.08061829209327698
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -32.953182220458984,
+            0.5702390670776367,
+            -0.08061829209327698
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            10.0,
+            8.5,
+            1.0,
+            2.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "The bottom third of the image is obscured by a blurry foreground artifact, likely the ground or a curb very close to the camera lens.",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "Rendering quality is poor with ghosting/transparency effects.",
+            "Minor cropping at the top of the frame.",
+            "Object is heavily occluded by a foreground element.",
+            "Surroundings are blurry and lack detail."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered frame, although a reflection is visible in the glass panel, suggesting it is positioned behind or to the side of the camera."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_v0.png",
+          "azimuth": 64.2,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -28.256019592285156,
+            -1.7004581689834595,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.860014021396637,
+            0.41574719548225403,
+            -0.29585492610931396
+          ],
+          "camera_up": [
+            -0.26636379957199097,
+            0.12876512110233307,
+            0.9552328586578369
+          ],
+          "camera_radius": 5.708563482095453
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c1_v1.png",
+          "azimuth": 315.6,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -36.60348129272461,
+            -3.1573233604431152,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.6683414578437805,
+            0.6824877858161926,
+            -0.2958548069000244
+          ],
+          "camera_up": [
+            0.20699883997440338,
+            0.21138009428977966,
+            0.9552329182624817
+          ],
+          "camera_radius": 5.708563690920823
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -11.665549278259277,
+        -0.3167457580566406,
+        -0.0804600715637207
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.665549278259277,
+            -0.3167457580566406,
+            -0.0804600715637207
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            9.5,
+            3.5,
+            8.5,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The character's feet are slightly cut off by the bottom of the frame.",
+            "The framing is too tight, obscuring the upper portion of the person.",
+            "The framing is from behind the character looking towards a relatively empty road.",
+            "The framing is too tight, obscuring the mall context.",
+            "The object's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and plausible, but the framing is poor with the head cut off and very little of the surrounding mall architecture visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_v0.png",
+          "azimuth": 27.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -9.115485191345215,
+            -5.153372287750244,
+            1.5847232341766357
+          ],
+          "camera_forward": [
+            -0.4593011736869812,
+            0.8711422085762024,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.08098717778921127,
+            0.15360592305660248,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.71564639146409
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c3_v1.png",
+          "azimuth": 327.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -13.567273139953613,
+            -3.3366315364837646,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.4854430556297302,
+            0.7708703875541687,
+            -0.4124365746974945
+          ],
+          "camera_up": [
+            0.21977771818637848,
+            0.3490009903907776,
+            0.9109863042831421
+          ],
+          "camera_radius": 4.254859025953063
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -25.857303619384766,
+        11.214056968688965,
+        0.9920002222061157
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -25.857303619384766,
+            11.214056968688965,
+            0.9920002222061157
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.5,
+            4.0,
+            2.0,
+            6.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The top of the character's head is slightly cropped by the upper edge of the frame.",
+            "The top of the person's head is cut off by the frame edge.",
+            "The object appears to be clipping into a wall or glass structure on the left.",
+            "The person's head is cut off by the top of the frame.",
+            "The object is heavily cropped, with only the midsection visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is extremely cropped and appears to be clipping into a wall, making the placement and framing unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_v0.png",
+          "azimuth": 40.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -22.28459358215332,
+            7.0750322341918945,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.6502190828323364,
+            0.7532858848571777,
+            -0.0988711565732956
+          ],
+          "camera_up": [
+            -0.0646045058965683,
+            0.07484492659568787,
+            0.9951002597808838
+          ],
+          "camera_radius": 5.607509664169195
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Girl-in-sportswear-standing_cbf7dfde_c4_v1.png",
+          "azimuth": 223.8,
+          "elevation": 35,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -29.00515365600586,
+            14.496603965759277,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.6872575283050537,
+            -0.7166653871536255,
+            -0.11860799044370651
+          ],
+          "camera_up": [
+            0.08209364116191864,
+            -0.08560658991336823,
+            0.99294114112854
+          ],
+          "camera_radius": 4.7151305989233485
+        }
+      ]
+    }
+  ]
+}

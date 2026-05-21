@@ -1,0 +1,356 @@
+{
+  "scene": "Rocky-Mountain-Landscape-Lake_8e5bc1af",
+  "scene_file": "data/scenes/Rocky-Mountain-Landscape-Lake_8e5bc1af/Rocky-Mountain-Landscape-Lake_8e5bc1af.blend",
+  "scene_scale": 10.0,
+  "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+  "object_file": "data/objects/john_5b9f74d4-b81c-436c-a68d-535c197b6d9f/john_2K_b9d4753f-532d-40dd-8628-708383004936.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        517.82421875,
+        -4548.91748046875,
+        670.7735595703125
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            517.82421875,
+            -4548.91748046875,
+            670.7735595703125
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            3.0,
+            8.0,
+            7.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The object is placed in an empty void with no context or environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but it is placed in an empty void with no environmental context, and the surroundings are empty, which significantly reduces the quality."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2015.5467529296875,
+        -3463.18701171875,
+        670.7736206054688
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2015.5467529296875,
+            -3463.18701171875,
+            670.7736206054688
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            7.0,
+            7.0,
+            3.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The object is placed in an empty void with no context or environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scene is extremely empty with no context or environment, and the object is placed in a void."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_v0.png",
+          "azimuth": 61.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2010.1318359375,
+            -3466.163818359375,
+            672.6008911132812
+          ],
+          "camera_forward": [
+            -0.8629974126815796,
+            0.4744257628917694,
+            -0.17365385591983795
+          ],
+          "camera_up": [
+            -0.15217487514019012,
+            0.08365683257579803,
+            0.9848067760467529
+          ],
+          "camera_radius": 6.443727222036069
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_v1.png",
+          "azimuth": 345.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -2017.125244140625,
+            -3469.1611328125,
+            672.6008911132812
+          ],
+          "camera_forward": [
+            0.2515736222267151,
+            0.952131450176239,
+            -0.17365607619285583
+          ],
+          "camera_up": [
+            0.04436127841472626,
+            0.16789434850215912,
+            0.9848063588142395
+          ],
+          "camera_radius": 6.443653979913416
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        397.1875,
+        -3704.460693359375,
+        670.7736206054688
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            397.1875,
+            -3704.460693359375,
+            670.7736206054688
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in an empty void with no context or environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is placed in an empty void with no context or environment, which is not ideal for a landscape scene."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

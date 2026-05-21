@@ -1,0 +1,260 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "Girl-walk_544c79c8",
+  "object_file": "data/objects/Girl-walk_544c79c8/Girl-walk_544c79c8.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.821819305419922,
+        1.4383668899536133,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.821819305419922,
+            1.4383668899536133,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image.",
+            "The object is slightly cut off at the top.",
+            "The scale of the person appears to be too large for the scene. The person's legs are very long and the scene elements appear small in comparison.",
+            "The scale of the person appears to be too small for the scene. The person's head is well below the top of the door frame, and the large 'B' object is nearly as tall as the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Girl-walk_544c79c8_c0_v0.png",
+          "azimuth": 228.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.755342483520508,
+            3.9974424839019775,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7519431710243225,
+            -0.6559619307518005,
+            -0.0655391588807106
+          ],
+          "camera_up": [
+            0.04938783869147301,
+            -0.04308389872312546,
+            0.9978500008583069
+          ],
+          "camera_radius": 4.010094987262709
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Girl-walk_544c79c8_c0_v1.png",
+          "azimuth": 318.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -6.380894660949707,
+            -1.4951562881469727,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.6559619307518005,
+            0.7519431710243225,
+            -0.06553927063941956
+          ],
+          "camera_up": [
+            0.043083902448415756,
+            0.04938799515366554,
+            0.9978500008583069
+          ],
+          "camera_radius": 4.010094987262709
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.17818105220794678,
+        -0.5616332292556763,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.17818105220794678,
+            -0.5616332292556763,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Girl-walk_544c79c8_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is slightly cut off at the top.",
+            "The object is not visible in the rendered image.",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, and the previous attempts also failed to make the object visible, indicating a problem with the placement or camera angle."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Girl-walk_544c79c8_c2_v0.png",
+          "azimuth": 251.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.526425838470459,
+            1.0125064849853516,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9470666646957397,
+            -0.31688395142555237,
+            -0.05147108435630798
+          ],
+          "camera_up": [
+            0.04881129413843155,
+            -0.016331881284713745,
+            0.9986745119094849
+          ],
+          "camera_radius": 5.05348179394462
+        }
+      ]
+    }
+  ]
+}

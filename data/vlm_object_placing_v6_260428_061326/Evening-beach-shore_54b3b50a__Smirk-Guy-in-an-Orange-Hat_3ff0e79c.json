@@ -1,0 +1,96 @@
+{
+  "scene": "Evening-beach-shore_54b3b50a",
+  "scene_file": "data/scenes/Evening-beach-shore_54b3b50a/Evening-beach-shore_54b3b50a.blend",
+  "scene_scale": 0.5,
+  "object": "Smirk-Guy-in-an-Orange-Hat_3ff0e79c",
+  "object_file": "data/objects/Smirk-Guy-in-an-Orange-Hat_3ff0e79c/Smirk-Guy-in-an-Orange-Hat_3ff0e79c.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.086754083633423,
+        14.097697257995605,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.086754083633423,
+            14.097697257995605,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png"
+          ],
+          "view_qualities": [
+            0.0,
+            9.5,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+              "quality": 0.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Evening-beach-shore_54b3b50a_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is placed on a flat, dark plane that does not match the sandy dune environment shown in the reference image.",
+            "surroundings_empty",
+            "Surroundings are empty",
+            "render_broken"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is broken, showing a plain brown background with a white triangle, and the surroundings are empty."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

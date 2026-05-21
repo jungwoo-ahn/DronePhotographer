@@ -1,0 +1,133 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+  "object_file": "data/objects/standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5/standing-cute-girl-white-jacket-jeans_2K_5530e1d6-e9cc-4dbd-a8f9-3673735d1b2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.507724761962891,
+        -1.4169586896896362,
+        1.3499999046325684
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.507724761962891,
+            -1.4169586896896362,
+            1.3499999046325684
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is on a roof, which is not a plausible location for a person.",
+            "The scale of the person is too large for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a roof, which is an implausible location, and the scale of the person is too large for the scene, making it appear as if the scene is too small."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_v0.png",
+          "azimuth": 105.5,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.08479520678520203,
+            -0.19037212431430817,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.915389358997345,
+            -0.2538599669933319,
+            0.31243792176246643
+          ],
+          "camera_up": [
+            0.30107468366622925,
+            0.08349549025297165,
+            0.949938178062439
+          ],
+          "camera_radius": 4.665540738887511
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_v1.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.5327888131141663,
+            0.8779712915420532,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8226705193519592,
+            -0.47496914863586426,
+            0.31243792176246643
+          ],
+          "camera_up": [
+            0.2705792188644409,
+            0.15621890127658844,
+            0.949938178062439
+          ],
+          "camera_radius": 4.665540700560992
+        }
+      ]
+    }
+  ]
+}

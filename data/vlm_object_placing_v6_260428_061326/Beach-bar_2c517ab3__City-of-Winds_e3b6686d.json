@@ -1,0 +1,282 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "City-of-Winds_e3b6686d",
+  "object_file": "data/objects/City-of-Winds_e3b6686d/City-of-Winds_e3b6686d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.843164324760437,
+        -8.7055025100708,
+        -1.4901161193847656e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.843164324760437,
+            -8.7055025100708,
+            -1.4901161193847656e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            4.0,
+            9.5,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is almost entirely hidden behind scene geometry.",
+            "Object is partially occluded by a large pillar in the foreground.",
+            "object is mostly occluded by the bar counter",
+            "Object is heavily cropped (head and upper torso are out of frame)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost completely occluded by the bar structure, with only a tiny portion of the head visible, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_v0.png",
+          "azimuth": 205.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.824622631072998,
+            -3.0103886127471924,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.4240226149559021,
+            -0.9051914215087891,
+            -0.02886640839278698
+          ],
+          "camera_up": [
+            0.012245144695043564,
+            -0.026140505447983742,
+            0.9995833039283752
+          ],
+          "camera_radius": 6.360204881510984
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c1_v1.png",
+          "azimuth": 78.1,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.961854934692383,
+            -9.784180641174316,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9779198169708252,
+            0.20607997477054596,
+            -0.034697555005550385
+          ],
+          "camera_up": [
+            -0.033951885998249054,
+            0.007154709659516811,
+            0.999397873878479
+          ],
+          "camera_radius": 5.316514260051843
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.1568357944488525,
+        -5.705502033233643,
+        -5.9604645663569045e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.1568357944488525,
+            -5.705502033233643,
+            -5.9604645663569045e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.5,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0_v2.png",
+              "quality": 4.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top of the frame, missing the head and upper torso.",
+            "The person's head is cut off by the top of the frame, resulting in poor framing."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and at a realistic scale, but the framing cuts off the head and shoulders, which violates the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_v0.png",
+          "azimuth": 262.0,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            -5.22173547744751,
+            -5.134217739105225,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9893002510070801,
+            -0.13903705775737762,
+            -0.04420099034905434
+          ],
+          "camera_up": [
+            0.043770838528871536,
+            -0.006151530425995588,
+            0.9990226626396179
+          ],
+          "camera_radius": 4.213140845439446
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_City-of-Winds_e3b6686d_c2_v1.png",
+          "azimuth": 322.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.377430438995361,
+            -9.827674865722656,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.6152908205986023,
+            0.7875362038612366,
+            -0.034697435796260834
+          ],
+          "camera_up": [
+            0.02136191725730896,
+            0.027341920882463455,
+            0.999397873878479
+          ],
+          "camera_radius": 5.316514013404857
+        }
+      ]
+    }
+  ]
+}

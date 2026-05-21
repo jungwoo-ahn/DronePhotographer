@@ -1,0 +1,635 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 0.4,
+  "object": "Stop-This-Baboonery_1b4ee493",
+  "object_file": "data/objects/Stop-This-Baboonery_1b4ee493/Stop-This-Baboonery_1b4ee493.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        11.315120697021484,
+        -26.823942184448242,
+        -0.021145621314644814
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.315120697021484,
+            -26.823942184448242,
+            -0.021145621314644814
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            5.5,
+            4.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v1.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is standing on a railing, which is an unsafe and implausible placement.",
+            "Object is standing on a railing, which is an implausible and dangerous location.",
+            "Surroundings are mostly empty sky and water, lacking architectural or environmental context.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.7,
+            "up": -1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is implausibly standing on a street railing, and the background consists mostly of empty sky and water, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_v0.png",
+          "azimuth": 111.2,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            15.57402515411377,
+            -25.172021865844727,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9321641325950623,
+            -0.3615626394748688,
+            -0.018507571890950203
+          ],
+          "camera_up": [
+            -0.017255065962672234,
+            -0.006692752242088318,
+            0.9998286962509155
+          ],
+          "camera_radius": 4.626020338299494
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c0_v1.png",
+          "azimuth": 141.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            14.756330490112305,
+            -22.543941497802734,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.6265296339988708,
+            -0.7792455554008484,
+            -0.015395227819681168
+          ],
+          "camera_up": [
+            -0.009646677412092686,
+            -0.011998110450804234,
+            0.9998815059661865
+          ],
+          "camera_radius": 5.540152131851111
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        4.315120697021484,
+        -26.823942184448242,
+        -0.021145246922969818
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.315120697021484,
+            -26.823942184448242,
+            -0.021145246922969818
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly cropped, with more than 30% of its body cut off.",
+            "The object is placed on a wide, empty platform that lacks context within the provided city street scene.",
+            "The surroundings are empty, showing only sky and water with no architectural or environmental context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is significantly cropped and placed in an empty area, lacking any meaningful scene context from the city street shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_v0.png",
+          "azimuth": 286.9,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.6988265514373779,
+            -28.3472957611084,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.9566890001296997,
+            0.290664404630661,
+            -0.016134114935994148
+          ],
+          "camera_up": [
+            0.015437360852956772,
+            0.00469015259295702,
+            0.9998698234558105
+          ],
+          "camera_radius": 5.290862877190933
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c1_v1.png",
+          "azimuth": 196.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.718630313873291,
+            -21.569272994995117,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.29066774249076843,
+            -0.9567002058029175,
+            -0.015394989401102066
+          ],
+          "camera_up": [
+            0.004475335590541363,
+            -0.014730141498148441,
+            0.9998815059661865
+          ],
+          "camera_radius": 5.540152061919784
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        8.315120697021484,
+        -1.8239421844482422,
+        -0.04808926209807396
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.315120697021484,
+            -1.8239421844482422,
+            -0.04808926209807396
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            3.0,
+            3.0,
+            9.5,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The surroundings are mostly empty (sky and ocean), lacking the detailed city context shown in the reference image.",
+            "The placement behind such a high barrier makes the object's pose awkward and less plausible for a casual street scene.",
+            "The surroundings are empty, showing only a blank wall and floor.",
+            "The object is heavily occluded by a high fence/wall, with more than 30% of its body (lower half) cut off from view.",
+            "Object is completely hidden from view.",
+            "Object is heavily cropped, with less than 70% of its body visible.",
+            "Object is standing on a narrow railing, which is an implausible and unsafe location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, and the rendered image shows only a blank wall and floor, providing no meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c3_v0.png",
+          "azimuth": 180.8,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.2650728225708,
+            1.760253667831421,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            0.013955452479422092,
+            -0.9994191527366638,
+            -0.03109116479754448
+          ],
+          "camera_up": [
+            0.0004341777821537107,
+            -0.03108813241124153,
+            0.9995165467262268
+          ],
+          "camera_radius": 3.6636025796789267
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        2.436323486535341,
+        10.435916015749815,
+        -0.02114558033645153
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.3151206970214844,
+            11.176057815551758,
+            -0.02114558033645153
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            4.0,
+            3.0,
+            3.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is heavily occluded by the railing, with more than 30% of its body cropped out.",
+            "The surroundings are mostly empty, showing only walls and lacking meaningful scene context.",
+            "The surroundings are mostly empty and extremely dark, lacking meaningful context.",
+            "Object is significantly cropped, with more than 30% of its body cut off.",
+            "The background shows an ocean, which is not clearly visible or implied as the immediate backdrop in the reference image of a city street.",
+            "The object is not visible in the rendered image.",
+            "The surroundings are mostly empty, showing primarily sky and ocean instead of the detailed city environment from the reference image.",
+            "The object is clipping with the lamppost.",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, making it impossible to evaluate its placement, scale, or plausibility, and the rendered view provides no meaningful scene context."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            2.436323486535341,
+            10.435916015749815,
+            -0.02114558033645153
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            5.5,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v2.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is completely hidden and not visible in the rendered image.",
+            "The background (ocean and sky) in the rendered image does not fully align with the dense urban street environment suggested by the reference image, which shows buildings extending into the distance.",
+            "The object is clipping with the fence, with its leg passing through the railing."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (a person) is completely hidden behind the brick wall in the foreground, making it invisible in the rendered image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_v0.png",
+          "azimuth": 11.6,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.1570959091186523,
+            6.924583911895752,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.20102208852767944,
+            0.9793028235435486,
+            -0.023582851514220238
+          ],
+          "camera_up": [
+            -0.004741979762911797,
+            0.02310117892920971,
+            0.999721884727478
+          ],
+          "camera_radius": 3.6581309444314667
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Stop-This-Baboonery_1b4ee493_c4_v1.png",
+          "azimuth": 71.6,
+          "elevation": 10,
+          "preview_quality": 5.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            7.647400379180908,
+            8.702421188354492,
+            0.7088922262191772
+          ],
+          "camera_forward": [
+            -0.9487636089324951,
+            0.31561142206192017,
+            -0.015395108610391617
+          ],
+          "camera_up": [
+            -0.014608016237616539,
+            0.004859549459069967,
+            0.9998815059661865
+          ],
+          "camera_radius": 5.540152583715052
+        }
+      ]
+    }
+  ]
+}

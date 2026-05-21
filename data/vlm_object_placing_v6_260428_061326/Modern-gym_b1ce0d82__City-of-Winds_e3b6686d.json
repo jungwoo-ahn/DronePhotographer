@@ -1,0 +1,140 @@
+{
+  "scene": "Modern-gym_b1ce0d82",
+  "scene_file": "data/scenes/Modern-gym_b1ce0d82/Modern-gym_b1ce0d82.blend",
+  "scene_scale": 1.0,
+  "object": "City-of-Winds_e3b6686d",
+  "object_file": "data/objects/City-of-Winds_e3b6686d/City-of-Winds_e3b6686d.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.2670981884002686,
+        6.119473934173584,
+        -0.14657211303710938
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.2670981884002686,
+            6.119473934173584,
+            -0.14657211303710938
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in a gym, is fully visible, grounded, and not clipping with any objects. The scale appears correct for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_v0.png",
+          "azimuth": 92.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.834149122238159,
+            6.291367053985596,
+            1.2925843000411987
+          ],
+          "camera_forward": [
+            -0.986009955406189,
+            -0.04132609814405441,
+            -0.16148236393928528
+          ],
+          "camera_up": [
+            -0.16134071350097656,
+            -0.006762078031897545,
+            0.986875593662262
+          ],
+          "camera_radius": 4.349821009324181
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-gym_b1ce0d82_City-of-Winds_e3b6686d_c0_v1.png",
+          "azimuth": 182.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.5304535627365112,
+            12.402949333190918,
+            1.2925843000411987
+          ],
+          "camera_forward": [
+            0.04163885489106178,
+            -0.9934728145599365,
+            -0.1061977818608284
+          ],
+          "camera_up": [
+            0.004447115119546652,
+            -0.10610462725162506,
+            0.9943450093269348
+          ],
+          "camera_radius": 6.451557198155285
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object 'City-of-Winds_e3b6686d' appears to be a building or a cityscape, which would not naturally fit within the interior of a modern gym."
+    }
+  ]
+}

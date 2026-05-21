@@ -1,0 +1,133 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Urban-contemplation-Man-in-a-beige_a68aef15",
+  "object_file": "data/objects/Urban-contemplation-Man-in-a-beige_a68aef15/Urban-contemplation-Man-in-a-beige_a68aef15.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.457492828369141,
+        -1.3667269945144653,
+        1.3499999046325684
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.457492828369141,
+            -1.3667269945144653,
+            1.3499999046325684
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is not in a plausible location.",
+            "The object is not in a plausible scale."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The man is placed on a roof, which is not a plausible location for a person to be standing. Additionally, the scale of the man appears to be too large for the building he is on, suggesting the scene is too small."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_v0.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.347231924533844,
+            1.0063332319259644,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.82452392578125,
+            -0.47603920102119446,
+            0.30585455894470215
+          ],
+          "camera_up": [
+            0.2648778557777405,
+            0.1529272347688675,
+            0.9520782232284546
+          ],
+          "camera_radius": 4.819347210748197
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Urban-contemplation-Man-in-a-beige_a68aef15_c0_v1.png",
+          "azimuth": 105.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.12690751254558563,
+            -0.13834062218666077,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.9196370244026184,
+            -0.24641592800617218,
+            0.305854469537735
+          ],
+          "camera_up": [
+            0.2954326570034027,
+            0.0791611298918724,
+            0.9520782828330994
+          ],
+          "camera_radius": 4.819347074702573
+        }
+      ]
+    }
+  ]
+}

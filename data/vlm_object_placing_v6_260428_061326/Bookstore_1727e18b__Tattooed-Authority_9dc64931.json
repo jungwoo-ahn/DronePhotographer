@@ -1,0 +1,656 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Tattooed-Authority_9dc64931",
+  "object_file": "data/objects/Tattooed-Authority_9dc64931/Tattooed-Authority_9dc64931.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -9.767748832702637,
+        4.841429233551025,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.767748832702637,
+            4.841429233551025,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            3.0,
+            9.5,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are mostly empty, lacking scene context.",
+            "surroundings_empty",
+            "Object is clipping with the tree trunk.",
+            "Object placement does not align with the implied context of the reference scene (bookstore street)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and mostly visible, but the surroundings are extremely empty and generic, failing to provide any meaningful context from the intended bookstore scene, thus limiting the quality score to 4 or less."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_v0.png",
+          "azimuth": 250.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -14.095918655395508,
+            6.348657608032227,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9432056546211243,
+            -0.3284590542316437,
+            -0.049776315689086914
+          ],
+          "camera_up": [
+            0.04700753092765808,
+            -0.016369907185435295,
+            0.9987604022026062
+          ],
+          "camera_radius": 4.635060197718085
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c0_v1.png",
+          "azimuth": 333.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -11.698516845703125,
+            0.9175914525985718,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.44090503454208374,
+            0.8960369229316711,
+            -0.05215954780578613
+          ],
+          "camera_up": [
+            0.023028718307614326,
+            0.04680060222744942,
+            0.9986387491226196
+          ],
+          "camera_radius": 4.427568096846668
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        25.80886459350586,
+        -8.265745162963867,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            25.80886459350586,
+            -8.265745162963867,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.5,
+            3.0,
+            8.5,
+            2.0,
+            2.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is placed in a highly implausible location (sitting on a chair in the middle of a street).",
+            "Object is placed in an implausible location (sitting on a chair in the middle of a road).",
+            "Surroundings are mostly empty, lacking meaningful scene context.",
+            "Object is not placed within the intended scene context; the background is a generic empty field.",
+            "Object is placed in an implausible location (sitting on a stool in the middle of the street)."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a chair in the middle of what appears to be a road, which is an implausible placement, and the surroundings are very sparse, showing mostly sky and distant ground."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c1_v1.png",
+          "azimuth": 119.6,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            29.793848037719727,
+            -6.001959323883057,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.8684170842170715,
+            -0.49332958459854126,
+            -0.04977619647979736
+          ],
+          "camera_up": [
+            -0.04328010231256485,
+            -0.0245866347104311,
+            0.9987604022026062
+          ],
+          "camera_radius": 4.635063258282601
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -8.517124737832958,
+        -18.1162026582316,
+        -0.06638818979263306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.8952956199646,
+            -17.628013610839844,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            3.0,
+            3.0,
+            4.0,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The background elements appear generic and out of scale, not matching the detailed street environment.",
+            "surroundings_empty",
+            "Surroundings are mostly empty of specific scene context.",
+            "Object is placed in a highly implausible location (sitting on a stool on a vast, empty, elevated surface).",
+            "Object is placed in a highly implausible location (sitting on a stool on an empty, elevated platform, not in the bookstore street scene).",
+            "Object is placed in a highly implausible location (sitting on a chair in the middle of a street).",
+            "The rendered scene does not match the detailed 'Bookstore' scene from the reference image, showing a generic road and field instead.",
+            "The object is placed in a generic, isolated street environment, not interacting with the specific scene context.",
+            "Surroundings are mostly empty, lacking architectural or detailed street context from the bookstore scene.",
+            "Object is placed in a generic, empty outdoor area, lacking the detailed context of the bookstore scene."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but it is placed on a generic, empty platform with a plain sky background, which is highly implausible for the bookstore street scene and results in empty surroundings."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -8.517124737832958,
+            -18.1162026582316,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            2.0,
+            4.0,
+            4.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_iter1_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "Object is placed in a highly implausible location (sitting on a stool on a vast, empty, elevated surface).",
+            "Object is placed on a generic, empty surface that lacks specific context from the 'Bookstore' scene.",
+            "Object is placed in a generic, empty outdoor environment that does not match the detailed bookstore scene from the reference image, leading to a loss of scene context.",
+            "Object is placed in a highly implausible location (sitting on a stool on a generic, empty outdoor surface, not related to the bookstore scene)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a stool in a vast, empty, elevated area that lacks any meaningful context or plausible reason for their presence, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c3_v0.png",
+          "azimuth": 290.2,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -12.094820976257324,
+            -19.432538986206055,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9368130564689636,
+            0.3446798622608185,
+            -0.059809211641550064
+          ],
+          "camera_up": [
+            0.05613051354885101,
+            0.020652053877711296,
+            0.9982098340988159
+          ],
+          "camera_radius": 3.8744855585398943
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        5.211878776550293,
+        -15.755558967590332,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.211878776550293,
+            -15.755558967590332,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            2.0,
+            9.0,
+            2.0,
+            6.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty",
+            "The background environment appears generic and somewhat artificial, with flat-looking distant trees and an abrupt horizon line, detracting from the overall realism of the scene.",
+            "Object is placed in a highly implausible location (sitting on a stool on a vast, empty, elevated surface that does not match the detailed bookstore scene).",
+            "The background elements (trees, street light) appear generic and out of scale, not matching the detailed street environment shown in the reference image.",
+            "Object is placed in an awkward location (sitting on a stool in the middle of a wet street).",
+            "Object is placed in a highly implausible location (sitting on a stool on a vast, empty, elevated surface that does not resemble the bookstore street from the reference image).",
+            "Object is placed in a highly implausible location (on a vast, empty, elevated surface, completely disconnected from the bookstore scene)."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed on a generic, empty platform with no relation to the detailed bookstore scene, and the surroundings are mostly empty sky and ground, making the placement highly implausible and lacking context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_v0.png",
+          "azimuth": 357.4,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            5.076179504394531,
+            -18.743885040283203,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.04523137956857681,
+            0.9960710406303406,
+            -0.07613539695739746
+          ],
+          "camera_up": [
+            0.003453733865171671,
+            0.07605702430009842,
+            0.9970974922180176
+          ],
+          "camera_radius": 3.070423799419366
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Tattooed-Authority_9dc64931_c4_v1.png",
+          "azimuth": 297.4,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            1.1429338455200195,
+            -17.864700317382812,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8867146968841553,
+            0.4596295952796936,
+            -0.04977679252624512
+          ],
+          "camera_up": [
+            0.04419264942407608,
+            0.022907176986336708,
+            0.9987603425979614
+          ],
+          "camera_radius": 4.635060413115023
+        }
+      ]
+    }
+  ]
+}

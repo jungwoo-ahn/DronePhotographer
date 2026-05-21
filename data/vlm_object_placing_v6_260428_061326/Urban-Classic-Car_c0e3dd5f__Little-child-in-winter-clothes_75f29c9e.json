@@ -1,0 +1,304 @@
+{
+  "scene": "Urban-Classic-Car_c0e3dd5f",
+  "scene_file": "data/scenes/Urban-Classic-Car_c0e3dd5f/Urban-Classic-Car_c0e3dd5f.blend",
+  "scene_scale": 3.0,
+  "object": "Little-child-in-winter-clothes_75f29c9e",
+  "object_file": "data/objects/Little-child-in-winter-clothes_75f29c9e/Little-child-in-winter-clothes_75f29c9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        11.133190155029297,
+        -1.346850872039795,
+        0.029577434062957764
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.133190155029297,
+            -1.346850872039795,
+            0.029577434062957764
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is a child, but the scene appears to be an adult-sized environment. The scale of the environment relative to the child is unclear, but it is possible the scene is too large for the child.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded and fully visible, but the surroundings are empty, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_v0.png",
+          "azimuth": 29.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            12.799140930175781,
+            -4.279454708099365,
+            1.0284839868545532
+          ],
+          "camera_forward": [
+            -0.48643776774406433,
+            0.8562853336334229,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.08577220886945724,
+            0.1509861946105957,
+            0.9848077297210693
+          ],
+          "camera_radius": 3.5175804972706812
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c0_v1.png",
+          "azimuth": 269.6,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            8.327828407287598,
+            -1.3272655010223389,
+            2.3981573581695557
+          ],
+          "camera_forward": [
+            0.8191320896148682,
+            -0.005718743894249201,
+            -0.5735764503479004
+          ],
+          "camera_up": [
+            0.5735624432563782,
+            -0.004004208836704493,
+            0.8191520571708679
+          ],
+          "camera_radius": 3.6715951658404355
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        16.588088989257812,
+        -0.25587135553359985,
+        0.029577255249023438
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.588088989257812,
+            -0.25587135553359985,
+            0.029577255249023438
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            6.0,
+            5.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is a child, but the scene appears to be an adult-sized environment. The scale of the environment relative to the child is unclear, but it is possible the scene is too large for the child.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The child is grounded and fully visible, but the scene appears to be an adult-sized environment, making the scale ambiguous. The surroundings are also empty, which reduces the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_v0.png",
+          "azimuth": 294.2,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            13.6526517868042,
+            -1.5751086473464966,
+            1.6051238775253296
+          ],
+          "camera_forward": [
+            0.8571125268936157,
+            0.38520166277885437,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.3119634687900543,
+            0.1402018964290619,
+            0.9396926164627075
+          ],
+          "camera_radius": 3.58322869007585
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Little-child-in-winter-clothes_75f29c9e_c2_v1.png",
+          "azimuth": 24.2,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            17.97066307067871,
+            -3.3322396278381348,
+            1.0284839868545532
+          ],
+          "camera_forward": [
+            -0.4036951959133148,
+            0.8982630372047424,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.07118237018585205,
+            0.15838804841041565,
+            0.9848077297210693
+          ],
+          "camera_radius": 3.5175801075406077
+        }
+      ]
+    }
+  ]
+}

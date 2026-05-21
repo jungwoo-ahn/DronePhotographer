@@ -1,0 +1,128 @@
+{
+  "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+  "scene_file": "data/scenes/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266/paris-metro-entrance-square-pigalle_ac73342f-25be-4f35-a845-d6fbcc540ba8.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-in-sportswear-standing_cbf7dfde",
+  "object_file": "data/objects/Girl-in-sportswear-standing_cbf7dfde/Girl-in-sportswear-standing_cbf7dfde.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        21.751541137695312,
+        197.57864379882812,
+        6.0023345947265625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            21.751541137695312,
+            197.57864379882812,
+            6.0023345947265625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on top of a building, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -6.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement on top of a building is implausible for a person."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        24.222431182861328,
+        106.15567016601562,
+        6.0023345947265625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            24.222431182861328,
+            106.15567016601562,
+            6.0023345947265625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on top of a building, which is not a plausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -1.7
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is placed on top of a building which is not a plausible location. Moving the person down to street level would resolve this issue."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "Relaxed-Pose-Sneakerhead_75996846",
+  "object_file": "data/objects/Relaxed-Pose-Sneakerhead_75996846/Relaxed-Pose-Sneakerhead_75996846.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.455130546758022,
+        -0.9158822525480872,
+        -4.179506731816218e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.0539541244506836,
+            -0.8105021715164185,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            1.0,
+            3.0,
+            2.0,
+            4.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head missing)",
+            "placement in the middle of the alleyway is somewhat awkward",
+            "Object is just a silhouette",
+            "Surroundings are empty/lack context",
+            "Object is likely hidden behind the doors/wall",
+            "Object is almost entirely occluded by a trash bin",
+            "Extremely poor lighting makes the object and scene nearly invisible",
+            "surroundings_empty",
+            "Object is not visible in the frame",
+            "surroundings are mostly empty due to extreme overexposure/fog"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind the industrial doors shown in the render, making it invisible to the camera despite being programmatically grounded."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -3.8964065384935833,
+            -1.3492729298852177,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            2.0,
+            4.0,
+            1.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter1_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 5.0,
+          "vlm_issues": [
+            "The camera appears to be clipping through a black wall",
+            "The object is completely hidden behind a wall or obscured by extreme shadows and poor framing.",
+            "Top of the head is slightly cropped.",
+            "placement lacks scene context",
+            "surroundings are empty",
+            "The camera is looking into a white void, missing all scene context",
+            "Surroundings are empty (just a brick wall)",
+            "object is heavily cropped (head cut off)",
+            "surroundings_empty",
+            "surroundings are mostly empty/foggy void",
+            "Object is placed at the very edge of the scene geometry, resulting in a large white void in the background.",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered view, which only shows a flat brick wall and empty ground."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            -4.455130546758022,
+            -0.9158822525480872,
+            -4.179506731816218e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            0.0,
+            3.0,
+            0.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c0_iter2_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is not visible",
+            "placement is in the middle of the path",
+            "object is slightly cropped at the top",
+            "Object head is cut off by the frame",
+            "surroundings are empty (white void)",
+            "Render is extremely dark",
+            "Object is likely occluded by geometry",
+            "Object is not visible in the frame",
+            "Camera is blocked by a wall",
+            "Surroundings are mostly empty/foggy",
+            "Render appears broken or camera is obscured"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is a blurry, empty frame where neither the object nor any scene context is visible, indicating a broken render or extremely poor camera placement."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.90040080993036,
+        -1.6536915724959647,
+        8.359013463632436e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -13.03575611114502,
+            -0.8105021715164185,
+            8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            3.0,
+            0.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is heavily occluded by the car in the foreground",
+            "Object is not visible",
+            "Less than 70% of the object is visible due to the camera framing looking through the vehicle",
+            "The camera is pointed at a wall, obscuring the object and the scene context.",
+            "Object is heavily cropped (head missing)",
+            "Object is clipping through the car (Mercedes-Benz W123)",
+            "Object is heavily cropped (head and upper torso missing)",
+            "Camera is facing a wall",
+            "Surroundings are empty",
+            "Object is clipping with the Mercedes-Benz W123",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible as the camera is positioned directly against a brick wall, providing no scene context or visibility of the character."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -11.90040080993036,
+            -1.6536915724959647,
+            8.359013463632436e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            0.0,
+            3.0,
+            1.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_iter1_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is not visible",
+            "Object is placed at the edge of the scene geometry, showing a white void",
+            "The camera framing is poor, showing only a door surface",
+            "Large portion of the background is an empty void",
+            "Object is heavily cropped (head and upper torso missing)",
+            "Surroundings are empty",
+            "Object is not visible in the frame",
+            "Camera is facing a blank brick wall",
+            "Minor cropping at the top of the head.",
+            "Surroundings are empty and lack detail",
+            "Object is completely hidden behind a door/wall"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, which shows only a close-up of a brick wall with no surrounding context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_Relaxed-Pose-Sneakerhead_75996846_c1_v0.png",
+          "azimuth": 94.4,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 7.5,
+          "camera_position": [
+            -8.301111221313477,
+            -1.3767417669296265,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.983400821685791,
+            -0.07566864043474197,
+            -0.1649155467748642
+          ],
+          "camera_up": [
+            -0.16442950069904327,
+            -0.012652099132537842,
+            0.986307680606842
+          ],
+          "camera_radius": 3.8202205756113794
+        }
+      ]
+    }
+  ]
+}

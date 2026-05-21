@@ -1,0 +1,69 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 0.5,
+  "object": "Office-Move_3d4b091c",
+  "object_file": "data/objects/Office-Move_3d4b091c/Office-Move_3d4b091c.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.09474233537912369,
+        -0.518568754196167,
+        -8.940696716308594e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.09474233537912369,
+            -0.518568754196167,
+            -8.940696716308594e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Office-Move_3d4b091c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Office-Move_3d4b091c_c0_iter0.png"
+          ],
+          "view_qualities": [
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Office-Move_3d4b091c_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the kitchen, standing on the floor in front of the counter. The scale appears correct, and the person is fully visible without any clipping."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "An office move box is not a typical item found in a kitchen scene."
+    }
+  ]
+}

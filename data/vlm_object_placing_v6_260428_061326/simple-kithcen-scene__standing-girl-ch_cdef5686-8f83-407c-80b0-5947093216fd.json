@@ -1,0 +1,128 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 0.5,
+  "object": "standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd",
+  "object_file": "data/objects/standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd/standing-girl-chessboard-outfit_2K_79528d63-252a-4a95-9af1-e3245185fb33.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.07854920625686646,
+        -1.502375602722168,
+        -3.725290298461914e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.07854920625686646,
+            -1.502375602722168,
+            -3.725290298461914e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is partially obscured by the counter."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but partially obscured by the counter. The scale appears correct for the environment."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.07854920625686646,
+        -1.502375602722168,
+        1.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.07854920625686646,
+            -1.502375602722168,
+            1.25
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is partially obscured by the counter."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but is partially obscured by the counter, suggesting a slight adjustment is needed to improve visibility."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

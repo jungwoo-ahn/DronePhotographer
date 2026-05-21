@@ -1,0 +1,132 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "snowman_8184a980-0de6-4705-bcee-a913b4ba7e71",
+  "object_file": "data/objects/snowman_8184a980-0de6-4705-bcee-a913b4ba7e71/snowman_1K_cdac96a3-661a-4b71-abfd-bc8dfeddb26b.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.6135404109954834,
+        0.7317078709602356,
+        -0.9820559024810791
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.6135404109954834,
+            0.7317078709602356,
+            -0.9820559024810791
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is fully visible, grounded, and appears to be at a plausible scale within the outdoor landscape scene. The placement is good, with no clipping issues."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_v0.png",
+          "azimuth": 143.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.570746898651123,
+            6.469797611236572,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.5891593098640442,
+            -0.807939350605011,
+            -0.011195739731192589
+          ],
+          "camera_up": [
+            -0.0065964809618890285,
+            -0.00904605071991682,
+            0.9999373555183411
+          ],
+          "camera_radius": 7.143769771652027
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_snowman_8184a980-0de6-4705-bcee-a913b4ba7e71_c0_v1.png",
+          "azimuth": 203.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.49072790145874,
+            7.224451541900635,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.4051159918308258,
+            -0.9141967296600342,
+            -0.011195620521903038
+          ],
+          "camera_up": [
+            0.004535882733762264,
+            -0.01023560855537653,
+            0.9999373555183411
+          ],
+          "camera_radius": 7.143769771652027
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A snowman is out of place in a green valley scene with no snow."
+    }
+  ]
+}

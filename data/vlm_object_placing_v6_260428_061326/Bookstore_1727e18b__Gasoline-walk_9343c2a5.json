@@ -1,0 +1,682 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.38841474056243896,
+        2.9860427379608154,
+        -0.0663888081908226
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.38841474056243896,
+            2.9860427379608154,
+            -0.0663888081908226
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            4.0,
+            8.5,
+            8.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is heavily cropped (head is missing)",
+            "The person is significantly occluded by the tree trunk in the foreground.",
+            "Object is heavily cropped (head and upper torso missing)",
+            "The top of the person's head is slightly cropped by the upper frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and at a realistic scale, but the framing is poor as the head is completely cropped out of the top of the shot."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c0_v1.png",
+          "azimuth": 217.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.9107179641723633,
+            7.543370723724365,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.611520528793335,
+            -0.7912154197692871,
+            -0.0045645833015441895
+          ],
+          "camera_up": [
+            0.0027914184611290693,
+            -0.0036115653347223997,
+            0.9999895691871643
+          ],
+          "camera_radius": 5.801279623284354
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        42.67801284790039,
+        -11.993584632873535,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            42.67801284790039,
+            -11.993584632873535,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            9.0,
+            9.0,
+            6.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The placement in the middle of a wide, empty road is somewhat awkward.",
+            "The background appears to be a distant field or HDRI that lacks the architectural detail of the bookstore scene, making the placement feel isolated from the main environment.",
+            "The person is significantly oversized compared to the environment (e.g., the bookstore and street lamps in the background).",
+            "The camera has an extreme Dutch angle (tilt), which is disorienting."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is far too large for the scale of the buildings and street furniture in the scene, appearing like a giant relative to the bookstore in the background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_v0.png",
+          "azimuth": 254.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            37.135780334472656,
+            -10.425291061401367,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9622079133987427,
+            -0.2722776234149933,
+            -0.004564464092254639
+          ],
+          "camera_up": [
+            0.004392016679048538,
+            -0.0012427882757037878,
+            0.9999895691871643
+          ],
+          "camera_radius": 5.801282459016987
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c1_v1.png",
+          "azimuth": 134.7,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            46.584556579589844,
+            -8.127737045288086,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.7107911109924316,
+            -0.7033869028091431,
+            -0.00478380685672164
+          ],
+          "camera_up": [
+            -0.003400317160412669,
+            -0.003364914795383811,
+            0.9999885559082031
+          ],
+          "camera_radius": 5.539391084187349
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -6.005775451660156,
+        -6.376224994659424,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.005775451660156,
+            -6.376224994659424,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            4.0,
+            8.0,
+            9.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is heavily cropped, with the head and upper shoulders missing from the frame.",
+            "The surroundings are very empty, consisting mostly of plain ground and sky with minimal architectural context.",
+            "The surroundings are very empty, consisting mostly of a plain road and sky.",
+            "The placement is far from the bookstore, which is the primary interest of the scene.",
+            "The bookstore, which is the primary feature of the scene, is not visible in this frame.",
+            "The placement on a remote road is plausible but lacks the rich architectural context of the bookstore seen in the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and visible, the placement is in a barren part of the environment that lacks the bookstore's architectural detail, resulting in empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_v0.png",
+          "azimuth": 299.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -11.013934135437012,
+            -9.2212553024292,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8694858551025391,
+            0.4939367473125458,
+            -0.004565179347991943
+          ],
+          "camera_up": [
+            0.003969406709074974,
+            0.0022549224086105824,
+            0.9999895691871643
+          ],
+          "camera_radius": 5.801280021417189
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c2_v1.png",
+          "azimuth": 161.5,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.261873722076416,
+            -1.164253830909729,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.3173010051250458,
+            -0.9483128190040588,
+            -0.004784283693879843
+          ],
+          "camera_up": [
+            -0.001518041011877358,
+            -0.004537060856819153,
+            0.9999885559082031
+          ],
+          "camera_radius": 5.539389047829756
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        12.718758583068848,
+        -11.993584632873535,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.718758583068848,
+            -11.993584632873535,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The placement is isolated from the main scene features.",
+            "The placement in the middle of the road feels isolated from the main environment.",
+            "The surroundings are very empty, consisting mostly of a wide road and sky with no architectural context from the bookstore scene visible.",
+            "The surroundings are very empty, consisting mostly of road and sky with no architectural context from the bookstore scene.",
+            "The surroundings are very empty, lacking the architectural context of the bookstore.",
+            "object is heavily cropped (head is missing)",
+            "The placement is in a generic road area with no interesting background elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and fully visible, the render fails to show any of the bookstore architecture, leading to empty surroundings and a lack of scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c3_v0.png",
+          "azimuth": 298.0,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.633113861083984,
+            -14.697669982910156,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8829383254051208,
+            0.46946680545806885,
+            -0.004564821720123291
+          ],
+          "camera_up": [
+            0.004030486103147268,
+            0.0021430766209959984,
+            0.9999895691871643
+          ],
+          "camera_radius": 5.801280280845668
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.3884147107601166,
+        -19.4833984375,
+        -1.23977656585339e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.3884147107601166,
+            -19.4833984375,
+            -1.23977656585339e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            3.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The background shows an abrupt horizon line where the ground plane ends, which looks unnatural.",
+            "The surroundings are completely empty, lacking any architectural context from the bookstore scene.",
+            "The placement is completely isolated from the intended environment.",
+            "The object is heavily cropped, with the head missing from the frame.",
+            "The placement is isolated from the main bookstore building seen in the reference.",
+            "The ground plane appears to end abruptly, showing an unfinished environment.",
+            "The object is heavily cropped, with the head and upper torso missing from the frame.",
+            "The surroundings are very empty, lacking the architectural detail of the bookstore seen in the reference image.",
+            "The surroundings are empty, showing only a flat plane and sky with no architectural context from the bookstore scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in an empty void with no visible context from the bookstore scene, violating the requirement for meaningful surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Gasoline-walk_9343c2a5_c4_v0.png",
+          "azimuth": 299.0,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -5.426092147827148,
+            -22.275829315185547,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8745985627174377,
+            0.4847978353500366,
+            0.006961094681173563
+          ],
+          "camera_up": [
+            -0.006088296417146921,
+            -0.0033748310524970293,
+            0.9999758005142212
+          ],
+          "camera_radius": 5.793735391686879
+        }
+      ]
+    }
+  ]
+}

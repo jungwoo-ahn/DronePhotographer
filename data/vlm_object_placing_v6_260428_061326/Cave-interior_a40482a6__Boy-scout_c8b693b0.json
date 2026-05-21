@@ -1,0 +1,140 @@
+{
+  "scene": "Cave-interior_a40482a6",
+  "scene_file": "data/scenes/Cave-interior_a40482a6/Cave-interior_a40482a6.blend",
+  "scene_scale": 1.0,
+  "object": "Boy-scout_c8b693b0",
+  "object_file": "data/objects/Boy-scout_c8b693b0/Boy-scout_c8b693b0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.5277347564697266,
+        -6.654088020324707,
+        -1.6668081283569336
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.5277347564697266,
+            -6.654088020324707,
+            -1.6668081283569336
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            4.0,
+            3.0,
+            5.0,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v3.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Large black geometry block obstructing the view",
+            "Object is in a sitting pose but there is no chair or surface to sit on, making it look like it is hovering in a seated position.",
+            "Significant clipping with grass patches",
+            "Object is heavily cropped (head is missing)",
+            "Object is significantly occluded by foreground rocks.",
+            "Object is in a sitting pose but there is no chair or rock beneath him",
+            "Grass clipping through legs",
+            "Object is in a sitting pose with no visible seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout's head is cut off by the top of the frame, and there is significant clipping where the tall grass passes through his legs and the stool."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Boy-scout_c8b693b0_c0_v1.png",
+          "azimuth": 251.2,
+          "elevation": 50,
+          "preview_quality": 5.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.43342816829681396,
+            -5.6006999015808105,
+            0.9915406107902527
+          ],
+          "camera_forward": [
+            0.7932751774787903,
+            -0.2700529396533966,
+            -0.5456976294517517
+          ],
+          "camera_up": [
+            0.5165842771530151,
+            -0.17585965991020203,
+            0.837982177734375
+          ],
+          "camera_radius": 4.213214860022073
+        }
+      ]
+    }
+  ]
+}

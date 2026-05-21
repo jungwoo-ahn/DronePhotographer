@@ -1,0 +1,753 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-lifts-her-glasses_204672a2",
+  "object_file": "data/objects/Girl-lifts-her-glasses_204672a2/Girl-lifts-her-glasses_204672a2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        12.657938957214355,
+        -12.05440616607666,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.657938957214355,
+            -12.05440616607666,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            6.0,
+            3.0,
+            3.0,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is placed in the middle of the road",
+            "surroundings_empty=true",
+            "horizon line is unnatural",
+            "The background is quite sparse and lacks the architectural detail shown in the reference image.",
+            "Object is placed in the middle of the road, which is an awkward location for a pedestrian.",
+            "surroundings are very empty",
+            "The object is placed in a featureless area of the scene, far from the bookstore architecture seen in the reference.",
+            "Object is heavily cropped at the top (head is missing).",
+            "Background appears to be an empty void/horizon"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head and upper shoulders are completely cut off by the top of the frame, violating the requirement for the object to be mostly visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_v0.png",
+          "azimuth": 298.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            7.60227632522583,
+            -14.753878593444824,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.88212651014328,
+            0.4710116386413574,
+            0.0009206969407387078
+          ],
+          "camera_up": [
+            -0.0008122041472233832,
+            -0.00043359806295484304,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.772856193979693
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c0_v1.png",
+          "azimuth": 239.7,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            8.541990280151367,
+            -9.649240493774414,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8633951544761658,
+            -0.5045270919799805,
+            0.0011067825835198164
+          ],
+          "camera_up": [
+            -0.000955487135797739,
+            0.0005585803301073611,
+            0.9999994039535522
+          ],
+          "camera_radius": 4.8171411434718445
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        1.4232177734375,
+        -8.30949878692627,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.4232177734375,
+            -8.30949878692627,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            8.0,
+            6.0,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is placed in the middle of the road",
+            "surroundings_empty=true",
+            "Object is not visible in the frame.",
+            "Object is standing in the middle of the street, which is slightly less natural than being on the sidewalk.",
+            "Object is placed in an empty area far from the main scene context (the bookstore)",
+            "Object is standing in the middle of the street, which is an awkward and unsafe placement.",
+            "The bookstore context is missing from this view"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered view, likely occluded by the interior walls or positioned behind the camera."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_v0.png",
+          "azimuth": 334.6,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.9224846959114075,
+            -13.249537467956543,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.4289349317550659,
+            0.9033348560333252,
+            0.0009649235289543867
+          ],
+          "camera_up": [
+            -0.0004138809454161674,
+            -0.0008716536103747785,
+            0.9999995231628418
+          ],
+          "camera_radius": 5.512285861680714
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c1_v1.png",
+          "azimuth": 293.1,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.848480224609375,
+            -10.55806827545166,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9198211431503296,
+            0.39233681559562683,
+            0.0009206969407387078
+          ],
+          "camera_up": [
+            -0.0008468814776279032,
+            -0.00036121270386502147,
+            0.9999995827674866
+          ],
+          "camera_radius": 5.772855202781194
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -9.811503410339355,
+        1.052768349647522,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.811503410339355,
+            1.052768349647522,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            4.0,
+            3.0,
+            8.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is placed in the middle of the road",
+            "surroundings_empty=true",
+            "Object is walking away from the camera",
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is heavily cropped (head is missing)",
+            "Object is placed in the road",
+            "Surroundings are mostly empty",
+            "Object is placed in a desolate area far from the bookstore context",
+            "Object is placed in a barren area far from the main scene features (bookstore)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is significantly cropped with the head missing, and the surrounding environment lacks detail and context, appearing as an empty road."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_v0.png",
+          "azimuth": 299.5,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -13.96063232421875,
+            -1.2946960926055908,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8703551292419434,
+            0.49242326617240906,
+            0.0011067825835198164
+          ],
+          "camera_up": [
+            -0.0009633138542994857,
+            -0.0005449714954011142,
+            0.9999994039535522
+          ],
+          "camera_radius": 4.817141390940795
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c2_v1.png",
+          "azimuth": 256.9,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -14.454607009887695,
+            2.133251905441284,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9739753603935242,
+            -0.226651132106781,
+            0.0011069017928093672
+          ],
+          "camera_up": [
+            -0.001078063971363008,
+            0.00025101707433350384,
+            0.9999994039535522
+          ],
+          "camera_radius": 4.8171411310983965
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -4.3420768357615165,
+        -6.221789586067128,
+        -0.09139004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.066596031188965,
+            -6.437045097351074,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            3.0,
+            4.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Scale appears too large for the environment",
+            "Object is placed in the middle of the road",
+            "surroundings_empty=true",
+            "Object is facing away from the camera and the main scene interest (bookstore)",
+            "Object is placed in an empty area with no scene context",
+            "Object is heavily cropped (head is missing)",
+            "Object is in the middle of the road",
+            "Clear visual gap between the feet and the ground",
+            "Object is too large for the scene (towers over the door)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": -0.05
+          },
+          "vlm_scale_factor": 0.85,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing in the middle of a wet road which is an implausible location, appears to be floating visually, and is scaled too large relative to the street and buildings."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -5.061373689849602,
+            -5.442294855061715,
+            -0.09139004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            4.0,
+            3.0,
+            6.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter1_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "Object is placed in the middle of the road",
+            "surroundings_empty=true",
+            "Object is heavily cropped (head missing)",
+            "Surroundings are empty",
+            "Object is placed in the middle of the road, which is an awkward location for a person standing still.",
+            "The main scene context (the bookstore) is not visible in this frame",
+            "Object is heavily cropped (head is missing)",
+            "Object is placed in an uninteresting part of the scene away from the bookstore",
+            "Object is placed in an empty area far from the main scene context (the bookstore)",
+            "Camera angle is tilted awkwardly"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and she is standing in the middle of the road at the edge of the scene's geometry where the background is empty."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            -4.3420768357615165,
+            -6.221789586067128,
+            -0.09139004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            4.0,
+            4.0,
+            8.0,
+            2.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-lifts-her-glasses_204672a2_c3_iter2_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is placed in the middle of the road",
+            "surroundings_empty=true",
+            "The interesting part of the scene (the bookstore) is not visible",
+            "Object is placed in an empty area far from the main scene architecture (the bookstore)",
+            "Object is heavily cropped (head is missing)",
+            "Object is facing away from the scene context"
+          ],
+          "vlm_adjustment": {
+            "forward": 5.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the frame edge, and they are placed in a desolate area of the map with no architectural context visible."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2",
+  "object_file": "data/objects/Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2/Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -2.5735183384350466,
+        1.5176854602752572,
+        -0.05968235433101654
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.5691564083099365,
+            1.4177806377410889,
+            -0.05968235433101654
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c2_iter0.png"
+          ],
+          "view_qualities": [
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is placed in an outdoor environment, which does not match the indoor living room context provided by the reference image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is plausibly placed and scaled as a person walking outdoors, but the rendered scene is an outdoor environment, which fundamentally contradicts the indoor living room context of the reference image."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -2.5735183384350466,
+            1.5176854602752572,
+            -0.05968235433101654
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c2_iter1.png"
+          ],
+          "view_qualities": [
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c2_iter1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed walking outdoors on a path adjacent to the house, is well-grounded, and at a realistic scale for the environment, with good visibility and rich surroundings."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

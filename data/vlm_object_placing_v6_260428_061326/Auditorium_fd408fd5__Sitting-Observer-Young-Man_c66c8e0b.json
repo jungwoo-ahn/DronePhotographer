@@ -1,0 +1,438 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "Sitting-Observer-Young-Man_c66c8e0b",
+  "object_file": "data/objects/Sitting-Observer-Young-Man_c66c8e0b/Sitting-Observer-Young-Man_c66c8e0b.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        32.664485931396484,
+        40.48526382446289,
+        0.45683765411376953
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            32.664485931396484,
+            40.48526382446289,
+            0.45683765411376953
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.5,
+            3.0,
+            1.0,
+            5.5,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v4.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden by the foreground chair.",
+            "Object is almost entirely occluded/cropped out.",
+            "Object is placed in an awkward or implausible location for its type (sitting on a small stool in an auditorium aisle instead of a proper seat).",
+            "Object is likely clipping with the chair it's supposed to be sitting on, or is positioned incorrectly behind it, making it invisible.",
+            "Object is clipping with the armrest of the adjacent auditorium chair.",
+            "Awkward placement: The person is sitting on a small stool in the aisle of the auditorium instead of in one of the available chairs."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.2,
+            "right": 0.0,
+            "up": 0.1
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (young man) is completely hidden behind the foreground chair, making it invisible and impossible to evaluate its scale or exact placement. It is likely clipping with or fully occluded by the chair."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_v0.png",
+          "azimuth": 97.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 5.0,
+          "camera_position": [
+            37.84095001220703,
+            41.14838409423828,
+            1.936046838760376
+          ],
+          "camera_forward": [
+            -0.9768253564834595,
+            -0.12513433396816254,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.1722404807806015,
+            -0.02206447906792164,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.42434950325779
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c0_v1.png",
+          "azimuth": 85.9,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            37.63142776489258,
+            40.12923049926758,
+            2.8282954692840576
+          ],
+          "camera_forward": [
+            -0.9372876882553101,
+            0.06718544661998749,
+            -0.34202027320861816
+          ],
+          "camera_up": [
+            -0.34114494919776917,
+            0.02445349097251892,
+            0.9396925568580627
+          ],
+          "camera_radius": 5.5155310001414195
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.812304496765137,
+        34.01054382324219,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.812304496765137,
+            34.01054382324219,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.5,
+            9.5,
+            9.5,
+            9.0,
+            9.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is placed awkwardly on a stool in the middle of an aisle, which is an unusual and less plausible location for an auditorium.",
+            "Object is very small in the frame, reducing its visual impact."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible, grounded, and not clipping, but its placement on a stool in the middle of an aisle is awkward and not a typical or highly plausible location within an auditorium setting."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_v0.png",
+          "azimuth": 5.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            11.339693069458008,
+            28.81849479675293,
+            3.7271382808685303
+          ],
+          "camera_forward": [
+            -0.09952115267515182,
+            0.9797662496566772,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.01754825748503208,
+            0.1727590262889862,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.4243499318033805
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c1_v1.png",
+          "azimuth": 163.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            12.259543418884277,
+            39.02462387084961,
+            3.7271382808685303
+          ],
+          "camera_forward": [
+            -0.2731015384197235,
+            -0.9461827874183655,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.048155054450035095,
+            -0.1668376326560974,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.424348975817019
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        5.956263542175293,
+        48.17399597167969,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.956263542175293,
+            48.17399597167969,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.5,
+            7.5,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "While plausible, sitting on a stool on the stage is an unusual location for an 'observer' in an auditorium, who would typically be in the audience.",
+            "The object is placed on a stool on a side platform/stage, which is a somewhat unusual position for an 'observer' in an auditorium setting.",
+            "The object is placed in an empty corner/aisle, facing a wall, which is an awkward position for an 'observer' in an auditorium."
+          ],
+          "vlm_adjustment": {},
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible, grounded, and not clipping, with good scale. However, its placement in an empty corner facing a wall is somewhat awkward for an 'observer' in an auditorium, though not entirely implausible for someone waiting or resting."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_v0.png",
+          "azimuth": 79.6,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            11.089293479919434,
+            47.23190689086914,
+            3.7271385192871094
+          ],
+          "camera_forward": [
+            -0.9686287641525269,
+            0.17777687311172485,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17079544067382812,
+            0.03134678676724434,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.424351047120588
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Sitting-Observer-Young-Man_c66c8e0b_c3_v1.png",
+          "azimuth": 19.6,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            7.706907272338867,
+            43.25761795043945,
+            3.7271385192871094
+          ],
+          "camera_forward": [
+            -0.33035528659820557,
+            0.927745521068573,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.05825050175189972,
+            0.16358649730682373,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.42435110755649
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7010582685470581,
+        -0.44087255001068115,
+        -0.026998460292816162
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7010582685470581,
+            -0.44087255001068115,
+            -0.026998460292816162
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is sitting on a chair, but the chair is not visible in the render.",
+            "The object is partially obscured by the foreground elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible in a plausible location, but the chair they are sitting on is not visible, making the placement slightly awkward."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 249.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.747503280639648,
+            1.1124117374420166,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.929262638092041,
+            -0.35671040415763855,
+            -0.09606575220823288
+          ],
+          "camera_up": [
+            0.08968520909547806,
+            -0.034426622092723846,
+            0.9953749775886536
+          ],
+          "camera_radius": 4.439915469756808
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 219.0,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.4287397861480713,
+            2.9275336265563965,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.6264098882675171,
+            -0.7735515832901001,
+            -0.09606575220823288
+          ],
+          "camera_up": [
+            0.06045608967542648,
+            -0.07465715706348419,
+            0.9953749775886536
+          ],
+          "camera_radius": 4.4399152012622976
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.048941731452941895,
+        0.5591275095939636,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.048941731452941895,
+            0.5591275095939636,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a chair, but the chair is not visible in the render.",
+            "The object is partially obscured by the foreground elements."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but the chair they are sitting on is not visible, and the person is partially obscured by foreground elements, leading to a slightly lower quality score."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -4.701058387756348,
+        1.5591275691986084,
+        -0.026998311281204224
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.701058387756348,
+            1.5591275691986084,
+            -0.026998311281204224
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a chair, but the chair is not visible in the render."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, sitting on a stool which is plausible for the environment. The stool itself is not visible, which is a minor issue."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_v0.png",
+          "azimuth": 239.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -7.631581783294678,
+            3.2853386402130127,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.8551851511001587,
+            -0.5037425756454468,
+            -0.12207271158695221
+          ],
+          "camera_up": [
+            0.10518140345811844,
+            -0.06195659190416336,
+            0.9925211668014526
+          ],
+          "camera_radius": 3.534714779765836
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Hahaha-woman-on-chair_50c9329e_c2_v1.png",
+          "azimuth": 299.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -7.661262035369873,
+            -0.11567486077547073,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.8638464212417603,
+            0.48874083161354065,
+            -0.12207271158695221
+          ],
+          "camera_up": [
+            0.1062466949224472,
+            0.06011145934462547,
+            0.9925211668014526
+          ],
+          "camera_radius": 3.534714880941712
+        }
+      ]
+    }
+  ]
+}

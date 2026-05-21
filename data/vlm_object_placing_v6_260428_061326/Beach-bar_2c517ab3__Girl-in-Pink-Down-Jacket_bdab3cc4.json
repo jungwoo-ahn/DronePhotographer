@@ -1,0 +1,122 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Girl-in-Pink-Down-Jacket_bdab3cc4",
+  "object_file": "data/objects/Girl-in-Pink-Down-Jacket_bdab3cc4/Girl-in-Pink-Down-Jacket_bdab3cc4.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.1907119750976562,
+        -6.739378452301025,
+        -0.11999998986721039
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.1907119750976562,
+            -6.739378452301025,
+            -0.11999998986721039
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            9.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Outfit is seasonally inappropriate for a beach setting",
+            "Object's head is cut off by the top of the frame",
+            "The top of the person's head is cut off by the frame edge.",
+            "Object is heavily cropped (head and upper torso missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and realistically scaled, but the framing is poor as the top half of the body is cut off by the top edge of the image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v1.png",
+          "azimuth": 70.7,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.3034934997558594,
+            -8.663421630859375,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9419270753860474,
+            0.3298579454421997,
+            -0.06298478692770004
+          ],
+          "camera_up": [
+            -0.05944511666893959,
+            0.020817328244447708,
+            0.998014509677887
+          ],
+          "camera_radius": 5.918716443861972
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A heavy down jacket is clearly out of place in a tropical beach bar setting."
+    }
+  ]
+}

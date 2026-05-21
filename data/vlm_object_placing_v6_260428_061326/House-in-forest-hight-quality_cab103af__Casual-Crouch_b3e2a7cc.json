@@ -1,0 +1,468 @@
+{
+  "scene": "House-in-forest-hight-quality_cab103af",
+  "scene_file": "data/scenes/House-in-forest-hight-quality_cab103af/House-in-forest-hight-quality_cab103af.blend",
+  "scene_scale": 0.6666666666666666,
+  "object": "Casual-Crouch_b3e2a7cc",
+  "object_file": "data/objects/Casual-Crouch_b3e2a7cc/Casual-Crouch_b3e2a7cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -11.524567604064941,
+        12.762178421020508,
+        -1.2636152505874634
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.524567604064941,
+            12.762178421020508,
+            -1.2636152505874634
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is placed on the water, which is not a plausible surface.",
+            "The person is sitting on the water, which is not a plausible surface.",
+            "The person is standing in the water, which is not a plausible location.",
+            "The scale of the person is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded but placed in the water, which is an implausible location. The scale of the person is also too small for the scene, making it appear like a miniature figure."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c0_v1.png",
+          "azimuth": 136.2,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -9.248855590820312,
+            15.135269165039062,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            -0.5796450972557068,
+            -0.6044484376907349,
+            -0.5464921593666077
+          ],
+          "camera_up": [
+            -0.3782506585121155,
+            -0.39443644881248474,
+            0.8374642133712769
+          ],
+          "camera_radius": 4.157519383296409
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.114792823791504,
+        4.8933210372924805,
+        -0.7636152505874634
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.114792823791504,
+            4.8933210372924805,
+            -1.2636152505874634
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The person is placed on the water, which is not a plausible surface.",
+            "The person is sitting on the water, which is not a plausible surface."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on the water, which is not a plausible surface. The previous attempt also had the person on the water, and this attempt repeats the same mistake. The person should be placed on the wooden deck or the dock."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            10.114792823791504,
+            4.8933210372924805,
+            -0.7636152505874634
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c1_iter1_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is placed on the water, which is not a plausible surface.",
+            "The person is sitting on the water, which is not a plausible surface."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 1.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on the water, which is not a plausible surface. The previous attempt also had the person on the water, so this is a repeat of the same issue."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        17.49184799194336,
+        -3.9591450691223145,
+        0.054711222648620605
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.49184799194336,
+            -3.9591450691223145,
+            0.054711222648620605
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is placed on the water, which is not a plausible surface.",
+            "The person is placed on the ground, which is not a plausible surface for a person to be crouching on in this context.",
+            "The person is placed on the ground, which is a plausible surface, but the previous attempts were on water. This is a better placement but still not ideal as it is far from the house.",
+            "The person is placed on the ground, which is not a plausible surface for a person to be sitting on in this context. The house has a deck and a dock, which would be more appropriate locations.",
+            "The person is placed on the ground, which is a plausible surface, but the previous attempts were on water, which is not a plausible surface. This placement is better, but still not ideal as it is in the middle of nowhere."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement on the bare ground in the middle of nowhere is not ideal. A more plausible location would be on the deck or inside the house."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_v0.png",
+          "azimuth": 99.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            20.03868865966797,
+            -3.546647071838379,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            -0.9400012493133545,
+            -0.1522468775510788,
+            -0.3053170442581177
+          ],
+          "camera_up": [
+            -0.30138951539993286,
+            -0.048814427107572556,
+            0.9522507786750793
+          ],
+          "camera_radius": 2.85658618547022
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Casual-Crouch_b3e2a7cc_c2_v1.png",
+          "azimuth": 39.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            19.122501373291016,
+            -5.958524227142334,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            -0.6018503308296204,
+            0.7379414439201355,
+            -0.30531713366508484
+          ],
+          "camera_up": [
+            -0.19296935200691223,
+            0.23660385608673096,
+            0.9522507190704346
+          ],
+          "camera_radius": 2.8565854290888195
+        }
+      ]
+    }
+  ]
+}

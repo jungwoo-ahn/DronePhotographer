@@ -1,0 +1,159 @@
+{
+  "scene": "realistic-desert-scene",
+  "scene_file": "data/scenes/realistic-desert-scene/desert.blend",
+  "scene_scale": 7.5,
+  "object": "standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536",
+  "object_file": "data/objects/standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536/standing-cool-bald-man_2K_9b68b255-ca14-416e-9ee7-f0992fca7ef2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        187.60044860839844,
+        510.6805114746094,
+        -34.53026580810547
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            187.60044860839844,
+            510.6805114746094,
+            -34.53026580810547
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            7.0,
+            2.0,
+            2.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image.",
+            "The rendered image is completely black.",
+            "Object is not visible.",
+            "The object is placed in a desert scene, which is not a plausible location for a person dressed in a jacket and pants."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, making it impossible to evaluate the object's visibility, placement, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v0.png",
+          "azimuth": 342.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            185.78160095214844,
+            504.911865234375,
+            -32.729061126708984
+          ],
+          "camera_forward": [
+            0.2961374819278717,
+            0.9392277598381042,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            0.05221712216734886,
+            0.16561146080493927,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.311087384183068
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/realistic-desert-scene_standing-cool-ba_0fdffc77-d514-49c3-b84f-a38513031536_c0_v1.png",
+          "azimuth": 282.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            181.69522094726562,
+            509.3713684082031,
+            -32.729061126708984
+          ],
+          "camera_forward": [
+            0.9614644646644592,
+            0.21314893662929535,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.16953206062316895,
+            0.03758382424712181,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.311094155838216
+        }
+      ]
+    }
+  ]
+}

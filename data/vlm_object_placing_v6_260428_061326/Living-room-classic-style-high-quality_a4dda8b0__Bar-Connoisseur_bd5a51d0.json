@@ -1,0 +1,111 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Bar-Connoisseur_bd5a51d0",
+  "object_file": "data/objects/Bar-Connoisseur_bd5a51d0/Bar-Connoisseur_bd5a51d0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        2.447479248046875,
+        0.43441617488861084,
+        -0.05968236178159714
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.447479248046875,
+            0.43441617488861084,
+            -0.05968236178159714
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0_v3.png"
+          ],
+          "view_qualities": [
+            9.0,
+            1.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are empty, showing only a plain wall.",
+            "Object is completely hidden behind walls.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a plain wall, making it invisible and the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Living-room-classic-style-high-quality_a4dda8b0_Bar-Connoisseur_bd5a51d0_c3_v0.png",
+          "azimuth": 275.1,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.289393901824951,
+            0.011661361902952194,
+            0.7314370274543762
+          ],
+          "camera_forward": [
+            0.995572566986084,
+            0.08885256201028824,
+            -0.030666982755064964
+          ],
+          "camera_up": [
+            0.03054557554423809,
+            0.002726105274632573,
+            0.9995296597480774
+          ],
+          "camera_radius": 4.8210532362735785
+        }
+      ]
+    }
+  ]
+}

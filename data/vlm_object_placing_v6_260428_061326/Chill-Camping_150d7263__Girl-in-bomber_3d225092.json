@@ -1,0 +1,391 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "Girl-in-bomber_3d225092",
+  "object_file": "data/objects/Girl-in-bomber_3d225092/Girl-in-bomber_3d225092.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.6789320707321167,
+        -2.933320999145508,
+        -0.0513402484357357
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.6789320707321167,
+            -2.933320999145508,
+            -0.0513402484357357
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.5,
+            3.5,
+            6.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v3.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly occluded by foliage.",
+            "Ground surface appears unnaturally flat and reflective, making the object's integration into the natural environment look artificial."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.7,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The girl is significantly occluded by the tree's foliage, with more than 30% of her body hidden, though her scale and grounding are appropriate for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_v0.png",
+          "azimuth": 166.9,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.3411734700202942,
+            1.450321078300476,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            -0.225984588265419,
+            -0.9711111187934875,
+            -0.07664328813552856
+          ],
+          "camera_up": [
+            -0.01737125590443611,
+            -0.07464873045682907,
+            0.9970585703849792
+          ],
+          "camera_radius": 4.613284867662373
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c0_v1.png",
+          "azimuth": 106.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            4.4983415603637695,
+            -1.3603450059890747,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            -0.9548637866973877,
+            -0.29010966420173645,
+            -0.06380888819694519
+          ],
+          "camera_up": [
+            -0.06105317547917366,
+            -0.018549496307969093,
+            0.9979621171951294
+          ],
+          "camera_radius": 5.504896032978321
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -1.8348894119262695,
+        -6.015874862670898,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.8348894119262695,
+            -6.015874862670898,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.5,
+            4.0,
+            3.5,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v4.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The surroundings are empty, lacking any contextual elements from the scene like the van, chair, or trees.",
+            "The ground surface the object is standing on is extremely reflective, making the integration look somewhat artificial.",
+            "Surroundings are too empty, consisting mostly of water and sky.",
+            "The immediate surroundings around the object are mostly empty (bare sandbar, water, and sky), with meaningful scene context (van, tree) being quite distant.",
+            "surroundings_empty=true forces quality <= 4.",
+            "The object is placed on an unnaturally flat and reflective surface that does not match the natural ground of a camping scene.",
+            "The object is quite small in the frame due to the wide shot."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed on an artificial-looking reflective surface, and the rendered view completely lacks any contextual elements from the camping scene, resulting in empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c1_v1.png",
+          "azimuth": 348.2,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.5571177005767822,
+            -9.472989082336426,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            0.20352181792259216,
+            0.9742041230201721,
+            -0.09749441593885422
+          ],
+          "camera_up": [
+            0.01993720233440399,
+            0.09543410688638687,
+            0.9952360987663269
+          ],
+          "camera_radius": 3.6740606093476846
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -6.458718776702881,
+        -14.107575416564941,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.458718776702881,
+            -14.107575416564941,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            1.0,
+            4.0,
+            4.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is placed on a very small, isolated rock in the middle of a large body of water, which is not a plausible or safe location for a person to be standing, especially in a 'camping' context.",
+            "The surroundings are empty, lacking any contextual elements from the scene like the van, chair, or trees.",
+            "The ground surface the object is standing on is extremely reflective, making the integration look somewhat artificial.",
+            "The object is standing on the surface of the water, which is not a plausible solid surface for a person to stand on."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing on the surface of the lake, which is not a plausible solid surface for a human to stand on, despite being technically 'grounded' to the water plane."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_Girl-in-bomber_3d225092_c3_v0.png",
+          "azimuth": 337.6,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -8.426212310791016,
+            -18.881072998046875,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            0.38021770119667053,
+            0.9224773049354553,
+            -0.06685923784971237
+          ],
+          "camera_up": [
+            0.025478072464466095,
+            0.06181444600224495,
+            0.9977624416351318
+          ],
+          "camera_radius": 5.261442623242105
+        }
+      ]
+    }
+  ]
+}

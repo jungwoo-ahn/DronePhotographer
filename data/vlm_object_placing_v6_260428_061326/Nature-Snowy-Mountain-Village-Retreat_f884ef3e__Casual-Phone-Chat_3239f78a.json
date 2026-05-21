@@ -1,0 +1,431 @@
+{
+  "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+  "scene_file": "data/scenes/Nature-Snowy-Mountain-Village-Retreat_f884ef3e/Nature-Snowy-Mountain-Village-Retreat_f884ef3e.blend",
+  "scene_scale": 1.0,
+  "object": "Casual-Phone-Chat_3239f78a",
+  "object_file": "data/objects/Casual-Phone-Chat_3239f78a/Casual-Phone-Chat_3239f78a.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -12.039745330810547,
+        -31.230154037475586,
+        -32.83005142211914
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -12.039745330810547,
+            -31.230154037475586,
+            -32.83005142211914
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            3.0,
+            6.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The background is empty and lacks context for the object.",
+            "The person is sitting on a stool, but the stool is not visible in the reference image, so it's hard to judge if it's a plausible placement.",
+            "The surroundings are empty, with only a plain sky and ground visible.",
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The surroundings are empty, with only a plain white background and a gradient."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person appears extremely small in the scene, indicating a significant scale mismatch where the scene is too large for a person of average height. The surroundings are also empty, contributing to a low-quality render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_v0.png",
+          "azimuth": 191.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -12.94421100616455,
+            -26.62005615234375,
+            -31.48719024658203
+          ],
+          "camera_forward": [
+            0.1895972639322281,
+            -0.9663846492767334,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            0.03343115374445915,
+            -0.170399472117424,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.886137173790187
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c0_v1.png",
+          "azimuth": 38.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -9.134471893310547,
+            -34.92210006713867,
+            -31.48719024658203
+          ],
+          "camera_forward": [
+            -0.6090132594108582,
+            0.7739181518554688,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.10738527029752731,
+            0.13646239042282104,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.886139113387113
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        18.655405044555664,
+        -24.40900993347168,
+        -32.83005142211914
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            18.655405044555664,
+            -24.40900993347168,
+            -32.83005142211914
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            7.0,
+            6.0,
+            6.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a stool, but the stool is not visible in the reference image, so it's hard to judge if it's a plausible placement.",
+            "The background is empty and lacks context for the object."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement on an unseen stool in an otherwise empty background makes the scene feel less plausible and lacks context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_v0.png",
+          "azimuth": 235.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            14.779034614562988,
+            -21.754804611206055,
+            -31.48719024658203
+          ],
+          "camera_forward": [
+            0.8125783801078796,
+            -0.5563836693763733,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.14327934384346008,
+            -0.09810551255941391,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.886136527257708
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c1_v1.png",
+          "azimuth": 74.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            23.182525634765625,
+            -25.664491653442383,
+            -31.48719024658203
+          ],
+          "camera_forward": [
+            -0.9489908814430237,
+            0.26317816972732544,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.16733236610889435,
+            0.04640538990497589,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.8861367224373335
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        32.297691345214844,
+        -34.64073181152344,
+        -32.83005142211914
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            32.297691345214844,
+            -34.64073181152344,
+            -32.83005142211914
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            7.0,
+            7.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a stool, but the stool is not visible in the reference image, so it's hard to judge if it's a plausible placement.",
+            "The background is empty and lacks context for the object."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement is awkward as they are sitting on an unseen stool in an empty area of the scene, making it difficult to assess plausibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_Casual-Phone-Chat_3239f78a_c2_v0.png",
+          "azimuth": 325.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            29.603038787841797,
+            -38.48909378051758,
+            -31.48719024658203
+          ],
+          "camera_forward": [
+            0.5648626089096069,
+            0.8067072629928589,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.09960044175386429,
+            0.14224420487880707,
+            0.9848077893257141
+          ],
+          "camera_radius": 4.886135307384873
+        }
+      ]
+    }
+  ]
+}

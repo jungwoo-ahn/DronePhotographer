@@ -1,0 +1,5108 @@
+{
+  "model": "gemini-3-flash-preview",
+  "n_per_scene": 5,
+  "total_scenes": 97,
+  "flagged_count": 47,
+  "results": [
+    {
+      "scene": "Forest-field_3c5ba348",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_3c5ba348_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c1_iter0.png",
+          "quality": 1,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in mid-air with no visible ground or environment context, violating multiple hard requirements."
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_3c5ba348_standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176752_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is floating in mid-air against a completely blurry, featureless background, violating grounding and surroundings requirements."
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_3c5ba348_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a blurry, featureless void with no visible ground or scene context, failing basic grounding and surroundings requirements."
+        },
+        {
+          "object": "Guy-in-Japan-bomber_e8891318",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_3c5ba348_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in an empty, blurry void with no visible ground or environment context."
+        },
+        {
+          "object": "Guy-in-green-bomber_6a08ce9e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_3c5ba348_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely blurry and the object is not visible at all, indicating a broken render or incorrect camera placement."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Forest-field_665e2d80",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_665e2d80_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a black void with no visible environment or grounding, making the placement completely implausible."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_665e2d80_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "While the object is fully visible and grounded, the render is essentially broken as it shows no scene context (trees, grass, etc.) from the intended forest-field environment."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_665e2d80_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The scene is completely empty and lacks any forest or field context, resulting in the object standing in a void."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_665e2d80_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is rendered in a black void with no visible scene geometry or context, which violates the requirement for meaningful surroundings."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Forest-field_665e2d80_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is correctly grounded and fully visible, but the environment is essentially a black void with very little context, making for a poor quality scene."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Gas-Station_b8467c86",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is correctly grounded and fully visible, but the shot lacks any environmental context as the background is only empty dirt."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is well-grounded and fully visible, but the shot lacks any environmental context, showing only a plain dirt surface."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 4,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is well-grounded and visible, but the shot lacks any environmental context, showing only a plain dirt surface."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is correctly grounded and fully visible, but the camera angle shows only plain dirt with no architectural or environmental context from the gas station scene."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Gas-Station_b8467c86_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and fully visible, but the shot lacks any environmental context, showing only a plain dirt surface."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Lightweight-Forest_7f323c27",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 4,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is correctly grounded and visible, but the shot lacks any environmental context like trees or landmarks, resulting in empty surroundings."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 3,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is well-grounded and visible, but the background is completely empty and lacks any of the forest elements from the scene description."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 4,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in a very barren environment with no visible scene context, and the lower legs are occluded by the foreground terrain."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is correctly grounded and fully visible, but the shot lacks any environmental context or interesting surroundings, showing only plain ground and sky."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lightweight-Forest_7f323c27_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is correctly grounded and fully visible, but the background is completely empty with no forest elements or context visible."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Mountain-Peak-Landscape_ca3b338a",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 1,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Mountain-Peak-Landscape_ca3b338a_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": false,
+          "scale_factor": 1.0,
+          "reasoning": "The person is clearly floating above the mountain slope, with a visible gap between their feet and the ground."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Mountain-Peak-Landscape_ca3b338a_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and fully visible, but the surrounding environment consists of extremely low-resolution textures and empty, abstract geometry, resulting in a poor quality scene."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Mountain-Peak-Landscape_ca3b338a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is grounded and visible, but the surrounding environment is extremely low-detail with blurry textures and simple geometry, making the shot uninteresting."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Mountain-Peak-Landscape_ca3b338a_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is well-placed and grounded, but the surrounding environment is extremely low-detail with blurry textures and broken geometry, making the shot uninteresting."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Mountain-Peak-Landscape_ca3b338a_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and fully visible, but the environment is extremely low-resolution with blurry textures and broken geometry, making the surroundings effectively empty."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is rendered in a complete void with no visible scene context, architecture, or terrain, making the placement invalid for a scene-based evaluation."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a completely empty void with no visible scene context, architecture, or ground plane."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 1,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in an empty void with no visible scene context or grounding surface."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a void with no visible ground or scene context, making the placement completely invalid."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Nature-Snowy-Mountain-Village-Retreat_f884ef3e_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 1,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a void with no visible scene context or grounding surface, making the render essentially broken."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Regular-old-neighborhood_494ef156",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 2,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in an empty void area of the scene with no meaningful surroundings, and it does not appear to be grounded on the actual scene terrain visible in the background."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is floating in a featureless void, completely disconnected from the actual neighborhood environment seen in the background."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is grounded and fully visible, but the immediate surroundings are completely empty and the background is extremely low-detail, which violates the requirement for interesting context."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in a featureless, empty part of the map that looks like an unfinished or broken environment with no immediate context."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in a void-like environment with no meaningful scene context or architecture visible, which fails the surroundings check."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Sea\u2019s-Heart_8c7e862a",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sea\u2019s-Heart_8c7e862a_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is fully visible and grounded, but the surroundings are completely empty and lack any scene context, which is a major quality violation."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sea\u2019s-Heart_8c7e862a_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c1_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a completely empty environment with no visible ground or scene context."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sea\u2019s-Heart_8c7e862a_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is fully visible and grounded, but the background is completely empty and blurry, providing no recognizable scene context."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sea\u2019s-Heart_8c7e862a_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is fully visible and grounded, but the surroundings are completely empty and the scene appears to be a dark void, providing no useful context."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Sea\u2019s-Heart_8c7e862a_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is fully visible and grounded, but the background is completely empty and lacks any recognizable scene context or detail."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Valley_b592cdfc",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is standing in a black void with no visible environment or context from the valley scene, making the shot uninteresting and disconnected from the intended location."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed on a featureless black plane with no visible environment context, making the render look broken or incomplete."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is rendered in a black void with no visible surroundings or scene context."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is fully visible and grounded, but the surroundings are completely empty and lack any context from the valley scene, appearing as a person in a void."
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Valley_b592cdfc_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in a black void with no visible scene context or surroundings, making the placement useless for training."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Winter-Snowy-Cabin-Landscape_fe992cc7",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-Landscape_fe992cc7_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c1_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and fully visible, but it is standing on a featureless black plane with no environmental context or detail visible in the immediate surroundings."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-Landscape_fe992cc7_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is fully visible and grounded, but the scene is effectively empty with a broken black ground and no visible cabin or architectural context."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-Landscape_fe992cc7_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The render is almost entirely black with no visible scene context or architecture, making it a poor quality image for training despite the object being visible."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-Landscape_fe992cc7_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is fully visible and grounded, but it is placed in a dark, empty area of the map with no recognizable surroundings from the intended snowy cabin scene."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-Landscape_fe992cc7_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in a pitch-black foreground with very little surrounding context, making the render look broken or unfinished."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Winter-Snowy-Cabin-animation_2470cd12",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-animation_2470cd12_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c1_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is fully visible and grounded, but the surroundings are completely empty and featureless, providing no context of the snowy cabin scene."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-animation_2470cd12_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is clearly floating in a featureless white/foggy void with no visible ground plane or scene context."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-animation_2470cd12_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is floating in a featureless white void with no visible ground or scene context."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-animation_2470cd12_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+          "quality": 1,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in an empty white void with no visible ground or scene context, making the placement invalid."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Winter-Snowy-Cabin-animation_2470cd12_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a completely empty void with no visible ground or scene architecture."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "an-abandoned-bar_e9756392-9ad0-4895-99bb-96afac4a6e88",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/an-abandoned-bar_e9756392-9ad0-4895-99bb-96afac4a6e88_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is placed in a completely empty environment with no visible architecture or props from the abandoned bar scene, making the placement contextless."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/an-abandoned-bar_e9756392-9ad0-4895-99bb-96afac4a6e88_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 3,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and visible, but the surroundings are completely empty and do not show the abandoned bar scene context."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/an-abandoned-bar_e9756392-9ad0-4895-99bb-96afac4a6e88_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is grounded and fully visible, but the surroundings are completely empty and do not show any of the abandoned bar scene context."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/an-abandoned-bar_e9756392-9ad0-4895-99bb-96afac4a6e88_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is placed in a completely empty field with no visible context of the abandoned bar scene, making the shot uninteresting and failing to utilize the environment."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/an-abandoned-bar_e9756392-9ad0-4895-99bb-96afac4a6e88_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The person is grounded and fully visible, but the surroundings are completely empty and do not reflect the 'abandoned bar' scene context."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "modern-living-an_ee8d6e29-1405-48fe-a26b-a563f97751b6",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 1,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-living-an_ee8d6e29-1405-48fe-a26b-a563f97751b6_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely white and the object is not visible at all, indicating a broken render or extremely poor camera placement."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-living-an_ee8d6e29-1405-48fe-a26b-a563f97751b6_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely white and does not show the object or any recognizable part of the scene, indicating a broken render or incorrect camera placement."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-living-an_ee8d6e29-1405-48fe-a26b-a563f97751b6_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 2,
+          "surroundings_empty": false,
+          "scale_factor": 0.9,
+          "reasoning": "The person's head is clipping into the ceiling structure and is cut off by the top of the frame, making the placement and framing poor."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-living-an_ee8d6e29-1405-48fe-a26b-a563f97751b6_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely white and the object is not visible, indicating a broken render or extremely poor camera placement."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-living-an_ee8d6e29-1405-48fe-a26b-a563f97751b6_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is completely occluded by a wall, and the frame shows no meaningful scene context."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "realistic-desert-scene",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 1,
+      "samples": [
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely black and the object is not visible, which indicates a broken render or a camera pointing into a void."
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely black, meaning the object is not visible and the scene failed to render properly."
+        },
+        {
+          "object": "Bar-Connoisseur_bd5a51d0",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely black, indicating a failed or broken render where the object is not visible."
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Boy-scout_c8b693b0_c0_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": false,
+          "scale_factor": 1.0,
+          "reasoning": "The object is clearly floating above the ground, which is a major grounding violation."
+        },
+        {
+          "object": "Broadway-Lady_bed11779",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-desert-scene_Broadway-Lady_bed11779_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is well-placed and grounded, but the scene is extremely dark and lacks any meaningful environmental detail or context beyond abstract geometry."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "A-young-humble-man-walks-talking_eed072a6",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48_A-young-humble-man-walks-talking_eed072a6_c2_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The man is correctly grounded and visible, but the shot lacks any environmental context or landmarks, showing only the ground surface."
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48_Boy-scout_c8b693b0_c1_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The boy scout is correctly grounded and fully visible, but the scene lacks any environmental context or interesting surroundings."
+        },
+        {
+          "object": "Girl-walk-in-denim-standing_926d25cc",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48_Girl-walk-in-denim-standing_926d25cc_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The girl is correctly grounded and fully visible, but the scene lacks any meaningful context or background detail beyond the leaf-covered ground."
+        },
+        {
+          "object": "Girl-with-purse-and-coffee_66ad3b47",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+          "quality": 4.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and fully visible, but the surroundings are completely empty of any architectural or natural context, and placing a bar stool in a muddy field is an unnatural choice."
+        },
+        {
+          "object": "Guy-in-green-bomber_6a08ce9e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48_Guy-in-green-bomber_6a08ce9e_c1_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely black, indicating a failed render or that the camera is not pointing at the object."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "simple-kithcen-scene",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 1,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 10,
+          "surroundings_empty": false,
+          "scale_factor": 1.0,
+          "reasoning": "The person is perfectly placed in the kitchen, fully visible, grounded, and at a realistic scale with clear surrounding context."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is a solid blank color with no object or scene context visible."
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_koky_62993eba-1768-46e1-9a7d-712e0ef109fb_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is a solid blank color, indicating a broken render or that the object is completely obscured."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is a solid blank color with no object or scene context visible, indicating a broken render or incorrect camera placement."
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d98a5_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely blank and the object is not visible at all, suggesting a broken render or incorrect camera placement."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The render is extremely overexposed, causing the surroundings to appear completely empty and white, which significantly degrades the quality."
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea_john_5b9f74d4-b81c-436c-a68d-535c197b6d9f_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is extremely overexposed or lacks any scene geometry, resulting in the person standing in a white void with no visible surroundings."
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The image is extremely overexposed, resulting in a white void with no visible scene context or architecture, making the placement quality very poor."
+        },
+        {
+          "object": "All-People-Are-Sisters_1795d425",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea_All-People-Are-Sisters_1795d425_c0_iter0.png",
+          "quality": 3.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is grounded and fully visible, but the scene is extremely overexposed and lacks any meaningful background context or detail, resulting in empty surroundings."
+        },
+        {
+          "object": "Anxious-Anticipation_644493dd",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea_Anxious-Anticipation_644493dd_c0_iter0.png",
+          "quality": 2.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The render is extremely overexposed, resulting in a white void with no visible scene context, which violates the surroundings requirement."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "the-house-on-the_c52654b8-95b1-415d-8d36-57aa4daff122",
+      "status": "insufficient_signal",
+      "samples_total": 5,
+      "samples_valid": 0,
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-house-on-the_c52654b8-95b1-415d-8d36-57aa4daff122_andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c_c1_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is a blank gradient with no object or scene context visible, indicating a broken render or extreme camera misalignment."
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-house-on-the_c52654b8-95b1-415d-8d36-57aa4daff122_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely blank, showing neither the object nor any scene context."
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-house-on-the_c52654b8-95b1-415d-8d36-57aa4daff122_wenceslavus_07e5514f-012e-4989-a9c6-04a977531679_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is rendered in a completely empty void with no visible ground or scene context from the reference image."
+        },
+        {
+          "object": "Girl-with-purse-and-coffee_66ad3b47",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-house-on-the_c52654b8-95b1-415d-8d36-57aa4daff122_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+          "quality": 1.0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The object is floating in a completely empty gradient void with no visible ground surface or scene context."
+        },
+        {
+          "object": "Guy-ties-his-shoelaces_ea5503cf",
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/the-house-on-the_c52654b8-95b1-415d-8d36-57aa4daff122_Guy-ties-his-shoelaces_ea5503cf_c1_iter0.png",
+          "quality": 0,
+          "surroundings_empty": true,
+          "scale_factor": 1.0,
+          "reasoning": "The rendered image is completely blank, showing no object or scene context, which indicates a broken render or total occlusion."
+        }
+      ],
+      "flagged": true,
+      "reason_for_flag": "fewer than 2 views had visible scene reference"
+    },
+    {
+      "scene": "Apartment-garden_fcd5b3f7",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 0.8,
+          "empty": false,
+          "reason": "The person's head and upper shoulders are cut off by the top of the frame, and h",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely obscured by the wall and door frame in the rendered ima",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely occluded by the stone wall or is otherwise not present ",
+          "error": null
+        },
+        {
+          "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in the garden with rich surround",
+          "error": null
+        },
+        {
+          "object": "Buyer-in-Beige_5c9ab0f2",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed plausibly in the garden area, but the framing cuts off thei",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Chill-Camping_150d7263",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 5.5,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=5.5"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of the water, which is physically impossib",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed next to the van in a camping scene, with realisti",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 5.5,
+          "sf": 0.9,
+          "empty": false,
+          "reason": "The character is grounded on the reflective water surface but should ideally be ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in a plausible camping scene with a van and campfire, ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the water, which is an implaus",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Cinematic-motel_49d89877",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 0.9,
+      "median_quality": 4.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=4.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 7.0,
+          "sf": 0.9,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in a plausible environment, though the sc",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a plausible motel sett",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and fully visible, but their scale is far too large compa",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 0.3,
+          "empty": false,
+          "reason": "The person is scaled like a giant, appearing taller than the motel porch and mak",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 4.0,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The person is significantly oversized compared to the motel building and cars, a",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Cozy-Cabin_955470a2",
+      "status": "ok",
+      "saved_scene_scale": 0.8,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is almost entirely hidden behind the door and its frame, making him b",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The lantern is perfectly placed on a cabinet in a cabin, with realistic scale an",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clearly floating above the deck surface and his hand is clipping i",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely hidden behind or embedded within the wooden wall, makin",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The small character is well-placed as a figurine on a ledge in a detailed cabin ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "FordTransit-2006_ab281362",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 2.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=2.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 2,
+          "sf": 1.2,
+          "empty": false,
+          "reason": "The person is clearly floating above the ground and there is a significant rende",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, correctly scaled, and grounded on the terrain with th",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 1.0,
+          "sf": 2.5,
+          "empty": false,
+          "reason": "The person is significantly underscaled compared to the van and their feet are c",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the terrain with a vehicle in the backgrou",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clearly floating above the ground, which is a major grounding viol",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "House-in-forest-hight-quality_cab103af",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and in a plausible forest setting, but the framing is poo",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the water, which is an implaus",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of the water, which is physically implausi",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the ground outside a house, fully visible ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of the water, which is not a plausible or ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Lynxsdesign",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 0.7,
+      "median_quality": 2.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_sf=0.70",
+        "median_q=2.0"
+      ],
+      "samples": [
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 2,
+          "sf": 0.4,
+          "empty": false,
+          "reason": "The character is scaled far too large, causing her head and shoulders to clip th",
+          "error": null
+        },
+        {
+          "object": "A-young-humble-man-walks-talking_eed072a6",
+          "q": 1.0,
+          "sf": 0.7,
+          "empty": false,
+          "reason": "The man is significantly oversized for the interior, causing his head to clip th",
+          "error": null
+        },
+        {
+          "object": "All-People-Are-Sisters_1795d425",
+          "q": 3.0,
+          "sf": 8.0,
+          "empty": false,
+          "reason": "The object consists of several tiny chairs/figures in the bottom right corner th",
+          "error": null
+        },
+        {
+          "object": "Anxious-Anticipation_644493dd",
+          "q": 2,
+          "sf": 0.7,
+          "empty": false,
+          "reason": "The person is significantly oversized for the interior space, causing their head",
+          "error": null
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "q": 2,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The character is far too large for the interior space, resulting in severe clipp",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Medieval-Retreat_5a406774",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 4.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=4.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 7.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is correctly grounded in the water and fully visible, though the mode",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of the water in the middle of a stream, wh",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing in the middle of a stream in a medieval setting, which is",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is cut off by the top of the frame, and standing in the middle",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is cut off by the top of the frame and the image is significan",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-Serenity-Living-Room_c9e45ba6",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is not visible in the frame, likely occluded by the wall in the cente",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing inside the sofa (clipping) and is heavily cropped by the ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clearly floating in mid-air behind the chair and more than 30% of ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 7.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a plausible living room setti",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 6.0,
+          "sf": 0.9,
+          "empty": false,
+          "reason": "The person is placed realistically in the scene, but the framing is poor with th",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-Villa-visualization_f8062f29",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 0.6,
+      "median_quality": 5.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_sf=0.60",
+        "median_q=5.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 7.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is plausibly placed and grounded in a rich villa environment, though ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed inside the villa behind the glass, with appro",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 2,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The person is standing on the water surface, is way too large for the scene, and",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 5.0,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The person is grounded and fully visible in a plausible location, but his scale ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1,
+          "sf": 0.4,
+          "empty": false,
+          "reason": "The person is standing on the surface of the pool water and is scaled to be near",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-pool-villa_f3b34ecc",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 0.8,
+      "median_quality": 3.5,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.5"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly oversized compared to the patio furniture and is awk",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 1,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely obscured by a wall in the foreground, making it invisib",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 5.0,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The person is placed in a plausible location and is fully visible, but his scale",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is severely clipping through the overhead pergola structure, making t",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The object is far too large for the environment, appearing like a giant next to ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Off-road-near-the-lake_02431e02",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 5.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=5.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the water surface instead of the pier or the ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and fully visible in a relevant outdoor scene, though ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded next to the vehicle in a plausib",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 5.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the water, which looks unnatur",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is standing directly on the surface of the water, which is physica",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Parking_70ae1f27",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 2.5,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=2.5"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 2.0,
+          "sf": 0.8,
+          "empty": false,
+          "reason": "The person's head is clipping through the overhead ventilation duct, making the ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is almost completely occluded by a large concrete pillar, with only a",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded and scaled in a plausible parking garage enviro",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The rendered image is completely dark, making the object invisible and the scene",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly occluded by a large concrete pillar, with more than ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Picnic",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 5.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=5.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is cut off by the top of the frame and the left side is heavil",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head and upper body are cut off by the frame edge, and the left foo",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 7.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-grounded and at a realistic scale, but the view is partially ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in front of the waterfall with good scale",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely hidden behind a large rock wall, making it invisible in",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Rocky-Beach-Landscape_0d65b1fb",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 0.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=0.0"
+      ],
+      "samples": [
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is not visible in the rendered image; the camera appears to be lookin",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2,
+          "sf": 5.0,
+          "empty": false,
+          "reason": "The object is a tiny, unidentifiable speck on a distant ridge, which is inconsis",
+          "error": null
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely invisible in the render, which appears to be a close-up",
+          "error": null
+        },
+        {
+          "object": "Broadway-Lady_bed11779",
+          "q": 0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object (a bed) is completely missing from the rendered image, which only sho",
+          "error": null
+        },
+        {
+          "object": "Buyer-in-Beige_5c9ab0f2",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object 'Buyer-in-Beige' is completely invisible in the rendered image, likel",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Rocky-Mountain-Landscape-Lake_8e5bc1af",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 2.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=2.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the lake water, which is physi",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the lake, which is physically ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of the lake, which is an implausible and u",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is standing directly on the surface of the lake, which is physical",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of a lake, which is physically implausible",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Serene-Island-at-Sunset_0932b882",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 2,
+      "median_scale_factor": 1.0,
+      "median_quality": 1.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=1.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly embedded into the ground or water surface, with thei",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 1,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is significantly embedded in the ground plane, and the surrounding en",
+          "error": null
+        },
+        {
+          "object": "All-People-Are-Sisters_1795d425",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person's feet are clearly embedded in the ground plane, and the environment ",
+          "error": null
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is grounded and fully visible, but it is placed in a featureless, emp",
+          "error": null
+        },
+        {
+          "object": "Broadway-Lady_bed11779",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is significantly embedded in the ground, with her lower legs compl",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "The-Rustic-Cottage_f8c767dc",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 4.5,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=4.5"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in the scene, but the render is ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is completely hidden behind the roof of the structure, and the",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is placed in an empty, overexposed area outside of the actual cottage",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly obscured by a wooden post in the foreground and his ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is correctly grounded and placed in a plausible location next to the ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Villa-in-forest_4a437163",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 0.75,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 7.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is correctly grounded and fully visible in a plausible outdoor settin",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The person's head is cut off by the top of the frame and the scale is significan",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 0.4,
+          "empty": false,
+          "reason": "The person is significantly oversized for the environment and is heavily cropped",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 0.9,
+          "empty": false,
+          "reason": "The person is grounded and in a plausible location, but the framing is very poor",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and fully visible, but the shot lacks any meani",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Zicatela-House_032b66c2",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is cut off by the top of the frame and the body is heavily occ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The rendered image is completely black, which indicates a failed render or the c",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the patio with correct scale and no clippi",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly cropped at the top of the frame and is clipping thro",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is perfectly grounded and fully visible, but the background is just a",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "cafe-interior-lo_7e263422-a9e9-4aae-96a2-4e4d6c589f68",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 5.85,
+      "median_quality": 2.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_sf=5.85",
+        "median_q=2.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1,
+          "sf": 15.0,
+          "empty": false,
+          "reason": "The object is floating in mid-air and is scaled far too small to be a person in ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The rendered image is completely black, indicating a broken render or the camera",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 2,
+          "sf": 10.0,
+          "empty": false,
+          "reason": "The person is scaled like a miniature figurine and is standing on a cafe table, ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 5.0,
+          "sf": 1.7,
+          "empty": false,
+          "reason": "The person is much too small relative to the cafe furniture, appearing like a mi",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2.0,
+          "sf": 1.5,
+          "empty": false,
+          "reason": "The object is almost completely hidden behind a table in the foreground, making ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "cozy-living-room_3ac78f83-6125-483c-98fd-2448e2c58e0a",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 5.75,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=5.8"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is placed in a very empty part of the scene where the floor is a blac",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping into the sofa and his head is slightly cut off at the top",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, fully visible, and grounded in a plausible indoor env",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within a well-detailed living room",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is floating above a reflective floor section and is clearly clipping ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "medieval-christmas-scene",
+      "status": "ok",
+      "saved_scene_scale": 0.75,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 4.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=4.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 4,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-grounded and scaled correctly, but the head is cut off by the",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is cut off by the top of the frame, and the modern attire and ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and fully visible, but the modern attire clashes with the",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 7.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is well-grounded and fully visible, though the modern attire is anach",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is heavily cropped with the head and upper torso completely out of fr",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "modern-dark-bedr_21158cd0-e5b6-4783-a260-dd88075e966d",
+      "status": "ok",
+      "saved_scene_scale": 3.0,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 5.75,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=5.8"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a plausible location within t",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and visible, but the shot only shows a plain wa",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed plausibly on a balcony but is clipping with the plant folia",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is significantly obscured by a large plant in the foreground, making ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the balcony, grounded, fully visible, and the scale",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "namaqualand",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 2.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=2.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in a plausible desert environment, though",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is correctly grounded and fully visible, but the surrounding environm",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The render is severely broken by a large semi-transparent artifact obscuring the",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The render is severely compromised by a large white rectangular artifact that oc",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and fully visible, but the shot lacks interesti",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "ocean-scene",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the water, which is physically",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is correctly grounded and scaled, but the scene lacks any environment",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is almost entirely hidden behind a large rock, with only their head a",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "While the person is technically grounded on the water surface, standing on the o",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly on the surface of the water, which is physically",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 1.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=1.0"
+      ],
+      "samples": [
+        {
+          "object": "A-young-humble-man-walks-talking_eed072a6",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The man is floating in mid-air and is almost entirely obscured by the metro entr",
+          "error": null
+        },
+        {
+          "object": "Bar-Connoisseur_bd5a51d0",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely occluded by the green metal structure of the metro entr",
+          "error": null
+        },
+        {
+          "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+          "q": 1.0,
+          "sf": 0.8,
+          "empty": false,
+          "reason": "The person is placed on top of a street lamp, which is an implausible location, ",
+          "error": null
+        },
+        {
+          "object": "Car-Mechanic-Character_5ccee493",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is floating high in the air in front of a building, which is physi",
+          "error": null
+        },
+        {
+          "object": "Gasoline-walk_9343c2a5",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is almost completely occluded by the foreground architecture, with on",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "sea-side-view",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 2.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=2.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the water surface rather than the shore, and the scene",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing on the surface of the water, which is physically implausi",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "While the person is correctly grounded and visible, the scene itself is broken w",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is standing on the surface of the water, which is physically impla",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The render is visually broken with a large blue artifact in the sky and a black ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "sunflower-silo-r_7f412c28-1745-4036-acb0-f0c14ec47279",
+      "status": "ok",
+      "saved_scene_scale": 3.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 3.0,
+      "flagged": true,
+      "flag_reasons": [
+        "median_q=3.0"
+      ],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clearly clipping through the horizontal rails of the wooden fence,",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a plausible rural setting wit",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing directly inside the wooden fence, causing significant cli",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed directly on top of the fence line, causing the wooden rails",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping through the wooden fence, which is a major placement erro",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Rock-Ocean-Lake-Environment-Terrain_a30df208",
+      "status": "no_reference",
+      "flagged": false
+    },
+    {
+      "scene": "Abandoned-alley_9ee2b453",
+      "status": "ok",
+      "saved_scene_scale": 0.8333333333333334,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in a detailed alley environment with correct scale and",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded on the alley floor, and fully visible with r",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed in a plausible alleyway setting, well-grounde",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in the scene, fully visible, grounded, and at a r",
+          "error": null
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The boy scout is almost completely occluded by the large green dumpster in the f",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Auditorium_fd408fd5",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is almost completely hidden behind the auditorium seats, making it im",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled in an auditorium aisle, with clear",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the stage of the auditorium, with realistic sc",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the stage of the auditorium, with realistic sc",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely occluded by the back of an auditorium seat in the foreg",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Beach-bar_2c517ab3",
+      "status": "ok",
+      "saved_scene_scale": 0.8,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.75,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded on the deck of the beach bar, th",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded on the deck, but a large pillar in the fo",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically scaled and grounded on the deck of a well-detailed b",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the deck of the beach bar with appropriate",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The rendered image is completely black, indicating a broken render or that the c",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Bookstore_1727e18b",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a sidewalk with appropriate scale and no c",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded and fully visible in a plausible outdoor settin",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed plausibly in front of a bookstore window, but the head is c",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "While the person is grounded and visible, the environment is a low-quality exter",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the street with good grounding, visibility, and rea",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Boxing-ring_30b3c8d8",
+      "status": "ok",
+      "saved_scene_scale": 1.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing inside a seat, causing significant clipping with the chai",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded within the arena seating, with n",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed in the aisle of an auditorium, well-grounded,",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed behind a row of seats, causing significant occlusion of the",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in the aisle of the auditorium, grounded and at a real",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Cave-interior_a40482a6",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.75,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely invisible in the rendered image, likely due to extreme ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the ledge overlooking the ocean, with realisti",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The rendered image is completely dark, making the object and its surroundings in",
+          "error": null
+        },
+        {
+          "object": "All-People-Are-Sisters_1795d425",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on a cliff overlooking a sunset, with realistic g",
+          "error": null
+        },
+        {
+          "object": "Anxious-Anticipation_644493dd",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed at the edge of the cave, looking out at a scenic ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "City-in-Italy_7ad60e2f",
+      "status": "ok",
+      "saved_scene_scale": 0.4,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a pier with appropriate scale, good visibi",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on a promenade overlooking the sea, with realisti",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on a pier overlooking the sea, with realistic scale an",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, fully visible, and grounded in a plausible outdoor se",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a pier or promenade overlooking the sea, w",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+      "status": "ok",
+      "saved_scene_scale": 0.75,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 7.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-grounded and clearly visible with good scene context, though ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the pavement with realistic scale and clear visibil",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically scaled and grounded on the pavement with clear visib",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the sidewalk with realistic scale and plausibl",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a plausible outdoor se",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Comercial-Mall_414cc2b1",
+      "status": "ok",
+      "saved_scene_scale": 0.8,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.25,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the road near a crosswalk, fully visible, ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is correctly grounded and fully visible, but the shot lacks any meani",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded on the road surface, though the lighting ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly occluded by a large concrete wall in the foreground,",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is correctly grounded on the road surface with realistic scale and cl",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Convention-room_55574faf",
+      "status": "ok",
+      "saved_scene_scale": 0.8,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 10.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed as a speaker on the stage of a convention room, w",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the stage next to the podium in a highly plaus",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible location within the convention roo",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the stage of the convention room, with realist",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is perfectly placed in the aisle of a convention room, fully visib",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Desert-Roadside-Repair-Garage_a1a2b2ac",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 2,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The character is placed in a very empty, featureless part of the desert, making ",
+          "error": null
+        },
+        {
+          "object": "Car-Mechanic-Character_5ccee493",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The mechanic is well-placed on the road, fully visible, and correctly scaled for",
+          "error": null
+        },
+        {
+          "object": "Buddy-in-the-Brooklyn-Is-Walking_43d448d4",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded and fully visible in a plausible desert setting",
+          "error": null
+        },
+        {
+          "object": "Bang-Bang-Guy-Walking_e284e0a0",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and fully visible, but it is placed on a featur",
+          "error": null
+        },
+        {
+          "object": "Casual-man-standing_89a477f1",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is placed in a very empty area of the desert far from the main scene ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Evening-beach-shore_54b3b50a",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically grounded on the wet sand with a clear reflection, an",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the wet sand with a realistic reflection, an",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is perfectly grounded and visible, but the scene consists only of a p",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the reflective beach surface, facing the light",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is being clipped by a large, unexplained geometric plane, and the sur",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 6.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly hidden behind a large wall on the left side of the f",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded on the patio outside the window,",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and fully visible, but the placement in a very narrow out",
+          "error": null
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely obscured by a large wall or pillar in the foreground, m",
+          "error": null
+        },
+        {
+          "object": "A-young-humble-man-walks-talking_eed072a6",
+          "q": 6.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The man is correctly grounded and scaled, but he is placed in a very dark corner",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-Art-Gallery_770933c8",
+      "status": "ok",
+      "saved_scene_scale": 0.8,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 10.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a realistic gallery setting, grounded on the f",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a realistic gallery setting, grounded on the f",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a well-detailed art gallery e",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping through the white structural frame behind him, although t",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in the center of the gallery with realistic scale",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-Office-Full-set-01_d2deb1e1",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely missing from the rendered image, which shows only an em",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible office setting, fully visible, gro",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely hidden behind a wooden surface, resulting in a broken r",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and realistically scaled within a plausible",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the floor in a plausible office setting with r",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-Residential-Building-Facade_7441cb20",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 6.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 5.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is correctly grounded and scaled, but the placement at the absolute e",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 2,
+          "sf": 0.9,
+          "empty": false,
+          "reason": "The person's head and upper torso are clipping through the building's upper floo",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the street surface with realistic scale and clear v",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded on a sidewalk with appropriate c",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person's head is cut off by the top of the frame and the background is a lar",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-Warehouse_a5eea495",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping into the glass structure behind them, and the top of the ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible warehouse environment with correct",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded and fully visible in a plausible warehouse sett",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is naturally placed, leaning against a pillar in a warehouse while lo",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 5.0,
+          "sf": 0.6,
+          "empty": false,
+          "reason": "The person is grounded and fully visible in a plausible warehouse setting, but t",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Modern-gym_b1ce0d82",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 10.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within a well-detailed gym environ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed in a gym environment, well-grounded on the fl",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on a treadmill in a realistic gym environment wit",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible gym environment, well-grounded, fu",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a gym setting, grounded on the mat, fully visi",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Nterior-Design-11_0da4e777",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 6.25,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is not visible in the render as it is completely obscured by a wall, ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly occluded by and clipping into a large wooden pillar,",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed in a well-detailed living room, correctly gro",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within a well-detailed interior sc",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping significantly through the refrigerator unit, which is a m",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Rainy-Apartment-Street_87c9aafa",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a street at night with good grounding and ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the street with appropriate scale and no c",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is correctly grounded on the sidewalk with a tree providing context, ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on a realistic street scene, well-grounded, fully",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 2.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is almost entirely hidden behind foreground foliage and appears to",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Rainy-Steam-Train-Station_1695159b",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 6.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and mostly visible, but the top of the head is cut off by",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The image is extremely overexposed with a blown-out background, and the characte",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and fully visible in a dramatic scene, though standing",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is standing in an implausible location on the tracks and their foot i",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a station platform with an interesting for",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Rainy-newyork_4a9039be",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 2,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.25,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "Anxious-Anticipation_644493dd",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a cinematic, moody urban environment with real",
+          "error": null
+        },
+        {
+          "object": "Bald-Worker-Hands-on-His-Hips_7d114532",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely missing from the rendered frame, which only shows a clo",
+          "error": null
+        },
+        {
+          "object": "Bang-Bang-Guy-Walking_e284e0a0",
+          "q": 1,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is floating in front of a featureless blue plane, completely disconne",
+          "error": null
+        },
+        {
+          "object": "Bar-Connoisseur_bd5a51d0",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely missing from the rendered image, which only shows a blu",
+          "error": null
+        },
+        {
+          "object": "Boy-scout_c8b693b0",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The boy scout is perfectly grounded on a stool in a rich, atmospheric rainy city",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Realistic-old-warehouse_6abc447c",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 0.9,
+      "median_quality": 6.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 6.0,
+          "sf": 0.8,
+          "empty": false,
+          "reason": "The person is grounded and in a plausible location, but they appear oversized fo",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 2,
+          "sf": 0.9,
+          "empty": false,
+          "reason": "The person's head is clearly clipping through the concrete ceiling beam, making ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 7.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and fully visible in a plausible warehouse setting, thoug",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within the warehouse environment, ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 6.0,
+          "sf": 0.8,
+          "empty": false,
+          "reason": "The person is grounded and in a plausible location, but the scale is slightly to",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Scan-Old-Building-From-My-Hometown_d3e7121d",
+      "status": "ok",
+      "saved_scene_scale": 0.9090909090909091,
+      "samples_total": 5,
+      "samples_valid": 2,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is grounded and visible, but the scene is essentially empty with a bl",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely occluded by a dark surface or the render is broken, mak",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-grounded on the cobblestone surface with realistic scale and ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in a plausible outdoor setting with realistic scale an",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely invisible in the render, which appears to be showing th",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Snowy-Medieval-Village-Nature-Scene_4eb26df3",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is grounded and fully visible, but the placement in a vast, overexpos",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the stone path with realistic scale and full",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in a plausible snowy village setting, wit",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is well-grounded and fully visible, but the surroundings are very spa",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is perfectly placed on a stone path within a snowy village scene, ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Sunlight_4bf975b7",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is placed outside the modeled environment, standing in a void beyond ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is floating in a void-like environment with no meaningful surrounding",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly embedded in the ground, with only the upper body vis",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded on the ground near the house, wi",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a detailed residential enviro",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Sunshine-on-crossroad_e3f419c1",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the sidewalk in a realistic urban environment ",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the street with realistic scale and rich envir",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the street with realistic scale and no clipping, su",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the street with realistic scale and clear visibilit",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the sidewalk with appropriate scale and ri",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Urban-Classic-Car_c0e3dd5f",
+      "status": "ok",
+      "saved_scene_scale": 3.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a sidewalk in an urban environment, with a",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the street with realistic scale and grounding, and ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the sidewalk next to a fire hydrant, with real",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed on the road surface, fully visible, and at a realistic",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically scaled and grounded on the wet street, with clear vi",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "Village-Beyond-the-Peaks_e894abd6",
+      "status": "ok",
+      "saved_scene_scale": 3.0,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 7.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and visible, but the surrounding environment in",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is well-placed, grounded, and fully visible in a plausible outdoor",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 5.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is grounded and fully visible, but he is standing directly on a sharp",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 7.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is correctly grounded and fully visible in a plausible location, b",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and fully visible, but the rendered view shows ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+      "status": "ok",
+      "saved_scene_scale": 2.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a detailed basement environme",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed and grounded in a detailed basement environment, ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a plausible basement setting ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in a plausible basement setting, with goo",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in a realistic basement environment with ",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "blender-scene",
+      "status": "ok",
+      "saved_scene_scale": 0.65,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.25,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed, grounded, and fully visible in a detailed en",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded, fully visible, and realistically scaled within",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is almost entirely out of frame on the right side, and the view consi",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is significantly occluded by crates in the foreground and is clipp",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in a plausible industrial setting, grounded, and fully",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "brick-house-glas_9f2d3dd5-4ff2-4407-b75e-c6bdf680b632",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the rooftop, well-scaled, and placed in a ve",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the patio outside the house, with realistic sc",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the patio outside the house with appropria",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on the ground outside the house with appropri",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping into the concrete wall and is placed in an awkward, narro",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the frozen river, fully visible, and the sca",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded on the frozen river, with realistic scale",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is correctly grounded and fully visible, but the shot lacks any meani",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and fully visible, but the surrounding environm",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded on the frozen river surface, wit",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "home-office-with-library-simple",
+      "status": "ok",
+      "saved_scene_scale": 0.75,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed, grounded on the floor, and fits the scale an",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within a detailed home office envi",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The rendered image is broken or the camera is pointing away from the scene, as n",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and visible, but the shot is framed against a b",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within a well-detailed home office",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "industrial-back-ally",
+      "status": "ok",
+      "saved_scene_scale": 5.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible industrial setting, fully visible,",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded and fully visible in a plausible industrial set",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in a plausible industrial setting, correctly grounded ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a plausible industrial",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is perfectly placed, grounded, and fully visible in a plausible in",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6",
+      "status": "ok",
+      "saved_scene_scale": 0.7142857142857143,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clearly clipping through the cafe table, and his head is cropped b",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on the patio next to the cafe furniture, with rea",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed plausibly in the cafe scene, but the shot is ruined by larg",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed in the background of the cafe scene, properly",
+          "error": null
+        },
+        {
+          "object": "standing-cute-ka_ba849ad4-0675-4381-a23b-9113e4176",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a plausible outdoor cafe sett",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "kyra-s-living-ro_ead8d8c2-02cd-4f22-9e9b-2f1e19fa9fb4",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.75,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded on the floor, and fully visible in a plausib",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 8.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in the living room, with full vi",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in a plausible environment, but ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is well-placed and grounded, but the surrounding environment is very ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed, grounded on the floor, fully visible, and fits t",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "modern-and-cozy-_e4d8784d-d5be-4a76-927f-9734c7c80a9a",
+      "status": "ok",
+      "saved_scene_scale": 0.6944444444444445,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed, grounded, and scaled within a detailed and plaus",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible indoor environment, grounded on th",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 7.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed and grounded in a plausible environment, though the to",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 1.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clearly floating in the air above a coffee table, which is a major",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded on the floor, and fully visible within a det",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "modern-brutalist_e5199a45-a75e-4b1b-92b8-64fd5ffc1351",
+      "status": "ok",
+      "saved_scene_scale": 0.3,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is completely occluded by the large wall in the foreground, making it",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely obscured by a wall, making it invisible in the rendered",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed in an architectural gap, grounded, and correctly scale",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is naturally placed on a walkway, looking out at a courtyard, with re",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a plausible architectu",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "modern-house_ae6d5079-1b31-47ca-a831-363853011fd6",
+      "status": "ok",
+      "saved_scene_scale": 2.5,
+      "samples_total": 5,
+      "samples_valid": 2,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded on the lawn of a modern house, w",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is well-placed and grounded, but the rendered view lacks any architec",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The camera is positioned so close to the bush that no scene context is visible, ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is completely obscured by foliage in the rendered image, making it im",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and grounded in the yard of the house with cl",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 6.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 1,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is almost completely obscured by the wall, with only a tiny portion v",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible indoor setting, well-grounded, and",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is plausibly placed on the balcony, but the framing is poor with the ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in the scene, correctly scaled relative to the do",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 6.0,
+          "sf": 0.7,
+          "empty": false,
+          "reason": "The person is grounded and fully visible in a detailed scene, but their scale is",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed and grounded in a plausible outdoor setting, look",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is well-grounded and fully visible, but the surroundings are complete",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is correctly grounded and fully visible, but the scene is entirely em",
+          "error": null
+        },
+        {
+          "object": "wenceslavus_07e5514f-012e-4989-a9c6-04a977531679",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a natural setting with",
+          "error": null
+        },
+        {
+          "object": "A-young-humble-man-walks-talking_eed072a6",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The man is perfectly grounded on the terrain, fully visible, and scaled correctl",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "office-buildingwarehouse-creative-headquarters",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 6.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is placed in a plausible location but is clipping with the base of th",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 6.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is well-placed and grounded in a plausible environment, but a fore",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded and scaled in a plausible minimalist architectu",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is completely obscured by a large architectural beam in the fo",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 7.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is realistically placed and grounded in a detailed environment, thoug",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "pine_forest",
+      "status": "ok",
+      "saved_scene_scale": 0.5,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 8.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is correctly grounded and fully visible, but the shot lacks any envir",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 8.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is correctly grounded and fully visible in a plausible outdoor set",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, fully visible, and grounded in a plausible outdoor se",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The object is correctly grounded and visible, but the environment is extremely s",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "While the object is grounded and fully visible, the rendered scene is a total mi",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "sao-pedro-restau_3aaeffb7-968c-4199-9454-73d8b4fd54cb",
+      "status": "ok",
+      "saved_scene_scale": 0.6666666666666666,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed, grounded, and fully visible in a realistic and w",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping significantly into the counter they are sitting on, which",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The object is a small stool placed plausibly on the floor of a large hall, with ",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in the center of the room, grounded, fully visibl",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed within an archway, correctly scaled for the e",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "simple-valley-scene",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.0,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is significantly occluded by the foreground hill, with more than half",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed on rocks in a scenic valley, with realistic scale",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a hill overlooking a valley with good scal",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 2,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is mostly hidden behind a hill and their head is cut off by the top o",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on rocks within a scenic valley, is fully vis",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "snowy-3d-scene-v_de07401b-d6e8-4fd8-8584-f53d209c8062",
+      "status": "ok",
+      "saved_scene_scale": 0.8333333333333334,
+      "samples_total": 5,
+      "samples_valid": 5,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible outdoor snowy scene, well-grounded",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the snow, fully visible, and realistically s",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a realistic snowy scen",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly placed in a plausible outdoor snowy scene with realistic",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The character is perfectly placed in a snowy landscape, well-grounded, fully vis",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "sunset-city",
+      "status": "ok",
+      "saved_scene_scale": 1.0,
+      "samples_total": 5,
+      "samples_valid": 3,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.5,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed on a city street at sunset, fully visible and",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the sidewalk with realistic scale and clear ",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is grounded and fully visible, but the environment is completely empt",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is well-placed and fully visible, but the surrounding environment is ",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 3,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person's head is cropped out of the frame and there is a major rendering art",
+          "error": null
+        }
+      ]
+    },
+    {
+      "scene": "ultramodern-saku_4f7ed874-ad94-4258-bbef-32ff50071bf1",
+      "status": "ok",
+      "saved_scene_scale": 2.0,
+      "samples_total": 5,
+      "samples_valid": 4,
+      "median_scale_factor": 1.0,
+      "median_quality": 9.25,
+      "flagged": false,
+      "flag_reasons": [],
+      "samples": [
+        {
+          "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+          "q": 10,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is perfectly grounded on the rug in a plausible location with realist",
+          "error": null
+        },
+        {
+          "object": "john_5b9f74d4-b81c-436c-a68d-535c197b6d9f",
+          "q": 3.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is clipping into the front of the TV console, making the placement un",
+          "error": null
+        },
+        {
+          "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+          "q": 9.0,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is well-placed, grounded, and fully visible in a plausible indoor set",
+          "error": null
+        },
+        {
+          "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+          "q": 4.0,
+          "sf": 1.0,
+          "empty": true,
+          "reason": "The person is well-placed and grounded, but the surrounding environment is extre",
+          "error": null
+        },
+        {
+          "object": "standing-cute-gi_962869a8-0d61-4446-beaf-50262f5d9",
+          "q": 9.5,
+          "sf": 1.0,
+          "empty": false,
+          "reason": "The person is realistically placed and scaled within a well-detailed modern inte",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

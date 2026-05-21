@@ -1,0 +1,867 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Buddy-Sitting_6de152bb",
+  "object_file": "data/objects/Buddy-Sitting_6de152bb/Buddy-Sitting_6de152bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        16.524629592895508,
+        -21.29488754272461,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            16.524629592895508,
+            -21.29488754272461,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            2.0,
+            9.5,
+            6.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is small and centered with too much empty foreground",
+            "placement is in a large empty area of the scene",
+            "awkward placement on a featureless ground plane",
+            "object is placed in an empty, unrendered part of the scene map",
+            "The object is placed on a featureless grey plane that does not match the bookstore environment.",
+            "surroundings_empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and visible, but it is placed in a completely empty area of the map with no architectural context, resulting in a very poor quality shot."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_v0.png",
+          "azimuth": 36.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            18.11246681213379,
+            -23.44072723388672,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.589793860912323,
+            0.7970609068870544,
+            -0.12975773215293884
+          ],
+          "camera_up": [
+            -0.07718277722597122,
+            0.10430670529603958,
+            0.9915457367897034
+          ],
+          "camera_radius": 2.757688832954828
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c0_v1.png",
+          "azimuth": 336.5,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            15.460196495056152,
+            -23.7429141998291,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.3953782618045807,
+            0.9093068838119507,
+            -0.12975773215293884
+          ],
+          "camera_up": [
+            0.051740847527980804,
+            0.11899560689926147,
+            0.9915457367897034
+          ],
+          "camera_radius": 2.757688314219142
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -9.689719200134277,
+        -10.060168266296387,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.689719200134277,
+            -10.060168266296387,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            8.0,
+            3.0,
+            8.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "sitting in the middle of the street is an unusual and potentially unsafe location",
+            "surroundings_empty=true",
+            "placement is in an empty paved area away from the main architectural interest",
+            "surroundings are empty and lack context",
+            "placement is in a barren area far from the main scene context (the bookstore)",
+            "The object is placed in a barren area with no visible architecture or scene context from the bookstore.",
+            "placement is in a barren area far from the main scene features (the bookstore)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and visible, but the surroundings are completely empty asphalt and sky, lacking any of the bookstore context shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_v0.png",
+          "azimuth": 306.1,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            -12.994237899780273,
+            -12.469864845275879,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.805058479309082,
+            0.5870586633682251,
+            -0.0851055383682251
+          ],
+          "camera_up": [
+            0.06876442581415176,
+            0.05014386028051376,
+            0.9963719248771667
+          ],
+          "camera_radius": 4.147948158986998
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c1_v1.png",
+          "azimuth": 336.1,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -10.771215438842773,
+            -12.500703811645508,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.4017163813114166,
+            0.9065245985984802,
+            -0.12975773215293884
+          ],
+          "camera_up": [
+            0.05257020145654678,
+            0.11863154917955399,
+            0.9915457367897034
+          ],
+          "camera_radius": 2.7576875361154296
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        7.378868423136411,
+        -15.55252833544218,
+        -0.016384464502334592
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.162362098693848,
+            -15.677528381347656,
+            -0.0663844645023346
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            5.0,
+            3.0,
+            2.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 5.0,
+          "vlm_issues": [
+            "sitting in the middle of the street is an unusual and potentially unsafe location",
+            "placement is in a barren area",
+            "surroundings_empty=true",
+            "the main scene elements (bookstore) are not visible",
+            "Object's feet are clipping into the sidewalk curb",
+            "surroundings are empty and lack context from the main scene",
+            "the background consists of a flat gray plane and sky with no architectural context",
+            "Surroundings are mostly empty/untextured ground",
+            "surroundings are empty with no architectural context visible",
+            "sitting in the middle of the street is an unrealistic and unsafe location for a person",
+            "Placement on the edge of the curb is awkward due to clipping"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.1
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's feet are clearly embedded in the sidewalk curb, and the background is largely empty, making for a poor quality render."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            7.378868423136411,
+            -15.55252833544218,
+            -0.016384464502334592
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            4.0,
+            5.0,
+            7.5,
+            5.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "surroundings are mostly empty street and distant trees",
+            "sitting in the middle of the street is an unusual and potentially unsafe location",
+            "placement is awkward and lacks context like a chair or bench",
+            "The composition is dominated by a large, plain paved area in the mid-ground, making the shot feel somewhat empty.",
+            "placement is in a large empty area of the scene",
+            "surroundings_empty=true",
+            "The placement is on a curb facing away from the main scene elements (the bookstore).",
+            "sitting in the middle of the street is an unrealistic and unsafe location",
+            "object is placed at the edge of the modeled environment where the background is empty",
+            "The background is mostly an empty void with very little scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting in the street which is an unusual location, and the surrounding environment in this view is quite sparse, lacking architectural context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c2_v1.png",
+          "azimuth": 0.0,
+          "elevation": 20,
+          "preview_quality": 5.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            7.378868103027344,
+            -19.454973220825195,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9970712661743164,
+            -0.07647784054279327
+          ],
+          "camera_up": [
+            0.0,
+            0.07647784054279327,
+            0.9970712661743164
+          ],
+          "camera_radius": 3.9549149430131343
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        24.938520646847408,
+        -20.22433488155315,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            24.01444435119629,
+            -21.29488754272461,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            4.0,
+            4.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "placement lacks interesting context",
+            "sitting in the middle of a flat paved area is uninteresting",
+            "The immediate surroundings are a featureless grey surface, making the shot uninteresting.",
+            "surroundings_empty=true",
+            "sitting in the middle of the street is an unusual and potentially unsafe location",
+            "the immediate surroundings are mostly empty pavement",
+            "placement is in a barren area far from the main scene architecture (the bookstore)",
+            "object is sitting in a barren area far from the main architecture",
+            "surroundings are mostly a featureless grey surface",
+            "The bookstore from the reference image is not visible, making the placement feel disconnected from the scene's main features.",
+            "tight framing from behind provides little visual interest",
+            "surroundings are empty and lack context from the bookstore scene",
+            "Sitting in the middle of a street or empty pavement is an unusual and awkward placement.",
+            "surroundings are empty",
+            "The person is sitting in the middle of a large, empty paved area with no immediate context or furniture."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a barren, empty area with no architectural context, making for a poor composition despite being grounded and visible."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            24.938520646847408,
+            -20.22433488155315,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            6.0,
+            8.0,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_iter1_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is sitting on a plain grey surface that lacks detail compared to the rest of the scene.",
+            "The placement is in a somewhat barren area of the sidewalk away from the bookstore's main features.",
+            "placement is in a barren area far from the bookstore",
+            "lack of scene context (bookstore not visible)",
+            "placement is in a barren area",
+            "surroundings are empty and lack context from the main scene",
+            "The placement is in a somewhat empty area of the sidewalk/plaza.",
+            "The ground texture directly beneath the person is a flat grey rectangle that does not match the surrounding pavement.",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a barren, empty area that lacks any of the architectural context shown in the reference image, making for an uninteresting and contextless shot."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c3_v0.png",
+          "azimuth": 298.7,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            21.351163864135742,
+            -22.1883544921875,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8739638328552246,
+            0.47848111391067505,
+            -0.0851057767868042
+          ],
+          "camera_up": [
+            0.07465017586946487,
+            0.04086984694004059,
+            0.9963719248771667
+          ],
+          "camera_radius": 4.147950515612152
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -5.944811820983887,
+        1.1745525598526,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.944811820983887,
+            1.1745525598526,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            8.5,
+            4.0,
+            4.0,
+            6.5,
+            6.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v4.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buddy-Sitting_6de152bb_c4_iter0_v5.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "A pole in the foreground partially obstructs the view of the person.",
+            "The placement in the middle of a large paved area is uninteresting.",
+            "The person is sitting in the middle of the sidewalk which is a bit awkward.",
+            "The placement is in a relatively uninteresting area of the scene compared to the bookstore front.",
+            "The surroundings are mostly empty pavement and sky, lacking the bookstore context.",
+            "The object is significantly occluded by a pole in the foreground.",
+            "The composition has a lot of empty space on the right side."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on the sidewalk but is heavily occluded by a foreground pole, and the background lacks the interesting detail of the main bookstore facade."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

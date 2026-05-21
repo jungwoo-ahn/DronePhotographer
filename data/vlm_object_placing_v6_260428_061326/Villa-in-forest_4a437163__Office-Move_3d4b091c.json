@@ -1,0 +1,407 @@
+{
+  "scene": "Villa-in-forest_4a437163",
+  "scene_file": "data/scenes/Villa-in-forest_4a437163/Villa-in-forest_4a437163.blend",
+  "scene_scale": 2.0,
+  "object": "Office-Move_3d4b091c",
+  "object_file": "data/objects/Office-Move_3d4b091c/Office-Move_3d4b091c.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        17.76409912109375,
+        -21.657407760620117,
+        -1.2918379306793213
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.76409912109375,
+            -21.657407760620117,
+            -1.2918379306793213
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            8.0,
+            6.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is too small in the frame to be clearly identified.",
+            "Object is too far away to be properly evaluated.",
+            "The object is placed in an empty, featureless landscape with no context or plausible reason for it to be there.",
+            "Surroundings are empty.",
+            "The object is placed in a forest floor setting, which is not a plausible location for a person carrying office boxes."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an empty, contextless environment, which significantly lowers the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_v0.png",
+          "azimuth": 20.8,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            19.620010375976562,
+            -26.543127059936523,
+            1.2870752811431885
+          ],
+          "camera_forward": [
+            -0.3336915373802185,
+            0.8784487247467041,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.12145379185676575,
+            0.319729208946228,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.827988732920734
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Office-Move_3d4b091c_c0_v1.png",
+          "azimuth": 80.8,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            22.26141929626465,
+            -22.385814666748047,
+            2.5749354362487793
+          ],
+          "camera_forward": [
+            -0.8086147308349609,
+            0.13096705079078674,
+            -0.5735763311386108
+          ],
+          "camera_up": [
+            -0.5661979913711548,
+            0.0917041003704071,
+            0.8191521167755127
+          ],
+          "camera_radius": 5.975650887370903
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        10.37605094909668,
+        -14.26936149597168,
+        -2.4360342025756836
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.37605094909668,
+            -14.26936149597168,
+            -2.4360342025756836
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is too far away to be properly evaluated.",
+            "Object is too small in the frame to be clearly identified."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is too far away to assess the plausibility of their placement or the scale of the scene."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        7.913369178771973,
+        -24.12009048461914,
+        -2.4360337257385254
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.913369178771973,
+            -24.12009048461914,
+            -2.4360337257385254
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is too far away to be properly evaluated.",
+            "Object is too small in the frame to be clearly identified."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the camera is too far away to properly assess the placement and scale within the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_v0.png",
+          "azimuth": 354.9,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            7.448777198791504,
+            -29.32574462890625,
+            0.1428796947002411
+          ],
+          "camera_forward": [
+            0.08353327959775925,
+            0.9359725117683411,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            0.03040359728038311,
+            0.34066590666770935,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.82799078860959
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Villa-in-forest_4a437163_Office-Move_3d4b091c_c2_v1.png",
+          "azimuth": 54.9,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            11.640799522399902,
+            -26.73977279663086,
+            1.4307399988174438
+          ],
+          "camera_forward": [
+            -0.6701890826225281,
+            0.47101670503616333,
+            -0.5735763311386108
+          ],
+          "camera_up": [
+            -0.46927136182785034,
+            0.3298093378543854,
+            0.8191521167755127
+          ],
+          "camera_radius": 5.975651730223376
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "scene": "Village-Beyond-the-Peaks_e894abd6",
+  "scene_file": "data/scenes/Village-Beyond-the-Peaks_e894abd6/Village-Beyond-the-Peaks_e894abd6.blend",
+  "scene_scale": 1.0,
+  "object": "Hahaha-woman-on-chair_50c9329e",
+  "object_file": "data/objects/Hahaha-woman-on-chair_50c9329e/Hahaha-woman-on-chair_50c9329e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -24.23818588256836,
+        27.5930233001709,
+        0.052458763122558594
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -24.23818588256836,
+            27.5930233001709,
+            0.052458763122558594
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scale of the person relative to the environment seems slightly off. The chair appears too low for the person, and the surrounding buildings seem a bit too large.",
+            "Object is not visible.",
+            "The person is sitting on a stool, which is a plausible placement, but the stool itself appears to be floating slightly above the ground in the rendered image, despite the metadata stating the object is grounded."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, making it impossible to evaluate the object's visibility, placement, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_v0.png",
+          "azimuth": 108.2,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -20.12069320678711,
+            28.94678497314453,
+            2.266422748565674
+          ],
+          "camera_forward": [
+            -0.8864662051200867,
+            -0.29145532846450806,
+            -0.35948774218559265
+          ],
+          "camera_up": [
+            -0.34150341153144836,
+            -0.11228030174970627,
+            0.9331498146057129
+          ],
+          "camera_radius": 4.86703740802385
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c0_v1.png",
+          "azimuth": 48.2,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -21.007047653198242,
+            24.704051971435547,
+            2.266422748565674
+          ],
+          "camera_forward": [
+            -0.6956406235694885,
+            0.6219746470451355,
+            -0.3594880998134613
+          ],
+          "camera_up": [
+            -0.26798978447914124,
+            0.23961041867733002,
+            0.9331496953964233
+          ],
+          "camera_radius": 4.867036575255196
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -43.43340301513672,
+        24.393821716308594,
+        0.0686187744140625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -43.43340301513672,
+            24.393821716308594,
+            0.0686187744140625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            1.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person relative to the environment seems slightly off. The chair appears too low for the person, and the surrounding buildings seem a bit too large.",
+            "Object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, making it impossible to evaluate the object's visibility, placement, or any other aspect."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_v0.png",
+          "azimuth": 302.8,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -46.29228973388672,
+            22.551395416259766,
+            2.266422748565674
+          ],
+          "camera_forward": [
+            0.7559549808502197,
+            0.48717954754829407,
+            -0.43725061416625977
+          ],
+          "camera_up": [
+            0.3675382137298584,
+            0.23686231672763824,
+            0.8993396759033203
+          ],
+          "camera_radius": 4.0494578599113735
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c1_v1.png",
+          "azimuth": 103.2,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -38.59263610839844,
+            25.529212951660156,
+            2.266422748565674
+          ],
+          "camera_forward": [
+            -0.9238282442092896,
+            -0.21668194234371185,
+            -0.31557926535606384
+          ],
+          "camera_up": [
+            -0.3072413206100464,
+            -0.07206279784440994,
+            0.9488992094993591
+          ],
+          "camera_radius": 5.43621909740837
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -14.64057731628418,
+        37.19063186645508,
+        0.052458763122558594
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -14.64057731628418,
+            37.19063186645508,
+            0.052458763122558594
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0,
+            6.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person relative to the environment seems slightly off. The chair appears too low for the person, and the surrounding buildings seem a bit too large.",
+            "Object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, indicating that the object is not visible or the render failed. Therefore, the quality is very low."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_v0.png",
+          "azimuth": 107.7,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -9.903813362121582,
+            38.702327728271484,
+            2.266422748565674
+          ],
+          "camera_forward": [
+            -0.9030968546867371,
+            -0.28821510076522827,
+            -0.3183521330356598
+          ],
+          "camera_up": [
+            -0.3032817840576172,
+            -0.09678960591554642,
+            0.9479725360870361
+          ],
+          "camera_radius": 5.442774439749432
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Village-Beyond-the-Peaks_e894abd6_Hahaha-woman-on-chair_50c9329e_c2_v1.png",
+          "azimuth": 38.6,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -11.538561820983887,
+            33.304805755615234,
+            2.266422748565674
+          ],
+          "camera_forward": [
+            -0.5914210081100464,
+            0.7408598065376282,
+            -0.3183518946170807
+          ],
+          "camera_up": [
+            -0.19861340522766113,
+            0.2487984001636505,
+            0.9479725956916809
+          ],
+          "camera_radius": 5.442773257024995
+        }
+      ]
+    }
+  ]
+}

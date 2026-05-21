@@ -1,0 +1,393 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+  "object_file": "data/objects/spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/spider-man-no-way-home-suit_2K_1ac6fb05-8276-4645-a0b1-5dd80f9c74bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -3.8209915161132812,
+        1.4391939640045166,
+        -0.026998400688171387
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.8209915161132812,
+            1.4391939640045166,
+            -0.026998400688171387
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scale of the scene appears to be too large for the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded, fully visible, and not clipping. The scale appears correct for the environment, and the placement is plausible within the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_v0.png",
+          "azimuth": 228.8,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.735609531402588,
+            3.990748882293701,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7509279251098633,
+            -0.657387912273407,
+            -0.0628359466791153
+          ],
+          "camera_up": [
+            0.04727862775325775,
+            -0.04138946533203125,
+            0.9980238676071167
+          ],
+          "camera_radius": 3.991473856405859
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_v1.png",
+          "azimuth": 288.8,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -7.488012313842773,
+            0.19083845615386963,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9447786808013916,
+            0.321628600358963,
+            -0.0628357082605362
+          ],
+          "camera_up": [
+            0.05948340520262718,
+            0.02024972438812256,
+            0.9980238676071167
+          ],
+          "camera_radius": 3.991474020668761
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -6.820991516113281,
+        2.4391942024230957,
+        -0.026998370885849
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.820991516113281,
+            2.4391942024230957,
+            -0.026998370885849
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the scene appears to be too large for the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene appears too large for the person, suggesting a scale issue."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_v0.png",
+          "azimuth": 64.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.455416202545166,
+            -0.09710211306810379,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.9033201932907104,
+            0.4269973933696747,
+            -0.04105982556939125
+          ],
+          "camera_up": [
+            -0.03712144121527672,
+            0.017547303810715675,
+            0.9991567134857178
+          ],
+          "camera_radius": 6.012373702057106
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c1_v1.png",
+          "azimuth": 0.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.8209919929504395,
+            -1.4344909191131592,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9980238676071167,
+            -0.0628359466791153
+          ],
+          "camera_up": [
+            0.0,
+            0.0628359466791153,
+            0.9980238676071167
+          ],
+          "camera_radius": 3.9914747523852423
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.8209919929504395,
+        0.4391940236091614,
+        -0.02699834108352661
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.8209919929504395,
+            0.4391940236091614,
+            -0.02699834108352661
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            7.0,
+            6.0,
+            6.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the scene appears to be too large for the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene scale is too large, making the person appear too small relative to the environment, which is consistent with previous attempts."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c2_v0.png",
+          "azimuth": 260.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -5.635826110839844,
+            1.1118521690368652,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9828616380691528,
+            -0.17330515384674072,
+            -0.0628359466791153
+          ],
+          "camera_up": [
+            0.061881352216005325,
+            -0.010911230929195881,
+            0.9980238676071167
+          ],
+          "camera_radius": 3.991473938537311
+        }
+      ]
+    }
+  ]
+}

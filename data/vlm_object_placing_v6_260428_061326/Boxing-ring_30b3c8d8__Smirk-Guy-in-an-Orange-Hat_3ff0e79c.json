@@ -1,0 +1,420 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Smirk-Guy-in-an-Orange-Hat_3ff0e79c",
+  "object_file": "data/objects/Smirk-Guy-in-an-Orange-Hat_3ff0e79c/Smirk-Guy-in-an-Orange-Hat_3ff0e79c.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        25.651885986328125,
+        -4.233678340911865,
+        3.8251538276672363
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            25.651885986328125,
+            -4.233678340911865,
+            3.8251538276672363
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            3.0,
+            9.0,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head and upper body missing)",
+            "Object is heavily cropped (less than 70% visible)",
+            "Potential clipping with auditorium structures",
+            "Camera angle is too low and blocked by furniture.",
+            "Object is completely hidden behind scene geometry",
+            "Object is clipping with the auditorium seats",
+            "Object is almost completely occluded by the stadium seating.",
+            "Object is clipping through auditorium seats"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind the stadium seats, making the placement and framing unusable."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_v0.png",
+          "azimuth": 5.1,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            26.00153923034668,
+            -8.15145492553711,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.0761263370513916,
+            0.8529765009880066,
+            -0.5163679718971252
+          ],
+          "camera_up": [
+            -0.04590228945016861,
+            0.5143237113952637,
+            0.8563668131828308
+          ],
+          "camera_radius": 4.997014696036482
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        27.649761199951172,
+        -4.233678340911865,
+        4.500152111053467
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.649761199951172,
+            -4.233678340911865,
+            4.500152111053467
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            8.5,
+            9.5,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (head is missing)",
+            "Object is heavily occluded by foreground geometry",
+            "Object is clipping with the seating",
+            "Object is clipping through a chair",
+            "Object is completely hidden behind scene geometry (seating structure).",
+            "Object is clipping with the seating (red seat back)",
+            "Object is significantly occluded by foreground furniture"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by the auditorium seating structure and is likely clipping into it, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_v0.png",
+          "azimuth": 354.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            27.25227165222168,
+            -8.146890640258789,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.09279123693704605,
+            0.9135127663612366,
+            -0.39608606696128845
+          ],
+          "camera_up": [
+            0.04002699628472328,
+            0.3940584063529968,
+            0.9182133674621582
+          ],
+          "camera_radius": 4.611403749420219
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c1_v1.png",
+          "azimuth": 160.2,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            29.597562789916992,
+            1.1765481233596802,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.32488948106765747,
+            -0.9024150967597961,
+            -0.28300854563713074
+          ],
+          "camera_up": [
+            -0.09586570411920547,
+            -0.2662773132324219,
+            0.9591174125671387
+          ],
+          "camera_radius": 6.233641578920153
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        26.650821685791016,
+        -0.23792874813079834,
+        4.713418006896973
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            26.650821685791016,
+            -0.23792874813079834,
+            4.713418006896973
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            3.0,
+            10.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is clipping with the floor/seating structure (left leg/foot is embedded in the step)",
+            "Object is completely hidden behind scene geometry (seats/wall)",
+            "Object is clipping with the seat armrest",
+            "Object is heavily cropped (lower body missing)",
+            "Object is partially occluded by foreground seating",
+            "Object is clipping through the floor/stairs (embedded in the tiered seating structure)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the row of seats in the foreground, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_v0.png",
+          "azimuth": 94.9,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            31.645061492919922,
+            0.19022837281227112,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.9553850889205933,
+            -0.0819052904844284,
+            -0.2837795317173004
+          ],
+          "camera_up": [
+            -0.2827424108982086,
+            -0.024239541962742805,
+            0.9588895440101624
+          ],
+          "camera_radius": 5.471596430741326
+        }
+      ]
+    }
+  ]
+}

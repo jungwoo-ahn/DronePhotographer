@@ -1,0 +1,595 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "Wearied-Urban-Casual_3028143e",
+  "object_file": "data/objects/Wearied-Urban-Casual_3028143e/Wearied-Urban-Casual_3028143e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.245585918426514,
+        -5.044252395629883,
+        -7.629394644936838e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.245585918426514,
+            -5.044252395629883,
+            -7.629394644936838e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            6.0,
+            3.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is too large for the scene; they are taller than the door frame.",
+            "Object is clipping through the umbrella structure.",
+            "Object's head is cut off at the top of the frame.",
+            "The person's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a plausible location but their head is clipping through the low-hanging thatched umbrella."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_v0.png",
+          "azimuth": 6.3,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.713665008544922,
+            -9.86233139038086,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.10962922871112823,
+            0.9930090308189392,
+            -0.04375438764691353
+          ],
+          "camera_up": [
+            -0.00480135902762413,
+            0.043490152806043625,
+            0.9990423321723938
+          ],
+          "camera_radius": 4.939394183125847
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c0_v1.png",
+          "azimuth": 66.3,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.19295378029346466,
+            -6.9926347732543945,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.9147856831550598,
+            0.4015628695487976,
+            -0.04375450685620308
+          ],
+          "camera_up": [
+            -0.04006442800164223,
+            0.01758689060807228,
+            0.9990423321723938
+          ],
+          "camera_radius": 4.939393971949888
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.24558573961257935,
+        -3.794252395629883,
+        -5.9604645663569045e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.24558573961257935,
+            -3.794252395629883,
+            -5.9604645663569045e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The object is mostly hidden behind a wall, with only the head and shoulders visible through a narrow window.",
+            "The camera is positioned behind a bar counter that completely occludes the lower half of the person.",
+            "The object is heavily cropped; only the torso is visible.",
+            "The person appears too large relative to the beach umbrellas in the background.",
+            "The person is heavily cropped, with the head and upper body completely out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly hidden behind a large foreground object (the bar) and is significantly cropped, making the placement poor; additionally, the scale seems slightly too large compared to the background elements."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c1_v0.png",
+          "azimuth": 169.1,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.8059085011482239,
+            1.6660815477371216,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.18895789980888367,
+            -0.9812438488006592,
+            -0.038150541484355927
+          ],
+          "camera_up": [
+            -0.007214222569018602,
+            -0.03746223449707031,
+            0.9992719888687134
+          ],
+          "camera_radius": 5.641069452839779
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -3.2455856800079346,
+        -2.5442521572113037,
+        1.9073486612342094e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.2455856800079346,
+            -2.5442521572113037,
+            1.9073486612342094e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            4.0,
+            1.0,
+            6.0,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Less than 10% of the object is visible.",
+            "The person's head is cut off by the top of the frame.",
+            "The person's head is completely cut off by the top of the frame, resulting in a poor composition.",
+            "The object is almost completely hidden behind a large wooden pillar.",
+            "The placement is awkward as the person is standing directly behind a structural element.",
+            "The person's head is partially obscured by and appears to clip into the thatched umbrella.",
+            "The person is clipping through the thatched umbrella structure.",
+            "The object is heavily cropped due to the tight camera framing.",
+            "The person's head is completely obscured by the umbrella pole."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely occluded by a foreground pillar, violating the visibility requirement."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -0.24558573961257935,
+        -6.794251918792725,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.24558573961257935,
+            -6.794251918792725,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            4.0,
+            10.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is cut off by the top edge of the frame.",
+            "The person's head and upper torso are cut off by the top of the frame.",
+            "The person is positioned too close to the camera, leading to poor framing.",
+            "The person's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": -0.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is completely cut off by the top of the frame, and they are standing too close to the camera and architectural elements for a good shot."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_v0.png",
+          "azimuth": 35.4,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.95783269405365,
+            -9.894762992858887,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.5783811211585999,
+            0.813861072063446,
+            -0.05572597309947014
+          ],
+          "camera_up": [
+            -0.03228093311190605,
+            0.04542384296655655,
+            0.9984461069107056
+          ],
+          "camera_radius": 3.9203323430653465
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c3_v1.png",
+          "azimuth": 319.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.6956467628479004,
+            -9.703792572021484,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.6431227922439575,
+            0.7637327313423157,
+            -0.05572585389018059
+          ],
+          "camera_up": [
+            0.03589436039328575,
+            0.04262588173151016,
+            0.9984461069107056
+          ],
+          "camera_radius": 3.920332586328979
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -1.2455856800079346,
+        -5.794252395629883,
+        -0.1199999749660492
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.2455856800079346,
+            -5.794252395629883,
+            -0.1199999749660492
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            10.0,
+            3.0,
+            10.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Wearied-Urban-Casual_3028143e_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The object is not fully visible.",
+            "The person's head and upper torso are cut off by the top of the frame.",
+            "The person's head and upper torso are cut off by the top edge of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and in a plausible location, but the framing is poor as the head and upper body are completely cut off by the top edge of the image."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

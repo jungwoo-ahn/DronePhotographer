@@ -1,0 +1,87 @@
+{
+  "scene": "Apartment-garden_fcd5b3f7",
+  "scene_file": "data/scenes/Apartment-garden_fcd5b3f7/Apartment-garden_fcd5b3f7.blend",
+  "scene_scale": 0.5,
+  "object": "Relaxed-Pose-Sneakerhead_75996846",
+  "object_file": "data/objects/Relaxed-Pose-Sneakerhead_75996846/Relaxed-Pose-Sneakerhead_75996846.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.9298087358474731,
+        -7.633232593536377,
+        0.06312812119722366
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.9298087358474731,
+            -7.633232593536377,
+            0.06312812119722366
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is mostly cropped out of the frame.",
+            "Object is not visible in the rendered image.",
+            "Object is too dark to see clearly."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly cropped out of the frame and is too dark to be clearly visible, resulting in a very low quality score."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

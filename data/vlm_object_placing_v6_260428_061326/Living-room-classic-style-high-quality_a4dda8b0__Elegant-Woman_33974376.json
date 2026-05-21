@@ -1,0 +1,100 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Elegant-Woman_33974376",
+  "object_file": "data/objects/Elegant-Woman_33974376/Elegant-Woman_33974376.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        0.47997674345970154,
+        0.46691370010375977,
+        -0.05869565159082413
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.47997674345970154,
+            0.46691370010375977,
+            -0.05869565159082413
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.5,
+            1.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Elegant-Woman_33974376_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The area around the object is mostly empty.",
+            "The object's scale appears too large for the room, with the head almost touching the ceiling while seated.",
+            "The placement of the person sitting on the fireplace mantelpiece is highly implausible.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "The pose of the woman on the stool in front of the fireplace is somewhat unnatural for a typical living room setting.",
+            "Object is severely clipping with the fireplace mantelpiece.",
+            "Object is completely hidden behind walls.",
+            "Object is severely clipping with the ceiling."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a plain wall, making it invisible and the surroundings empty."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

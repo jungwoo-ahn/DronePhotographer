@@ -1,0 +1,239 @@
+{
+  "scene": "nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779",
+  "scene_file": "data/scenes/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779/nature-animation_f7623f71-5cd3-45c1-8c25-50402d8507f8.blend",
+  "scene_scale": 1.0,
+  "object": "Car-Mechanic-Character_e64df45e",
+  "object_file": "data/objects/Car-Mechanic-Character_e64df45e/Car-Mechanic-Character_e64df45e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.4912521243095398,
+        -12.618736267089844,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.4912521243095398,
+            -12.618736267089844,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            2.0,
+            3.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The scale of the scene appears too large for the person, as the ground extends far into the distance without any discernible features.",
+            "The surroundings are empty, with only a flat ground plane and sky visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scene is too large for the person and the surroundings are empty, leading to a low quality score."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            0.4912521243095398,
+            -12.618736267089844,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            4.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_iter1_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scale of the scene appears too large for the person, as the ground extends far into the distance without any discernible features.",
+            "The surroundings are empty, with only a flat ground plane and sky visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scene is too large for the person and the surroundings are empty, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_v0.png",
+          "azimuth": 46.4,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.307308197021484,
+            -16.252717971801758,
+            0.20858106017112732
+          ],
+          "camera_forward": [
+            -0.7224727272987366,
+            0.6880014538764954,
+            0.06846258044242859
+          ],
+          "camera_up": [
+            0.049578648060560226,
+            -0.04721316695213318,
+            0.9976536631584167
+          ],
+          "camera_radius": 5.273671816459149
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779_Car-Mechanic-Character_e64df45e_c2_v1.png",
+          "azimuth": 106.4,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            5.546400547027588,
+            -11.130925178527832,
+            0.20858106017112732
+          ],
+          "camera_forward": [
+            -0.9570631384849548,
+            -0.2816789448261261,
+            0.06846234947443008
+          ],
+          "camera_up": [
+            0.06567684561014175,
+            0.01932988315820694,
+            0.9976537227630615
+          ],
+          "camera_radius": 5.273671884272976
+        }
+      ]
+    }
+  ]
+}

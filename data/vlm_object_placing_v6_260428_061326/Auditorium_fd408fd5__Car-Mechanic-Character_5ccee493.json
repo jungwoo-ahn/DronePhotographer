@@ -1,0 +1,574 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "Car-Mechanic-Character_5ccee493",
+  "object_file": "data/objects/Car-Mechanic-Character_5ccee493/Car-Mechanic-Character_5ccee493.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        30.98500633239746,
+        41.233802795410156,
+        0.44792938232421875
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.98500633239746,
+            41.233802795410156,
+            0.44792938232421875
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            6.0,
+            9.0,
+            1.0,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is completely occluded by foreground furniture.",
+            "The character's presence (mechanic with a tire) in an auditorium is contextually awkward.",
+            "Object is not visible in the frame",
+            "The context of a car mechanic carrying a tire in an auditorium is unusual."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (a person) is completely occluded by the auditorium chairs in the foreground and is not visible in the rendered image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_v0.png",
+          "azimuth": 149.5,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            34.20669174194336,
+            46.70314025878906,
+            2.3039016723632812
+          ],
+          "camera_forward": [
+            -0.49982771277427673,
+            -0.8485391139984131,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.08813309669494629,
+            -0.14962024986743927,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.613436630055014
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c0_v1.png",
+          "azimuth": 89.5,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            37.332435607910156,
+            41.178409576416016,
+            2.3039016723632812
+          ],
+          "camera_forward": [
+            -0.9847702980041504,
+            0.008593861013650894,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.1736413687467575,
+            0.0015153697459027171,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.613438033125096
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        5.8954620361328125,
+        32.33106231689453,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.8954620361328125,
+            32.33106231689453,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            8.5,
+            9.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v2.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The character's presence (mechanic with a tire) in an auditorium is contextually awkward.",
+            "The character's presence (mechanic with a tire) in an auditorium is contextually unusual."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is well-placed on the stage, fully visible, and correctly scaled, although the thematic fit for the scene is poor."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_v0.png",
+          "azimuth": 30.8,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.145742416381836,
+            26.878665924072266,
+            4.1039018630981445
+          ],
+          "camera_forward": [
+            -0.5042637586593628,
+            0.8459104299545288,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.08891525864601135,
+            0.14915676414966583,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.613439622256904
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c1_v1.png",
+          "azimuth": 134.6,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.415169715881348,
+            36.78810119628906,
+            4.1039018630981445
+          ],
+          "camera_forward": [
+            -0.7012086510658264,
+            -0.6914858818054199,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.12364193797111511,
+            -0.12192758172750473,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.613439982763065
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        5.8954620361328125,
+        44.06649398803711,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.8954620361328125,
+            44.06649398803711,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.0,
+            8.5,
+            8.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The surroundings are empty, showing only a plain floor and wall.",
+            "The character's presence (mechanic with a tire) in an auditorium is contextually unusual.",
+            "The character's presence (mechanic with a tire) on a stage in an auditorium is contextually unusual."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is well-grounded and fully visible, but the placement in an auditorium is contextually odd and the current framing shows no interesting surroundings or scene detail."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_v0.png",
+          "azimuth": 146.1,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.435844421386719,
+            49.33513641357422,
+            4.1039018630981445
+          ],
+          "camera_forward": [
+            -0.5492718815803528,
+            -0.8174023628234863,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            -0.09685167670249939,
+            -0.14413027465343475,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.613435945092945
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c2_v1.png",
+          "azimuth": 26.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.688051223754883,
+            38.366111755371094,
+            4.1039018630981445
+          ],
+          "camera_forward": [
+            -0.4332556426525116,
+            0.8843844532966614,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.07639461755752563,
+            0.15594077110290527,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.6134368824094425
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        5.8954620361328125,
+        37.187103271484375,
+        2.247929573059082
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.8954620361328125,
+            37.187103271484375,
+            2.247929573059082
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            8.0,
+            8.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The surroundings are empty, showing only a plain floor and wall.",
+            "The character's presence (mechanic with a tire) in an auditorium is contextually unusual.",
+            "The character is facing away from the camera."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The character is grounded and fully visible, but the placement in an auditorium is contextually odd and the current framing shows very little of the environment, making the surroundings feel empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_v0.png",
+          "azimuth": 37.1,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            9.724427223205566,
+            32.12430191040039,
+            4.103902816772461
+          ],
+          "camera_forward": [
+            -0.5940438508987427,
+            0.7854669094085693,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.10474589467048645,
+            0.1384989470243454,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.613438396535812
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_Car-Mechanic-Character_5ccee493_c3_v1.png",
+          "azimuth": 157.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            8.365492820739746,
+            43.03448486328125,
+            4.103902816772461
+          ],
+          "camera_forward": [
+            -0.3832121789455414,
+            -0.9071906208992004,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.06757065653800964,
+            -0.15996183454990387,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.613437747624553
+        }
+      ]
+    }
+  ]
+}

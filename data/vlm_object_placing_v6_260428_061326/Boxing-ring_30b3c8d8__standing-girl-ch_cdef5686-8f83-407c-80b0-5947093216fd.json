@@ -1,0 +1,460 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd",
+  "object_file": "data/objects/standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd/standing-girl-chessboard-outfit_2K_79528d63-252a-4a95-9af1-e3245185fb33.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        30.870647430419922,
+        -9.004295349121094,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.870647430419922,
+            -9.004295349121094,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            3.0,
+            3.0,
+            9.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are mostly empty",
+            "Object is cropped at the bottom of the frame",
+            "The surroundings are mostly empty (black background) with no meaningful scene context beyond the immediate chairs.",
+            "Object is heavily cropped at the frame edge and by the chair, less than 70% visible.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is partially obscured by the foreground seats, and the background is mostly empty, resulting in a low quality score despite plausible placement and scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_v0.png",
+          "azimuth": 229.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            26.862934112548828,
+            -5.629486560821533,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.7547904253005981,
+            -0.6355927586555481,
+            -0.16221359372138977
+          ],
+          "camera_up": [
+            0.1240806132555008,
+            -0.1044856458902359,
+            0.9867556691169739
+          ],
+          "camera_radius": 5.451811471044387
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_v1.png",
+          "azimuth": 169.9,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.470359802246094,
+            -5.637527942657471,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.17005595564842224,
+            -0.9546887278556824,
+            -0.24423423409461975
+          ],
+          "camera_up": [
+            -0.042830660939216614,
+            -0.24044935405254364,
+            0.9697162508964539
+          ],
+          "camera_radius": 3.7371012779603476
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        30.870647430419922,
+        -7.0064191818237305,
+        5.400154113769531
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.870647430419922,
+            -7.0064191818237305,
+            5.400154113769531
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            3.0,
+            4.0,
+            9.5,
+            3.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (head is cropped)",
+            "Object is cropped at the top of the frame",
+            "Surroundings are mostly empty",
+            "Object is cropped at the bottom of the frame",
+            "A large portion of the background is empty black space, making the composition less engaging",
+            "Object is partly cut off at the frame edge",
+            "Object is very small in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": -0.2
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object's head is cropped at the top of the frame, and the background is mostly empty black space, lacking meaningful scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_v0.png",
+          "azimuth": 311.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            28.31732177734375,
+            -9.281349182128906,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.7240272760391235,
+            0.6450846791267395,
+            -0.24423399567604065
+          ],
+          "camera_up": [
+            0.18235443532466888,
+            0.16247186064720154,
+            0.9697163105010986
+          ],
+          "camera_radius": 3.737100954984325
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_v1.png",
+          "azimuth": 251.7,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            27.623838424682617,
+            -5.9326395988464355,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.9206733107566833,
+            -0.30448371171951294,
+            -0.2442341148853302
+          ],
+          "camera_up": [
+            0.23188212513923645,
+            -0.07668756693601608,
+            0.9697163105010986
+          ],
+          "camera_radius": 3.73710004586648
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        30.870647430419922,
+        -2.0117318630218506,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            30.870647430419922,
+            -2.0117318630218506,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            4.0,
+            4.0,
+            9.0,
+            7.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v5.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is slightly cropped at the bottom of the frame",
+            "Object is partly cut off at the frame edge (head and upper torso are cropped out)",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is plausibly placed and scaled within the arena, but its lower body is significantly occluded by the foreground seats, making it not fully visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_v0.png",
+          "azimuth": 4.6,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            31.22015953063965,
+            -6.355751991271973,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.07867724448442459,
+            0.9778642654418945,
+            -0.19388489425182343
+          ],
+          "camera_up": [
+            -0.015549388714134693,
+            0.19326037168502808,
+            0.9810242652893066
+          ],
+          "camera_radius": 4.611270417850466
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_v1.png",
+          "azimuth": 203.2,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            29.153825759887695,
+            1.9939125776290894,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.3864665925502777,
+            -0.9016939997673035,
+            -0.19388513267040253
+          ],
+          "camera_up": [
+            0.07637949287891388,
+            -0.178206667304039,
+            0.9810242652893066
+          ],
+          "camera_radius": 4.611270476016845
+        }
+      ]
+    }
+  ]
+}

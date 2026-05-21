@@ -14,6 +14,11 @@ from mathutils import Euler, Matrix, Vector
 sys.path.append('.')
 from src.scenes.scene import open_scene, set_nishita_sky
 
+try:
+    from src.blender.camera import is_camera_valid
+except Exception:
+    is_camera_valid = None
+
 #Priority: --object_position > --auto_place_object > --object_name
 
 
@@ -109,6 +114,27 @@ def parse_args(argv):
                         help="RGB image output format (JPEG default for ~5x smaller files)")
     parser.add_argument("--image_quality", type=int, default=90,
                         help="JPEG quality (0-100, default 90); ignored for PNG")
+    # v6 local-dense mode: discover N valid anchors on the hemisphere, then render M poses
+    # densely inside a ball around each anchor. When enabled, --num_images is ignored.
+    parser.add_argument("--local_dense", action="store_true",
+                        help="enable v6 local-dense mode: discover anchors then render around each")
+    parser.add_argument("--num_anchors_per_placement", type=int, default=4)
+    parser.add_argument("--num_images_per_anchor", type=int, default=100)
+    parser.add_argument("--anchor_radius_range", nargs=2, type=float, default=[1.0, 8.0])
+    parser.add_argument("--anchor_ball_radius", type=float, default=3.0)
+    parser.add_argument("--anchor_max_attempts", type=int, default=500)
+    parser.add_argument("--anchor_min_clearance", type=float, default=0.8)
+    # Distance-dependent camera pitch (local +X rotation, i.e. the 3rd slot in
+    # camera_direction_offsets) for local_dense mode. Pitch range linearly
+    # interpolates between two distances; clamped outside.
+    parser.add_argument("--pitch_lerp_near", nargs=3, type=float,
+                        default=[1.0, -15.0, 45.0],
+                        metavar=("R_NEAR", "LOW_NEAR", "HIGH_NEAR"),
+                        help="(r, low, high) at the near distance; default 1m -15°..+45°")
+    parser.add_argument("--pitch_lerp_far", nargs=3, type=float,
+                        default=[8.0, -15.0, 15.0],
+                        metavar=("R_FAR", "LOW_FAR", "HIGH_FAR"),
+                        help="(r, low, high) at the far distance; default 8m -15°..+15°")
     split = argv.index("--") + 1 if "--" in argv else len(argv)
     return parser.parse_args(argv[split:])
 
@@ -647,6 +673,78 @@ def sample_pose(obj_pos, radius_range, offsets_deg, hemisphere):
     return {
         "cam_pos": cam_pos,
         "radius": radius,
+        "base_forward": base_forward,
+        "base_up": (base_rot @ Vector((0.0, 1.0, 0.0))).normalized(),
+        "rot_matrix": rot_matrix,
+        "offsets": {"yaw": yaw, "pitch": pitch, "roll": roll},
+        "final_forward": final_forward,
+        "final_up": final_up,
+    }
+
+
+def discover_valid_anchors(obj_pos, radius_range, n_target, max_attempts, min_clearance):
+    """Random-sample camera positions on the upper hemisphere around obj_pos within
+    radius_range; accept each via is_camera_valid; return up to n_target positions.
+
+    Returns (accepted_positions, attempts_used). Random state advances by one
+    draw of (direction, radius) per attempt regardless of acceptance, so workers
+    sharing a seed converge to the same anchor set deterministically.
+    """
+    if is_camera_valid is None:
+        raise RuntimeError(
+            "local_dense mode requires src/blender/camera.py:is_camera_valid (import failed)."
+        )
+    accepted = []
+    attempts = 0
+    for _ in range(max_attempts):
+        attempts += 1
+        direction = random_direction(hemisphere=True)
+        radius = random.uniform(*sorted(radius_range))
+        cam_pos = obj_pos + direction * radius
+        if is_camera_valid(cam_pos, obj_pos, min_clearance=min_clearance):
+            accepted.append(cam_pos)
+            if len(accepted) >= n_target:
+                break
+    return accepted, attempts
+
+
+def sample_pose_around_anchor(anchor_pos, obj_pos, ball_radius, offsets_deg, pitch_lerp=None):
+    """Sample cam_pos uniformly inside a ball of radius ball_radius around anchor_pos,
+    aim at obj_pos with yaw/pitch/roll jitter from offsets_deg. Same dict shape as
+    sample_pose() (no anchor fields — caller attaches them).
+
+    If pitch_lerp is provided as a 6-tuple (r_near, r_far, low_near, low_far,
+    high_near, high_far), the local-X-axis rotation (`roll` variable; physically
+    the camera's up/down pitch) is sampled from a distance-dependent range
+    linearly interpolated between r_near and r_far, clamped outside. This
+    overrides the third value of offsets_deg.
+    """
+    direction = random_direction(hemisphere=False)
+    r = ball_radius * random.random() ** (1.0 / 3.0)
+    cam_pos = anchor_pos + direction * r
+    base_rot = look_at_matrix(cam_pos, obj_pos)
+    base_forward = (obj_pos - cam_pos).normalized()
+    yaw_range, pitch_range, roll_range = offsets_deg
+    yaw = random.uniform(-yaw_range, yaw_range)
+    pitch = random.uniform(-pitch_range, pitch_range)
+    if pitch_lerp is None:
+        roll = random.uniform(-roll_range, roll_range)
+    else:
+        r_near, r_far, low_near, low_far, high_near, high_far = pitch_lerp
+        dist = (cam_pos - obj_pos).length
+        span = r_far - r_near
+        t = 0.0 if span == 0.0 else (dist - r_near) / span
+        t = max(0.0, min(1.0, t))
+        low = low_near * (1.0 - t) + low_far * t
+        high = high_near * (1.0 - t) + high_far * t
+        roll = random.uniform(low, high)
+    offset = Euler((radians(roll), radians(pitch), radians(yaw)), "XYZ").to_matrix()
+    rot_matrix = base_rot @ offset
+    final_forward = (rot_matrix @ Vector((0.0, 0.0, -1.0))).normalized()
+    final_up = (rot_matrix @ Vector((0.0, 1.0, 0.0))).normalized()
+    return {
+        "cam_pos": cam_pos,
+        "radius": (cam_pos - obj_pos).length,
         "base_forward": base_forward,
         "base_up": (base_rot @ Vector((0.0, 1.0, 0.0))).normalized(),
         "rot_matrix": rot_matrix,

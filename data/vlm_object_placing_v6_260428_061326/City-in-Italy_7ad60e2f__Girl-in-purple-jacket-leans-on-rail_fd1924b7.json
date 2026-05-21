@@ -1,0 +1,689 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-in-purple-jacket-leans-on-rail_fd1924b7",
+  "object_file": "data/objects/Girl-in-purple-jacket-leans-on-rail_fd1924b7/Girl-in-purple-jacket-leans-on-rail_fd1924b7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        26.14494502852111,
+        -46.736243308780715,
+        -0.052863117307424545
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            26.28805160522461,
+            -46.000022888183594,
+            -0.052863117307424545
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "broken render (black ground)",
+            "object is not leaning on the rail as intended",
+            "object head is cut off",
+            "Placement is in the middle of a void area",
+            "The surroundings lack any architectural context from the city scene",
+            "unappealing black void in background",
+            "broken render/black ground in foreground",
+            "The character's legs are clipping through the horizontal bars of the fence she is leaning on.",
+            "Object is not leaning on the rail as intended by its name",
+            "clipping with the fence rail",
+            "The floor surface is a black void (broken render or missing texture)",
+            "The ground is rendered as a black void",
+            "heavy occlusion by foreground fence",
+            "clipping with fence"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The ground is rendered as a solid black void, indicating a broken render or missing texture, and the character is standing away from the rail instead of leaning on it."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            26.14494502852111,
+            -46.736243308780715,
+            -0.052863117307424545
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            1.0,
+            2.0,
+            2.0,
+            1.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v1.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v4.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c1_iter1_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "broken render: ground is black void",
+            "broken render (black ground)",
+            "object is not leaning on the rail as intended",
+            "surroundings are empty due to black ground",
+            "Object is not leaning on the rail as its name suggests",
+            "Object is standing on a large black void (broken geometry/missing texture)",
+            "Object is leaning on nothing",
+            "object pose (leaning) does not interact with any geometry",
+            "Pose does not match environment",
+            "broken render (black foreground)",
+            "surroundings_empty",
+            "Object is placed on a black void/missing texture area",
+            "clipping with fence"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is standing in the middle of a large black rectangular void, which appears to be a broken part of the scene geometry or a missing texture, making the placement completely implausible."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        26.212707674628476,
+        -29.01336917573078,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.337677001953125,
+            -28.1563720703125,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            2.0,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0.png",
+              "quality": 1.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "broken render (black ground)",
+            "object is hidden behind or embedded in the fence structure",
+            "surroundings_empty=true",
+            "object is not leaning on the rail as intended",
+            "object is standing in a non-rendered area",
+            "object is not visible",
+            "broken render (black void ground)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The ground is a black void, indicating a broken render or placement in an untextured/out-of-bounds area of the scene."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            26.212707674628476,
+            -29.01336917573078,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c2_iter1_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "broken render (black ground)",
+            "object is not leaning on the rail as intended",
+            "object is not leaning on the rail",
+            "broken render (black ground void)",
+            "broken render (ground is a black void)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The ground is a black void, indicating a broken render, which makes the placement unusable despite the object being correctly scaled and positioned."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        11.259064363805436,
+        13.704688588580112,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.24339771270752,
+            13.828702926635742,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            4.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "object is not leaning on the rail as intended",
+            "placement is slightly awkward in the middle of the walkway",
+            "pose looks unnatural without support",
+            "top of the head is slightly cropped",
+            "object is leaning on thin air; it should be leaning on a rail as per its description",
+            "object is in a leaning pose but is not actually leaning on the rail",
+            "The object is clipping through the metal fence bars.",
+            "object is not leaning on the rail as intended by its pose",
+            "placement is a bit far from any interactive elements"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.15,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is leaning through the metal fence bars, causing significant clipping, although the location and scale are otherwise plausible."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            11.252797703609087,
+            13.754294323833038,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            4.0,
+            3.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter1_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "object is in a leaning pose but is not leaning against any surface, making the placement look unnatural",
+            "placement is awkward relative to the fence",
+            "object is leaning on thin air instead of the rail",
+            "The person is in a leaning pose but there is no rail or surface behind her to lean on, making the placement look physically awkward.",
+            "object is not leaning on the rail as intended by its pose",
+            "The object's torso is clipping through the fence rail it is leaning on."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.1,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is leaning on the rail but her jacket and torso are clearly clipping through the top bar of the fence, violating the clipping requirement."
+        },
+        {
+          "iteration": 2,
+          "position": [
+            11.259064363805436,
+            13.704688588580112,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            3.0,
+            9.0,
+            5.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_iter2_v4.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "object is leaning on nothing; intended to lean on a rail but none is present at this position",
+            "The person is leaning back but not touching the rail, making the pose look unnatural.",
+            "The background is a black void, indicating a broken render.",
+            "object is not leaning on the rail as intended by its name/pose description",
+            "object is not leaning on the rail as intended by its pose"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.4,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render has a broken background (black void) and the character is leaning into empty space rather than against the rail as intended."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_v0.png",
+          "azimuth": 70.1,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            16.504932403564453,
+            11.805710792541504,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.9213026762008667,
+            0.33350688219070435,
+            -0.19993634521961212
+          ],
+          "camera_up": [
+            -0.1879977583885193,
+            0.06805428117513657,
+            0.9798088669776917
+          ],
+          "camera_radius": 5.869942679799581
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_Girl-in-purple-jacket-leans-on-rail_fd1924b7_c4_v1.png",
+          "azimuth": 187.2,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            10.649524688720703,
+            18.529685974121094,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.12203435599803925,
+            -0.9660015106201172,
+            -0.22792260348796844
+          ],
+          "camera_up": [
+            0.028566181659698486,
+            -0.22612537443637848,
+            0.97367924451828
+          ],
+          "camera_radius": 5.194526340403699
+        }
+      ]
+    }
+  ]
+}

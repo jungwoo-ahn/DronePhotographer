@@ -1,0 +1,247 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Guy-in-green-bomber_6a08ce9e",
+  "object_file": "data/objects/Guy-in-green-bomber_6a08ce9e/Guy-in-green-bomber_6a08ce9e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.176791191101074,
+        -4.547240734100342,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.176791191101074,
+            -4.547240734100342,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            1.0,
+            3.0,
+            0.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "scale is incorrect (person is tiny compared to streetlights)",
+            "object is too small to identify",
+            "surroundings are empty",
+            "Object is likely hidden behind the building structure",
+            "Object is too small for the environment (scale issue)",
+            "Object is not visible in the frame",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is not visible in the rendered image, which only shows an empty road and sky with no recognizable scene context from the reference."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c0_v1.png",
+          "azimuth": 265.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -10.295111656188965,
+            -4.087202548980713,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9971186518669128,
+            -0.07497389614582062,
+            0.011547709815204144
+          ],
+          "camera_up": [
+            -0.011515199206769466,
+            0.0008659028098918498,
+            0.9999333024024963
+          ],
+          "camera_radius": 6.174501889762324
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.304337739944458,
+        -10.16460132598877,
+        -0.0663943886756897
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.304337739944458,
+            -10.16460132598877,
+            -0.0663943886756897
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            1.0,
+            9.5,
+            1.0,
+            9.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Guy-in-green-bomber_6a08ce9e_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object is extremely small in frame (scale issue)",
+            "object is too far from camera",
+            "object is very small in frame",
+            "placement in the middle of the road is awkward",
+            "object is completely hidden behind walls",
+            "The rendered view shows an empty environment with no meaningful context",
+            "the camera is looking through a window but the person is not visible in the frame",
+            "Object is not visible in the frame",
+            "object is difficult to identify",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is not visible in the rendered image, which shows a featureless street and sky, completely missing the bookstore context from the reference image."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

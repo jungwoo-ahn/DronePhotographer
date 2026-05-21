@@ -1,0 +1,281 @@
+{
+  "scene": "italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6",
+  "scene_file": "data/scenes/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6/italian-cafe_61ba9dfe-fd8c-4953-af72-4204117f6103.blend",
+  "scene_scale": 0.7142857142857143,
+  "object": "Casual-Crouch_b3e2a7cc",
+  "object_file": "data/objects/Casual-Crouch_b3e2a7cc/Casual-Crouch_b3e2a7cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        4.223625183105469,
+        -0.22520866990089417,
+        0.011311371810734272
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.223625183105469,
+            -0.22520866990089417,
+            0.011311371810734272
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            9.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is not in the provided scene.",
+            "The person is sitting on the ground, but there is a chair present that they could have sat on.",
+            "The object is not in a plausible location for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not present in the scene, therefore it cannot be evaluated for placement quality. The provided reference image shows an Italian cafe scene with tables, chairs, and a scooter. The rendered image shows a person crouching in an outdoor grassy area with a table. These two images do not match."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_v0.png",
+          "azimuth": 261.0,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            1.675360918045044,
+            0.17839640378952026,
+            1.0806478261947632
+          ],
+          "camera_forward": [
+            0.9559459090232849,
+            -0.15140682458877563,
+            -0.2514823377132416
+          ],
+          "camera_up": [
+            0.2483861744403839,
+            -0.03934047371149063,
+            0.9678618907928467
+          ],
+          "camera_radius": 2.79285326632254
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c0_v1.png",
+          "azimuth": 171.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            4.627230644226074,
+            2.3230552673339844,
+            1.0806478261947632
+          ],
+          "camera_forward": [
+            -0.151406928896904,
+            -0.9559458494186401,
+            -0.25148245692253113
+          ],
+          "camera_up": [
+            -0.03934049233794212,
+            -0.24838627874851227,
+            0.9678618311882019
+          ],
+          "camera_radius": 2.7928532743257324
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        2.140291929244995,
+        0.6914581060409546,
+        0.010564669035375118
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            2.140291929244995,
+            0.6914581060409546,
+            0.010564669035375118
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is sitting on the ground, but there is a chair present that they could have sat on."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but is sitting on the ground next to a chair, which is an odd choice."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_v0.png",
+          "azimuth": 76.9,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.653177738189697,
+            0.10669109970331192,
+            1.0806478261947632
+          ],
+          "camera_forward": [
+            -0.9426078200340271,
+            0.21935158967971802,
+            -0.2517445683479309
+          ],
+          "camera_up": [
+            -0.24519316852092743,
+            0.05705820769071579,
+            0.9677937030792236
+          ],
+          "camera_radius": 2.7931388483069095
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_Casual-Crouch_b3e2a7cc_c1_v1.png",
+          "azimuth": 153.3,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            3.2995479106903076,
+            2.9963817596435547,
+            1.0806478261947632
+          ],
+          "camera_forward": [
+            -0.43484821915626526,
+            -0.8645991086959839,
+            -0.25174468755722046
+          ],
+          "camera_up": [
+            -0.11311380565166473,
+            -0.22490143775939941,
+            0.9677937030792236
+          ],
+          "camera_radius": 2.7931389390004804
+        }
+      ]
+    }
+  ]
+}

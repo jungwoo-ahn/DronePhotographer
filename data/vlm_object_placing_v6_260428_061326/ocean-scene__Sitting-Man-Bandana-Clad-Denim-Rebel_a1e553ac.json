@@ -1,0 +1,407 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+  "object_file": "data/objects/Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        67.32941436767578,
+        -77.65209197998047,
+        1.955041527748108
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            67.32941436767578,
+            -77.65209197998047,
+            1.955041527748108
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a stool in the middle of the water, which is not a plausible location.",
+            "The object is placed in an empty environment with no context or plausible location.",
+            "The surroundings are empty.",
+            "The object is placed in an empty environment with no context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the placement is implausible as it is in a vast empty expanse with no context or surrounding details, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_v0.png",
+          "azimuth": 36.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            70.41332244873047,
+            -81.896728515625,
+            3.4028100967407227
+          ],
+          "camera_forward": [
+            -0.5788554549217224,
+            0.7967262268066406,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.10206780582666397,
+            0.14048439264297485,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.442743885952369
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_v1.png",
+          "azimuth": 96.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            70.73516845703125,
+            -77.29413604736328,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.8383392095565796,
+            -0.08811220526695251,
+            -0.5379810333251953
+          ],
+          "camera_up": [
+            -0.5350340008735657,
+            -0.056233663111925125,
+            0.8429569005966187
+          ],
+          "camera_radius": 4.365957081683725
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -19.446975708007812,
+        -12.569798469543457,
+        1.955062747001648
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -19.446975708007812,
+            -12.569798469543457,
+            1.955062747001648
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a stool in the middle of the water, which is not a plausible location.",
+            "The object is placed in an empty environment with no context or plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed implausibly on a stool in the middle of the water, and the surroundings are empty with no context."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -8.599926948547363,
+        -77.65209197998047,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.599926948547363,
+            -77.65209197998047,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            2.0,
+            8.0,
+            2.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on a stool in the middle of the water, which is not a plausible location.",
+            "The object is placed on a rock in the water, which is not a plausible location for a sitting person.",
+            "The object is placed in an empty environment with no context or plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed implausibly on a stool in the middle of the water, and the environment lacks context or a plausible location for the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_v0.png",
+          "azimuth": 91.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -5.1772966384887695,
+            -77.5385513305664,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.8424946069717407,
+            -0.027948565781116486,
+            -0.537979245185852
+          ],
+          "camera_up": [
+            -0.5376834869384766,
+            -0.017836932092905045,
+            0.8429580926895142
+          ],
+          "camera_radius": 4.3659504288215825
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c2_v1.png",
+          "azimuth": 331.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -11.071165084838867,
+            -82.28031158447266,
+            3.4028193950653076
+          ],
+          "camera_forward": [
+            0.4638560712337494,
+            0.8687254190444946,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.08179034292697906,
+            0.15317964553833008,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.442744192586311
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "scene": "Apartment-garden_fcd5b3f7",
+  "scene_file": "data/scenes/Apartment-garden_fcd5b3f7/Apartment-garden_fcd5b3f7.blend",
+  "scene_scale": 0.5,
+  "object": "Gasoline-walk_9343c2a5",
+  "object_file": "data/objects/Gasoline-walk_9343c2a5/Gasoline-walk_9343c2a5.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.09268808364868164,
+        -7.610735893249512,
+        -0.023189902305603027
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.09268808364868164,
+            -7.610735893249512,
+            -0.023189902305603027
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0_v3.png"
+          ],
+          "view_qualities": [
+            1.0,
+            1.0,
+            7.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Render is black.",
+            "Object is not visible",
+            "Object is not visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, making it impossible to assess its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Apartment-garden_fcd5b3f7_Gasoline-walk_9343c2a5_c1_v0.png",
+          "azimuth": 75.0,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            4.72041654586792,
+            -8.85073184967041,
+            0.7214518189430237
+          ],
+          "camera_forward": [
+            -0.96579509973526,
+            0.2587837874889374,
+            -0.016453910619020462
+          ],
+          "camera_up": [
+            -0.015893282368779182,
+            0.004258493427187204,
+            0.9998646378517151
+          ],
+          "camera_radius": 4.84849999006731
+        }
+      ]
+    }
+  ]
+}

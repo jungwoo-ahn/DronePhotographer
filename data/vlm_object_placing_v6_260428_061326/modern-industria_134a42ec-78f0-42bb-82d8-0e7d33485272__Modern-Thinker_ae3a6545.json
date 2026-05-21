@@ -1,0 +1,282 @@
+{
+  "scene": "modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272",
+  "scene_file": "data/scenes/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272/modern-industrial-interior-scene_6b8c29e5-47f3-4d13-bc21-c83ef63d7b5a.blend",
+  "scene_scale": 0.5,
+  "object": "Modern-Thinker_ae3a6545",
+  "object_file": "data/objects/Modern-Thinker_ae3a6545/Modern-Thinker_ae3a6545.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.8963682651519775,
+        1.9071872234344482,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.8963682651519775,
+            1.9071872234344482,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an environment that does not match the object's context. The object is a person in what appears to be a greenhouse, but the reference image shows a modern living room/dining area. The scale of the greenhouse structure relative to the person also appears too large.",
+            "The object is partially obscured by the wall.",
+            "The object is partially obscured by the camera's field of view."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in an implausible location and at an incorrect scale for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_v0.png",
+          "azimuth": 308.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.7846318483352661,
+            -0.9998915195465088,
+            0.6705471873283386
+          ],
+          "camera_forward": [
+            0.7842033505439758,
+            0.6193264722824097,
+            -0.03820831701159477
+          ],
+          "camera_up": [
+            0.029984941706061363,
+            0.02368076704442501,
+            0.9992697834968567
+          ],
+          "camera_radius": 4.738195602510903
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c0_v1.png",
+          "azimuth": 278.3,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -2.7450106143951416,
+            1.2300831079483032,
+            0.6705471873283386
+          ],
+          "camera_forward": [
+            0.9888032674789429,
+            0.14425072073936462,
+            -0.03820819780230522
+          ],
+          "camera_up": [
+            0.037808001041412354,
+            0.005515571217983961,
+            0.9992697834968567
+          ],
+          "camera_radius": 4.738195429541285
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.14636832475662231,
+        -0.09281270205974579,
+        -0.004259563982486725
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.14636832475662231,
+            -0.09281270205974579,
+            -0.004259563982486725
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0_v2.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in an environment that does not match the object's context. The object is a person in what appears to be a greenhouse, but the reference image shows a modern living room/dining area. The scale of the greenhouse structure relative to the person also appears too large.",
+            "The object is partially obscured by the wall.",
+            "The object is placed in an environment that does not match the object's context. The object is a person in what appears to be a greenhouse, but the reference image shows a modern living room/dining area."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly obscured by the wall and appears to be in an environment that does not match the reference image, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_v0.png",
+          "azimuth": 289.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -2.732334852218628,
+            -1.1348888874053955,
+            0.6705471873283386
+          ],
+          "camera_forward": [
+            0.9386016726493835,
+            0.33976906538009644,
+            -0.05986513942480087
+          ],
+          "camera_up": [
+            0.05629048869013786,
+            0.020376846194267273,
+            0.9982064962387085
+          ],
+          "camera_radius": 3.1349987145395395
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/modern-industria_134a42ec-78f0-42bb-82d8-0e7d33485272_Modern-Thinker_ae3a6545_c1_v1.png",
+          "azimuth": 225.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -2.0184476375579834,
+            2.072002649307251,
+            0.6705471873283386
+          ],
+          "camera_forward": [
+            0.7058385610580444,
+            -0.7058385610580444,
+            -0.059865377843379974
+          ],
+          "camera_up": [
+            0.042331188917160034,
+            -0.042331237345933914,
+            0.9982064366340637
+          ],
+          "camera_radius": 3.134998885653418
+        }
+      ]
+    }
+  ]
+}

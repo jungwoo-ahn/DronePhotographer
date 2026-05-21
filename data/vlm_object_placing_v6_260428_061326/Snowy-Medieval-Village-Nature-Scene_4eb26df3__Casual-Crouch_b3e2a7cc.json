@@ -1,0 +1,304 @@
+{
+  "scene": "Snowy-Medieval-Village-Nature-Scene_4eb26df3",
+  "scene_file": "data/scenes/Snowy-Medieval-Village-Nature-Scene_4eb26df3/Snowy-Medieval-Village-Nature-Scene_4eb26df3.blend",
+  "scene_scale": 1.0,
+  "object": "Casual-Crouch_b3e2a7cc",
+  "object_file": "data/objects/Casual-Crouch_b3e2a7cc/Casual-Crouch_b3e2a7cc.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -15.241004943847656,
+        -36.85402297973633,
+        0.044495563954114914
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -15.241004943847656,
+            -36.85402297973633,
+            0.044495563954114914
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only a flat snowy ground and sky visible. The reference image shows a village, which would provide much richer context.",
+            "The object is placed on a flat snowy ground, but the reference image shows a village with buildings and pathways. Placing the object on a pathway or near a building would be more plausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the placement is not ideal as the surroundings are empty and lack context from the reference image. The object is placed on a flat snowy ground, which is plausible, but a more interesting location within the village would be preferred."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_v0.png",
+          "azimuth": 340.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -16.316871643066406,
+            -39.960941314697266,
+            2.7456839084625244
+          ],
+          "camera_forward": [
+            0.2680411636829376,
+            0.7740568518638611,
+            -0.5735764503479004
+          ],
+          "camera_up": [
+            0.18768449127674103,
+            0.542000412940979,
+            0.8191520571708679
+          ],
+          "camera_radius": 4.255214059266339
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c1_v1.png",
+          "azimuth": 97.4,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -11.980467796325684,
+            -36.4305534362793,
+            2.7456839084625244
+          ],
+          "camera_forward": [
+            -0.8123294711112976,
+            -0.1055029109120369,
+            -0.5735764503479004
+          ],
+          "camera_up": [
+            -0.5687991976737976,
+            -0.0738740861415863,
+            0.8191520571708679
+          ],
+          "camera_radius": 4.255213840400123
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -4.323986530303955,
+        -31.39551544189453,
+        0.0436859130859375
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.323986530303955,
+            -31.39551544189453,
+            0.0436859130859375
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty, with only a flat snowy ground and sky visible. The reference image shows a village, which would provide much richer context.",
+            "The surroundings are empty, with only a flat snowy ground and sky visible. The reference image shows a village, which would provide much richer context. Placing the object on a pathway or near a building would be more plausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, and the scale appears correct for the scene. The placement on the pathway is plausible, but the surroundings are still lacking context from the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_v0.png",
+          "azimuth": 355.1,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.604831218719482,
+            -34.67142105102539,
+            2.7448747158050537
+          ],
+          "camera_forward": [
+            0.06996943801641464,
+            0.8161581158638,
+            -0.5735766291618347
+          ],
+          "camera_up": [
+            0.048993151634931564,
+            0.571480393409729,
+            0.8191518783569336
+          ],
+          "camera_radius": 4.255214726370496
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Snowy-Medieval-Village-Nature-Scene_4eb26df3_Casual-Crouch_b3e2a7cc_c2_v1.png",
+          "azimuth": 55.1,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.6273905038833618,
+            -33.27668762207031,
+            2.7448747158050537
+          ],
+          "camera_forward": [
+            -0.6718292832374573,
+            0.4686744809150696,
+            -0.5735762119293213
+          ],
+          "camera_up": [
+            -0.47041964530944824,
+            0.32816919684410095,
+            0.8191522359848022
+          ],
+          "camera_radius": 4.255215978284838
+        }
+      ]
+    }
+  ]
+}

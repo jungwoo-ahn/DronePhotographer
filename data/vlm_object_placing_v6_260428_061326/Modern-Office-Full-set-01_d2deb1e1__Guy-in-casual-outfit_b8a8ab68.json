@@ -1,0 +1,508 @@
+{
+  "scene": "Modern-Office-Full-set-01_d2deb1e1",
+  "scene_file": "data/scenes/Modern-Office-Full-set-01_d2deb1e1/Modern-Office-Full-set-01_d2deb1e1.blend",
+  "scene_scale": 2.0,
+  "object": "Guy-in-casual-outfit_b8a8ab68",
+  "object_file": "data/objects/Guy-in-casual-outfit_b8a8ab68/Guy-in-casual-outfit_b8a8ab68.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.7186990976333618,
+        4.404895782470703,
+        0.03449642285704613
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7186990976333618,
+            4.404895782470703,
+            0.03449642285704613
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            0.0,
+            3.0,
+            0.0,
+            0.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are mostly empty (plain wall and floor).",
+            "Object is partly cut off at the frame edge (head cropped).",
+            "Object is completely hidden.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "Object is not visible",
+            "Object is not visible.",
+            "Surroundings are empty.",
+            "Render is mostly empty/white."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, which appears to be an empty white frame, making evaluation impossible. The surroundings are also empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c0_v0.png",
+          "azimuth": 316.9,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            -5.179162502288818,
+            0.706963837146759,
+            1.3688089847564697
+          ],
+          "camera_forward": [
+            0.6787776947021484,
+            0.7253577709197998,
+            -0.11452911049127579
+          ],
+          "camera_up": [
+            0.07825472950935364,
+            0.08362483978271484,
+            0.993419885635376
+          ],
+          "camera_radius": 5.237356173923576
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -4.7186994552612305,
+        1.4048960208892822,
+        -0.0035033561289310455
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.7186994552612305,
+            1.4048960208892822,
+            -0.0035033561289310455
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            0.0,
+            0.0,
+            9.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are mostly empty (plain wall and floor).",
+            "Object is partly occluded by furniture (reception desk).",
+            "Object is not visible in the frame.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely missing from the rendered image, which only shows a plain wall and floor, indicating it's not in the camera's field of view or is hidden."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c1_v0.png",
+          "azimuth": 15.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -3.071086883544922,
+            -4.456670761108398,
+            1.3688089847564697
+          ],
+          "camera_forward": [
+            -0.26919999718666077,
+            0.9577094316482544,
+            -0.10160734504461288
+          ],
+          "camera_up": [
+            -0.02749503217637539,
+            0.09781654179096222,
+            0.9948245882987976
+          ],
+          "camera_radius": 6.241460507183672
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.7186990976333618,
+        -0.5951039791107178,
+        -0.003503222018480301
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.7186990976333618,
+            -0.5951039791107178,
+            -0.003503222018480301
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are mostly empty (plain wall and floor).",
+            "Object is mostly cut off at the frame edge (less than 30% visible).",
+            "Object is completely hidden and not visible in the frame.",
+            "Render is mostly a blank wall/corner.",
+            "The rendered image is completely blank/white, and the object is not visible.",
+            "Object is not visible.",
+            "Surroundings are completely empty (blank white screen)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, making its placement impossible to evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c2_v0.png",
+          "azimuth": 347.2,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -2.5991623401641846,
+            -4.470478057861328,
+            1.3688089847564697
+          ],
+          "camera_forward": [
+            0.21888484060764313,
+            0.9634252786636353,
+            -0.15459991991519928
+          ],
+          "camera_up": [
+            0.0342513732612133,
+            0.15075801312923431,
+            0.987977147102356
+          ],
+          "camera_radius": 4.2044000783245785
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -2.7186989784240723,
+        1.4048960208892822,
+        0.034496601670980453
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.7186989784240723,
+            1.4048960208892822,
+            0.034496601670980453
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            0.0,
+            9.5,
+            1.0,
+            0.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are mostly empty (plain wall and surface).",
+            "Object is completely hidden.",
+            "Object is completely hidden or render is broken (only a plain wall is visible).",
+            "Surroundings are mostly empty (only a plain wall is visible).",
+            "Surroundings are mostly empty (plain wall).",
+            "Object is completely hidden or not rendered."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely out of frame, showing only a blank wall and surface, making it impossible to evaluate its placement or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Modern-Office-Full-set-01_d2deb1e1_Guy-in-casual-outfit_b8a8ab68_c3_v0.png",
+          "azimuth": 331.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.614991664886475,
+            -2.0876410007476807,
+            1.3688089847564697
+          ],
+          "camera_forward": [
+            0.47209081053733826,
+            0.869483232498169,
+            -0.14535894989967346
+          ],
+          "camera_up": [
+            0.06935928761959076,
+            0.1277439445257187,
+            0.9893789887428284
+          ],
+          "camera_radius": 4.19215092083203
+        }
+      ]
+    }
+  ]
+}

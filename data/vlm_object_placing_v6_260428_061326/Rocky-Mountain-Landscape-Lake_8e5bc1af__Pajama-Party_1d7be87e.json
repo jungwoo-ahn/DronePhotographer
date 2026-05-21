@@ -1,0 +1,111 @@
+{
+  "scene": "Rocky-Mountain-Landscape-Lake_8e5bc1af",
+  "scene_file": "data/scenes/Rocky-Mountain-Landscape-Lake_8e5bc1af/Rocky-Mountain-Landscape-Lake_8e5bc1af.blend",
+  "scene_scale": 10.0,
+  "object": "Pajama-Party_1d7be87e",
+  "object_file": "data/objects/Pajama-Party_1d7be87e/Pajama-Party_1d7be87e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -205.96420288085938,
+        -3221.8818359375,
+        670.7736206054688
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -205.96420288085938,
+            -3221.8818359375,
+            670.7736206054688
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            6.0,
+            7.0,
+            7.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Rocky-Mountain-Landscape-Lake_8e5bc1af_Pajama-Party_1d7be87e_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is standing in the middle of a lake, which is not a plausible location for a person.",
+            "The object is placed in an empty environment with no context or plausible location.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the surroundings are completely empty, making the placement implausible and the scene quality low."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

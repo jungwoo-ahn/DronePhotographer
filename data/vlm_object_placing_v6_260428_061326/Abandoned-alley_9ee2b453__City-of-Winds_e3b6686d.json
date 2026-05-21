@@ -1,0 +1,142 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "City-of-Winds_e3b6686d",
+  "object_file": "data/objects/City-of-Winds_e3b6686d/City-of-Winds_e3b6686d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.7609224319458,
+        -1.7896229028701782,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.7609224319458,
+            -1.7896229028701782,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            1.0,
+            1.0,
+            1.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is not visible",
+            "Object is occluded by a wall",
+            "Render is partially black/broken",
+            "Object is heavily cropped",
+            "Minor cropping at the top of the frame",
+            "Object is likely occluded by or embedded in the door geometry",
+            "Object is likely occluded by the wall",
+            "Object is mostly out of frame",
+            "Object is heavily occluded by foreground elements",
+            "Object is occluded by foreground elements"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the brick wall in the foreground, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_City-of-Winds_e3b6686d_c1_v0.png",
+          "azimuth": 95.0,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.671694755554199,
+            -1.4318619966506958,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9893826246261597,
+            -0.08655991405248642,
+            -0.11674490571022034
+          ],
+          "camera_up": [
+            -0.11630065739154816,
+            -0.01017498504370451,
+            0.9931619167327881
+          ],
+          "camera_radius": 4.290952627338561
+        }
+      ]
+    }
+  ]
+}

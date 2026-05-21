@@ -1,0 +1,453 @@
+{
+  "scene": "Off-road-near-the-lake_02431e02",
+  "scene_file": "data/scenes/Off-road-near-the-lake_02431e02/Off-road-near-the-lake_02431e02.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-in-sportswear-standing_cbf7dfde",
+  "object_file": "data/objects/Girl-in-sportswear-standing_cbf7dfde/Girl-in-sportswear-standing_cbf7dfde.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -5.653439521789551,
+        -42.741851806640625,
+        -1.4071197509765625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.653439521789551,
+            -42.741851806640625,
+            -1.4071197509765625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            8.0,
+            8.0,
+            9.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is standing in water, which is not a typical place for a person to stand unless they are swimming or wading.",
+            "The person is too small for the scene. The car appears to be much larger than a normal car."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears too small for the scene, suggesting the scene is scaled up or the person is scaled down."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_v0.png",
+          "azimuth": 306.1,
+          "elevation": 20,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -9.868902206420898,
+            -45.815818786621094,
+            1.1928728818893433
+          ],
+          "camera_forward": [
+            0.7592623233795166,
+            0.5536632537841797,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            0.2763487994670868,
+            0.20151686668395996,
+            0.9396926760673523
+          ],
+          "camera_radius": 5.8291815651445775
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c0_v1.png",
+          "azimuth": 189.8,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.5414605140686035,
+            -37.60076141357422,
+            1.1928728818893433
+          ],
+          "camera_forward": [
+            0.15994465351104736,
+            -0.9259805083274841,
+            -0.34202027320861816
+          ],
+          "camera_up": [
+            0.0582151934504509,
+            -0.33702945709228516,
+            0.9396925568580627
+          ],
+          "camera_radius": 5.829181197036764
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -13.485433578491211,
+        -58.40583801269531,
+        -1.407135009765625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -13.485433578491211,
+            -58.40583801269531,
+            -1.407135009765625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person appears to be too small for the scene. The car appears to be much larger than a normal car.",
+            "The person is standing in water, which is not a typical place for a person to stand unless they are swimming or wading.",
+            "The person appears to be too small for the scene. The car in the background seems disproportionately large.",
+            "The person appears to be too small for the scene. The car in the background appears to be much larger than a normal car."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but standing in water is unusual, and the scale of the person relative to the car suggests the scene might be too large."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_v0.png",
+          "azimuth": 352.9,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -14.130290031433105,
+            -63.58305358886719,
+            1.1928578615188599
+          ],
+          "camera_forward": [
+            0.11614742130041122,
+            0.9324869513511658,
+            -0.34202027320861816
+          ],
+          "camera_up": [
+            0.04227423667907715,
+            0.3393976390361786,
+            0.9396925568580627
+          ],
+          "camera_radius": 5.8291819485901915
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c1_v1.png",
+          "azimuth": 176.7,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -13.18510913848877,
+            -53.197269439697266,
+            1.1928578615188599
+          ],
+          "camera_forward": [
+            -0.054092515259981155,
+            -0.9381344318389893,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.019688032567501068,
+            -0.34145301580429077,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.829180343870128
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -13.485433578491211,
+        -19.245872497558594,
+        0.099029541015625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -13.485433578491211,
+            -19.245872497558594,
+            0.099029541015625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person appears to be too small for the scene. The car appears to be much larger than a normal car.",
+            "The person is standing in water, which is not a typical place for a person to stand unless they are swimming or wading."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears too small relative to the car and the overall scene, suggesting the scene is too large."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_v0.png",
+          "azimuth": 290.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -16.838998794555664,
+            -20.46647071838379,
+            2.0044240951538086
+          ],
+          "camera_forward": [
+            0.8903629183769226,
+            0.32406577467918396,
+            -0.31974244117736816
+          ],
+          "camera_up": [
+            0.3004596531391144,
+            0.10935826599597931,
+            0.9475045204162598
+          ],
+          "camera_radius": 4.0455885208397
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Off-road-near-the-lake_02431e02_Girl-in-sportswear-standing_cbf7dfde_c2_v1.png",
+          "azimuth": 158.7,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -12.189065933227539,
+            -15.920862197875977,
+            2.0044240951538086
+          ],
+          "camera_forward": [
+            -0.3441823124885559,
+            -0.8827816247940063,
+            -0.31974220275878906
+          ],
+          "camera_up": [
+            -0.11614680290222168,
+            -0.2979010045528412,
+            0.9475045800209045
+          ],
+          "camera_radius": 4.045588859704309
+        }
+      ]
+    }
+  ]
+}

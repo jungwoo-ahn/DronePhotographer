@@ -1,0 +1,69 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 0.5,
+  "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+  "object_file": "data/objects/spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/spider-man-no-way-home-suit_2K_1ac6fb05-8276-4645-a0b1-5dd80f9c74bb.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.010355889797210693,
+        -0.434182345867157,
+        -2.9802322387695312e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.010355889797210693,
+            -0.434182345867157,
+            -2.9802322387695312e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded, fully visible, and placed in a plausible location within the kitchen scene. The scale appears correct for the environment."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A Spider-Man figurine would not naturally fit in a simple kitchen scene."
+    }
+  ]
+}

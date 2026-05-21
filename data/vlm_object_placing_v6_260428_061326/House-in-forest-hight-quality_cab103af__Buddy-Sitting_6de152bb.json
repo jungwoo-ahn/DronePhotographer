@@ -1,0 +1,408 @@
+{
+  "scene": "House-in-forest-hight-quality_cab103af",
+  "scene_file": "data/scenes/House-in-forest-hight-quality_cab103af/House-in-forest-hight-quality_cab103af.blend",
+  "scene_scale": 1.0,
+  "object": "Buddy-Sitting_6de152bb",
+  "object_file": "data/objects/Buddy-Sitting_6de152bb/Buddy-Sitting_6de152bb.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        22.50188446044922,
+        19.09590721130371,
+        -1.8954228162765503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            22.50188446044922,
+            19.09590721130371,
+            -1.8954228162765503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            2.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person relative to the house and dock appears too small.",
+            "The surroundings are empty.",
+            "Object is sitting on water, which is not a plausible surface.",
+            "Object is floating in water, which is not a plausible location for a person to sit.",
+            "The object is placed in an implausible location.",
+            "Object is not grounded on a surface."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is floating on water, which is not a plausible location for a person to be sitting. The surroundings are also empty, and the object is not grounded on a surface."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c0_v1.png",
+          "azimuth": 74.1,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            25.77358627319336,
+            18.163938522338867,
+            0.8293399810791016
+          ],
+          "camera_forward": [
+            -0.7878122925758362,
+            0.22441430389881134,
+            -0.5735765099525452
+          ],
+          "camera_up": [
+            -0.5516322255134583,
+            0.15713652968406677,
+            0.8191519975662231
+          ],
+          "camera_radius": 4.358546961143313
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.37071990966796875,
+        19.09590721130371,
+        -1.8954228162765503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.37071990966796875,
+            19.09590721130371,
+            -1.8954228162765503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            6.0,
+            6.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person relative to the house and dock appears too small."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears too small for the scene, suggesting the scene is too large. The placement on the dock is plausible, but the scale issue reduces the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c1_v0.png",
+          "azimuth": 180.1,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            0.3647826611995697,
+            22.49775505065918,
+            0.8293399214744568
+          ],
+          "camera_forward": [
+            0.001429703552275896,
+            -0.8191508650779724,
+            -0.5735763311386108
+          ],
+          "camera_up": [
+            0.0010011387057602406,
+            -0.573575496673584,
+            0.8191521167755127
+          ],
+          "camera_radius": 4.358547606825587
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -15.858800888061523,
+        -11.887724876403809,
+        -0.0731666088104248
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -15.858800888061523,
+            -11.887724876403809,
+            -0.0731666088104248
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            6.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person relative to the house and dock appears too small.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears too small for the scene, suggesting the scene is too large. The surroundings are not empty, providing context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_v0.png",
+          "azimuth": 161.9,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -14.801925659179688,
+            -8.654211044311523,
+            1.9213449954986572
+          ],
+          "camera_forward": [
+            -0.2794745862483978,
+            -0.8550536036491394,
+            -0.43678054213523865
+          ],
+          "camera_up": [
+            -0.13569733500480652,
+            -0.41516682505607605,
+            0.8995680809020996
+          ],
+          "camera_radius": 3.9434343305382016
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Buddy-Sitting_6de152bb_c2_v1.png",
+          "azimuth": 221.9,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -18.13066864013672,
+            -9.355687141418457,
+            1.9213449954986572
+          ],
+          "camera_forward": [
+            0.6007608771324158,
+            -0.6695589423179626,
+            -0.4367804527282715
+          ],
+          "camera_up": [
+            0.29169604182243347,
+            -0.3251008689403534,
+            0.8995681405067444
+          ],
+          "camera_radius": 3.943434587491619
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "scene": "italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6",
+  "scene_file": "data/scenes/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6/italian-cafe_61ba9dfe-fd8c-4953-af72-4204117f6103.blend",
+  "scene_scale": 0.7142857142857143,
+  "object": "A-young-humble-man-walks-talking_eed072a6",
+  "object_file": "data/objects/A-young-humble-man-walks-talking_eed072a6/A-young-humble-man-walks-talking_eed072a6.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        4.27316951751709,
+        -0.1756647825241089,
+        0.010258464142680168
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            4.27316951751709,
+            -0.1756647825241089,
+            0.010258464142680168
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_A-young-humble-man-walks-talking_eed072a6_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_A-young-humble-man-walks-talking_eed072a6_c0_iter0_v1.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_A-young-humble-man-walks-talking_eed072a6_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is placed too far back in the scene, making them appear small and out of place."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but their scale and placement in the scene are not ideal, making them appear too small and distant."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "The scene depicts an outdoor area with grass and trees, while the object is described as being in an Italian cafe, making the pairing incongruous."
+    }
+  ]
+}

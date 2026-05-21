@@ -1,0 +1,679 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e",
+  "object_file": "data/objects/The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e/The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -7.957537651062012,
+        11.374128341674805,
+        2.6226043701171875e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.957537651062012,
+            11.374128341674805,
+            2.6226043701171875e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            1.0,
+            4.0,
+            7.0,
+            6.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v4.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "The person is cropped at the bottom of the frame.",
+            "Bar stool is placed on the sidewalk without a corresponding bar or counter.",
+            "The person's lower legs are clipping with the water/ground.",
+            "The object is placed in an implausible location (sitting in a water feature/planter).",
+            "Object (person on bar stool) is placed implausibly on exterior stairs.",
+            "Object is completely hidden from view.",
+            "The object 'man on bar stool' is missing the bar stool component.",
+            "Object (bar stool) is placed without a corresponding bar or high table, making the placement awkward."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view in the rendered image, making evaluation impossible. Furthermore, placing a person on a bar stool on exterior stairs is an implausible location."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_v0.png",
+          "azimuth": 173.0,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.482997417449951,
+            15.238951683044434,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.11328716576099396,
+            -0.9226502180099487,
+            -0.3686226010322571
+          ],
+          "camera_up": [
+            -0.044923700392246246,
+            -0.3658749461174011,
+            0.9295791387557983
+          ],
+          "camera_radius": 4.490350885194647
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c0_v1.png",
+          "azimuth": 66.8,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.474233865737915,
+            9.023981094360352,
+            1.7441604137420654
+          ],
+          "camera_forward": [
+            -0.9051716327667236,
+            0.38795703649520874,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.1596062332391739,
+            0.06840725243091583,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.215456603287768
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -5.216626649555483,
+        14.940893204174094,
+        0.0026948675513267517
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.853091716766357,
+            15.365560531616211,
+            0.0026948675513267517
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            3.0,
+            2.5,
+            5.5,
+            4.0,
+            3.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v2.png",
+              "quality": 2.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v3.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter0_v5.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 5.5,
+          "vlm_issues": [
+            "Object is in an implausible location (person on a bar stool in a parking lot).",
+            "The surroundings are empty, showing only a road and sky, with no architectural context from the scene.",
+            "surroundings_empty",
+            "The person on the stool is placed in an open paved area without any clear purpose or context.",
+            "The object is described as 'The-Curly-Observer-Man-on-Bar-Stool' but is rendered as a man standing without a bar stool. This makes the placement of the described object implausible, as a man on a bar stool would not typically be standing on a sidewalk.",
+            "The object (man on a bar stool) is in a somewhat implausible location (on a public sidewalk without a corresponding high table or counter).",
+            "The object is placed in an implausible location (a person on a bar stool on a public sidewalk next to a road).",
+            "Object is too small in the frame and partially obscured by a pillar, making it less than 70% visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person on a bar stool is placed in an implausible location in an empty paved area or parking lot outside the mall, and the immediate surroundings are mostly empty ground."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -5.216626649555483,
+            14.940893204174094,
+            0.0026948675513267517
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.5,
+            3.0,
+            8.5,
+            5.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v1.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v4.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_iter1_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "surroundings_empty",
+            "The object is completely hidden behind a wall.",
+            "The person is sitting on a bar stool in an open paved area without a bar or table, making the placement awkward.",
+            "Implausible location for the object.",
+            "The surroundings are empty, showing only a plain wall texture."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by a wall, making it impossible to evaluate its placement or scale. The rendered image shows only a wall texture, providing no meaningful context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c1_v0.png",
+          "azimuth": 60.4,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            -0.02946336567401886,
+            11.994174003601074,
+            1.7468525171279907
+          ],
+          "camera_forward": [
+            -0.8562854528427124,
+            0.4864376485347748,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.15098612010478973,
+            0.08577188104391098,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.215457140313473
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -7.957537651062012,
+        -0.6001667976379395,
+        -0.08045999705791473
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.957537651062012,
+            -0.6001667976379395,
+            -0.08045999705791473
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            5.5,
+            3.0,
+            3.5,
+            9.5,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v1.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v3.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object (person on a bar stool) is placed on a curb, which is an implausible location for a bar stool.",
+            "The surroundings are empty, showing only a plain sky and ground, with no architectural context from the scene.",
+            "The surroundings are empty, showing only a road, sky, and a few foreground elements, with no architectural context from the mall building.",
+            "Object is in an implausible location (person on a bar stool on a sidewalk outside a mall without a bar or designated seating area).",
+            "Object is in an implausible location (a person on a bar stool on a decorative curb/planter outside a mall).",
+            "Object is in an implausible location (person on a bar stool on a public sidewalk).",
+            "Object is in an implausible location (person on a bar stool on a street corner)."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.0,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object, a person on a bar stool, is placed implausibly on a street corner outside the mall, and the rendered view lacks significant architectural context of the main building."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_v0.png",
+          "azimuth": 96.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            -4.087957859039307,
+            -0.16612398624420166,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.9171465635299683,
+            -0.10287441313266754,
+            -0.385044127702713
+          ],
+          "camera_up": [
+            -0.38264450430870056,
+            -0.042920563369989395,
+            0.9228981733322144
+          ],
+          "camera_radius": 4.530961043911479
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c2_v1.png",
+          "azimuth": 13.3,
+          "elevation": 35,
+          "preview_quality": 5.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            -6.815980911254883,
+            -5.429293632507324,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.21863128244876862,
+            0.9248754978179932,
+            -0.31113606691360474
+          ],
+          "camera_up": [
+            -0.0715768039226532,
+            0.3027910590171814,
+            0.9503653645515442
+          ],
+          "camera_radius": 5.476420434695435
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -14.166430473327637,
+        13.148097038269043,
+        1.152000069618225
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -14.166430473327637,
+            13.148097038269043,
+            1.152000069618225
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            9.5,
+            9.5,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object (man on bar stool) is not fully visible as the bar stool is completely obscured by the glass railing and the bottom of the frame.",
+            "Object is not visible in the rendered image.",
+            "The placement of a bar stool in this open walkway area without a bar or counter is implausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object, 'The-Curly-Observer-Man-on-Bar-Stool', is not visible anywhere in the rendered image, making it impossible to evaluate its placement, scale, or plausibility. The camera view shows only the exterior of the building and stairs."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_v0.png",
+          "azimuth": 192.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -15.022478103637695,
+            16.946680068969727,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.21873991191387177,
+            -0.9706259369850159,
+            -0.10019053518772125
+          ],
+          "camera_up": [
+            0.022026367485523224,
+            -0.09773936122655869,
+            0.9949682950973511
+          ],
+          "camera_radius": 4.042009838846342
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_The-Curly-Observer-Man-on-Bar-Stool_2a4ad05e_c3_v1.png",
+          "azimuth": 252.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -19.862266540527344,
+            14.922152519226074,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.9527053236961365,
+            -0.29673436284065247,
+            -0.06558400392532349
+          ],
+          "camera_up": [
+            0.06261705607175827,
+            -0.01950295828282833,
+            0.9978470802307129
+          ],
+          "camera_radius": 6.063465434804675
+        }
+      ]
+    }
+  ]
+}

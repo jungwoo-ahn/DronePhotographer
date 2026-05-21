@@ -1,0 +1,141 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Relaxed-Pose-Sneakerhead_75996846",
+  "object_file": "data/objects/Relaxed-Pose-Sneakerhead_75996846/Relaxed-Pose-Sneakerhead_75996846.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7305092215538025,
+        0.6147390007972717,
+        -0.9917062520980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7305092215538025,
+            0.6147390007972717,
+            -0.9917062520980835
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is sitting on a stool in the middle of a grassy field with a pond. This is an unusual placement for a person.",
+            "Object is partially cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is fully visible and grounded, but the placement in a field with a pond is unusual and not a typical environment for a person to be sitting on a stool."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_v0.png",
+          "azimuth": 125.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            3.788900852203369,
+            3.8028318881988525,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.8168923258781433,
+            -0.5762542486190796,
+            -0.024859683588147163
+          ],
+          "camera_up": [
+            -0.020313868299126625,
+            -0.014330062083899975,
+            0.9996909499168396
+          ],
+          "camera_radius": 5.586014198897058
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Relaxed-Pose-Sneakerhead_75996846_c0_v1.png",
+          "azimuth": 202.5,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.8470287322998047,
+            5.7244696617126465,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.3825652301311493,
+            -0.9235939979553223,
+            -0.024859683588147163
+          ],
+          "camera_up": [
+            0.00951346941292286,
+            -0.022967319935560226,
+            0.9996909499168396
+          ],
+          "camera_radius": 5.58601449766644
+        }
+      ]
+    }
+  ]
+}

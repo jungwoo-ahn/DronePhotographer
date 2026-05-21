@@ -1,0 +1,714 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Young-Tall-Guy-Talking-by-Phone_7e126859",
+  "object_file": "data/objects/Young-Tall-Guy-Talking-by-Phone_7e126859/Young-Tall-Guy-Talking-by-Phone_7e126859.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.1530585289001465,
+        -21.375587463378906,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.1530585289001465,
+            -21.375587463378906,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.5,
+            9.5,
+            9.0,
+            4.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v1.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is not placed within the visible context of the bookstore scene shown in the reference image.",
+            "Object is significantly obscured by another object (lamppost).",
+            "Surroundings are empty, showing only a plain ground and sky without any scene context from the bookstore."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on the sidewalk and is grounded, but a significant portion of their body is obscured by the lamppost, making them not fully visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_v0.png",
+          "azimuth": 298.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -9.726487159729004,
+            -24.426950454711914,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8770322799682617,
+            0.480161190032959,
+            0.01611131615936756
+          ],
+          "camera_up": [
+            -0.014132029376924038,
+            -0.007736940868198872,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.391628151671472
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c0_v1.png",
+          "azimuth": 358.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -4.297215461730957,
+            -27.727998733520508,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.022684400901198387,
+            0.9996128678321838,
+            0.016111435368657112
+          ],
+          "camera_up": [
+            -0.0003655246109701693,
+            -0.016107289120554924,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.391627744704111
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        1.4643018245697021,
+        -12.013321876525879,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.4643018245697021,
+            -12.013321876525879,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            1.0,
+            9.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The bookstore building, which is the primary context of the scene, is not visible in the frame.",
+            "Object is extremely blurry and difficult to discern, making it hard to clearly identify.",
+            "Object is partly cut off at the frame edge.",
+            "The surroundings around the object are mostly empty, lacking any meaningful scene context from the bookstore.",
+            "The object is not placed within the visible context of the bookstore scene shown in the reference image; it appears in a distant, generic landscape."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is extremely blurry and difficult to discern, making it hard to clearly identify, and it is placed in a distant, generic landscape that lacks any meaningful context from the bookstore scene, resulting in empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_v0.png",
+          "azimuth": 314.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.090981960296631,
+            -16.44314193725586,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.7168175578117371,
+            0.6970745921134949,
+            0.016111435368657112
+          ],
+          "camera_up": [
+            -0.01155043300241232,
+            -0.01123235747218132,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.391628410451992
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c1_v1.png",
+          "azimuth": 284.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -4.695599555969238,
+            -13.572016716003418,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9693195223808289,
+            0.24527545273303986,
+            0.016111435368657112
+          ],
+          "camera_up": [
+            -0.015619155950844288,
+            -0.003952255938202143,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.391628447753688
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        14.571477890014648,
+        -10.140868186950684,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            14.571477890014648,
+            -10.140868186950684,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            9.5,
+            5.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v3.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is placed in a generic outdoor environment, completely detached from the 'Bookstore' scene shown in the reference image.",
+            "The object is not placed within the visible context of the bookstore scene shown in the reference image.",
+            "The primary context of the scene, the bookstore building, is not visible in the frame.",
+            "The surroundings are sparse and do not provide the intended context of the bookstore."
+          ],
+          "vlm_adjustment": {
+            "forward": -2.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is well-grounded, fully visible, and scaled appropriately, but its placement is awkward as it's in a generic outdoor area completely detached from the specific bookstore scene, making the surroundings sparse and lacking context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_v0.png",
+          "azimuth": 244.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.850810050964355,
+            -7.375389099121094,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9002018570899963,
+            -0.43517476320266724,
+            0.01611131615936756
+          ],
+          "camera_up": [
+            -0.01450532115995884,
+            0.007012146059423685,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.391628074736721
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c2_v1.png",
+          "azimuth": 353.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            13.808122634887695,
+            -16.448894500732422,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.1201213002204895,
+            0.9926284551620483,
+            0.01611131615936756
+          ],
+          "camera_up": [
+            -0.0019355652621015906,
+            -0.01599462702870369,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.3916274406078255
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -4.1530585289001465,
+        -0.778600811958313,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.1530585289001465,
+            -0.778600811958313,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            3.0,
+            7.5,
+            9.5,
+            3.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_iter0_v5.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is significantly obscured by the tree.",
+            "The object is significantly obscured by another object (lamppost), making more than 30% of it cropped out.",
+            "The primary context of the scene, the bookstore, is only partially visible on the far left, making the overall scene less representative of a 'Bookstore'."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is plausibly placed and scaled on the sidewalk in front of the bookstore, but a lamppost significantly obscures the left side of the person, preventing them from being mostly visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_v0.png",
+          "azimuth": 257.9,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -10.36594009399414,
+            0.5533252358436584,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9776563048362732,
+            -0.20959129929542542,
+            0.016111554577946663
+          ],
+          "camera_up": [
+            -0.015753598883748055,
+            0.0033773290924727917,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.39162834750538
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c3_v1.png",
+          "azimuth": 245.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -9.930388450622559,
+            1.866466760635376,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9091180562973022,
+            -0.4162267744541168,
+            0.016111435368657112
+          ],
+          "camera_up": [
+            -0.01464911550283432,
+            0.006706845946609974,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.391628412783348
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        29.551105499267578,
+        -13.885775566101074,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            29.551105499267578,
+            -13.885775566101074,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.5,
+            5.5,
+            3.5,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v3.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v4.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "The object is significantly obscured by the lamppost, making more than 30% of it hidden from view.",
+            "The object is heavily cropped at the top and bottom of the frame, with more than 30% of the body cut off.",
+            "The object is not placed within the visible context of the bookstore scene shown in the reference image.",
+            "The primary context of the scene, the bookstore building, is not visible in the frame.",
+            "The area around the object is mostly empty, with no architecture, furniture, or other significant scene detail visible from the 'Bookstore' scene.",
+            "The object is placed in a generic outdoor environment, completely detached from the 'Bookstore' scene shown in the reference image.",
+            "The scale of the object cannot be properly assessed due to the lack of contextual elements in the frame.",
+            "The object is partly cut off at the frame edge (the head is cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.7,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily occluded by the lamppost, making a significant portion of their body invisible, which constitutes clipping and poor visibility."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Young-Tall-Guy-Talking-by-Phone_7e126859_c4_v0.png",
+          "azimuth": 247.9,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            23.663898468017578,
+            -11.49522876739502,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9264084100723267,
+            -0.3761753439903259,
+            0.016111554577946663
+          ],
+          "camera_up": [
+            -0.014927847310900688,
+            0.00606148224323988,
+            0.9998701810836792
+          ],
+          "camera_radius": 6.39162834750538
+        }
+      ]
+    }
+  ]
+}

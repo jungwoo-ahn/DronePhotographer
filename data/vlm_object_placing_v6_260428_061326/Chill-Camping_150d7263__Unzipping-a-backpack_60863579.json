@@ -1,0 +1,146 @@
+{
+  "scene": "Chill-Camping_150d7263",
+  "scene_file": "data/scenes/Chill-Camping_150d7263/Chill-Camping_150d7263.blend",
+  "scene_scale": 2.0,
+  "object": "Unzipping-a-backpack_60863579",
+  "object_file": "data/objects/Unzipping-a-backpack_60863579/Unzipping-a-backpack_60863579.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        1.2556266784667969,
+        1.9437694549560547,
+        -0.051341909915208817
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.2556266784667969,
+            1.9437694549560547,
+            -0.051341909915208817
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            3.0,
+            2.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "object is heavily cropped (head missing)",
+            "lack of scene context",
+            "surroundings_empty=true",
+            "The object is clipping through a large grey plane/artifact in the background.",
+            "visibility is less than 70%",
+            "placement is unrealistic and disconnected from the main camping area",
+            "clipping with ground geometry (stool legs hanging off edge)",
+            "object is placed on an artificial floating plane instead of the scene's natural terrain",
+            "likely clipping with vehicle interior",
+            "Placement is at the edge of the high-detail ground texture, creating an unrealistic transition.",
+            "object is mostly hidden inside the vehicle",
+            "stool is hanging off the edge of the pier/ground",
+            "lack of scene context (surroundings_empty)",
+            "unrealistic placement (sitting on a stool at the edge of a void/water)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and the stool they are sitting on is dangerously hanging off the edge of the ground over the water."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Chill-Camping_150d7263_Unzipping-a-backpack_60863579_c4_v0.png",
+          "azimuth": 325.5,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.5025330781936646,
+            -2.0693788528442383,
+            0.961311936378479
+          ],
+          "camera_forward": [
+            0.563618004322052,
+            0.8200691938400269,
+            -0.09910223633050919
+          ],
+          "camera_up": [
+            0.05613216012716293,
+            0.08167272061109543,
+            0.9950772523880005
+          ],
+          "camera_radius": 4.973758272737927
+        }
+      ]
+    }
+  ]
+}

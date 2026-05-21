@@ -1,0 +1,69 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 0.5,
+  "object": "Squattin-guy-in-hoodie_5b2a348d",
+  "object_file": "data/objects/Squattin-guy-in-hoodie_5b2a348d/Squattin-guy-in-hoodie_5b2a348d.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.046483516693115234,
+        -1.4703099727630615,
+        1.2500001192092896
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.046483516693115234,
+            -1.4703099727630615,
+            1.2500001192092896
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png"
+          ],
+          "view_qualities": [
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Squattin-guy-in-hoodie_5b2a348d_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting plausibly on a stool in a kitchen, is fully visible, grounded, and not clipping with any scene elements. The scale appears correct for the environment."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A person in a hoodie squatting would not naturally be found in a simple kitchen scene."
+    }
+  ]
+}

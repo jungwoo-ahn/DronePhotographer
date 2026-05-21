@@ -1,0 +1,297 @@
+{
+  "scene": "Picnic",
+  "scene_file": "data/scenes/Picnic/Picnic.blend",
+  "scene_scale": 0.5,
+  "object": "Girl-with-purse-and-coffee_66ad3b47",
+  "object_file": "data/objects/Girl-with-purse-and-coffee_66ad3b47/Girl-with-purse-and-coffee_66ad3b47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.48030924797058105,
+        -0.4078792333602905,
+        -0.09157393127679825
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.48030924797058105,
+            -0.4078792333602905,
+            -0.09157393127679825
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is partially occluded by a tree trunk.",
+            "Object is heavily cropped, only legs and torso are visible.",
+            "Object is floating, not grounded."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped, with only the lower body visible, and it is floating above the ground, which is not plausible for a person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_v0.png",
+          "azimuth": 291.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.726848840713501,
+            -1.7129796743392944,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.9277697205543518,
+            0.3729609549045563,
+            0.011976119130849838
+          ],
+          "camera_up": [
+            -0.011111894622445107,
+            -0.00446690246462822,
+            0.9999282956123352
+          ],
+          "camera_radius": 3.5479445504335825
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Girl-with-purse-and-coffee_66ad3b47_c0_v1.png",
+          "azimuth": 21.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            1.182877779006958,
+            -4.5451860427856445,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.3729712665081024,
+            0.9277952909469604,
+            0.009397769346833229
+          ],
+          "camera_up": [
+            0.0035053102765232325,
+            -0.008719568140804768,
+            0.9999558329582214
+          ],
+          "camera_radius": 4.497566399563882
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        0.2696908712387085,
+        -4.407878875732422,
+        -0.1098044365644455
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.2696908712387085,
+            -4.407878875732422,
+            -0.1098044365644455
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            6.0,
+            7.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is partially occluded by a tree trunk.",
+            "Object is heavily cropped, only legs and torso are visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and not clipping, but it is heavily cropped and partially occluded by a tree trunk, making it difficult to fully assess the placement and scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_v0.png",
+          "azimuth": 62.3,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            4.217742919921875,
+            -6.480652332305908,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            -0.8853812217712402,
+            0.46483540534973145,
+            0.005310077220201492
+          ],
+          "camera_up": [
+            0.004701525904238224,
+            -0.0024683147203177214,
+            0.9999858736991882
+          ],
+          "camera_radius": 4.499982333810885
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Picnic_Girl-with-purse-and-coffee_66ad3b47_c2_v1.png",
+          "azimuth": 212.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.6051907539367676,
+            -1.4535380601882935,
+            0.4954538941383362
+          ],
+          "camera_forward": [
+            0.5358144640922546,
+            -0.8443086743354797,
+            0.006766907405108213
+          ],
+          "camera_up": [
+            -0.003625994548201561,
+            0.005713422782719135,
+            0.9999771118164062
+          ],
+          "camera_radius": 3.55100675481612
+        }
+      ]
+    }
+  ]
+}

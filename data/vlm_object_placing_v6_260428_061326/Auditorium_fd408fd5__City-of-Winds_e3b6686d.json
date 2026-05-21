@@ -1,0 +1,756 @@
+{
+  "scene": "Auditorium_fd408fd5",
+  "scene_file": "data/scenes/Auditorium_fd408fd5/Auditorium_fd408fd5.blend",
+  "scene_scale": 2.0,
+  "object": "City-of-Winds_e3b6686d",
+  "object_file": "data/objects/City-of-Winds_e3b6686d/City-of-Winds_e3b6686d.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        22.84885597229004,
+        42.00039291381836,
+        0.45683860778808594
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            22.84885597229004,
+            42.00039291381836,
+            0.45683860778808594
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            10.0,
+            9.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is not visible in the frame",
+            "Object is not visible",
+            "Render is too dark/broken",
+            "Object is likely occluded by foreground furniture",
+            "Possible clipping with ceiling",
+            "Object is significantly occluded by foreground furniture (chair).",
+            "Camera is pointing at a wall or ceiling",
+            "Potential clipping with ceiling"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the render, which only shows a close-up of a textured surface, likely a wall or ceiling panel."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c0_v0.png",
+          "azimuth": 88.8,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            29.136465072631836,
+            41.86868667602539,
+            2.333237409591675
+          ],
+          "camera_forward": [
+            -0.9845917820930481,
+            0.020624151453375816,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.1736101359128952,
+            0.003636551322415471,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.56294482645095
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        28.514236450195312,
+        42.00039291381836,
+        0.45683860778808594
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.514236450195312,
+            42.00039291381836,
+            0.45683860778808594
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            10.0,
+            10.0,
+            7.0,
+            1.0,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is likely occluded by furniture or clipping through it",
+            "Object is not visible in the frame",
+            "Object is not visible",
+            "Awkward framing with a large chair in the foreground partially obscuring the object."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered frame, likely occluded by the foreground pillar or seats."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_v0.png",
+          "azimuth": 95.2,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            34.77734375,
+            42.57038116455078,
+            2.333237409591675
+          ],
+          "camera_forward": [
+            -0.9807546734809875,
+            -0.08925572037696838,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17293354868888855,
+            -0.015738194808363914,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.562946799372581
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c1_v1.png",
+          "azimuth": 88.3,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            34.80045700073242,
+            41.81382369995117,
+            2.333237409591675
+          ],
+          "camera_forward": [
+            -0.9843742847442627,
+            0.029215388000011444,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.17357179522514343,
+            0.0051514459773898125,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.562944953740812
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        28.514236450195312,
+        53.33115768432617,
+        0.45683813095092773
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            28.514236450195312,
+            53.33115768432617,
+            0.45683813095092773
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            0.0,
+            1.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is occluded by furniture",
+            "Object is not visible in the frame",
+            "Object is likely clipping through a seat",
+            "Object is heavily occluded by foreground furniture",
+            "Object is heavily occluded by furniture (seats)",
+            "Object is likely occluded by furniture"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the auditorium chairs in the foreground, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c2_v0.png",
+          "azimuth": 87.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            34.79859161376953,
+            53.08973693847656,
+            2.3332366943359375
+          ],
+          "camera_forward": [
+            -0.9840819239616394,
+            0.03780452534556389,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            -0.17351987957954407,
+            0.006665926426649094,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.56294708034677
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        34.90077822110162,
+        53.24774028370574,
+        0.447929322719574
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            35.79829788208008,
+            53.33115768432617,
+            0.447929322719574
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is significantly occluded by furniture",
+            "Only a small portion of the object is visible",
+            "Object is partially occluded by furniture",
+            "Object is not visible in the frame",
+            "Object is heavily occluded by chairs",
+            "Scale is slightly off (chairs are too large)",
+            "Object is clipping through a chair",
+            "Object is likely occluded by furniture or clipping through it",
+            "Object is clipping through the auditorium chairs",
+            "Object is clipping through auditorium seats"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the auditorium chairs in the foreground and is likely clipping through them based on metadata."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            34.90077822110162,
+            53.24774028370574,
+            0.447929322719574
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            2.0,
+            3.0,
+            9.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c3_iter1_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Only a small portion of the object is visible",
+            "Object is not visible in the frame",
+            "Object is heavily occluded by foreground furniture",
+            "Object is clipping through the auditorium chair armrest",
+            "Object is clipping through a chair",
+            "Object is mostly occluded by the auditorium seating",
+            "Object is heavily occluded by furniture",
+            "Object is likely occluded by or clipping through furniture",
+            "More than 30% of the object is hidden"
+          ],
+          "vlm_adjustment": {
+            "forward": 4.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind the rows of chairs and is clipping through one of them, making it nearly impossible to see."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        6.662053108215332,
+        39.167701721191406,
+        2.247929334640503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.662053108215332,
+            39.167701721191406,
+            2.247929334640503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            10.0,
+            9.5,
+            10.0,
+            1.0,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v2.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "Object is likely occluded by the large pillar or stage structure",
+            "Object is completely hidden behind a wall",
+            "Object is not visible in the frame",
+            "The view is entirely obstructed by a perforated screen"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, likely hidden behind the large blue pillar or the stage structure, making the placement useless for this camera angle."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_v0.png",
+          "azimuth": 278.5,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.602295398712158,
+            38.56096649169922,
+            5.212060928344727
+          ],
+          "camera_forward": [
+            0.8720073699951172,
+            0.1303224265575409,
+            -0.4718254506587982
+          ],
+          "camera_up": [
+            0.4666428565979004,
+            0.06974029541015625,
+            0.8816919922828674
+          ],
+          "camera_radius": 5.063184509389097
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Auditorium_fd408fd5_City-of-Winds_e3b6686d_c4_v1.png",
+          "azimuth": 338.5,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            4.357131004333496,
+            33.316314697265625,
+            4.124327659606934
+          ],
+          "camera_forward": [
+            0.3609331548213959,
+            0.9162824749946594,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.06364227086305618,
+            0.161565363407135,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.562946667683664
+        }
+      ]
+    }
+  ]
+}

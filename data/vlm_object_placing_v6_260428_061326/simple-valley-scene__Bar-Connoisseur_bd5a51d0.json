@@ -1,0 +1,352 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Bar-Connoisseur_bd5a51d0",
+  "object_file": "data/objects/Bar-Connoisseur_bd5a51d0/Bar-Connoisseur_bd5a51d0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -6.3809309005737305,
+        1.5476512908935547,
+        -0.6655354499816895
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.3809309005737305,
+            1.5476512908935547,
+            -0.6655354499816895
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a fallen tree, which is an unusual but not impossible location. The scale of the person relative to the tree seems plausible.",
+            "The object is a person sitting on a stool in a natural landscape. While grounded, the placement is somewhat unusual for a person.",
+            "surroundings_empty=true",
+            "The object is placed on a small, isolated stool in the middle of a grassy field, which is an unusual and implausible location for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded on a stool, fully visible, and the scene has rich surroundings. The scale appears appropriate for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_v0.png",
+          "azimuth": 237.3,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -9.52127456665039,
+            3.563715696334839,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.840451180934906,
+            -0.5395601987838745,
+            0.05016573145985603
+          ],
+          "camera_up": [
+            -0.04221509397029877,
+            0.027101410552859306,
+            0.9987409114837646
+          ],
+          "camera_radius": 3.7597636255036027
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c0_v1.png",
+          "azimuth": 103.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.8145541548728943,
+            2.8532328605651855,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9730561375617981,
+            -0.2282281070947647,
+            0.032766956835985184
+          ],
+          "camera_up": [
+            0.03190120309591293,
+            0.007482422515749931,
+            0.9994630217552185
+          ],
+          "camera_radius": 5.735733618369238
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        0.535736620426178,
+        2.6309850215911865,
+        -0.7424566745758057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.535736620426178,
+            2.6309850215911865,
+            -0.7424566745758057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a fallen tree, which is an unusual but not impossible location. The scale of the person relative to the tree seems plausible.",
+            "The object is a person sitting on a stool in a natural landscape. While grounded, the placement is somewhat unusual for a person.",
+            "The object is placed on a stool in a natural landscape, which is an unusual but not impossible location. The scale of the person relative to the stool seems plausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded on a stool in a natural landscape. While the placement is unusual, it is plausible, and the scale appears correct. The surroundings are not empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_v0.png",
+          "azimuth": 136.4,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            4.478593349456787,
+            6.771392345428467,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.689490556716919,
+            -0.7240367531776428,
+            0.01932707615196705
+          ],
+          "camera_up": [
+            0.01332838274538517,
+            0.01399607490748167,
+            0.9998131990432739
+          ],
+          "camera_radius": 5.742384495891754
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c1_v1.png",
+          "azimuth": 196.4,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.0785325765609741,
+            8.115802764892578,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.2822885513305664,
+            -0.9591348171234131,
+            0.01932707615196705
+          ],
+          "camera_up": [
+            -0.0054567959159612656,
+            0.018540745601058006,
+            0.9998131990432739
+          ],
+          "camera_radius": 5.742384371334482
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -4.464263439178467,
+        -3.3690152168273926,
+        -0.3244972229003906
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.464263439178467,
+            -3.3690152168273926,
+            -0.3244972229003906
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c2_iter0_v3.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Bar-Connoisseur_bd5a51d0_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a fallen tree, which is an unusual but not impossible location. The scale of the person relative to the tree seems plausible.",
+            "The object is a person sitting on a stool in a natural landscape. While grounded, the placement is somewhat unusual for a person.",
+            "The object is placed on a stool in a natural landscape, which is an unusual but not impossible location. The scale of the person relative to the stool and the surrounding terrain seems plausible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded on a fallen tree, which is an unusual but plausible location in a natural landscape. The scale appears correct, and the object is fully visible without clipping."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

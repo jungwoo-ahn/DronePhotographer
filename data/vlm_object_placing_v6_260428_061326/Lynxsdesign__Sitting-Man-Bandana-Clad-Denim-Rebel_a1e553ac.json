@@ -1,0 +1,185 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+  "object_file": "data/objects/Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.382510185241699,
+        -1.291744589805603,
+        1.350000023841858
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.382510185241699,
+            -1.291744589805603,
+            1.350000023841858
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "Object is on a roof, which is not a plausible location for a person to be sitting.",
+            "Object is not visible in the rendered image.",
+            "The scale of the person relative to the building appears too small."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but is sitting on a roof which is an implausible location, and the scale appears too small for the environment."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -4.382510185241699,
+            -1.291744589805603,
+            1.350000023841858
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_iter1_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is on a roof, which is not a plausible location for a person to be sitting.",
+            "The scale of the person relative to the building seems too small."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting on a roof, which is an implausible location, and the scale appears too small for the building."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_v0.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -0.6030840873718262,
+            0.8903077244758606,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8268309235572815,
+            -0.4773711562156677,
+            0.2974346876144409
+          ],
+          "camera_up": [
+            0.2575860321521759,
+            0.14871729910373688,
+            0.9547421932220459
+          ],
+          "camera_radius": 4.443631670646615
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac_c0_v1.png",
+          "azimuth": 60.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -1.4167991876602173,
+            -3.0039989948272705,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8049113750457764,
+            0.4647156596183777,
+            0.36899465322494507
+          ],
+          "camera_up": [
+            0.3195587694644928,
+            -0.18449726700782776,
+            0.9294314980506897
+          ],
+          "camera_radius": 3.525294886422384
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "scene": "Living-room-classic-style-high-quality_a4dda8b0",
+  "scene_file": "data/scenes/Living-room-classic-style-high-quality_a4dda8b0/Living-room-classic-style-high-quality_a4dda8b0.blend",
+  "scene_scale": 0.5,
+  "object": "Guy-in-Japan-bomber_e8891318",
+  "object_file": "data/objects/Guy-in-Japan-bomber_e8891318/Guy-in-Japan-bomber_e8891318.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -2.016221408026106,
+        0.6571159188737745,
+        -0.05969385802745819
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.588087797164917,
+            0.39884936809539795,
+            -0.05969385802745819
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Japan-bomber_e8891318_c0_iter0.png"
+          ],
+          "view_qualities": [
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Japan-bomber_e8891318_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 1.0,
+          "vlm_issues": [
+            "Surroundings are empty (blank wall).",
+            "Object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image shows only a blank wall, indicating the object is completely hidden and not visible. The surroundings are empty."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -2.016221408026106,
+            0.6571159188737745,
+            -0.05969385802745819
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Japan-bomber_e8891318_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Japan-bomber_e8891318_c0_iter1.png"
+          ],
+          "view_qualities": [
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Living-room-classic-style-high-quality_a4dda8b0_Guy-in-Japan-bomber_e8891318_c0_iter1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed outside the window, looking into the living room. The scale is appropriate, the object is fully visible, grounded, and not clipping. The surroundings show greenery and structures, providing good context."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

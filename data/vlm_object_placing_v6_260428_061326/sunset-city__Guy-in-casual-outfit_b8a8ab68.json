@@ -1,0 +1,433 @@
+{
+  "scene": "sunset-city",
+  "scene_file": "data/scenes/sunset-city/Sunset city.blend",
+  "scene_scale": 1.0,
+  "object": "Guy-in-casual-outfit_b8a8ab68",
+  "object_file": "data/objects/Guy-in-casual-outfit_b8a8ab68/Guy-in-casual-outfit_b8a8ab68.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -31.760101318359375,
+        8.328369140625,
+        -1.1427990784795838e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -31.760101318359375,
+            8.328369140625,
+            -1.1427990784795838e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            7.0,
+            2.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scene is too empty and lacks context for the object.",
+            "The surroundings are empty, with only a flat plane and sky visible.",
+            "The scene is too small for the person, making the person appear to tower over the environment. The person's head is well above the apparent height of the buildings.",
+            "The scene is extremely sparse and lacks any context or detail, making it impossible to judge the scale or plausibility of the object's placement. The object is standing in an empty, featureless expanse with only a hint of a horizon line and a cloudy sky. This is not a realistic or interesting environment for a person.",
+            "The scale of the object relative to the scene is not determinable due to the lack of context.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene is too small for the person, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_v0.png",
+          "azimuth": 249.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -37.44441604614258,
+            10.51037311553955,
+            1.824040174484253
+          ],
+          "camera_forward": [
+            0.9193972945213318,
+            -0.3529234528541565,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.16211454570293427,
+            -0.062229715287685394,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.356076071431011
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Guy-in-casual-outfit_b8a8ab68_c0_v1.png",
+          "azimuth": 119.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -28.314937591552734,
+            10.309426307678223,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            -0.8296877145767212,
+            -0.4770914614200592,
+            -0.2898310422897339
+          ],
+          "camera_up": [
+            -0.25125348567962646,
+            -0.14447736740112305,
+            0.9570778012275696
+          ],
+          "camera_radius": 4.428490909380593
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        13.206766128540039,
+        1.2927372455596924,
+        -0.0066130757331848145
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            13.206766128540039,
+            1.2927372455596924,
+            -0.0066130757331848145
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scene is too empty and lacks context for the object.",
+            "The surroundings are empty, with only a flat plane and sky visible.",
+            "The scene is a bit empty and lacks context for the object."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a plausible urban environment, but the scene lacks rich context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_v0.png",
+          "azimuth": 110.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            16.931650161743164,
+            2.678009033203125,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            -0.896636962890625,
+            -0.33345645666122437,
+            -0.2912883460521698
+          ],
+          "camera_up": [
+            -0.27301931381225586,
+            -0.10153502225875854,
+            0.9566352963447571
+          ],
+          "camera_radius": 4.431412093691089
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Guy-in-casual-outfit_b8a8ab68_c1_v1.png",
+          "azimuth": 278.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            9.278359413146973,
+            0.6916062831878662,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.9456281661987305,
+            0.14470115303993225,
+            -0.2912883460521698
+          ],
+          "camera_up": [
+            0.2879367470741272,
+            0.04406055808067322,
+            0.9566352963447571
+          ],
+          "camera_radius": 4.431411942373122
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        25.136751174926758,
+        24.235015869140625,
+        6.453402647821349e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            25.136751174926758,
+            24.235015869140625,
+            6.453402647821349e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            8.0,
+            8.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scene is too empty and lacks context for the object.",
+            "The surroundings are empty, with only a flat plane and sky visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene lacks context and is too empty, with only a flat plane and sky visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sunset-city_Guy-in-casual-outfit_b8a8ab68_c2_v0.png",
+          "azimuth": 322.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            22.081783294677734,
+            20.19562339782715,
+            1.9539159536361694
+          ],
+          "camera_forward": [
+            0.5868660807609558,
+            0.7759760618209839,
+            -0.23119103908538818
+          ],
+          "camera_up": [
+            0.13945622742176056,
+            0.18439429998397827,
+            0.9729083776473999
+          ],
+          "camera_radius": 5.428379565448006
+        }
+      ]
+    }
+  ]
+}

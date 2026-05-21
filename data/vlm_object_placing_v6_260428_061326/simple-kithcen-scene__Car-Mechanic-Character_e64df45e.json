@@ -1,0 +1,119 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 1.0,
+  "object": "Car-Mechanic-Character_e64df45e",
+  "object_file": "data/objects/Car-Mechanic-Character_e64df45e/Car-Mechanic-Character_e64df45e.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.8630995750427246,
+        2.289247512817383,
+        0.15000002086162567
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8630995750427246,
+            2.289247512817383,
+            0.15000002086162567
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, scale, or grounding."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Car-Mechanic-Character_e64df45e_c0_v0.png",
+          "azimuth": 6.4,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.27570945024490356,
+            -2.9474565982818604,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.11023987829685211,
+            0.9828105568885803,
+            -0.1480899602174759
+          ],
+          "camera_up": [
+            -0.016507430002093315,
+            0.14716704189777374,
+            0.9889739155769348
+          ],
+          "camera_radius": 5.442030934489292
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A car mechanic character is not typically found in a kitchen environment, making the pairing unnatural."
+    }
+  ]
+}

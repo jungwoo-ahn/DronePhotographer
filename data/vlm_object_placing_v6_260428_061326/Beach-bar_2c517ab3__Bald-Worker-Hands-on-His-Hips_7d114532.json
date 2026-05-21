@@ -1,0 +1,681 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 1.0,
+  "object": "Bald-Worker-Hands-on-His-Hips_7d114532",
+  "object_file": "data/objects/Bald-Worker-Hands-on-His-Hips_7d114532/Bald-Worker-Hands-on-His-Hips_7d114532.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        7.15891170501709,
+        -11.276921272277832,
+        -7.450580596923828e-09
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            7.15891170501709,
+            -11.276921272277832,
+            -7.450580596923828e-09
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            4.0,
+            9.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Foreground pillar partially obscures the person.",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and in a plausible location, but the framing is poor as the head is completely cut off, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_v0.png",
+          "azimuth": 250.7,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.6881184577941895,
+            -9.711271286010742,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            0.9386955499649048,
+            -0.3287266492843628,
+            -0.10387218743562698
+          ],
+          "camera_up": [
+            0.09803468734025955,
+            -0.03433120995759964,
+            0.9945906400680542
+          ],
+          "camera_radius": 4.883311424705305
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c0_v1.png",
+          "azimuth": 130.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            11.476461410522461,
+            -7.5632429122924805,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            -0.7552898526191711,
+            -0.6496517658233643,
+            -0.08654383569955826
+          ],
+          "camera_up": [
+            -0.06561190634965897,
+            -0.05643503740429878,
+            0.9962480664253235
+          ],
+          "camera_radius": 5.817225432496398
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -2.091088056564331,
+        -0.2769211530685425,
+        9.5367431640625e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.091088056564331,
+            -0.2769211530685425,
+            9.5367431640625e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.5,
+            3.0,
+            4.0,
+            9.5,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the top edge of the frame.",
+            "The person is partially occluded by the table.",
+            "The umbrella pole is clipping through the person's body.",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping through the umbrella pole and is partially hidden by the table, making the placement poor despite correct scaling."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_v0.png",
+          "azimuth": 19.6,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.1807025521993637,
+            -5.64190673828125,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            -0.33419299125671387,
+            0.9385229349136353,
+            -0.0865434780716896
+          ],
+          "camera_up": [
+            -0.02903117425739765,
+            0.0815289169549942,
+            0.9962480664253235
+          ],
+          "camera_radius": 5.81722591406931
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c1_v1.png",
+          "azimuth": 289.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.456073760986328,
+            -2.1873064041137695,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            0.9385229349136353,
+            0.3341929316520691,
+            -0.08654371649026871
+          ],
+          "camera_up": [
+            0.08152919262647629,
+            0.029031120240688324,
+            0.9962480664253235
+          ],
+          "camera_radius": 5.81722556569742
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.5910881757736206,
+        -1.2769211530685425,
+        2.384185791015625e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5910881757736206,
+            -1.2769211530685425,
+            2.384185791015625e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            10.0,
+            3.0,
+            10.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The person's head and upper torso are heavily cropped out of the frame.",
+            "The framing is dominated by an out-of-focus foreground object.",
+            "Object is heavily cropped by a large foreground surface (more than 50% of the body is hidden)."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly occluded by a large foreground surface, with more than 50% of their body hidden from view, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_v0.png",
+          "azimuth": 342.2,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.33201265335083,
+            -6.699265956878662,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            0.30454835295677185,
+            0.9485570192337036,
+            -0.08654407411813736
+          ],
+          "camera_up": [
+            0.026456130668520927,
+            0.08240114897489548,
+            0.9962480068206787
+          ],
+          "camera_radius": 5.817226047270321
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c2_v1.png",
+          "azimuth": 120.6,
+          "elevation": 35,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.486255168914795,
+            1.1344128847122192,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            -0.8560858964920044,
+            -0.5062879920005798,
+            -0.10387242585420609
+          ],
+          "camera_up": [
+            -0.08940747380256653,
+            -0.05287518724799156,
+            0.9945906400680542
+          ],
+          "camera_radius": 4.8833114491168725
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        3.158911943435669,
+        -10.276921272277832,
+        -0.15000002086162567
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.158911943435669,
+            -10.276921272277832,
+            -0.15000002086162567
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            10.0,
+            3.0,
+            3.0,
+            10.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The person's head and upper torso are heavily cropped out of the frame.",
+            "Object is heavily occluded by the bar structure wall.",
+            "The person is heavily cropped, with the head and upper torso missing from the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly occluded by the wall of the bar structure, making them only partially visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_v0.png",
+          "azimuth": 292.7,
+          "elevation": 20,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -1.8542282581329346,
+            -12.373963356018066,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            0.9161127805709839,
+            0.38321831822395325,
+            -0.11781784892082214
+          ],
+          "camera_up": [
+            0.1086914911866188,
+            0.04546651244163513,
+            0.9930351972579956
+          ],
+          "camera_radius": 5.595984667873579
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c3_v1.png",
+          "azimuth": 262.7,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.489893913269043,
+            -9.553292274475098,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            0.9855987429618835,
+            -0.126257985830307,
+            -0.11249030381441116
+          ],
+          "camera_up": [
+            0.11157851666212082,
+            -0.014293484389781952,
+            0.9936528205871582
+          ],
+          "camera_radius": 5.849660459878082
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        3.158911943435669,
+        -12.276921272277832,
+        -0.14999999105930328
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.158911943435669,
+            -12.276921272277832,
+            -0.14999999105930328
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            10.0,
+            7.0,
+            10.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v1.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the top edge of the frame.",
+            "The person's head is cut off by the top edge of the frame.",
+            "Object is completely hidden behind the building structure.",
+            "The person's head and upper torso are heavily cropped out of the frame.",
+            "A large foreground object (pillar/tree) partially obscures the view."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely occluded by the wall of the beach bar structure, making them invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_Bald-Worker-Hands-on-His-Hips_7d114532_c4_v1.png",
+          "azimuth": 249.0,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.157797336578369,
+            -10.236027717590332,
+            1.1863698959350586
+          ],
+          "camera_forward": [
+            0.9276548027992249,
+            -0.35609331727027893,
+            -0.11249030381441116
+          ],
+          "camera_up": [
+            0.10501877963542938,
+            -0.040312834084033966,
+            0.9936528205871582
+          ],
+          "camera_radius": 5.849660811413047
+        }
+      ]
+    }
+  ]
+}

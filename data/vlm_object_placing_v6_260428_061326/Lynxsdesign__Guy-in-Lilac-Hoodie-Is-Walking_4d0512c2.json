@@ -1,0 +1,112 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2",
+  "object_file": "data/objects/Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2/Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.458072662353516,
+        -1.3673063516616821,
+        1.350000023841858
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.458072662353516,
+            -1.3673063516616821,
+            1.350000023841858
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped, only the head and shoulders are visible.",
+            "Object is on a roof, which is not a plausible location for a person to be walking.",
+            "The object is placed on a rooftop, which is not a plausible location for a person to be walking.",
+            "The scale of the scene appears too large for the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a roof, which is an implausible location, and the scale of the scene appears too large for the person, suggesting the scene is too big."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Guy-in-Lilac-Hoodie-Is-Walking_4d0512c2_c0_v0.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.17920999228954315,
+            1.103096842765808,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8262715339660645,
+            -0.47704821825027466,
+            0.29950016736984253
+          ],
+          "camera_up": [
+            0.25937482714653015,
+            0.1497499793767929,
+            0.954096257686615
+          ],
+          "camera_radius": 5.011188000280971
+        }
+      ]
+    }
+  ]
+}

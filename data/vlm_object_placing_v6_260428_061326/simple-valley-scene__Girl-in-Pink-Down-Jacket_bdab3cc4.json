@@ -1,0 +1,140 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-in-Pink-Down-Jacket_bdab3cc4",
+  "object_file": "data/objects/Girl-in-Pink-Down-Jacket_bdab3cc4/Girl-in-Pink-Down-Jacket_bdab3cc4.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7775252461433411,
+        0.5677228569984436,
+        -0.7424567341804504
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7775252461433411,
+            0.5677228569984436,
+            -0.7424567341804504
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            8.0,
+            8.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is slightly overlapping with Landscape.001, but it is not clipping."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is well-grounded in a natural landscape, fully visible, and appears to be at a plausible scale for the environment. The surroundings provide good context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v0.png",
+          "azimuth": 124.9,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.338743209838867,
+            2.741661787033081,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.8193606734275818,
+            -0.5715938210487366,
+            0.04391513392329216
+          ],
+          "camera_up": [
+            0.036017127335071564,
+            0.025125795975327492,
+            0.9990352392196655
+          ],
+          "camera_radius": 3.837059563887539
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Girl-in-Pink-Down-Jacket_bdab3cc4_c0_v1.png",
+          "azimuth": 184.9,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.2747677564620972,
+            6.3678083419799805,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.08538179099559784,
+            -0.9959354400634766,
+            0.028679296374320984
+          ],
+          "camera_up": [
+            -0.002449702238664031,
+            0.02857448160648346,
+            0.999588668346405
+          ],
+          "camera_radius": 5.8458643953794605
+        }
+      ]
+    }
+  ]
+}

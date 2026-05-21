@@ -1,0 +1,129 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "Stop-This-Baboonery_1b4ee493",
+  "object_file": "data/objects/Stop-This-Baboonery_1b4ee493/Stop-This-Baboonery_1b4ee493.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -5.456949234008789,
+        -1.3617010116577148,
+        -0.7424561381340027
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.456949234008789,
+            -1.3617010116577148,
+            -0.7424561381340027
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            1.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Render is black.",
+            "The object is not fully visible, with the bottom part cut off.",
+            "The object is not clearly identifiable."
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is completely black, making it impossible to evaluate the object's visibility, placement, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_Stop-This-Baboonery_1b4ee493_c0_v0.png",
+          "azimuth": 124.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -2.509936809539795,
+            0.6789070963859558,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.8217515349388123,
+            -0.5690078735351562,
+            0.030894294381141663
+          ],
+          "camera_up": [
+            0.02539963088929653,
+            0.017587386071681976,
+            0.9995226860046387
+          ],
+          "camera_radius": 3.6242035903498486
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object name 'Stop-This-Baboonery_1b4ee493' suggests a sign or text, which would not naturally appear in a simple valley scene with a person and natural elements."
+    }
+  ]
+}

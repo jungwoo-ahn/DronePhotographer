@@ -1,0 +1,528 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Girl-in-a-Beret-with-Coffee_a37a8219",
+  "object_file": "data/objects/Girl-in-a-Beret-with-Coffee_a37a8219/Girl-in-a-Beret-with-Coffee_a37a8219.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        18.24278450012207,
+        -19.576736450195312,
+        -2.47955313170678e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            18.24278450012207,
+            -19.576736450195312,
+            -2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            3.0,
+            3.0,
+            8.5,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "object placed at the edge of the scene looking into a void",
+            "Object is significantly too large for the scene context (towers over building features)",
+            "surroundings_empty",
+            "object is placed in a void-like area far from the main scene architecture",
+            "Minor cropping at the top of the frame",
+            "surroundings are empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed at the very edge of the environment's geometry, resulting in a shot that faces an empty sky and a flat void instead of the bookstore context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v0.png",
+          "azimuth": 10.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            19.188074111938477,
+            -24.830432891845703,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.177078977227211,
+            0.9841631054878235,
+            0.008125378750264645
+          ],
+          "camera_up": [
+            0.0014388629933819175,
+            -0.007996965199708939,
+            0.9999669790267944
+          ],
+          "camera_radius": 5.374607543146517
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c0_v1.png",
+          "azimuth": 294.6,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            13.389226913452148,
+            -21.79886817932129,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9092061519622803,
+            0.41626688838005066,
+            0.008125259540975094
+          ],
+          "camera_up": [
+            -0.007387801539152861,
+            -0.0033823405392467976,
+            0.9999669790267944
+          ],
+          "camera_radius": 5.374606911013859
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        21.170475711802965,
+        -10.932728964167998,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            21.987689971923828,
+            -12.086921691894531,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            4.0,
+            4.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The object is placed in a very empty part of the scene, far from the main architecture (the bookstore).",
+            "The background shows the edge of the environment map/void.",
+            "The object is placed in the middle of a road with very empty surroundings.",
+            "surroundings_empty=true",
+            "The framing is dominated by a large trash bag in the foreground, obscuring the scene context.",
+            "The object is placed at the edge of the scene looking into a void.",
+            "The object is placed in the middle of the street, which is less plausible than the sidewalk.",
+            "The object is placed at the edge of the scene looking into a void",
+            "The main architectural context (the bookstore) is missing from the view.",
+            "The object is standing in the middle of the street, which is an awkward placement.",
+            "The surroundings are mostly empty, showing a flat horizon/void instead of the bookstore architecture.",
+            "The placement is far from the main architectural interest (the bookstore) shown in the reference.",
+            "The surroundings are very empty, lacking architectural context from the bookstore.",
+            "The background looks like a void/edge of the scene.",
+            "The object's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in an empty area at the edge of the scene, completely disconnected from the bookstore architecture shown in the reference image."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            21.170475711802965,
+            -10.932728964167998,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            7.5,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_iter1_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The object is placed in a very empty part of the scene, far from the main architecture (the bookstore).",
+            "Object is placed at the edge of the scene looking into a void",
+            "The location is far from the main architecture (the bookstore) shown in the reference image",
+            "surroundings_empty=true",
+            "The surroundings are very sparse with no buildings or street depth",
+            "Standing in the middle of the road is less plausible than on the sidewalk.",
+            "The background consists mostly of sky and a void-like horizon.",
+            "The main architectural context (the bookstore) is not visible",
+            "The object is placed at the edge of the scene looking into a void",
+            "The top of the beret is slightly cropped by the top of the frame.",
+            "The surroundings are very empty, showing mostly the road and sky with the bookstore out of frame.",
+            "The person is standing in the middle of the street rather than on the sidewalk.",
+            "The object is placed in the middle of the road, which is an awkward location.",
+            "The placement lacks any interesting context from the bookstore scene.",
+            "The surroundings are empty, showing mostly road and sky.",
+            "The view looks towards the edge of the scene/void."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a very sparse area at the edge of the map, far from the bookstore context, resulting in a 'void' background."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c2_v0.png",
+          "azimuth": 38.0,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 6.5,
+          "camera_position": [
+            24.4569149017334,
+            -15.139178276062012,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.615655779838562,
+            0.7880034446716309,
+            -0.0043109082616865635
+          ],
+          "camera_up": [
+            -0.002654019510373473,
+            0.0033970740623772144,
+            0.999990701675415
+          ],
+          "camera_radius": 5.382739508124265
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -7.971565246582031,
+        -2.72465443611145,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.971565246582031,
+            -2.72465443611145,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            4.0,
+            9.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The object is placed at the edge of the environment, with a visible horizon line where the ground ends.",
+            "The background shows the edge of the environment map/void.",
+            "The object is clipping with the street light pole.",
+            "The surroundings are very empty, showing only asphalt and sky.",
+            "The object is very small in the frame.",
+            "The main architecture (bookstore) is not visible in the frame.",
+            "The surroundings are empty, showing only the edge of the environment map and sky.",
+            "The object is placed at the edge of the environment, far from the main architecture (the bookstore).",
+            "The top of the object's head is slightly cropped.",
+            "The object is placed at the edge of the scene's detailed area, looking into an empty horizon.",
+            "The object is placed far from the main architecture (the bookstore).",
+            "The background consists of an empty grey slope and the edge of the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's right arm is clearly clipping into the street light pole, and the camera angle captures the unfinished edge of the environment map."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Girl-in-a-Beret-with-Coffee_a37a8219_c4_v0.png",
+          "azimuth": 286.7,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -13.084480285644531,
+            -4.258602142333984,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.957813560962677,
+            0.28735798597335815,
+            -0.004311027470976114
+          ],
+          "camera_up": [
+            0.0041291965171694756,
+            0.0012388289906084538,
+            0.999990701675415
+          ],
+          "camera_radius": 5.382740416134109
+        }
+      ]
+    }
+  ]
+}

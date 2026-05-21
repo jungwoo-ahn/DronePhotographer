@@ -1,0 +1,412 @@
+{
+  "scene": "simple-valley-scene",
+  "scene_file": "data/scenes/simple-valley-scene/simple-valley-scene.blend",
+  "scene_scale": 1.0,
+  "object": "standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd",
+  "object_file": "data/objects/standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd/standing-girl-chessboard-outfit_2K_79528d63-252a-4a95-9af1-e3245185fb33.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.552556037902832,
+        -3.457308053970337,
+        -0.7424566745758057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.552556037902832,
+            -3.457308053970337,
+            -0.7424566745758057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            8.0,
+            7.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on a hill, which is a plausible location, but the scale of the hill relative to the person is not clear. The person appears to be standing on a small mound, which is acceptable.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is mostly visible, grounded, and not clipping. The placement on a hill is plausible, and the scale appears reasonable for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_v0.png",
+          "azimuth": 139.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.1152122020721436,
+            0.4969037175178528,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.6559116840362549,
+            -0.754540205001831,
+            0.02118862420320511
+          ],
+          "camera_up": [
+            0.0139011200517416,
+            0.015991143882274628,
+            0.9997754693031311
+          ],
+          "camera_radius": 5.266593894903401
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c0_v1.png",
+          "azimuth": 199.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.258331775665283,
+            1.4966249465942383,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.32549500465393066,
+            -0.9453063011169434,
+            0.02118874341249466
+          ],
+          "camera_up": [
+            -0.006898417137563229,
+            0.020034337416291237,
+            0.9997754693031311
+          ],
+          "camera_radius": 5.266593804363448
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.5525559186935425,
+        -0.4573078751564026,
+        -0.74245685338974
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5525559186935425,
+            -0.4573078751564026,
+            -0.74245685338974
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed on a hill, which is a plausible location, but the scale of the hill relative to the person is not clear. The person appears to be standing on a small mound, which is acceptable.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a plausible location within the scene. However, the surroundings are empty, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_v0.png",
+          "azimuth": 98.9,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            2.826033353805542,
+            0.07176496088504791,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9874394536018372,
+            -0.15462887287139893,
+            0.032453007996082306
+          ],
+          "camera_up": [
+            0.032062288373708725,
+            0.0050206915475428104,
+            0.9994732737541199
+          ],
+          "camera_radius": 3.461310962823446
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c1_v1.png",
+          "azimuth": 213.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.4214487075805664,
+            3.9268198013305664,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            0.5474402904510498,
+            -0.8365764617919922,
+            0.02118862420320511
+          ],
+          "camera_up": [
+            -0.011602154932916164,
+            0.017729856073856354,
+            0.9997754693031311
+          ],
+          "camera_radius": 5.266593713823494
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -1.802556037902832,
+        -1.2073078155517578,
+        -0.8422410488128662
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.802556037902832,
+            -1.2073078155517578,
+            -0.8422410488128662
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed on a hill, which is a plausible location, but the scale of the hill relative to the person is not clear. The person appears to be standing on a small mound, which is acceptable.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible in a plausible natural environment. The surroundings are empty, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_v0.png",
+          "azimuth": 66.1,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            2.987569570541382,
+            -3.3299994468688965,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.9142518639564514,
+            0.40514060854911804,
+            0.002148431958630681
+          ],
+          "camera_up": [
+            0.0019642177503556013,
+            -0.0008704070351086557,
+            0.9999976754188538
+          ],
+          "camera_radius": 5.277658166561744
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-valley-scene_standing-girl-ch_cdef5686-8f83-407c-80b0-5947093216fd_c2_v1.png",
+          "azimuth": 145.2,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            0.14914947748184204,
+            1.6008281707763672,
+            -0.20777110755443573
+          ],
+          "camera_forward": [
+            -0.5707104802131653,
+            -0.8211447596549988,
+            0.0032917638309299946
+          ],
+          "camera_up": [
+            0.0018786201253533363,
+            0.002703053178265691,
+            0.9999945759773254
+          ],
+          "camera_radius": 3.4781224040855463
+        }
+      ]
+    }
+  ]
+}

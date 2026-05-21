@@ -1,0 +1,399 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 1.0,
+  "object": "Boy-scout_c8b693b0",
+  "object_file": "data/objects/Boy-scout_c8b693b0/Boy-scout_c8b693b0.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        45.310455322265625,
+        -12.873429298400879,
+        -0.10213662683963776
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            45.310455322265625,
+            -12.873429298400879,
+            -0.10213662683963776
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            5.0,
+            8.0,
+            3.0,
+            4.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "surroundings_empty=true",
+            "The object is placed in a barren area of the scene far from the main architecture.",
+            "Placement is slightly awkward (sitting in the middle of the street/sidewalk).",
+            "Object is placed in the middle of a road, which is an awkward and implausible location.",
+            "Object's head is cut off by the top of the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the object is grounded and visible, it is placed in a very empty part of the environment with no visible architecture or interesting context, violating the surroundings requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_v0.png",
+          "azimuth": 134.6,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            48.71288299560547,
+            -9.518180847167969,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            -0.7076050639152527,
+            -0.6977932453155518,
+            -0.11126399785280228
+          ],
+          "camera_up": [
+            -0.07922279834747314,
+            -0.07812442630529404,
+            0.993790864944458
+          ],
+          "camera_radius": 4.895703892991972
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Boy-scout_c8b693b0_c0_v1.png",
+          "azimuth": 74.6,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            48.4617919921875,
+            -13.741451263427734,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            -0.9514356851577759,
+            0.26206886768341064,
+            -0.1615239977836609
+          ],
+          "camera_up": [
+            -0.15572451055049896,
+            0.04289380833506584,
+            0.9868687987327576
+          ],
+          "camera_radius": 3.4377455797037326
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -8.426297833296122,
+        -10.996215730778435,
+        -0.10213662683963776
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.42280101776123,
+            -9.992731094360352,
+            -0.10213662683963776
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            3.0,
+            6.0,
+            4.0,
+            6.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "The object is placed in a barren area far from the bookstore architecture.",
+            "surroundings_empty=true",
+            "The placement is somewhat awkward, sitting in the middle of the street rather than on the sidewalk near the bookstore.",
+            "The object is placed in the middle of the street, far from the bookstore architecture.",
+            "The surroundings are mostly empty asphalt and sky, lacking interesting context.",
+            "The object is placed in the middle of the street, which is an awkward and unrealistic location; it should be on the sidewalk.",
+            "The object is placed in the middle of the street, which is an implausible and awkward location for someone sitting on a stool."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a featureless, empty area far from the bookstore building, which violates the requirement for interesting surroundings."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -8.426297833296122,
+            -10.996215730778435,
+            -0.10213662683963776
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            7.0,
+            3.0,
+            6.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in a barren area far from the bookstore architecture.",
+            "The surroundings are mostly empty road and sky, lacking scene context.",
+            "surroundings_empty=true",
+            "The placement in the middle of the road is awkward and lacks narrative logic compared to being on the sidewalk.",
+            "The object is placed in the middle of a road, far from the bookstore architecture.",
+            "The object is placed in the street rather than on the sidewalk, which is slightly awkward.",
+            "The object is placed in the middle of the street, which is an implausible and awkward location for someone sitting on a stool."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The boy scout is placed in a featureless, empty area far from the bookstore shown in the reference image, resulting in a poor composition with no architectural context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_v0.png",
+          "azimuth": 331.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -10.838887214660645,
+            -15.384698867797852,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.47902801632881165,
+            0.8713485598564148,
+            -0.10622552037239075
+          ],
+          "camera_up": [
+            0.051174577325582504,
+            0.0930861085653305,
+            0.9943420886993408
+          ],
+          "camera_radius": 5.1198710503023355
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Boy-scout_c8b693b0_c4_v1.png",
+          "azimuth": 271.2,
+          "elevation": 10,
+          "preview_quality": 6.0,
+          "final_quality": 5.0,
+          "camera_position": [
+            -13.433131217956543,
+            -11.101094245910645,
+            0.9626212120056152
+          ],
+          "camera_forward": [
+            0.9941239953041077,
+            0.020823823288083076,
+            -0.1062256395816803
+          ],
+          "camera_up": [
+            0.10620234161615372,
+            0.0022245252039283514,
+            0.994342029094696
+          ],
+          "camera_radius": 5.119871683144648
+        }
+      ]
+    }
+  ]
+}

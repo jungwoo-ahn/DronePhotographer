@@ -1,0 +1,152 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "Office-Move_3d4b091c",
+  "object_file": "data/objects/Office-Move_3d4b091c/Office-Move_3d4b091c.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.9053781032562256,
+        -0.6451923847198486,
+        -0.026998460292816162
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.9053781032562256,
+            -0.6451923847198486,
+            -0.026998460292816162
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_Office-Move_3d4b091c_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is not visible in the rendered image.",
+            "Object is not visible in the image.",
+            "The object is standing on boxes, which is not a typical placement for a person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Office-Move_3d4b091c_c0_v0.png",
+          "azimuth": 210.4,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.2108306884765625,
+            3.2843570709228516,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.5050406455993652,
+            -0.8608212471008301,
+            -0.06261596828699112
+          ],
+          "camera_up": [
+            0.03168574348092079,
+            -0.0540071576833725,
+            0.9980376958847046
+          ],
+          "camera_radius": 4.656490626934084
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_Office-Move_3d4b091c_c0_v1.png",
+          "azimuth": 240.4,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.013848304748535,
+            1.1206650733947754,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.8667290806770325,
+            -0.4923706352710724,
+            -0.07969877868890762
+          ],
+          "camera_up": [
+            0.06929770112037659,
+            -0.03936653956770897,
+            0.996819019317627
+          ],
+          "camera_radius": 3.7023337440331363
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is described as 'Office-Move_3d4b091c', which implies it is an office-related item, and the scene appears to be a textured wall, making the placement of an office item unnatural."
+    }
+  ]
+}

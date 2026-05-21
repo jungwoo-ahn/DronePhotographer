@@ -1,0 +1,128 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "Relaxed-Pose-Sneakerhead_75996846",
+  "object_file": "data/objects/Relaxed-Pose-Sneakerhead_75996846/Relaxed-Pose-Sneakerhead_75996846.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        6.698153972625732,
+        -42.02811813354492,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.698153972625732,
+            -42.02811813354492,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the surroundings are empty, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Relaxed-Pose-Sneakerhead_75996846_c0_v0.png",
+          "azimuth": 30.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            9.496891975402832,
+            -46.7984504699707,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.505750298500061,
+            0.8620301485061646,
+            0.03347574546933174
+          ],
+          "camera_up": [
+            0.016939904540777206,
+            -0.02887325920164585,
+            0.999439537525177
+          ],
+          "camera_radius": 5.549924890443829
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A pine forest scene is not a natural environment for a person dressed in casual clothing and sitting on a stool in what appears to be a desert landscape."
+    }
+  ]
+}

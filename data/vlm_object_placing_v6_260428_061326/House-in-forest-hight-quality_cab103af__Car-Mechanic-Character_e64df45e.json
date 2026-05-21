@@ -1,0 +1,264 @@
+{
+  "scene": "House-in-forest-hight-quality_cab103af",
+  "scene_file": "data/scenes/House-in-forest-hight-quality_cab103af/House-in-forest-hight-quality_cab103af.blend",
+  "scene_scale": 0.6666666666666666,
+  "object": "Car-Mechanic-Character_e64df45e",
+  "object_file": "data/objects/Car-Mechanic-Character_e64df45e/Car-Mechanic-Character_e64df45e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        12.381019592285156,
+        11.093975067138672,
+        -1.2636139392852783
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            12.381019592285156,
+            11.093975067138672,
+            -1.2636139392852783
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            2.0,
+            2.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not on a plausible surface.",
+            "Object is not in a plausible location or context. A car mechanic sitting on a tire in the middle of a lake is not a realistic scenario.",
+            "The object is sitting on a tire in the water, which is not a plausible location for a person.",
+            "Object is floating in the water.",
+            "The scene is too small for the object.",
+            "The object is placed in the water, which is not a plausible location for a car mechanic character.",
+            "The surroundings are empty, consisting only of water and a distant hill.",
+            "The object is sitting on a tire which is in the water, which is not a typical place for a person to sit."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is placed in a completely implausible location and context for a car mechanic."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c0_v1.png",
+          "azimuth": 195.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            11.27598762512207,
+            15.078592300415039,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            0.24115966260433197,
+            -0.869593620300293,
+            -0.4308699369430542
+          ],
+          "camera_up": [
+            0.11514507979154587,
+            -0.4151993691921234,
+            0.9024140238761902
+          ],
+          "camera_radius": 4.855183612187923
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -10.241947174072266,
+        -3.6601333618164062,
+        0.010184764862060547
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -10.241947174072266,
+            -3.6601333618164062,
+            0.010184764862060547
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is not on a plausible surface.",
+            "Object is not in a plausible location or context. A car mechanic sitting on a tire in the middle of a lake is not a realistic scenario."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is not in a plausible location or on a plausible surface, as it is sitting on a tire in the middle of a lake."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Car-Mechanic-Character_e64df45e_c2_v0.png",
+          "azimuth": 254.6,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -14.228487014770508,
+            -2.56205677986145,
+            1.2808972597122192
+          ],
+          "camera_forward": [
+            0.9505513906478882,
+            -0.2618253827095032,
+            -0.16703154146671295
+          ],
+          "camera_up": [
+            0.16103433072566986,
+            -0.04435630142688751,
+            0.9859515428543091
+          ],
+          "camera_radius": 4.325850278039407
+        }
+      ]
+    }
+  ]
+}

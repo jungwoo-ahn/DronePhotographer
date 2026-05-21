@@ -135,7 +135,11 @@ def collect_accepted_placements(placements_dir: Path) -> list[dict]:
 
 
 def verify_run_dir(run_dir: Path, expected_images: int) -> tuple[bool, str]:
-    images = sorted(p for p in (run_dir / "images").glob("*.png"))
+    images_dir = run_dir / "images"
+    images = sorted(
+        p for p in images_dir.iterdir()
+        if p.suffix.lower() in {".png", ".jpg", ".jpeg"}
+    ) if images_dir.is_dir() else []
     n_images = len(images)
     ann_path = run_dir / "annotations.json"
     if n_images != expected_images:

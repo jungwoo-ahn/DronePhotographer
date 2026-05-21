@@ -1,0 +1,93 @@
+{
+  "scene": "italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6",
+  "scene_file": "data/scenes/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6/italian-cafe_61ba9dfe-fd8c-4953-af72-4204117f6103.blend",
+  "scene_scale": 0.7142857142857143,
+  "object": "I-was-fired_895b0706",
+  "object_file": "data/objects/I-was-fired_895b0706/I-was-fired_895b0706.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        3.3465518951416016,
+        2.1477179527282715,
+        0.010825593024492264
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.3465518951416016,
+            2.1477179527282715,
+            0.010825593024492264
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_I-was-fired_895b0706_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_I-was-fired_895b0706_c0_iter0.png"
+          ],
+          "view_qualities": [
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_I-was-fired_895b0706_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in an outdoor cafe setting, is fully visible, grounded, and not clipping with any objects. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/italian-cafe_09d0c430-d260-4e69-b6ed-8fe958a953e6_I-was-fired_895b0706_c0_v0.png",
+          "azimuth": 0.0,
+          "elevation": 15.0,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.3465518951416016,
+            -3.9525508880615234,
+            1.0806478261947632
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9985221028327942,
+            -0.05434690788388252
+          ],
+          "camera_up": [
+            0.0,
+            0.05434690788388252,
+            0.9985221028327942
+          ],
+          "camera_radius": 6.193367295514266
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object 'I-was-fired_895b0706' appears to be a cardboard box, which is out of place in an outdoor Italian cafe scene."
+    }
+  ]
+}

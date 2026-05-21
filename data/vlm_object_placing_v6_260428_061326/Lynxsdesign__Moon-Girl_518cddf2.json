@@ -1,0 +1,377 @@
+{
+  "scene": "Lynxsdesign",
+  "scene_file": "data/scenes/Lynxsdesign/Lynxsdesign.blend",
+  "scene_scale": 0.3,
+  "object": "Moon-Girl_518cddf2",
+  "object_file": "data/objects/Moon-Girl_518cddf2/Moon-Girl_518cddf2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.529043197631836,
+        -1.4382768869400024,
+        0.17850005626678467
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.529043197631836,
+            -1.4382768869400024,
+            0.17850005626678467
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The person appears to be standing on a roof, which is not a plausible location for a person in this context. The scale of the person relative to the building also seems off, making the scene appear too small.",
+            "Object appears to be too large for the scene.",
+            "Object is partially occluded by the foreground.",
+            "Object is heavily cropped.",
+            "The person appears to be significantly larger than the furniture in the scene, suggesting a scale mismatch."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped and partially occluded, making it difficult to assess the full placement. The object also appears to be too large for the scene, as it is significantly taller than the surrounding furniture. The object is grounded, but the overall visibility and scale issues significantly reduce the quality."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -4.529043197631836,
+            -1.4382768869400024,
+            0.17850005626678467
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c0_iter1_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object appears to be significantly larger than a normal human, as it is taller than the door frame visible through the glass.",
+            "The object is too large for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly too large for the scene, appearing to tower over the building. The object is otherwise grounded and visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Moon-Girl_518cddf2_c0_v0.png",
+          "azimuth": 120.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -0.16604162752628326,
+            1.0807031393051147,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8642815947532654,
+            -0.49899330735206604,
+            0.06342709064483643
+          ],
+          "camera_up": [
+            0.05492951720952988,
+            0.03171345964074135,
+            0.9979864954948425
+          ],
+          "camera_radius": 5.049057231847677
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -4.529043197631836,
+        -1.438276767730713,
+        1.3455002307891846
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.529043197631836,
+            -1.438276767730713,
+            1.3455002307891846
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object appears to be significantly larger than a normal human, as it is taller than the door frame visible through the glass."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.2,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible in a plausible indoor living space, but appears too large for the scene, making the scene seem too small."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Moon-Girl_518cddf2_c1_v0.png",
+          "azimuth": 120.0,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.16604162752628326,
+            1.0807031393051147,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            -0.8305918574333191,
+            -0.4795425832271576,
+            0.2831183969974518
+          ],
+          "camera_up": [
+            0.24518783390522003,
+            0.14155898988246918,
+            0.9590849876403809
+          ],
+          "camera_radius": 5.1062682502821986
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.5290429592132568,
+        1.311722993850708,
+        0.1784999966621399
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.5290429592132568,
+            1.311722993850708,
+            0.1784999966621399
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Lynxsdesign_Moon-Girl_518cddf2_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object appears to be significantly larger than a normal human, as it is taller than the door frame visible through the glass.",
+            "The person appears to be significantly larger than a normal human, as it is taller than the door frame visible through the glass."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but appears too large for the scene, suggesting the scene is too small."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Moon-Girl_518cddf2_c2_v0.png",
+          "azimuth": 307.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.2812750339508057,
+            -0.7622324824333191,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            0.7952105402946472,
+            0.5992341041564941,
+            0.09251285344362259
+          ],
+          "camera_up": [
+            -0.073884017765522,
+            -0.055675674229860306,
+            0.9957115054130554
+          ],
+          "camera_radius": 3.462370823264938
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Lynxsdesign_Moon-Girl_518cddf2_c2_v1.png",
+          "azimuth": 300.0,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.33237361907959,
+            -0.8841308951377869,
+            0.5130726099014282
+          ],
+          "camera_forward": [
+            0.8637328743934631,
+            0.4986763894557953,
+            0.07271415740251541
+          ],
+          "camera_up": [
+            -0.06297226995229721,
+            -0.03635714203119278,
+            0.9973528385162354
+          ],
+          "camera_radius": 4.40443387040524
+        }
+      ]
+    }
+  ]
+}

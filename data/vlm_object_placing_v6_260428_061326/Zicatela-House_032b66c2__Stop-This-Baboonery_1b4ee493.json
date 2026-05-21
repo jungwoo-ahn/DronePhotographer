@@ -1,0 +1,120 @@
+{
+  "scene": "Zicatela-House_032b66c2",
+  "scene_file": "data/scenes/Zicatela-House_032b66c2/Zicatela-House_032b66c2.blend",
+  "scene_scale": 0.65,
+  "object": "Stop-This-Baboonery_1b4ee493",
+  "object_file": "data/objects/Stop-This-Baboonery_1b4ee493/Stop-This-Baboonery_1b4ee493.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.8162803649902344,
+        3.51308012008667,
+        -0.131270170211792
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.8162803649902344,
+            3.51308012008667,
+            -0.131270170211792
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            7.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is heavily occluded by foliage.",
+            "The object is partially obscured by the table in the foreground.",
+            "The object is partially obscured by the doorway.",
+            "Render is black."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The render is completely black, making it impossible to evaluate the object's placement, visibility, or any other aspect of the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Zicatela-House_032b66c2_Stop-This-Baboonery_1b4ee493_c0_v0.png",
+          "azimuth": 147.3,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            0.12023574113845825,
+            6.529513359069824,
+            0.45499998331069946
+          ],
+          "camera_forward": [
+            -0.5401666760444641,
+            -0.8413959741592407,
+            0.016515858471393585
+          ],
+          "camera_up": [
+            0.008922437205910683,
+            0.0138983353972435,
+            0.9998636245727539
+          ],
+          "camera_radius": 3.632172513804682
+        }
+      ]
+    }
+  ]
+}

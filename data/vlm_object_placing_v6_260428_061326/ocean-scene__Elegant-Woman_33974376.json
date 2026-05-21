@@ -1,0 +1,114 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Elegant-Woman_33974376",
+  "object_file": "data/objects/Elegant-Woman_33974376/Elegant-Woman_33974376.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        34.678504943847656,
+        -83.18537902832031,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            34.678504943847656,
+            -83.18537902832031,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Elegant-Woman_33974376_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is sitting on a stool, but the stool appears to be floating on water, which is not a plausible scenario.",
+            "The object is placed in an ocean scene, which is not a plausible environment for a person sitting on a stool.",
+            "The person is sitting on a chair, which is plausible, but the scale of the chair and person relative to the environment seems off. The person appears to be very small compared to the vastness of the ocean and cliffs, suggesting the scene might be too large for the person.",
+            "The scene is very empty, with only a reflective surface and a bright light source. There is no context for the person or the stool.",
+            "The object is placed in an empty body of water with no context or plausible reason for being there.",
+            "The surroundings are empty, consisting only of water and sky."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement in an ocean scene is implausible and the surroundings are empty."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

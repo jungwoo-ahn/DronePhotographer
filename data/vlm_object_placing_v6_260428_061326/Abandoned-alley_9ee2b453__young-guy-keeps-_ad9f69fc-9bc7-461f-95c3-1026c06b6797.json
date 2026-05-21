@@ -1,0 +1,398 @@
+{
+  "scene": "Abandoned-alley_9ee2b453",
+  "scene_file": "data/scenes/Abandoned-alley_9ee2b453/Abandoned-alley_9ee2b453.blend",
+  "scene_scale": 0.8333333333333334,
+  "object": "young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797",
+  "object_file": "data/objects/young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/young-guy-keeps-his-hands-in-pockets_2K_5666adde-dee9-4946-b966-512aea6a2b47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -12.60430422300272,
+        -1.4108072005579402,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.812074661254883,
+            -1.8407750129699707,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            1.0,
+            3.0,
+            1.0,
+            2.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "Object is heavily cropped (head missing)",
+            "Object is placed at the edge of the scene geometry",
+            "The top of the person's head is cut off by the frame edge.",
+            "Surroundings are empty/void",
+            "Less than 70% of the object is visible",
+            "Object is completely hidden behind scene geometry",
+            "Object is heavily occluded by foreground elements",
+            "Object is completely occluded by a wall",
+            "Object is completely hidden behind the door or clipped inside it.",
+            "Surroundings are empty and lack context"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 1.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely hidden behind the brick wall in this camera view, making the placement useless for evaluation."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -12.60430422300272,
+            -1.4108072005579402,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            1.0,
+            3.0,
+            0.0,
+            6.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_iter1_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Render shows only a close-up of a surface",
+            "Object is heavily cropped (head missing)",
+            "Object is clipping into the car",
+            "The person's head is cut off by the top edge of the frame.",
+            "Object is completely hidden behind a wall or door",
+            "Object is not visible in the frame, likely occluded by the wall.",
+            "Object is not visible in the frame"
+          ],
+          "vlm_adjustment": {
+            "forward": 0,
+            "right": 0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered frame, which only shows a close-up of a metal surface, likely a door or wall."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_v0.png",
+          "azimuth": 93.2,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.889464378356934,
+            -1.1472065448760986,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.9920242428779602,
+            -0.055462777614593506,
+            -0.11318926513195038
+          ],
+          "camera_up": [
+            -0.11301277577877045,
+            -0.006318418309092522,
+            0.9935734272003174
+          ],
+          "camera_radius": 4.884843842445672
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c0_v1.png",
+          "azimuth": 120.0,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -8.514756202697754,
+            0.950294554233551,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            -0.8604598641395569,
+            -0.49678677320480347,
+            -0.11318914592266083
+          ],
+          "camera_up": [
+            -0.09802459925413132,
+            -0.056594714522361755,
+            0.9935734868049622
+          ],
+          "camera_radius": 4.884844230620351
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -0.8642911314964294,
+        1.0571675300598145,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8642911314964294,
+            1.0571675300598145,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            6.0,
+            4.0,
+            3.0,
+            8.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is placed at the edge of the scene geometry",
+            "Object is heavily cropped (head missing)",
+            "Slightly cropped at the top",
+            "Surroundings are empty (plain wall background)",
+            "Object is placed at the edge of the scene geometry (blank grey background)",
+            "Object is very small in the frame",
+            "Lighting is very dark",
+            "Object's head is slightly cropped at the top of the frame",
+            "Placement is in a corner with limited visual interest"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed against a blank, featureless wall at the edge of the scene geometry, resulting in an uninteresting composition with empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_v0.png",
+          "azimuth": 285.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -6.3480119705200195,
+            -0.41219058632850647,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.9616182446479797,
+            0.2576647400856018,
+            -0.09433581680059433
+          ],
+          "camera_up": [
+            0.09112139791250229,
+            0.024415913969278336,
+            0.99554044008255
+          ],
+          "camera_radius": 5.813149508211424
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Abandoned-alley_9ee2b453_young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797_c1_v1.png",
+          "azimuth": 303.3,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.96138072013855,
+            -0.977239727973938,
+            1.2499995231628418
+          ],
+          "camera_forward": [
+            0.827136218547821,
+            0.5433267951011658,
+            -0.14367203414440155
+          ],
+          "camera_up": [
+            0.12008214741945267,
+            0.0788792297244072,
+            0.9896253347396851
+          ],
+          "camera_radius": 3.9106620895824142
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,715 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 0.75,
+  "object": "Girls-Hugs_5d7050d8",
+  "object_file": "data/objects/Girls-Hugs_5d7050d8/Girls-Hugs_5d7050d8.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -36.33464431762695,
+        3.2062931060791016,
+        -0.774817705154419
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -36.33464431762695,
+            3.2062931060791016,
+            -0.774817705154419
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            5.5,
+            4.0,
+            9.5,
+            9.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v1.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top.",
+            "Object is placed in the middle of a road/intersection, which is an implausible and unsafe location for people to stand and hug."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped at the top, showing only the lower half of the two people, but is otherwise well-placed and grounded on the pavement with some background context visible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_v0.png",
+          "azimuth": 119.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -31.464948654174805,
+            5.9614338874816895,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.8655080795288086,
+            -0.48968103528022766,
+            -0.10539550334215164
+          ],
+          "camera_up": [
+            -0.0917314738035202,
+            -0.05189940333366394,
+            0.9944303631782532
+          ],
+          "camera_radius": 5.735605850960926
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c0_v1.png",
+          "azimuth": 208.5,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -38.5552978515625,
+            7.296229362487793,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.4733317494392395,
+            -0.8717687726020813,
+            -0.12639711797237396
+          ],
+          "camera_up": [
+            0.06031160429120064,
+            -0.11107989400625229,
+            0.991979718208313
+          ],
+          "camera_radius": 4.821962157751643
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -22.845531463623047,
+        9.950847625732422,
+        -0.8407372236251831
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -22.845531463623047,
+            9.950847625732422,
+            -0.8407372236251831
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.5,
+            3.0,
+            7.5,
+            3.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v1.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top, obscuring a significant portion of the people.",
+            "Object is heavily cropped at the top, with more than 30% of the figures cut off.",
+            "Object is heavily cropped at the bottom."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and in a plausible location on the sidewalk, but a significant portion of the people is cropped out at the top of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_v0.png",
+          "azimuth": 212.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -25.851757049560547,
+            14.669677734375,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.5336118340492249,
+            -0.8376030921936035,
+            -0.11695931851863861
+          ],
+          "camera_up": [
+            0.06284204125404358,
+            -0.09864258766174316,
+            0.9931367039680481
+          ],
+          "camera_radius": 5.750469655054294
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c1_v1.png",
+          "azimuth": 42.0,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -19.101701736450195,
+            5.792903900146484,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.6645382046699524,
+            0.7380443811416626,
+            -0.11695919930934906
+          ],
+          "camera_up": [
+            -0.07826098054647446,
+            0.08691762387752533,
+            0.9931367039680481
+          ],
+          "camera_radius": 5.750470318425684
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        19.869983673095703,
+        11.07494068145752,
+        -0.7747976779937744
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            19.869983673095703,
+            11.07494068145752,
+            -0.7747976779937744
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            5.5,
+            4.0,
+            6.0,
+            3.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v1.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v4.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is clipping with the wall it is hidden behind.",
+            "The rendered view shows only a blank, blurry wall, providing no meaningful scene context.",
+            "Object is completely hidden behind a wall.",
+            "Object is heavily cropped at the top, with more than 30% of the figures cut off.",
+            "The object is placed on the immediate edge of a paved area next to a road, which is a somewhat awkward and exposed location for people to stand and hug.",
+            "The background is mostly empty, lacking architectural context or detailed scene elements.",
+            "Object is placed in the middle of a road/intersection, which is an implausible and unsafe location for people to stand and hug."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wall, resulting in a render that shows only a blurry, featureless surface with no scene context, making the object invisible and likely clipping."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_v0.png",
+          "azimuth": 102.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            24.41533088684082,
+            12.074299812316895,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9688395857810974,
+            -0.21301330626010895,
+            -0.12639309465885162
+          ],
+          "camera_up": [
+            -0.12344464659690857,
+            -0.02714102528989315,
+            0.991980254650116
+          ],
+          "camera_radius": 4.821958838801367
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c2_v1.png",
+          "azimuth": 346.1,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            18.751983642578125,
+            6.557311058044434,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.23830141127109528,
+            0.9629315733909607,
+            -0.12639321386814117
+          ],
+          "camera_up": [
+            0.03036320209503174,
+            0.12269197404384613,
+            0.9919801950454712
+          ],
+          "camera_radius": 4.821959030398187
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        15.373611450195312,
+        -2.414168357849121,
+        -0.8407467603683472
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            15.373611450195312,
+            -2.414168357849121,
+            -0.8407467603683472
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            3.5,
+            9.5,
+            9.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v2.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped at the top, with more than 30% of the figures cut off."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is plausibly placed on a paved surface with a scenic background, but a significant portion of the figures is cropped at the top of the frame."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_v0.png",
+          "azimuth": 81.3,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            18.983510971069336,
+            -2.966560125350952,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9727856516838074,
+            0.1488572210073471,
+            -0.1775658130645752
+          ],
+          "camera_up": [
+            -0.17552272975444794,
+            0.02685871534049511,
+            0.9841089248657227
+          ],
+          "camera_radius": 3.8858320173573144
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c3_v1.png",
+          "azimuth": 21.3,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            16.700176239013672,
+            -5.816628456115723,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.3574790060520172,
+            0.9168855547904968,
+            -0.17756593227386475
+          ],
+          "camera_up": [
+            -0.06450104713439941,
+            0.16543662548065186,
+            0.9841089248657227
+          ],
+          "camera_radius": 3.8858320595394704
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -1.4877748489379883,
+        15.571311950683594,
+        -0.5108389854431152
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.4877748489379883,
+            15.571311950683594,
+            -0.5108389854431152
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            3.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is completely hidden.",
+            "The object is slightly clipping with the door frame/wall on both sides.",
+            "The object is clipping with the door frame/wall of the townhouse.",
+            "Object is heavily cropped at the top, with more than 30% of the figures cut off."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind the wall, making it impossible to evaluate its placement or visibility. The rendered image only shows a close-up of a wall and window."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Girls-Hugs_5d7050d8_c4_v0.png",
+          "azimuth": 5.3,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.9709556102752686,
+            10.000167846679688,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.0922112762928009,
+            0.9940075278282166,
+            -0.058703940361738205
+          ],
+          "camera_up": [
+            -0.005422525107860565,
+            0.05845296382904053,
+            0.9982754588127136
+          ],
+          "camera_radius": 5.683364512221912
+        }
+      ]
+    }
+  ]
+}

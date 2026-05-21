@@ -1,0 +1,689 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Chill-Boy-sitting-with-Stylish-Outfit_12c8375f",
+  "object_file": "data/objects/Chill-Boy-sitting-with-Stylish-Outfit_12c8375f/Chill-Boy-sitting-with-Stylish-Outfit_12c8375f.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        27.427581787109375,
+        -3.1239418983459473,
+        4.500153541564941
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.427581787109375,
+            -3.1239418983459473,
+            4.500153541564941
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            8.0,
+            6.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is completely occluded by the chairs in the foreground.",
+            "Object is heavily occluded by furniture (seats)",
+            "Less than 70% of the object is visible",
+            "Scale seems slightly too large for the seating",
+            "Object is completely occluded by the seat back",
+            "awkward placement",
+            "Object is clipping through the chair",
+            "Object is clipping through the seat backrest",
+            "Object is clipping with the auditorium seat"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a seat but is completely hidden behind the seat back from this camera angle, and the metadata indicates clipping with the seat geometry."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_v0.png",
+          "azimuth": 178.7,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            27.509567260742188,
+            0.4888080954551697,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.02020258828997612,
+            -0.8902414441108704,
+            -0.45504069328308105
+          ],
+          "camera_up": [
+            -0.010323770344257355,
+            -0.4549235701560974,
+            0.8904706239700317
+          ],
+          "camera_radius": 4.341945149948217
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c0_v1.png",
+          "azimuth": 345.9,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            26.5472354888916,
+            -6.628748893737793,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.2169319987297058,
+            0.8636425733566284,
+            -0.45504069328308105
+          ],
+          "camera_up": [
+            0.11085471510887146,
+            0.44133123755455017,
+            0.8904706239700317
+          ],
+          "camera_radius": 4.341944861453347
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        31.09035301208496,
+        -8.118629455566406,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.09035301208496,
+            -8.118629455566406,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.0,
+            9.0,
+            4.0,
+            9.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Less than 70% of the object is visible.",
+            "Object is heavily occluded by the seat in front."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.2,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in a stadium seat, but the seat in the row directly in front occludes the majority of his body, failing the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c1_v1.png",
+          "azimuth": 172.6,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            31.55577850341797,
+            -4.535046577453613,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.12459143996238708,
+            -0.9593026638031006,
+            -0.2534075975418091
+          ],
+          "camera_up": [
+            -0.03263765200972557,
+            -0.2512970268726349,
+            0.9673596024513245
+          ],
+          "camera_radius": 3.9153332769801876
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        31.09035301208496,
+        -1.1260665655136108,
+        5.400152683258057
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.09035301208496,
+            -1.1260665655136108,
+            5.400152683258057
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            6.0,
+            4.0,
+            4.0,
+            7.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v4.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is placed in the middle of a walkway/aisle, which is an awkward sitting location.",
+            "The background is completely black, lacking scene depth/context in the upper half of the frame.",
+            "Less than 70% of the object is visible.",
+            "Object is heavily occluded by the seat in front.",
+            "Object is heavily occluded by the seat in front, with less than 70% visible.",
+            "The top of the person's head is slightly cropped by the upper frame edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed realistically in the audience, but the seat in front occludes more than half of his body, violating the visibility requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_v0.png",
+          "azimuth": 1.7,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            31.19755744934082,
+            -4.738156795501709,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.028697961941361427,
+            0.9669338464736938,
+            -0.25340747833251953
+          ],
+          "camera_up": [
+            -0.007517658174037933,
+            0.2532959580421448,
+            0.9673596024513245
+          ],
+          "camera_radius": 3.915332984286721
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c2_v1.png",
+          "azimuth": 271.7,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            26.487197875976562,
+            -1.2626855373382568,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.9790886044502258,
+            0.02905849553644657,
+            -0.20134815573692322
+          ],
+          "camera_up": [
+            0.2012595385313034,
+            0.005973285995423794,
+            0.9795197248458862
+          ],
+          "camera_radius": 4.845497900396724
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        31.088084867911686,
+        -3.073993369618774,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.09035301208496,
+            -3.1239418983459473,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            3.0,
+            5.0,
+            6.5,
+            4.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v3.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 6.5,
+          "vlm_issues": [
+            "Object is sitting on the floor in an aisle rather than in a seat.",
+            "Object is placed in the middle of a walkway/aisle, which is an awkward sitting location.",
+            "Object is placed in a walkway/aisle rather than in the provided stadium seating, which looks slightly unnatural.",
+            "Object is heavily occluded by the seat it is sitting in.",
+            "The top of the person's head is cropped out of the frame.",
+            "The view from directly behind is not ideal.",
+            "The object is very small in the frame, making it difficult to see details.",
+            "The upper half of the image is a black void, lacking scene depth and context.",
+            "The person is placed in a walkway/aisle rather than a seat.",
+            "The upper half of the frame is a void/black background.",
+            "Object is clipping through the backrest of the seat.",
+            "The scale of the person seems slightly small compared to the arena seating.",
+            "The upper half of the frame is mostly black, lacking scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.1,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is sitting in a seat but is almost entirely hidden by the seat's backrest, and there is visible clipping with the furniture."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            31.088084867911686,
+            -3.073993369618774,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            5.0,
+            4.0,
+            5.5,
+            8.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v2.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_iter1_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is sitting on the floor in an aisle instead of in a seat, which is an awkward placement.",
+            "Object is placed in the middle of a walkway/aisle, which is an awkward sitting location.",
+            "The upper half of the frame is a void of blackness, lacking scene context.",
+            "The top of the object's head is slightly cropped by the frame edge.",
+            "Object is heavily occluded by the seat it is sitting in and the seats in front.",
+            "The object is very small in the frame due to the camera distance.",
+            "The camera angle from behind makes it difficult to see the object clearly.",
+            "The background behind the seating area is a large black void, which lacks visual interest.",
+            "Object is placed in a walkway/aisle, which is an awkward location for sitting.",
+            "The upper half of the frame is a void/black background.",
+            "The background is very dark, lacking scene depth and context.",
+            "Object is placed in a walkway/aisle rather than in the provided seating."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the placement in a seat is plausible, the person is significantly occluded by the furniture, and the dark background provides little context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_v0.png",
+          "azimuth": 332.6,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            29.42506980895996,
+            -6.282273769378662,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.4451788067817688,
+            0.8588366508483887,
+            -0.2534075975418091
+          ],
+          "camera_up": [
+            0.11661813408136368,
+            0.22497916221618652,
+            0.9673596024513245
+          ],
+          "camera_radius": 3.915333189445695
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Chill-Boy-sitting-with-Stylish-Outfit_12c8375f_c3_v1.png",
+          "azimuth": 272.6,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            25.81067657470703,
+            -3.313638687133789,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.983308732509613,
+            0.044651735574007034,
+            -0.1763806939125061
+          ],
+          "camera_up": [
+            0.17619912326335907,
+            0.008001240901648998,
+            0.9843220114707947
+          ],
+          "camera_radius": 5.493598076861987
+        }
+      ]
+    }
+  ]
+}

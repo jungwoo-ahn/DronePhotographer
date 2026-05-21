@@ -1,0 +1,515 @@
+{
+  "scene": "Convention-room_55574faf",
+  "scene_file": "data/scenes/Convention-room_55574faf/Convention-room_55574faf.blend",
+  "scene_scale": 0.8,
+  "object": "Smirk-Guy-in-an-Orange-Hat_3ff0e79c",
+  "object_file": "data/objects/Smirk-Guy-in-an-Orange-Hat_3ff0e79c/Smirk-Guy-in-an-Orange-Hat_3ff0e79c.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        10.908271789550781,
+        -0.6058940887451172,
+        0.3200000822544098
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.908271789550781,
+            -0.6058940887451172,
+            0.3200000822544098
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            4.0,
+            2.0,
+            3.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is significantly occluded by furniture (podium), making it not fully visible.",
+            "Object is clipping with furniture (podium).",
+            "Object is clipping with the podium.",
+            "Object is significantly occluded by the podium, with more than 30% of its body hidden."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.3,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping with the podium and is largely obscured by it, making them not fully visible, despite being in a plausible location and at a realistic scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c0_v0.png",
+          "azimuth": 240.0,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            5.689394950866699,
+            2.4072258472442627,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.8655166029930115,
+            -0.49970629811286926,
+            0.03427303582429886
+          ],
+          "camera_up": [
+            -0.02968139573931694,
+            0.017136383801698685,
+            0.9994125366210938
+          ],
+          "camera_radius": 6.047250721222339
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        10.158271789550781,
+        0.3941059112548828,
+        0.320000022649765
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.158271789550781,
+            0.3941059112548828,
+            0.320000022649765
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.5,
+            3.0,
+            3.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with furniture (podium).",
+            "Object is significantly occluded by furniture (podium).",
+            "Object is significantly occluded by furniture (podium), making it not fully visible.",
+            "Object is partially occluded by furniture (podium)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping with the podium, causing significant occlusion, despite being in a plausible location and at a realistic scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_v0.png",
+          "azimuth": 171.8,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            10.873208045959473,
+            5.355417251586914,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            -0.14250797033309937,
+            -0.9889360666275024,
+            0.041193313896656036
+          ],
+          "camera_up": [
+            0.00587533600628376,
+            0.04077216610312462,
+            0.9991511702537537
+          ],
+          "camera_radius": 5.03779900257448
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c2_v1.png",
+          "azimuth": 306.0,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            6.976125717163086,
+            -1.9178582429885864,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            0.8079027533531189,
+            0.5869755148887634,
+            0.052467964589595795
+          ],
+          "camera_up": [
+            -0.042447518557310104,
+            -0.030839836224913597,
+            0.9986225962638855
+          ],
+          "camera_radius": 3.965464245579342
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        5.158267974853516,
+        -1.605892539024353,
+        2.8610230629055877e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.158267974853516,
+            -1.605892539024353,
+            2.8610230629055877e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            3.0,
+            2.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c3_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is clipping with the wall panel.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "Object is partly cut off by the wall/pillar, making it not fully visible.",
+            "Object is clipping with the wall/pillar structure on the right.",
+            "Object is clipping with the wall paneling.",
+            "Object is clipping with the wall/pillar."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": -0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly cropped by the right edge of the frame and appears to be clipping with the wall panel."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.8417319655418396,
+        0.394107460975647,
+        -0.3199999928474426
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8417319655418396,
+            0.394107460975647,
+            -0.3199999928474426
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            1.0,
+            9.5,
+            1.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is completely hidden by foreground furniture.",
+            "Object is completely hidden and not visible in the frame.",
+            "Object is clipping with furniture (Auditorium chair).",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind the foreground chairs, making it invisible in the rendered scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Convention-room_55574faf_Smirk-Guy-in-an-Orange-Hat_3ff0e79c_c4_v0.png",
+          "azimuth": 101.2,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            5.069738864898682,
+            1.5646097660064697,
+            0.8236608505249023
+          ],
+          "camera_forward": [
+            -0.9784286618232727,
+            -0.19373439252376556,
+            -0.07172388583421707
+          ],
+          "camera_up": [
+            -0.07035791128873825,
+            -0.013931265100836754,
+            0.9974245429039001
+          ],
+          "camera_radius": 6.1338018214678085
+        }
+      ]
+    }
+  ]
+}

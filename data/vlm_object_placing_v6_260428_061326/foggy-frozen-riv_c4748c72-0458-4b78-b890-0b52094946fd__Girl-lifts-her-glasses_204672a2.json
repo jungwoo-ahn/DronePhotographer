@@ -1,0 +1,235 @@
+{
+  "scene": "foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd",
+  "scene_file": "data/scenes/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd/foggy-frozen-river-canyon-scene_d8a6a00e-8ffe-44c1-ab52-af2a2a96eb15.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-lifts-her-glasses_204672a2",
+  "object_file": "data/objects/Girl-lifts-her-glasses_204672a2/Girl-lifts-her-glasses_204672a2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -56.4705924987793,
+        54.108585357666016,
+        -1.1220455169677734
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -56.4705924987793,
+            54.108585357666016,
+            -1.1220455169677734
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            2.0,
+            7.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_iter0_v5.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The object is not in a plausible scale."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person appears extremely small relative to the environment, indicating the scene is too large. The object is grounded and visible, but the scale is implausible."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c1_v0.png",
+          "azimuth": 230.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -60.86738204956055,
+            57.784873962402344,
+            0.5858916640281677
+          ],
+          "camera_forward": [
+            0.7555099725723267,
+            -0.6317048668861389,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.13321684300899506,
+            -0.11138661205768585,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.980293256401073
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -86.98152923583984,
+        41.904212951660156,
+        -0.8918709754943848
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -86.98152923583984,
+            41.904212951660156,
+            -0.8918709754943848
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/foggy-frozen-riv_c4748c72-0458-4b78-b890-0b52094946fd_Girl-lifts-her-glasses_204672a2_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is too small for the scene, suggesting the scene is too large.",
+            "The object is not in a plausible scale.",
+            "The object is not in a plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly too small for the scene, indicating the scene is too large. The object is also placed in an empty, featureless environment, and the scale is not plausible for the scene."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

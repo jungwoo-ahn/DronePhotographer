@@ -1,0 +1,407 @@
+{
+  "scene": "Regular-old-neighborhood_494ef156",
+  "scene_file": "data/scenes/Regular-old-neighborhood_494ef156/Regular-old-neighborhood_494ef156.blend",
+  "scene_scale": 2.0,
+  "object": "Guy-in-jeans-and-tshirt_316852f7",
+  "object_file": "data/objects/Guy-in-jeans-and-tshirt_316852f7/Guy-in-jeans-and-tshirt_316852f7.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -164.878662109375,
+        -52.482147216796875,
+        -0.08524876087903976
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -164.878662109375,
+            -52.482147216796875,
+            -0.08524876087903976
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            2.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scene is too small for the person, making the person appear to tower over the environment.",
+            "The object is too small for the scene.",
+            "The object is placed in an empty, featureless environment with no context or plausible location."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is significantly too small for the scene, making the scale factor incorrect and thus lowering the quality."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_v0.png",
+          "azimuth": 285.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -170.71778869628906,
+            -54.05766296386719,
+            1.7385590076446533
+          ],
+          "camera_forward": [
+            0.9508050680160522,
+            0.2565465569496155,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            0.16765227913856506,
+            0.04523599147796631,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.3169552217097875
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c0_v1.png",
+          "azimuth": 345.1,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -166.4337921142578,
+            -58.32673263549805,
+            1.7385590076446533
+          ],
+          "camera_forward": [
+            0.2532273530960083,
+            0.9516944289207458,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            0.04465075582265854,
+            0.16780933737754822,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.31695214568372
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -184.88980102539062,
+        -2.454315185546875,
+        -0.08524876087903976
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -184.88980102539062,
+            -2.454315185546875,
+            -0.08524876087903976
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The scene is too small for the person, making the person appear to tower over the environment.",
+            "The object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is too small for the scene, appearing to tower over the environment. The surroundings are also empty, with only a plain ground and sky visible."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -234.91763305664062,
+        -82.49888610839844,
+        -0.08524876087903976
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -234.91763305664062,
+            -82.49888610839844,
+            -0.08524876087903976
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            3.0,
+            7.0,
+            4.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The surroundings are empty.",
+            "The scene is too small for the person, making the person appear to tower over the environment.",
+            "The object is too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene is too small for the person, making them appear to tower over the environment, which is a significant scale issue."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_v0.png",
+          "azimuth": 287.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -240.68247985839844,
+            -84.32759857177734,
+            1.7385585308074951
+          ],
+          "camera_forward": [
+            0.9387099146842957,
+            0.2977753281593323,
+            -0.17364786565303802
+          ],
+          "camera_up": [
+            0.16551952064037323,
+            0.052505917847156525,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.316955146224503
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Regular-old-neighborhood_494ef156_Guy-in-jeans-and-tshirt_316852f7_c2_v1.png",
+          "azimuth": 347.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -236.21633911132812,
+            -88.4057388305664,
+            1.7385585308074951
+          ],
+          "camera_forward": [
+            0.21147306263446808,
+            0.9618344306945801,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            0.037288419902324677,
+            0.16959740221500397,
+            0.9848077297210693
+          ],
+          "camera_radius": 6.316946918323103
+        }
+      ]
+    }
+  ]
+}

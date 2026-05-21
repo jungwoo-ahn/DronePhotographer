@@ -1,0 +1,817 @@
+{
+  "scene": "City-in-Italy_7ad60e2f",
+  "scene_file": "data/scenes/City-in-Italy_7ad60e2f/City-in-Italy_7ad60e2f.blend",
+  "scene_scale": 1.0,
+  "object": "All-People-Are-Sisters_1795d425",
+  "object_file": "data/objects/All-People-Are-Sisters_1795d425/All-People-Are-Sisters_1795d425.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        5.188682556152344,
+        -45.057228088378906,
+        0.001099824788980186
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.188682556152344,
+            -45.057228088378906,
+            0.001099824788980186
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            2.0,
+            3.0,
+            2.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (head missing)",
+            "Object is clipping with the fence",
+            "Object is heavily obstructed by the foreground fence",
+            "Object is clipping through the fence bars",
+            "Placement is at the edge of the modeled environment.",
+            "Surroundings are empty (viewing into a grey void)",
+            "Object is clipping with the fence.",
+            "Object is clipping through the fence structure."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cropped out of the frame, violating visibility requirements, and their back/bag is clearly clipping through the wooden fence."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_v0.png",
+          "azimuth": 34.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            8.256646156311035,
+            -49.521141052246094,
+            1.6485424041748047
+          ],
+          "camera_forward": [
+            -0.557801365852356,
+            0.8116057515144348,
+            -0.17364822328090668
+          ],
+          "camera_up": [
+            -0.09835554659366608,
+            0.14310796558856964,
+            0.9848077297210693
+          ],
+          "camera_radius": 5.661535438590414
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c0_v1.png",
+          "azimuth": 334.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            3.6666557788848877,
+            -48.248226165771484,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.41176825761795044,
+            0.8632904887199402,
+            -0.29184994101524353
+          ],
+          "camera_up": [
+            0.12564462423324585,
+            0.2634194791316986,
+            0.9564641118049622
+          ],
+          "camera_radius": 3.9542305648083946
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        17.084453582763672,
+        -51.0051155090332,
+        -0.1202225610613823
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            17.084453582763672,
+            -51.0051155090332,
+            -0.1202225610613823
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            8.5,
+            3.0,
+            8.5,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v1.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (head and shoulders missing)",
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "Object is standing in the middle of the road, which is slightly awkward placement.",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and plausibly placed on the street, but the camera framing is too tight, cutting off the head and shoulders."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_v0.png",
+          "azimuth": 321.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            14.878791809082031,
+            -53.76810073852539,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.5907709002494812,
+            0.7400461435317993,
+            -0.3214365541934967
+          ],
+          "camera_up": [
+            0.20053771138191223,
+            0.25120922923088074,
+            0.9469311237335205
+          ],
+          "camera_radius": 4.010038950914056
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c1_v1.png",
+          "azimuth": 21.4,
+          "elevation": 20,
+          "preview_quality": 8.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            18.97028350830078,
+            -55.81718826293945,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.35542094707489014,
+            0.9069278836250305,
+            -0.2261808067560196
+          ],
+          "camera_up": [
+            -0.08252813667058945,
+            0.21058695018291473,
+            0.9740853309631348
+          ],
+          "camera_radius": 5.503978504061307
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        6.238309860229492,
+        -57.302879333496094,
+        -0.05286502465605736
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.238309860229492,
+            -57.302879333496094,
+            -0.05286502465605736
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            9.5,
+            3.0,
+            3.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The surroundings are empty, showing only a flat plane and sky.",
+            "Surroundings are empty; the person is standing on a plain surface with no visible city architecture or props.",
+            "The background shows the edge of the scene/void, which looks unnatural.",
+            "Surroundings are empty (only pavement visible)",
+            "Object is cropped at the top of the frame (head missing).",
+            "The placement lacks any architectural context from the city scene.",
+            "Object is heavily cropped (head and upper torso missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is heavily cropped with the head and upper body missing, and the tight framing on the pavement results in empty surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_v0.png",
+          "azimuth": 46.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            10.16081714630127,
+            -61.038230895996094,
+            1.594577431678772
+          ],
+          "camera_forward": [
+            -0.7131703495979309,
+            0.6791424751281738,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.12575097382068634,
+            0.11975104361772537,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.661535270142413
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c2_v1.png",
+          "azimuth": 346.4,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            5.406989097595215,
+            -60.7391471862793,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            0.22392910718917847,
+            0.9256119728088379,
+            -0.30511996150016785
+          ],
+          "camera_up": [
+            0.07174652814865112,
+            0.2965646982192993,
+            0.9523138999938965
+          ],
+          "camera_radius": 3.9786938799184917
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        28.07996911058525,
+        -32.1931309301617,
+        -0.05286407098174095
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.230846405029297,
+            -31.062206268310547,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            2.0,
+            2.0,
+            3.0,
+            3.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "The ground beneath the object is a black void, suggesting it is at the edge of the scene geometry.",
+            "Object is mostly hidden behind a fence.",
+            "The ground the object is standing on is a black void (missing texture or broken render).",
+            "The ground is a black void, suggesting the object is placed outside the modeled environment.",
+            "The surroundings are empty, lacking the city context from the reference image.",
+            "Object is heavily cropped (head is missing)",
+            "The person is partially occluded by a fence in the foreground.",
+            "The object is standing on a black, untextured area of the ground which appears to be a hole or missing geometry in the scene.",
+            "Large black void in the foreground suggests the camera is clipping through or positioned behind scene geometry (like a bridge).",
+            "The composition is very poor due to the foreground obstruction.",
+            "Object is clipping with a lamp post.",
+            "Only the head and shoulders are visible.",
+            "The top of the person's head is cropped.",
+            "The surroundings are empty as the immediate environment is a non-rendered surface.",
+            "The placement is in a void-like area that lacks realistic context despite the presence of a fence."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed directly on a large black rectangular area that represents missing geometry or a hole in the scene's ground mesh, making the render look broken."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            28.07996911058525,
+            -32.1931309301617,
+            -0.05286407098174095
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            3.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c3_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Surroundings are empty, showing only a fence and a horizon line, missing the city context from the reference.",
+            "Object is heavily cropped (top of head missing)",
+            "The foreground fence partially occludes the object's lower legs.",
+            "Object is heavily cropped (head missing)",
+            "The foreground is a black void, indicating the object is at the edge of the modeled environment.",
+            "The surroundings are empty, showing only a distant horizon and sky with no immediate architectural context.",
+            "The framing is too tight.",
+            "The person is standing on a black void/unrendered area.",
+            "The surroundings are mostly empty, showing only a fence, the sea, and sky, which lacks the architectural context of the city scene.",
+            "The ground surface the object is standing on is rendered as a solid black void, indicating a broken or missing texture/geometry.",
+            "The ground surface is a black void, likely a missing or broken texture."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is standing on a black void where the bridge surface should be, which constitutes a broken render of the environment's geometry/textures."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        10.08694076538086,
+        -31.062206268310547,
+        -0.05286430940032005
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.08694076538086,
+            -31.062206268310547,
+            -0.05286430940032005
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.5,
+            3.0,
+            9.5,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is heavily cropped, with the head and upper torso missing from the frame.",
+            "The view is facing away from the main city scene towards a horizon line.",
+            "The surroundings are mostly empty, lacking the architectural detail shown in the reference image.",
+            "Minor cropping at the top of the head/hat."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": -0.5
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly on the sidewalk, but the camera framing is too tight, cutting off the head and upper body."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_v0.png",
+          "azimuth": 20.5,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            11.325061798095703,
+            -34.37371063232422,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.3335074782371521,
+            0.8920059204101562,
+            -0.30511996150016785
+          ],
+          "camera_up": [
+            -0.10685531049966812,
+            0.2857973575592041,
+            0.9523138999938965
+          ],
+          "camera_radius": 3.978690187110701
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/City-in-Italy_7ad60e2f_All-People-Are-Sisters_1795d425_c4_v1.png",
+          "azimuth": 80.5,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            14.53056812286377,
+            -31.805814743041992,
+            1.772230625152588
+          ],
+          "camera_forward": [
+            -0.9565181136131287,
+            0.16006609797477722,
+            -0.24382776021957397
+          ],
+          "camera_up": [
+            -0.240483820438385,
+            0.04024309292435646,
+            0.9698185324668884
+          ],
+          "camera_radius": 4.861043986886419
+        }
+      ]
+    }
+  ]
+}

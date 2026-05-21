@@ -1,0 +1,696 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 1.0,
+  "object": "Buyer-in-Beige_5c9ab0f2",
+  "object_file": "data/objects/Buyer-in-Beige_5c9ab0f2/Buyer-in-Beige_5c9ab0f2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -9.00161361694336,
+        -5.902919769287109,
+        -0.05960279703140259
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -9.00161361694336,
+            -5.902919769287109,
+            -0.05960279703140259
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            9.5,
+            4.0,
+            10.0,
+            9.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "object is partially cropped at the top",
+            "The surroundings are mostly empty sky and road, lacking the architectural context of the mall.",
+            "surroundings_empty"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is correctly grounded and scaled on the road, but the tight framing shows only asphalt and a curb, making the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_v0.png",
+          "azimuth": 74.8,
+          "elevation": 50,
+          "preview_quality": 10.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -5.329517364501953,
+            -6.900606155395508,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.8402947783470154,
+            0.22830280661582947,
+            -0.49171385169029236
+          ],
+          "camera_up": [
+            -0.4745120108127594,
+            0.12892183661460876,
+            0.8707568645477295
+          ],
+          "camera_radius": 4.757189642564844
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c0_v1.png",
+          "azimuth": 14.8,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -8.029586791992188,
+            -9.581892013549805,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.2224312573671341,
+            0.841867983341217,
+            -0.4917139410972595
+          ],
+          "camera_up": [
+            -0.12560626864433289,
+            0.47540053725242615,
+            0.8707568049430847
+          ],
+          "camera_radius": 4.757190030975661
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -35.49555003289298,
+        20.454630031716036,
+        1.2400001287460327
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -36.719886779785156,
+            20.706621170043945,
+            1.2400001287460327
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            1.0,
+            3.0,
+            4.0,
+            3.0,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is clipping into the wooden pillar/wall.",
+            "The object's head is cropped out of the frame.",
+            "The object is clipping into the glass storefront wall and its frame.",
+            "The object is clipping with the glass window frame.",
+            "The object is not fully visible due to extreme proximity to the camera and clipping.",
+            "Object is likely embedded in or hidden behind the wall and glass storefront",
+            "The object is heavily clipped into a wall and glass structure.",
+            "The placement is awkward, tucked into a corner against the glass.",
+            "Object is not visible in the frame",
+            "The camera view is obstructed by the object's internal geometry or the wall it is embedded in."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object 'Buyer-in-Beige' is not visible in the rendered image, likely because it is occluded by or embedded within the wall and glass structure shown."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -35.49555003289298,
+            20.454630031716036,
+            1.2400001287460327
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            9.0,
+            8.0,
+            9.5,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_iter1_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (only legs visible)",
+            "Object is clipping with the display window glass/wall",
+            "Object is placed inside a store display window, which is implausible for a 'Buyer'",
+            "The top of the person's head is slightly cropped by the frame.",
+            "The person's head is cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed inside a store display window, causing clipping and making them mostly invisible and in an unrealistic location."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_v0.png",
+          "azimuth": 68.6,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -30.06756019592285,
+            18.327425003051758,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.9213331341743469,
+            0.36106646060943604,
+            -0.14413978159427643
+          ],
+          "camera_up": [
+            -0.13420218229293823,
+            0.052593257278203964,
+            0.9895573258399963
+          ],
+          "camera_radius": 6.03385465838996
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c2_v1.png",
+          "azimuth": 38.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -31.858375549316406,
+            15.898422241210938,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.617364764213562,
+            0.7733592391014099,
+            -0.14413954317569733
+          ],
+          "camera_up": [
+            -0.08992572128772736,
+            0.11264801025390625,
+            0.9895573854446411
+          ],
+          "camera_radius": 6.033854421309091
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -5.675420761108398,
+        0.7494659423828125,
+        -0.059602200984954834
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.675420761108398,
+            0.7494659423828125,
+            -0.059602200984954834
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            4.0,
+            4.0,
+            9.0,
+            8.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is standing precariously on the very edge of the sidewalk/curb.",
+            "The object is placed at the very edge of the scene where the environment ends abruptly.",
+            "The surroundings are mostly empty road and sky, lacking the architectural context of the mall.",
+            "Minor cropping at the bottom of the frame.",
+            "The placement is on the very edge of the modeled environment, showing broken geometry.",
+            "The road in the background appears to be floating or ending abruptly in the sky, which is unrealistic.",
+            "Awkward stance with one foot on the curb and one on the road.",
+            "Minor cropping at the top of the frame (head).",
+            "The surroundings are mostly empty, showing only a dark road surface and a curb edge."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and fully visible, the shot is framed against a void-like horizon with no architectural context, making the placement feel like it's at the edge of an unfinished world."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_v0.png",
+          "azimuth": 57.9,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.7367604374885559,
+            -2.3485500812530518,
+            1.6746044158935547
+          ],
+          "camera_forward": [
+            -0.8342523574829102,
+            0.5233252644538879,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.14710105955600739,
+            0.09227621555328369,
+            0.9848077893257141
+          ],
+          "camera_radius": 6.082396273969146
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c3_v1.png",
+          "azimuth": 137.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.094877243041992,
+            3.5459747314453125,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            -0.5905121564865112,
+            -0.6399319171905518,
+            -0.49171385169029236
+          ],
+          "camera_up": [
+            -0.3334605395793915,
+            -0.3613676130771637,
+            0.8707568645477295
+          ],
+          "camera_radius": 4.757189078742635
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -40.04608154296875,
+        -3.685457229614258,
+        -0.1466313600540161
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -40.04608154296875,
+            -3.685457229614258,
+            -0.1466313600540161
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            4.0,
+            4.0,
+            4.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the frame edge.",
+            "The object is placed at the very edge of the scene where the environment ends abruptly in a void.",
+            "The placement is at the very periphery of the modeled environment.",
+            "The environment ends abruptly on the left side of the frame, showing the edge of the road mesh.",
+            "The background consists only of a flat road and a featureless sky/void.",
+            "The object's head is cropped out of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "While the person is grounded and fully visible, the camera angle reveals the edge of the 3D scene where the road and ground plane simply stop, which breaks immersion."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_v0.png",
+          "azimuth": 9.8,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -39.0992317199707,
+            -9.167135238647461,
+            2.5843143463134766
+          ],
+          "camera_forward": [
+            -0.1599445939064026,
+            0.9259805679321289,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            -0.05821505934000015,
+            0.33702924847602844,
+            0.9396926760673523
+          ],
+          "camera_radius": 6.197046155196283
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Buyer-in-Beige_5c9ab0f2_c4_v1.png",
+          "azimuth": 263.8,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -43.82904052734375,
+            -3.27449631690979,
+            2.7954249382019043
+          ],
+          "camera_forward": [
+            0.8571426868438721,
+            -0.09311539679765701,
+            -0.5065925121307373
+          ],
+          "camera_up": [
+            0.5036294460296631,
+            -0.05471173673868179,
+            0.8621855974197388
+          ],
+          "camera_radius": 4.809923112196744
+        }
+      ]
+    }
+  ]
+}

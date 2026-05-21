@@ -1,0 +1,452 @@
+{
+  "scene": "Urban-Classic-Car_c0e3dd5f",
+  "scene_file": "data/scenes/Urban-Classic-Car_c0e3dd5f/Urban-Classic-Car_c0e3dd5f.blend",
+  "scene_scale": 3.0,
+  "object": "Tattooed-Authority_9dc64931",
+  "object_file": "data/objects/Tattooed-Authority_9dc64931/Tattooed-Authority_9dc64931.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        27.64543342590332,
+        -21.927913665771484,
+        -0.5407907366752625
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.64543342590332,
+            -21.927913665771484,
+            -0.5407907366752625
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0,
+            7.0,
+            3.0,
+            1.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person is too small for the scene. The person should be taller relative to the cars and the environment.",
+            "The object is not visible in the rendered image.",
+            "The person is extremely small relative to the car and the environment. The scale is completely off, making the scene unrealistic.",
+            "The person is sitting under a car, which is an unusual but not impossible scenario. The scale seems appropriate for the car."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, making it impossible to assess its placement, visibility, or scale. The render appears to be of a red car interior, not the requested scene with the object."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_v0.png",
+          "azimuth": 64.6,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            31.595849990844727,
+            -23.803709030151367,
+            1.514583706855774
+          ],
+          "camera_forward": [
+            -0.8488575220108032,
+            0.40306714177131653,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.30895888805389404,
+            0.14670439064502716,
+            0.9396926164627075
+          ],
+          "camera_radius": 4.832076619088684
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c0_v1.png",
+          "azimuth": 124.6,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            31.245128631591797,
+            -19.444650650024414,
+            1.514583706855774
+          ],
+          "camera_forward": [
+            -0.7734952569007874,
+            -0.5335986614227295,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            -0.2815290689468384,
+            -0.19421380758285522,
+            0.9396926760673523
+          ],
+          "camera_radius": 4.8320767424407105
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        51.646976470947266,
+        -28.47378921508789,
+        -0.5407903790473938
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            51.646976470947266,
+            -28.47378921508789,
+            -0.5407903790473938
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person is too small for the scene. The person should be taller relative to the cars and the environment.",
+            "The object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is not visible in the rendered image and appears to be too small for the scene, making it difficult to assess placement. The scale factor has been increased to address the perceived smallness of the person relative to the cars and environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_v0.png",
+          "azimuth": 69.9,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            55.75376892089844,
+            -29.976661682128906,
+            1.5145827531814575
+          ],
+          "camera_forward": [
+            -0.8824600577354431,
+            0.32293441891670227,
+            -0.3420199155807495
+          ],
+          "camera_up": [
+            -0.32118895649909973,
+            0.11753840744495392,
+            0.9396926760673523
+          ],
+          "camera_radius": 4.832072671822194
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c1_v1.png",
+          "azimuth": 277.2,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            47.308319091796875,
+            -29.021888732910156,
+            1.5145827531814575
+          ],
+          "camera_forward": [
+            0.9322829246520996,
+            0.11777455359697342,
+            -0.34202003479003906
+          ],
+          "camera_up": [
+            0.33932313323020935,
+            0.042866259813308716,
+            0.9396926760673523
+          ],
+          "camera_radius": 4.832071802189612
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.720035195350647,
+        -2.2902817726135254,
+        0.029577255249023438
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.720035195350647,
+            -2.2902817726135254,
+            0.029577255249023438
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            6.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_iter0_v5.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the person is too small for the scene. The person should be taller relative to the cars and the environment."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.3,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but appears too small relative to the cars and the environment, suggesting the scene is too large or the person is too small. The surroundings are not empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_v0.png",
+          "azimuth": 345.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.8520559072494507,
+            -6.731376647949219,
+            1.3013808727264404
+          ],
+          "camera_forward": [
+            0.24324657022953033,
+            0.9542941451072693,
+            -0.17364844679832458
+          ],
+          "camera_up": [
+            0.04289098456501961,
+            0.168268084526062,
+            0.9848077297210693
+          ],
+          "camera_radius": 4.7562881057155195
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Urban-Classic-Car_c0e3dd5f_Tattooed-Authority_9dc64931_c2_v1.png",
+          "azimuth": 278.3,
+          "elevation": 20,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -5.0473713874816895,
+            -2.921572208404541,
+            2.0849504470825195
+          ],
+          "camera_forward": [
+            0.9298501014709473,
+            0.1356504112482071,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            0.3384377658367157,
+            0.049372632056474686,
+            0.9396926164627075
+          ],
+          "camera_radius": 4.832072714995438
+        }
+      ]
+    }
+  ]
+}

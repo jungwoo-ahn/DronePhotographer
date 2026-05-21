@@ -1,0 +1,713 @@
+{
+  "scene": "Classic-Townhouse-Exterior-Scene_56f5ec9a",
+  "scene_file": "data/scenes/Classic-Townhouse-Exterior-Scene_56f5ec9a/Classic-Townhouse-Exterior-Scene_56f5ec9a.blend",
+  "scene_scale": 0.75,
+  "object": "Office-Move_3d4b091c",
+  "object_file": "data/objects/Office-Move_3d4b091c/Office-Move_3d4b091c.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        40.06589889526367,
+        5.416729927062988,
+        -0.7748098373413086
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            40.06589889526367,
+            5.416729927062988,
+            -0.7748098373413086
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.0,
+            7.5,
+            2.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v2.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v3.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped (upper body is cut off).",
+            "Surroundings are empty/generic, lacking meaningful scene context from the townhouse exterior.",
+            "Object is placed in an implausible location (on a generic grey platform/rooftop with a forest background, not clearly part of the townhouse scene).",
+            "Object is placed in a generic, empty environment that does not match the reference scene.",
+            "Surroundings are empty, consisting of a flat ground and a 2D backdrop.",
+            "Surroundings are mostly empty paved area."
+          ],
+          "vlm_adjustment": {
+            "forward": -1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped, the surroundings are empty and generic, and the placement on a plain grey surface with a forest background is implausible for the given townhouse exterior scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_v0.png",
+          "azimuth": 336.6,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            37.8906135559082,
+            0.3899448812007904,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.394900381565094,
+            0.912560224533081,
+            -0.10624247044324875
+          ],
+          "camera_up": [
+            0.042194005101919174,
+            0.09750450402498245,
+            0.9943402409553528
+          ],
+          "camera_radius": 5.620751715798751
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c0_v1.png",
+          "azimuth": 32.7,
+          "elevation": 50,
+          "preview_quality": 7.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            41.997276306152344,
+            2.4083030223846436,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.533144474029541,
+            0.8304570317268372,
+            -0.16154882311820984
+          ],
+          "camera_up": [
+            -0.08727523684501648,
+            0.13594505190849304,
+            0.9868647456169128
+          ],
+          "camera_radius": 3.7912093697221834
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -11.642355918884277,
+        13.285377502441406,
+        -0.7148418426513672
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.642355918884277,
+            13.285377502441406,
+            -0.7148418426513672
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            4.0,
+            8.5,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (upper body is cut off).",
+            "The object is partially obscured by foreground vegetation."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and at a plausible scale, but the shot is heavily cropped and partially obscured by foreground plants, reducing the overall quality. The surroundings are not empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_v0.png",
+          "azimuth": 315.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -15.46091365814209,
+            9.35866928100586,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.6939813494682312,
+            0.713636577129364,
+            -0.09546069800853729
+          ],
+          "camera_up": [
+            0.06655193120241165,
+            0.06843672692775726,
+            0.9954332113265991
+          ],
+          "camera_radius": 5.6075923818018545
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c1_v1.png",
+          "azimuth": 15.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -10.151004791259766,
+            8.015055656433105,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.2710368037223816,
+            0.9578237533569336,
+            -0.09546081721782684
+          ],
+          "camera_up": [
+            -0.025992099195718765,
+            0.09185411781072617,
+            0.9954332113265991
+          ],
+          "camera_radius": 5.607592679421563
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        26.576786041259766,
+        3.1685447692871094,
+        -0.7748148441314697
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            26.576786041259766,
+            3.1685447692871094,
+            -0.7748148441314697
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            2.0,
+            4.0,
+            9.5,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty/generic, lacking meaningful scene context from the townhouse exterior.",
+            "Object is heavily cropped (upper body is cut off).",
+            "Object is placed in an implausible location (on a rooftop)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": -2.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing on a rooftop, which is an implausible location, and the surroundings are empty and lack context from the main scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_v0.png",
+          "azimuth": 90.6,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 7.5,
+          "camera_position": [
+            30.15161895751953,
+            3.205981969833374,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.9868103265762329,
+            -0.010334133170545101,
+            -0.1615505963563919
+          ],
+          "camera_up": [
+            -0.16154173016548157,
+            -0.0016916370950639248,
+            0.986864447593689
+          ],
+          "camera_radius": 3.7912085027199507
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c2_v1.png",
+          "azimuth": 335.9,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            24.716463088989258,
+            -0.9902598857879639,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.405002623796463,
+            0.9053948521614075,
+            -0.12740883231163025
+          ],
+          "camera_up": [
+            0.052024900913238525,
+            0.11630313098430634,
+            0.9918502569198608
+          ],
+          "camera_radius": 4.727461232894352
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        6.3431243896484375,
+        4.292637825012207,
+        -0.7748162746429443
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            6.3431243896484375,
+            4.292637825012207,
+            -0.7748162746429443
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            6.0,
+            9.5,
+            9.5,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily cropped (upper body is cut off).",
+            "Object is placed in an awkward location (middle of the road)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped, with the upper body of the person cut off, despite being plausibly placed and grounded in a scene with good surroundings."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_v0.png",
+          "azimuth": 153.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            8.769941329956055,
+            9.202930450439453,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.4405633807182312,
+            -0.8914124965667725,
+            -0.10624353587627411
+          ],
+          "camera_up": [
+            -0.047073449939489365,
+            -0.09524589031934738,
+            0.9943401217460632
+          ],
+          "camera_radius": 5.620751609754847
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c3_v1.png",
+          "azimuth": 341.4,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            4.8899688720703125,
+            -0.025325436145067215,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.31635990738868713,
+            0.9400443434715271,
+            -0.1274091750383377
+          ],
+          "camera_up": [
+            0.04063832014799118,
+            0.12075440585613251,
+            0.9918502569198608
+          ],
+          "camera_radius": 4.7274620902499755
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -2.649616241455078,
+        14.409469604492188,
+        -0.5066733360290527
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.649616241455078,
+            14.409469604492188,
+            -0.5066733360290527
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is heavily obscured by foreground vegetation."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily obscured by foreground trees and bushes, making it difficult to discern, although it is grounded and plausibly located in front of the townhouse."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_v0.png",
+          "azimuth": 304.7,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -6.395244121551514,
+            11.815874099731445,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            0.8201600909233093,
+            0.5679054260253906,
+            -0.06943197548389435
+          ],
+          "camera_up": [
+            0.05708303302526474,
+            0.039526280015707016,
+            0.9975866675376892
+          ],
+          "camera_radius": 4.66305184716351
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Classic-Townhouse-Exterior-Scene_56f5ec9a_Office-Move_3d4b091c_c4_v1.png",
+          "azimuth": 4.7,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.200817108154297,
+            8.950623512268066,
+            0.4871002435684204
+          ],
+          "camera_forward": [
+            -0.08180154114961624,
+            0.9949714541435242,
+            -0.057795919477939606
+          ],
+          "camera_up": [
+            -0.0047357166185975075,
+            0.057601574808359146,
+            0.998328447341919
+          ],
+          "camera_radius": 5.566687113050737
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "scene": "Realistic-old-warehouse_6abc447c",
+  "scene_file": "data/scenes/Realistic-old-warehouse_6abc447c/Realistic-old-warehouse_6abc447c.blend",
+  "scene_scale": 0.3,
+  "object": "snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1",
+  "object_file": "data/objects/snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1/snowman-character_2K_e5d72e38-c695-4363-91cb-dae1bfb50216.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        0.533784031867981,
+        -0.4117594063282013,
+        0.017357438802719116
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            0.533784031867981,
+            -0.4117594063282013,
+            0.017357438802719116
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Realistic-old-warehouse_6abc447c_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Realistic-old-warehouse_6abc447c_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0.png"
+          ],
+          "view_qualities": [
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Realistic-old-warehouse_6abc447c_snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The snowman is slightly too large for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.1,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The snowman is grounded and fully visible, but it appears slightly too large for the environment, suggesting the scene might be scaled down relative to the object."
+        }
+      ],
+      "final_images": [],
+      "incompatible": true,
+      "incompatible_reason": "A snowman would not naturally be found inside or outside an old warehouse."
+    }
+  ]
+}

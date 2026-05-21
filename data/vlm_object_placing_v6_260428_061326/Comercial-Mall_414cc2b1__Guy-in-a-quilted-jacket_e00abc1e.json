@@ -1,0 +1,719 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "Guy-in-a-quilted-jacket_e00abc1e",
+  "object_file": "data/objects/Guy-in-a-quilted-jacket_e00abc1e/Guy-in-a-quilted-jacket_e00abc1e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -32.88428497314453,
+        -8.230712890625,
+        -0.04768187552690506
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -32.88428497314453,
+            -8.230712890625,
+            -0.04768187552690506
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            3.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v3.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Implausible environment: The road where the object is placed appears to be floating in the sky, disconnected from any ground or the main building shown in the reference image, making the overall location highly implausible.",
+            "Surroundings are mostly empty, showing only plain asphalt with road markings.",
+            "surroundings_empty",
+            "Surroundings are mostly empty due to a large void below the road."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, and its scale is appropriate. However, the road it is placed on is floating in the sky, creating an implausible and broken environment that is disconnected from the reference scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c0_v0.png",
+          "azimuth": 277.2,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.0,
+          "camera_position": [
+            -36.58431625366211,
+            -8.698135375976562,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.9127781391143799,
+            0.11531051248311996,
+            -0.39184117317199707
+          ],
+          "camera_up": [
+            0.38875141739845276,
+            0.049110572785139084,
+            0.9200328588485718
+          ],
+          "camera_radius": 4.373267876516943
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -5.8312530517578125,
+        -5.569757461547852,
+        -0.0476820208132267
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.8312530517578125,
+            -5.569757461547852,
+            -0.0476820208132267
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            9.5,
+            9.5,
+            2.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_iter0_v5.png",
+              "quality": 2.5,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are mostly empty, showing only plain asphalt with no other scene context.",
+            "The surroundings are mostly empty, showing only plain asphalt with road markings and sky.",
+            "The road where the object is placed appears to be floating in the sky, disconnected from any ground or the main building shown in the reference image, making the overall location highly implausible.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed on a road segment that appears to be floating in the sky, disconnected from the main building and ground, making the environment implausible and the surroundings empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_v0.png",
+          "azimuth": 66.1,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.4215991497039795,
+            -7.080707550048828,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8411436676979065,
+            0.37274348735809326,
+            -0.3918412923812866
+          ],
+          "camera_up": [
+            -0.3582424223423004,
+            0.15875126421451569,
+            0.920032799243927
+          ],
+          "camera_radius": 4.373267484674123
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c1_v1.png",
+          "azimuth": 26.7,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -3.3815324306488037,
+            -10.440484046936035,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.4313850700855255,
+            0.8577135801315308,
+            -0.27970394492149353
+          ],
+          "camera_up": [
+            -0.12567630410194397,
+            0.24987949430942535,
+            0.9600862860679626
+          ],
+          "camera_radius": 5.9111648374679735
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -8.048713684082031,
+        15.717875480651855,
+        2.4080277398752514e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -8.048713684082031,
+            15.717875480651855,
+            2.4080277398752514e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.0,
+            4.0,
+            9.5,
+            4.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out).",
+            "Surroundings are mostly empty, showing only plain ground with road markings and a blurry, indistinct background, lacking meaningful scene context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely out of frame, making it impossible to evaluate its placement, scale, or interaction with the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_v0.png",
+          "azimuth": 174.7,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -7.704223155975342,
+            19.431367874145508,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.08537251502275467,
+            -0.9202872514724731,
+            -0.3818152844905853
+          ],
+          "camera_up": [
+            -0.03526853024959564,
+            -0.3801829218864441,
+            0.9242386817932129
+          ],
+          "camera_radius": 4.348553140879733
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c2_v1.png",
+          "azimuth": 66.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.828869342803955,
+            13.393850326538086,
+            1.7031618356704712
+          ],
+          "camera_forward": [
+            -0.8996667265892029,
+            0.400557279586792,
+            -0.17364798486232758
+          ],
+          "camera_up": [
+            -0.15863536298274994,
+            0.07062893360853195,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.962266066498571
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -24.901424407958984,
+        1.5261192321777344,
+        -0.08050864934921265
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -24.901424407958984,
+            1.5261192321777344,
+            -0.08050864934921265
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            9.0,
+            3.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v4.png",
+              "quality": 3.5,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is heavily cropped at the bottom of the frame, with only the upper half visible, though it is otherwise plausibly placed and grounded in a relevant environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_v0.png",
+          "azimuth": 245.3,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -28.289649963378906,
+            3.084528684616089,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.8331905007362366,
+            -0.3832247257232666,
+            -0.3986632525920868
+          ],
+          "camera_up": [
+            0.36218884587287903,
+            -0.16658823192119598,
+            0.9170973896980286
+          ],
+          "camera_radius": 4.390501353195985
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c3_v1.png",
+          "azimuth": 54.0,
+          "elevation": 50,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -21.884244918823242,
+            -0.6659901738166809,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.7419472336769104,
+            0.5390563607215881,
+            -0.39866337180137634
+          ],
+          "camera_up": [
+            -0.32252538204193115,
+            0.23432853817939758,
+            0.9170973300933838
+          ],
+          "camera_radius": 4.390501461802523
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -21.796977996826172,
+        7.735013008117676,
+        0.9920000433921814
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -21.796977996826172,
+            7.735013008117676,
+            0.9920000433921814
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            9.5,
+            9.5,
+            4.0,
+            3.0,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v3.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The object is clipping with the adjacent wall/pillar.",
+            "Object is partly cut off at the frame edge (more than ~30% cropped out)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.2,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is clipping with the adjacent pillar, but is otherwise well-placed and scaled in the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_v0.png",
+          "azimuth": 222.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -25.620277404785156,
+            11.981217384338379,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.6660667061805725,
+            -0.7397419810295105,
+            -0.09558731317520142
+          ],
+          "camera_up": [
+            0.06396055221557617,
+            -0.07103507965803146,
+            0.9954210519790649
+          ],
+          "camera_radius": 5.847756251803237
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Guy-in-a-quilted-jacket_e00abc1e_c4_v1.png",
+          "azimuth": 39.1,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -18.193401336669922,
+            3.300814151763916,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.6277880668640137,
+            0.7724928855895996,
+            -0.09558743238449097
+          ],
+          "camera_up": [
+            -0.06028465926647186,
+            0.07418030500411987,
+            0.9954210519790649
+          ],
+          "camera_radius": 5.847757311847847
+        }
+      ]
+    }
+  ]
+}

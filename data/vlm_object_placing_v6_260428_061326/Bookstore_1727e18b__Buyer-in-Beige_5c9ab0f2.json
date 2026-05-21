@@ -1,0 +1,840 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Buyer-in-Beige_5c9ab0f2",
+  "object_file": "data/objects/Buyer-in-Beige_5c9ab0f2/Buyer-in-Beige_5c9ab0f2.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        44.503684997558594,
+        -13.912821769714355,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            44.503684997558594,
+            -13.912821769714355,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            9.5,
+            4.0,
+            7.0,
+            3.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is partially occluded by a lamp post in the foreground.",
+            "Object is heavily occluded by foreground foliage.",
+            "Placement feels like it's at the edge of the scene map",
+            "Object is heavily cropped (head is missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 1.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is significantly obscured by foreground leaves, violating the visibility requirement despite being grounded and in a plausible environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_v0.png",
+          "azimuth": 253.0,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            38.928497314453125,
+            -12.2083158493042,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9563019275665283,
+            -0.29237088561058044,
+            0.002425354439765215
+          ],
+          "camera_up": [
+            -0.0023193522356450558,
+            0.0007091892184689641,
+            0.999997079372406
+          ],
+          "camera_radius": 5.870864571814706
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c0_v1.png",
+          "azimuth": 193.0,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 8.5,
+          "camera_position": [
+            43.64769744873047,
+            -10.205134391784668,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.22494955360889435,
+            -0.9743633270263672,
+            0.003715907922014594
+          ],
+          "camera_up": [
+            -0.0008359471103176475,
+            0.0036206580698490143,
+            0.999993085861206
+          ],
+          "camera_radius": 3.8676417344093363
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        8.927067756652832,
+        -12.040369033813477,
+        -0.06639066338539124
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.927067756652832,
+            -12.040369033813477,
+            -0.06639066338539124
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.5,
+            3.0,
+            3.0,
+            3.0,
+            4.0,
+            6.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_iter0_v5.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.5,
+          "vlm_issues": [
+            "The shot lacks the architectural context of the bookstore shown in the reference image.",
+            "The surroundings are very empty, showing only a road and a distant hill, missing the bookstore context.",
+            "The placement in the middle of the road is awkward and lacks the architectural context of the bookstore seen in the reference.",
+            "The object is placed in the middle of the street, which is a less interesting location than the bookstore sidewalk.",
+            "Object is clipping with a small post or bollard located directly behind/through its legs.",
+            "Object is clipping with a thin pole (Street_Light_Mesh.002).",
+            "Surroundings on the right side of the frame are empty/unfinished.",
+            "Object is standing in the middle of the street, which is an unnatural placement for a pedestrian.",
+            "The person is standing in the middle of the road, which is a slightly awkward placement.",
+            "Object is heavily cropped at the top (head is missing).",
+            "The background is very empty and lacks architectural context, showing the edge of the ground plane.",
+            "Object is placed in the middle of the road, which is an awkward location."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is clipping with a vertical post and is placed in the middle of a road far from the main scene context (the bookstore), making the composition poor."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_v0.png",
+          "azimuth": 291.3,
+          "elevation": 10,
+          "preview_quality": 7.5,
+          "final_quality": 7.0,
+          "camera_position": [
+            3.495373249053955,
+            -14.158098220825195,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9316885471343994,
+            0.3632500171661377,
+            0.0024251160211861134
+          ],
+          "camera_up": [
+            -0.002259461674839258,
+            -0.000880919978953898,
+            0.999997079372406
+          ],
+          "camera_radius": 5.870866853615136
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c1_v1.png",
+          "azimuth": 266.1,
+          "elevation": 10,
+          "preview_quality": 6.5,
+          "final_quality": 8.0,
+          "camera_position": [
+            3.110638380050659,
+            -11.643844604492188,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9976813197135925,
+            -0.06801508367061615,
+            0.0024251160211861134
+          ],
+          "camera_up": [
+            -0.0024194978177547455,
+            0.00016497724573127925,
+            0.999997079372406
+          ],
+          "camera_radius": 5.87086667594439
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        38.88632583618164,
+        -13.912821769714355,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            38.88632583618164,
+            -13.912821769714355,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            3.0,
+            2.0,
+            4.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The shot lacks the architectural context of the bookstore shown in the reference image.",
+            "Object is heavily occluded by a tree trunk and bushes.",
+            "The camera angle is tilted unnecessarily.",
+            "The bookstore context is missing from the frame.",
+            "The object is heavily cropped, with the head and upper body out of frame.",
+            "The person is standing in the middle of the road, which is a slightly awkward placement.",
+            "A large pole in the foreground is somewhat distracting.",
+            "The background is generic and doesn't utilize the scene's main features.",
+            "The person is placed in a generic area far from the main scene features."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is almost entirely hidden behind a tree and bushes, and the shot lacks the bookstore context shown in the reference."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_v0.png",
+          "azimuth": 251.4,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            33.360904693603516,
+            -12.053312301635742,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.947765588760376,
+            -0.3189584016799927,
+            0.0024254736490547657
+          ],
+          "camera_up": [
+            -0.0022987942211329937,
+            0.0007736063562333584,
+            0.999997079372406
+          ],
+          "camera_radius": 5.870864246930924
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c2_v1.png",
+          "azimuth": 65.3,
+          "elevation": 20,
+          "preview_quality": 6.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            43.940223693847656,
+            -16.237354278564453,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.908505380153656,
+            0.41786545515060425,
+            0.0025419406592845917
+          ],
+          "camera_up": [
+            0.002309330739080906,
+            -0.0010622870177030563,
+            0.9999967813491821
+          ],
+          "camera_radius": 5.60574057581217
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        4.710500282935637,
+        -21.59701145027227,
+        2.47955313170678e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.3097083568573,
+            -21.40263557434082,
+            2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            3.0,
+            4.0,
+            3.5,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v3.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 6.0,
+          "vlm_issues": [
+            "The shot lacks the architectural context of the bookstore shown in the reference image.",
+            "The foreground is a large, empty paved area.",
+            "The surroundings are very empty, showing only a road and a distant hill, missing the bookstore context.",
+            "Object is heavily cropped at the top of the frame (head and shoulders missing).",
+            "The surroundings are empty, showing only a flat ground and sky, missing the bookstore context.",
+            "The shot lacks any architectural detail from the scene.",
+            "The surroundings are very empty, showing only a road and sky, missing the bookstore context entirely.",
+            "The surroundings are very empty, showing a plain grey ground and sky, missing the bookstore context.",
+            "The scale of the person relative to the bookstore in the background seems slightly too large."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and visible, but the shot is taken in an empty part of the map, completely missing the bookstore context shown in the reference image."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            4.710500282935637,
+            -21.59701145027227,
+            2.47955313170678e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v5.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            9.5,
+            3.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_iter1_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The shot lacks the architectural context of the bookstore shown in the reference image.",
+            "The object is placed on a plain, untextured grey surface.",
+            "The surroundings are very empty, showing only a road and a distant hill.",
+            "The camera angle is tilted (Dutch angle) without clear artistic reason.",
+            "The surroundings are mostly empty and lack the architectural context of the bookstore.",
+            "The placement lacks any architectural or environmental detail from the scene.",
+            "The surroundings are empty, showing only a plain ground and sky, missing all bookstore context.",
+            "The surroundings are empty, showing only a flat ground and sky, completely missing the bookstore context from the reference image.",
+            "The surroundings are very empty, showing only a featureless grey ground and missing the bookstore context."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in a featureless void that lacks any of the bookstore's architectural context, making the shot uninteresting and disconnected from the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c3_v0.png",
+          "azimuth": 9.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 6.0,
+          "camera_position": [
+            5.672715663909912,
+            -27.346986770629883,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.16503190994262695,
+            0.9861915111541748,
+            0.01381214614957571
+          ],
+          "camera_up": [
+            0.0022796778939664364,
+            -0.01362271886318922,
+            0.9999046325683594
+          ],
+          "camera_radius": 5.863409936802815
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.4351983070373535,
+        2.9392588138580322,
+        -0.06638818979263306
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.4351983070373535,
+            2.9392588138580322,
+            -0.06638818979263306
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.5,
+            9.5,
+            4.0,
+            9.0,
+            4.0,
+            8.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_iter0_v5.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "The person's head is partially cut off by the top edge of the frame, which is a poor framing choice for a human subject.",
+            "The object is heavily cropped at the top of the frame (head is partially cut off).",
+            "The background to the right is empty sky and a low-detail horizon, lacking scene context.",
+            "The shot fails to capture the architectural context of the bookstore (sign, door) shown in the reference.",
+            "The object is heavily cropped at the top, with the head and upper torso missing from the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The placement is very plausible and the scale is correct, but the framing is too tight, cutting off the person's head and upper body."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_v0.png",
+          "azimuth": 264.3,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 10.0,
+          "camera_position": [
+            -6.236301898956299,
+            3.5182862281799316,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9950526356697083,
+            -0.09931957721710205,
+            0.0024255928583443165
+          ],
+          "camera_up": [
+            -0.0024135983549058437,
+            0.00024092126113828272,
+            0.999997079372406
+          ],
+          "camera_radius": 5.870866434819796
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Buyer-in-Beige_5c9ab0f2_c4_v1.png",
+          "azimuth": 324.3,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 7.5,
+          "camera_position": [
+            -2.655698537826538,
+            -0.1508943736553192,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.5835372805595398,
+            0.8120778799057007,
+            0.0037161463405936956
+          ],
+          "camera_up": [
+            -0.0021685457322746515,
+            -0.0030178059823811054,
+            0.999993085861206
+          ],
+          "camera_radius": 3.867642901800597
+        }
+      ]
+    }
+  ]
+}

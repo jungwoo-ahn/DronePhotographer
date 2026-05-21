@@ -1,0 +1,110 @@
+{
+  "scene": "Cozy-Cabin_955470a2",
+  "scene_file": "data/scenes/Cozy-Cabin_955470a2/Cozy-Cabin_955470a2.blend",
+  "scene_scale": 0.45,
+  "object": "Girl-in-bomber_3d225092",
+  "object_file": "data/objects/Girl-in-bomber_3d225092/Girl-in-bomber_3d225092.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        1.1406774520874023,
+        -0.5616707801818848,
+        0.7260408401489258
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            1.1406774520874023,
+            -0.5616707801818848,
+            0.7260408401489258
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "Object is partially cropped out of frame.",
+            "Object is heavily cropped, only showing the lower half of the person."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the scene, standing near a door. The scale appears correct, and the object is fully visible and grounded without clipping."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cozy-Cabin_955470a2_Girl-in-bomber_3d225092_c0_v0.png",
+          "azimuth": 267.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -3.355809211730957,
+            -0.3653501868247986,
+            1.3444844484329224
+          ],
+          "camera_forward": [
+            0.9989908337593079,
+            -0.04361691698431969,
+            0.010716873221099377
+          ],
+          "camera_up": [
+            -0.010706668719649315,
+            0.00046756319352425635,
+            0.9999426007270813
+          ],
+          "camera_radius": 4.543060834809109
+        }
+      ]
+    }
+  ]
+}

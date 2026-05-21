@@ -1,0 +1,382 @@
+{
+  "scene": "ocean-scene",
+  "scene_file": "data/scenes/ocean-scene/ocean-scene.blend",
+  "scene_scale": 3.0,
+  "object": "Pardon-His-French_39605017",
+  "object_file": "data/objects/Pardon-His-French_39605017/Pardon-His-French_39605017.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        67.2723159790039,
+        -28.89747428894043,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            67.2723159790039,
+            -28.89747428894043,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            2.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v1.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an empty environment with no context or other objects.",
+            "The object appears to be too small for the scene.",
+            "The surroundings are empty."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the scene is empty and the object appears to be too small for the environment, suggesting the scene is too large."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Pardon-His-French_39605017_c0_v0.png",
+          "azimuth": 95.8,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            72.5269546508789,
+            -28.363727569580078,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.9344420433044434,
+            -0.09491704404354095,
+            -0.3432329297065735
+          ],
+          "camera_up": [
+            -0.34147581458091736,
+            -0.034685876220464706,
+            0.9392502903938293
+          ],
+          "camera_radius": 5.935515636827587
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Pardon-His-French_39605017_c0_v1.png",
+          "azimuth": 155.8,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            69.4374008178711,
+            -24.079946517944336,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            -0.3850207030773163,
+            -0.8567090034484863,
+            -0.3432326912879944
+          ],
+          "camera_up": [
+            -0.14069920778274536,
+            -0.3130693733692169,
+            0.9392504096031189
+          ],
+          "camera_radius": 5.935520203440404
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -24.927600860595703,
+        -28.89747428894043,
+        1.955062747001648
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -24.927600860595703,
+            -28.89747428894043,
+            1.955062747001648
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            7.0,
+            6.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in an empty environment with no context or other objects.",
+            "The object appears to be too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but it is too small for the scene and placed in an empty environment."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -14.080551147460938,
+        -12.626898765563965,
+        1.955052137374878
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -14.080551147460938,
+            -12.626898765563965,
+            1.955052137374878
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/ocean-scene_Pardon-His-French_39605017_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The object is placed in an empty environment with no context or other objects.",
+            "The object appears to be too small for the scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the scene is empty and the person appears too small for the environment, suggesting a larger scale is needed."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/ocean-scene_Pardon-His-French_39605017_c2_v0.png",
+          "azimuth": 247.9,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -18.974178314208984,
+            -10.639802932739258,
+            4.663230895996094
+          ],
+          "camera_forward": [
+            0.8702423572540283,
+            -0.35336869955062866,
+            -0.34323281049728394
+          ],
+          "camera_up": [
+            0.31801503896713257,
+            -0.1291324943304062,
+            0.9392503499984741
+          ],
+          "camera_radius": 5.935517592513221
+        }
+      ]
+    }
+  ]
+}

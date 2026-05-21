@@ -1,0 +1,152 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "Moon-Girl_518cddf2",
+  "object_file": "data/objects/Moon-Girl_518cddf2/Moon-Girl_518cddf2.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -12.568404197692871,
+        -36.19326400756836,
+        5.7220458984375e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -12.568404197692871,
+            -36.19326400756836,
+            5.7220458984375e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            8.0,
+            1.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_Moon-Girl_518cddf2_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not visible in the rendered image.",
+            "The surroundings are empty.",
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is completely black, indicating that the object is not visible or the render failed. Therefore, no evaluation of placement, scale, or grounding can be made."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Moon-Girl_518cddf2_c0_v0.png",
+          "azimuth": 346.2,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -13.827821731567383,
+            -41.32069396972656,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            0.23837321996688843,
+            0.9704819917678833,
+            0.036645833402872086
+          ],
+          "camera_up": [
+            -0.00874125026166439,
+            -0.03558802604675293,
+            0.9993283152580261
+          ],
+          "camera_radius": 5.2999364732137995
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_Moon-Girl_518cddf2_c0_v1.png",
+          "azimuth": 46.2,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -10.081096649169922,
+            -38.57850646972656,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.7206238508224487,
+            0.6910533308982849,
+            0.056094199419021606
+          ],
+          "camera_up": [
+            0.04048657789826393,
+            -0.038825202733278275,
+            0.9984254837036133
+          ],
+          "camera_radius": 3.4768859369934635
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is a character named Moon-Girl, and the scene is a pine forest, which is an inappropriate setting for this character."
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "scene": "blender-scene",
+  "scene_file": "data/scenes/blender-scene/blender scene...blend",
+  "scene_scale": 0.65,
+  "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+  "object_file": "data/objects/luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/luke_2K_b5a0590c-f246-4616-9d9a-1d84a8a1e366.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.8778706789016724,
+        -1.6176849603652954,
+        -0.026998519897460938
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.8778706789016724,
+            -1.6176849603652954,
+            -0.026998519897460938
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            2.0,
+            2.0,
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v5.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The scale of the scene appears to be too small for the person. The door frame and other elements seem disproportionately small compared to the person's height.",
+            "Object is not visible in the frame.",
+            "Object is not visible.",
+            "Object is not visible in the rendered image."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely invisible in the rendered image, making it impossible to assess its placement, visibility, or scale."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v0.png",
+          "azimuth": 228.5,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -4.228601455688477,
+            1.3467909097671509,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.7471053600311279,
+            -0.6609834432601929,
+            -0.07024609297513962
+          ],
+          "camera_up": [
+            0.05261113494634628,
+            -0.046546559780836105,
+            0.9975296854972839
+          ],
+          "camera_radius": 4.576237442386989
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v1.png",
+          "azimuth": 258.5,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -4.3180341720581055,
+            -0.9177758693695068,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            0.9760024547576904,
+            -0.19857002794742584,
+            -0.08938224613666534
+          ],
+          "camera_up": [
+            0.0875878557562828,
+            -0.01782003417611122,
+            0.9959973692893982
+          ],
+          "camera_radius": 3.640196815982206
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -6.877871513366699,
+        2.382315158843994,
+        -0.026998549699783325
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -6.877871513366699,
+            2.382315158843994,
+            -0.026998549699783325
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the scene appears to be too small for the person. The door frame and other elements seem disproportionately small compared to the person's height."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.8,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but the scene scale is too small, making the person appear too large for the environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v0.png",
+          "azimuth": 65.2,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.9952884912490845,
+            0.12624463438987732,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.9062240719795227,
+            0.4187345504760742,
+            -0.058474499732255936
+          ],
+          "camera_up": [
+            -0.05308181792497635,
+            0.0245272908359766,
+            0.9982889294624329
+          ],
+          "camera_radius": 5.46405654047313
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v1.png",
+          "azimuth": 0.0,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -6.877871990203857,
+            -2.091554880142212,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.0,
+            0.9975296854972839,
+            -0.07024609297513962
+          ],
+          "camera_up": [
+            0.0,
+            0.07024609297513962,
+            0.9975296854972839
+          ],
+          "camera_radius": 4.576237338188471
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -5.877870559692383,
+        2.382315158843994,
+        -0.026998370885849
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -5.877870559692383,
+            2.382315158843994,
+            -0.026998370885849
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The scale of the scene appears to be too small for the person. The door frame and other elements seem disproportionately small compared to the person's height.",
+            "Object is not visible in the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 0.7,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, and the scene scale appears too small for the person."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v0.png",
+          "azimuth": 61.9,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -1.1332522630691528,
+            -0.1510755568742752,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.8806174993515015,
+            0.4702059030532837,
+            -0.058474261313676834
+          ],
+          "camera_up": [
+            -0.051581695675849915,
+            0.0275421142578125,
+            0.9982889294624329
+          ],
+          "camera_radius": 5.464056278669194
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/blender-scene_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v1.png",
+          "azimuth": 31.9,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -3.513706684112549,
+            -1.4158737659454346,
+            0.9355173110961914
+          ],
+          "camera_forward": [
+            -0.5271329879760742,
+            0.846874475479126,
+            -0.07024585455656052
+          ],
+          "camera_up": [
+            -0.03712067753076553,
+            0.05963669717311859,
+            0.9975296854972839
+          ],
+          "camera_radius": 4.576237077692163
+        }
+      ]
+    }
+  ]
+}

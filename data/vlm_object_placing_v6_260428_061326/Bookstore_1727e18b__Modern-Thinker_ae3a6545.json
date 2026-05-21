@@ -1,0 +1,572 @@
+{
+  "scene": "Bookstore_1727e18b",
+  "scene_file": "data/scenes/Bookstore_1727e18b/Bookstore_1727e18b.blend",
+  "scene_scale": 0.65,
+  "object": "Modern-Thinker_ae3a6545",
+  "object_file": "data/objects/Modern-Thinker_ae3a6545/Modern-Thinker_ae3a6545.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        8.959667205810547,
+        -12.007771492004395,
+        -0.06639004498720169
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.959667205810547,
+            -12.007771492004395,
+            -0.06639004498720169
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            9.0,
+            3.0,
+            2.0,
+            4.0,
+            3.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_iter0_v5.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is heavily cropped",
+            "Object placed in an implausible location (middle of an empty road/sidewalk).",
+            "Object is very small in the frame",
+            "surroundings_empty=true",
+            "Object placed in an implausible location (middle of a wide, empty road)",
+            "Surroundings are empty and lack context from the reference scene."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object (a person on a stool) is placed in the middle of an empty road or sidewalk, which is an implausible location. The surroundings are mostly empty with a distant hill and sky, completely lacking the context of the bookstore shown in the reference image."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_v0.png",
+          "azimuth": 236.2,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            5.06192684173584,
+            -9.398460388183594,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.8302232623100281,
+            -0.5557861924171448,
+            -0.04279053211212158
+          ],
+          "camera_up": [
+            0.03555820509791374,
+            -0.023804277181625366,
+            0.9990840554237366
+          ],
+          "camera_radius": 4.741294453098482
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c0_v1.png",
+          "azimuth": 291.3,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            4.5895609855651855,
+            -13.711604118347168,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.930837869644165,
+            0.3629184663295746,
+            -0.04279065132141113
+          ],
+          "camera_up": [
+            0.039867643266916275,
+            0.01554383896291256,
+            0.9990840554237366
+          ],
+          "camera_radius": 4.741294176527973
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        20.194387435913086,
+        -21.370038986206055,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            20.194387435913086,
+            -21.370038986206055,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            3.0,
+            7.5,
+            8.5,
+            3.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v2.png",
+              "quality": 7.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v3.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.5,
+          "vlm_issues": [
+            "Object is placed in an implausible location (does not match the scene context).",
+            "Surroundings are empty.",
+            "Surroundings are empty",
+            "Surroundings are mostly empty (sky and plain ground).",
+            "Object is placed in an implausible location (on an abstract, empty platform, not in the bookstore street scene shown in the reference image).",
+            "Object is placed somewhat isolated in a wide open paved area, could be closer to the building or other street elements for a more natural feel."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the surroundings are empty, leading to a low quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_v0.png",
+          "azimuth": 294.2,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            15.916081428527832,
+            -23.29278564453125,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9112848043441772,
+            0.409547358751297,
+            -0.04279017448425293
+          ],
+          "camera_up": [
+            0.039029788225889206,
+            0.01754065975546837,
+            0.9990840554237366
+          ],
+          "camera_radius": 4.741291901106349
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c1_v1.png",
+          "azimuth": 19.5,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            21.76011085510254,
+            -25.791505813598633,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            -0.33350107073783875,
+            0.9417781233787537,
+            -0.04279053211212158
+          ],
+          "camera_up": [
+            -0.01428372971713543,
+            0.04033614695072174,
+            0.9990840554237366
+          ],
+          "camera_radius": 4.741292253105346
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        3.3423056602478027,
+        -15.752678871154785,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            3.3423056602478027,
+            -15.752678871154785,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            4.0,
+            9.5,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v1.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v2.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v4.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is placed in an implausible location (does not match the scene context of a bookstore).",
+            "Surroundings are empty.",
+            "Object placed in an implausible location (lacks context from the main scene).",
+            "Object is placed in an implausible location (at the edge of the scene's usable area).",
+            "Object placed in an implausible location (sitting on a chair in the middle of a wet street)."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is placed in an implausible, empty outdoor location that does not match the bookstore scene, and the surroundings are empty."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_v0.png",
+          "azimuth": 355.1,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            3.0090508460998535,
+            -19.639930725097656,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.08530392497777939,
+            0.9950271248817444,
+            -0.05142275243997574
+          ],
+          "camera_up": [
+            0.004392368718981743,
+            0.05123481526970863,
+            0.9986769556999207
+          ],
+          "camera_radius": 3.962420816901411
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c3_v1.png",
+          "azimuth": 295.1,
+          "elevation": 10,
+          "preview_quality": 8.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -0.9052711725234985,
+            -17.742389678955078,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.9047393798828125,
+            0.4238108992576599,
+            -0.04279041290283203
+          ],
+          "camera_up": [
+            0.03874971717596054,
+            0.018151555210351944,
+            0.9990840554237366
+          ],
+          "camera_radius": 4.741292403962051
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        10.832119941711426,
+        -4.51795768737793,
+        -0.06638942658901215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            10.832119941711426,
+            -4.51795768737793,
+            -0.06638942658901215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            4.0,
+            3.5,
+            9.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v4.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_iter0_v5.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty.",
+            "Object is placed in an implausible location (does not clearly relate to the bookstore scene context)."
+          ],
+          "vlm_adjustment": {
+            "forward": -0.5,
+            "right": -1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is grounded and fully visible, but the surroundings are mostly empty, and its placement on a wide, open promenade facing away from the bookstore is implausible for the scene context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Bookstore_1727e18b_Modern-Thinker_ae3a6545_c4_v0.png",
+          "azimuth": 230.4,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 5.0,
+          "camera_position": [
+            7.218021392822266,
+            -1.5281156301498413,
+            0.6257038116455078
+          ],
+          "camera_forward": [
+            0.7698073983192444,
+            -0.636840283870697,
+            -0.04279041290283203
+          ],
+          "camera_up": [
+            0.032970577478408813,
+            -0.027275636792182922,
+            0.9990840554237366
+          ],
+          "camera_radius": 4.741292906817699
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,717 @@
+{
+  "scene": "Cave-interior_a40482a6",
+  "scene_file": "data/scenes/Cave-interior_a40482a6/Cave-interior_a40482a6.blend",
+  "scene_scale": 0.5,
+  "object": "Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e",
+  "object_file": "data/objects/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e/Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -4.2155866622924805,
+        -2.920588493347168,
+        -0.743715763092041
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.2155866622924805,
+            -2.920588493347168,
+            -0.743715763092041
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is completely hidden behind the cave wall.",
+            "The placement looks technically broken due to the visible ground plane artifact.",
+            "The object is standing on a flat, untextured brown plane that is clearly clipping through the cave's rocky floor geometry."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the cave's interior rock wall in this camera angle, making it impossible to evaluate."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v0.png",
+          "azimuth": 4.7,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            -3.890002965927124,
+            -6.880744934082031,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            -0.08126736432313919,
+            0.9884740114212036,
+            -0.1277293562889099
+          ],
+          "camera_up": [
+            -0.010465952567756176,
+            0.12729986011981964,
+            0.991809070110321
+          ],
+          "camera_radius": 4.162352059466038
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c0_v1.png",
+          "azimuth": 91.6,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            1.869822382926941,
+            -2.7506072521209717,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            -0.996097207069397,
+            -0.027823539450764656,
+            -0.08376245200634003
+          ],
+          "camera_up": [
+            -0.08372979611158371,
+            -0.0023388280533254147,
+            0.9964857697486877
+          ],
+          "camera_radius": 6.212683089590636
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -4.871645633533497,
+        -0.6752981237708031,
+        -0.7437171936035156
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.2155866622924805,
+            0.07941150665283203,
+            -0.7437171936035156
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            0.0,
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v4.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter0_v5.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 4.0,
+          "vlm_issues": [
+            "Object is likely clipping with the rock geometry.",
+            "Object is completely hidden behind the cave wall or in total darkness.",
+            "The render is too dark to see the object or any context.",
+            "The placement lacks the rocky detail of the cave interior shown in the reference.",
+            "Object is completely hidden behind the cave wall.",
+            "The edge of the ground plane mesh is clearly visible, breaking immersion.",
+            "The render shows only a dark rock surface with no visible object.",
+            "Object is completely hidden/occluded by the cave wall.",
+            "The render is too dark to see anything.",
+            "The background is a simple gradient and lacks the detail shown in the reference image.",
+            "The object is standing on a thin ground plane that ends abruptly in a black void.",
+            "Object is almost entirely hidden behind a large rock."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by the dark cave interior and is not visible in the render."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -4.871645633533497,
+            -0.6752981237708031,
+            -0.7437171936035156
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v5.png"
+          ],
+          "view_qualities": [
+            0.0,
+            1.0,
+            3.0,
+            1.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c1_iter1_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The rendered image is completely dark; the object is not visible.",
+            "The object is standing on a flat, featureless dark surface that looks like a ground plane artifact rather than the rocky cave floor.",
+            "Object is completely hidden behind the cave wall or rocks.",
+            "The edge of the ground plane is visible in the bottom left corner, showing the void.",
+            "Object is completely hidden behind cave geometry or in total darkness.",
+            "The render is too dark to see the subject.",
+            "The object's head is cut off by the top of the frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is pitch black, making the object and surroundings completely invisible; it appears the camera is pointed at a dark cave wall or the object is placed in an unlit area."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -3.8926495300125312,
+        -3.2974369281902502,
+        -0.743715763092041
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.2155866622924805,
+            -1.920588493347168,
+            -0.743715763092041
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            3.0,
+            0.0,
+            3.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v3.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter0_v4.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 3.0,
+          "vlm_issues": [
+            "Object is completely hidden behind the cave wall or in total darkness.",
+            "The ground plane artifact is clipping through the cave wall.",
+            "Object is completely hidden in total darkness or behind cave walls.",
+            "The object is standing on a flat, featureless ground plane artifact with a sharp edge.",
+            "The surroundings to the left of the object are empty, showing only a dark gradient sky.",
+            "The object is standing on a flat, brown ground plane artifact that is not part of the natural cave environment.",
+            "The rendered image is too dark to see the object.",
+            "Object is not visible in the frame, likely hidden behind the large rock wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely occluded by a large rock wall in the foreground, making it invisible in the rendered shot."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -3.8926495300125312,
+            -3.2974369281902502,
+            -0.743715763092041
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            8.0,
+            8.0,
+            1.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v1.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_iter1_v4.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is completely hidden behind the cave wall or in total darkness.",
+            "Visible ground plane artifact at the bottom of the frame where the terrain mesh ends.",
+            "The object is not visible in the rendered image due to extreme darkness or occlusion by rocks.",
+            "Object is heavily cropped (head and upper torso missing).",
+            "Minor cropping at the top of the frame.",
+            "The object is standing on a flat, featureless ground plane artifact instead of the rocky cave floor.",
+            "The surroundings are mostly empty/dark.",
+            "The render is mostly a dark wall with no subject visible.",
+            "Grass is clipping through the character's feet."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is not visible in the rendered image, likely obscured by the dark cave wall or positioned deep in the shadows where it cannot be seen."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v0.png",
+          "azimuth": 94.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            2.1771905422210693,
+            -2.830388307571411,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            -0.9935488700866699,
+            -0.07644913345575333,
+            -0.08376257121562958
+          ],
+          "camera_up": [
+            -0.0835157111287117,
+            -0.0064260829240083694,
+            0.9964857697486877
+          ],
+          "camera_radius": 6.212682593999197
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c2_v1.png",
+          "azimuth": 184.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -4.35969877243042,
+            2.7724034786224365,
+            0.49577030539512634
+          ],
+          "camera_forward": [
+            0.07644946873188019,
+            -0.9935488700866699,
+            -0.08376233279705048
+          ],
+          "camera_up": [
+            0.006426204461604357,
+            -0.083515465259552,
+            0.9964857697486877
+          ],
+          "camera_radius": 6.212682611987998
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -4.945546390388943,
+        2.0941325551784447,
+        -0.7437162399291992
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -4.2155866622924805,
+            1.079411506652832,
+            -0.7437162399291992
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            1.0,
+            0.0,
+            0.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v1.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v2.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter0_v3.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The scene is too dark or the camera is blocked by a wall.",
+            "Object is clipping into the rock formation.",
+            "The object is not visible in the rendered image.",
+            "Object is significantly occluded by the cave wall.",
+            "The object appears to be hidden behind or embedded within the large rock structure.",
+            "The scene is too dark to distinguish the object.",
+            "The object is not visible because the scene is too dark.",
+            "The object is likely placed in a deep shadow area of the cave."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.5,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely obscured by a large rock in the foreground and the overall lighting is too dark to identify the subject."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -4.945546390388943,
+            2.0941325551784447,
+            -0.7437162399291992
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1_v3.png"
+          ],
+          "view_qualities": [
+            1.0,
+            9.0,
+            1.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1_v2.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Cave-interior_a40482a6_Party-goer-man-in-plaid-shirt-and-shorts_c273aa2e_c4_iter1_v3.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The scene is too dark to see the object or its surroundings.",
+            "Object is not visible in the render.",
+            "The object is not visible in the rendered image.",
+            "The render is extremely dark, showing only a textured dark surface, likely a cave wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The rendered image is extremely dark and the object is completely invisible, likely placed in a deep shadow or behind a cave wall."
+        }
+      ],
+      "final_images": []
+    }
+  ]
+}

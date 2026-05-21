@@ -1,0 +1,387 @@
+{
+  "scene": "House-in-forest-hight-quality_cab103af",
+  "scene_file": "data/scenes/House-in-forest-hight-quality_cab103af/House-in-forest-hight-quality_cab103af.blend",
+  "scene_scale": 1.0,
+  "object": "Broadway-Lady_bed11779",
+  "object_file": "data/objects/Broadway-Lady_bed11779/Broadway-Lady_bed11779.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        8.999082565307617,
+        15.920981407165527,
+        -1.8954228162765503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            8.999082565307617,
+            15.920981407165527,
+            -1.8954228162765503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            2.0,
+            2.0,
+            8.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v3.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is not grounded on a surface, it is floating in the water.",
+            "The person is standing in the water, which is not a plausible location for a person unless they are swimming or wading.",
+            "Object is not grounded on a surface, it is standing on water.",
+            "The object is too small for the scene. The person appears to be a miniature figure in a large landscape."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 2.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly visible and not clipping, but it is standing on water which is not a plausible surface for a person to be standing on."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c0_v0.png",
+          "azimuth": 176.5,
+          "elevation": 20,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            9.305580139160156,
+            20.93216896057129,
+            0.6037544012069702
+          ],
+          "camera_forward": [
+            -0.057366903871297836,
+            -0.9379398822784424,
+            -0.3420201539993286
+          ],
+          "camera_up": [
+            -0.020879844203591347,
+            -0.3413822054862976,
+            0.9396926164627075
+          ],
+          "camera_radius": 5.608193108308651
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -7.230438232421875,
+        23.298036575317383,
+        -1.8954228162765503
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.230438232421875,
+            23.298036575317383,
+            -1.8954228162765503
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            2.0,
+            7.0,
+            7.0,
+            8.0,
+            2.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v4.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c1_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is too small for the scene.",
+            "The person is standing in the water, which is not a plausible location for a person unless they are swimming or wading."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is standing in the water, which is not a plausible location, and they appear to be too small for the scene."
+        }
+      ],
+      "final_images": []
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -14.60749340057373,
+        -16.538061141967773,
+        -0.10780024528503418
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -14.60749340057373,
+            -16.538061141967773,
+            -0.10780024528503418
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            7.0,
+            7.0,
+            8.0,
+            7.0,
+            7.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person is standing on a rocky, uneven surface, which is not ideal for a person to stand on for an extended period.",
+            "The person is standing on the wooden deck, which is a plausible location, but the previous attempts were in the water, which is not.",
+            "The person is standing on a rocky, uneven surface that appears to be part of the lakebed or shore, which is not a typical or safe place for a person to stand for an extended period.",
+            "The person is standing on the ground, which is not a plausible location for a person unless they are walking or standing in the landscape.",
+            "The person is standing on the ground near the water, which is not a plausible location for a person unless they are swimming or wading.",
+            "The person is standing on the ground next to the house, which is a plausible location, but the previous attempts indicate the person was placed in the water. This placement is better, but could be improved by placing the person on the deck or inside the house."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and mostly visible, but is placed too close to the water, which is not a plausible location. The scale appears correct for the scene."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_v0.png",
+          "azimuth": 12.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -13.870037078857422,
+            -19.8922061920166,
+            1.9213449954986572
+          ],
+          "camera_forward": [
+            -0.19970396161079407,
+            0.9083058834075928,
+            -0.3675577640533447
+          ],
+          "camera_up": [
+            -0.07892760634422302,
+            0.35898348689079285,
+            0.9300007224082947
+          ],
+          "camera_radius": 3.988929688349213
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/House-in-forest-hight-quality_cab103af_Broadway-Lady_bed11779_c2_v1.png",
+          "azimuth": 312.4,
+          "elevation": 50,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -17.14354133605957,
+            -18.853790283203125,
+            1.9213449954986572
+          ],
+          "camera_forward": [
+            0.6867642402648926,
+            0.6271015405654907,
+            -0.3675575256347656
+          ],
+          "camera_up": [
+            0.27142494916915894,
+            0.24784480035305023,
+            0.9300007820129395
+          ],
+          "camera_radius": 3.9889308837502955
+        }
+      ]
+    }
+  ]
+}

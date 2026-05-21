@@ -1,0 +1,105 @@
+{
+  "scene": "simple-kithcen-scene",
+  "scene_file": "data/scenes/simple-kithcen-scene/kitchen.blend",
+  "scene_scale": 1.0,
+  "object": "Girl-waiting-a-bus_ecc43f16",
+  "object_file": "data/objects/Girl-waiting-a-bus_ecc43f16/Girl-waiting-a-bus_ecc43f16.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -0.7141960859298706,
+        -2.5618491172790527,
+        5.960464477539063e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.7141960859298706,
+            -2.5618491172790527,
+            5.960464477539063e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png"
+          ],
+          "view_qualities": [
+            7.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/simple-kithcen-scene_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+              "quality": 2.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 7.0,
+          "vlm_issues": [
+            "The person is not interacting with the environment in a meaningful way.",
+            "The person is standing in a kitchen, which is an implausible location for a person waiting for a bus.",
+            "The scale of the person relative to the kitchen is incorrect. The person appears to be much larger than a typical human in this environment, with the counter reaching their chest."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.5,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible, but the placement is implausible and the scale is incorrect for the kitchen environment."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/simple-kithcen-scene_Girl-waiting-a-bus_ecc43f16_c0_v0.png",
+          "azimuth": 176.5,
+          "elevation": 35,
+          "preview_quality": 7.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -0.42544272541999817,
+            2.1592257022857666,
+            1.5092631578445435
+          ],
+          "camera_forward": [
+            -0.0601872093975544,
+            -0.9840515851974487,
+            -0.16739177703857422
+          ],
+          "camera_up": [
+            -0.010219071991741657,
+            -0.16707955300807953,
+            0.9858904480934143
+          ],
+          "camera_radius": 4.964856803540734
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "A girl waiting for a bus is an outdoor scene and does not fit naturally in a simple kitchen scene."
+    }
+  ]
+}

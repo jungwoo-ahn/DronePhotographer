@@ -1,0 +1,150 @@
+{
+  "scene": "pine_forest",
+  "scene_file": "data/scenes/pine_forest/polyhaven_pine_fir_forest.blend",
+  "scene_scale": 0.5,
+  "object": "There-Are-No-Emotions_bb0f4c25",
+  "object_file": "data/objects/There-Are-No-Emotions_bb0f4c25/There-Are-No-Emotions_bb0f4c25.blend",
+  "incompatible": true,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        11.063775062561035,
+        -33.23283386230469,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            11.063775062561035,
+            -33.23283386230469,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            7.0,
+            7.0,
+            9.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_iter0_v5.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "surroundings_empty=true"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is grounded and fully visible in a plausible location, but the surroundings are empty, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_v0.png",
+          "azimuth": 49.8,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            15.442171096801758,
+            -36.932865142822266,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            -0.7630555629730225,
+            0.6448318362236023,
+            0.044023867696523666
+          ],
+          "camera_up": [
+            0.03362523764371872,
+            -0.028415564447641373,
+            0.9990304708480835
+          ],
+          "camera_radius": 5.750934112905193
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/pine_forest_There-Are-No-Emotions_bb0f4c25_c0_v1.png",
+          "azimuth": 349.8,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            10.048651695251465,
+            -38.87465286254883,
+            0.4611516296863556
+          ],
+          "camera_forward": [
+            0.1769130527973175,
+            0.9832413792610168,
+            0.04402398690581322
+          ],
+          "camera_up": [
+            -0.00779599417001009,
+            -0.04332821071147919,
+            0.9990304708480835
+          ],
+          "camera_radius": 5.750935429176406
+        }
+      ],
+      "incompatible": true,
+      "incompatible_reason": "The object is a person, but the scene is a desert with ruins, making the object incompatible with the environment."
+    }
+  ]
+}

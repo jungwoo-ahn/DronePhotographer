@@ -1,0 +1,136 @@
+{
+  "scene": "sea-side-view",
+  "scene_file": "data/scenes/sea-side-view/ocean scene.blend",
+  "scene_scale": 3.0,
+  "object": "Girl-waiting-a-bus_ecc43f16",
+  "object_file": "data/objects/Girl-waiting-a-bus_ecc43f16/Girl-waiting-a-bus_ecc43f16.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -11.204023361206055,
+        15.444923400878906,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -11.204023361206055,
+            15.444923400878906,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.0,
+            7.0,
+            7.0,
+            7.0,
+            6.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v1.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v2.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v3.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v4.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_iter0_v5.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The object is placed in an environment that does not match the object's context (a person waiting for a bus in the middle of the ocean).",
+            "The scene is very empty, with only water and a distant rocky shore. A person waiting for a bus typically implies a road or bus stop, which are absent here.",
+            "The object is placed in an empty environment with no context or surrounding details.",
+            "The scene is very empty, with only the sky and water visible."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is fully visible and grounded, but the placement is implausible as a person waiting for a bus is in the middle of the ocean with no surrounding context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/sea-side-view_Girl-waiting-a-bus_ecc43f16_c0_v0.png",
+          "azimuth": 265.4,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 7.0,
+          "camera_position": [
+            -14.903613090515137,
+            15.742585182189941,
+            1.1325418949127197
+          ],
+          "camera_forward": [
+            0.9902666211128235,
+            -0.07967491447925568,
+            -0.11412230879068375
+          ],
+          "camera_up": [
+            0.11375469714403152,
+            -0.009152643382549286,
+            0.9934667348861694
+          ],
+          "camera_radius": 3.8804919477368043
+        }
+      ]
+    }
+  ]
+}

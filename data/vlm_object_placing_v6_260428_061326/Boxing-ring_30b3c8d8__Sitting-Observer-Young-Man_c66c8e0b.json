@@ -1,0 +1,434 @@
+{
+  "scene": "Boxing-ring_30b3c8d8",
+  "scene_file": "data/scenes/Boxing-ring_30b3c8d8/Boxing-ring_30b3c8d8.blend",
+  "scene_scale": 1.5,
+  "object": "Sitting-Observer-Young-Man_c66c8e0b",
+  "object_file": "data/objects/Sitting-Observer-Young-Man_c66c8e0b/Sitting-Observer-Young-Man_c66c8e0b.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        27.370330810546875,
+        -3.181191921234131,
+        4.500153541564941
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            27.370330810546875,
+            -3.181191921234131,
+            4.500153541564941
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.0,
+            1.0,
+            6.0,
+            6.0,
+            8.0,
+            1.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v1.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_iter0_v5.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "clipping with seat",
+            "awkward placement in the middle of an aisle",
+            "Object is clipping with the seat it is placed on",
+            "object is hidden behind or inside furniture",
+            "Object is heavily occluded by scene geometry (seats)",
+            "Object is not visible in the render",
+            "The person is sitting on a stool in a walkway/aisle instead of in the provided arena seating.",
+            "Object is likely occluded by the foreground seating"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.5,
+            "right": 0.0,
+            "up": 0.3
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely occluded by the stadium seating and is likely clipping into the chair, making them invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_v0.png",
+          "azimuth": 148.3,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 6.0,
+          "camera_position": [
+            29.160249710083008,
+            -0.2830658555030823,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.4618755280971527,
+            -0.7478402256965637,
+            -0.4768710434436798
+          ],
+          "camera_up": [
+            -0.25058209896087646,
+            -0.4057272672653198,
+            0.8789732456207275
+          ],
+          "camera_radius": 4.1709408517876785
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c0_v1.png",
+          "azimuth": 346.7,
+          "elevation": 50,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            26.58670997619629,
+            -6.496140480041504,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.20220762491226196,
+            0.8553982377052307,
+            -0.47687095403671265
+          ],
+          "camera_up": [
+            0.10970410704612732,
+            0.46408072113990784,
+            0.8789733052253723
+          ],
+          "camera_radius": 4.170940994692232
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        31.033103942871094,
+        -8.17587947845459,
+        5.400153160095215
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.033103942871094,
+            -8.17587947845459,
+            5.400153160095215
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v5.png"
+          ],
+          "view_qualities": [
+            8.5,
+            9.5,
+            5.0,
+            4.0,
+            3.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0.png",
+              "quality": 8.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v2.png",
+              "quality": 5.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_iter0_v5.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "object's head is cut off by the frame edge",
+            "awkward placement in the middle of an aisle",
+            "background is a black void",
+            "clipping with the chair seat and backrest",
+            "object is sitting on a stool instead of the available stadium seating"
+          ],
+          "vlm_adjustment": {
+            "forward": 0.1,
+            "right": 0.0,
+            "up": 0.05
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed plausibly in the seating area, but is clearly clipping through the chair's geometry, which violates the no-clipping requirement."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_v0.png",
+          "azimuth": 230.5,
+          "elevation": 35,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            27.683547973632812,
+            -5.414718151092529,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            0.7538560628890991,
+            -0.6214307546615601,
+            -0.2133655846118927
+          ],
+          "camera_up": [
+            0.16463804244995117,
+            -0.13571731746196747,
+            0.9769724011421204
+          ],
+          "camera_radius": 4.595071278207073
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c1_v1.png",
+          "azimuth": 170.5,
+          "elevation": 50,
+          "preview_quality": 8.5,
+          "final_quality": 8.5,
+          "camera_position": [
+            31.595306396484375,
+            -4.816284656524658,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.15900392830371857,
+            -0.950171709060669,
+            -0.26812586188316345
+          ],
+          "camera_up": [
+            -0.044253360480070114,
+            -0.26444870233535767,
+            0.9633839130401611
+          ],
+          "camera_radius": 3.724794024174719
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        31.033103942871094,
+        -1.1833164691925049,
+        5.400151252746582
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            31.033103942871094,
+            -1.1833164691925049,
+            5.400151252746582
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v5.png"
+          ],
+          "view_qualities": [
+            6.0,
+            6.0,
+            6.0,
+            5.5,
+            4.0,
+            9.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v1.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v2.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v3.png",
+              "quality": 5.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_iter0_v5.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "lighting feels disconnected from the scene",
+            "sitting on a stool instead of the arena seating",
+            "awkward placement",
+            "object's head is cut off by the frame edge",
+            "sitting on the floor in an aisle instead of a seat",
+            "awkward placement in the middle of an aisle",
+            "awkward placement sitting on the floor in an aisle instead of a chair"
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person's head is cut off by the top of the frame, and sitting on a stool in the middle of an aisle is awkward when stadium seating is available."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Boxing-ring_30b3c8d8_Sitting-Observer-Young-Man_c66c8e0b_c2_v1.png",
+          "azimuth": 2.3,
+          "elevation": 35,
+          "preview_quality": 6.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            31.207313537597656,
+            -5.520732402801514,
+            6.907186031341553
+          ],
+          "camera_forward": [
+            -0.03920786455273628,
+            0.9761852622032166,
+            -0.21336616575717926
+          ],
+          "camera_up": [
+            -0.008562813512980938,
+            0.21319428086280823,
+            0.9769722819328308
+          ],
+          "camera_radius": 4.595072052844585
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "scene": "Comercial-Mall_414cc2b1",
+  "scene_file": "data/scenes/Comercial-Mall_414cc2b1/Comercial-Mall_414cc2b1.blend",
+  "scene_scale": 0.8,
+  "object": "Relaxed-Pose-Sneakerhead_75996846",
+  "object_file": "data/objects/Relaxed-Pose-Sneakerhead_75996846/Relaxed-Pose-Sneakerhead_75996846.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -7.995898246765137,
+        8.674813270568848,
+        -0.08045768737792969
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.995898246765137,
+            8.674813270568848,
+            -0.08045768737792969
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.0,
+            9.0,
+            4.0,
+            9.5,
+            4.0,
+            6.5
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v2.png",
+              "quality": 4.0,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_iter0_v5.png",
+              "quality": 6.5,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is significantly cropped at the top (head and upper torso are cut off).",
+            "Surroundings are mostly empty, lacking architectural or environmental context."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is plausibly placed on a stool on the sidewalk, grounded and fully visible with no clipping, but the camera angle provides very little interesting background context, showing mostly sky and road, which limits the quality score."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_v0.png",
+          "azimuth": 67.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.875154972076416,
+            6.585076808929443,
+            1.5411593914031982
+          ],
+          "camera_forward": [
+            -0.9118045568466187,
+            0.37210050225257874,
+            -0.17364810407161713
+          ],
+          "camera_up": [
+            -0.16077570617198944,
+            0.06561125069856644,
+            0.9848077893257141
+          ],
+          "camera_radius": 5.7635622340509345
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c0_v1.png",
+          "azimuth": 171.8,
+          "elevation": 50,
+          "preview_quality": 9.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -7.481017589569092,
+            12.247836112976074,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.12944278120994568,
+            -0.898271381855011,
+            -0.4199441373348236
+          ],
+          "camera_up": [
+            -0.0598960742354393,
+            -0.41565075516700745,
+            0.9075499773025513
+          ],
+          "camera_radius": 4.289422602032938
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -7.108912467956543,
+        13.109737396240234,
+        1.5258789289873675e-06
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -7.108912467956543,
+            13.109737396240234,
+            1.5258789289873675e-06
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v5.png"
+          ],
+          "view_qualities": [
+            3.5,
+            9.0,
+            3.0,
+            6.0,
+            9.0,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0.png",
+              "quality": 3.5,
+              "visible": true,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v1.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v3.png",
+              "quality": 6.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v4.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "Object is significantly cropped at the top (head and upper torso are cut off).",
+            "The surroundings are mostly empty, showing only ground and a few small lights, lacking architectural or environmental context from the main building.",
+            "Object is placed in a somewhat implausible location (sitting on a stool in an open paved area).",
+            "Object is completely hidden from view.",
+            "The object is placed in an awkward location, sitting on a stool in what appears to be a parking spot rather than a more natural waiting or resting area.",
+            "The surroundings are mostly empty, showing only paved ground and a low edge, lacking architectural or environmental context from the main building."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, making it impossible to evaluate its placement, scale, or plausibility. The rendered image only shows the building's stairs and elevator."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c3_v1.png",
+          "azimuth": 111.0,
+          "elevation": 35,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -2.8140676021575928,
+            14.758373260498047,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.8823692798614502,
+            -0.33870959281921387,
+            -0.32665011286735535
+          ],
+          "camera_up": [
+            -0.3049542009830475,
+            -0.11706080287694931,
+            0.9451453685760498
+          ],
+          "camera_radius": 5.115163597966043
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -23.07463836669922,
+        9.561798095703125,
+        0.9920002222061157
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -23.07463836669922,
+            9.561798095703125,
+            0.9920002222061157
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v4.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v5.png"
+          ],
+          "view_qualities": [
+            9.5,
+            4.0,
+            4.0,
+            9.5,
+            9.5,
+            0.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v1.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v3.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v4.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_iter0_v5.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": true
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Object is not visible in the frame.",
+            "The surroundings are completely empty, showing only a plain wall and sky.",
+            "Object is significantly cropped at the top (head and upper torso are cut off)."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": 0.5,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden from view, and the rendered image shows only a plain wall and sky, providing no context."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_v0.png",
+          "azimuth": 221.2,
+          "elevation": 20,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -26.550783157348633,
+            13.53256607055664,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            0.654501736164093,
+            -0.7476313710212708,
+            -0.11258222162723541
+          ],
+          "camera_up": [
+            0.07415668666362762,
+            -0.08470857888460159,
+            0.9936423897743225
+          ],
+          "camera_radius": 5.422081088675842
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Comercial-Mall_414cc2b1_Relaxed-Pose-Sneakerhead_75996846_c4_v1.png",
+          "azimuth": 98.8,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -17.609010696411133,
+            10.40792179107666,
+            2.236340045928955
+          ],
+          "camera_forward": [
+            -0.9825031757354736,
+            -0.15209971368312836,
+            -0.10748569667339325
+          ],
+          "camera_up": [
+            -0.10622040182352066,
+            -0.016443906351923943,
+            0.9942066073417664
+          ],
+          "camera_radius": 5.6689851402966775
+        }
+      ]
+    }
+  ]
+}

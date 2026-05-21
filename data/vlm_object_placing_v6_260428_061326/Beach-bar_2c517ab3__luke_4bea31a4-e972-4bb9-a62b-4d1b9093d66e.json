@@ -1,0 +1,677 @@
+{
+  "scene": "Beach-bar_2c517ab3",
+  "scene_file": "data/scenes/Beach-bar_2c517ab3/Beach-bar_2c517ab3.blend",
+  "scene_scale": 0.8,
+  "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+  "object_file": "data/objects/luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/luke_2K_b5a0590c-f246-4616-9d9a-1d84a8a1e366.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 0,
+      "accepted": true,
+      "position": [
+        -1.2044283151626587,
+        -2.7530946731567383,
+        -0.11999998241662979
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -1.2044283151626587,
+            -2.7530946731567383,
+            -0.11999998241662979
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            9.5,
+            3.0,
+            1.0,
+            7.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v1.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": true
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_iter0_v4.png",
+              "quality": 7.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.5,
+          "vlm_issues": [
+            "Surroundings are empty (just a wall)",
+            "The top of the person's head is cropped out of the frame.",
+            "Object is not visible",
+            "Object is clipping with the palm tree trunk.",
+            "Object is likely occluded by a wall or clipping with scene geometry",
+            "Object is heavily cropped (head and upper torso missing)"
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 1.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is completely hidden behind a wooden wall or structure, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c0_v1.png",
+          "azimuth": 140.7,
+          "elevation": 10,
+          "preview_quality": 7.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.202282428741455,
+            1.409091830253601,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.6314435601234436,
+            -0.7714736461639404,
+            -0.07815021276473999
+          ],
+          "camera_up": [
+            -0.049498822540044785,
+            -0.06047579646110535,
+            0.9969415664672852
+          ],
+          "camera_radius": 5.4838343188044725
+        }
+      ]
+    },
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        -3.204428195953369,
+        -9.753094673156738,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -3.204428195953369,
+            -9.753094673156738,
+            0.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png"
+          ],
+          "view_qualities": [
+            8.0,
+            4.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_iter0_v3.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The person's head is cropped out of the frame.",
+            "The top of the person's head is slightly cropped out of the frame.",
+            "The person is partially occluded by the picnic table."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is placed in a plausible location on the deck, but the framing is poor as the head is completely cut off."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v0.png",
+          "azimuth": 270.9,
+          "elevation": 50,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            -6.714634418487549,
+            -9.808237075805664,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.9962064027786255,
+            0.015649495646357536,
+            -0.08560343831777573
+          ],
+          "camera_up": [
+            0.08559288084506989,
+            0.0013446803204715252,
+            0.9963293075561523
+          ],
+          "camera_radius": 3.636670615025438
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c1_v1.png",
+          "azimuth": 210.9,
+          "elevation": 35,
+          "preview_quality": 8.0,
+          "final_quality": 9.0,
+          "camera_position": [
+            -5.501944541931152,
+            -5.914224624633789,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.5123780965805054,
+            -0.8561213612556458,
+            -0.06726755946874619
+          ],
+          "camera_up": [
+            0.034544687718153,
+            -0.05771992355585098,
+            0.9977349638938904
+          ],
+          "camera_radius": 4.573432939564289
+        }
+      ]
+    },
+    {
+      "candidate_idx": 2,
+      "accepted": true,
+      "position": [
+        -0.2044283002614975,
+        -3.7530946731567383,
+        -0.11999993771314621
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.2044283002614975,
+            -3.7530946731567383,
+            -0.11999993771314621
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.0,
+            3.0,
+            1.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0.png",
+              "quality": 9.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_iter0_v4.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 9.0,
+          "vlm_issues": [
+            "The person is heavily cropped, with the head and upper torso completely out of frame.",
+            "The object is heavily obscured by a foreground tree trunk.",
+            "The person's head and upper body are cropped out of the frame.",
+            "The object is completely hidden behind the wall and door."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely obscured by the wall and door in the foreground, making them invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c2_v0.png",
+          "azimuth": 167.3,
+          "elevation": 10,
+          "preview_quality": 9.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            0.9780395030975342,
+            1.4939271211624146,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.21917372941970825,
+            -0.9725509881973267,
+            -0.07815033197402954
+          ],
+          "camera_up": [
+            -0.017180947586894035,
+            -0.07623837143182755,
+            0.9969415664672852
+          ],
+          "camera_radius": 5.483834199243767
+        }
+      ]
+    },
+    {
+      "candidate_idx": 3,
+      "accepted": true,
+      "position": [
+        -0.97678083673301,
+        -3.333392155327136,
+        -1.2715658215256553e-07
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -2.1210949420928955,
+            -3.836428165435791,
+            -1.2715658215256553e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v4.png"
+          ],
+          "view_qualities": [
+            4.0,
+            3.0,
+            1.0,
+            4.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v2.png",
+              "quality": 3.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter0_v4.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 2.0,
+          "vlm_issues": [
+            "The person's head and upper torso are cropped out of the frame.",
+            "The top of the person's head is cropped out of the frame.",
+            "The person is partially obscured by a foreground tree trunk.",
+            "The person's head is cropped out of the frame.",
+            "The object is not visible in the frame.",
+            "The person is clipping through the corner of the wooden table.",
+            "The object is completely hidden behind a wall."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.5,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is completely obscured by the wooden wall in the foreground, making the placement invalid as the subject is not visible."
+        },
+        {
+          "iteration": 1,
+          "position": [
+            -0.97678083673301,
+            -3.333392155327136,
+            -1.2715658215256553e-07
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1_v4.png"
+          ],
+          "view_qualities": [
+            3.0,
+            4.0,
+            1.0,
+            8.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1.png",
+              "quality": 3.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1_v2.png",
+              "quality": 4.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1_v3.png",
+              "quality": 1.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_iter1_v4.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "The camera is framing a blank wooden wall with no subject visible.",
+            "The person's head is cropped out of the frame.",
+            "The object is completely hidden behind a wall.",
+            "The person is clipping into the palm tree trunk.",
+            "The foreground bar counter partially occludes the person's lower legs, creating a slightly awkward composition."
+          ],
+          "vlm_adjustment": {
+            "forward": 2.0,
+            "right": -2.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is entirely obscured by a wooden wall in the foreground, making it invisible in the render."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c3_v0.png",
+          "azimuth": 140.4,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 9.5,
+          "camera_position": [
+            2.4516756534576416,
+            0.8109003901481628,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            -0.6364240050315857,
+            -0.7693045139312744,
+            -0.05599139630794525
+          ],
+          "camera_up": [
+            -0.035690318793058395,
+            -0.043142061680555344,
+            0.9984312653541565
+          ],
+          "camera_radius": 5.461708418277468
+        }
+      ]
+    },
+    {
+      "candidate_idx": 4,
+      "accepted": true,
+      "position": [
+        -0.2044283002614975,
+        -0.003094792366027832,
+        -9.536743306171047e-08
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            -0.2044283002614975,
+            -0.003094792366027832,
+            -9.536743306171047e-08
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v3.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v4.png"
+          ],
+          "view_qualities": [
+            9.5,
+            8.0,
+            0.0,
+            10.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0.png",
+              "quality": 9.5,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v3.png",
+              "quality": 0.0,
+              "visible": false,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_iter0_v4.png",
+              "quality": 10.0,
+              "visible": true,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 10.0,
+          "vlm_issues": [
+            "The top of the person's head is slightly cropped by the frame/roof.",
+            "The person is completely hidden behind the wooden wall or is out of the camera's field of view."
+          ],
+          "vlm_adjustment": {
+            "forward": 1.0,
+            "right": -2.0,
+            "up": 0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The person is not visible in the rendered image, likely obscured by the large wooden wall in the foreground; they need to be moved into the open deck area."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_v0.png",
+          "azimuth": 312.5,
+          "elevation": 10,
+          "preview_quality": 10.0,
+          "final_quality": 10.0,
+          "camera_position": [
+            -4.169957160949707,
+            -3.6368331909179688,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.7361206412315369,
+            0.6745304465293884,
+            -0.0559915155172348
+          ],
+          "camera_up": [
+            0.04128129035234451,
+            0.037827301770448685,
+            0.9984312653541565
+          ],
+          "camera_radius": 5.461708418277468
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Beach-bar_2c517ab3_luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e_c4_v1.png",
+          "azimuth": 342.5,
+          "elevation": 10,
+          "preview_quality": 9.5,
+          "final_quality": 9.5,
+          "camera_position": [
+            -1.821808099746704,
+            -5.1327691078186035,
+            0.9490959048271179
+          ],
+          "camera_forward": [
+            0.3002341389656067,
+            0.9522207975387573,
+            -0.05599139630794525
+          ],
+          "camera_up": [
+            0.01683693565428257,
+            0.0533999428153038,
+            0.9984312653541565
+          ],
+          "camera_radius": 5.461708200013725
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "scene": "Apartment-garden_fcd5b3f7",
+  "scene_file": "data/scenes/Apartment-garden_fcd5b3f7/Apartment-garden_fcd5b3f7.blend",
+  "scene_scale": 0.5,
+  "object": "Girl-with-purse-and-coffee_66ad3b47",
+  "object_file": "data/objects/Girl-with-purse-and-coffee_66ad3b47/Girl-with-purse-and-coffee_66ad3b47.blend",
+  "incompatible": false,
+  "placements": [
+    {
+      "candidate_idx": 1,
+      "accepted": true,
+      "position": [
+        5.082385063171387,
+        -7.621038913726807,
+        -0.04181596636772156
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0,
+      "attempts": [
+        {
+          "iteration": 0,
+          "position": [
+            5.082385063171387,
+            -7.621038913726807,
+            -0.04181596636772156
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": 1.0,
+          "preview_image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+          "view_images": [
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v2.png",
+            "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v3.png"
+          ],
+          "view_qualities": [
+            8.0,
+            8.0,
+            2.0
+          ],
+          "view_evaluated": [
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v2.png",
+              "quality": 8.0,
+              "visible": true,
+              "surroundings_empty": false
+            },
+            {
+              "image": "outputs/vlm_placements/full_run_v6_260428_061326/previews/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_iter0_v3.png",
+              "quality": 2.0,
+              "visible": false,
+              "surroundings_empty": false
+            }
+          ],
+          "vlm_quality": 8.0,
+          "vlm_issues": [
+            "Object is mostly out of frame."
+          ],
+          "vlm_adjustment": {
+            "forward": 0.0,
+            "right": 0.0,
+            "up": 0.0
+          },
+          "vlm_scale_factor": 1.0,
+          "vlm_rotation": {},
+          "vlm_reasoning": "The object is mostly out of frame, making it impossible to assess the placement quality, scale, or clipping. The visible portion appears to be grounded."
+        }
+      ],
+      "final_images": [
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_v0.png",
+          "azimuth": 274.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.26540324091911316,
+            -7.994992733001709,
+            0.7214518189430237
+          ],
+          "camera_forward": [
+            0.997251033782959,
+            0.06973450630903244,
+            -0.025050003081560135
+          ],
+          "camera_up": [
+            0.024988986551761627,
+            0.0017473429907113314,
+            0.9996861815452576
+          ],
+          "camera_radius": 5.414910888530842
+        },
+        {
+          "image": "outputs/vlm_placements/full_run_v6_260428_061326/images/Apartment-garden_fcd5b3f7_Girl-with-purse-and-coffee_66ad3b47_c1_v1.png",
+          "azimuth": 270.0,
+          "elevation": 10,
+          "preview_quality": 8.0,
+          "final_quality": 8.0,
+          "camera_position": [
+            -0.2784619927406311,
+            -7.621038913726807,
+            0.7214518189430237
+          ],
+          "camera_forward": [
+            0.9996861815452576,
+            7.846018235113661e-08,
+            -0.025050122290849686
+          ],
+          "camera_up": [
+            0.025050122290849686,
+            -1.1727130555527765e-07,
+            0.9996861815452576
+          ],
+          "camera_radius": 5.414910678012354
+        }
+      ]
+    }
+  ]
+}
