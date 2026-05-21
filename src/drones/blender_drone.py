@@ -10,7 +10,7 @@ import numpy as np
 from mathutils import Euler, Matrix, Vector
 
 from src.scenes.scene import open_scene, set_nishita_sky
-from src.vlm_qwen25.rotation_utils import apply_camera_local_action, orthonormalize_forward_up
+from src.utils.rotation_utils import apply_camera_local_action, orthonormalize_forward_up
 from render_object import place_imported_object
 
 
