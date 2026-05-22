@@ -451,6 +451,20 @@ def main() -> None:
         training_kwargs["evaluation_strategy"] = eval_strategy_value
     else:
         training_kwargs["eval_strategy"] = eval_strategy_value
+
+    # Optional: keep best + last only (HF preserves the best checkpoint regardless
+    # of save_total_limit when load_best_model_at_end=True, so save_total_limit=1
+    # effectively yields "best + latest" = 2 checkpoints on disk).
+    load_best = bool(train_cfg.get("load_best_model_at_end", False))
+    if load_best and eval_dataset is not None:
+        training_kwargs["load_best_model_at_end"] = True
+        training_kwargs["metric_for_best_model"] = str(
+            train_cfg.get("metric_for_best_model", "eval_loss")
+        )
+        training_kwargs["greater_is_better"] = bool(
+            train_cfg.get("greater_is_better", False)
+        )
+
     training_args = TrainingArguments(**training_kwargs)
 
     collator = QwenVLScoreCollator(

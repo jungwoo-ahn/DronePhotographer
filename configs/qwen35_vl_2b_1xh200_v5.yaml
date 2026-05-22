@@ -54,9 +54,12 @@ training:
   warmup_ratio: 0.03
   max_length: 2048
   logging_steps: 50            # was 20; bumped to reduce TB clutter from new per-key/per-bucket scalars
-  save_steps: 2000             # checkpoint every N steps
-  save_total_limit: 10         # keep only the 10 most recent checkpoints
+  save_steps: 2000             # checkpoint every N steps (must be multiple of eval_steps when load_best_model_at_end=true)
+  save_total_limit: 1          # +1 best (always preserved by HF) = best + last on disk
   eval_steps: 1000             # run eval every N steps
+  load_best_model_at_end: true # track best ckpt by metric_for_best_model; final saved model is the best one
+  metric_for_best_model: eval_loss
+  greater_is_better: false
   dataloader_num_workers: 8
   gradient_checkpointing: false    # batch_size=4 fits without checkpointing
   bf16: true

@@ -188,6 +188,11 @@ class DroneActionScoreDataset(Dataset):
             str(self.placement_end_idx),
             ",".join(self.target_score_keys),
         ]
+        if self.annotations_path.is_dir():
+            flag = self.annotations_path / "_cam_to_obj_convention_v2.flag"
+            key_parts.append(
+                hashlib.md5(flag.read_bytes()).hexdigest() if flag.exists() else "no_flag"
+            )
         key = hashlib.sha1("|".join(key_parts).encode("utf-8")).hexdigest()[:16]
         return self.views_cache_dir / f"views_{key}.pkl"
 
