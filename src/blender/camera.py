@@ -24,13 +24,14 @@ def _compute_cam_position(target_pos, obj_size, radius, elevation_deg, azimuth_d
     return Vector((cam_x, cam_y, cam_z))
 
 
-def is_camera_valid(cam_pos, target_pos, ignore_names=None, min_clearance=0.8):
+def is_camera_valid(cam_pos, target_pos, ignore_names=None, min_clearance=0.8,
+                    check_floor=True):
     """Check if camera position is a plausible place for a photographer.
 
     Tests:
     1. Camera has enough open space around it (not inside walls/stairs/furniture)
-    2. Clear line of sight from camera to target
-    3. Camera is above a floor surface (not floating in void)
+    2. Floor below camera (within 3m) — skipped when ``check_floor=False``
+    3. Clear line of sight from camera to target
     """
     scene = bpy.context.scene
     depsgraph = bpy.context.evaluated_depsgraph_get()
@@ -55,11 +56,12 @@ def is_camera_valid(cam_pos, target_pos, ignore_names=None, min_clearance=0.8):
         return False  # too enclosed — inside furniture, under stairs, etc.
 
     # Test 2: Floor below camera (within 3m) — camera shouldn't float in void
-    hit_floor, loc_floor, _, _, _, _ = scene.ray_cast(
-        depsgraph, cam_pos, Vector((0, 0, -1))
-    )
-    if not hit_floor or (cam_pos.z - loc_floor.z) > 3.0:
-        return False  # no floor below or too high above it
+    if check_floor:
+        hit_floor, loc_floor, _, _, _, _ = scene.ray_cast(
+            depsgraph, cam_pos, Vector((0, 0, -1))
+        )
+        if not hit_floor or (cam_pos.z - loc_floor.z) > 3.0:
+            return False  # no floor below or too high above it
 
     # Test 3: Clear line of sight from target to camera
     direction = cam_pos - target_pos
