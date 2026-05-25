@@ -664,23 +664,27 @@ def main(argv):
     # Phase 3: Render loop
     # ------------------------------------------------------------------
     if args.local_dense:
-        anchors, n_attempts = discover_valid_anchors(
+        anchors, bin_info = discover_valid_anchors(
             obj_pos,
             args.anchor_radius_range,
             args.num_anchors_per_placement,
             args.anchor_max_attempts,
             args.anchor_min_clearance,
         )
+        total_attempts = sum(b["attempts"] for b in bin_info)
         if args.worker_index == 0:
             with (run_dir / "anchors.json").open("w", encoding="utf-8") as f:
                 json.dump({
                     "anchors": [vec(a) for a in anchors],
                     "target": args.num_anchors_per_placement,
                     "discovered": len(anchors),
-                    "discovery_attempts": n_attempts,
+                    "discovery_attempts": total_attempts,
+                    "bin_info": bin_info,
                     "radius_range": list(args.anchor_radius_range),
                     "ball_radius": args.anchor_ball_radius,
                     "min_clearance": args.anchor_min_clearance,
+                    "max_attempts_per_bin": args.anchor_max_attempts,
+                    "sampling": "bucket_stratified",
                     "object_position": vec(obj_pos),
                 }, f, indent=2)
         pitch_lerp = (
@@ -704,9 +708,22 @@ def main(argv):
                 all_poses.append((idx, pose))
                 idx += 1
         total_images = len(all_poses)
+        bucket_lines = [
+            f"[{b['bin'][0]:.1f}-{b['bin'][1]:.1f}]m:{'✓' if b['accepted'] else '✗'}({b['attempts']})"
+            for b in bin_info if b.get("source") == "bucket"
+        ]
+        fallback_lines = [
+            f"[{b['bin'][0]:.1f}-{b['bin'][1]:.1f}]m:{'✓' if b['accepted'] else '✗'}({b['attempts']})"
+            for b in bin_info if b.get("source") == "fallback"
+        ]
+        n_bucket = sum(1 for b in bin_info if b.get("source") == "bucket" and b["accepted"])
+        n_fallback = sum(1 for b in bin_info if b.get("source") == "fallback" and b["accepted"])
         print(
-            f"local_dense: {len(anchors)}/{args.num_anchors_per_placement} anchors found "
-            f"in {n_attempts} attempts; {total_images} total poses queued."
+            f"local_dense: {len(anchors)}/{args.num_anchors_per_placement} anchors "
+            f"({n_bucket} bucket + {n_fallback} fallback) in {total_attempts} attempts. "
+            f"bucket: {', '.join(bucket_lines)}."
+            + (f" fallback: {', '.join(fallback_lines)}." if fallback_lines else "")
+            + f" {total_images} total poses queued."
         )
     else:
         all_poses = [

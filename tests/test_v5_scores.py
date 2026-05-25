@@ -91,6 +91,122 @@ def test_elevation_clamped_to_pm90():
     assert low["cam_to_obj_elevation_deg"] == -90
 
 
+def test_anchor_bucket_with_fallback_open_scene():
+    """When every position is valid, all n_target anchors come from
+    the bucket phase and span n_target distinct equal-width bins."""
+    import math, random
+
+    def random_direction(hemisphere=True):
+        u, v = random.random(), random.random()
+        theta = 2 * math.pi * u
+        z = v if hemisphere else 2 * v - 1
+        r = math.sqrt(max(0.0, 1.0 - z * z))
+        return (r * math.cos(theta), r * math.sin(theta), z)
+
+    def _try_sample_in_range(obj, r_lo, r_hi, max_attempts, is_valid):
+        for k in range(1, max_attempts + 1):
+            d = random_direction(True)
+            radius = random.uniform(r_lo, r_hi)
+            cam = (obj[0] + d[0] * radius, obj[1] + d[1] * radius, obj[2] + d[2] * radius)
+            if is_valid(cam, obj, radius):
+                return cam, k, radius
+        return None, max_attempts, None
+
+    def discover(obj, r_range, n_target, max_attempts, is_valid):
+        r_min, r_max = sorted(r_range)
+        bin_width = (r_max - r_min) / n_target
+        accepted, bin_info, failed = [], [], []
+        for i in range(n_target):
+            lo = r_min + i * bin_width
+            hi = r_min + (i + 1) * bin_width
+            cam, n_att, radius = _try_sample_in_range(obj, lo, hi, max_attempts, is_valid)
+            if cam is not None:
+                accepted.append((cam, radius))
+                bin_info.append({"bin": [lo, hi], "source": "bucket", "accepted": True})
+            else:
+                bin_info.append({"bin": [lo, hi], "source": "bucket", "accepted": False})
+                failed.append((lo, hi))
+        for lo, hi in failed:
+            cam, n_att, radius = _try_sample_in_range(obj, r_min, r_max, max_attempts, is_valid)
+            if cam is not None:
+                accepted.append((cam, radius))
+                bin_info.append({"bin": [lo, hi], "source": "fallback", "accepted": True})
+            else:
+                bin_info.append({"bin": [lo, hi], "source": "fallback", "accepted": False})
+        return accepted, bin_info
+
+    random.seed(721)
+    accepted, bin_info = discover((0, 0, 0), (1.0, 7.0), 4, 500,
+                                  is_valid=lambda cam, obj, r: True)
+    assert len(accepted) == 4
+    # All 4 should be source=bucket
+    assert all(b["source"] == "bucket" for b in bin_info)
+    # Each radius falls inside its bin (bins were [1,2.5),[2.5,4),[4,5.5),[5.5,7])
+    bin_edges = [1.0, 2.5, 4.0, 5.5, 7.0]
+    for i, (_, r) in enumerate(accepted):
+        lo, hi = bin_edges[i], bin_edges[i + 1]
+        assert lo <= r <= hi, f"anchor {i} radius {r:.3f} outside its bin [{lo}, {hi}]"
+
+
+def test_anchor_bucket_with_fallback_narrow_scene():
+    """When only close r < 2.0 is valid (simulates a narrow alley), Phase 1
+    fills only the first bin and Phase 2 fallback fills the rest -- still
+    all close, and total count is preserved at n_target."""
+    import math, random
+
+    def random_direction(hemisphere=True):
+        u, v = random.random(), random.random()
+        theta = 2 * math.pi * u
+        z = v if hemisphere else 2 * v - 1
+        r = math.sqrt(max(0.0, 1.0 - z * z))
+        return (r * math.cos(theta), r * math.sin(theta), z)
+
+    def _try_sample_in_range(obj, r_lo, r_hi, max_attempts, is_valid):
+        for k in range(1, max_attempts + 1):
+            d = random_direction(True)
+            radius = random.uniform(r_lo, r_hi)
+            cam = (obj[0] + d[0] * radius, obj[1] + d[1] * radius, obj[2] + d[2] * radius)
+            if is_valid(cam, obj, radius):
+                return cam, k, radius
+        return None, max_attempts, None
+
+    def discover(obj, r_range, n_target, max_attempts, is_valid):
+        r_min, r_max = sorted(r_range)
+        bin_width = (r_max - r_min) / n_target
+        accepted, bin_info, failed = [], [], []
+        for i in range(n_target):
+            lo = r_min + i * bin_width
+            hi = r_min + (i + 1) * bin_width
+            cam, n_att, radius = _try_sample_in_range(obj, lo, hi, max_attempts, is_valid)
+            if cam is not None:
+                accepted.append((cam, radius))
+                bin_info.append({"bin": [lo, hi], "source": "bucket", "accepted": True})
+            else:
+                bin_info.append({"bin": [lo, hi], "source": "bucket", "accepted": False})
+                failed.append((lo, hi))
+        for lo, hi in failed:
+            cam, n_att, radius = _try_sample_in_range(obj, r_min, r_max, max_attempts, is_valid)
+            if cam is not None:
+                accepted.append((cam, radius))
+                bin_info.append({"bin": [lo, hi], "source": "fallback", "accepted": True})
+            else:
+                bin_info.append({"bin": [lo, hi], "source": "fallback", "accepted": False})
+        return accepted, bin_info
+
+    random.seed(721)
+    accepted, bin_info = discover((0, 0, 0), (1.0, 7.0), 4, 500,
+                                  is_valid=lambda cam, obj, r: r < 2.0)
+    assert len(accepted) == 4, f"expected 4 anchors via fallback, got {len(accepted)}"
+    # All radii must be < 2.0 (validity respected)
+    for _, r in accepted:
+        assert r < 2.0
+    # 1 bucket success (bin [1, 2.5) overlap with valid r<2), 3 fallbacks
+    bucket_ok = [b for b in bin_info if b["source"] == "bucket" and b["accepted"]]
+    fallback_ok = [b for b in bin_info if b["source"] == "fallback" and b["accepted"]]
+    assert len(bucket_ok) == 1
+    assert len(fallback_ok) == 3
+
+
 def test_cam_to_obj_v2_sign_convention():
     """v2 convention: elevation/azimuth describe the cam->obj vector.
 

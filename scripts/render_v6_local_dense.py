@@ -60,9 +60,11 @@ def parse_args() -> argparse.Namespace:
     # v6 local-dense knobs (per the approved plan)
     p.add_argument("--num_anchors_per_placement", type=int, default=4)
     p.add_argument("--num_images_per_anchor", type=int, default=100)
-    p.add_argument("--anchor_radius_range", nargs=2, type=float, default=[1.0, 8.0])
+    p.add_argument("--anchor_radius_range", nargs=2, type=float, default=[1.0, 7.0],
+                   help="(r_min, r_max) split into N equal bins; one anchor per bin (N=num_anchors_per_placement).")
     p.add_argument("--anchor_ball_radius", type=float, default=3.0)
-    p.add_argument("--anchor_max_attempts", type=int, default=500)
+    p.add_argument("--anchor_max_attempts", type=int, default=500,
+                   help="max sampling attempts PER BIN (bucket-stratified discovery; default 500/bin).")
     p.add_argument("--anchor_min_clearance", type=float, default=0.8)
     p.add_argument("--camera_direction_offsets", nargs=3, type=float, default=[15.0, 15.0, 0.0],
                    help="yaw pitch roll jitter (deg) applied to look-at inside the ball")

@@ -120,9 +120,11 @@ def parse_args(argv):
                         help="enable v6 local-dense mode: discover anchors then render around each")
     parser.add_argument("--num_anchors_per_placement", type=int, default=4)
     parser.add_argument("--num_images_per_anchor", type=int, default=100)
-    parser.add_argument("--anchor_radius_range", nargs=2, type=float, default=[1.0, 8.0])
+    parser.add_argument("--anchor_radius_range", nargs=2, type=float, default=[1.0, 7.0],
+                        help="(r_min, r_max) split into N equal bins; bucket-stratified anchor discovery.")
     parser.add_argument("--anchor_ball_radius", type=float, default=3.0)
-    parser.add_argument("--anchor_max_attempts", type=int, default=500)
+    parser.add_argument("--anchor_max_attempts", type=int, default=500,
+                        help="max sampling attempts PER BIN (default 500/bin).")
     parser.add_argument("--anchor_min_clearance", type=float, default=0.8)
     # Distance-dependent camera pitch (local +X rotation, i.e. the 3rd slot in
     # camera_direction_offsets) for local_dense mode. Pitch range linearly
@@ -682,30 +684,85 @@ def sample_pose(obj_pos, radius_range, offsets_deg, hemisphere):
     }
 
 
-def discover_valid_anchors(obj_pos, radius_range, n_target, max_attempts, min_clearance):
-    """Random-sample camera positions on the upper hemisphere around obj_pos within
-    radius_range; accept each via is_camera_valid; return up to n_target positions.
+def _try_sample_in_range(obj_pos, r_lo, r_hi, max_attempts, min_clearance):
+    """Sample (direction, radius) inside [r_lo, r_hi] until one position passes
+    is_camera_valid, or max_attempts exhausted. Returns (cam_pos or None,
+    attempts_used)."""
+    for k in range(1, max_attempts + 1):
+        direction = random_direction(hemisphere=True)
+        radius = random.uniform(r_lo, r_hi)
+        cam_pos = obj_pos + direction * radius
+        if is_camera_valid(cam_pos, obj_pos, min_clearance=min_clearance):
+            return cam_pos, k
+    return None, max_attempts
 
-    Returns (accepted_positions, attempts_used). Random state advances by one
-    draw of (direction, radius) per attempt regardless of acceptance, so workers
-    sharing a seed converge to the same anchor set deterministically.
+
+def discover_valid_anchors(obj_pos, radius_range, n_target, max_attempts, min_clearance):
+    """Adaptive anchor discovery: bucket-stratified with flat fallback.
+
+    Phase 1 (bucket): split [r_min, r_max] into n_target equal-width bins,
+                      try max_attempts per bin to accept one valid anchor in
+                      each. In open scenes this fills all n_target slots
+                      with distance-diverse anchors.
+
+    Phase 2 (fallback): for any bin that did not accept in Phase 1, run a
+                        flat sample over the full [r_min, r_max] range
+                        (max_attempts each) to fill the slot. The fallback
+                        inherits whatever distance distribution the scene's
+                        validity filter allows -- in a narrow scene where
+                        only close r passes, fallback anchors are also
+                        close. The N-anchor budget is preserved.
+
+    Returns (accepted_positions, bin_info). bin_info has one entry per slot
+    with fields {bin, attempts, accepted, source} where source is "bucket"
+    or "fallback".
+
+    Why: a flat uniform sampler over-samples small r in two compounding ways
+    -- uniform-in-r oversamples close shells by volume, and is_camera_valid
+    acceptance drops sharply at larger r (cameras land inside walls / above
+    ceilings / line-of-sight blocked). Strict bucket without fallback under-
+    fills the budget in narrow scenes (an alley smoke yielded 1/4 anchors).
+    Bucket + fallback gives diversity where physics allows, count guarantee
+    where it doesn't.
     """
     if is_camera_valid is None:
         raise RuntimeError(
             "local_dense mode requires src/blender/camera.py:is_camera_valid (import failed)."
         )
+    r_min, r_max = sorted(radius_range)
+    if n_target <= 0:
+        return [], []
+    bin_width = (r_max - r_min) / n_target
     accepted = []
-    attempts = 0
-    for _ in range(max_attempts):
-        attempts += 1
-        direction = random_direction(hemisphere=True)
-        radius = random.uniform(*sorted(radius_range))
-        cam_pos = obj_pos + direction * radius
-        if is_camera_valid(cam_pos, obj_pos, min_clearance=min_clearance):
-            accepted.append(cam_pos)
-            if len(accepted) >= n_target:
-                break
-    return accepted, attempts
+    bin_info = []
+    failed_slots = []
+
+    # Phase 1: bucket
+    for i in range(n_target):
+        lo = r_min + i * bin_width
+        hi = r_min + (i + 1) * bin_width
+        cam, n_att = _try_sample_in_range(obj_pos, lo, hi, max_attempts, min_clearance)
+        if cam is not None:
+            accepted.append(cam)
+            bin_info.append({"bin": [lo, hi], "attempts": n_att,
+                             "accepted": True, "source": "bucket"})
+        else:
+            bin_info.append({"bin": [lo, hi], "attempts": n_att,
+                             "accepted": False, "source": "bucket"})
+            failed_slots.append((lo, hi))
+
+    # Phase 2: fallback for failed slots — sample from the full range
+    for lo, hi in failed_slots:
+        cam, n_att = _try_sample_in_range(obj_pos, r_min, r_max, max_attempts, min_clearance)
+        if cam is not None:
+            accepted.append(cam)
+            bin_info.append({"bin": [lo, hi], "attempts": n_att,
+                             "accepted": True, "source": "fallback"})
+        else:
+            bin_info.append({"bin": [lo, hi], "attempts": n_att,
+                             "accepted": False, "source": "fallback"})
+
+    return accepted, bin_info
 
 
 def sample_pose_around_anchor(anchor_pos, obj_pos, ball_radius, offsets_deg, pitch_lerp=None):
