@@ -64,6 +64,13 @@ def collect(stage1_dir: Path) -> dict:
     r_maxs: list[float] = []
     per_scene_k: dict[str, list[int]] = defaultdict(list)
     k0_rows: list[dict] = []
+    # occupancy filter analysis
+    start_occ: list[float] = []
+    end_occ: list[float] = []
+    start_r: list[float] = []
+    end_r: list[float] = []
+    c_far_is_start_count: int = 0
+    pairs_with_occ: int = 0
 
     t0 = time.time()
     dirs = [p for p in stage1_dir.iterdir() if p.is_dir() and not p.name.startswith("_")]
@@ -98,6 +105,18 @@ def collect(stage1_dir: Path) -> dict:
                 continue
             r_mins.append(min(rs, re_))
             r_maxs.append(max(rs, re_))
+            try:
+                so = float(pair["start"]["bbox_occupancy"])
+                eo = float(pair["end"]["bbox_occupancy"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            start_occ.append(so)
+            end_occ.append(eo)
+            start_r.append(rs)
+            end_r.append(re_)
+            if bool(pair.get("c_far_is_start", False)):
+                c_far_is_start_count += 1
+            pairs_with_occ += 1
 
         row = {
             "name": d.get("placement", pdir.name),
@@ -140,6 +159,12 @@ def collect(stage1_dir: Path) -> dict:
         "samples_s": samples_s,
         "r_mins": r_mins,
         "r_maxs": r_maxs,
+        "start_occ": start_occ,
+        "end_occ": end_occ,
+        "start_r": start_r,
+        "end_r": end_r,
+        "c_far_is_start_count": c_far_is_start_count,
+        "pairs_with_occ": pairs_with_occ,
     }
 
 
@@ -159,6 +184,299 @@ def _histogram_bins(xs: list[float], nbins: int) -> tuple[list[float], list[int]
         counts[idx] += 1
     centers = [(edges[i] + edges[i + 1]) / 2 for i in range(nbins)]
     return centers, counts
+
+
+def _append_occupancy_section(parts: list[str], agg: dict) -> None:
+    s_occ = agg["start_occ"]
+    e_occ = agg["end_occ"]
+    s_r = agg["start_r"]
+    e_r = agg["end_r"]
+    n_pairs = agg["pairs_with_occ"]
+    c_far_start = agg["c_far_is_start_count"]
+    if not n_pairs:
+        return
+
+    parts.append("<h2>Occupancy filter analysis</h2>")
+    parts.append(
+        "<div class='note' style='font-size:12px;color:#555;"
+        "background:#fff8e1;border-left:3px solid #d4a300;"
+        "padding:6px 10px;margin:6px 0 10px;border-radius:4px'>"
+        "<b>Filter rule</b>: <code>start.bbox_occupancy &ge; 0.01</code> "
+        "<b>AND</b> <code>end.bbox_occupancy &ge; 0.01</code>. "
+        "Midpoints (t = 0.25, 0.5, 0.75) <b>only</b> pass through "
+        "<code>is_camera_valid</code> ray tests — <b>no</b> occupancy check. "
+        "bbox_occupancy = (clipped 2D AABB area of projected subject mesh) "
+        "&divide; (image area), measured in [0, 1]."
+        "</div>"
+    )
+
+    def _pct(xs: list[float], p: float) -> float:
+        if not xs:
+            return 0.0
+        xs_s = sorted(xs)
+        k = (len(xs_s) - 1) * (p / 100.0)
+        lo = int(k); hi = min(lo + 1, len(xs_s) - 1)
+        return xs_s[lo] + (xs_s[hi] - xs_s[lo]) * (k - lo)
+
+    s_mean = sum(s_occ) / n_pairs
+    e_mean = sum(e_occ) / n_pairs
+    s_below_2 = sum(1 for x in s_occ if x < 0.02)
+    e_below_2 = sum(1 for x in e_occ if x < 0.02)
+    s_above_50 = sum(1 for x in s_occ if x >= 0.5)
+    e_above_50 = sum(1 for x in e_occ if x >= 0.5)
+
+    parts.append("<div class='cards'>")
+    parts.append(
+        f"<div class='card'><div class='label'>filter cutoff</div>"
+        f"<div class='value'>1%</div>"
+        f"<div class='sub'>min_occupancy = 0.01</div></div>"
+    )
+    parts.append(
+        f"<div class='card'><div class='label'>pairs analyzed</div>"
+        f"<div class='value'>{n_pairs:,}</div></div>"
+    )
+    parts.append(
+        f"<div class='card'><div class='label'>start mean / p50</div>"
+        f"<div class='value'>{100 * s_mean:.1f}%</div>"
+        f"<div class='sub'>p50 = {100 * _pct(s_occ, 50):.1f}%</div></div>"
+    )
+    parts.append(
+        f"<div class='card'><div class='label'>end mean / p50</div>"
+        f"<div class='value'>{100 * e_mean:.1f}%</div>"
+        f"<div class='sub'>p50 = {100 * _pct(e_occ, 50):.1f}%</div></div>"
+    )
+    parts.append(
+        f"<div class='card'><div class='label'>c_far_is_start</div>"
+        f"<div class='value'>{100 * c_far_start / n_pairs:.1f}%</div>"
+        f"<div class='sub'>i.i.d. → expect 50%</div></div>"
+    )
+    parts.append(
+        f"<div class='card'><div class='label'>near floor (occ &lt; 2%)</div>"
+        f"<div class='value'>{s_below_2:,} / {e_below_2:,}</div>"
+        f"<div class='sub'>start / end</div></div>"
+    )
+    parts.append(
+        f"<div class='card'><div class='label'>large (occ &ge; 50%)</div>"
+        f"<div class='value'>{s_above_50:,} / {e_above_50:,}</div>"
+        f"<div class='sub'>start / end</div></div>"
+    )
+    parts.append("</div>")
+
+    # ---- Row 1: PDF histogram + CDF ----
+    parts.append("<div class='row2'>")
+    parts.append("<div id='plot_occ_pdf' class='plot' style='height:340px'></div>")
+    parts.append("<div id='plot_occ_cdf' class='plot' style='height:340px'></div>")
+    parts.append("</div>")
+
+    nbins = 50
+    edges = [i / nbins for i in range(nbins + 1)]
+    centers = [(edges[i] + edges[i + 1]) / 2 for i in range(nbins)]
+
+    def _hist_fixed(xs: list[float]) -> list[int]:
+        counts = [0] * nbins
+        for x in xs:
+            idx = int(x * nbins)
+            if idx >= nbins: idx = nbins - 1
+            if idx < 0: idx = 0
+            counts[idx] += 1
+        return counts
+
+    s_pdf = _hist_fixed(s_occ)
+    e_pdf = _hist_fixed(e_occ)
+    parts.append(
+        f"<script>Plotly.newPlot('plot_occ_pdf', ["
+        f"{{x:{centers},y:{s_pdf},type:'bar',name:'start',"
+        f"marker:{{color:'#3a7bd5',opacity:0.6}}}}, "
+        f"{{x:{centers},y:{e_pdf},type:'bar',name:'end',"
+        f"marker:{{color:'#e15c5c',opacity:0.6}}}}], "
+        f"{{margin:{{t:40,b:40,l:55,r:10}}, barmode:'overlay', "
+        f"title:{{text:'Occupancy PDF (start vs end)',font:{{size:13}}}}, "
+        f"xaxis:{{title:'bbox_occupancy',range:[0,1.0]}}, "
+        f"yaxis:{{title:'#pairs (log)',type:'log'}}, "
+        f"legend:{{orientation:'h',y:1.12,x:0.5,xanchor:'center'}}, "
+        f"shapes:[{{type:'line',x0:0.01,x1:0.01,y0:0,y1:1,yref:'paper',"
+        f"line:{{color:'#d4a300',width:2,dash:'dash'}}}}], "
+        f"annotations:[{{x:0.012,y:1,yref:'paper',xref:'x',text:'cutoff 1%',"
+        f"showarrow:false,xanchor:'left',font:{{color:'#a07000',size:11}}}}]"
+        f"}}, {{displayModeBar:false}});</script>"
+    )
+
+    def _cdf(xs: list[float]) -> tuple[list[float], list[float]]:
+        if not xs:
+            return [], []
+        xs_s = sorted(xs)
+        n = len(xs_s)
+        # downsample for plot
+        step = max(1, n // 500)
+        xv = xs_s[::step]
+        yv = [(i * step + 1) / n for i in range(len(xv))]
+        if xv[-1] != xs_s[-1]:
+            xv.append(xs_s[-1]); yv.append(1.0)
+        return xv, yv
+
+    sxc, syc = _cdf(s_occ)
+    exc, eyc = _cdf(e_occ)
+    parts.append(
+        f"<script>Plotly.newPlot('plot_occ_cdf', ["
+        f"{{x:{sxc},y:{syc},type:'scatter',mode:'lines',name:'start',"
+        f"line:{{color:'#3a7bd5',width:2}}}}, "
+        f"{{x:{exc},y:{eyc},type:'scatter',mode:'lines',name:'end',"
+        f"line:{{color:'#e15c5c',width:2}}}}], "
+        f"{{margin:{{t:40,b:40,l:55,r:10}}, "
+        f"title:{{text:'Occupancy CDF',font:{{size:13}}}}, "
+        f"xaxis:{{title:'bbox_occupancy',range:[0,1]}}, "
+        f"yaxis:{{title:'fraction of pairs &le; x',range:[0,1.02]}}, "
+        f"legend:{{orientation:'h',y:1.12,x:0.5,xanchor:'center'}}, "
+        f"shapes:[{{type:'line',x0:0.01,x1:0.01,y0:0,y1:1,line:{{color:'#d4a300',width:2,dash:'dash'}}}}, "
+        f"{{type:'line',x0:0,x1:1,y0:0.5,y1:0.5,line:{{color:'#888',width:1,dash:'dot'}}}}]"
+        f"}}, {{displayModeBar:false}});</script>"
+    )
+
+    # ---- Row 2: bucket bar + r distribution overlay ----
+    parts.append("<div class='row2'>")
+    parts.append("<div id='plot_occ_buckets' class='plot' style='height:340px'></div>")
+    parts.append("<div id='plot_r_se' class='plot' style='height:340px'></div>")
+    parts.append("</div>")
+
+    buckets = [
+        ("1-2%", 0.01, 0.02),
+        ("2-5%", 0.02, 0.05),
+        ("5-10%", 0.05, 0.10),
+        ("10-20%", 0.10, 0.20),
+        ("20-30%", 0.20, 0.30),
+        ("30-50%", 0.30, 0.50),
+        ("50-100%", 0.50, 1.001),
+    ]
+    bkt_labels = [b[0] for b in buckets]
+    s_bkt = [sum(1 for x in s_occ if lo <= x < hi) for _, lo, hi in buckets]
+    e_bkt = [sum(1 for x in e_occ if lo <= x < hi) for _, lo, hi in buckets]
+    parts.append(
+        f"<script>Plotly.newPlot('plot_occ_buckets', ["
+        f"{{x:{bkt_labels!r},y:{s_bkt},type:'bar',name:'start',"
+        f"marker:{{color:'#3a7bd5'}}, text:{s_bkt}, textposition:'outside'}}, "
+        f"{{x:{bkt_labels!r},y:{e_bkt},type:'bar',name:'end',"
+        f"marker:{{color:'#e15c5c'}}, text:{e_bkt}, textposition:'outside'}}], "
+        f"{{margin:{{t:40,b:40,l:55,r:10}}, barmode:'group', "
+        f"title:{{text:'Occupancy by bucket (count)',font:{{size:13}}}}, "
+        f"xaxis:{{title:'bbox_occupancy bucket'}}, "
+        f"yaxis:{{title:'#pairs'}}, "
+        f"legend:{{orientation:'h',y:1.12,x:0.5,xanchor:'center'}}"
+        f"}}, {{displayModeBar:false}});</script>"
+    )
+
+    # r distribution: start_r vs end_r overlay (using log bins fits log-uniform sampling)
+    log_edges = []
+    n_lb = 40
+    import math
+    lo_r, hi_r = 0.8, 8.0
+    for i in range(n_lb + 1):
+        log_edges.append(math.exp(math.log(lo_r) + (math.log(hi_r) - math.log(lo_r)) * i / n_lb))
+    log_centers = [(log_edges[i] + log_edges[i + 1]) / 2 for i in range(n_lb)]
+
+    def _bin_log(xs: list[float]) -> list[int]:
+        counts = [0] * n_lb
+        for x in xs:
+            if x < log_edges[0] or x > log_edges[-1]:
+                continue
+            t = (math.log(x) - math.log(lo_r)) / (math.log(hi_r) - math.log(lo_r))
+            idx = int(t * n_lb)
+            if idx >= n_lb: idx = n_lb - 1
+            if idx < 0: idx = 0
+            counts[idx] += 1
+        return counts
+
+    s_rbin = _bin_log(s_r)
+    e_rbin = _bin_log(e_r)
+    parts.append(
+        f"<script>Plotly.newPlot('plot_r_se', ["
+        f"{{x:{log_centers},y:{s_rbin},type:'bar',name:'start.r',"
+        f"marker:{{color:'#3a7bd5',opacity:0.6}}}}, "
+        f"{{x:{log_centers},y:{e_rbin},type:'bar',name:'end.r',"
+        f"marker:{{color:'#e15c5c',opacity:0.6}}}}], "
+        f"{{margin:{{t:40,b:40,l:55,r:10}}, barmode:'overlay', "
+        f"title:{{text:'r distribution (start vs end, log-binned)',font:{{size:13}}}}, "
+        f"xaxis:{{title:'r (m)',type:'log',range:[Math.log10(0.8),Math.log10(8.0)]}}, "
+        f"yaxis:{{title:'#pairs'}}, "
+        f"legend:{{orientation:'h',y:1.12,x:0.5,xanchor:'center'}}"
+        f"}}, {{displayModeBar:false}});</script>"
+    )
+
+    # ---- Row 3: 2D histograms (r, occ) for start and end — pre-binned heatmaps ----
+    parts.append("<div class='row2'>")
+    parts.append("<div id='plot_2d_start' class='plot' style='height:380px'></div>")
+    parts.append("<div id='plot_2d_end' class='plot' style='height:380px'></div>")
+    parts.append("</div>")
+
+    NX, NY = 40, 40
+    log_lo, log_hi = math.log(0.8), math.log(8.0)
+    x_centers = [
+        math.exp(log_lo + (log_hi - log_lo) * (i + 0.5) / NX) for i in range(NX)
+    ]
+    y_centers = [(i + 0.5) / NY for i in range(NY)]
+
+    def _hist2d(rs: list[float], occs: list[float]) -> list[list[int]]:
+        # rows = Y (occupancy), cols = X (r) — plotly heatmap expects z[y][x]
+        z = [[0] * NX for _ in range(NY)]
+        for r_, o_ in zip(rs, occs):
+            if r_ < 0.8 or r_ > 8.0:
+                continue
+            tx = (math.log(r_) - log_lo) / (log_hi - log_lo)
+            ty = max(0.0, min(0.999, o_))
+            ix = min(NX - 1, max(0, int(tx * NX)))
+            iy = min(NY - 1, max(0, int(ty * NY)))
+            z[iy][ix] += 1
+        return z
+
+    z_s = _hist2d(s_r, s_occ)
+    z_e = _hist2d(e_r, e_occ)
+    z_max = max(max(max(row) for row in z_s), max(max(row) for row in z_e))
+
+    parts.append(
+        f"<script>Plotly.newPlot('plot_2d_start', [{{"
+        f"z:{z_s},x:{x_centers},y:{y_centers},"
+        f"type:'heatmap',colorscale:'Viridis',zmin:0,zmax:{z_max}, "
+        f"colorbar:{{title:'#pairs'}}, "
+        f"hovertemplate:'r=%{{x:.2f}}m<br>occ=%{{y:.2f}}<br>#=%{{z}}<extra></extra>'}}], "
+        f"{{margin:{{t:40,b:50,l:55,r:10}}, "
+        f"title:{{text:'start: r vs occupancy',font:{{size:13}}}}, "
+        f"xaxis:{{title:'r (m)',type:'log'}}, "
+        f"yaxis:{{title:'bbox_occupancy',range:[0,1]}}, "
+        f"shapes:[{{type:'line',x0:0.8,x1:8.0,y0:0.01,y1:0.01,line:{{color:'#d4a300',width:2,dash:'dash'}}}}]"
+        f"}}, {{displayModeBar:false}});</script>"
+    )
+    parts.append(
+        f"<script>Plotly.newPlot('plot_2d_end', [{{"
+        f"z:{z_e},x:{x_centers},y:{y_centers},"
+        f"type:'heatmap',colorscale:'Viridis',zmin:0,zmax:{z_max}, "
+        f"colorbar:{{title:'#pairs'}}, "
+        f"hovertemplate:'r=%{{x:.2f}}m<br>occ=%{{y:.2f}}<br>#=%{{z}}<extra></extra>'}}], "
+        f"{{margin:{{t:40,b:50,l:55,r:10}}, "
+        f"title:{{text:'end: r vs occupancy',font:{{size:13}}}}, "
+        f"xaxis:{{title:'r (m)',type:'log'}}, "
+        f"yaxis:{{title:'bbox_occupancy',range:[0,1]}}, "
+        f"shapes:[{{type:'line',x0:0.8,x1:8.0,y0:0.01,y1:0.01,line:{{color:'#d4a300',width:2,dash:'dash'}}}}]"
+        f"}}, {{displayModeBar:false}});</script>"
+    )
+
+    # ---- Asymmetry note ----
+    parts.append(
+        "<details style='margin-top:10px'>"
+        "<summary>Why is start systematically smaller than end? (selection bias)</summary>"
+        "<div style='font-size:12px;color:#444;padding:8px 4px;line-height:1.5'>"
+        "<code>start</code> &amp; <code>end</code> are i.i.d. log-uniform draws on r &isin; [0.8, 8] m. "
+        "Naive expectation: identical marginals and <code>c_far_is_start</code> &asymp; 50%. "
+        "Empirically <b>start mean r &lt; end mean r</b> and <code>c_far_is_start</code> &asymp; 32%. "
+        "Mechanism: <code>start</code> is validated <b>first</b>; "
+        "rejection rate is higher for large r (camera far &rArr; subject smaller &rArr; "
+        "more likely off-frame, harder to clear occlusion ray tests). "
+        "So large-r <code>start</code> draws get filtered out before <code>end</code> is even sampled. "
+        "<code>end</code> is then evaluated in scenes where <code>start</code> already passed (selection on 'easy' scene), "
+        "so its r distribution is closer to the unfiltered log-uniform. "
+        "<b>Fix candidate</b>: randomly swap (start, end) in <code>try_pair</code> before validation, "
+        "or randomize which is checked first. This is a sampling-order artifact, not a data-quality issue: "
+        "both endpoints still pass the same filters."
+        "</div></details>"
+    )
 
 
 def build_report(stage1_dir: Path, out_path: Path) -> None:
@@ -364,6 +682,9 @@ def build_report(stage1_dir: Path, out_path: Path) -> None:
                  f"xaxis:{{title:'r (m)'}}, yaxis:{{title:'#clips'}}, "
                  f"legend:{{orientation:'h',y:1.1}}}}, "
                  f"{{displayModeBar:false}});</script>")
+
+    # ----- occupancy filter analysis -----
+    _append_occupancy_section(parts, agg)
 
     # ----- per-scene K_mean -----
     parts.append("<h2>Per-scene aggregate (top 30 by # placements)</h2>")
