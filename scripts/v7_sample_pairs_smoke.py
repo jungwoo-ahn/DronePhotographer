@@ -57,6 +57,8 @@ def parse_args() -> argparse.Namespace:
                    help="Base path for resolving relative scene_file/object_file.")
     p.add_argument("--no-viz", action="store_true",
                    help="Skip matplotlib 3D viz PNG.")
+    p.add_argument("--no-report", action="store_true",
+                   help="Skip HTML report generation (useful for batch runs).")
     p.add_argument("--render", dest="render", action="store_true", default=True,
                    help="Render each trajectory frame to JPEG (default on).")
     p.add_argument("--no-render", dest="render", action="store_false",
@@ -896,12 +898,13 @@ def main() -> int:
         viz_ok = draw_3d_viz(viz_path, O, accepted)
 
     report_path: Path | None = None
-    try:
-        sys.path.insert(0, str(REPO_ROOT / "scripts"))
-        from make_v7_pair_smoke_report import build_report  # type: ignore
-        report_path = build_report(out_dir)
-    except Exception as exc:
-        print(f"[smoke] report builder failed: {exc}")
+    if not args.no_report:
+        try:
+            sys.path.insert(0, str(REPO_ROOT / "scripts"))
+            from make_v7_pair_smoke_report import build_report  # type: ignore
+            report_path = build_report(out_dir)
+        except Exception as exc:
+            print(f"[smoke] report builder failed: {exc}")
 
     r_range = (
         (min(min(r_starts), min(r_ends)), max(max(r_starts), max(r_ends)))
