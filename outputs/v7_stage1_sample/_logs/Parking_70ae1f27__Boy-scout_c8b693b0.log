@@ -1,0 +1,60 @@
+Blender 4.5.2 LTS (hash ab25eae04993 built 2025-08-20 02:11:19)
+Read blend: "/home/nas5/jungwooahn/projects/DronePhotographer/data/scenes/Parking_70ae1f27/Parking_70ae1f27.blend"
+Dependency cycle detected:
+  OBrig_security_camera_02.001/tgt_root/BONE_CONSTRAINTS() depends on
+  OBrig_security_camera_02.001/def_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02.001/def_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02.001/def_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+  OBrig_security_camera_02.001/tgt_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02.001/tgt_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02.001/tgt_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+Dependency cycle detected:
+  OBrig_security_camera_02/tgt_root/BONE_CONSTRAINTS() depends on
+  OBrig_security_camera_02/def_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02/def_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02/def_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+  OBrig_security_camera_02/tgt_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02/tgt_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02/tgt_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+Detected 2 dependency cycles
+Dependency cycle detected:
+  OBrig_security_camera_02.001/tgt_root/BONE_CONSTRAINTS() depends on
+  OBrig_security_camera_02.001/def_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02.001/def_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02.001/def_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+  OBrig_security_camera_02.001/tgt_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02.001/tgt_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02.001/tgt_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+Dependency cycle detected:
+  OBrig_security_camera_02/tgt_root/BONE_CONSTRAINTS() depends on
+  OBrig_security_camera_02/def_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02/def_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02/def_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+  OBrig_security_camera_02/tgt_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02/tgt_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02/tgt_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+Detected 2 dependency cycles
+Dependency cycle detected:
+  OBrig_security_camera_02.001/tgt_root/BONE_CONSTRAINTS() depends on
+  OBrig_security_camera_02.001/def_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02.001/def_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02.001/def_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+  OBrig_security_camera_02.001/tgt_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02.001/tgt_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02.001/tgt_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+Dependency cycle detected:
+  OBrig_security_camera_02/tgt_root/BONE_CONSTRAINTS() depends on
+  OBrig_security_camera_02/def_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02/def_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02/def_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+  OBrig_security_camera_02/tgt_root/BONE_DONE() via 'Copy Transforms'
+  OBrig_security_camera_02/tgt_root/BONE_READY() via 'Ready -> Done'
+  OBrig_security_camera_02/tgt_root/BONE_CONSTRAINTS() via 'Constraints -> Ready'
+Detected 2 dependency cycles
+[smoke] placement=Parking_70ae1f27__Boy-scout_c8b693b0 idx=0 foot=[10.199352264404297, 4.8473896980285645, 0.0]
+[smoke] scene setup: 1.18s subject_names=['AutoPlacedRoot', 'Boy scout'] center=[10.235252380371094, 4.847789525985718, 0.6622999649807753] h=1.32m
+[smoke] render device: CPU (no --gpu-index)
+[smoke] placement=Parking_70ae1f27__Boy-scout_c8b693b0 accepted=12/12 attempts=35 acceptance_rate=0.34 r_range=[0.81, 7.95] theta_near_deg_range=[21.8, 117.0] viz=no
+[smoke] rejections={'start_invalid': 2, 'end_off_frame': 5, 'midpoint_invalid': 6, 'start_off_frame': 5, 'ang_sep_too_small': 1, 'end_invalid': 3}
+[smoke] sub_reasons={'occlusion_sphere(5/14)': 2, 'end_off_frame(occ=0.000)': 5, 'start_off_frame(occ=0.000)': 5, 'occlusion_sphere(4/14)': 2, 'line_of_sight_blocked_by:columnes 1@1.60m_vs_2.78m': 1}
+[smoke] dir=/home/nas5/jungwooahn/projects/DronePhotographer/outputs/v7_stage1_sample/Parking_70ae1f27__Boy-scout_c8b693b0 files=['data.json', 'radius.csv']
