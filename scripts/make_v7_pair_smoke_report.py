@@ -108,21 +108,28 @@ def build_report(smoke_dir: Path, *, embed: bool = True) -> Path:
     accepted = data.get("accepted_pairs", []) or []
     render_records = data.get("render_records") or []
 
-    # map (pair_idx, frame_idx) -> image src (data: URI when embed, else relative path)
-    img_map: dict[tuple[int, int], str] = {}
+    # Build two maps:
+    #   path_map  (pair, frame) -> short relative path (always visible in label)
+    #   src_map   (pair, frame) -> data URI (embed) or same rel path (no-embed)
+    # Customdata only carries the short rel path so it never displays as a giant
+    # base64 string; src_map is referenced by JS lookup at click time.
+    path_map: dict[tuple[int, int], str] = {}
+    src_map: dict[tuple[int, int], str] = {}
     embed_bytes = 0
     embed_count = 0
     for i, pair_recs in enumerate(render_records):
         for rec in pair_recs:
             rel = str(rec["path_rel"])
+            j = int(rec["frame_idx"])
+            path_map[(i, j)] = rel
             if embed:
                 uri = _data_uri_for(rel, smoke_dir)
-                img_map[(i, int(rec["frame_idx"]))] = uri
+                src_map[(i, j)] = uri
                 if uri:
                     embed_bytes += len(uri)
                     embed_count += 1
             else:
-                img_map[(i, int(rec["frame_idx"]))] = rel
+                src_map[(i, j)] = rel
     if embed and embed_count:
         print(f"[report] embedded {embed_count} images "
               f"(~{embed_bytes / (1024*1024):.1f} MB base64 in HTML)")
@@ -164,7 +171,7 @@ def build_report(smoke_dir: Path, *, embed: bool = True) -> Path:
             ty = [p["pos"][1] for p in traj]
             tz = [p["pos"][2] for p in traj]
             custom = [
-                [i, j, img_map.get((i, j), "")]
+                [i, j, path_map.get((i, j), "")]
                 for j in range(len(traj))
             ]
             hovertemplate = (
@@ -189,14 +196,14 @@ def build_report(smoke_dir: Path, *, embed: bool = True) -> Path:
         # trajectory_frames lerps from C_far (frame 0) → C_near (frame N-1).
         s_frame = 0 if pair["c_far_is_start"] else (len(traj) - 1 if traj else 0)
         e_frame = (len(traj) - 1 if traj else 0) if pair["c_far_is_start"] else 0
-        s_uri = img_map.get((i, s_frame), "")
-        e_uri = img_map.get((i, e_frame), "")
+        s_path = path_map.get((i, s_frame), "")
+        e_path = path_map.get((i, e_frame), "")
         traces.append({
             "x": [s["pos"][0]], "y": [s["pos"][1]], "z": [s["pos"][2]],
             "mode": "markers", "type": "scatter3d",
             "marker": {"size": 6, "color": col,
                        "line": {"color": "#222", "width": 1}},
-            "customdata": [[i, s_frame, s_uri]],
+            "customdata": [[i, s_frame, s_path]],
             "name": f"pair {i:02d} start",
             "legendgroup": f"pair{i}",
             "showlegend": False,
@@ -209,7 +216,7 @@ def build_report(smoke_dir: Path, *, embed: bool = True) -> Path:
             "mode": "markers", "type": "scatter3d",
             "marker": {"size": 6, "color": col, "symbol": "x",
                        "line": {"color": "#222", "width": 1}},
-            "customdata": [[i, e_frame, e_uri]],
+            "customdata": [[i, e_frame, e_path]],
             "name": f"pair {i:02d} end",
             "legendgroup": f"pair{i}",
             "showlegend": False,
@@ -440,25 +447,33 @@ def build_report(smoke_dir: Path, *, embed: bool = True) -> Path:
         parts.append("<div class='empty'>renders not produced "
                      "(run with --render to enable)</div>")
     parts.append("</div></div>")
+    # Nested {pair: {frame: src}} JS map. Kept out of customdata so the long
+    # base64 URI never shows up as visible text in the click label.
+    src_map_js: dict[int, dict[int, str]] = {}
+    for (pi, fi), src in src_map.items():
+        src_map_js.setdefault(pi, {})[fi] = src
     parts.append("<script>")
     parts.append("var traces3d = " + json.dumps(traces) + ";")
     parts.append("var layout3d = " + json.dumps(layout3d) + ";")
+    parts.append("var SRC_MAP = " + json.dumps(src_map_js) + ";")
     parts.append("Plotly.newPlot('plot3d', traces3d, layout3d, "
                  "{responsive: true, displaylogo: false}).then(function(gd){"
                  "  gd.on('plotly_click', function(ev){"
                  "    if (!ev || !ev.points || !ev.points.length) return;"
                  "    var pt = ev.points[0];"
                  "    var cd = pt.customdata;"
-                 "    if (!cd || cd.length < 3) return;"
-                 "    var pair = cd[0], frame = cd[1], rel = cd[2];"
+                 "    if (!cd || cd.length < 2) return;"
+                 "    var pair = cd[0], frame = cd[1];"
+                 "    var path = (cd.length >= 3 ? cd[2] : '');"
+                 "    var src = (SRC_MAP[pair] && SRC_MAP[pair][frame]) || '';"
                  "    var img = document.getElementById('preview-img');"
                  "    var empty = document.getElementById('preview-empty');"
                  "    var lbl = document.getElementById('preview-label');"
                  "    if (!img) return;"
-                 "    if (rel) { img.src = rel; img.style.display = 'block';"
+                 "    if (src) { img.src = src; img.style.display = 'block';"
                  "               if (empty) empty.style.display = 'none';"
                  "               if (lbl) lbl.textContent = 'pair ' + pair +"
-                 "                  ', frame ' + frame + ' · ' + rel; }"
+                 "                  ', frame ' + frame + (path ? ' · ' + path : ''); }"
                  "    else { img.style.display = 'none';"
                  "           if (empty) empty.style.display = 'block';"
                  "           if (lbl) lbl.textContent = 'pair ' + pair +"
