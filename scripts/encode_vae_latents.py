@@ -7,7 +7,7 @@ repeated across the 4-frame temporal chunk the VAE expects).
 
 Usage:
   python scripts/encode_vae_latents.py \
-      --annotation_roots outputs/v7_stage2_renders \
+      --annotation_roots data/trajectories \
       --output runs/vae_cache/v7.pt \
       [--max_samples 1000]
 

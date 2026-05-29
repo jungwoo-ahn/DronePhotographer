@@ -88,11 +88,17 @@ def test_pixel_keys_normalize_against_render_resolution():
     )
 
 
-def test_normalize_clips_out_of_range():
-    keys = ["cam_to_obj_azimuth_deg"]
-    huge = np.array([10000.0], dtype=np.float32)
-    n = normalize_goal(huge, keys)
-    assert n[0] == 1.0
+def test_normalize_does_not_clip_out_of_bounds():
+    # Off-frame pixel offsets must read as |normalized| > 1, not saturate.
+    # object_center_y range is (0, 768); 1738 px (subject below the frame) → > 1.
+    ny = normalize_goal(np.array([1738.0], np.float32), ["object_center_y"])
+    assert ny[0] > 1.0
+    # negative center (subject above the top edge) → < -1
+    ny_neg = normalize_goal(np.array([-575.0], np.float32), ["object_center_y"])
+    assert ny_neg[0] < -1.0
+    # in-frame value stays within [-1, 1]
+    ny_in = normalize_goal(np.array([384.0], np.float32), ["object_center_y"])
+    assert -1.0 <= ny_in[0] <= 1.0
 
 
 def test_has_all_keys():

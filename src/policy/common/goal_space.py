@@ -99,9 +99,17 @@ def normalize_goal(
     keys: Sequence[str] | None = None,
     ranges: Mapping[str, tuple[float, float]] | None = None,
 ) -> np.ndarray:
-    """Map per-key values to [-1, 1] using `ranges` (defaults to DEFAULT_V5_RANGES).
+    """Affine-map per-key values using `ranges` (defaults to DEFAULT_V5_RANGES).
 
-    Out-of-range values are clipped. NaN passes through.
+    The range `(lo, hi)` maps to `[-1, 1]`, but values are **not clipped**: a key
+    whose value falls outside `(lo, hi)` lands outside `[-1, 1]` on purpose. This
+    matters for the pixel keys (object_center_*, bbox_*_offset), where the bbox is
+    the full unclipped projection — an off-frame subject is a real, deliberate
+    signal and should read as |normalized| > 1 ("further past the edge"), not
+    saturate. Keys whose raw values are bounded by the scorer (occupancy 0-100,
+    azimuth 0-360, elevation -90..90) stay within [-1, 1] naturally.
+
+    NaN passes through.
     """
     keys = goal_keys(keys)
     ranges = ranges or DEFAULT_V5_RANGES
@@ -113,8 +121,6 @@ def normalize_goal(
             out[i] = vec[i]
         else:
             out[i] = 2.0 * (vec[i] - lo) / span - 1.0
-            if not np.isnan(out[i]):
-                out[i] = float(np.clip(out[i], -1.0, 1.0))
     return out
 
 

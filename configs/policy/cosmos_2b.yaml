@@ -14,7 +14,7 @@ data:
   # Point at the directory holding all v7 placement subdirs. The dataset
   # recursively finds each placement's data.json.
   annotation_roots:
-    - outputs/v7_stage2_renders
+    - data/trajectories
   chunk_size: 8                # ALOHA-style: 8 future actions per diffusion sample
   stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
   max_samples: null            # use the full dataset
