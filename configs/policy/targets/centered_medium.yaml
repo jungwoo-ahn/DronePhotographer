@@ -1,0 +1,27 @@
+# Example eval target for scripts/eval_cosmos_policy.py — NEW V5 integer/pixel schema.
+#
+# IMPORTANT: the `target:` block must list the SAME score keys, in the same order,
+# as the `data.goal_score_keys` used at TRAINING time (default = all 8 V5 keys).
+# The eval script builds the conditioner with goal_dim = len(target), so a
+# mismatch silently loads a wrong-shaped projection and produces garbage.
+#
+# Units (see src/policy/common/goal_space.py::DEFAULT_V5_RANGES):
+#   occupancy, body_in_frame_ratio : 0-100 (percent)
+#   cam_to_obj_azimuth_deg         : 0-360
+#   cam_to_obj_elevation_deg       : -90..90 (v2: camera above -> negative)
+#   object_center_x / _y           : pixels, (0, 1024) / (0, 768)
+#   bbox_x_offset / _y_offset      : half bbox width/height in pixels
+#
+# This example: subject centered, ~medium shot, eye-level. Values are illustrative.
+name: centered_medium
+description: "Subject centered, medium shot (~35% occupancy), eye-level"
+
+target:
+  occupancy: 35
+  body_in_frame_ratio: 100
+  cam_to_obj_azimuth_deg: 180
+  cam_to_obj_elevation_deg: 0
+  object_center_x: 512
+  object_center_y: 384
+  bbox_x_offset: 150
+  bbox_y_offset: 300
