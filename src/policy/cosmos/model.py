@@ -32,10 +32,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional, Protocol
 
+import numpy as np
 import torch
 from torch import nn
 
-from src.policy.common.action_repr import ACTION_DIM
+from src.policy.common.action_repr import ACTION_DIM, ACTION_SCALE
 from src.policy.cosmos.action_latent import (
     extract_action_chunk,
     extract_value,
@@ -173,6 +174,7 @@ class CosmosWorldActionPolicy(nn.Module):
         lambda_action: float = 1.0,
         lambda_value: float = 1.0,
         edm_config: EDMConfig | None = None,
+        action_scale: "np.ndarray | torch.Tensor | None" = None,
     ) -> None:
         super().__init__()
         self.transformer = transformer
@@ -185,6 +187,13 @@ class CosmosWorldActionPolicy(nn.Module):
         self.lambda_action = lambda_action
         self.lambda_value = lambda_value
         self.edm = edm_config or EDMConfig()
+
+        # Per-dim action normalization scale, registered as a buffer so it travels
+        # with the checkpoint — the dataset normalizes by this and sample() can
+        # denormalize by the same values, so train/eval can never drift even if
+        # the module-level ACTION_SCALE constant later changes.
+        scale = ACTION_SCALE if action_scale is None else action_scale
+        self.register_buffer("action_scale", torch.as_tensor(np.asarray(scale), dtype=torch.float32))
 
         self.conditioner = ShotProfileVectorConditioner(
             goal_dim=goal_dim,
@@ -338,12 +347,19 @@ class CosmosWorldActionPolicy(nn.Module):
         goal_vec: torch.Tensor,                      # (B, goal_dim)
         *,
         n_steps: int = 32,
+        denormalize: bool = True,
     ) -> PolicyOutputs:
         """EDM sampling with the Karras 2022 σ schedule + Euler step.
 
         Initialize with noise at σ_max, denoise step-by-step down to σ_min, pin
         the image-conditioning frames at every step. The action + value latent
         positions are sampled by the diffusion process.
+
+        `denormalize=True` (default) returns the action chunk in physical units
+        (metres / radians) by multiplying through `self.action_scale` — the same
+        buffer the dataset normalized by — so callers never need to know the scale
+        and train/eval can't drift. Pass `denormalize=False` to get the raw
+        normalized action.
         """
         b, c, t_img, h, w = image_latent.shape
         n_extra = self.num_extra_latent_frames()
@@ -370,6 +386,8 @@ class CosmosWorldActionPolicy(nn.Module):
         pred_action = extract_action_chunk(
             x[:, :, a_idx], chunk_size=self.chunk_size, action_dim=self.action_dim,
         )
+        if denormalize:
+            pred_action = pred_action * self.action_scale.to(pred_action.dtype)
         pred_value: Optional[torch.Tensor] = None
         if self.use_value_latent:
             v_idx = self.value_latent_idx(t_img)

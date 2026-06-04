@@ -127,6 +127,38 @@ def test_compute_loss_without_value_omits_value_term():
     torch.testing.assert_close(out.total, expected, atol=1e-5, rtol=1e-5)
 
 
+def test_action_scale_is_a_persisted_buffer():
+    from src.policy.common.action_repr import ACTION_SCALE
+    backbone = _DiffusersStyleMockBackbone()
+    policy = CosmosWorldActionPolicy(backbone, chunk_size=4)
+    # registered as a buffer → present in state_dict → travels with the checkpoint
+    assert "action_scale" in dict(policy.named_buffers())
+    assert "action_scale" in policy.state_dict()
+    torch.testing.assert_close(policy.action_scale.cpu().numpy(), ACTION_SCALE, atol=1e-6, rtol=0)
+
+
+def test_custom_action_scale_overrides_default():
+    backbone = _DiffusersStyleMockBackbone()
+    custom = [1.0, 2.0, 3.0, 4.0, 5.0]
+    policy = CosmosWorldActionPolicy(backbone, chunk_size=1, action_scale=custom)
+    torch.testing.assert_close(policy.action_scale.cpu().tolist(), custom)
+
+
+def test_sample_denormalize_scales_by_buffer():
+    backbone = _DiffusersStyleMockBackbone()
+    custom = torch.tensor([10.0, 10.0, 10.0, 10.0, 10.0])
+    policy = CosmosWorldActionPolicy(backbone, chunk_size=4, action_scale=custom).eval()
+    img = _make_image_latent()
+    goal = torch.randn(2, 8)
+    # Seed identically so both runs share the same sampling noise → only the
+    # denormalize flag differs.
+    torch.manual_seed(0)
+    raw = policy.sample(img, goal, n_steps=2, denormalize=False).pred_action_chunk
+    torch.manual_seed(0)
+    denorm = policy.sample(img, goal, n_steps=2, denormalize=True).pred_action_chunk
+    torch.testing.assert_close(denorm, raw * 10.0, atol=1e-4, rtol=1e-4)
+
+
 def test_sample_produces_action_chunk_and_value():
     backbone = _DiffusersStyleMockBackbone()
     policy = CosmosWorldActionPolicy(backbone, chunk_size=4, use_value_latent=True).eval()

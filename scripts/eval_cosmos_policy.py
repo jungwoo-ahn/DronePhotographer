@@ -28,7 +28,7 @@ import numpy as np
 import torch
 import yaml
 
-from src.policy.common.action_repr import apply_action_5d, denormalize_action_5d
+from src.policy.common.action_repr import apply_action_5d
 from src.policy.common.annotations import iter_windows
 from src.policy.common.goal_space import goal_keys, normalize_goal
 from src.policy.common.reward import score_distance
@@ -109,12 +109,12 @@ def main() -> None:
         goal_tensor = torch.from_numpy(target_norm).unsqueeze(0).to(device, dtype=dtype)
         out = policy.sample(image_latent=image_latent, goal_vec=goal_tensor, n_steps=args.n_steps)
 
-    # The policy predicts in normalized action space; convert back to metres/radians.
-    action_chunk_norm = out.pred_action_chunk.squeeze(0).float().cpu().numpy()   # (chunk_size, 5)
-    action_chunk = denormalize_action_5d(action_chunk_norm)
+    # sample() already returns the action chunk in physical units (it denormalizes
+    # by the model's action_scale buffer loaded from the checkpoint).
+    action_chunk = out.pred_action_chunk.squeeze(0).float().cpu().numpy()   # (chunk_size, 5)
     pred_value = float(out.pred_value.squeeze(0)) if out.pred_value is not None else None
 
-    print(f"predicted {args.chunk_size}-step action chunk (denormalized, m/rad):")
+    print(f"predicted {args.chunk_size}-step action chunk (m/rad):")
     for i, a in enumerate(action_chunk):
         print(f"  step {i}: dx={a[0]:.3f} dy={a[1]:.3f} dz={a[2]:.3f} dyaw={a[3]:.3f} dpitch={a[4]:.3f}")
     print(f"predicted value (~ -score_distance to goal): {pred_value}")
