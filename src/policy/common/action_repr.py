@@ -25,16 +25,18 @@ ACTION_DIM = 5
 
 # Per-dimension scale used to normalize the 5D action into ~[-1, 1] before it is
 # tile-injected into the Cosmos action latent frame. Each entry is the p99 of
-# |Δ| measured over the v7 Stage-1 sample (392 trajectories, 12,152 per-step
-# actions): [right, up, forward (m), yaw, pitch (rad)]. The forward (dolly) axis
-# dominates (~4x lateral, up to ~2.2 m) and metres-vs-radians differ ~10x, so
-# normalization is essential for the flow-matching L2 to weight all dims fairly.
+# |Δ| over the v7 Stage-1 trajectories: [right, up, forward (m), yaw, pitch (rad)].
+# Measured over 400 placements / 137k per-step actions (recompute with
+# `scripts/fit_action_scale.py`). The forward (dolly) axis dominates and
+# metres-vs-radians differ ~10x, so normalization is essential for the
+# flow-matching L2 to weight all dims fairly.
 #
-# These are provisional — recompute over the full rendered dataset and replace
-# this constant once the stats are in. Kept as a named module variable so a new
-# measurement is a one-line swap (or pass `action_scale=` to the dataset).
+# Still a sample, not the full set — but rotations are stable and the translation
+# tails have converged enough that the earlier 40-file estimate (which clipped
+# ~1.5x of lateral motion) is fixed. Recompute on the full data when available;
+# kept as a named variable so it's a one-line swap (or pass `action_scale=`).
 ACTION_SCALE: np.ndarray = np.array(
-    [0.21, 0.22, 0.86, 0.084, 0.071], dtype=np.float32
+    [0.32, 0.28, 0.95, 0.081, 0.071], dtype=np.float32
 )
 
 
