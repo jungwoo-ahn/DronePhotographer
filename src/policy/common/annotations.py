@@ -46,6 +46,8 @@ class ViewRecord:
     camera_up: list[float]
     azimuth: float | None               # frame.yaw_deg (camera-side, not cam→obj)
     elevation: float | None             # frame.pitch_deg
+    render_width: int                   # for pixel→angle conversion in the value metric
+    render_height: int
     raw: dict                           # frame dict + injected Stage 3 scores
 
 
@@ -118,6 +120,8 @@ def _frame_to_view(
         camera_up=list(frame["up"]),
         azimuth=frame.get("yaw_deg"),
         elevation=frame.get("pitch_deg"),
+        render_width=int(doc.get("render_width") or 0),
+        render_height=int(doc.get("render_height") or 0),
         raw=raw,
     )
 

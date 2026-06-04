@@ -132,11 +132,19 @@ python -m pytest tests/policy/          # 89 tests, no GPU / no diffusers needed
 The mock-backbone tests (`test_cosmos_model_mock.py`, `test_v7_integration.py`)
 exercise the full data → encode → EDM loss → sample path without the 2B model.
 
+## Value target
+
+`value_target = −geometric_profile_distance(start_profile, goal_profile)`
+(`src/policy/common/reward.py`). The profile is mapped back to the ~5 geometric
+DOF of the camera-subject configuration — viewing direction (az, el), apparent
+size, and optical-axis aim — and the distance is a **weight-free product metric**
+in radians: great-circle angle on the viewing sphere (handles azimuth cyclicity +
+polar degeneracy) + Δ angular size + Δ aim. `atan` bounds off-frame/huge-bbox
+values gracefully. It's scale-invariant, matching the profile's scene-agnostic
+design, and non-trivial (start ≠ goal). No per-key weights to tune.
+
 ## Known gaps / provisional values
 
-- **Value target is a placeholder (`0.0`).** A real goal-conditioned
-  distance-to-go value is designed (see chat / COSMOS_API.md) but not yet wired —
-  pending a decision on relabeling.
 - **`ACTION_SCALE` is provisional** — p99 magnitudes measured over the 392-trajectory
   Stage-1 sample (`src/policy/common/action_repr.py`). Recompute over the full
   rendered dataset and swap the constant.

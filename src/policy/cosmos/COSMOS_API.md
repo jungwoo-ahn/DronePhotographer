@@ -197,7 +197,7 @@ With `chunk_size=8, stride=1` over each 32-frame trajectory: **24 windows × K_a
 | `next_state_image` | `(C=3, H, W)` | float32 | In `[-1, 1]`. The target view (whose profile is the goal). |
 | `goal_vec` | `(D_goal,)` | float32 | Normalized via `normalize_goal`. v6 uses `D_goal=2`. |
 | `action_chunk` | `(chunk_size, ACTION_DIM=5)` | float32 | K future (Δx, Δy, Δz, Δyaw, Δpitch) actions in prev-frame camera-local basis. v6 single-shot: auto-tiles one action across the chunk axis. |
-| `value_target` | `()` | float32 | Scalar — currently always 0 (all v6 placements are accepted). |
+| `value_target` | `()` | float32 | `−geometric_profile_distance(start, goal)` — the camera-subject geometric distance the action chunk closes (0 at goal, more negative further away). See `src/policy/common/reward.py`. |
 | `meta` | `dict` | — | `annotation_path`, `placement_idx`, `prev_view_idx`, `next_view_idx`, `scene`, `object`. |
 
 **Image normalization**: PNG → `np.asarray / 127.5 - 1.0` → `(C, H, W)` torch tensor in `[-1, 1]`. Resized to `target_resolution=(H, W)` (default `(480, 720)` for Cosmos 720p).

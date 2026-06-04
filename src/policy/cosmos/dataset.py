@@ -9,8 +9,9 @@ Wraps `BasePolicyDataset` and converts each `Sample` into tensors:
     window, normalized per-dim to ~[-1, 1] via `action_repr.normalize_action_5d`
     (unless `normalize_actions=False`). Denormalize predictions with
     `action_repr.denormalize_action_5d` before applying them to a camera pose.
-  - `value_target`: scalar — currently always 0 (on-policy hindsight relabel);
-    becomes a real `score_distance_reward` value once we add off-policy data.
+  - `value_target`: scalar — `−geometric_profile_distance(start_profile, goal)`,
+    the camera-subject geometric distance the action chunk closes (0 at the goal,
+    more negative the further the start view is from the goal framing).
   - `meta`: dict with annotation_path, pair_idx, frame indices, scene, object.
 
 v7 image paths are resolved into absolute paths by `iter_windows`, so this
@@ -93,7 +94,7 @@ class CosmosDroneDataset(Dataset):
             "next_state_image": end_img,
             "goal_vec": torch.from_numpy(goal),
             "action_chunk": torch.from_numpy(action_chunk),
-            "value_target": torch.tensor(0.0, dtype=torch.float32),
+            "value_target": torch.tensor(s.value, dtype=torch.float32),
             "meta": {
                 "annotation_path": str(s.start.annotation_path),
                 "pair_idx": s.start.pair_idx,

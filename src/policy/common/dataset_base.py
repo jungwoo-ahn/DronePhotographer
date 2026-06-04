@@ -28,6 +28,7 @@ from src.policy.common.annotations import (
     list_annotation_files,
 )
 from src.policy.common.goal_space import goal_keys, goal_vector
+from src.policy.common.reward import CameraIntrinsics, profile_distance_value
 
 
 @dataclass
@@ -39,6 +40,7 @@ class Sample:
     intermediate: list[ViewRecord]
     action_chunk: np.ndarray              # (chunk_size, ACTION_DIM)
     goal_vec: np.ndarray                  # (D_goal,)
+    value: float                          # -geometric distance from start profile to goal
     chunk_size: int
 
 
@@ -90,12 +92,19 @@ class BasePolicyDataset(Dataset):
                 g = goal_vector(window.end.raw, self.goal_keys)
                 if not np.isfinite(g).all():
                     continue
+                # Value = -(geometric distance from the START view's profile to the
+                # goal = END view's profile). Non-trivial because start != goal; the
+                # action chunk is exactly what closes this gap. Computed from raw
+                # scores (not the goal_keys subset) so the geometry is complete.
+                intr = CameraIntrinsics.from_render(window.start.render_width, window.start.render_height)
+                value = profile_distance_value(window.start.raw, window.end.raw, intr)
                 self._samples.append(Sample(
                     start=window.start,
                     end=window.end,
                     intermediate=window.intermediate,
                     action_chunk=_compute_action_chunk(window),
                     goal_vec=g,
+                    value=value,
                     chunk_size=window.chunk_size,
                 ))
                 if max_samples and len(self._samples) >= max_samples:
