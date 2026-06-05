@@ -1,0 +1,1314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cosmos policy — training walkthrough (model, batch, prompt, loss, loop)</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --ink: #1d1d1f;
+    --muted: #5b6470;
+    --line: #b8c1cc;
+
+    --state: #4a83e0;
+    --state-soft: #e8f0fb;
+    --goal: #2a9d8f;
+    --goal-soft: #e0f0ed;
+    --model: #8e6dc8;
+    --model-soft: #ece4f6;
+    --action: #e89b5a;
+    --action-soft: #fbeed8;
+    --value: #c05a87;
+    --value-soft: #f6e0eb;
+    --train: #d4a300;
+    --train-soft: #fff6d6;
+    --code-bg: #f6f7f9;
+    --code-border: #e2e6eb;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 1320px;
+    margin: 24px auto 80px;
+    padding: 0 24px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 18px 0 8px;
+    color: var(--ink);
+  }
+  .sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 12px;
+    background: white;
+    border: 1px solid #e2e6eb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    font-family: ui-monospace, monospace;
+  }
+  .toc a { color: #4a5160; text-decoration: none; padding: 2px 6px; border-radius: 3px; }
+  .toc a:hover { background: #ece4f6; color: #5d3fa0; }
+  .panel {
+    background: white;
+    border: 1px solid #e2e6eb;
+    border-radius: 10px;
+    padding: 18px 22px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  svg { display: block; width: 100%; height: auto; }
+  pre {
+    font-family: ui-monospace, "SF Mono", monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    margin: 8px 0 14px;
+  }
+  code {
+    font-family: ui-monospace, "SF Mono", monospace;
+    font-size: 12px;
+    background: #f1f3f6;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  pre code { background: transparent; padding: 0; }
+  .kw { color: #8e6dc8; }
+  .str { color: #2a7a2a; }
+  .com { color: #999; }
+  .num { color: #c97a30; }
+  .fn { color: #1f5cb4; }
+  .tag { color: #c05a87; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+    margin: 8px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  th { background: #f3f5f8; font-weight: 600; color: var(--muted); text-transform: uppercase; font-size: 11px; letter-spacing: 0.04em; }
+  tr:hover td { background: #fafbfc; }
+  td.tag-state { color: #1f5cb4; }
+  td.tag-goal  { color: #216e64; }
+  td.tag-action{ color: #c97a30; }
+  td.tag-value { color: #974868; }
+  td.tag-model { color: #5d3fa0; }
+  td.code { font-family: ui-monospace, monospace; }
+  .note {
+    background: #fff8e1;
+    border-left: 3px solid #d4a300;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #5b6470;
+    margin: 8px 0 14px;
+  }
+  .note b { color: #1d1d1f; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-family: ui-monospace, monospace;
+  }
+  .legend .sw {
+    display: inline-block; width: 11px; height: 11px;
+    vertical-align: middle; margin-right: 5px; border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Cosmos policy — training walkthrough</h1>
+  <div class="sub">
+    Detailed walkthrough of how data flows from <code>data.json</code> to a gradient update.
+    Covers the module layout (<code>src/policy/cosmos/</code> + <code>src/policy/common/</code>),
+    batch composition, prompt / conditioner internals, latent-frame assembly, EDM loss math,
+    training loop, and inference sampler. All references are to branch <code>005-cosmos-policy-integration</code>.
+  </div>
+
+  <div class="toc">
+    <a href="#modules">1. modules</a>
+    <a href="#dataflow">2. data flow</a>
+    <a href="#batch">3. batch</a>
+    <a href="#prompt">4. prompt &amp; conditioner</a>
+    <a href="#latent">5. latent assembly</a>
+    <a href="#edm">6. EDM loss</a>
+    <a href="#loop">7. training loop</a>
+    <a href="#sample">8. inference sampler</a>
+    <a href="#config">9. config</a>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 1. MODULE MAP                                                    -->
+  <!-- ============================================================== -->
+  <div class="panel" id="modules">
+    <h2>1 &middot; Module map &mdash; where each piece lives</h2>
+
+    <svg viewBox="0 0 1280 460" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 -5 10 10" refX="9" refY="0"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,-5L10,0L0,5" fill="#4a5160"/>
+        </marker>
+        <marker id="arr-soft" viewBox="0 -5 10 10" refX="9" refY="0"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,-5L10,0L0,5" fill="#a3a9b6"/>
+        </marker>
+      </defs>
+
+      <!-- Disk layer -->
+      <g transform="translate(20, 40)">
+        <rect width="220" height="380" rx="8" fill="white" stroke="#b8c1cc"/>
+        <text x="110" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#5b6470">on disk</text>
+        <g transform="translate(14, 40)">
+          <rect width="192" height="86" rx="5" fill="#fff6d6" stroke="#d4a300" stroke-width="1.2"/>
+          <text x="96" y="20" font-size="11" font-weight="600" text-anchor="middle" fill="#86670c">data/trajectories/</text>
+          <text x="96" y="36" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">&lt;placement&gt;/data.json</text>
+          <text x="96" y="50" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">&lt;placement&gt;/renders/*.jpg</text>
+          <text x="96" y="64" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">&lt;placement&gt;/scored.flag</text>
+          <text x="96" y="80" font-size="9" text-anchor="middle" fill="#86670c">Stage 1+2+3 outputs</text>
+        </g>
+        <g transform="translate(14, 138)">
+          <rect width="192" height="50" rx="5" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1.2"/>
+          <text x="96" y="20" font-size="11" font-weight="600" text-anchor="middle" fill="#1f5cb4">assets/t5_anchor.pt</text>
+          <text x="96" y="36" font-size="10" text-anchor="middle" fill="#5b6470">~1MB &middot; offline T5 encode</text>
+        </g>
+        <g transform="translate(14, 200)">
+          <rect width="192" height="50" rx="5" fill="#ece4f6" stroke="#8e6dc8" stroke-width="1.2"/>
+          <text x="96" y="20" font-size="11" font-weight="600" text-anchor="middle" fill="#5d3fa0">configs/policy/</text>
+          <text x="96" y="36" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">cosmos_2b.yaml</text>
+        </g>
+        <g transform="translate(14, 260)">
+          <rect width="192" height="50" rx="5" fill="white" stroke="#b8c1cc" stroke-width="1.2"/>
+          <text x="96" y="20" font-size="11" font-weight="600" text-anchor="middle" fill="#1d1d1f">scripts/</text>
+          <text x="96" y="36" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">train_cosmos_policy.py</text>
+        </g>
+        <g transform="translate(14, 320)">
+          <rect width="192" height="50" rx="5" fill="white" stroke="#b8c1cc" stroke-width="1.2"/>
+          <text x="96" y="20" font-size="11" font-weight="600" text-anchor="middle" fill="#1d1d1f">HuggingFace</text>
+          <text x="96" y="36" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">nvidia/Cosmos-Predict2.5-2B</text>
+        </g>
+      </g>
+
+      <!-- src/policy/common/ -->
+      <g transform="translate(280, 40)">
+        <rect width="280" height="380" rx="8" fill="#fff" stroke="#cbb6e8"/>
+        <text x="140" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">src/policy/common/</text>
+        <text x="140" y="36" font-size="10" text-anchor="middle" fill="#5b6470">data-side helpers (no torch dep beyond Dataset)</text>
+
+        <g transform="translate(14, 50)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">annotations.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">iter_windows · ViewRecord · TrajectoryWindow</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">reads data.json, builds 32-frame view records</text>
+        </g>
+        <g transform="translate(14, 118)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">dataset_base.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">BasePolicyDataset · Sample</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">slides chunk_size windows, computes action_chunk, value</text>
+        </g>
+        <g transform="translate(14, 186)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">action_repr.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">ACTION_DIM=5 · ACTION_SCALE · encode_action_5d</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">camera-local (Δx, Δy, Δz, Δyaw, Δpitch); roll dropped</text>
+        </g>
+        <g transform="translate(14, 254)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">goal_space.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">DEFAULT_V5_RANGES · normalize_goal (no clip)</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">V5 int → [-1, 1] per-key affine map</text>
+        </g>
+        <g transform="translate(14, 322)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">reward.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">profile_distance_value · geometric_profile_distance</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">value = -(d_view² + d_size² + d_aim²)^½</text>
+        </g>
+      </g>
+
+      <!-- src/policy/cosmos/ -->
+      <g transform="translate(600, 40)">
+        <rect width="280" height="380" rx="8" fill="#fff" stroke="#cbb6e8"/>
+        <text x="140" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">src/policy/cosmos/</text>
+        <text x="140" y="36" font-size="10" text-anchor="middle" fill="#5b6470">model-side modules (torch + Cosmos VAE/DiT)</text>
+
+        <g transform="translate(14, 50)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">dataset.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">CosmosDroneDataset(BasePolicyDataset)</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">loads JPEGs, normalizes images + actions</text>
+        </g>
+        <g transform="translate(14, 118)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">vae.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">CosmosVAEWrapper · assemble_clip(T=4)</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">encode (B,C,T,H,W) [-1,1] → (B,16,T_lat,H_lat,W_lat)</text>
+        </g>
+        <g transform="translate(14, 186)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">conditioner.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">ShotProfileVectorConditioner · anchor + gate</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">~33K params: Linear(8→K·1024) + scalar gate</text>
+        </g>
+        <g transform="translate(14, 254)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">action_latent.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">inject/extract action_chunk · value (parameter-free)</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">tile flatten / split + mean</text>
+        </g>
+        <g transform="translate(14, 322)">
+          <rect width="252" height="60" rx="5" fill="#fafbfc" stroke="#d8d8d8"/>
+          <text x="14" y="18" font-size="12" font-weight="600" fill="#1d1d1f" font-family="ui-monospace, monospace">edm.py</text>
+          <text x="14" y="32" font-size="10" fill="#5b6470">sample_sigma · edm_scaling · per_sigma_weight</text>
+          <text x="14" y="46" font-size="10" fill="#5b6470">karras_sigma_schedule · BALANCED_TWO_HEADS_V1</text>
+        </g>
+      </g>
+
+      <!-- core: model + trainer -->
+      <g transform="translate(920, 40)">
+        <rect width="340" height="380" rx="8" fill="#fafbff" stroke="#8e6dc8" stroke-width="2"/>
+        <text x="170" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">core</text>
+
+        <g transform="translate(14, 40)">
+          <rect width="312" height="166" rx="5" fill="#ece4f6" stroke="#8e6dc8" stroke-width="1.4"/>
+          <text x="156" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">model.py</text>
+          <g transform="translate(14, 36)" font-size="11" fill="#1d1d1f" font-family="ui-monospace, monospace">
+            <text x="0" y="0">CosmosWorldActionPolicy(nn.Module)</text>
+            <text x="14" y="16" font-size="10" fill="#5b6470">.build_training_latents(img, a, v)</text>
+            <text x="14" y="32" font-size="10" fill="#5b6470">._backbone_x0_pred(x_t, σ, cond)</text>
+            <text x="14" y="48" font-size="10" fill="#5b6470">.compute_loss(...) → LossOutputs</text>
+            <text x="14" y="64" font-size="10" fill="#5b6470">.sample(...) → PolicyOutputs</text>
+            <text x="0" y="86" font-size="10" fill="#5b6470">backbone Cosmos-Predict2.5-2B (frozen)</text>
+            <text x="0" y="100" font-size="10" fill="#5b6470">+ ShotProfileVectorConditioner (learned)</text>
+            <text x="0" y="116" font-size="10" fill="#5b6470">+ action_scale buffer (registered)</text>
+          </g>
+        </g>
+
+        <g transform="translate(14, 220)">
+          <rect width="312" height="148" rx="5" fill="#fff6d6" stroke="#d4a300" stroke-width="1.4"/>
+          <text x="156" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#86670c" font-family="ui-monospace, monospace">trainer.py</text>
+          <g transform="translate(14, 36)" font-size="11" fill="#1d1d1f" font-family="ui-monospace, monospace">
+            <text x="0" y="0">CosmosPolicyTrainer</text>
+            <text x="14" y="16" font-size="10" fill="#5b6470">.fit(dataloader_train, dataloader_val=None)</text>
+            <text x="14" y="32" font-size="10" fill="#5b6470">.save_checkpoint(iteration, name)</text>
+            <text x="14" y="48" font-size="10" fill="#5b6470">_build_optimizer → AdamW + Lambda warmup</text>
+            <text x="0" y="70" font-size="10" fill="#5b6470">grad_accum batching, autocast, log + ckpt</text>
+            <text x="0" y="86" font-size="10" fill="#5b6470">trains only requires_grad params</text>
+            <text x="0" y="102" font-size="10" fill="#5b6470">(= conditioner since backbone frozen)</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- arrows: dependencies -->
+      <!-- data.json → annotations.py -->
+      <path d="M 240 80 L 280 80" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr)"/>
+      <!-- annotations → dataset_base -->
+      <path d="M 414 110 L 414 118" fill="none" stroke="#a3a9b6" stroke-width="1.2" marker-end="url(#arr-soft)"/>
+      <!-- dataset_base → dataset.py (cosmos) -->
+      <path d="M 560 148 L 614 80" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr)"/>
+      <!-- t5_anchor → conditioner -->
+      <path d="M 240 163 Q 480 190 614 216" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr)"/>
+      <!-- cosmos backbone HF → model -->
+      <path d="M 240 345 Q 530 280 934 110" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr)"/>
+      <!-- cosmos VAE, conditioner, action_latent, edm → model -->
+      <path d="M 880 148 L 920 110" fill="none" stroke="#a3a9b6" stroke-width="1.2" marker-end="url(#arr-soft)"/>
+      <path d="M 880 216 L 920 150" fill="none" stroke="#a3a9b6" stroke-width="1.2" marker-end="url(#arr-soft)"/>
+      <path d="M 880 284 L 920 180" fill="none" stroke="#a3a9b6" stroke-width="1.2" marker-end="url(#arr-soft)"/>
+      <path d="M 880 352 L 920 200" fill="none" stroke="#a3a9b6" stroke-width="1.2" marker-end="url(#arr-soft)"/>
+      <!-- dataset (cosmos) → model -->
+      <path d="M 880 80 L 920 80" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr)"/>
+      <!-- model → trainer -->
+      <path d="M 1090 206 L 1090 220" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr)"/>
+      <!-- config → trainer (entry script ties them) -->
+      <path d="M 240 225 Q 800 410 1090 368" fill="none" stroke="#a3a9b6" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arr-soft)"/>
+
+    </svg>
+
+    <div class="legend">
+      <span><span class="sw" style="background:var(--state)"></span>data path</span>
+      <span><span class="sw" style="background:var(--model)"></span>model code</span>
+      <span><span class="sw" style="background:var(--train)"></span>training</span>
+      <span style="margin-left:auto">solid arrow = used directly &middot; soft arrow = imports</span>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 2. DATA FLOW                                                     -->
+  <!-- ============================================================== -->
+  <div class="panel" id="dataflow">
+    <h2>2 &middot; Data flow &mdash; from <code>data.json</code> to <code>Sample</code> to batch tensor</h2>
+
+    <svg viewBox="0 0 1280 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr2" viewBox="0 -5 10 10" refX="9" refY="0"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,-5L10,0L0,5" fill="#4a5160"/>
+        </marker>
+      </defs>
+
+      <g transform="translate(20, 30)">
+        <rect width="200" height="240" rx="8" fill="#fff6d6" stroke="#d4a300"/>
+        <text x="100" y="20" font-size="12" font-weight="600" text-anchor="middle" fill="#86670c">data.json (one placement)</text>
+        <g transform="translate(14, 36)" font-size="10" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">accepted_pairs[i]:</text>
+          <text x="12" y="14" fill="#5b6470">trajectory_32f: list[32]</text>
+          <text x="22" y="28" fill="#5b6470">{pos, fwd, up,</text>
+          <text x="22" y="42" fill="#5b6470">&nbsp;pitch_deg, yaw_deg}</text>
+          <text x="0" y="64">render_records[i][j]:</text>
+          <text x="12" y="78" fill="#5b6470">path_rel: str</text>
+          <text x="12" y="92" fill="#5b6470">bbox_xyxy_full</text>
+          <text x="12" y="106" fill="#5b6470">scores: dict[8]</text>
+          <text x="22" y="120" fill="#5b6470">{occupancy: 35,</text>
+          <text x="22" y="134" fill="#5b6470">&nbsp;body_in_frame: 92,</text>
+          <text x="22" y="148" fill="#5b6470">&nbsp;az_deg: 215, &hellip;}</text>
+          <text x="0" y="172">scene_file, object_file</text>
+          <text x="0" y="186">subject_foot</text>
+          <text x="0" y="200">render_width / _height</text>
+        </g>
+      </g>
+
+      <path d="M 220 150 L 260 150" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <text x="240" y="142" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">iter_windows</text>
+
+      <g transform="translate(265, 30)">
+        <rect width="240" height="240" rx="8" fill="white" stroke="#b8c1cc"/>
+        <text x="120" y="20" font-size="12" font-weight="600" text-anchor="middle" fill="#1d1d1f">TrajectoryWindow</text>
+        <text x="120" y="34" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">chunk_size=8, stride=1</text>
+        <g transform="translate(14, 50)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">.start: ViewRecord  (frame s)</text>
+          <text x="0" y="16">.end:   ViewRecord  (frame s+8)</text>
+          <text x="0" y="32">.intermediate: list[7]</text>
+          <text x="0" y="48"><tspan fill="#5b6470">// each ViewRecord carries:</tspan></text>
+          <text x="0" y="62">.camera_position/forward/up</text>
+          <text x="0" y="76">.image: abs path to .jpg</text>
+          <text x="0" y="90">.raw: dict (frame + scores)</text>
+          <text x="0" y="106">.scene, .object</text>
+          <text x="0" y="124">~24 windows / accepted_pair</text>
+          <text x="0" y="138">(32 - 8) / stride = 24</text>
+          <text x="0" y="156">~24 &times; K_accepted &times; N_placements</text>
+          <text x="0" y="170" fill="#86670c">→ training samples</text>
+        </g>
+      </g>
+
+      <path d="M 505 150 L 545 150" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <text x="525" y="142" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">BasePolicyDataset</text>
+
+      <g transform="translate(550, 30)">
+        <rect width="240" height="240" rx="8" fill="white" stroke="#b8c1cc"/>
+        <text x="120" y="20" font-size="12" font-weight="600" text-anchor="middle" fill="#1d1d1f">Sample (pre-tensor)</text>
+        <g transform="translate(14, 38)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">.start, .end: ViewRecord</text>
+          <text x="0" y="14">.intermediate: list[7]</text>
+          <text x="0" y="32" fill="#c97a30">.action_chunk: ndarray</text>
+          <text x="12" y="46" fill="#5b6470">shape (chunk_size, 5)</text>
+          <text x="12" y="60" fill="#5b6470">encode_action_5d per step:</text>
+          <text x="12" y="74" fill="#5b6470">prev-frame camera-local Δ</text>
+          <text x="0" y="92" fill="#216e64">.goal_vec: ndarray</text>
+          <text x="12" y="106" fill="#5b6470">shape (8,), raw V5 ints</text>
+          <text x="12" y="120" fill="#5b6470">from .end.raw scores</text>
+          <text x="0" y="138" fill="#974868">.value: float</text>
+          <text x="12" y="152" fill="#5b6470">= profile_distance_value(</text>
+          <text x="12" y="166" fill="#5b6470">&nbsp;&nbsp;start.raw, end.raw, intr)</text>
+          <text x="12" y="180" fill="#5b6470">= -d_geom (radians, &le; 0)</text>
+        </g>
+      </g>
+
+      <path d="M 790 150 L 830 150" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <text x="810" y="142" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">CosmosDroneDataset</text>
+      <text x="810" y="166" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">.__getitem__</text>
+
+      <g transform="translate(835, 30)">
+        <rect width="220" height="240" rx="8" fill="#e8f0fb" stroke="#4a83e0"/>
+        <text x="110" y="20" font-size="12" font-weight="600" text-anchor="middle" fill="#1f5cb4">per-sample dict (tensor)</text>
+        <g transform="translate(14, 38)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">state_image:</text>
+          <text x="12" y="14" fill="#5b6470">(3, 480, 720) [-1, 1]</text>
+          <text x="0" y="30">next_state_image:</text>
+          <text x="12" y="44" fill="#5b6470">(3, 480, 720) [-1, 1]</text>
+          <text x="0" y="60" fill="#216e64">goal_vec:</text>
+          <text x="12" y="74" fill="#5b6470">(8,) normalized [-1, 1]</text>
+          <text x="12" y="88" fill="#5b6470">no clip (off-frame OK)</text>
+          <text x="0" y="104" fill="#c97a30">action_chunk:</text>
+          <text x="12" y="118" fill="#5b6470">(chunk=8, 5) / ACTION_SCALE</text>
+          <text x="12" y="132" fill="#5b6470">clipped to [-1, 1]</text>
+          <text x="0" y="148" fill="#974868">value_target:</text>
+          <text x="12" y="162" fill="#5b6470">scalar (float32)</text>
+          <text x="0" y="180">meta: dict</text>
+          <text x="12" y="194" fill="#5b6470">paths, scene, indices</text>
+        </g>
+      </g>
+
+      <path d="M 1055 150 L 1095 150" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <text x="1075" y="142" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">DataLoader</text>
+      <text x="1075" y="166" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">collate (default)</text>
+
+      <g transform="translate(1100, 30)">
+        <rect width="170" height="240" rx="8" fill="#ece4f6" stroke="#8e6dc8"/>
+        <text x="85" y="20" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">batch (to GPU)</text>
+        <g transform="translate(10, 38)" font-size="10" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">state_image:</text>
+          <text x="6" y="14" fill="#5b6470">(B, 3, 480, 720)</text>
+          <text x="0" y="30">next_state_image:</text>
+          <text x="6" y="44" fill="#5b6470">(B, 3, 480, 720)</text>
+          <text x="0" y="60" fill="#216e64">goal_vec:</text>
+          <text x="6" y="74" fill="#5b6470">(B, 8)</text>
+          <text x="0" y="92" fill="#c97a30">action_chunk:</text>
+          <text x="6" y="106" fill="#5b6470">(B, 8, 5)</text>
+          <text x="0" y="122" fill="#974868">value_target:</text>
+          <text x="6" y="136" fill="#5b6470">(B,)</text>
+          <text x="0" y="156" font-size="9">B=1, grad_accum=8</text>
+          <text x="0" y="170" font-size="9">effective bs=8</text>
+        </g>
+      </g>
+
+    </svg>
+
+    <div class="note">
+      A placement contributes <code>~24 &times; K_accepted</code> training samples (24 windows per
+      32-frame trajectory at stride 1, times K_accepted = up to 12 trajectories).
+      Across the 7,885 placements &times; K_mean = 10.67 from Stage 1, that's ~2.0M
+      training samples. Memory is fine because <b>only the metadata</b> is held
+      in <code>BasePolicyDataset._samples</code>; images and VAE encodings happen lazily in
+      <code>__getitem__</code> / inside <code>fit()</code>.
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 3. BATCH                                                         -->
+  <!-- ============================================================== -->
+  <div class="panel" id="batch">
+    <h2>3 &middot; Batch composition &mdash; exact tensor shapes &amp; ranges</h2>
+
+    <table>
+      <thead>
+        <tr><th>field</th><th>per-sample</th><th>per-batch</th><th>dtype</th><th>range</th><th>source</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tag-state">state_image</td>
+          <td class="code">(3, 480, 720)</td>
+          <td class="code">(B, 3, 480, 720)</td>
+          <td class="code">bf16</td>
+          <td class="code">[-1, 1]</td>
+          <td><code>CosmosDroneDataset._load_image_as_tensor(start.image)</code></td>
+        </tr>
+        <tr>
+          <td class="tag-state">next_state_image</td>
+          <td class="code">(3, 480, 720)</td>
+          <td class="code">(B, 3, 480, 720)</td>
+          <td class="code">bf16</td>
+          <td class="code">[-1, 1]</td>
+          <td><code>_load_image_as_tensor(end.image)</code> &mdash; resized via PIL LANCZOS</td>
+        </tr>
+        <tr>
+          <td class="tag-goal">goal_vec</td>
+          <td class="code">(8,)</td>
+          <td class="code">(B, 8)</td>
+          <td class="code">float32</td>
+          <td class="code">~[-1, 1] (unclipped)</td>
+          <td><code>normalize_goal(end.raw.scores, DEFAULT_V5_RANGES)</code></td>
+        </tr>
+        <tr>
+          <td class="tag-action">action_chunk</td>
+          <td class="code">(8, 5)</td>
+          <td class="code">(B, 8, 5)</td>
+          <td class="code">float32</td>
+          <td class="code">[-1, 1] (clipped)</td>
+          <td><code>normalize_action_5d(encode_action_5d(prev, next), ACTION_SCALE)</code></td>
+        </tr>
+        <tr>
+          <td class="tag-value">value_target</td>
+          <td class="code">()</td>
+          <td class="code">(B,)</td>
+          <td class="code">float32</td>
+          <td class="code">(-∞, 0]</td>
+          <td><code>profile_distance_value(start.raw, end.raw, intr)</code></td>
+        </tr>
+        <tr>
+          <td>meta</td>
+          <td class="code">dict</td>
+          <td class="code">dict of lists</td>
+          <td class="code">str/int</td>
+          <td>—</td>
+          <td><code>annotation_path, pair_idx, frame indices, scene, object</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>action_chunk numbers in detail</h3>
+    <pre><code><span class="com"># src/policy/common/action_repr.py</span>
+ACTION_DIM = <span class="num">5</span>
+ACTION_SCALE = np.array([<span class="num">0.32</span>, <span class="num">0.28</span>, <span class="num">0.95</span>, <span class="num">0.081</span>, <span class="num">0.071</span>], dtype=np.float32)
+<span class="com">#                       Δright Δup   Δfwd  Δyaw   Δpitch   (m, m, m, rad, rad)
+# Per-dim p99 of |Δ| over the v7 Stage-1 trajectories (400 placements / 137k actions).
+# Forward (dolly) dominates; metres-vs-radians differ ~10x → normalization is essential
+# for the flow-matching L2 to weight all dims fairly.</span>
+
+<span class="kw">def</span> <span class="fn">encode_action_5d</span>(prev_pos, prev_fwd, prev_up, next_pos, next_fwd, next_up):
+    dt = relative_translation_camera_local(prev_pos, next_pos, prev_fwd, prev_up)
+    rel = relative_rotation_matrix_camera_local(prev_fwd, prev_up, next_fwd, next_up)
+    yaw, pitch = yaw_pitch_from_rotation_matrix(rel)        <span class="com"># roll is dropped</span>
+    <span class="kw">return</span> np.array([dt[0], dt[1], dt[2], yaw, pitch], dtype=np.float32)</code></pre>
+
+    <h3>goal_vec normalization &mdash; per-key affine, no clip</h3>
+    <pre><code><span class="com"># src/policy/common/goal_space.py</span>
+DEFAULT_V5_RANGES = {
+    <span class="str">"occupancy"</span>:                 (<span class="num">0.0</span>, <span class="num">100.0</span>),         <span class="com"># int percent</span>
+    <span class="str">"body_in_frame_ratio"</span>:       (<span class="num">0.0</span>, <span class="num">100.0</span>),
+    <span class="str">"cam_to_obj_azimuth_deg"</span>:    (<span class="num">0.0</span>, <span class="num">360.0</span>),         <span class="com"># cyclic — seam at 0/360 (TODO sin/cos)</span>
+    <span class="str">"cam_to_obj_elevation_deg"</span>:  (-<span class="num">90.0</span>, <span class="num">90.0</span>),
+    <span class="str">"object_center_x"</span>:           (<span class="num">0.0</span>, RENDER_WIDTH=1024),
+    <span class="str">"object_center_y"</span>:           (<span class="num">0.0</span>, RENDER_HEIGHT=768),
+    <span class="str">"bbox_x_offset"</span>:             (<span class="num">0.0</span>, RENDER_WIDTH),
+    <span class="str">"bbox_y_offset"</span>:             (<span class="num">0.0</span>, RENDER_HEIGHT),
+}
+<span class="com"># Off-frame values intentionally land at |normalized| > 1 — the subject "past the edge"
+# is a real, deliberate signal. Clipping would lose that information.</span></code></pre>
+
+    <h3>value_target &mdash; geometric profile distance</h3>
+    <pre><code><span class="com"># src/policy/common/reward.py</span>
+<span class="kw">def</span> <span class="fn">geometric_profile_distance</span>(achieved, goal, intr: CameraIntrinsics) -> <span class="kw">float</span>:
+    a = profile_to_geometry(achieved, intr)   <span class="com"># → {az, el, size, aim_x, aim_y} radians</span>
+    g = profile_to_geometry(goal, intr)
+    d_view = great_circle(a[<span class="str">"az"</span>], a[<span class="str">"el"</span>], g[<span class="str">"az"</span>], g[<span class="str">"el"</span>])    <span class="com"># cyclic-safe</span>
+    d_size = a[<span class="str">"size"</span>] - g[<span class="str">"size"</span>]                                  <span class="com"># atan(bbox_half / focal_px)</span>
+    d_aim  = hypot(a[<span class="str">"aim_x"</span>] - g[<span class="str">"aim_x"</span>], a[<span class="str">"aim_y"</span>] - g[<span class="str">"aim_y"</span>])
+    <span class="kw">return</span> sqrt(d_view**<span class="num">2</span> + d_size**<span class="num">2</span> + d_aim**<span class="num">2</span>)
+
+<span class="kw">def</span> <span class="fn">profile_distance_value</span>(achieved, goal, intr) -> <span class="kw">float</span>:
+    <span class="kw">return</span> -geometric_profile_distance(achieved, goal, intr)   <span class="com"># 0 at goal, &lt;0 away</span></code></pre>
+
+    <div class="note">
+      <b>Why weight-free?</b> All three components are angles (radians) in the same
+      camera-subject geometry, so they're summed without per-key weights to tune.
+      <code>atan</code> on the size/aim pixel quantities makes off-frame / huge-bbox values
+      saturate gracefully at ±π/2 instead of blowing up. The metric is scale-invariant,
+      matching the profile's scene-agnostic design.
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 4. PROMPT & CONDITIONER                                          -->
+  <!-- ============================================================== -->
+  <div class="panel" id="prompt">
+    <h2>4 &middot; Prompt &amp; conditioner &mdash; T5 anchor + zero-init prefix injection</h2>
+
+    <p style="font-size:13px;color:#444;margin:0 0 12px">
+      Cosmos-Predict2.5 was pretrained to consume <code>(B, 512, 1024)</code> T5-11B cross-attention
+      embeddings for a natural-language prompt. We never load T5 at train/inference; instead we
+      build that exact tensor by combining a <b>frozen anchor</b> (one-time T5 encode of a fixed
+      prompt) with a <b>zero-initialized learnable prefix</b> of K=4 goal tokens. At init the
+      conditioner output equals the anchor exactly &mdash; the backbone starts as the pretrained
+      T5-conditioned model. Gradient descent ramps a scalar gate up so the goal signal can
+      eventually drive the action / value predictions.
+    </p>
+
+    <svg viewBox="0 0 1260 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr3" viewBox="0 -5 10 10" refX="9" refY="0"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,-5L10,0L0,5" fill="#4a5160"/>
+        </marker>
+      </defs>
+
+      <!-- Offline anchor build -->
+      <g transform="translate(20, 30)">
+        <rect width="280" height="220" rx="8" fill="#fff" stroke="#b8c1cc"/>
+        <text x="140" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#1d1d1f">Offline (run once)</text>
+        <g transform="translate(14, 38)" font-size="11" fill="#1d1d1f" font-family="ui-monospace, monospace">
+          <text x="0" y="0" font-weight="600">scripts/build_t5_anchor.py</text>
+          <text x="0" y="20" fill="#5b6470">load T5-11B encoder (~22GB bf16)</text>
+          <text x="0" y="36" fill="#5b6470">prompt = "A drone cinematography"</text>
+          <text x="0" y="52" fill="#5b6470">encode → (512, 1024)</text>
+          <text x="0" y="68" fill="#5b6470">save:</text>
+          <text x="12" y="84" fill="#5b6470">embedding: (512, 1024) bf16</text>
+          <text x="12" y="100" fill="#5b6470">real_len: int (~6 tokens)</text>
+          <text x="12" y="116" fill="#5b6470">padding_mask: (512,) bool</text>
+          <text x="0" y="140">→ assets/t5_anchor.pt</text>
+          <text x="0" y="156" fill="#5b6470">~1 MB, T5 weights discarded</text>
+        </g>
+      </g>
+
+      <path d="M 305 138 L 348 138" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr3)"/>
+
+      <!-- Module: ShotProfileVectorConditioner -->
+      <g transform="translate(355, 30)">
+        <rect width="540" height="220" rx="8" fill="#e0f0ed" stroke="#2a9d8f"/>
+        <text x="270" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#216e64">ShotProfileVectorConditioner (learned)</text>
+
+        <!-- Frozen anchor buffer -->
+        <g transform="translate(14, 38)">
+          <rect width="240" height="70" rx="5" fill="white" stroke="#b8c1cc"/>
+          <text x="120" y="18" font-size="11" font-weight="600" text-anchor="middle" fill="#1d1d1f">anchor_emb (frozen)</text>
+          <text x="120" y="34" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">register_buffer (512, 1024)</text>
+          <text x="120" y="50" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">+ anchor_mask (512,) bool</text>
+          <text x="120" y="64" font-size="9" text-anchor="middle" fill="#5b6470">anchor_real_len = 6</text>
+        </g>
+
+        <!-- goal_proj -->
+        <g transform="translate(14, 118)">
+          <rect width="240" height="86" rx="5" fill="white" stroke="#2a9d8f" stroke-width="1.2"/>
+          <text x="120" y="18" font-size="11" font-weight="600" text-anchor="middle" fill="#216e64">goal_proj (learned)</text>
+          <text x="120" y="34" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">nn.Linear(8 → K&middot;1024)</text>
+          <text x="120" y="48" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">K = DEFAULT_GOAL_TOKENS = 4</text>
+          <text x="120" y="64" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">params: 8&middot;4&middot;1024 + 4&middot;1024 ≈ 33K</text>
+          <text x="120" y="78" font-size="9" text-anchor="middle" fill="#5b6470">+ gate: nn.Parameter, init=0</text>
+        </g>
+
+        <!-- Forward computation -->
+        <g transform="translate(270, 38)" font-size="10" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0" font-weight="600">forward(batch["goal_vec"]):</text>
+          <text x="0" y="16">emb &larr; anchor_emb.expand(B,-1,-1)</text>
+          <text x="0" y="32">tok &larr; goal_proj(goal).view(B,K,1024)</text>
+          <text x="0" y="50">start = anchor_real_len</text>
+          <text x="0" y="64">end   = start + K</text>
+          <text x="0" y="80">emb[:, start:end] += <tspan fill="#c05a87">gate</tspan> * tok</text>
+          <text x="0" y="100" fill="#5b6470" font-size="9.5">(zero-init: at start of training,</text>
+          <text x="0" y="113" fill="#5b6470" font-size="9.5">gate=0 → emb = exact anchor)</text>
+          <text x="0" y="134">mask = anchor_mask.expand(B,-1)</text>
+          <text x="0" y="148">mask[:, start:end] = True</text>
+          <text x="0" y="166" font-weight="600">return ShotProfileCondition(</text>
+          <text x="12" y="180" fill="#216e64">crossattn_emb=(B, 512, 1024),</text>
+          <text x="12" y="194" fill="#216e64">padding_mask=(B, 512) bool)</text>
+        </g>
+      </g>
+
+      <path d="M 900 138 L 940 138" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr3)"/>
+
+      <!-- Sequence layout visualization -->
+      <g transform="translate(945, 30)">
+        <rect width="300" height="220" rx="8" fill="#fafbff" stroke="#8e6dc8"/>
+        <text x="150" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">crossattn_emb layout (per item)</text>
+        <text x="150" y="38" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">512 positions × 1024 dim</text>
+
+        <!-- horizontal slot strip -->
+        <g transform="translate(14, 56)">
+          <rect width="272" height="36" fill="#fafbfc" stroke="#cbb6e8"/>
+          <!-- real-text region -->
+          <rect x="2" y="2" width="20" height="32" fill="#dff2dd" stroke="#2a7a2a" stroke-width="0.8"/>
+          <text x="12" y="22" font-size="8" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">real</text>
+          <!-- goal token region -->
+          <rect x="22" y="2" width="20" height="32" fill="#e0f0ed" stroke="#2a9d8f" stroke-width="1"/>
+          <text x="32" y="22" font-size="8" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">P*</text>
+          <!-- padding rest -->
+          <rect x="42" y="2" width="228" height="32" fill="#f4f4f7" stroke="#cbd2da" stroke-width="0.6"/>
+          <text x="156" y="22" font-size="9" text-anchor="middle" fill="#888" font-family="ui-monospace, monospace">padding (masked, ignored by cross-attn)</text>
+        </g>
+        <g transform="translate(14, 100)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+          <text x="0" y="0">pos 0..5      : real anchor text</text>
+          <text x="0" y="14">pos 6..9      : K=4 goal tokens (P*)</text>
+          <text x="0" y="28">pos 10..511   : T5 padding</text>
+        </g>
+
+        <g transform="translate(14, 150)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+          <text x="0" y="0" fill="#1d1d1f" font-weight="600">classifier-free guidance:</text>
+          <text x="0" y="14">if training and dropout_rate &gt; 0:</text>
+          <text x="14" y="28">keep ~ Bernoulli(1 - rate)</text>
+          <text x="14" y="42">emb[uncond] += gate * 0  (skip)</text>
+          <text x="0" y="58" fill="#888">v6 keeps rate=0; bump for CFG.</text>
+        </g>
+      </g>
+
+    </svg>
+
+    <h3>Why anchor + prefix instead of "Linear(8) → 1024"?</h3>
+    <table>
+      <thead><tr><th>option</th><th>at init</th><th>backbone sees</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>raw Linear(8 → 512·1024)</td>
+          <td>random</td>
+          <td><b>off-manifold</b> &mdash; the frozen Cosmos backbone has never seen those activations</td>
+        </tr>
+        <tr>
+          <td><b>anchor + zero-init prefix</b></td>
+          <td>exact anchor &mdash; same as a T5-encoded prompt</td>
+          <td><b>in-distribution</b> &mdash; the model starts as the pretrained T5-conditioned policy and adapts from there</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <b>Escalation path</b> if the gate plateaus at a small value while loss stalls:
+      switch to <b>IP-Adapter-style decoupled cross-attention</b> &mdash; add a parallel (K, V)
+      projection in each cross-attn layer that attends to a separate stream of goal tokens,
+      with the output projection zero-initialized. That requires touching the backbone's
+      Attention blocks but gives the goal signal much more capacity to integrate at every layer.
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 5. LATENT ASSEMBLY                                               -->
+  <!-- ============================================================== -->
+  <div class="panel" id="latent">
+    <h2>5 &middot; Latent assembly &mdash; from batch tensors to <code>x0 ∈ (B, 16, T_total, H_lat, W_lat)</code></h2>
+
+    <svg viewBox="0 0 1260 350" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr4" viewBox="0 -5 10 10" refX="9" refY="0"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,-5L10,0L0,5" fill="#4a5160"/>
+        </marker>
+      </defs>
+
+      <!-- step 1: VAE encode -->
+      <g transform="translate(20, 20)">
+        <rect width="260" height="160" rx="8" fill="#e8f0fb" stroke="#4a83e0"/>
+        <text x="130" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#1f5cb4">①  VAE encode</text>
+        <g transform="translate(14, 40)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">clip = assemble_clip(state, next, T=4)</text>
+          <text x="0" y="16" fill="#5b6470">frame 0 = state_image</text>
+          <text x="0" y="30" fill="#5b6470">frame 1..3 = next_state_image</text>
+          <text x="0" y="46" fill="#5b6470"># filler avoids zero frames</text>
+          <text x="0" y="60" fill="#5b6470"># shifting VAE statistics</text>
+          <text x="0" y="80">image_latent = vae.encode(clip)</text>
+          <text x="0" y="96" fill="#5b6470">(B, 16, T_lat, H_lat, W_lat)</text>
+          <text x="0" y="112" fill="#5b6470">already rescaled by latent_mean/std</text>
+        </g>
+      </g>
+
+      <path d="M 280 100 L 320 100" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr4)"/>
+
+      <!-- step 2: init x0 -->
+      <g transform="translate(325, 20)">
+        <rect width="260" height="160" rx="8" fill="#fff" stroke="#b8c1cc"/>
+        <text x="130" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#1d1d1f">②  init clean latents</text>
+        <g transform="translate(14, 40)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">T_total = T_img + 2</text>
+          <text x="0" y="14" fill="#5b6470">(action + value latent frames)</text>
+          <text x="0" y="32">x0 = torch.zeros(</text>
+          <text x="12" y="46">B, 16, T_total, H_lat, W_lat)</text>
+          <text x="0" y="66">x0[:, :, :T_img] = image_latent</text>
+          <text x="0" y="86" fill="#5b6470"># a_idx = T_img</text>
+          <text x="0" y="100" fill="#5b6470"># v_idx = T_img + 1</text>
+        </g>
+      </g>
+
+      <path d="M 585 100 L 625 100" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr4)"/>
+
+      <!-- step 3: inject action -->
+      <g transform="translate(630, 20)">
+        <rect width="260" height="160" rx="8" fill="#fbeed8" stroke="#e89b5a"/>
+        <text x="130" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#c97a30">③  inject action</text>
+        <g transform="translate(14, 40)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">flat = action_chunk.reshape(B, -1)</text>
+          <text x="0" y="14" fill="#5b6470"># (B, chunk_size·5) = (B, 40)</text>
+          <text x="0" y="32">n_action = chunk_size * 5</text>
+          <text x="0" y="46">n_latent = 16 * H_lat * W_lat</text>
+          <text x="0" y="60">n_repeats = ceil(n_latent / n_action)</text>
+          <text x="0" y="76">tiled = flat.repeat(1, n_repeats)</text>
+          <text x="0" y="90">tiled = tiled[:, :n_latent]</text>
+          <text x="0" y="106">x0[:,:,a_idx] = tiled.reshape(...)</text>
+          <text x="0" y="124" fill="#9b6020"># NO learned params</text>
+        </g>
+      </g>
+
+      <path d="M 890 100 L 930 100" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr4)"/>
+
+      <!-- step 4: inject value -->
+      <g transform="translate(935, 20)">
+        <rect width="260" height="160" rx="8" fill="#f6e0eb" stroke="#c05a87"/>
+        <text x="130" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#974868">④  inject value</text>
+        <g transform="translate(14, 40)" font-size="10.5" font-family="ui-monospace, monospace" fill="#1d1d1f">
+          <text x="0" y="0">v = value_target.view(B, 1)</text>
+          <text x="0" y="16">x0[:, :, v_idx] = v.expand(</text>
+          <text x="12" y="30">B, 16 * H_lat * W_lat)</text>
+          <text x="12" y="44">.reshape(B, 16, H_lat, W_lat)</text>
+          <text x="0" y="64" fill="#974868"># scalar broadcast to fill</text>
+          <text x="0" y="78" fill="#974868"># the entire latent frame</text>
+          <text x="0" y="98" fill="#5b6470"># NO learned params</text>
+        </g>
+      </g>
+
+      <!-- ───── final x0 visualization ───── -->
+      <g transform="translate(20, 210)">
+        <rect width="1175" height="130" rx="8" fill="#fafbff" stroke="#8e6dc8" stroke-width="2"/>
+        <text x="587" y="22" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">x0 &mdash; clean latent sequence (B, 16, T_total = T_img + 2, H_lat, W_lat)</text>
+
+        <g transform="translate(20, 40)">
+          <!-- 4 image frames -->
+          <g>
+            <rect width="540" height="60" rx="3" fill="#eef4fc" stroke="#4a83e0" stroke-width="1.4"/>
+            <text x="270" y="14" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">image clip latent (positions 0..T_img-1, T_img=4)</text>
+            <g transform="translate(10, 18)">
+              <rect width="130" height="36" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1"/>
+              <g stroke="#4a83e0" stroke-width="0.5" opacity="0.6">
+                <line x1="2" y1="2" x2="128" y2="2"/><line x1="2" y1="10" x2="128" y2="10"/>
+                <line x1="2" y1="18" x2="128" y2="18"/><line x1="2" y1="26" x2="128" y2="26"/>
+                <line x1="2" y1="34" x2="128" y2="34"/>
+              </g>
+              <text x="65" y="50" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">pos 0 = s_t</text>
+            </g>
+            <g transform="translate(145, 18)">
+              <rect width="125" height="36" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="62" y="50" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">pos 1 = s_{t+1}</text>
+            </g>
+            <g transform="translate(275, 18)">
+              <rect width="125" height="36" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="62" y="50" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">pos 2 = s_{t+1}</text>
+            </g>
+            <g transform="translate(405, 18)">
+              <rect width="125" height="36" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="62" y="50" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">pos 3 = s_{t+1}</text>
+            </g>
+          </g>
+          <!-- action latent -->
+          <g transform="translate(560, 0)">
+            <rect width="270" height="60" rx="3" fill="#fbeed8" stroke="#e89b5a" stroke-width="1.4"/>
+            <text x="135" y="14" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#c97a30">action latent (position T_img)</text>
+            <g transform="translate(10, 18)">
+              <rect width="250" height="36" rx="3" fill="white" stroke="#e89b5a" stroke-width="0.8"/>
+              <g transform="translate(0, 6)" font-size="8" font-family="ui-monospace, monospace" fill="#c97a30">
+                <text x="6"  y="0">[a₁]</text><text x="42"  y="0">[a₂]</text><text x="78"  y="0">[a₃]</text>
+                <text x="114" y="0">[a₄]</text><text x="150" y="0">[a₅]</text><text x="186" y="0">[a₆]</text>
+                <text x="222" y="0">[a₇]</text>
+              </g>
+              <g transform="translate(0, 18)" font-size="8" font-family="ui-monospace, monospace" fill="#c97a30">
+                <text x="6"  y="0">[a₈]</text><text x="42"  y="0">[a₁]</text><text x="78"  y="0">[a₂]</text>
+                <text x="114" y="0">…</text><text x="222" y="0">[repeat]</text>
+              </g>
+              <text x="125" y="48" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">flat(B,8·5).repeat(...).reshape(B,16,h,w)</text>
+            </g>
+          </g>
+          <!-- value latent -->
+          <g transform="translate(835, 0)">
+            <rect width="270" height="60" rx="3" fill="#f6e0eb" stroke="#c05a87" stroke-width="1.4"/>
+            <text x="135" y="14" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#974868">value latent (position T_img + 1)</text>
+            <g transform="translate(10, 18)">
+              <rect width="250" height="36" rx="3" fill="white" stroke="#c05a87" stroke-width="0.8"/>
+              <g fill="#974868" opacity="0.85" font-family="ui-monospace, monospace" font-size="9">
+                <text x="6" y="14">V</text><text x="40" y="14">V</text><text x="74" y="14">V</text>
+                <text x="108" y="14">V</text><text x="142" y="14">V</text><text x="176" y="14">V</text>
+                <text x="210" y="14">V</text>
+              </g>
+              <text x="125" y="32" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">scalar broadcast across (16, h, w)</text>
+            </g>
+          </g>
+        </g>
+      </g>
+
+    </svg>
+
+    <h3>Source: <code>CosmosWorldActionPolicy.build_training_latents</code></h3>
+    <pre><code><span class="kw">def</span> <span class="fn">build_training_latents</span>(self, image_latent, action_chunk, value_target):
+    <span class="com"># image_latent: (B, C, T_img, H, W) — from vae.encode(assemble_clip(state, next))</span>
+    b, c, t_img, h, w = image_latent.shape
+    n_extra = <span class="num">2</span>                              <span class="com"># 1 action + 1 value</span>
+    x0 = torch.zeros(b, c, t_img + n_extra, h, w, dtype=..., device=...)
+
+    x0[:, :, :t_img] = image_latent           <span class="com"># clean image latents</span>
+
+    a_idx = t_img
+    x0[:, :, a_idx] = inject_action_chunk(x0[:, :, a_idx], action_chunk)
+
+    v_idx = t_img + <span class="num">1</span>
+    x0[:, :, v_idx] = inject_value(x0[:, :, v_idx], value_target)
+
+    <span class="kw">return</span> x0                                <span class="com"># clean target for the diffusion process</span></code></pre>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 6. EDM LOSS                                                      -->
+  <!-- ============================================================== -->
+  <div class="panel" id="edm">
+    <h2>6 &middot; EDM loss &mdash; σ sampling, preconditioning, per-component split</h2>
+
+    <h3>(a) σ sampling per batch sample</h3>
+    <pre><code><span class="com"># src/policy/cosmos/edm.py</span>
+<span class="kw">def</span> <span class="fn">sample_sigma</span>(batch_size, config: EDMConfig, *, device):
+    log_sigma = torch.randn(batch_size, device=device) * config.p_std + config.p_mean  <span class="com"># N(-1.2, 1.2)</span>
+    sigma = log_sigma.exp()
+    <span class="kw">if</span> config.use_balanced_two_heads:
+        sigma = apply_balanced_two_heads(sigma,
+                    high_sigma_ratio=<span class="num">0.25</span>,    <span class="com"># 25% → log-uniform [200, 100000]</span>
+                    low_sigma_ratio=<span class="num">0.25</span>)      <span class="com"># 25% → uniform [1e-5, 2.0]</span>
+    <span class="kw">return</span> sigma                              <span class="com"># shape (B,)</span></code></pre>
+
+    <p style="font-size:12px;color:#5b6470;margin:6px 0 16px">
+      Each batch sample gets <b>one</b> σ — the whole latent sequence (image + action + value frames)
+      is corrupted with the <b>same</b> noise level. The three components are not sampled independently.
+      The balanced-two-heads pass replaces a random 25% of σ values with extreme highs and another
+      independent 25% with extreme lows. Without it, the log-normal alone undersamples the σ extremes
+      where the two EDM "denoiser heads" (ε-prediction at high σ, x0-prediction at low σ) need
+      supervision.
+    </p>
+
+    <h3>(b) Add noise: <code>x_t = x0 + σ · ε</code></h3>
+    <pre><code>epsilon = torch.randn_like(x0)                <span class="com"># same shape as x0: (B, 16, T_total, H, W)</span>
+sigma_v = sigma.view(B, 1, 1, 1, 1)            <span class="com"># broadcast across all dims</span>
+x_t = x0 + sigma_v * epsilon                   <span class="com"># noisy latent</span></code></pre>
+
+    <h3>(c) Backbone forward under EDM preconditioning</h3>
+    <pre><code><span class="com"># Karras 2022 eq. 7: precondition the input and output so the network's effective
+# task is well-conditioned regardless of σ.</span>
+c_skip = sigma_data² / (sigma² + sigma_data²)
+c_out  = sigma · sigma_data / sqrt(sigma² + sigma_data²)
+c_in   = <span class="num">1</span> / sqrt(sigma² + sigma_data²)
+c_noise = <span class="num">0.25</span> · log(sigma)                       <span class="com"># scalar fed in as "timestep"</span>
+
+<span class="com"># Forward call (DiffusersStyleAdapter):</span>
+net_out = transformer(
+    hidden_states=x_t * c_in,                    <span class="com"># scaled input</span>
+    timestep=c_noise,                             <span class="com"># σ-derived "timestep"</span>
+    encoder_hidden_states=cond.crossattn_emb,     <span class="com"># P*-injected anchor (B, 512, 1024)</span>
+    encoder_attention_mask=cond.padding_mask,
+)
+
+x0_pred = c_skip * x_t + c_out * net_out         <span class="com"># preconditioned x0 prediction</span></code></pre>
+
+    <h3>(d) Per-σ weighting + per-component split</h3>
+    <pre><code><span class="com"># Karras 2022, EDM scaling — weight emphasizes losses at "useful" σ ranges.</span>
+w(σ) = (σ² + sigma_data²) / (σ · sigma_data)²
+
+sq = (x0_pred - x0) ** <span class="num">2</span> * w(σ).view(B, 1, 1, 1, 1)   <span class="com"># (B, C, T_total, H, W)</span>
+
+<span class="com"># Split by latent-sequence position so each component is on a comparable scale.</span>
+L_world  = sq[:, :, :T_img         ].mean()                  <span class="com"># pos 0..T_img-1</span>
+L_action = sq[:, :, T_img          ].mean()                  <span class="com"># pos T_img</span>
+L_value  = sq[:, :, T_img + <span class="num">1</span>      ].mean()                  <span class="com"># pos T_img + 1</span>
+
+total = λ_w · L_world + λ_a · L_action + λ_v · L_value       <span class="com"># λ = 1.0 / 1.0 / 1.0</span>
+<span class="kw">return</span> LossOutputs(total, L_world, L_action, L_value)</code></pre>
+
+    <div class="note">
+      <b>The three components are <i>not</i> three separate forward passes.</b> The backbone sees
+      the whole noisy sequence at once and produces one denoised tensor; we just slice that tensor
+      by latent-frame position when computing the loss. Goal conditioning enters at every layer of
+      the trunk via cross-attention.
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 7. TRAINING LOOP                                                 -->
+  <!-- ============================================================== -->
+  <div class="panel" id="loop">
+    <h2>7 &middot; Training loop &mdash; <code>CosmosPolicyTrainer.fit</code></h2>
+
+    <svg viewBox="0 0 1260 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr5" viewBox="0 -5 10 10" refX="9" refY="0"
+                markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,-5L10,0L0,5" fill="#4a5160"/>
+        </marker>
+      </defs>
+
+      <g transform="translate(40, 30)">
+        <rect width="220" height="100" rx="6" fill="#fff" stroke="#b8c1cc"/>
+        <text x="110" y="22" font-size="11" font-weight="600" text-anchor="middle" fill="#1d1d1f">setup (once)</text>
+        <g transform="translate(12, 38)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+          <text x="0" y="0">policy.to(device, bf16)</text>
+          <text x="0" y="14">vae.to(device, bf16)</text>
+          <text x="0" y="28">params = [p for p</text>
+          <text x="12" y="42">in policy.parameters()</text>
+          <text x="12" y="56">if p.requires_grad]</text>
+        </g>
+      </g>
+
+      <path d="M 260 80 L 295 80" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+      <g transform="translate(300, 30)">
+        <rect width="220" height="100" rx="6" fill="#fff" stroke="#b8c1cc"/>
+        <text x="110" y="22" font-size="11" font-weight="600" text-anchor="middle" fill="#1d1d1f">build optimizer</text>
+        <g transform="translate(12, 38)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+          <text x="0" y="0">opt = AdamW(params,</text>
+          <text x="12" y="14">lr=1e-4, wd=0)</text>
+          <text x="0" y="32">sched = LambdaLR:</text>
+          <text x="12" y="46">step / warmup_iter</text>
+          <text x="12" y="60">clipped to 1.0</text>
+        </g>
+      </g>
+
+      <path d="M 520 80 L 555 80" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+      <g transform="translate(560, 18)">
+        <rect width="660" height="246" rx="10" fill="#fafbff" stroke="#8e6dc8" stroke-width="2"/>
+        <text x="330" y="20" font-size="12" font-weight="600" text-anchor="middle" fill="#5d3fa0">main loop &mdash; for batch in dataloader, until iteration ≥ max_iter</text>
+
+        <g transform="translate(20, 36)">
+          <rect width="200" height="200" rx="6" fill="white" stroke="#cbb6e8"/>
+          <text x="100" y="18" font-size="11" font-weight="600" text-anchor="middle" fill="#5d3fa0">forward</text>
+          <g transform="translate(10, 34)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+            <text x="0" y="0">state_img / next_img → bf16</text>
+            <text x="0" y="14">goal_vec / action_chunk → bf16</text>
+            <text x="0" y="28">value_target → bf16</text>
+            <text x="0" y="48" fill="#5d3fa0">autocast(bf16):</text>
+            <text x="12" y="62">clip = vae.assemble_clip(</text>
+            <text x="22" y="76">state, next)</text>
+            <text x="12" y="92">image_latent = vae.encode(clip)</text>
+            <text x="12" y="108">loss_out = policy.compute_loss(</text>
+            <text x="22" y="122">image_latent,</text>
+            <text x="22" y="136">action_chunk,</text>
+            <text x="22" y="150">goal_vec,</text>
+            <text x="22" y="164">value_target)</text>
+            <text x="12" y="180">loss = loss_out.total</text>
+          </g>
+        </g>
+
+        <path d="M 222 134 L 252 134" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr5)"/>
+
+        <g transform="translate(258, 36)">
+          <rect width="180" height="200" rx="6" fill="white" stroke="#cbb6e8"/>
+          <text x="90" y="18" font-size="11" font-weight="600" text-anchor="middle" fill="#5d3fa0">backward (accumulate)</text>
+          <g transform="translate(10, 34)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+            <text x="0" y="0">(loss / grad_accum).backward()</text>
+            <text x="0" y="20">accum += 1</text>
+            <text x="0" y="38" fill="#5d3fa0">if accum ≥ grad_accum:</text>
+            <text x="12" y="52">opt.step()</text>
+            <text x="12" y="66">opt.zero_grad(set_to_none=True)</text>
+            <text x="12" y="80">sched.step()</text>
+            <text x="12" y="94">accum = 0</text>
+            <text x="12" y="108">iteration += 1</text>
+            <text x="0" y="130" fill="#86670c">(B=1, accum=8 →</text>
+            <text x="0" y="144" fill="#86670c">effective bs=8 per step)</text>
+          </g>
+        </g>
+
+        <path d="M 440 134 L 470 134" fill="none" stroke="#4a5160" stroke-width="1.4" marker-end="url(#arr5)"/>
+
+        <g transform="translate(476, 36)">
+          <rect width="170" height="200" rx="6" fill="white" stroke="#cbb6e8"/>
+          <text x="85" y="18" font-size="11" font-weight="600" text-anchor="middle" fill="#5d3fa0">log + save</text>
+          <g transform="translate(10, 34)" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470">
+            <text x="0" y="0">if iter % log_iter == 0:</text>
+            <text x="12" y="14">print("iter=N</text>
+            <text x="22" y="28">total=L world=L_w</text>
+            <text x="22" y="42">action=L_a value=L_v</text>
+            <text x="22" y="56">lr=... it/s=...")</text>
+            <text x="12" y="70">log_f.write(line)</text>
+            <text x="0" y="92">if iter % save_iter == 0:</text>
+            <text x="12" y="106">save_checkpoint(</text>
+            <text x="22" y="120">iteration, name=None)</text>
+            <text x="0" y="140">// always at end:</text>
+            <text x="0" y="154">save("ckpt_last.pt")</text>
+            <text x="0" y="174" fill="#86670c">ckpt persists:</text>
+            <text x="12" y="188" fill="#86670c">policy_state, action_scale</text>
+          </g>
+        </g>
+
+      </g>
+
+    </svg>
+
+    <h3>The frozen-backbone shortcut</h3>
+    <pre><code><span class="com"># model.py CosmosWorldActionPolicy.__init__</span>
+<span class="kw">if</span> freeze_backbone:                              <span class="com"># default True for prototype</span>
+    <span class="kw">for</span> p <span class="kw">in</span> self.transformer.parameters():
+        p.requires_grad_(<span class="kw">False</span>)
+
+<span class="com"># trainer.py _build_optimizer</span>
+params = [p <span class="kw">for</span> p <span class="kw">in</span> self.policy.parameters() <span class="kw">if</span> p.requires_grad]
+<span class="com"># = ShotProfileVectorConditioner.goal_proj.{weight, bias} + .gate
+# ≈ 33K params (8·4·1024 + 4·1024 + 1)
+# vs the 2B-param backbone that stays frozen</span></code></pre>
+
+    <div class="note">
+      <b>Why so few trainable parameters?</b> The "Cosmos Policy" recipe is to keep the 2B-parameter
+      backbone <b>frozen</b> and only train the goal conditioner. The whole policy adapts by learning
+      what 4 prefix tokens to inject and how strongly (via the gate). This is similar to
+      LoRA-style PEFT but simpler &mdash; no rank decomposition, just a Linear + gate.
+      If results plateau, the next move is to unfreeze the backbone (or LoRA-adapt it),
+      not to add more conditioner capacity.
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 8. INFERENCE SAMPLER                                             -->
+  <!-- ============================================================== -->
+  <div class="panel" id="sample">
+    <h2>8 &middot; Inference &mdash; <code>CosmosWorldActionPolicy.sample</code></h2>
+
+    <pre><code><span class="kw">@torch.no_grad()</span>
+<span class="kw">def</span> <span class="fn">sample</span>(self, image_latent, goal_vec, *, n_steps=<span class="num">32</span>, denormalize=<span class="kw">True</span>):
+    <span class="com"># image_latent: (B, 16, T_img, H_lat, W_lat) — clean conditioning frames
+    # goal_vec:     (B, 8)                       — already normalized via normalize_goal()</span>
+
+    b, c, t_img, h, w = image_latent.shape
+    t_total = t_img + <span class="num">2</span>                                       <span class="com"># + action + value</span>
+    cond = self.conditioner({<span class="str">"goal_vec"</span>: goal_vec})              <span class="com"># anchor + gate·goal_tokens</span>
+
+    sigmas = karras_sigma_schedule(n_steps, self.edm, device=...)   <span class="com"># (n_steps + 1,)</span>
+    x = torch.randn(b, c, t_total, h, w, device=...) * sigmas[<span class="num">0</span>]    <span class="com"># start at σ_max</span>
+    x[:, :, :t_img] = image_latent                                  <span class="com"># PIN image frames</span>
+
+    <span class="kw">for</span> i <span class="kw">in</span> range(n_steps):
+        sigma_i, sigma_next = sigmas[i], sigmas[i + <span class="num">1</span>]
+        x0_pred = self._backbone_x0_pred(x, sigma_i.expand(b), cond)
+        d = (x - x0_pred) / sigma_i.clamp_min(<span class="num">1e-8</span>)
+        x = x + (sigma_next - sigma_i) * d                          <span class="com"># Euler step</span>
+        x[:, :, :t_img] = image_latent                              <span class="com"># RE-PIN each step</span>
+
+    a_idx, v_idx = t_img, t_img + <span class="num">1</span>
+    pred_action = extract_action_chunk(x[:, :, a_idx],              <span class="com"># split-tiles + mean</span>
+                       chunk_size=self.chunk_size, action_dim=<span class="num">5</span>)
+    <span class="kw">if</span> denormalize:
+        pred_action = pred_action * self.action_scale               <span class="com"># buffer; ckpt-persisted</span>
+
+    pred_value = extract_value(x[:, :, v_idx])                      <span class="com"># spatial mean</span>
+
+    <span class="kw">return</span> PolicyOutputs(pred_latents=x,
+                         pred_action_chunk=pred_action,
+                         pred_value=pred_value)</code></pre>
+
+    <h3>Karras σ schedule</h3>
+    <pre><code><span class="com"># edm.py karras_sigma_schedule(n_steps=32, ρ=7, σ_min=2e-3, σ_max=80)
+# σ_i = (σ_max^(1/ρ) + i/N · (σ_min^(1/ρ) - σ_max^(1/ρ)))^ρ
+# σ_{N} forced to 0 (clean target)
+# At ρ=7, the schedule front-loads denoising into the high-σ end (Karras 2022 Algorithm 1).</span></code></pre>
+
+    <h3>Why pinning matters</h3>
+    <p style="font-size:12px;color:#5b6470;margin:6px 0 14px">
+      The image-conditioning frames carry no noise &mdash; they're the input to the policy, not
+      something we're sampling. By overwriting <code>x[:, :, :T_img]</code> with <code>image_latent</code>
+      both at init and after every Euler step, the diffusion process effectively becomes a
+      <b>conditional</b> sampler that denoises <i>only</i> the action and value slots. The trunk's
+      self-attention can still mix information between image and action/value at every layer, so
+      the image observation gets to inform the action prediction throughout sampling.
+    </p>
+
+    <h3>Action de-tokenization &mdash; tile reduction + mean</h3>
+    <pre><code><span class="com"># action_latent.py extract_action_chunk</span>
+<span class="kw">def</span> <span class="fn">extract_action_chunk</span>(latent_frame, *, chunk_size, action_dim=<span class="num">5</span>):
+    b, c, h, w = latent_frame.shape
+    n_latent = c * h * w
+    n_action = chunk_size * action_dim
+    n_repeats = n_latent // n_action
+
+    flat = latent_frame.reshape(b, -<span class="num">1</span>)
+    repeats = flat[:, :n_repeats * n_action].reshape(b, n_repeats, n_action)
+    chunks = repeats.reshape(b, n_repeats, chunk_size, action_dim)
+    <span class="kw">return</span> chunks.mean(dim=<span class="num">1</span>)                                   <span class="com"># average over all tile repeats</span>
+                                                            <span class="com"># → robust to per-element diffusion noise</span></code></pre>
+
+    <div class="note">
+      <b>Inference modes.</b> With <code>chunk_size=8</code> the policy returns 8 future actions per
+      diffusion sample &mdash; we execute the first one (or all 8 open-loop) and re-roll.
+      For best-of-N planning, draw N independent samples (different noise seeds → different
+      <code>x0_pred</code>) and pick the chunk with the highest <code>V̂</code>.
+      <i>No MPC, no candidate-action sampling at the env, no lookahead beyond one diffusion call.</i>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 9. CONFIG                                                        -->
+  <!-- ============================================================== -->
+  <div class="panel" id="config">
+    <h2>9 &middot; Config &mdash; <code>configs/policy/cosmos_2b.yaml</code></h2>
+
+    <pre><code><span class="com"># Cosmos-Predict2.5-2B goal-conditioned policy on the v7 dataset.</span>
+backbone:
+  repo_id: nvidia/Cosmos-Predict2.5-2B
+  dtype: bfloat16
+  freeze_backbone: <span class="kw">true</span>                <span class="com"># only conditioner trains</span>
+  n_goal_tokens: <span class="num">4</span>                      <span class="com"># K=4 prefix positions</span>
+
+conditioner:
+  anchor_path: assets/t5_anchor.pt
+
+data:
+  annotation_roots: [data/trajectories]   <span class="com"># where to glob **/data.json</span>
+  chunk_size: <span class="num">8</span>                         <span class="com"># 8 future actions per sample</span>
+  stride: <span class="num">1</span>                              <span class="com"># sliding window — ~24 samples / pair</span>
+  max_samples: <span class="kw">null</span>                      <span class="com"># full dataset</span>
+  target_resolution: [<span class="num">480</span>, <span class="num">720</span>]
+  goal_score_keys:                        <span class="com"># all 8 V5 keys (Stage 3 fills them)</span>
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+loss:
+  lambda_world:  <span class="num">1.0</span>                     <span class="com"># λ_w · L_world</span>
+  lambda_action: <span class="num">1.0</span>                     <span class="com"># λ_a · L_action</span>
+  lambda_value:  <span class="num">1.0</span>                     <span class="com"># λ_v · L_value</span>
+
+edm:
+  sigma_data: <span class="num">1.0</span>
+  sigma_min:  <span class="num">0.002</span>
+  sigma_max:  <span class="num">80.0</span>
+  p_mean:    -<span class="num">1.2</span>                        <span class="com"># log-normal mean</span>
+  p_std:      <span class="num">1.2</span>                        <span class="com"># log-normal std</span>
+  use_balanced_two_heads: <span class="kw">true</span>
+  high_sigma_ratio: <span class="num">0.25</span>                <span class="com"># 25% → log-U[200, 1e5]</span>
+  low_sigma_ratio:  <span class="num">0.25</span>                <span class="com"># 25% → U[1e-5, 2.0]</span>
+  rho: <span class="num">7.0</span>                              <span class="com"># Karras inference schedule</span>
+
+trainer:
+  output_root: runs
+  run_name: cosmos_2b
+  max_iter: <span class="num">50000</span>
+  batch_size: <span class="num">1</span>                          <span class="com"># per-device</span>
+  grad_accum: <span class="num">8</span>                          <span class="com"># effective batch = 8</span>
+  learning_rate: <span class="num">1.0e-4</span>
+  weight_decay: <span class="num">0.0</span>
+  warmup_iter: <span class="num">1000</span>
+  save_iter: <span class="num">2000</span>
+  log_iter: <span class="num">100</span>
+  seed: <span class="num">0</span>
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: <span class="num">8</span>
+  pin_memory: <span class="kw">true</span>
+  shuffle: <span class="kw">true</span>
+  drop_last: <span class="kw">true</span></code></pre>
+
+    <div class="note">
+      Run with: <code>python scripts/train_cosmos_policy.py --config configs/policy/cosmos_2b.yaml</code>.
+      Pass <code>--debug</code> to override (50 iter, 32 samples) for smoke runs.
+      Per-device batch 1 with grad_accum 8 makes the effective batch 8 &mdash; well within VRAM since
+      only the conditioner gradients are computed, and the backbone forward stays in bf16.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
