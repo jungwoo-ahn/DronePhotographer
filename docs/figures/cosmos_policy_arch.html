@@ -77,7 +77,8 @@
   }
   code { font-family: ui-monospace, "SF Mono", monospace; font-size: 12px;
          background: #f1f3f6; padding: 1px 4px; border-radius: 3px; }
-  .note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 8px; }
+  .note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .note b { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -85,20 +86,19 @@
 
   <h1>Goal-conditioned Cosmos Policy for autonomous photography</h1>
   <div class="sub">
-    Reusing the <a href="https://arxiv.org/abs/2601.16163">Cosmos Policy</a> recipe: latent-frame sequence is
-    <code>(s, a, s&prime;, v)</code> &mdash; current state, action, next state, value &mdash; all denoised
-    by the same Cosmos-Predict2 DiT. Goal P* is the V5 8-key shot profile, injected via
-    <b>cross-attention</b> (same path text prompts use). <b>No architectural changes</b> to the base model.
-    Hindsight-relabeled supervision from random Blender clips.
+    Cosmos-Predict2.5-2B backbone, frozen. Image latents (T<sub>img</sub> = 4-frame video) +
+    action latent + value latent in <b>one diffusion sequence</b>. Goal P* = V5 8-key shot profile,
+    injected via <b>zero-init prefix on a T5 anchor</b> (ControlNet-style). EDM σ-parameterized
+    loss, balanced-two-heads sampling. Hindsight-relabeled supervision from random Blender clips.
   </div>
 
   <!-- =================================================================== -->
-  <!-- PANEL 1: ARCHITECTURE — LATENT FRAME SEQUENCE                         -->
+  <!-- PANEL 1: ARCHITECTURE                                                 -->
   <!-- =================================================================== -->
   <div class="panel">
-    <h2>Architecture &mdash; goal via cross-attn, (s, a, s&prime;, v) as latent frames (Cosmos-Predict2 unmodified)</h2>
+    <h2>Architecture &mdash; latent sequence = (image clip, action, value); goal via cross-attn</h2>
 
-    <svg viewBox="0 0 1280 560" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 1320 580" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="arrow" viewBox="0 -5 10 10" refX="9" refY="0"
                 markerWidth="7" markerHeight="7" orient="auto">
@@ -113,48 +113,55 @@
           <circle cx="1.5" cy="1.5" r="0.9" fill="#8e6dc8" opacity="0.4"/>
           <circle cx="4.5" cy="3.5" r="0.7" fill="#8e6dc8" opacity="0.3"/>
         </pattern>
-        <!-- broadcast/tile pattern for non-image latent frames -->
-        <pattern id="tile-action" patternUnits="userSpaceOnUse" width="8" height="8">
-          <rect width="8" height="8" fill="#fbeed8"/>
-          <rect width="8" height="1" fill="#e89b5a" opacity="0.45"/>
-        </pattern>
-        <pattern id="tile-goal" patternUnits="userSpaceOnUse" width="8" height="8">
-          <rect width="8" height="8" fill="#e0f0ed"/>
-          <rect width="8" height="1" fill="#2a9d8f" opacity="0.45"/>
-        </pattern>
-        <pattern id="tile-value" patternUnits="userSpaceOnUse" width="8" height="8">
-          <rect width="8" height="8" fill="#f6e0eb"/>
-          <rect width="8" height="1" fill="#c05a87" opacity="0.45"/>
-        </pattern>
       </defs>
 
-      <!-- =================== LEFT COLUMN: raw inputs ===================== -->
+      <!-- =================== LEFT: inputs ===================== -->
 
-      <!-- s_t = rendered image -->
+      <!-- s_t -->
       <g transform="translate(30, 60)">
-        <rect width="170" height="110" rx="6" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1.5"/>
-        <rect x="6" y="6" width="158" height="98" fill="white"/>
-        <line x1="6" y1="84" x2="164" y2="84" stroke="#cbd2da" stroke-width="1"/>
+        <rect width="170" height="108" rx="6" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1.5"/>
+        <rect x="6" y="6" width="158" height="96" fill="white"/>
+        <line x1="6" y1="82" x2="164" y2="82" stroke="#cbd2da" stroke-width="1"/>
         <g transform="translate(85, 38)" fill="#4a83e0" opacity="0.78">
           <circle r="6"/><rect x="-4" y="6" width="8" height="22" rx="2"/>
           <rect x="-7" y="28" width="4" height="18" rx="1.5"/>
           <rect x="3" y="28" width="4" height="18" rx="1.5"/>
         </g>
         <g stroke="#4a83e0" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.35">
-          <line x1="58" y1="6" x2="58" y2="104"/>
-          <line x1="112" y1="6" x2="112" y2="104"/>
-          <line x1="6" y1="38" x2="164" y2="38"/>
-          <line x1="6" y1="70" x2="164" y2="70"/>
+          <line x1="58" y1="6" x2="58" y2="102"/>
+          <line x1="112" y1="6" x2="112" y2="102"/>
+          <line x1="6" y1="36" x2="164" y2="36"/>
+          <line x1="6" y1="68" x2="164" y2="68"/>
         </g>
-        <text x="85" y="128" font-size="13" font-weight="600" text-anchor="middle" fill="#1f5cb4">s<tspan font-size="10" dy="3">t</tspan></text>
-        <text x="85" y="142" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">Blender-rendered image</text>
+        <text x="85" y="124" font-size="13" font-weight="600" text-anchor="middle" fill="#1f5cb4">s<tspan font-size="10" dy="3">t</tspan></text>
+        <text x="85" y="140" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">rendered 480&times;720</text>
       </g>
 
-      <!-- P* goal V5 -->
-      <g transform="translate(30, 200)">
-        <rect width="170" height="180" rx="6" fill="#e0f0ed" stroke="#2a9d8f" stroke-width="1.5"/>
+      <!-- s_{t+1} (training only) -->
+      <g transform="translate(30, 195)">
+        <rect width="170" height="108" rx="6" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <rect x="6" y="6" width="158" height="96" fill="white"/>
+        <line x1="6" y1="82" x2="164" y2="82" stroke="#cbd2da" stroke-width="1"/>
+        <g transform="translate(58, 32)" fill="#4a83e0" opacity="0.78">
+          <circle r="7"/><rect x="-5" y="7" width="10" height="22" rx="2"/>
+          <rect x="-8" y="29" width="5" height="18" rx="1.5"/>
+          <rect x="3" y="29" width="5" height="18" rx="1.5"/>
+        </g>
+        <g stroke="#4a83e0" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.35">
+          <line x1="58" y1="6" x2="58" y2="102"/>
+          <line x1="112" y1="6" x2="112" y2="102"/>
+          <line x1="6" y1="36" x2="164" y2="36"/>
+          <line x1="6" y1="68" x2="164" y2="68"/>
+        </g>
+        <text x="85" y="124" font-size="13" font-weight="600" text-anchor="middle" fill="#1f5cb4">s<tspan font-size="10" dy="3">t+1</tspan></text>
+        <text x="85" y="140" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">training only</text>
+      </g>
+
+      <!-- P* -->
+      <g transform="translate(30, 330)">
+        <rect width="170" height="190" rx="6" fill="#e0f0ed" stroke="#2a9d8f" stroke-width="1.5"/>
         <text x="85" y="18" font-size="11" font-weight="600" text-anchor="middle" fill="#216e64">P* &mdash; V5 shot profile</text>
-        <text x="85" y="32" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">8 integers (text/embed cond)</text>
+        <text x="85" y="32" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">D_goal = 8 integers</text>
         <g transform="translate(14, 48)" font-family="ui-monospace, monospace" font-size="10.5" fill="#1d1d1f">
           <text x="0" y="0">occupancy</text>       <text x="140" y="0"  text-anchor="end" fill="#216e64">35</text>
           <text x="0" y="14">body_in_frame</text>  <text x="140" y="14" text-anchor="end" fill="#216e64">92</text>
@@ -165,180 +172,213 @@
           <text x="0" y="84">bbox_x_offset</text>  <text x="140" y="84" text-anchor="end" fill="#216e64">88</text>
           <text x="0" y="98">bbox_y_offset</text>  <text x="140" y="98" text-anchor="end" fill="#216e64">142</text>
         </g>
-        <text x="85" y="172" font-size="10" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">conditioning via cross-attn</text>
+        <line x1="6" y1="160" x2="164" y2="160" stroke="#2a9d8f" stroke-width="0.5" opacity="0.4"/>
+        <text x="85" y="174" font-size="9.5" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">normalize to [-1, 1]</text>
       </g>
 
-      <!-- =================== TOKENIZERS (middle-left) ===================== -->
+      <!-- =================== ENCODERS ===================== -->
 
-      <!-- VAE encode (for s_t image) -->
-      <g transform="translate(220, 88)">
-        <rect width="58" height="54" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2"/>
-        <text x="29" y="22" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">Cosmos</text>
-        <text x="29" y="34" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">VAE</text>
-        <text x="29" y="46" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">(frozen)</text>
+      <!-- Cosmos VAE for s_t / s_{t+1} -->
+      <g transform="translate(225, 110)">
+        <rect width="60" height="160" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2"/>
+        <text x="30" y="22" font-size="11" font-weight="600" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">Cosmos</text>
+        <text x="30" y="36" font-size="11" font-weight="600" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">VAE</text>
+        <text x="30" y="50" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">(frozen)</text>
+        <g transform="translate(30, 75)" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">
+          <text x="0" y="0">assemble_</text>
+          <text x="0" y="11">clip</text>
+          <text x="0" y="22">T=4</text>
+        </g>
+        <text x="30" y="146" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">C_lat=16</text>
       </g>
-      <path d="M 200 115 L 220 115" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-      <!-- text/embed encoder for P* -->
-      <g transform="translate(220, 268)">
-        <rect width="58" height="54" rx="6" fill="white" stroke="#2a9d8f" stroke-width="1.2"/>
-        <text x="29" y="22" font-size="10" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">T5 /</text>
-        <text x="29" y="34" font-size="10" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">embed</text>
-        <text x="29" y="46" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">(cond)</text>
+      <!-- T5 anchor + zero-init prefix for P* -->
+      <g transform="translate(225, 340)">
+        <rect width="60" height="170" rx="6" fill="white" stroke="#2a9d8f" stroke-width="1.4"/>
+        <text x="30" y="20" font-size="10" font-weight="600" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">T5 anchor</text>
+        <text x="30" y="32" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">(frozen)</text>
+        <text x="30" y="44" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">(512,1024)</text>
+        <line x1="6" y1="56" x2="54" y2="56" stroke="#2a9d8f" stroke-width="0.6" opacity="0.5"/>
+        <text x="30" y="70" font-size="10" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">Linear</text>
+        <text x="30" y="82" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">8&rarr;K&middot;1024</text>
+        <text x="30" y="94" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">K=4</text>
+        <line x1="6" y1="106" x2="54" y2="106" stroke="#2a9d8f" stroke-width="0.6" opacity="0.5"/>
+        <text x="30" y="120" font-size="10" text-anchor="middle" fill="#c05a87" font-family="ui-monospace, monospace">gate</text>
+        <text x="30" y="132" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">init=0</text>
+        <text x="30" y="144" font-size="9" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">(ControlNet)</text>
+        <line x1="6" y1="152" x2="54" y2="152" stroke="#2a9d8f" stroke-width="0.6" opacity="0.5"/>
+        <text x="30" y="164" font-size="9" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">~33K params</text>
       </g>
-      <path d="M 200 290 L 220 290" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- arrows: inputs → encoders -->
+      <path d="M 200 115 L 225 130" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 200 250 L 225 245" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 200 420 L 225 420" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
 
       <!-- =================== COSMOS DIT TRUNK ===================== -->
-      <g transform="translate(305, 55)">
-        <rect width="765" height="455" rx="14" fill="#fafbff" stroke="#8e6dc8" stroke-width="2.2"/>
-        <text x="382" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#5d3fa0">Cosmos-Predict2-2B Video DiT &mdash; unchanged</text>
-        <text x="382" y="38" font-size="11" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">latent-frame sequence in the DiT &middot; goal enters via cross-attn (like text prompt)</text>
+      <g transform="translate(310, 50)">
+        <rect width="745" height="480" rx="14" fill="#fafbff" stroke="#8e6dc8" stroke-width="2.2"/>
+        <text x="372" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#5d3fa0">Cosmos-Predict2.5-2B Video DiT &mdash; backbone <b>frozen</b></text>
+        <text x="372" y="38" font-size="11" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">single sequence, single denoising network &mdash; no architectural changes</text>
 
-        <!-- ===== Input latent-frame sequence: s, a, s', v ===== -->
-        <text x="20" y="64" font-size="11" font-family="ui-monospace, monospace" fill="#5b6470">input sequence at denoising step &tau; (every slot has the same (C, h, w) shape)</text>
+        <!-- Input latent sequence -->
+        <text x="20" y="62" font-size="11" font-family="ui-monospace, monospace" fill="#5b6470">latent sequence (T_total = T_img + 2 = 6 frames) at EDM noise level &sigma;</text>
 
-        <g transform="translate(70, 76)">
-          <!-- s_t clean latent -->
+        <g transform="translate(40, 74)">
+          <!-- image clip: 4 frames -->
           <g>
-            <rect width="135" height="74" rx="4" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1.5"/>
-            <g stroke="#4a83e0" stroke-width="0.5" opacity="0.6">
-              <line x1="2" y1="2" x2="133" y2="2"/>
-              <line x1="2" y1="14" x2="133" y2="14"/>
-              <line x1="2" y1="26" x2="133" y2="26"/>
-              <line x1="2" y1="38" x2="133" y2="38"/>
-              <line x1="2" y1="50" x2="133" y2="50"/>
-              <line x1="2" y1="62" x2="133" y2="62"/>
-              <line x1="2" y1="72" x2="133" y2="72"/>
+            <rect width="340" height="78" rx="4" fill="#eef4fc" stroke="#4a83e0" stroke-width="1.5"/>
+            <text x="170" y="14" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">image clip latent (T_img = 4)</text>
+            <g transform="translate(8, 22)">
+              <rect width="78" height="38" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1"/>
+              <g stroke="#4a83e0" stroke-width="0.4" opacity="0.55">
+                <line x1="2" y1="6" x2="76" y2="6"/><line x1="2" y1="14" x2="76" y2="14"/>
+                <line x1="2" y1="22" x2="76" y2="22"/><line x1="2" y1="30" x2="76" y2="30"/>
+                <line x1="2" y1="36" x2="76" y2="36"/>
+              </g>
+              <text x="39" y="74" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">frame 0 = s_t</text>
             </g>
-            <text x="67" y="88" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4"><tspan font-weight="600">s</tspan>_t latent</text>
-            <text x="67" y="100" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">clean (cond.)</text>
-            <text x="67" y="114" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">VAE encode</text>
+            <g transform="translate(91, 22)">
+              <rect width="78" height="38" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="39" y="74" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">filler = s_{t+1}</text>
+            </g>
+            <g transform="translate(174, 22)">
+              <rect width="78" height="38" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="39" y="74" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">filler = s_{t+1}</text>
+            </g>
+            <g transform="translate(257, 22)">
+              <rect width="78" height="38" rx="3" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1"/>
+              <g stroke="#4a83e0" stroke-width="0.4" opacity="0.55">
+                <line x1="2" y1="6" x2="76" y2="6"/><line x1="2" y1="14" x2="76" y2="14"/>
+                <line x1="2" y1="22" x2="76" y2="22"/><line x1="2" y1="30" x2="76" y2="30"/>
+                <line x1="2" y1="36" x2="76" y2="36"/>
+              </g>
+              <text x="39" y="74" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">frame T-1 = s_{t+1}</text>
+            </g>
           </g>
 
-          <!-- a_t noisy latent -->
-          <g transform="translate(155, 0)">
-            <rect width="135" height="74" rx="4" fill="url(#noisepat)" stroke="#e89b5a" stroke-width="1.5"/>
-            <text x="67" y="88" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#c97a30"><tspan font-weight="600">a</tspan>_t latent</text>
-            <text x="67" y="100" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">noisy &mdash; denoise me</text>
-            <text x="67" y="114" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">norm + tile (+ noise)</text>
+          <!-- action latent slot -->
+          <g transform="translate(350, 0)">
+            <rect width="150" height="78" rx="4" fill="url(#noisepat)" stroke="#e89b5a" stroke-width="1.5"/>
+            <text x="75" y="14" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#c97a30">action latent</text>
+            <g font-family="ui-monospace, monospace" fill="#5b6470" font-size="9">
+              <text x="75" y="32" text-anchor="middle">tile flatten(B, chunk, 5)</text>
+              <text x="75" y="46" text-anchor="middle">into (C=16, h_lat, w_lat)</text>
+              <text x="75" y="60" text-anchor="middle">parameter-free</text>
+            </g>
+            <text x="75" y="92" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#c97a30">noisy &middot; tiled chunk</text>
           </g>
 
-          <!-- s'_t = s_{t+1} noisy latent -->
-          <g transform="translate(310, 0)">
-            <rect width="135" height="74" rx="4" fill="url(#noisepat)" stroke="#4a83e0" stroke-width="1.5"/>
-            <text x="67" y="88" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4"><tspan font-weight="600">s'</tspan>_t = s_{t+1} latent</text>
-            <text x="67" y="100" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">noisy &mdash; denoise me</text>
-            <text x="67" y="114" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">VAE encode (+ noise)</text>
-          </g>
-
-          <!-- V_t noisy latent -->
-          <g transform="translate(465, 0)">
-            <rect width="135" height="74" rx="4" fill="url(#noisepat)" stroke="#c05a87" stroke-width="1.5"/>
-            <text x="67" y="88" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#974868"><tspan font-weight="600">V</tspan>_t latent</text>
-            <text x="67" y="100" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">noisy &mdash; denoise me</text>
-            <text x="67" y="114" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#5b6470">norm + tile (+ noise)</text>
+          <!-- value latent slot -->
+          <g transform="translate(510, 0)">
+            <rect width="150" height="78" rx="4" fill="url(#noisepat)" stroke="#c05a87" stroke-width="1.5"/>
+            <text x="75" y="14" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#974868">value latent</text>
+            <g font-family="ui-monospace, monospace" fill="#5b6470" font-size="9">
+              <text x="75" y="32" text-anchor="middle">broadcast scalar</text>
+              <text x="75" y="46" text-anchor="middle">across (C, h_lat, w_lat)</text>
+              <text x="75" y="60" text-anchor="middle">parameter-free</text>
+            </g>
+            <text x="75" y="92" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#974868">noisy &middot; broadcast V</text>
           </g>
         </g>
 
-        <!-- ===== DiT stack with explicit cross-attn ===== -->
-        <g transform="translate(60, 232)">
-          <rect width="645" height="116" rx="6" fill="white" stroke="#cbb6e8" stroke-width="1"/>
+        <!-- DiT stack -->
+        <g transform="translate(60, 218)">
+          <rect width="625" height="156" rx="6" fill="white" stroke="#cbb6e8" stroke-width="1"/>
           <g opacity="0.95">
-            <rect x="14" y="12" width="617" height="20" rx="3" fill="#ece4f6"/>
-            <text x="322" y="26" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">self-attention across (s, a, s&prime;, v) slots</text>
+            <rect x="14" y="12" width="597" height="20" rx="3" fill="#ece4f6"/>
+            <text x="312" y="26" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">self-attention across all 6 latent-frame slots</text>
 
-            <rect x="14" y="36" width="617" height="20" rx="3" fill="#d8e8e5" stroke="#2a9d8f" stroke-width="0.6"/>
-            <text x="322" y="50" font-size="10" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">cross-attention &larr; P* keys/values (goal conditioning)</text>
+            <rect x="14" y="36" width="597" height="22" rx="3" fill="#d8e8e5" stroke="#2a9d8f" stroke-width="0.7"/>
+            <text x="312" y="51" font-size="10" text-anchor="middle" fill="#216e64" font-family="ui-monospace, monospace">cross-attention &larr; (B, 512, 1024) embedding (T5 anchor + K=4 zero-init goal tokens)</text>
 
-            <rect x="14" y="60" width="617" height="20" rx="3" fill="#ece4f6"/>
-            <text x="322" y="74" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">AdaLN(&tau;) modulation &middot; MLP</text>
+            <rect x="14" y="62" width="597" height="20" rx="3" fill="#ece4f6"/>
+            <text x="312" y="76" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">AdaLN(&sigma;) modulation &middot; MLP</text>
 
-            <rect x="14" y="84" width="617" height="20" rx="3" fill="#ece4f6"/>
-            <text x="322" y="98" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">&hellip; &times; N transformer blocks (Cosmos-Predict2 weights, post-trained) &hellip;</text>
+            <rect x="14" y="86" width="597" height="20" rx="3" fill="#ece4f6"/>
+            <text x="312" y="100" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">&hellip; &times; N transformer blocks (Cosmos-Predict2.5-2B weights, frozen) &hellip;</text>
+
+            <rect x="14" y="110" width="597" height="20" rx="3" fill="#ece4f6"/>
+            <text x="312" y="124" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">EDM denoiser: D(x; &sigma;) = c_skip&middot;x + c_out&middot;F(c_in&middot;x; c_noise)</text>
           </g>
         </g>
 
-        <!-- ===== Output sequence ===== -->
-        <text x="20" y="370" font-size="11" font-family="ui-monospace, monospace" fill="#5b6470">denoised output (clean slot stays clean; noisy slots get &epsilon;-predicted)</text>
-
-        <g transform="translate(70, 382)">
-          <g><rect width="135" height="50" rx="4" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1" stroke-dasharray="2 2"/><text x="67" y="30" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">s_t (unchanged)</text></g>
-          <g transform="translate(155, 0)"><rect width="135" height="50" rx="4" fill="#fbeed8" stroke="#e89b5a" stroke-width="1.4"/><text x="67" y="30" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#c97a30">a&#770;_t clean</text></g>
-          <g transform="translate(310, 0)"><rect width="135" height="50" rx="4" fill="#e8f0fb" stroke="#4a83e0" stroke-width="1.4"/><text x="67" y="30" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">s&#770;_{t+1} clean</text></g>
-          <g transform="translate(465, 0)"><rect width="135" height="50" rx="4" fill="#f6e0eb" stroke="#c05a87" stroke-width="1.4"/><text x="67" y="30" font-size="10" text-anchor="middle" font-family="ui-monospace, monospace" fill="#974868">V&#770;_t clean</text></g>
+        <!-- Output sequence -->
+        <text x="20" y="392" font-size="11" font-family="ui-monospace, monospace" fill="#5b6470">denoised output (training: x0-prediction per slot; inference: Karras sampler)</text>
+        <g transform="translate(40, 402)">
+          <g><rect width="340" height="56" rx="4" fill="#eef4fc" stroke="#4a83e0" stroke-width="1.4"/><text x="170" y="32" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#1f5cb4">image clip latent (clean, T=4)</text></g>
+          <g transform="translate(350, 0)"><rect width="150" height="56" rx="4" fill="#fbeed8" stroke="#e89b5a" stroke-width="1.4"/><text x="75" y="32" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#c97a30">a&#770;_t clean</text></g>
+          <g transform="translate(510, 0)"><rect width="150" height="56" rx="4" fill="#f6e0eb" stroke="#c05a87" stroke-width="1.4"/><text x="75" y="32" font-size="11" text-anchor="middle" font-family="ui-monospace, monospace" fill="#974868">V&#770;_t clean</text></g>
         </g>
-
-        <text x="382" y="446" font-size="11" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">
-          10 denoising steps &middot; one trunk, three predictions
-        </text>
       </g>
 
-      <!-- =================== CROSS-ATTN ARROW from P* encoder to DiT ===================== -->
-      <path d="M 278 290 Q 320 280 365 268"
-            fill="none" stroke="#2a9d8f" stroke-width="1.6" marker-end="url(#arrow)"/>
-      <text x="318" y="262" font-size="10" fill="#216e64" font-family="ui-monospace, monospace">cross-attn</text>
+      <!-- =================== CROSS-ATTN P* path ===================== -->
+      <path d="M 285 420 Q 320 360 365 268"
+            fill="none" stroke="#2a9d8f" stroke-width="1.8" marker-end="url(#arrow)"/>
+      <text x="305" y="358" font-size="10" fill="#216e64" font-family="ui-monospace, monospace">cross-attn (K, V)</text>
 
       <!-- =================== DECODERS (right edge) ===================== -->
-
-      <g transform="translate(1095, 90)">
-        <rect width="58" height="50" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2"/>
-        <text x="29" y="22" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">VAE</text>
-        <text x="29" y="34" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">decode</text>
+      <g transform="translate(1080, 110)">
+        <rect width="60" height="60" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2"/>
+        <text x="30" y="26" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">Cosmos</text>
+        <text x="30" y="38" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">VAE dec</text>
+      </g>
+      <g transform="translate(1080, 270)">
+        <rect width="60" height="50" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2" stroke-dasharray="2 2"/>
+        <text x="30" y="22" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">split tiles</text>
+        <text x="30" y="34" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">+ mean</text>
+      </g>
+      <g transform="translate(1080, 390)">
+        <rect width="60" height="50" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2" stroke-dasharray="2 2"/>
+        <text x="30" y="22" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">spatial</text>
+        <text x="30" y="34" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">mean</text>
       </g>
 
-      <g transform="translate(1095, 240)">
-        <rect width="58" height="50" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2" stroke-dasharray="2 2"/>
-        <text x="29" y="22" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">pool +</text>
-        <text x="29" y="34" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">un-tile</text>
-      </g>
+      <!-- arrows from output to decoders -->
+      <path d="M 770 430 Q 1060 145 1080 140" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 920 430 Q 1060 300 1080 295" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 1075 430 Q 1075 415 1080 415" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-      <g transform="translate(1095, 360)">
-        <rect width="58" height="50" rx="6" fill="white" stroke="#8e6dc8" stroke-width="1.2" stroke-dasharray="2 2"/>
-        <text x="29" y="22" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">pool +</text>
-        <text x="29" y="34" font-size="10" text-anchor="middle" fill="#5d3fa0" font-family="ui-monospace, monospace">un-tile</text>
-      </g>
-
-      <!-- output boxes (right side) -->
-      <g transform="translate(1170, 60)">
-        <rect width="100" height="110" rx="6" fill="white" stroke="#4a83e0" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <rect x="6" y="6" width="88" height="98" fill="#f8fbff"/>
-        <line x1="6" y1="84" x2="94" y2="84" stroke="#cbd2da" stroke-width="1"/>
-        <g transform="translate(34, 38)" fill="#4a83e0" opacity="0.78">
-          <circle r="5"/><rect x="-3" y="5" width="7" height="18" rx="1.5"/>
+      <!-- Outputs -->
+      <g transform="translate(1160, 80)">
+        <rect width="140" height="108" rx="6" fill="white" stroke="#4a83e0" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <rect x="6" y="6" width="128" height="96" fill="#f8fbff"/>
+        <line x1="6" y1="82" x2="134" y2="82" stroke="#cbd2da" stroke-width="1"/>
+        <g transform="translate(48, 36)" fill="#4a83e0" opacity="0.78">
+          <circle r="6"/><rect x="-4" y="6" width="8" height="22" rx="2"/>
+          <rect x="-7" y="28" width="4" height="18" rx="1.5"/>
+          <rect x="3" y="28" width="4" height="18" rx="1.5"/>
         </g>
-        <text x="50" y="128" font-size="12" font-weight="600" text-anchor="middle" fill="#1f5cb4">s&#770;<tspan font-size="9" dy="2">t+1</tspan></text>
+        <text x="70" y="124" font-size="13" font-weight="600" text-anchor="middle" fill="#1f5cb4">s&#770;<tspan font-size="10" dy="3">t+1</tspan></text>
       </g>
 
-      <g transform="translate(1170, 220)">
-        <rect width="100" height="84" rx="6" fill="#fbeed8" stroke="#e89b5a" stroke-width="1.5"/>
-        <g font-size="9" font-family="ui-monospace, monospace" fill="#1d1d1f" transform="translate(8, 18)">
-          <text x="0" y="0">&Delta;pos</text>
-          <text x="0" y="14">&Delta;rot</text>
-          <text x="0" y="32" fill="#9b6020">6-DoF</text>
+      <g transform="translate(1160, 240)">
+        <rect width="140" height="84" rx="6" fill="#fbeed8" stroke="#e89b5a" stroke-width="1.5"/>
+        <g font-size="10" font-family="ui-monospace, monospace" fill="#1d1d1f" transform="translate(12, 20)">
+          <text x="0" y="0">a = (&Delta;x, &Delta;y, &Delta;z,</text>
+          <text x="0" y="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Delta;yaw, &Delta;pitch)</text>
+          <text x="0" y="34" fill="#9b6020">5-DoF, camera-local</text>
+          <text x="0" y="48" fill="#9b6020">chunk_size &times; 5</text>
         </g>
-        <text x="50" y="102" font-size="12" font-weight="600" text-anchor="middle" fill="#c97a30">a&#770;<tspan font-size="9" dy="2">t</tspan></text>
+        <text x="70" y="100" font-size="12" font-weight="600" text-anchor="middle" fill="#c97a30">a&#770;<tspan font-size="9" dy="2">t</tspan></text>
       </g>
 
-      <g transform="translate(1170, 348)">
-        <rect width="100" height="40" rx="6" fill="#f6e0eb" stroke="#c05a87" stroke-width="1.5"/>
-        <text x="50" y="25" font-size="13" font-family="ui-monospace, monospace" fill="#974868" text-anchor="middle">V&#770;<tspan font-size="9" dy="2">t</tspan></text>
+      <g transform="translate(1160, 380)">
+        <rect width="140" height="60" rx="6" fill="#f6e0eb" stroke="#c05a87" stroke-width="1.5"/>
+        <text x="70" y="26" font-size="11" font-family="ui-monospace, monospace" fill="#974868" text-anchor="middle">V&#770;<tspan font-size="9" dy="2">t</tspan></text>
+        <text x="70" y="44" font-size="9" font-family="ui-monospace, monospace" fill="#974868" text-anchor="middle">scalar</text>
       </g>
 
-      <!-- arrows from output slot row to decoders -->
-      <path d="M 943 408 Q 1080 130 1095 115" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
-      <path d="M 788 408 Q 1080 280 1095 265" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
-      <path d="M 1098 408 Q 1090 395 1095 385" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-      <!-- arrows from decoders to right outputs -->
-      <path d="M 1153 115 L 1170 115" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
-      <path d="M 1153 265 L 1170 262" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
-      <path d="M 1153 385 L 1170 368" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <!-- arrows decoders → outputs -->
+      <path d="M 1140 140 L 1160 134" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 1140 295 L 1160 280" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 1140 415 L 1160 408" fill="none" stroke="#4a5160" stroke-width="1.5" marker-end="url(#arrow)"/>
 
       <!-- inference loop -->
-      <path d="M 1220 60 Q 1240 18 600 18 Q 115 18 115 60"
+      <path d="M 1230 78 Q 1260 20 600 16 Q 115 16 115 60"
             fill="none" stroke="#8a96a8" stroke-width="1.5"
             stroke-dasharray="6 4" marker-end="url(#arrow-dash)"/>
-      <text x="560" y="12" font-size="11" text-anchor="middle" fill="#5b6470"
+      <text x="570" y="10" font-size="11" text-anchor="middle" fill="#5b6470"
             font-family="ui-monospace, monospace">
         inference loop &mdash; Blender renders next s<tspan font-size="9" dy="2">t+1</tspan><tspan dy="-2"> (or use imagined s&#770;</tspan><tspan font-size="9" dy="2">t+1</tspan><tspan dy="-2">) as next s_t</tspan>
       </text>
@@ -346,28 +386,29 @@
     </svg>
 
     <div class="legend">
-      <span><span class="sw" style="background:var(--state)"></span>state s (image latent)</span>
-      <span><span class="sw" style="background:var(--action)"></span>action a</span>
-      <span><span class="sw" style="background:var(--value)"></span>value V</span>
-      <span><span class="sw" style="background:var(--goal)"></span>goal P* (cross-attn cond)</span>
-      <span><span class="sw" style="background:var(--model)"></span>Cosmos-Predict2 trunk</span>
+      <span><span class="sw" style="background:var(--state)"></span>image latent (Cosmos VAE)</span>
+      <span><span class="sw" style="background:var(--action)"></span>action latent (tile)</span>
+      <span><span class="sw" style="background:var(--value)"></span>value latent (broadcast)</span>
+      <span><span class="sw" style="background:var(--goal)"></span>goal (cross-attn cond)</span>
+      <span><span class="sw" style="background:var(--model)"></span>Cosmos-Predict2.5 trunk (frozen)</span>
     </div>
     <div class="note">
-      The denoising sequence is <code>(s, a, s&prime;, v)</code> &mdash; current state, action, next state, value.
-      <code>s</code> is clean conditioning; <code>(a, s&prime;, v)</code> are noised and predicted.
-      <b>Goal P* is NOT a latent frame</b> &mdash; it enters via cross-attention, the same path Cosmos-Predict2
-      uses for text prompts. State (= image) goes through the learned Cosmos VAE; action and value go
-      through parameter-free <b>normalize + replicate</b>.
+      The latent sequence is exactly <code>[image_clip (T_img=4 frames) | action latent | value latent]</code> &mdash;
+      T_total = 6. <b>Backbone is frozen</b>; the only learned parameters are the
+      <code>ShotProfileVectorConditioner</code> (~33K: <code>Linear(8 &rarr; K&middot;1024)</code> + scalar gate).
+      Image latent uses the real Cosmos VAE; action/value latents are tiled / broadcast in-place
+      (no learned encoders). Image-clip filler (frames 1..T-1 = s<sub>t+1</sub>) is a v6 prototype shim;
+      issue #17 swaps it for a true 4-frame trajectory window.
     </div>
   </div>
 
   <!-- =================================================================== -->
-  <!-- PANEL 2: TRAINING DATA — HINDSIGHT RELABEL                            -->
+  <!-- PANEL 2: TRAINING DATA — STAGE 1/2/3 + HINDSIGHT                      -->
   <!-- =================================================================== -->
   <div class="panel">
-    <h2>Training data &mdash; hindsight relabeling at the dataset layer</h2>
+    <h2>Training data &mdash; Stage 1 / 2 / 3 pipeline + hindsight relabel</h2>
 
-    <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 1280 290" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="arrow2" viewBox="0 -5 10 10" refX="9" refY="0"
                 markerWidth="7" markerHeight="7" orient="auto">
@@ -375,148 +416,155 @@
         </marker>
       </defs>
 
+      <!-- Stage 1: sample -->
       <g transform="translate(20, 50)">
-        <rect width="210" height="180" rx="8" fill="white" stroke="#b8c1cc" stroke-width="1.5"/>
-        <text x="105" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#1d1d1f">Stage 1: Blender ellipse sampling</text>
-        <text x="105" y="40" font-size="11" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">curated design-asset scenes</text>
-        <g transform="translate(105, 105)">
-          <ellipse cx="0" cy="0" rx="70" ry="34" fill="none" stroke="#cbd2da" stroke-width="1" stroke-dasharray="3 3"/>
-          <!-- major / minor axes (light) -->
-          <line x1="-70" y1="0" x2="70" y2="0" stroke="#dde3ea" stroke-width="0.6"/>
-          <!-- segment from O to C_far indicating major-axis vertex -->
-          <line x1="0" y1="0" x2="-70" y2="0" stroke="#4a83e0" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.7"/>
-          <!-- segment from O to C_near -->
-          <line x1="0" y1="0" x2="12" y2="-34" stroke="#4a83e0" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.7"/>
-          <!-- theta_near arc from C_far direction (0) to C_near direction -->
-          <path d="M -16 0 A 16 16 0 0 1 4.7 -15.3" fill="none" stroke="#e89b5a" stroke-width="0.9"/>
-          <text x="-8" y="-4" font-size="9" fill="#c97a30" font-family="ui-monospace, monospace">&theta;_near</text>
-          <!-- O -->
-          <circle cx="0" cy="0" r="4" fill="#2a9d8f"/>
-          <text x="6" y="3" font-size="10" fill="#2a9d8f" font-family="ui-monospace, monospace">O</text>
-          <!-- trajectory markers: theta linspace 0 .. ~110 deg, on ellipse upper half -->
+        <rect width="200" height="200" rx="8" fill="white" stroke="#b8c1cc" stroke-width="1.5"/>
+        <text x="100" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#1d1d1f">Stage 1 &mdash; sample</text>
+        <text x="100" y="38" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">scripts/v7_stage1_*</text>
+        <g transform="translate(100, 110)">
+          <ellipse cx="0" cy="0" rx="68" ry="32" fill="none" stroke="#cbd2da" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="0" cy="0" r="3.5" fill="#2a9d8f"/>
+          <text x="6" y="3" font-size="9" fill="#2a9d8f" font-family="ui-monospace, monospace">O</text>
           <g fill="#4a83e0">
-            <circle cx="-70" cy="0" r="2.6"/>
-            <circle cx="-60" cy="-17" r="1.5" opacity="0.45"/>
-            <circle cx="-44" cy="-27" r="1.5" opacity="0.45"/>
-            <circle cx="-29" cy="-31" r="1.5" opacity="0.45"/>
-            <circle cx="-17" cy="-33" r="1.5" opacity="0.45"/>
-            <circle cx="-7"  cy="-34" r="1.5" opacity="0.45"/>
-            <circle cx="3"   cy="-34" r="1.5" opacity="0.45"/>
-            <circle cx="12"  cy="-34" r="2.6"/>
+            <circle cx="-68" cy="0" r="2.6"/>
+            <circle cx="-58" cy="-16" r="1.4" opacity="0.5"/>
+            <circle cx="-42" cy="-25" r="1.4" opacity="0.5"/>
+            <circle cx="-26" cy="-29" r="1.4" opacity="0.5"/>
+            <circle cx="-13" cy="-31" r="1.4" opacity="0.5"/>
+            <circle cx="-1" cy="-32" r="1.4" opacity="0.5"/>
+            <circle cx="10" cy="-31" r="2.6"/>
           </g>
-          <text x="-82" y="-2" font-size="9" fill="#4a83e0" font-family="ui-monospace, monospace" text-anchor="end">C_far</text>
-          <text x="18" y="-38" font-size="9" fill="#4a83e0" font-family="ui-monospace, monospace">C_near</text>
+          <text x="-80" y="-2" font-size="9" fill="#4a83e0" font-family="ui-monospace, monospace" text-anchor="end">C_far</text>
+          <text x="16" y="-36" font-size="9" fill="#4a83e0" font-family="ui-monospace, monospace">C_near</text>
         </g>
-        <text x="105" y="166" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">32 frames equispaced in &theta; (centered at O)</text>
+        <text x="100" y="174" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">32 poses &theta;-equispaced</text>
+        <text x="100" y="188" font-size="10" text-anchor="middle" fill="#1d1d1f" font-family="ui-monospace, monospace"><b>data.json</b>: trajectory_32f</text>
       </g>
 
-      <path d="M 230 140 L 285 140" fill="none" stroke="#4a5160" stroke-width="1.7" marker-end="url(#arrow2)"/>
+      <path d="M 220 150 L 268 150" fill="none" stroke="#4a5160" stroke-width="1.7" marker-end="url(#arrow2)"/>
 
-      <g transform="translate(290, 50)">
-        <rect width="260" height="180" rx="8" fill="white" stroke="#b8c1cc" stroke-width="1.5"/>
-        <text x="130" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#1d1d1f">Random (s<tspan font-size="10" dy="3">t</tspan><tspan dy="-3">, a</tspan><tspan font-size="10" dy="3">t</tspan><tspan dy="-3">, s</tspan><tspan font-size="10" dy="3">t+1</tspan><tspan dy="-3">) transition</tspan></text>
-        <g transform="translate(20, 50)">
-          <rect width="90" height="68" rx="3" fill="#f8fbff" stroke="#4a83e0" stroke-width="1"/>
-          <g transform="translate(45, 28)" fill="#4a83e0" opacity="0.7"><circle r="4"/><rect x="-3" y="4" width="6" height="16" rx="1.5"/></g>
-          <text x="45" y="82" font-size="10" text-anchor="middle" fill="#4a83e0">s<tspan font-size="8" dy="2">t</tspan></text>
+      <!-- Stage 2: render -->
+      <g transform="translate(272, 50)">
+        <rect width="240" height="200" rx="8" fill="white" stroke="#b8c1cc" stroke-width="1.5"/>
+        <text x="120" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#1d1d1f">Stage 2 &mdash; render</text>
+        <text x="120" y="38" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">v7_stage2_render.py (Blender)</text>
+        <g transform="translate(20, 56)">
+          <rect width="86" height="60" rx="3" fill="#f8fbff" stroke="#4a83e0" stroke-width="1"/>
+          <g transform="translate(43, 26)" fill="#4a83e0" opacity="0.7"><circle r="4"/><rect x="-3" y="4" width="6" height="14" rx="1.5"/></g>
+          <text x="43" y="74" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#4a83e0">s_t .jpg</text>
         </g>
-        <g transform="translate(150, 50)">
-          <rect width="90" height="68" rx="3" fill="#f8fbff" stroke="#4a83e0" stroke-width="1" stroke-dasharray="3 2"/>
-          <g transform="translate(30, 24)" fill="#4a83e0" opacity="0.7"><circle r="4.5"/><rect x="-3" y="4" width="6" height="18" rx="1.5"/></g>
-          <text x="45" y="82" font-size="10" text-anchor="middle" fill="#4a83e0">s<tspan font-size="8" dy="2">t+1</tspan></text>
+        <g transform="translate(135, 56)">
+          <rect width="86" height="60" rx="3" fill="#f8fbff" stroke="#4a83e0" stroke-width="1" stroke-dasharray="3 2"/>
+          <g transform="translate(28, 22)" fill="#4a83e0" opacity="0.7"><circle r="4.5"/><rect x="-3" y="4" width="6" height="16" rx="1.5"/></g>
+          <text x="43" y="74" font-size="9" text-anchor="middle" font-family="ui-monospace, monospace" fill="#4a83e0">s_{t+1} .jpg</text>
         </g>
-        <path d="M 120 80 L 144 80" fill="none" stroke="#e89b5a" stroke-width="1.8" marker-end="url(#arrow2)"/>
-        <text x="132" y="74" font-size="11" text-anchor="middle" fill="#c97a30" font-family="ui-monospace, monospace">a<tspan font-size="8" dy="2">t</tspan></text>
-        <text x="130" y="148" font-size="10" text-anchor="middle" fill="#5b6470">no demonstrations</text>
-        <text x="130" y="162" font-size="10" text-anchor="middle" fill="#5b6470">no rewards</text>
+        <text x="120" y="146" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470" text-anchor="middle">writes JPEGs + mesh bbox</text>
+        <text x="120" y="164" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470" text-anchor="middle">render_records[i][j].</text>
+        <text x="120" y="178" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470" text-anchor="middle">bbox_xyxy_full, path_rel</text>
+        <text x="120" y="192" font-size="10" font-family="ui-monospace, monospace" fill="#d4a300" text-anchor="middle"><b>done.flag</b></text>
       </g>
 
-      <path d="M 550 140 L 605 140" fill="none" stroke="#4a5160" stroke-width="1.7" marker-end="url(#arrow2)"/>
+      <path d="M 512 150 L 558 150" fill="none" stroke="#4a5160" stroke-width="1.7" marker-end="url(#arrow2)"/>
 
-      <g transform="translate(610, 50)">
-        <rect width="260" height="180" rx="8" fill="#e0f0ed" stroke="#2a9d8f" stroke-width="1.5"/>
-        <text x="130" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#216e64">P&#770; = compute_v5(s<tspan font-size="9" dy="2">t+1</tspan><tspan dy="-2">)</tspan></text>
-        <g transform="translate(20, 40)" font-family="ui-monospace, monospace" font-size="10.5" fill="#1d1d1f">
-          <text x="0" y="0">occupancy</text>       <text x="220" y="0" text-anchor="end" fill="#216e64">35</text>
-          <text x="0" y="14">body_in_frame</text>  <text x="220" y="14" text-anchor="end" fill="#216e64">92</text>
-          <text x="0" y="28">az_deg</text>         <text x="220" y="28" text-anchor="end" fill="#216e64">215</text>
-          <text x="0" y="42">el_deg</text>         <text x="220" y="42" text-anchor="end" fill="#216e64">-12</text>
-          <text x="0" y="56">obj_center_x</text>   <text x="220" y="56" text-anchor="end" fill="#216e64">312</text>
-          <text x="0" y="70">obj_center_y</text>   <text x="220" y="70" text-anchor="end" fill="#216e64">245</text>
-          <text x="0" y="84">bbox_x_offset</text>  <text x="220" y="84" text-anchor="end" fill="#216e64">88</text>
-          <text x="0" y="98">bbox_y_offset</text>  <text x="220" y="98" text-anchor="end" fill="#216e64">142</text>
-          <line x1="0" y1="108" x2="220" y2="108" stroke="#2a9d8f" stroke-width="0.5" opacity="0.4"/>
-          <text x="0" y="120" fill="#216e64">all 8 keys: int</text>
+      <!-- Stage 3: score -->
+      <g transform="translate(562, 50)">
+        <rect width="240" height="200" rx="8" fill="#e0f0ed" stroke="#2a9d8f" stroke-width="1.5"/>
+        <text x="120" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#216e64">Stage 3 &mdash; V5 score</text>
+        <text x="120" y="38" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">v7_stage3_score.py</text>
+        <g transform="translate(20, 50)" font-family="ui-monospace, monospace" font-size="10" fill="#1d1d1f">
+          <text x="0" y="0">occupancy</text>       <text x="200" y="0"  text-anchor="end" fill="#216e64">35</text>
+          <text x="0" y="13">body_in_frame</text>  <text x="200" y="13" text-anchor="end" fill="#216e64">92</text>
+          <text x="0" y="26">az_deg</text>         <text x="200" y="26" text-anchor="end" fill="#216e64">215</text>
+          <text x="0" y="39">el_deg</text>         <text x="200" y="39" text-anchor="end" fill="#216e64">-12</text>
+          <text x="0" y="52">obj_center_x/y</text> <text x="200" y="52" text-anchor="end" fill="#216e64">312, 245</text>
+          <text x="0" y="65">bbox_x/y_offset</text><text x="200" y="65" text-anchor="end" fill="#216e64">88, 142</text>
         </g>
+        <text x="120" y="146" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470" text-anchor="middle">render_records[i][j].</text>
+        <text x="120" y="160" font-size="10" font-family="ui-monospace, monospace" fill="#5b6470" text-anchor="middle">scores = {8 V5 ints}</text>
+        <text x="120" y="178" font-size="10" font-family="ui-monospace, monospace" fill="#216e64" text-anchor="middle">compute_v5_scores(bbox)</text>
+        <text x="120" y="192" font-size="10" font-family="ui-monospace, monospace" fill="#d4a300" text-anchor="middle"><b>scored.flag</b></text>
       </g>
 
-      <path d="M 870 140 L 925 140" fill="none" stroke="#4a5160" stroke-width="1.7" marker-end="url(#arrow2)"/>
+      <path d="M 802 150 L 848 150" fill="none" stroke="#4a5160" stroke-width="1.7" marker-end="url(#arrow2)"/>
 
-      <g transform="translate(930, 50)">
-        <rect width="250" height="180" rx="8" fill="var(--train-soft)" stroke="#d4a300" stroke-width="1.8"/>
-        <text x="125" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#86670c">Training tuple</text>
-        <g transform="translate(28, 56)" font-family="ui-monospace, monospace" font-size="13" fill="#1d1d1f">
-          <text x="0" y="0"><tspan fill="#4a83e0">s<tspan font-size="9" dy="2">t</tspan></tspan><tspan dy="-2" fill="#1d1d1f">&nbsp;,</tspan></text>
-          <text x="0" y="22"><tspan fill="#e89b5a">a<tspan font-size="9" dy="2">t</tspan></tspan><tspan dy="-2" fill="#1d1d1f">&nbsp;,</tspan></text>
-          <text x="0" y="44"><tspan fill="#4a83e0">s<tspan font-size="9" dy="2">t+1</tspan></tspan><tspan dy="-2" fill="#1d1d1f">,</tspan></text>
-          <text x="0" y="66"><tspan fill="#c05a87">V<tspan font-size="9" dy="2">t</tspan></tspan><tspan dy="-2" fill="#1d1d1f">&nbsp;,</tspan></text>
-          <text x="0" y="88"><tspan fill="#2a9d8f">P*</tspan><tspan fill="#1d1d1f"> &larr; P&#770;</tspan></text>
+      <!-- Training sample (hindsight relabel) -->
+      <g transform="translate(852, 50)">
+        <rect width="408" height="200" rx="8" fill="var(--train-soft)" stroke="#d4a300" stroke-width="1.8"/>
+        <text x="204" y="22" font-size="13" font-weight="600" text-anchor="middle" fill="#86670c">Training sample (CosmosDroneDataset)</text>
+        <text x="204" y="38" font-size="10" text-anchor="middle" fill="#5b6470" font-family="ui-monospace, monospace">slide window over trajectory_32f (chunk_size=8)</text>
+
+        <g transform="translate(24, 56)" font-family="ui-monospace, monospace" font-size="12" fill="#1d1d1f">
+          <text x="0" y="0"><tspan fill="#4a83e0">s_t</tspan><tspan fill="#1d1d1f">, </tspan><tspan fill="#4a83e0">s_{t+chunk}</tspan></text>
+          <text x="0" y="20"><tspan fill="#e89b5a">action_chunk</tspan><tspan fill="#1d1d1f"> &nbsp;&isin; &Ropf;</tspan><tspan font-size="9" dy="-3">8&times;5</tspan></text>
+          <text x="0" y="40"><tspan fill="#2a9d8f">goal_vec P*</tspan><tspan fill="#1d1d1f"> &larr; normalize(s_end.scores)</tspan></text>
+          <text x="0" y="60"><tspan fill="#c05a87">value V</tspan><tspan fill="#1d1d1f"> = </tspan><tspan fill="#974868">-d_geom(s_start.scores, P*)</tspan></text>
         </g>
-        <line x1="14" y1="150" x2="236" y2="150" stroke="#d4a300" stroke-width="0.5" opacity="0.5"/>
-        <text x="125" y="168" font-size="9.5" text-anchor="middle" fill="#86670c" font-family="ui-monospace, monospace">V<tspan font-size="8" dy="2">t</tspan><tspan dy="-2"> = -&Vert; P&#770; - P* &Vert;&sub1; / 8 &nbsp;(zero if matched)</tspan></text>
+
+        <g transform="translate(24, 134)" font-family="ui-monospace, monospace" font-size="10.5" fill="#5b6470">
+          <text x="0" y="0" fill="#974868"><b>d_geom</b><tspan fill="#5b6470">&sup2; = d_view&sup2; + d_size&sup2; + d_aim&sup2;</tspan></text>
+          <text x="0" y="16">d_view: great-circle &Delta; on viewing sphere (azim+elev)</text>
+          <text x="0" y="32">d_size: &Delta; angular subtense (occupancy/body)</text>
+          <text x="0" y="48">d_aim: &Delta; off-axis offset (object_center)</text>
+        </g>
       </g>
 
     </svg>
+
     <div class="note">
-      Hindsight relabel: every random Blender transition becomes a goal-conditioned tuple by treating the
-      achieved profile <b>P&#770; = profile(s<sub>t+1</sub>)</b> as the goal. Because P* &larr; P&#770; here,
-      the per-tuple value target collapses to 0 &mdash; <b>V<sub>t</sub></b> only carries signal across the batch
-      under counterfactual / noisy-goal augmentation (perturb P* away from P&#770;).
+      Stage 3 writes scores back to <code>data.json</code> (per-frame, per-pair, under <code>render_records[i][j].scores</code>).
+      Training reads <code>data/trajectories/&lt;placement&gt;/data.json</code> via <code>iter_windows</code>.
+      A placement is usable only once <code>scored.flag</code> is present &mdash; <code>done.flag</code>-only
+      placements yield NaN goals and are skipped. Hindsight relabel: <code>P* &larr; profile(s_end)</code>;
+      <code>V = -d_geom</code> is the camera-subject geometric distance in radians (weight-free product metric).
     </div>
   </div>
 
   <!-- =================================================================== -->
-  <!-- PANEL 3: LOSS + INFERENCE                                             -->
+  <!-- PANEL 3: EDM LOSS + INFERENCE                                         -->
   <!-- =================================================================== -->
   <div class="panel">
-    <h2>Training objective &amp; inference (direct policy &middot; best-of-N planning)</h2>
+    <h2>EDM training objective &amp; inference (Karras sampler)</h2>
 
-    <svg viewBox="0 0 1200 240" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 1280 250" xmlns="http://www.w3.org/2000/svg">
 
       <g transform="translate(20, 30)">
-        <rect width="600" height="200" rx="8" fill="white" stroke="#8e6dc8" stroke-width="1.5"/>
-        <text x="20" y="26" font-size="13" font-weight="600" fill="#5d3fa0">Single diffusion loss across all latent-frame slots</text>
+        <rect width="620" height="210" rx="8" fill="white" stroke="#8e6dc8" stroke-width="1.5"/>
+        <text x="20" y="26" font-size="13" font-weight="600" fill="#5d3fa0">EDM loss (Karras 2022) &mdash; one denoiser, three target slots</text>
 
         <g transform="translate(20, 50)" font-family="ui-monospace, 'SF Mono', monospace" font-size="13" fill="#1d1d1f">
-          <text x="0" y="0">&Lscr;<tspan font-size="10" dy="3">DDPM</tspan><tspan dy="-3">(x) = &Vert; &epsilon;&#770;(x</tspan><tspan font-size="10" dy="3">&tau;</tspan><tspan dy="-3">, &tau;) - &epsilon; &Vert;&sup2; &nbsp;&nbsp;applied to whichever slot is noised this batch</tspan></text>
+          <text x="0" y="0">&Lscr; = &lambda;<tspan font-size="10" dy="3">w</tspan><tspan dy="-3"> &Lscr;</tspan><tspan font-size="10" dy="3">img</tspan><tspan dy="-3"> + &lambda;</tspan><tspan font-size="10" dy="3">a</tspan><tspan dy="-3"> &Lscr;</tspan><tspan font-size="10" dy="3">act</tspan><tspan dy="-3"> + &lambda;</tspan><tspan font-size="10" dy="3">v</tspan><tspan dy="-3"> &Lscr;</tspan><tspan font-size="10" dy="3">val</tspan><tspan dy="-3">, &nbsp;&lambda;</tspan><tspan font-size="10" dy="3">w</tspan><tspan dy="-3"> = &lambda;</tspan><tspan font-size="10" dy="3">a</tspan><tspan dy="-3"> = &lambda;</tspan><tspan font-size="10" dy="3">v</tspan><tspan dy="-3"> = 1.0</tspan></text>
         </g>
 
-        <g transform="translate(20, 84)" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" fill="#5b6470">
-          <text x="0" y="0">Cosmos Policy batch sampling split (per sample):</text>
-          <text x="14" y="20"><tspan fill="#c97a30">50%</tspan> policy &mdash; only action latent noised (frame &amp; value clean conditioning)</text>
-          <text x="14" y="38"><tspan fill="#1f5cb4">25%</tspan> world model &mdash; only future-frame latent noised</text>
-          <text x="14" y="56"><tspan fill="#974868">25%</tspan> value &mdash; only value latent noised</text>
-          <text x="0" y="80">noise schedule: hybrid log-normal-uniform, &sigma;<tspan font-size="9" dy="2">min</tspan><tspan dy="-2">=4, &sigma;</tspan><tspan font-size="9" dy="2">max</tspan><tspan dy="-2">=80</tspan></text>
-          <text x="0" y="98">10 denoising steps at inference</text>
+        <g transform="translate(20, 78)" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" fill="#5b6470">
+          <text x="0" y="0">each &Lscr;<tspan font-size="9" dy="2">slot</tspan><tspan dy="-2"> = w(&sigma;) &middot; &Vert; D(x</tspan><tspan font-size="9" dy="2">&sigma;</tspan><tspan dy="-2">; &sigma;) - x</tspan><tspan font-size="9" dy="2">0</tspan><tspan dy="-2"> &Vert;&sup2; &nbsp;applied at that slot's positions</tspan></text>
+          <text x="0" y="18">w(&sigma;) = (&sigma;&sup2; + &sigma;<tspan font-size="9" dy="2">data</tspan><tspan dy="-2">&sup2;) / (&sigma; &middot; &sigma;</tspan><tspan font-size="9" dy="2">data</tspan><tspan dy="-2">)&sup2; &nbsp;(Karras eq. 8)</tspan></text>
         </g>
+
+        <g transform="translate(20, 122)" font-family="ui-monospace, 'SF Mono', monospace" font-size="11" fill="#5b6470">
+          <text x="0" y="0"><b style="color:#1d1d1f">&sigma; sampling</b> (per sample, not per slot):</text>
+          <text x="14" y="18">50% &mdash; log(&sigma;) ~ N(-1.2, 1.2) &nbsp;(EDM default)</text>
+          <text x="14" y="36"><tspan fill="#974868">25% &mdash; log(&sigma;) ~ U[log 200, log 1e5] &nbsp;(extreme high &mdash; eps-head supervised)</tspan></text>
+          <text x="14" y="54"><tspan fill="#1f5cb4">25% &mdash; &sigma; ~ U[1e-5, 2.0] &nbsp;(extreme low &mdash; x0-head supervised)</tspan></text>
+        </g>
+        <text x="20" y="200" font-size="10.5" fill="#5b6470" font-family="ui-monospace, monospace">single backbone, single loss, balanced-two-heads regularization</text>
       </g>
 
-      <g transform="translate(640, 30)">
-        <rect width="540" height="200" rx="8" fill="white" stroke="#4a83e0" stroke-width="1.5"/>
-        <text x="20" y="26" font-size="13" font-weight="600" fill="#1f5cb4">Inference modes</text>
+      <g transform="translate(660, 30)">
+        <rect width="600" height="210" rx="8" fill="white" stroke="#4a83e0" stroke-width="1.5"/>
+        <text x="20" y="26" font-size="13" font-weight="600" fill="#1f5cb4">Inference (Karras schedule, &rho; = 7)</text>
 
-        <text x="20" y="50" font-size="12" font-weight="600" fill="#c97a30" font-family="ui-monospace, monospace">(a) Direct policy</text>
-        <g transform="translate(20, 64)" font-family="ui-monospace, monospace" font-size="11" fill="#5b6470">
-          <text x="0" y="0">denoise only a_t slot (frame, value latents discarded)</text>
-          <text x="0" y="16">single forward pass, no candidate ranking</text>
+        <text x="20" y="54" font-size="12" font-weight="600" fill="#c97a30" font-family="ui-monospace, monospace">(a) Direct policy</text>
+        <g transform="translate(20, 68)" font-family="ui-monospace, monospace" font-size="11" fill="#5b6470">
+          <text x="0" y="0">pin clean s_t at frame 0; sample noise at action + value</text>
+          <text x="0" y="16">N steps with Karras &sigma;_i = (&sigma;_max^(1/&rho;) + i/(N-1)&middot;&Delta;)^&rho;</text>
+          <text x="0" y="32">extract a&#770;_t from the action latent &mdash; one forward pass</text>
         </g>
 
-        <text x="20" y="116" font-size="12" font-weight="600" fill="#974868" font-family="ui-monospace, monospace">(b) Best-of-N planning</text>
-        <g transform="translate(20, 130)" font-family="ui-monospace, monospace" font-size="11" fill="#5b6470">
-          <text x="0" y="0">sample N candidates (a&#770;_i, I&#770;_{t+1, i}, V&#770;_i) by N diffusion seeds</text>
-          <text x="0" y="16">a&#770;* &larr; a&#770;_i with max V&#770;_i</text>
-          <text x="0" y="32">no separate world model network &mdash; same trunk imagines &amp; scores</text>
-          <text x="0" y="48" fill="#974868">no lookahead beyond one step (no MPC)</text>
+        <text x="20" y="124" font-size="12" font-weight="600" fill="#974868" font-family="ui-monospace, monospace">(b) Best-of-N planning</text>
+        <g transform="translate(20, 138)" font-family="ui-monospace, monospace" font-size="11" fill="#5b6470">
+          <text x="0" y="0">N diffusion seeds &rarr; (a&#770;_i, s&#770;_{t+1, i}, V&#770;_i)</text>
+          <text x="0" y="16">a&#770;* &larr; argmax_i V&#770;_i &mdash; same backbone scores &amp; imagines</text>
+          <text x="0" y="32">no candidate-action MPC; no lookahead beyond one step</text>
         </g>
       </g>
 
