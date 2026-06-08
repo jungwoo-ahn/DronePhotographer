@@ -1,0 +1,68 @@
+# Cosmos-Predict2.5-2B goal-conditioned policy on the v7 dataset.
+# See docs/v7_handoff_jooyeol.md on branch v7_data_for_cosmos_policy for the data format.
+
+backbone:
+  repo_id: nvidia/Cosmos-Predict2.5-2B
+  dtype: bfloat16
+  freeze_backbone: true
+  n_goal_tokens: 4
+
+conditioner:
+  anchor_path: assets/t5_anchor.pt
+
+data:
+  # Point at the directory holding all v7 placement subdirs. The dataset
+  # recursively finds each placement's data.json.
+  annotation_roots:
+    - data/trajectories
+  chunk_size: 8                # ALOHA-style: 8 future actions per diffusion sample
+  stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
+  max_samples: null            # use the full dataset
+  target_resolution: [480, 720]
+  goal_score_keys:
+    # All 8 V5 keys are present in v7 (Stage 3 scoring fills them).
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+loss:
+  lambda_world: 1.0
+  lambda_action: 1.0
+  lambda_value: 1.0
+
+edm:
+  sigma_data: 1.0
+  sigma_min: 0.002
+  sigma_max: 80.0
+  p_mean: -1.2
+  p_std: 1.2
+  use_balanced_two_heads: true
+  high_sigma_ratio: 0.25
+  low_sigma_ratio: 0.25
+  rho: 7.0
+
+trainer:
+  output_root: runs
+  run_name: cosmos_2b
+  max_iter: 50000
+  batch_size: 1
+  grad_accum: 8
+  learning_rate: 1.0e-4
+  weight_decay: 0.0
+  warmup_iter: 1000
+  save_iter: 2000
+  log_iter: 100
+  seed: 0
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: 8
+  pin_memory: true
+  shuffle: true
+  drop_last: true
