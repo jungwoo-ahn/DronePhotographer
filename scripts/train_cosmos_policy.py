@@ -3,16 +3,32 @@
 Reads a YAML config, builds the dataset/model/trainer, runs `.fit()`.
 
 Usage:
-  python scripts/train_cosmos_policy.py --config configs/policy/cosmos_2b.yaml
+  PYTHONPATH=. python scripts/train_cosmos_policy.py \
+      --config configs/policy/cosmos_2b.yaml
+
+  # smoke (50 iter, 32 samples):
+  PYTHONPATH=. python scripts/train_cosmos_policy.py \
+      --config configs/policy/cosmos_2b.yaml --debug
+
+TensorBoard:
+  tensorboard --logdir runs/<timestamp>_<run_name>/tb
 """
 
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import yaml
-from torch.utils.data import DataLoader
+import torch
+from torch.utils.data import DataLoader, random_split
+
+# Make `from src.policy.* import ...` work whether or not the repo root is on
+# PYTHONPATH (e.g. ad-hoc launches from inside scripts/).
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from src.policy.cosmos.dataset import CosmosDroneDataset
 from src.policy.cosmos.edm import EDMConfig
@@ -44,7 +60,6 @@ def main() -> None:
     if args.max_samples is not None:
         cfg["data"]["max_samples"] = args.max_samples
 
-    import torch
     from diffusers import DiffusionPipeline
 
     pipe = DiffusionPipeline.from_pretrained(
@@ -78,16 +93,47 @@ def main() -> None:
         max_samples=cfg["data"].get("max_samples"),
         target_resolution=tuple(cfg["data"]["target_resolution"]),
     )
-    print(f"dataset size: {len(dataset)}")
+    n_all = len(dataset)
+    print(f"[data] dataset size: {n_all}")
 
-    loader = DataLoader(
-        dataset,
-        batch_size=cfg["trainer"]["batch_size"],
-        num_workers=cfg["dataloader"]["num_workers"],
-        pin_memory=cfg["dataloader"]["pin_memory"],
-        shuffle=cfg["dataloader"]["shuffle"],
-        drop_last=cfg["dataloader"]["drop_last"],
-    )
+    # ---- train / val split ---------------------------------------------------
+    val_cfg = cfg.get("val", {})
+    val_fraction = float(val_cfg.get("fraction", 0.0))
+    val_seed = int(val_cfg.get("seed", 0))
+    val_loader = None
+    if 0.0 < val_fraction < 1.0 and n_all > 1:
+        n_val = max(1, int(round(n_all * val_fraction)))
+        n_train = n_all - n_val
+        train_ds, val_ds = random_split(
+            dataset, [n_train, n_val],
+            generator=torch.Generator().manual_seed(val_seed),
+        )
+        train_loader = DataLoader(
+            train_ds,
+            batch_size=cfg["trainer"]["batch_size"],
+            num_workers=cfg["dataloader"]["num_workers"],
+            pin_memory=cfg["dataloader"]["pin_memory"],
+            shuffle=cfg["dataloader"]["shuffle"],
+            drop_last=cfg["dataloader"]["drop_last"],
+        )
+        val_loader = DataLoader(
+            val_ds,
+            batch_size=cfg["trainer"]["batch_size"],
+            num_workers=max(1, cfg["dataloader"]["num_workers"] // 2),
+            pin_memory=cfg["dataloader"]["pin_memory"],
+            shuffle=False,
+            drop_last=False,
+        )
+        print(f"[data] split: train={n_train}  val={n_val} (fraction={val_fraction})")
+    else:
+        train_loader = DataLoader(
+            dataset,
+            batch_size=cfg["trainer"]["batch_size"],
+            num_workers=cfg["dataloader"]["num_workers"],
+            pin_memory=cfg["dataloader"]["pin_memory"],
+            shuffle=cfg["dataloader"]["shuffle"],
+            drop_last=cfg["dataloader"]["drop_last"],
+        )
 
     trainer_cfg = TrainerConfig(
         output_root=Path(cfg["trainer"]["output_root"]),
@@ -100,13 +146,16 @@ def main() -> None:
         warmup_iter=cfg["trainer"]["warmup_iter"],
         save_iter=cfg["trainer"]["save_iter"],
         log_iter=cfg["trainer"]["log_iter"],
+        val_iter=int(cfg["trainer"].get("val_iter", 0)),
+        max_val_batches=int(cfg["trainer"].get("max_val_batches", 50)),
         seed=cfg["trainer"]["seed"],
         device=cfg["trainer"]["device"],
         dtype=cfg["trainer"]["dtype"],
     )
     trainer = CosmosPolicyTrainer(policy, vae, trainer_cfg)
     (trainer.run_dir / "config.yaml").write_text(yaml.safe_dump(cfg))
-    trainer.fit(loader)
+    print(f"[trainer] run_dir = {trainer.run_dir}")
+    trainer.fit(train_loader, dataloader_val=val_loader)
 
 
 if __name__ == "__main__":

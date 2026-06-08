@@ -55,11 +55,23 @@ trainer:
   learning_rate: 1.0e-4
   weight_decay: 0.0
   warmup_iter: 1000
-  save_iter: 2000
+  # checkpoints are slim (~1MB) — only conditioner is saved, backbone is frozen
+  # and lives in the HF cache, so we don't re-serialize it.
+  save_iter: 5000
   log_iter: 100
+  # validation: every val_iter steps, run max_val_batches batches through the
+  # held-out split. 0 disables.
+  val_iter: 1000
+  max_val_batches: 32
   seed: 0
   device: cuda
   dtype: bfloat16
+
+# Held-out fraction of the dataset for validation. 0 disables. The split is
+# random per (seed) so it's reproducible.
+val:
+  fraction: 0.02            # ~2% of samples = a few hundred windows
+  seed: 0
 
 dataloader:
   num_workers: 8
