@@ -54,6 +54,9 @@ def main() -> None:
         cfg["trainer"]["max_iter"] = 50
         cfg["trainer"]["save_iter"] = 50
         cfg["trainer"]["warmup_iter"] = 10
+        cfg["trainer"]["log_iter"] = 5
+        cfg["trainer"]["val_iter"] = 25
+        cfg["trainer"]["max_val_batches"] = 4
         cfg["data"]["max_samples"] = 32
     if args.max_iter is not None:
         cfg["trainer"]["max_iter"] = args.max_iter
@@ -62,11 +65,27 @@ def main() -> None:
 
     from diffusers import DiffusionPipeline
 
+    backbone_dtype = getattr(torch, cfg["backbone"]["dtype"])
+    backbone_device = cfg["trainer"]["device"]
+
+    # `device_map='cuda'` makes diffusers wrap the model with accelerate hooks
+    # that decorate forward() with torch.no_grad(). Even though our backbone
+    # weights are frozen, we DO need autograd through the cross-attention path
+    # so the conditioner can learn. Load on CPU, then move manually.
     pipe = DiffusionPipeline.from_pretrained(
         cfg["backbone"]["repo_id"],
-        dtype=getattr(torch, cfg["backbone"]["dtype"]),
-        device_map=cfg["trainer"]["device"],
+        torch_dtype=backbone_dtype,
     )
+    pipe.transformer.to(backbone_device, dtype=backbone_dtype)
+    pipe.vae.to(backbone_device, dtype=backbone_dtype)
+
+    # Side-effect from `cosmos_guardrail`'s safety checker: loading the
+    # pipeline flips the global autograd mode off (likely a stray
+    # `torch.set_grad_enabled(False)` for inference). Re-enable it or every
+    # `.backward()` we run from here will hit "element 0 does not require grad".
+    if not torch.is_grad_enabled():
+        torch.set_grad_enabled(True)
+        print("[trainer] note: re-enabled global autograd (was disabled by pipeline load)")
 
     vae = CosmosVAEWrapper(pipe.vae)
     loss_cfg = cfg.get("loss", {})

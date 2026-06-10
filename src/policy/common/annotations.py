@@ -173,13 +173,22 @@ def list_annotation_files(roots: Iterable[str | Path]) -> list[Path]:
 
     Each v7 placement contributes exactly one `data.json`, so we glob for that name.
     """
+    import os
+
     out: list[Path] = []
     for r in roots:
         rp = Path(r)
         if rp.is_file() and rp.name == "data.json":
             out.append(rp)
         elif rp.is_dir():
-            out.extend(sorted(rp.glob("**/data.json")))
+            # `rp.glob("**/data.json")` does NOT recurse into symlinked
+            # subdirectories on Python < 3.13, and `data/trajectories/`
+            # is canonically a tree of symlinks per
+            # `data/trajectories/README.md`. Use os.walk with followlinks=True.
+            for root, _, files in os.walk(rp, followlinks=True):
+                if "data.json" in files:
+                    out.append(Path(root) / "data.json")
+    out.sort()
     return out
 
 

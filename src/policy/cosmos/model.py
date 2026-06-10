@@ -102,16 +102,57 @@ class BackboneAdapter(Protocol):
 
 
 class DiffusersStyleAdapter:
+    """Generic diffusers-style call. Filters kwargs against the actual
+    transformer signature so we can pass the same dict to backbones with
+    slightly different APIs (Cosmos uses `padding_mask`, others use
+    `encoder_attention_mask`, etc.)."""
+
+    def __init__(self) -> None:
+        self._supported_kwargs: Optional[set[str]] = None
+
+    def _kwargs_for(self, transformer: nn.Module) -> set[str]:
+        if self._supported_kwargs is None:
+            import inspect
+            sig = inspect.signature(transformer.forward)
+            self._supported_kwargs = set(sig.parameters.keys())
+        return self._supported_kwargs
+
     def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None):
         if timestep.dim() == 2:
             timestep = timestep[:, 0]
-        out = transformer(
-            hidden_states=x,
-            timestep=timestep,
-            encoder_hidden_states=crossattn_emb,
-            encoder_attention_mask=padding_mask,
-            return_dict=True,
-        )
+        supported = self._kwargs_for(transformer)
+        kwargs = {
+            "hidden_states": x,
+            "timestep": timestep,
+            "encoder_hidden_states": crossattn_emb,
+            "return_dict": True,
+        }
+        # `padding_mask` (from our conditioner) is the (B, max_text_len) bool
+        # mask for the cross-attn text tokens. Only forward it if the backbone
+        # exposes the standard diffusers slot for it.
+        if padding_mask is not None and "encoder_attention_mask" in supported:
+            kwargs["encoder_attention_mask"] = padding_mask
+
+        # Cosmos-Predict2-Video2World concatenates two extra channels to the
+        # video latent before patching: `condition_mask` and `padding_mask`,
+        # both of shape (B, 1, T, H, W) and (B, 1, H, W) respectively. The
+        # patch-embed linear was trained on 18-channel inputs (16 VAE + 1 cond
+        # + 1 pad); skipping either of these gives a shape mismatch in
+        # `patch_embed.proj`. Our setup has no genuine spatial padding and we
+        # treat all frames identically (no V2W-style 0-th-frame conditioning),
+        # so we feed all-zero masks — the patch-embed weights for these two
+        # channels will multiply by 0 and contribute nothing.
+        # x is (B, C, T, H, W) here
+        b, _, t, h, w = x.shape
+        if "condition_mask" in supported:
+            kwargs["condition_mask"] = torch.zeros(b, 1, t, h, w, device=x.device, dtype=x.dtype)
+        if "padding_mask" in supported and getattr(
+            getattr(transformer, "config", None), "concat_padding_mask", False
+        ):
+            kwargs["padding_mask"] = torch.zeros(b, 1, h, w, device=x.device, dtype=x.dtype)
+
+        kwargs = {k: v for k, v in kwargs.items() if k in supported}
+        out = transformer(**kwargs)
         return out.sample if hasattr(out, "sample") else out[0]
 
 

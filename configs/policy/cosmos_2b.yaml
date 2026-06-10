@@ -2,7 +2,10 @@
 # See docs/v7_handoff_jooyeol.md on branch v7_data_for_cosmos_policy for the data format.
 
 backbone:
-  repo_id: nvidia/Cosmos-Predict2.5-2B
+  # Cosmos Policy is fine-tuned from Cosmos-Predict2-2B-Video2World
+  # (Cosmos-Predict2.5-2B is a separate native-format checkpoint repo,
+  # not a diffusers DiffusionPipeline. Don't confuse the two.)
+  repo_id: nvidia/Cosmos-Predict2-2B-Video2World
   dtype: bfloat16
   freeze_backbone: true
   n_goal_tokens: 4
