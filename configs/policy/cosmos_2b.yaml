@@ -10,7 +10,7 @@ backbone:
   n_goal_tokens: 4
 
 conditioner:
-  anchor_path: assets/t5_anchor.pt
+  anchor_path: assets/text_anchor.pt
 
 data:
   # Point at the directory holding all v7 placement subdirs. The dataset
@@ -37,16 +37,15 @@ loss:
   lambda_action: 1.0
   lambda_value: 1.0
 
-edm:
-  sigma_data: 1.0
-  sigma_min: 0.002
-  sigma_max: 80.0
-  p_mean: -1.2
-  p_std: 1.2
-  use_balanced_two_heads: true
+flow:
+  # Flow-matching sigma sampling — matches the 2.5 checkpoint's pretraining
+  # (x_t = (1-s)x0 + s*eps, model predicts v = eps - x0, timestep = sigma in [0,1]).
+  p_mean: 0.0                  # logit-normal location
+  p_std: 1.0
+  use_balanced_two_heads: true # force tails: near-noise + near-clean heads
   high_sigma_ratio: 0.25
   low_sigma_ratio: 0.25
-  rho: 7.0
+  cond_timestep: 0.1           # pipeline's conditional_frame_timestep (sampling)
 
 trainer:
   output_root: runs

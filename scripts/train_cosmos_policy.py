@@ -15,7 +15,7 @@ import yaml
 from torch.utils.data import DataLoader
 
 from src.policy.cosmos.dataset import CosmosDroneDataset
-from src.policy.cosmos.edm import EDMConfig
+from src.policy.cosmos.edm import FlowConfig
 from src.policy.cosmos.model import CosmosWorldActionPolicy
 from src.policy.cosmos.trainer import CosmosPolicyTrainer, TrainerConfig
 from src.policy.cosmos.vae import CosmosVAEWrapper
@@ -79,8 +79,8 @@ def main() -> None:
     print(f"conditioner cross-attention dim: {crossattn_dim}")
 
     loss_cfg = cfg.get("loss", {})
-    edm_cfg_dict = cfg.get("edm", {})
-    edm_cfg = EDMConfig(**{k: v for k, v in edm_cfg_dict.items() if k in EDMConfig.__dataclass_fields__})
+    flow_cfg_dict = cfg.get("flow", {})
+    flow_cfg = FlowConfig(**{k: v for k, v in flow_cfg_dict.items() if k in FlowConfig.__dataclass_fields__})
     policy = CosmosWorldActionPolicy(
         transformer,
         crossattn_dim=crossattn_dim,
@@ -92,7 +92,7 @@ def main() -> None:
         lambda_world=float(loss_cfg.get("lambda_world", 1.0)),
         lambda_action=float(loss_cfg.get("lambda_action", 1.0)),
         lambda_value=float(loss_cfg.get("lambda_value", 1.0)),
-        edm_config=edm_cfg,
+        flow_config=flow_cfg,
     )
 
     dataset = CosmosDroneDataset(
