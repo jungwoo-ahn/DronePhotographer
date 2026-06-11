@@ -167,6 +167,8 @@ def main() -> None:
         log_iter=cfg["trainer"]["log_iter"],
         val_iter=int(cfg["trainer"].get("val_iter", 0)),
         max_val_batches=int(cfg["trainer"].get("max_val_batches", 50)),
+        keep_last_n=int(cfg["trainer"].get("keep_last_n", 3)),
+        best_metric=str(cfg["trainer"].get("best_metric", "total")),
         seed=cfg["trainer"]["seed"],
         device=cfg["trainer"]["device"],
         dtype=cfg["trainer"]["dtype"],

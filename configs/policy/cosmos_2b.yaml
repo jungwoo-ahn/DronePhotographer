@@ -66,6 +66,9 @@ trainer:
   # held-out split. 0 disables.
   val_iter: 1000
   max_val_batches: 32
+  # checkpoint retention: keep last N periodic ckpts + ckpt_best.pt + ckpt_last.pt
+  keep_last_n: 3
+  best_metric: total      # which val component decides "best"; total/world/action/value
   seed: 0
   device: cuda
   dtype: bfloat16

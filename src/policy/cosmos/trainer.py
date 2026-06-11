@@ -46,6 +46,10 @@ class TrainerConfig:
     log_iter: int = 50
     val_iter: int = 0                  # 0 disables val
     max_val_batches: int = 50          # cap so val stays fast
+    # Checkpoint retention: keep the most recent `keep_last_n` periodic ckpts
+    # (iter_*.pt) plus ckpt_best.pt (lowest val/total) plus ckpt_last.pt.
+    keep_last_n: int = 3
+    best_metric: str = "total"         # which val component decides "best"
     seed: int = 0
     device: str = "cuda"
     dtype: str = "bfloat16"
@@ -187,6 +191,7 @@ class CosmosPolicyTrainer:
         opt.zero_grad(set_to_none=True)
         last_log = time.time()
         first_batch_printed = False
+        best_val: Optional[float] = None
 
         while iteration < cfg.max_iter:
             for batch in dataloader_train:
@@ -275,10 +280,21 @@ class CosmosPolicyTrainer:
                             tb_writer.add_scalar("val/action", val["action"], iteration)
                             tb_writer.add_scalar("val/value", val["value"], iteration)
 
+                        # Track best val and snapshot when it improves.
+                        metric_value = val.get(cfg.best_metric, val["total"])
+                        if best_val is None or metric_value < best_val:
+                            best_val = metric_value
+                            self.save_checkpoint(iteration, name="ckpt_best.pt")
+                            bline = f"[val] iter={iteration} new best {cfg.best_metric}={best_val:.4f} → ckpt_best.pt"
+                            print(bline); log_f.write(bline + "\n"); log_f.flush()
+                            if tb_writer is not None:
+                                tb_writer.add_scalar("val/best_total", best_val, iteration)
+
                     if iteration % cfg.save_iter == 0:
                         self.save_checkpoint(iteration)
+                        self._prune_periodic_checkpoints(cfg.keep_last_n)
 
-        self.save_checkpoint(iteration, name="ckpt_last")
+        self.save_checkpoint(iteration, name="ckpt_last.pt")
         if tb_writer is not None:
             tb_writer.close()
         log_f.close()
@@ -309,3 +325,16 @@ class CosmosPolicyTrainer:
             path,
         )
         return path
+
+    def _prune_periodic_checkpoints(self, keep_last_n: int) -> None:
+        """Keep only the most recent `keep_last_n` periodic `ckpt_iter*.pt`
+        files. `ckpt_best.pt` and `ckpt_last.pt` are NEVER deleted.
+        """
+        if keep_last_n <= 0:
+            return
+        periodic = sorted(self.run_dir.glob("ckpt_iter*.pt"))
+        for old in periodic[:-keep_last_n]:
+            try:
+                old.unlink()
+            except OSError:
+                pass
