@@ -94,10 +94,9 @@ class CosmosPolicyTrainer:
                 value_target = batch["value_target"].to(self.device, dtype=self.dtype)
 
                 with torch.amp.autocast(self.device.type, dtype=self.dtype):
-                    # Encode the (state, next_state) pair as a 4-frame clip so the
-                    # backbone sees a non-trivial temporal axis.
-                    clip = self.vae.assemble_clip(state_img, next_img)        # (B, C, T=4, H, W)
-                    image_latent = self.vae.encode(clip)                       # (B, 16, T_lat, H_lat, W_lat)
+                    # Encode state and goal frames separately (T=1 each — the Wan
+                    # VAE needs (T-1)%4==0) and concat: ALOHA-style T_img=2 latents.
+                    image_latent = self.vae.encode_pair_frames(state_img, next_img)  # (B, 16, 2, h, w)
                     loss_out = self.policy.compute_loss(
                         image_latent=image_latent,
                         action_chunk=action_chunk,

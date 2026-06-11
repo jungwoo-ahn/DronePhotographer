@@ -45,20 +45,26 @@ def main() -> None:
         cfg["data"]["max_samples"] = args.max_samples
 
     import torch
-    from diffusers import DiffusionPipeline
+    from diffusers import AutoencoderKLWan, CosmosTransformer3DModel
 
-    pipe = DiffusionPipeline.from_pretrained(
-        cfg["backbone"]["repo_id"],
-        dtype=getattr(torch, cfg["backbone"]["dtype"]),
-        device_map=cfg["trainer"]["device"],
+    # Load only the two components we use. The text encoder (Qwen2.5-VL) is
+    # bypassed entirely by our shot-profile conditioner, so we never download it.
+    # The diffusers-format weights live on a branch of the NVIDIA repo.
+    dtype = getattr(torch, cfg["backbone"]["dtype"])
+    revision = cfg["backbone"].get("revision", "diffusers/base/post-trained")
+    transformer = CosmosTransformer3DModel.from_pretrained(
+        cfg["backbone"]["repo_id"], subfolder="transformer", revision=revision, torch_dtype=dtype,
+    )
+    raw_vae = AutoencoderKLWan.from_pretrained(
+        cfg["backbone"]["repo_id"], subfolder="vae", revision=revision, torch_dtype=dtype,
     )
 
-    vae = CosmosVAEWrapper(pipe.vae)
+    vae = CosmosVAEWrapper(raw_vae)
     loss_cfg = cfg.get("loss", {})
     edm_cfg_dict = cfg.get("edm", {})
     edm_cfg = EDMConfig(**{k: v for k, v in edm_cfg_dict.items() if k in EDMConfig.__dataclass_fields__})
     policy = CosmosWorldActionPolicy(
-        pipe.transformer,
+        transformer,
         goal_dim=len(cfg["data"]["goal_score_keys"]),
         n_goal_tokens=cfg["backbone"]["n_goal_tokens"],
         freeze_backbone=cfg["backbone"]["freeze_backbone"],

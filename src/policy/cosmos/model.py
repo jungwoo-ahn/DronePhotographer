@@ -102,14 +102,30 @@ class BackboneAdapter(Protocol):
 
 
 class DiffusersStyleAdapter:
+    """Calls diffusers' `CosmosTransformer3DModel` the way `Cosmos2_5_PredictBasePipeline` does:
+
+        transformer(hidden_states=(B,16,T,H,W), timestep=(B,T), encoder_hidden_states=(B,N,1024),
+                    condition_mask=(B,1,T,H,W), padding_mask=(B,1,H_img,W_img))
+
+    `condition_mask` is the transformer's 17th input channel (concatenated
+    internally): 1 = conditioning frame, 0 = frame being denoised. We default to
+    zeros — in our joint training all frames (image + action + value) are noised.
+    `padding_mask` is the spatial mask; the official pipeline passes zeros, we
+    mirror that. The text-token mask is not passed (the pipeline doesn't either).
+    """
+
     def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None):
-        if timestep.dim() == 2:
-            timestep = timestep[:, 0]
+        b, _, t, h, w = x.shape
+        if timestep.dim() == 1:
+            timestep = timestep.unsqueeze(1).expand(b, t)
+        cond_mask = x.new_zeros(b, 1, t, h, w)
+        spatial_pad = x.new_zeros(1, 1, h * 8, w * 8)   # image-space zeros, like the pipeline
         out = transformer(
             hidden_states=x,
             timestep=timestep,
             encoder_hidden_states=crossattn_emb,
-            encoder_attention_mask=padding_mask,
+            condition_mask=cond_mask,
+            padding_mask=spatial_pad,
             return_dict=True,
         )
         return out.sample if hasattr(out, "sample") else out[0]

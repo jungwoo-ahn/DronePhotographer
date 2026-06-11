@@ -310,7 +310,7 @@ class _MockBackbone(nn.Module):
         self.conv = nn.Conv3d(latent_channels, latent_channels, kernel_size=1)
         self.cond_proj = nn.Linear(model_dim, latent_channels)
 
-    def forward(self, hidden_states, timestep, encoder_hidden_states, encoder_attention_mask=None, return_dict=True):
+    def forward(self, hidden_states, timestep, encoder_hidden_states, condition_mask=None, padding_mask=None, return_dict=True):
         c_emb = self.cond_proj(encoder_hidden_states.mean(dim=1))
         x = self.conv(hidden_states) + c_emb[:, :, None, None, None]
         return _DiffusersOutput(sample=x) if return_dict else (x,)

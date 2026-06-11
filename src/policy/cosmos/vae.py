@@ -38,8 +38,17 @@ class CosmosVAEWrapper(nn.Module):
         super().__init__()
         self.vae = vae
         cfg = getattr(vae, "config", None)
-        # diffusers VAE convention; Cosmos native VAEs already have latent_mean/std
+        # AutoencoderKLWan (the Cosmos-2.5 diffusers VAE) normalizes with per-channel
+        # latents_mean / latents_std; plain AutoencoderKL uses a scalar scaling_factor.
         self.scaling_factor: Optional[float] = getattr(cfg, "scaling_factor", None) if cfg else None
+        lm = getattr(cfg, "latents_mean", None) if cfg else None
+        ls = getattr(cfg, "latents_std", None) if cfg else None
+        if lm is not None and ls is not None:
+            self.register_buffer("latents_mean", torch.tensor(lm).view(1, -1, 1, 1, 1))
+            self.register_buffer("latents_std", torch.tensor(ls).view(1, -1, 1, 1, 1))
+        else:
+            self.latents_mean = None
+            self.latents_std = None
 
     @classmethod
     def from_pretrained(cls, repo_id: str = "nvidia/Cosmos-Predict2.5-2B", **kwargs) -> "CosmosVAEWrapper":
@@ -76,18 +85,46 @@ class CosmosVAEWrapper(nn.Module):
         # Cosmos native: direct tensor; diffusers: object with `.latent_dist`
         if hasattr(out, "latent_dist"):
             latent = out.latent_dist.sample()
-            if self.scaling_factor is not None:
-                latent = latent * self.scaling_factor
-            return latent
+            return self._normalize(latent)
         if isinstance(out, torch.Tensor):
             return out
         # Some diffusers VAEs return a dict-like object with a `latents` field
         if hasattr(out, "latents"):
-            latent = out.latents
-            if self.scaling_factor is not None:
-                latent = latent * self.scaling_factor
-            return latent
+            return self._normalize(out.latents)
         raise TypeError(f"unexpected VAE.encode output type: {type(out)}")
+
+    def _normalize(self, latent: torch.Tensor) -> torch.Tensor:
+        """VAE space -> model latent space (inverse of the pipeline's pre-decode step)."""
+        if self.latents_mean is not None:
+            mean = self.latents_mean.to(latent.device, latent.dtype)
+            std = self.latents_std.to(latent.device, latent.dtype)
+            return (latent - mean) / std
+        if self.scaling_factor is not None:
+            return latent * self.scaling_factor
+        return latent
+
+    def _denormalize(self, latent: torch.Tensor) -> torch.Tensor:
+        if self.latents_mean is not None:
+            mean = self.latents_mean.to(latent.device, latent.dtype)
+            std = self.latents_std.to(latent.device, latent.dtype)
+            return latent * std + mean
+        if self.scaling_factor is not None:
+            return latent / self.scaling_factor
+        return latent
+
+    def encode_frame(self, image: torch.Tensor) -> torch.Tensor:
+        """Encode a single image `(B, C, H, W)` as a T=1 clip -> `(B, 16, 1, h, w)`.
+
+        The Wan VAE requires (T - 1) % 4 == 0; T=1 is the image special case.
+        Encoding state and goal frames separately (then concatenating latents)
+        gives exactly two clean latent frames — ALOHA-style T_img=2 — with no
+        temporal grouping blur.
+        """
+        return self.encode(image.unsqueeze(2))
+
+    def encode_pair_frames(self, state_image: torch.Tensor, next_state_image: torch.Tensor) -> torch.Tensor:
+        """Encode (state, goal) images separately and concat: `(B, 16, 2, h, w)`."""
+        return torch.cat([self.encode_frame(state_image), self.encode_frame(next_state_image)], dim=2)
 
     def encode_pair(self, state_image: torch.Tensor, next_state_image: torch.Tensor, *, T: int = 4) -> torch.Tensor:
         """Convenience: assemble a 4-frame clip from (state, next_state) and encode."""
@@ -96,8 +133,7 @@ class CosmosVAEWrapper(nn.Module):
 
     def decode(self, latent: torch.Tensor) -> torch.Tensor:
         """Decode `(B, 16, T_latent, H_latent, W_latent)` back to `(B, C, T, H, W)` in [-1, 1]."""
-        scaled = latent / self.scaling_factor if self.scaling_factor is not None else latent
-        out = self.vae.decode(scaled)
+        out = self.vae.decode(self._denormalize(latent))
         if hasattr(out, "sample"):
             return out.sample
         if isinstance(out, torch.Tensor):
