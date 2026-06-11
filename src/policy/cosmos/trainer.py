@@ -34,6 +34,8 @@ class TrainerConfig:
     seed: int = 0
     device: str = "cuda"
     dtype: str = "bfloat16"
+    # EMA horizon (in iterations) for the loss estimate that decides ckpt_best.pt
+    best_ema_beta: float = 0.98
 
 
 class CosmosPolicyTrainer:
@@ -82,6 +84,10 @@ class CosmosPolicyTrainer:
         accum = 0
         opt.zero_grad(set_to_none=True)
         last_log = time.time()
+        # Keep only best + last checkpoints. "Best" = lowest EMA of the total
+        # loss (per-iter loss is too noisy under EDM sigma sampling to compare raw).
+        loss_ema: Optional[float] = None
+        best_ema = float("inf")
 
         while iteration < cfg.max_iter:
             for batch in dataloader_train:
@@ -111,6 +117,8 @@ class CosmosPolicyTrainer:
                     loss.backward()
 
                 accum += 1
+                cur = float(loss_out.total.detach())
+                loss_ema = cur if loss_ema is None else cfg.best_ema_beta * loss_ema + (1 - cfg.best_ema_beta) * cur
                 if accum >= cfg.grad_accum:
                     if scaler is not None:
                         scaler.step(opt)
@@ -140,7 +148,11 @@ class CosmosPolicyTrainer:
                         log_f.flush()
 
                     if iteration % cfg.save_iter == 0:
-                        self.save_checkpoint(iteration)
+                        self.save_checkpoint(iteration, name="ckpt_last.pt")
+                        if loss_ema is not None and loss_ema < best_ema:
+                            best_ema = loss_ema
+                            self.save_checkpoint(iteration, name="ckpt_best.pt")
+                            log_f.write(f"iter={iteration} new best (loss EMA {loss_ema:.4f})\n")
 
         self.save_checkpoint(iteration, name="ckpt_last.pt")
         log_f.close()

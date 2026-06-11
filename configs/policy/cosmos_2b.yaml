@@ -5,7 +5,8 @@ backbone:
   repo_id: nvidia/Cosmos-Predict2.5-2B
   revision: diffusers/base/post-trained
   dtype: bfloat16
-  freeze_backbone: true
+  freeze_backbone: false        # full finetune (upstream cosmos-policy does the same)
+  gradient_checkpointing: true
   n_goal_tokens: 4
 
 conditioner:
@@ -53,7 +54,7 @@ trainer:
   max_iter: 50000
   batch_size: 1
   grad_accum: 8
-  learning_rate: 1.0e-4
+  learning_rate: 1.0e-5         # full-finetune LR (conditioner-only used 1e-4)
   weight_decay: 0.0
   warmup_iter: 1000
   save_iter: 2000

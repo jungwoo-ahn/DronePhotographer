@@ -55,6 +55,10 @@ def main() -> None:
     transformer = CosmosTransformer3DModel.from_pretrained(
         cfg["backbone"]["repo_id"], subfolder="transformer", revision=revision, torch_dtype=dtype,
     )
+    # Full finetune needs activation recomputation to fit 2B params + grads +
+    # Adam moments on a 40GB card. No effect when the backbone is frozen.
+    if cfg["backbone"].get("gradient_checkpointing", not cfg["backbone"]["freeze_backbone"]):
+        transformer.enable_gradient_checkpointing()
     raw_vae = AutoencoderKLWan.from_pretrained(
         cfg["backbone"]["repo_id"], subfolder="vae", revision=revision, torch_dtype=dtype,
     )
