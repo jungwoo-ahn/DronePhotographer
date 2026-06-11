@@ -140,7 +140,7 @@ _PAGE = """<!doctype html>
         <span style="color:#5aa9e6">—</span> view (great-circle) &nbsp;
         <span style="color:#c792ea">—</span> size &nbsp;
         <span style="color:#e6c07b">—</span> aim &nbsp;
-        <span style="color:#e6675a">✕</span> off-screen-clamped frame (scores zeroed) &nbsp;|&nbsp;
+        <span style="color:#e6675a">✕</span> profile sentinel-clamped: excluded as a training <i>goal</i> (curve unaffected — value is pose-based) &nbsp;|&nbsp;
         <span style="color:#ffb86b">orange</span> = selected
       </div>
       <input type="range" id="dSlider" min="0" value="0" style="width:640px"></div>
