@@ -94,18 +94,69 @@ def _great_circle(az_a: float, el_a: float, az_b: float, el_b: float) -> float:
     return math.acos(max(-1.0, min(1.0, cos_d)))
 
 
+def _geometry_distance(a: Mapping[str, float], g: Mapping[str, float]) -> float:
+    """Weight-free product metric (radians) between two {az, el, size, aim_x, aim_y} geometries."""
+    d_view = _great_circle(a["az"], a["el"], g["az"], g["el"])
+    d_size = a["size"] - g["size"]
+    d_aim = math.hypot(a["aim_x"] - g["aim_x"], a["aim_y"] - g["aim_y"])
+    return math.sqrt(d_view * d_view + d_size * d_size + d_aim * d_aim)
+
+
+def pose_to_geometry(
+    camera_position,
+    camera_forward,
+    camera_up,
+    subject_center,
+    subject_height: float,
+) -> dict[str, float]:
+    """Recover the same ~5 geometric DOF directly from the camera pose.
+
+    Unlike `profile_to_geometry` (which decodes the bbox-derived score pixels and
+    therefore inherits the scorer's off-screen sentinel clamp), this is pure pose
+    math — exact for every frame, including extreme close-ups. Use it whenever
+    poses are available (training); use the profile decode only for goals that
+    exist solely as profiles (inference targets).
+
+    Conventions match the Stage-3 scorer where they overlap:
+      - el: camera above the subject → negative (v2; `asin(d_z / r)` of cam→subject).
+      - az: world-frame atan2(d_y, d_x). Stage 3 rotates into the object frame
+        first, but a great-circle distance between two frames of the same
+        placement is invariant under that shared rotation, so values agree.
+      - aim_y: positive = subject below the optical axis (image-y-down, matching
+        the pixel decode).
+    """
+    import numpy as np
+
+    from src.utils.rotation_utils import make_camera_basis_from_forward_up
+
+    pos = np.asarray(camera_position, dtype=np.float64)
+    center = np.asarray(subject_center, dtype=np.float64)
+    d = center - pos
+    r = float(np.linalg.norm(d))
+    if r < 1e-9:
+        return {"az": 0.0, "el": 0.0, "size": math.pi / 2, "aim_x": 0.0, "aim_y": 0.0}
+    unit = d / r
+    az = math.atan2(float(unit[1]), float(unit[0]))
+    el = math.asin(max(-1.0, min(1.0, float(unit[2]))))
+    size = math.atan((float(subject_height) / 2.0) / r)
+
+    basis = make_camera_basis_from_forward_up(
+        np.asarray(camera_forward, dtype=np.float32), np.asarray(camera_up, dtype=np.float32)
+    )  # columns: right, up, forward (world frame)
+    d_cam = basis.T @ d.astype(np.float32)          # (right, up, forward) components
+    d_fwd = max(float(d_cam[2]), 1e-9)              # subject assumed in front of the camera
+    aim_x = math.atan2(float(d_cam[0]), d_fwd)
+    aim_y = math.atan2(-float(d_cam[1]), d_fwd)     # image y is down
+    return {"az": az, "el": el, "size": size, "aim_x": aim_x, "aim_y": aim_y}
+
+
 def geometric_profile_distance(
     achieved: Mapping[str, float],
     goal: Mapping[str, float],
     intr: CameraIntrinsics,
 ) -> float:
-    """Weight-free product metric on the camera-subject geometry (radians)."""
-    a = profile_to_geometry(achieved, intr)
-    g = profile_to_geometry(goal, intr)
-    d_view = _great_circle(a["az"], a["el"], g["az"], g["el"])
-    d_size = a["size"] - g["size"]
-    d_aim = math.hypot(a["aim_x"] - g["aim_x"], a["aim_y"] - g["aim_y"])
-    return math.sqrt(d_view * d_view + d_size * d_size + d_aim * d_aim)
+    """Product metric between two profiles (pixel decode — see `profile_to_geometry`)."""
+    return _geometry_distance(profile_to_geometry(achieved, intr), profile_to_geometry(goal, intr))
 
 
 def profile_distance_value(
@@ -113,8 +164,25 @@ def profile_distance_value(
     goal: Mapping[str, float],
     intr: CameraIntrinsics,
 ) -> float:
-    """Value target: negative geometric profile distance (0 at the goal, <0 away)."""
+    """Negative profile distance (0 at the goal, <0 away). Pixel-decode path."""
     return -geometric_profile_distance(achieved, goal, intr)
+
+
+def pose_distance_value(
+    start_position, start_forward, start_up,
+    goal_position, goal_forward, goal_up,
+    *,
+    subject_center,
+    subject_height: float,
+) -> float:
+    """Value target from poses: negative product-metric distance, no score pixels involved.
+
+    This is the training-time value computation: both endpoints have full camera
+    poses, so the geometry is exact and immune to the scorer's off-screen clamp.
+    """
+    a = pose_to_geometry(start_position, start_forward, start_up, subject_center, subject_height)
+    g = pose_to_geometry(goal_position, goal_forward, goal_up, subject_center, subject_height)
+    return -_geometry_distance(a, g)
 
 
 # --- Legacy weighted-L2 score distance (eval pose-proxy / ablations) ----------

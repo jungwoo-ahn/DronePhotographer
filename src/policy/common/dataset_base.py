@@ -28,7 +28,18 @@ from src.policy.common.annotations import (
     list_annotation_files,
 )
 from src.policy.common.goal_space import goal_keys, goal_vector
-from src.policy.common.reward import CameraIntrinsics, profile_distance_value
+from src.policy.common.reward import pose_distance_value
+
+
+def _is_clamped(scores: dict) -> bool:
+    """True if the frame hit the scorer's off-screen sentinel (bbox keys zeroed).
+
+    `compute_v5_scores` zeroes the bbox-derived keys when the full projection
+    blows past its 4x sanity clamp — a VLM-era sentinel meaning "no meaningful
+    framing", not a measurement. A goal profile in that state is garbage to
+    condition on, so windows ending on such frames are filtered out.
+    """
+    return scores.get("occupancy") == 0 and scores.get("bbox_y_offset") == 0
 
 
 @dataclass
@@ -71,6 +82,9 @@ class BasePolicyDataset(Dataset):
       chunk_size: number of actions per sample (= temporal extent of the window).
       stride: window stride along each 32-frame trajectory.
       max_samples: optional cap (smoke tests).
+      filter_clamped_goals: drop windows whose goal (end) frame hit the scorer's
+        off-screen sentinel — its profile is a fabricated "zero-size subject at
+        (0,0)", useless as a conditioning goal. (~31% of windows on real v7 data.)
     """
 
     def __init__(
@@ -81,10 +95,12 @@ class BasePolicyDataset(Dataset):
         chunk_size: int = 8,
         stride: int = 1,
         max_samples: int | None = None,
+        filter_clamped_goals: bool = True,
     ) -> None:
         self.goal_keys = goal_keys(goal_score_keys)
         self.chunk_size = chunk_size
         self.stride = stride
+        self.filter_clamped_goals = filter_clamped_goals
         self._files = list_annotation_files(annotation_roots)
         self._samples: list[Sample] = []
         for f in self._files:
@@ -92,12 +108,18 @@ class BasePolicyDataset(Dataset):
                 g = goal_vector(window.end.raw, self.goal_keys)
                 if not np.isfinite(g).all():
                     continue
-                # Value = -(geometric distance from the START view's profile to the
-                # goal = END view's profile). Non-trivial because start != goal; the
-                # action chunk is exactly what closes this gap. Computed from raw
-                # scores (not the goal_keys subset) so the geometry is complete.
-                intr = CameraIntrinsics.from_render(window.start.render_width, window.start.render_height)
-                value = profile_distance_value(window.start.raw, window.end.raw, intr)
+                if self.filter_clamped_goals and _is_clamped(window.end.raw):
+                    continue
+                # Value = -(geometric distance from the START pose to the GOAL = END
+                # pose). Computed from camera poses + subject geometry, NOT from the
+                # bbox-derived score pixels — poses are exact for every frame, with
+                # no off-screen sentinel to corrupt size/aim.
+                value = pose_distance_value(
+                    window.start.camera_position, window.start.camera_forward, window.start.camera_up,
+                    window.end.camera_position, window.end.camera_forward, window.end.camera_up,
+                    subject_center=window.start.subject_center,
+                    subject_height=window.start.subject_height,
+                )
                 self._samples.append(Sample(
                     start=window.start,
                     end=window.end,

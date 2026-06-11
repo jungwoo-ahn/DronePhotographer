@@ -56,6 +56,7 @@ class CosmosDroneDataset(Dataset):
         normalize_goal_to_unit_cube: bool = True,
         normalize_actions: bool = True,
         action_scale=None,
+        filter_clamped_goals: bool = True,
     ) -> None:
         self.target_resolution = target_resolution
         self.normalize = normalize_goal_to_unit_cube
@@ -68,6 +69,7 @@ class CosmosDroneDataset(Dataset):
             chunk_size=chunk_size,
             stride=stride,
             max_samples=max_samples,
+            filter_clamped_goals=filter_clamped_goals,
         )
         # Sanity-check that the first sample's images exist
         if len(self.base):

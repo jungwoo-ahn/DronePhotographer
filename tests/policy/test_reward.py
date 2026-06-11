@@ -8,6 +8,8 @@ import pytest
 from src.policy.common.reward import (
     CameraIntrinsics,
     geometric_profile_distance,
+    pose_distance_value,
+    pose_to_geometry,
     profile_distance_value,
     profile_to_geometry,
     score_distance,
@@ -81,6 +83,72 @@ def test_offframe_aim_is_bounded():
 def test_offframe_size_is_bounded():
     geom = profile_to_geometry(_profile(bbox_y_offset=100000), INTR)
     assert geom["size"] < math.pi / 2
+
+
+# --- pose-based geometry (training-time value path) ---------------------------
+
+CENTER = [0.0, 0.0, 1.0]
+HEIGHT = 1.8
+
+
+def test_pose_geometry_camera_looking_straight_at_subject():
+    # camera 3 m away on +x, looking back along -x, up = +z
+    g = pose_to_geometry([3, 0, 1], [-1, 0, 0], [0, 0, 1], CENTER, HEIGHT)
+    assert g["aim_x"] == pytest.approx(0.0, abs=1e-6)
+    assert g["aim_y"] == pytest.approx(0.0, abs=1e-6)
+    assert g["el"] == pytest.approx(0.0, abs=1e-6)
+    assert g["size"] == pytest.approx(math.atan(0.9 / 3.0), abs=1e-6)
+
+
+def test_pose_geometry_camera_above_gives_negative_elevation():
+    # v2 convention: camera above the subject -> elevation negative
+    g = pose_to_geometry([0, 0, 4], [0, 0, -1], [0, 1, 0], CENTER, HEIGHT)
+    assert g["el"] < -1.0  # near -pi/2
+
+
+def test_pose_geometry_aim_sign_conventions():
+    # camera at +x looking -x with up +z: camera-right is +y.
+    # subject offset to +y => to the camera's right => aim_x > 0
+    g = pose_to_geometry([3, 0, 1], [-1, 0, 0], [0, 0, 1], [0, 0.5, 1], HEIGHT)
+    assert g["aim_x"] > 0
+    # subject above the optical axis => aim_y < 0 (image-y points down)
+    g2 = pose_to_geometry([3, 0, 1], [-1, 0, 0], [0, 0, 1], [0, 0, 1.5], HEIGHT)
+    assert g2["aim_y"] < 0
+
+
+def test_pose_value_zero_at_same_pose():
+    v = pose_distance_value([3, 0, 1], [-1, 0, 0], [0, 0, 1],
+                            [3, 0, 1], [-1, 0, 0], [0, 0, 1],
+                            subject_center=CENTER, subject_height=HEIGHT)
+    assert v == pytest.approx(0.0, abs=1e-6)
+
+
+def test_pose_value_negative_and_monotone_in_orbit_angle():
+    import numpy as np
+    goal_th = 0.0
+    def pose(th):
+        pos = [3*math.cos(th), 3*math.sin(th), 1.0]
+        fwd = [-math.cos(th), -math.sin(th), 0.0]
+        return pos, fwd, [0.0, 0.0, 1.0]
+    gp, gf, gu = pose(goal_th)
+    vals = []
+    for th in [0.2, 0.6, 1.2, 2.0]:
+        p, f, u = pose(th)
+        vals.append(pose_distance_value(p, f, u, gp, gf, gu,
+                                        subject_center=CENTER, subject_height=HEIGHT))
+    assert all(v < 0 for v in vals)
+    # farther around the orbit => more negative
+    assert vals == sorted(vals, reverse=True)
+
+
+def test_pose_value_immune_to_close_range():
+    # Very close camera: the bbox projection would blow up and clamp, but the
+    # pose-based value stays finite and sane.
+    v = pose_distance_value([0.3, 0, 1], [-1, 0, 0], [0, 0, 1],
+                            [3, 0, 1], [-1, 0, 0], [0, 0, 1],
+                            subject_center=CENTER, subject_height=HEIGHT)
+    assert math.isfinite(v)
+    assert -math.pi < v < 0
 
 
 def test_zero_distance_when_equal():

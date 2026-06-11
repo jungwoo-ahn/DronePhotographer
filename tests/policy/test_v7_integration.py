@@ -235,6 +235,55 @@ def test_cosmos_dataset_loads_v7(v7_placement):
     assert "pair_idx" in sample["meta"]
 
 
+def test_clamped_goal_windows_are_filtered(v7_placement):
+    """Windows whose goal frame hit the scorer's off-screen sentinel are dropped."""
+    import json as _json
+
+    # Zero-clamp the scores of frames >= 24 in pair 0 (mimics close-range blow-up)
+    doc = _json.loads(Path(v7_placement).read_text())
+    for rec in doc["render_records"][0]:
+        if rec["frame_idx"] >= 24:
+            rec["scores"] = {k: 0 for k in rec["scores"]}
+    clamped_path = Path(v7_placement).parent / "data.json"
+    clamped_path.write_text(_json.dumps(doc))
+
+    from src.policy.common.dataset_base import BasePolicyDataset
+
+    K = 8
+    with_filter = BasePolicyDataset([clamped_path], chunk_size=K, stride=1)
+    without = BasePolicyDataset([clamped_path], chunk_size=K, stride=1, filter_clamped_goals=False)
+    # pair 0 windows with end >= 24 must be gone; pair 1 untouched
+    assert len(with_filter) < len(without)
+    for i in range(len(with_filter)):
+        s = with_filter[i]
+        if s.start.pair_idx == 0:
+            assert s.end.frame_idx < 24
+
+
+def test_value_is_pose_based_and_finite_even_with_clamped_scores(v7_placement):
+    """The value no longer depends on the bbox score pixels at all."""
+    import json as _json
+
+    doc = _json.loads(Path(v7_placement).read_text())
+    # corrupt ALL bbox-derived scores in pair 1 except azimuth/elevation
+    for rec in doc["render_records"][1]:
+        rec["scores"]["object_center_x"] = 0
+        rec["scores"]["object_center_y"] = 0
+        rec["scores"]["bbox_x_offset"] = 0
+    Path(v7_placement).write_text(_json.dumps(doc))
+
+    from src.policy.common.dataset_base import BasePolicyDataset
+
+    ds = BasePolicyDataset([v7_placement], chunk_size=4, stride=4)
+    pair1 = [ds[i] for i in range(len(ds)) if ds[i].start.pair_idx == 1]
+    assert pair1
+    import numpy as _np
+    vals = _np.array([s.value for s in pair1])
+    # all finite, strictly negative (start != goal on a moving trajectory)
+    assert _np.isfinite(vals).all()
+    assert (vals < 0).all()
+
+
 def test_cosmos_dataset_full_v5_goal(v7_placement):
     """All 8 V5 keys are present in v7; default goal_score_keys yields finite samples."""
     ds = CosmosDroneDataset(

@@ -134,14 +134,26 @@ exercise the full data → encode → EDM loss → sample path without the 2B mo
 
 ## Value target
 
-`value_target = −geometric_profile_distance(start_profile, goal_profile)`
-(`src/policy/common/reward.py`). The profile is mapped back to the ~5 geometric
-DOF of the camera-subject configuration — viewing direction (az, el), apparent
-size, and optical-axis aim — and the distance is a **weight-free product metric**
-in radians: great-circle angle on the viewing sphere (handles azimuth cyclicity +
-polar degeneracy) + Δ angular size + Δ aim. `atan` bounds off-frame/huge-bbox
-values gracefully. It's scale-invariant, matching the profile's scene-agnostic
-design, and non-trivial (start ≠ goal). No per-key weights to tune.
+`value_target = pose_distance_value(start_pose, goal_pose, subject_center, subject_height)`
+(`src/policy/common/reward.py`). The camera-subject configuration is reduced to
+its ~5 geometric DOF — viewing direction (az, el), apparent angular size, and
+optical-axis aim — and the distance is a **weight-free product metric** in
+radians: great-circle angle on the viewing sphere (handles azimuth cyclicity +
+polar degeneracy) + Δ angular subtense + Δ aim. No per-key weights to tune.
+
+The geometry is computed **from camera poses** (`trajectory_32f` + `subject_center`
+/ `subject_height`), *not* from the bbox-derived score pixels — the Stage-3 scorer
+zeroes the bbox keys when the close-range projection blows past its 4× clamp (a
+VLM-era sentinel), which would otherwise corrupt size/aim. Pose-based values are
+exact at every frame: fixed-goal monotonicity is corr ≈ 1.0 on 100% of 461 real
+trajectories (was 91% with the pixel decode). The pixel decode
+(`profile_to_geometry`) remains for inference-time goals, which exist only as
+profiles.
+
+**Clamped-goal filter**: windows whose goal frame carries the off-screen sentinel
+(`occupancy == 0 and bbox_y_offset == 0`) are dropped at load
+(`filter_clamped_goals=True`, ~31% of windows on real v7 data) — such a profile
+is a fabricated "zero-size subject at (0,0)" and useless as a conditioning goal.
 
 ## Known gaps / provisional values
 
