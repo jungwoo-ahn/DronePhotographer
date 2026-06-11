@@ -116,8 +116,11 @@ class DiffusersStyleAdapter:
 
     def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None):
         b, _, t, h, w = x.shape
+        # diffusers CosmosTransformer3DModel expects timestep [B, 1, T, 1, 1] (or [T])
         if timestep.dim() == 1:
-            timestep = timestep.unsqueeze(1).expand(b, t)
+            timestep = timestep.view(b, 1, 1, 1, 1).expand(b, 1, t, 1, 1)
+        elif timestep.dim() == 2:
+            timestep = timestep.view(b, 1, t, 1, 1)
         cond_mask = x.new_zeros(b, 1, t, h, w)
         spatial_pad = x.new_zeros(1, 1, h * 8, w * 8)   # image-space zeros, like the pipeline
         out = transformer(

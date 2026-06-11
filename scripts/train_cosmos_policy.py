@@ -60,11 +60,26 @@ def main() -> None:
     )
 
     vae = CosmosVAEWrapper(raw_vae)
+
+    # The 2.5 transformer projects text features internally (crossattn_proj):
+    # its INPUT dim is the text encoder's stacked hidden states (Qwen2.5-VL,
+    # 3584 x 28 layers = 100352), not config.text_embed_dim (the post-projection
+    # 1024). Our goal tokens enter pre-projection, so size the conditioner to
+    # the projection's true in_features.
+    from torch import nn as _nn
+
+    crossattn_dim = 1024
+    proj = getattr(transformer, "crossattn_proj", None)
+    if proj is not None:
+        crossattn_dim = next(m.in_features for m in proj.modules() if isinstance(m, _nn.Linear))
+    print(f"conditioner cross-attention dim: {crossattn_dim}")
+
     loss_cfg = cfg.get("loss", {})
     edm_cfg_dict = cfg.get("edm", {})
     edm_cfg = EDMConfig(**{k: v for k, v in edm_cfg_dict.items() if k in EDMConfig.__dataclass_fields__})
     policy = CosmosWorldActionPolicy(
         transformer,
+        crossattn_dim=crossattn_dim,
         goal_dim=len(cfg["data"]["goal_score_keys"]),
         n_goal_tokens=cfg["backbone"]["n_goal_tokens"],
         freeze_backbone=cfg["backbone"]["freeze_backbone"],
