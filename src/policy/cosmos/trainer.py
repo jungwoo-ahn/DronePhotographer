@@ -143,7 +143,7 @@ class CosmosPolicyTrainer:
                     if iteration % cfg.save_iter == 0:
                         self.save_checkpoint(iteration)
 
-        self.save_checkpoint(iteration, name="ckpt_last")
+        self.save_checkpoint(iteration, name="ckpt_last.pt")
         log_f.close()
 
     def save_checkpoint(self, iteration: int, name: Optional[str] = None) -> Path:

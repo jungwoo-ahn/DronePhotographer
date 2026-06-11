@@ -1,0 +1,70 @@
+# First-GPU-experiment smoke config: frozen Cosmos-2B, conditioner+heads only,
+# real v7 data under data/trajectories. Run on a free GPU:
+#   CUDA_VISIBLE_DEVICES=2 PYTHONPATH=. python scripts/train_cosmos_policy.py \
+#       --config configs/policy/cosmos_2b_smoke.yaml
+
+backbone:
+  repo_id: nvidia/Cosmos-Predict2.5-2B
+  dtype: bfloat16
+  freeze_backbone: true
+  n_goal_tokens: 4
+
+conditioner:
+  # No T5 anchor yet (t5-11b not downloaded) — conditioner falls back to a zeros
+  # anchor: goal tokens are still injected, just without the T5 grounding.
+  # Build assets/t5_anchor.pt via scripts/build_t5_anchor.py before real runs.
+  anchor_path: null
+
+data:
+  annotation_roots:
+    - data/trajectories
+  chunk_size: 8
+  stride: 2
+  max_samples: 512
+  target_resolution: [480, 720]
+  goal_score_keys:
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+loss:
+  lambda_world: 1.0
+  lambda_action: 1.0
+  lambda_value: 1.0
+
+edm:
+  sigma_data: 1.0
+  sigma_min: 0.002
+  sigma_max: 80.0
+  p_mean: -1.2
+  p_std: 1.2
+  use_balanced_two_heads: true
+  high_sigma_ratio: 0.25
+  low_sigma_ratio: 0.25
+  rho: 7.0
+
+trainer:
+  output_root: runs
+  run_name: cosmos_2b_smoke
+  max_iter: 200
+  batch_size: 1
+  grad_accum: 4
+  learning_rate: 1.0e-4
+  weight_decay: 0.0
+  warmup_iter: 20
+  save_iter: 100
+  log_iter: 10
+  seed: 0
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: 4
+  pin_memory: true
+  shuffle: true
+  drop_last: true
