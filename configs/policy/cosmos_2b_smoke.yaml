@@ -19,6 +19,7 @@ data:
     - data/trajectories
   chunk_size: 8
   stride: 2
+  goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
   max_samples: 512
   target_resolution: [480, 720]
   goal_score_keys:

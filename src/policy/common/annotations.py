@@ -22,7 +22,7 @@ action chunk + goal vector are computed downstream in `BasePolicyDataset`.
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Iterator
 
@@ -69,6 +69,9 @@ class TrajectoryWindow:
     start: ViewRecord
     end: ViewRecord
     intermediate: list[ViewRecord]      # length chunk_size - 1
+    future: list[ViewRecord] = field(default_factory=list)
+    # frames AFTER end on the same trajectory (end_frame_idx+1 .. 31) — the
+    # HER-"future" goal candidate pool (goal = any frame in [end, 31]).
 
 
 def load_annotation(path: str | Path) -> dict:
@@ -169,6 +172,7 @@ def iter_windows(
                 start=view_records[start_idx],
                 end=view_records[end_idx],
                 intermediate=view_records[start_idx + 1 : end_idx],
+                future=view_records[end_idx + 1 :],
             )
 
 

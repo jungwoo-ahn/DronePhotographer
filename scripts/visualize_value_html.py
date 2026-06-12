@@ -60,7 +60,9 @@ def _thumb_b64(image_path: str, width: int, cache: dict[str, str]) -> str:
 
 
 def build_payload(args: argparse.Namespace) -> list[dict]:
-    ds = BasePolicyDataset(args.roots, chunk_size=args.chunk_size, stride=args.stride)
+    # Pin goal_sampling="end" — this viz plots the per-window value against the
+    # window's own end frame, so the stochastic HER-future goal would scramble it.
+    ds = BasePolicyDataset(args.roots, chunk_size=args.chunk_size, stride=args.stride, goal_sampling="end")
     groups: dict[tuple, list] = defaultdict(list)
     for i in range(len(ds)):
         s = ds[i]

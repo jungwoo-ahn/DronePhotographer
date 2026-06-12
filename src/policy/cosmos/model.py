@@ -300,6 +300,7 @@ class CosmosWorldActionPolicy(nn.Module):
         action_chunk: torch.Tensor,                  # (B, chunk_size, action_dim)
         goal_vec: torch.Tensor,                      # (B, goal_dim)
         value_target: Optional[torch.Tensor] = None, # (B,)
+        sigma: Optional[torch.Tensor] = None,        # (B,) fixed sigmas (validation); None = sample
     ) -> LossOutputs:
         """Joint flow-matching velocity loss decomposed by latent-sequence component.
 
@@ -316,7 +317,9 @@ class CosmosWorldActionPolicy(nn.Module):
         cond = self.conditioner({"goal_vec": goal_vec})
 
         b = x0.shape[0]
-        sigma = sample_flow_sigma(b, self.flow, device=x0.device).to(x0.dtype)   # (B,) in [0, 1]
+        if sigma is None:
+            sigma = sample_flow_sigma(b, self.flow, device=x0.device)   # (B,) in [0, 1]
+        sigma = sigma.to(device=x0.device, dtype=x0.dtype)
         epsilon = torch.randn_like(x0)
         view_shape = (b,) + (1,) * (x0.dim() - 1)
         sigma_v = sigma.view(*view_shape)

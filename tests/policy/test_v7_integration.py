@@ -284,6 +284,80 @@ def test_value_is_pose_based_and_finite_even_with_clamped_scores(v7_placement):
     assert (vals < 0).all()
 
 
+def test_uniform_future_goal_spans_beyond_end(v7_placement):
+    """HER-future: the goal frame is drawn from [end_frame, 31], not pinned to end."""
+    from src.policy.common.dataset_base import BasePolicyDataset
+
+    np.random.seed(0)
+    ds = BasePolicyDataset([v7_placement], chunk_size=8, stride=1)  # default uniform_future
+    # Window 0: start=0, end=8 → goal candidates are frames 8..31
+    draws = {ds[0].goal.frame_idx for _ in range(50)}
+    assert all(8 <= g <= 31 for g in draws)
+    assert len(draws) > 1, "goal frame should vary across draws"
+    # Action chunk and end frame stay anchored to the window regardless of goal
+    s = ds[0]
+    assert s.end.frame_idx == 8
+    assert s.action_chunk.shape == (8, ACTION_DIM)
+
+
+def test_end_mode_pins_goal_to_end_frame(v7_placement):
+    """Legacy goal_sampling="end" reproduces the fixed-offset behavior."""
+    from src.policy.common.dataset_base import BasePolicyDataset
+
+    ds = BasePolicyDataset([v7_placement], chunk_size=8, stride=1, goal_sampling="end")
+    for i in range(0, len(ds), 7):
+        s = ds[i]
+        assert s.goal.frame_idx == s.end.frame_idx
+
+
+def test_uniform_future_value_matches_drawn_goal(v7_placement):
+    """The value target tracks the drawn goal pose, not the end frame."""
+    from src.policy.common.dataset_base import BasePolicyDataset
+    from src.policy.common.reward import pose_distance_value
+
+    np.random.seed(1)
+    ds = BasePolicyDataset([v7_placement], chunk_size=8, stride=1)
+    for _ in range(20):
+        s = ds[0]
+        expected = pose_distance_value(
+            s.start.camera_position, s.start.camera_forward, s.start.camera_up,
+            s.goal.camera_position, s.goal.camera_forward, s.goal.camera_up,
+            subject_center=s.start.subject_center,
+            subject_height=s.start.subject_height,
+        )
+        assert s.value == pytest.approx(expected)
+
+
+def test_clamped_frames_excluded_from_goal_pool(v7_placement):
+    """Clamped frames are dropped from the candidate pool, not just the end frame."""
+    import json as _json
+
+    doc = _json.loads(Path(v7_placement).read_text())
+    # Zero-clamp frames >= 24 in pair 0 — goals must never land there
+    for rec in doc["render_records"][0]:
+        if rec["frame_idx"] >= 24:
+            rec["scores"] = {k: 0 for k in rec["scores"]}
+    Path(v7_placement).write_text(_json.dumps(doc))
+
+    from src.policy.common.dataset_base import BasePolicyDataset
+
+    np.random.seed(2)
+    ds = BasePolicyDataset([v7_placement], chunk_size=8, stride=1)
+    for i in range(len(ds)):
+        for _ in range(10):
+            s = ds[i]
+            if s.start.pair_idx == 0:
+                assert s.goal.frame_idx < 24
+
+
+def test_cosmos_dataset_meta_has_goal_frame_idx(v7_placement):
+    ds = CosmosDroneDataset(
+        [v7_placement], chunk_size=4, stride=4, max_samples=4, target_resolution=(16, 16),
+    )
+    sample = ds[0]
+    assert sample["meta"]["goal_frame_idx"] >= sample["meta"]["end_frame_idx"]
+
+
 def test_cosmos_dataset_full_v5_goal(v7_placement):
     """All 8 V5 keys are present in v7; default goal_score_keys yields finite samples."""
     ds = CosmosDroneDataset(

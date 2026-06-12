@@ -14,11 +14,22 @@ conditioner:
 
 data:
   # Point at the directory holding all v7 placement subdirs. The dataset
-  # recursively finds each placement's data.json.
+  # recursively finds each placement's data.json. Put (or symlink) the full
+  # v7 render output here — e.g.:
+  #   ln -s /path/to/outputs/v7_renders/* data/trajectories/
+  # Do NOT list the same placements under two roots — that duplicates samples.
   annotation_roots:
     - data/trajectories
   chunk_size: 8                # ALOHA-style: 8 future actions per diffusion sample
   stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
+  goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
+  val_split_level: scene         # unseen-scene generalization (pair | placement | scene | object)
+  val_names: configs/policy/val_scenes.txt   # frozen manifest — pins the val scenes forever;
+                                 # new data arrivals always go to train. Overrides the hash split.
+  val_pair_stride: 0             # unused while val_names is set (hash-split fallback)
+  val_stride: 4                  # window stride within val trajectories
+  val_max_samples: 64            # cap val windows so the val pass stays fast (5 sigma evals
+                                 # + an 8-step diffusion sample per batch are not cheap)
   max_samples: null            # use the full dataset
   target_resolution: [480, 720]
   goal_score_keys:
@@ -58,6 +69,8 @@ trainer:
   warmup_iter: 1000
   save_iter: 2000
   log_iter: 100
+  val_iter: 200                 # fixed-sigma val loss + sampler action MSE / value MAE (rank 0)
+  val_sample_steps: 8
   seed: 0
   device: cuda
   dtype: bfloat16
