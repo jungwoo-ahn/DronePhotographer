@@ -7,6 +7,10 @@ data/scenes_outdoor_retry/
 data/.blenderkit_token
 data/vlm_object_placing/
 
+# v7 policy training data: ignore the placement dirs (large JPEGs), keep the note
+data/trajectories/*
+!data/trajectories/README.md
+
 blender/
 
 tmp/
@@ -30,3 +34,6 @@ scripts/_out/
 # Large generated HTML galleries
 gallery_photo_profiles*.html
 photo_profiles.html
+
+# built text anchors (rebuild via scripts/build_text_anchor.py)
+assets/*.pt
