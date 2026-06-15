@@ -33,7 +33,7 @@ class _DiffusersStyleMockBackbone(nn.Module):
         self.conv = nn.Conv3d(latent_channels, latent_channels, kernel_size=1)
         self.cond_proj = nn.Linear(model_dim, latent_channels)
 
-    def forward(self, hidden_states, timestep, encoder_hidden_states, encoder_attention_mask=None, return_dict=True):
+    def forward(self, hidden_states, timestep, encoder_hidden_states, condition_mask=None, padding_mask=None, return_dict=True):
         x = self.conv(hidden_states)
         c_emb = self.cond_proj(encoder_hidden_states.mean(dim=1))
         x = x + c_emb[:, :, None, None, None]

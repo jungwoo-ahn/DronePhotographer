@@ -149,3 +149,55 @@ __all__ = [
     "per_sigma_weight",
     "sample_sigma",
 ]
+
+
+# --- Flow-matching (Cosmos-Predict2.5's actual convention) ---------------------
+#
+# Verified against `Cosmos2_5_PredictBasePipeline.__call__` + scheduler config:
+#   - x_t = (1 - sigma) * x0 + sigma * eps, sigma in [0, 1]
+#   - the transformer receives RAW x_t (no preconditioning) and the per-frame
+#     timestep IS sigma itself; conditioning frames get timestep 0.1
+#   - the model predicts the flow velocity v = eps - x0
+#     (`prediction_type: flow_prediction`, `use_flow_sigmas: true`)
+# The EDM utilities above are kept for ablations but are NOT what the 2.5
+# checkpoint was trained with.
+
+
+@dataclass
+class FlowConfig:
+    """Sigma sampling for flow-matching training + sampling constants.
+
+    `p_mean/p_std` parameterize a logit-normal over sigma (the flow-matching
+    standard; the analog of EDM's log-normal). BALANCED_TWO_HEADS carries over
+    in flow space: a fraction of samples is forced near sigma=1 (noise head)
+    and near sigma=0 (clean head).
+    """
+
+    p_mean: float = 0.0
+    p_std: float = 1.0
+    use_balanced_two_heads: bool = True
+    high_sigma_ratio: float = 0.25
+    low_sigma_ratio: float = 0.25
+    high_band: tuple[float, float] = (0.85, 1.0)
+    low_band: tuple[float, float] = (0.0, 0.15)
+    # timestep given to pinned conditioning frames at sampling (pipeline default)
+    cond_timestep: float = 0.1
+
+
+def sample_flow_sigma(batch_size: int, config: FlowConfig, *, device: torch.device | str = "cpu") -> torch.Tensor:
+    """Sample (B,) flow sigmas in [0, 1]: logit-normal base + balanced tails."""
+    sigma = torch.sigmoid(torch.randn(batch_size, device=device) * config.p_std + config.p_mean)
+    if config.use_balanced_two_heads:
+        shape = sigma.shape
+        hi_lo, hi_hi = config.high_band
+        mask_high = torch.rand(shape, device=device) < config.high_sigma_ratio
+        sigma = torch.where(mask_high, torch.rand(shape, device=device) * (hi_hi - hi_lo) + hi_lo, sigma)
+        lo_lo, lo_hi = config.low_band
+        mask_low = torch.rand(shape, device=device) < config.low_sigma_ratio
+        sigma = torch.where(mask_low, torch.rand(shape, device=device) * (lo_hi - lo_lo) + lo_lo, sigma)
+    return sigma
+
+
+def flow_sigma_schedule(n_steps: int, *, device: torch.device | str = "cpu") -> torch.Tensor:
+    """Linear sigma schedule 1 -> 0 for Euler sampling (n_steps + 1 entries)."""
+    return torch.linspace(1.0, 0.0, n_steps + 1, device=device)

@@ -22,7 +22,7 @@ action chunk + goal vector are computed downstream in `BasePolicyDataset`.
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable, Iterator
 
@@ -40,6 +40,8 @@ class ViewRecord:
     pair_idx: int                       # which accepted_pair this frame belongs to
     frame_idx: int                      # 0..31 within trajectory_32f
     object_position: list[float]        # subject_foot (world frame)
+    subject_center: list[float]         # subject bbox center (world frame) — for pose-based value
+    subject_height: float               # subject height (m) — for pose-based apparent size
     image: str                          # absolute path to the rendered JPEG
     camera_position: list[float]
     camera_forward: list[float]
@@ -67,6 +69,9 @@ class TrajectoryWindow:
     start: ViewRecord
     end: ViewRecord
     intermediate: list[ViewRecord]      # length chunk_size - 1
+    future: list[ViewRecord] = field(default_factory=list)
+    # frames AFTER end on the same trajectory (end_frame_idx+1 .. 31) — the
+    # HER-"future" goal candidate pool (goal = any frame in [end, 31]).
 
 
 def load_annotation(path: str | Path) -> dict:
@@ -114,6 +119,8 @@ def _frame_to_view(
         pair_idx=pair_idx,
         frame_idx=frame_idx,
         object_position=list(doc.get("subject_foot") or [0.0, 0.0, 0.0]),
+        subject_center=list(doc.get("subject_center") or doc.get("subject_foot") or [0.0, 0.0, 0.0]),
+        subject_height=float(doc.get("subject_height") or 1.7),
         image=str(placement_dir / image_rel),
         camera_position=list(frame["pos"]),
         camera_forward=list(frame["forward"]),
@@ -165,6 +172,7 @@ def iter_windows(
                 start=view_records[start_idx],
                 end=view_records[end_idx],
                 intermediate=view_records[start_idx + 1 : end_idx],
+                future=view_records[end_idx + 1 :],
             )
 
 

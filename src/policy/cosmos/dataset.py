@@ -4,14 +4,17 @@ Wraps `BasePolicyDataset` and converts each `Sample` into tensors:
 
   - `state_image`: (3, H, W) float in [-1, 1] — the trajectory window's start frame.
   - `next_state_image`: (3, H, W) — the end frame (ALOHA-style T_img=2 supervision).
-  - `goal_vec`: (D_goal,) — V5 score vector for the end frame, normalized to [-1, 1].
+  - `goal_vec`: (D_goal,) — V5 score vector of the goal frame, normalized to [-1, 1].
+    With `goal_sampling="uniform_future"` (default) the goal frame is drawn
+    uniformly from [end_frame, last_frame] of the trajectory per __getitem__
+    (HER-"future" relabeling); `"end"` pins it to the window's end frame.
   - `action_chunk`: (chunk_size, ACTION_DIM=5) — the K consecutive actions in the
     window, normalized per-dim to ~[-1, 1] via `action_repr.normalize_action_5d`
     (unless `normalize_actions=False`). Denormalize predictions with
     `action_repr.denormalize_action_5d` before applying them to a camera pose.
-  - `value_target`: scalar — `−geometric_profile_distance(start_profile, goal)`,
-    the camera-subject geometric distance the action chunk closes (0 at the goal,
-    more negative the further the start view is from the goal framing).
+  - `value_target`: scalar — `−geometric_pose_distance(start_pose, goal_pose)`,
+    the camera-subject geometric distance from the start view to the goal frame
+    (0 at the goal, more negative the further away the goal framing is).
   - `meta`: dict with annotation_path, pair_idx, frame indices, scene, object.
 
 v7 image paths are resolved into absolute paths by `iter_windows`, so this
@@ -56,6 +59,12 @@ class CosmosDroneDataset(Dataset):
         normalize_goal_to_unit_cube: bool = True,
         normalize_actions: bool = True,
         action_scale=None,
+        filter_clamped_goals: bool = True,
+        goal_sampling: str = "uniform_future",
+        val_pair_stride: int = 0,
+        val_split_level: str = "pair",
+        val_names: Sequence[str] | None = None,
+        split: str = "train",
     ) -> None:
         self.target_resolution = target_resolution
         self.normalize = normalize_goal_to_unit_cube
@@ -68,6 +77,12 @@ class CosmosDroneDataset(Dataset):
             chunk_size=chunk_size,
             stride=stride,
             max_samples=max_samples,
+            filter_clamped_goals=filter_clamped_goals,
+            goal_sampling=goal_sampling,
+            val_pair_stride=val_pair_stride,
+            val_split_level=val_split_level,
+            val_names=val_names,
+            split=split,
         )
         # Sanity-check that the first sample's images exist
         if len(self.base):
@@ -100,6 +115,7 @@ class CosmosDroneDataset(Dataset):
                 "pair_idx": s.start.pair_idx,
                 "start_frame_idx": s.start.frame_idx,
                 "end_frame_idx": s.end.frame_idx,
+                "goal_frame_idx": s.goal.frame_idx,
                 "chunk_size": s.chunk_size,
                 "scene": s.start.scene,
                 "object": s.start.object,

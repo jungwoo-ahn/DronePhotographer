@@ -2,24 +2,34 @@
 # See docs/v7_handoff_jooyeol.md on branch v7_data_for_cosmos_policy for the data format.
 
 backbone:
-  # Cosmos Policy is fine-tuned from Cosmos-Predict2-2B-Video2World
-  # (Cosmos-Predict2.5-2B is a separate native-format checkpoint repo,
-  # not a diffusers DiffusionPipeline. Don't confuse the two.)
-  repo_id: nvidia/Cosmos-Predict2-2B-Video2World
+  repo_id: nvidia/Cosmos-Predict2.5-2B
+  revision: diffusers/base/post-trained
   dtype: bfloat16
-  freeze_backbone: true
+  freeze_backbone: false        # full finetune (upstream cosmos-policy does the same)
+  gradient_checkpointing: true
   n_goal_tokens: 4
 
 conditioner:
-  anchor_path: assets/t5_anchor.pt
+  anchor_path: assets/text_anchor.pt
 
 data:
   # Point at the directory holding all v7 placement subdirs. The dataset
-  # recursively finds each placement's data.json.
+  # recursively finds each placement's data.json. Put (or symlink) the full
+  # v7 render output here — e.g.:
+  #   ln -s /path/to/outputs/v7_renders/* data/trajectories/
+  # Do NOT list the same placements under two roots — that duplicates samples.
   annotation_roots:
     - data/trajectories
   chunk_size: 8                # ALOHA-style: 8 future actions per diffusion sample
   stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
+  goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
+  val_split_level: scene         # unseen-scene generalization (pair | placement | scene | object)
+  val_names: configs/policy/val_scenes.txt   # frozen manifest — pins the val scenes forever;
+                                 # new data arrivals always go to train. Overrides the hash split.
+  val_pair_stride: 0             # unused while val_names is set (hash-split fallback)
+  val_stride: 4                  # window stride within val trajectories
+  val_max_samples: 64            # cap val windows so the val pass stays fast (5 sigma evals
+                                 # + an 8-step diffusion sample per batch are not cheap)
   max_samples: null            # use the full dataset
   target_resolution: [480, 720]
   goal_score_keys:
@@ -38,16 +48,15 @@ loss:
   lambda_action: 1.0
   lambda_value: 1.0
 
-edm:
-  sigma_data: 1.0
-  sigma_min: 0.002
-  sigma_max: 80.0
-  p_mean: -1.2
-  p_std: 1.2
-  use_balanced_two_heads: true
+flow:
+  # Flow-matching sigma sampling — matches the 2.5 checkpoint's pretraining
+  # (x_t = (1-s)x0 + s*eps, model predicts v = eps - x0, timestep = sigma in [0,1]).
+  p_mean: 0.0                  # logit-normal location
+  p_std: 1.0
+  use_balanced_two_heads: true # force tails: near-noise + near-clean heads
   high_sigma_ratio: 0.25
   low_sigma_ratio: 0.25
-  rho: 7.0
+  cond_timestep: 0.1           # pipeline's conditional_frame_timestep (sampling)
 
 trainer:
   output_root: runs
@@ -55,29 +64,16 @@ trainer:
   max_iter: 50000
   batch_size: 1
   grad_accum: 8
-  learning_rate: 1.0e-4
+  learning_rate: 1.0e-5         # full-finetune LR (conditioner-only used 1e-4)
   weight_decay: 0.0
   warmup_iter: 1000
-  # checkpoints are slim (~1MB) — only conditioner is saved, backbone is frozen
-  # and lives in the HF cache, so we don't re-serialize it.
-  save_iter: 5000
+  save_iter: 2000
   log_iter: 100
-  # validation: every val_iter steps, run max_val_batches batches through the
-  # held-out split. 0 disables.
-  val_iter: 1000
-  max_val_batches: 32
-  # checkpoint retention: keep last N periodic ckpts + ckpt_best.pt + ckpt_last.pt
-  keep_last_n: 3
-  best_metric: total      # which val component decides "best"; total/world/action/value
+  val_iter: 200                 # fixed-sigma val loss + sampler action MSE / value MAE (rank 0)
+  val_sample_steps: 8
   seed: 0
   device: cuda
   dtype: bfloat16
-
-# Held-out fraction of the dataset for validation. 0 disables. The split is
-# random per (seed) so it's reproducible.
-val:
-  fraction: 0.02            # ~2% of samples = a few hundred windows
-  seed: 0
 
 dataloader:
   num_workers: 8

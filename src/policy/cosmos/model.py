@@ -49,11 +49,9 @@ from src.policy.cosmos.conditioner import (
     ShotProfileVectorConditioner,
 )
 from src.policy.cosmos.edm import (
-    EDMConfig,
-    edm_scaling,
-    karras_sigma_schedule,
-    per_sigma_weight,
-    sample_sigma,
+    FlowConfig,
+    flow_sigma_schedule,
+    sample_flow_sigma,
 )
 
 
@@ -102,62 +100,42 @@ class BackboneAdapter(Protocol):
 
 
 class DiffusersStyleAdapter:
-    """Generic diffusers-style call. Filters kwargs against the actual
-    transformer signature so we can pass the same dict to backbones with
-    slightly different APIs (Cosmos uses `padding_mask`, others use
-    `encoder_attention_mask`, etc.)."""
+    """Calls diffusers' `CosmosTransformer3DModel` the way `Cosmos2_5_PredictBasePipeline` does:
 
-    def __init__(self) -> None:
-        self._supported_kwargs: Optional[set[str]] = None
+        transformer(hidden_states=(B,16,T,H,W), timestep=(B,T), encoder_hidden_states=(B,N,1024),
+                    condition_mask=(B,1,T,H,W), padding_mask=(B,1,H_img,W_img))
 
-    def _kwargs_for(self, transformer: nn.Module) -> set[str]:
-        if self._supported_kwargs is None:
-            import inspect
-            sig = inspect.signature(transformer.forward)
-            self._supported_kwargs = set(sig.parameters.keys())
-        return self._supported_kwargs
+    `condition_mask` is the transformer's 17th input channel (concatenated
+    internally): 1 = conditioning frame, 0 = frame being denoised. We default to
+    zeros — in our joint training all frames (image + action + value) are noised.
+    `padding_mask` is the spatial mask; the official pipeline passes zeros, we
+    mirror that. The text-token mask is not passed (the pipeline doesn't either).
+    """
 
-    def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None):
-        if timestep.dim() == 2:
-            timestep = timestep[:, 0]
-        supported = self._kwargs_for(transformer)
-        kwargs = {
-            "hidden_states": x,
-            "timestep": timestep,
-            "encoder_hidden_states": crossattn_emb,
-            "return_dict": True,
-        }
-        # `padding_mask` (from our conditioner) is the (B, max_text_len) bool
-        # mask for the cross-attn text tokens. Only forward it if the backbone
-        # exposes the standard diffusers slot for it.
-        if padding_mask is not None and "encoder_attention_mask" in supported:
-            kwargs["encoder_attention_mask"] = padding_mask
-
-        # Cosmos-Predict2-Video2World concatenates two extra channels to the
-        # video latent before patching: `condition_mask` and `padding_mask`,
-        # both of shape (B, 1, T, H, W) and (B, 1, H, W) respectively. The
-        # patch-embed linear was trained on 18-channel inputs (16 VAE + 1 cond
-        # + 1 pad); skipping either of these gives a shape mismatch in
-        # `patch_embed.proj`. Our setup has no genuine spatial padding and we
-        # treat all frames identically (no V2W-style 0-th-frame conditioning),
-        # so we feed all-zero masks — the patch-embed weights for these two
-        # channels will multiply by 0 and contribute nothing.
-        # x is (B, C, T, H, W) here
+    def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None, condition_mask=None):
         b, _, t, h, w = x.shape
-        if "condition_mask" in supported:
-            kwargs["condition_mask"] = torch.zeros(b, 1, t, h, w, device=x.device, dtype=x.dtype)
-        if "padding_mask" in supported and getattr(
-            getattr(transformer, "config", None), "concat_padding_mask", False
-        ):
-            kwargs["padding_mask"] = torch.zeros(b, 1, h, w, device=x.device, dtype=x.dtype)
-
-        kwargs = {k: v for k, v in kwargs.items() if k in supported}
-        out = transformer(**kwargs)
+        # diffusers CosmosTransformer3DModel expects timestep [B, 1, T, 1, 1] (or [T]).
+        # (B,) = one sigma for all frames; (B, T) = per-frame (used at sampling to
+        # give pinned conditioning frames the pipeline's cond_timestep).
+        if timestep.dim() == 1:
+            timestep = timestep.view(b, 1, 1, 1, 1).expand(b, 1, t, 1, 1)
+        elif timestep.dim() == 2:
+            timestep = timestep.view(b, 1, t, 1, 1)
+        cond_mask = condition_mask if condition_mask is not None else x.new_zeros(b, 1, t, h, w)
+        spatial_pad = x.new_zeros(1, 1, h * 8, w * 8)   # image-space zeros, like the pipeline
+        out = transformer(
+            hidden_states=x,
+            timestep=timestep,
+            encoder_hidden_states=crossattn_emb,
+            condition_mask=cond_mask,
+            padding_mask=spatial_pad,
+            return_dict=True,
+        )
         return out.sample if hasattr(out, "sample") else out[0]
 
 
 class CosmosNativeAdapter:
-    def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None):
+    def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None, condition_mask=None):
         if timestep.dim() == 1:
             timestep = timestep.unsqueeze(1).expand(-1, x.shape[2])
         out = transformer(
@@ -214,7 +192,7 @@ class CosmosWorldActionPolicy(nn.Module):
         lambda_world: float = 1.0,
         lambda_action: float = 1.0,
         lambda_value: float = 1.0,
-        edm_config: EDMConfig | None = None,
+        flow_config: FlowConfig | None = None,
         action_scale: "np.ndarray | torch.Tensor | None" = None,
     ) -> None:
         super().__init__()
@@ -227,7 +205,7 @@ class CosmosWorldActionPolicy(nn.Module):
         self.lambda_world = lambda_world
         self.lambda_action = lambda_action
         self.lambda_value = lambda_value
-        self.edm = edm_config or EDMConfig()
+        self.flow = flow_config or FlowConfig()
 
         # Per-dim action normalization scale, registered as a buffer so it travels
         # with the checkpoint — the dataset normalizes by this and sample() can
@@ -294,36 +272,27 @@ class CosmosWorldActionPolicy(nn.Module):
     # Training forward — returns the flow-matching loss
     # ------------------------------------------------------------------
 
-    def _backbone_x0_pred(
+    def _backbone_velocity(
         self,
         x_t: torch.Tensor,
-        sigma: torch.Tensor,
+        sigma: torch.Tensor,                       # (B,) or (B, T) per-frame
         cond: ShotProfileCondition,
+        condition_mask: Optional[torch.Tensor] = None,
     ) -> torch.Tensor:
-        """Run the backbone under EDM preconditioning and return the x0 prediction.
+        """Run the backbone in its native flow-matching convention.
 
-        Per Karras 2022 eq. 7 (also `_src/predict2/models/text2world_model.py:910`):
-            x_t_in     = c_in · x_t
-            timestep   = c_noise = 0.25 · log(σ)
-            net_out    = transformer(x_t_in, timestep, cond)
-            x0_pred    = c_skip · x_t + c_out · net_out
+        Verified against `Cosmos2_5_PredictBasePipeline.__call__`: the transformer
+        receives RAW x_t (no preconditioning), the per-frame timestep IS the flow
+        sigma in [0, 1], and the output is the flow velocity v = eps - x0.
         """
-        b = x_t.shape[0]
-        c_skip, c_out, c_in, c_noise = edm_scaling(sigma, self.edm.sigma_data)
-        view_shape = (b,) + (1,) * (x_t.dim() - 1)
-        c_skip_v = c_skip.view(*view_shape).to(x_t.dtype)
-        c_out_v = c_out.view(*view_shape).to(x_t.dtype)
-        c_in_v = c_in.view(*view_shape).to(x_t.dtype)
-        c_noise_v = c_noise.to(x_t.dtype)
-
-        net_out = self.adapter(
+        return self.adapter(
             self.transformer,
-            x_t * c_in_v,
-            c_noise_v,
+            x_t,
+            sigma.to(x_t.dtype),
             cond.crossattn_emb,
             cond.padding_mask,
+            condition_mask=condition_mask,
         )
-        return c_skip_v * x_t + c_out_v * net_out
 
     def compute_loss(
         self,
@@ -331,34 +300,37 @@ class CosmosWorldActionPolicy(nn.Module):
         action_chunk: torch.Tensor,                  # (B, chunk_size, action_dim)
         goal_vec: torch.Tensor,                      # (B, goal_dim)
         value_target: Optional[torch.Tensor] = None, # (B,)
+        sigma: Optional[torch.Tensor] = None,        # (B,) fixed sigmas (validation); None = sample
     ) -> LossOutputs:
-        """Joint EDM x0-prediction loss decomposed by latent-sequence component.
+        """Joint flow-matching velocity loss decomposed by latent-sequence component.
 
-        Pipeline (Karras 2022 + cosmos-policy `compute_loss_with_epsilon_and_sigma`):
-          1. Sample σ from log-normal `N(p_mean, p_std)`, then apply
-             `BALANCED_TWO_HEADS_V1` if enabled (forces some samples to σ extremes).
-          2. Form `x_t = x0 + σ · ε`.
-          3. Run backbone under EDM preconditioning → `x0_pred`.
-          4. Per-σ-weighted squared error `(x0 - x0_pred)² · w(σ)`.
-          5. Split by latent-sequence position → world / action / value components.
+        Matches the 2.5 checkpoint's pretraining convention exactly:
+          1. Sample sigma in [0, 1] (logit-normal + balanced two-heads tails).
+          2. x_t = (1 - sigma) * x0 + sigma * eps; v_target = eps - x0.
+          3. Run the backbone raw (no preconditioning); it predicts the velocity.
+          4. Squared error, split by latent position -> world / action / value.
 
         Returns `LossOutputs(total, world, action, value)` with components on a
-        comparable scale (per-element means) so `λ` weights are intuitive.
+        comparable scale (per-element means) so the lambda weights are intuitive.
         """
         x0 = self.build_training_latents(image_latent, action_chunk, value_target)
         cond = self.conditioner({"goal_vec": goal_vec})
 
         b = x0.shape[0]
-        sigma = sample_sigma(b, self.edm, device=x0.device).to(x0.dtype)   # (B,)
+        if sigma is None:
+            sigma = sample_flow_sigma(b, self.flow, device=x0.device)   # (B,) in [0, 1]
+        sigma = sigma.to(device=x0.device, dtype=x0.dtype)
         epsilon = torch.randn_like(x0)
         view_shape = (b,) + (1,) * (x0.dim() - 1)
         sigma_v = sigma.view(*view_shape)
 
-        x_t = x0 + sigma_v * epsilon
-        x0_pred = self._backbone_x0_pred(x_t, sigma, cond)
+        # Flow-matching forward process (the 2.5 checkpoint's native convention):
+        #   x_t = (1 - sigma) * x0 + sigma * eps,  v_target = eps - x0
+        x_t = (1.0 - sigma_v) * x0 + sigma_v * epsilon
+        v_target = epsilon - x0
+        v_pred = self._backbone_velocity(x_t, sigma, cond)
 
-        weights = per_sigma_weight(sigma, self.edm.sigma_data, scaling="edm").to(x0.dtype)
-        sq = ((x0_pred - x0) ** 2) * weights.view(*view_shape)              # (B, C, T_total, H, W)
+        sq = (v_pred - v_target) ** 2                                       # (B, C, T_total, H, W)
 
         t_img = image_latent.shape[2]
         a_idx = self.action_latent_idx(t_img)
@@ -390,11 +362,11 @@ class CosmosWorldActionPolicy(nn.Module):
         n_steps: int = 32,
         denormalize: bool = True,
     ) -> PolicyOutputs:
-        """EDM sampling with the Karras 2022 σ schedule + Euler step.
+        """Flow-matching Euler sampling over sigmas 1 -> 0 (the 2.5 native convention).
 
-        Initialize with noise at σ_max, denoise step-by-step down to σ_min, pin
-        the image-conditioning frames at every step. The action + value latent
-        positions are sampled by the diffusion process.
+        Conditioning (image) frames are passed clean with timestep = cond_timestep
+        and condition_mask = 1, exactly like `Cosmos2_5_PredictBasePipeline`; the
+        action + value latent positions are denoised by the flow.
 
         `denormalize=True` (default) returns the action chunk in physical units
         (metres / radians) by multiplying through `self.action_scale` — the same
@@ -407,21 +379,24 @@ class CosmosWorldActionPolicy(nn.Module):
         t_total = t_img + n_extra
         cond = self.conditioner({"goal_vec": goal_vec})
 
-        sigmas = karras_sigma_schedule(n_steps, self.edm, device=image_latent.device)
-        # Start from pure noise at σ_max
+        sigmas = flow_sigma_schedule(n_steps, device=image_latent.device)
+        # Start from pure noise (sigma = 1 in flow space)
         x = torch.randn(b, c, t_total, h, w, dtype=image_latent.dtype, device=image_latent.device)
-        x = x * sigmas[0].to(x.dtype)
-        x[:, :, :t_img] = image_latent                          # pin conditioning frames
 
-        view_shape = (b,) + (1,) * (x.dim() - 1)
+        # Pipeline conventions for pinned conditioning frames: they enter the
+        # transformer CLEAN, with condition_mask = 1 and timestep = cond_timestep.
+        cond_mask = x.new_zeros(b, 1, t_total, h, w)
+        cond_mask[:, :, :t_img] = 1.0
         for i in range(n_steps):
-            sigma_i = sigmas[i].to(x.dtype).expand(b)
-            sigma_next = sigmas[i + 1].to(x.dtype).expand(b)
-            x0_pred = self._backbone_x0_pred(x, sigma_i, cond)
-            # Euler step: d = (x - x0_pred) / σ; x_next = x + (σ_next - σ) · d
-            d = (x - x0_pred) / sigma_i.view(*view_shape).clamp_min(1e-8)
-            x = x + (sigma_next - sigma_i).view(*view_shape) * d
-            x[:, :, :t_img] = image_latent                      # re-pin image frames each step
+            sigma_i = float(sigmas[i])
+            sigma_next = float(sigmas[i + 1])
+            in_x = x.clone()
+            in_x[:, :, :t_img] = image_latent                   # conditioning frames are clean
+            t_frames = x.new_full((b, t_total), sigma_i)
+            t_frames[:, :t_img] = self.flow.cond_timestep
+            v_pred = self._backbone_velocity(in_x, t_frames, cond, condition_mask=cond_mask)
+            x = x + (sigma_next - sigma_i) * v_pred             # Euler step over flow sigmas
+            x[:, :, :t_img] = image_latent                      # re-pin
 
         a_idx = self.action_latent_idx(t_img)
         pred_action = extract_action_chunk(
