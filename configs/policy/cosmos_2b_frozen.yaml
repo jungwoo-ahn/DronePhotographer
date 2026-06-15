@@ -11,7 +11,7 @@ backbone:
   dtype: bfloat16
   freeze_backbone: true      # 1-GPU run — only conditioner trains (~3.6M params)
   gradient_checkpointing: false   # not needed when backbone is frozen
-  n_goal_tokens: 4
+  n_goal_tokens: 16            # 4 → 16 (goal attention mass 8.5% → 27%, 3.2x learning signal)
 
 conditioner:
   anchor_path: assets/text_anchor.pt
