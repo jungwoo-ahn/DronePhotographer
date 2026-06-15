@@ -109,9 +109,15 @@ class ShotProfileVectorConditioner(nn.Module):
         self.register_buffer("anchor_emb", anchor_embedding.to(torch.float32))
         self.register_buffer("anchor_mask", anchor_padding_mask.to(torch.bool))
 
-        # Trainable: goal projection + zero-init gate.
+        # Trainable: goal projection + small-init gate.
         self.goal_proj = nn.Linear(goal_dim, n_tokens * model_dim)
-        self.gate = nn.Parameter(torch.zeros(1))
+        # Initialize gate at 0.1 instead of 0 to bypass the chicken-and-egg
+        # bootstrap. With Qwen2.5-VL anchor (100,352-dim cross-attn) the
+        # ControlNet-style zero-init keeps `gate × goal_tokens` so small that
+        # `∂loss/∂goal_proj.weight ≈ 0` for thousands of iterations. Starting
+        # at 0.1 means the conditioner output deviates from the anchor by ~3.5%
+        # per dim from step 1, so goal_proj sees real gradient immediately.
+        self.gate = nn.Parameter(torch.full((1,), 0.1))
 
     def forward(
         self,
