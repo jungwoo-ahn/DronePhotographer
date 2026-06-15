@@ -103,6 +103,34 @@ class CosmosPolicyTrainer:
         sched = torch.optim.lr_scheduler.LambdaLR(opt, lr_lambda)
         return opt, sched
 
+    # ------------------------------------------------------------------
+    # Lightweight monitoring helpers (TB rich-viz)
+    # ------------------------------------------------------------------
+
+    def _grad_norm(self) -> float:
+        """L2 norm of grads on trainable params. Call BEFORE `opt.zero_grad()`."""
+        total_sq = 0.0
+        for p in self.policy.parameters():
+            if p.requires_grad and p.grad is not None:
+                total_sq += float(p.grad.detach().pow(2).sum().item())
+        return total_sq ** 0.5
+
+    def _gate_value(self) -> float:
+        """`ShotProfileVectorConditioner.gate` scalar — ramps from 0; tracks
+        how strongly the conditioner injects the goal signal."""
+        try:
+            return float(self.policy.conditioner.gate.detach().item())
+        except (AttributeError, RuntimeError):
+            return float("nan")
+
+    def _backbone_frozen(self) -> bool:
+        """True iff none of the `transformer.*` params trains. Used to drop
+        backbone state from the checkpoint when there's nothing to learn."""
+        for n, p in self.policy.named_parameters():
+            if n.startswith("transformer.") and p.requires_grad:
+                return False
+        return True
+
     def fit(self, dataloader_train: DataLoader, dataloader_val: Optional[DataLoader] = None) -> None:
         cfg = self.config
         self.policy.to(self.device)
@@ -178,6 +206,9 @@ class CosmosPolicyTrainer:
                 cur = float(loss_out.total.detach())
                 loss_ema = cur if loss_ema is None else cfg.best_ema_beta * loss_ema + (1 - cfg.best_ema_beta) * cur
                 if accum >= cfg.grad_accum:
+                    # Snapshot the gradient norm BEFORE `opt.zero_grad`, otherwise
+                    # there is nothing left to measure.
+                    grad_norm = self._grad_norm()
                     if scaler is not None:
                         scaler.step(opt)
                         scaler.update()
@@ -194,6 +225,8 @@ class CosmosPolicyTrainer:
                             tb.add_scalar(f"loss/{k}", v, iteration)
                         tb.add_scalar("lr", sched.get_last_lr()[0], iteration)
                         tb.add_scalar("loss/total_ema", loss_ema, iteration)
+                        tb.add_scalar("train/grad_norm", grad_norm, iteration)
+                        tb.add_scalar("train/gate", self._gate_value(), iteration)
 
                     if iteration % cfg.log_iter == 0 and self.is_main:
                         dt = time.time() - last_log
@@ -300,12 +333,27 @@ class CosmosPolicyTrainer:
         return metrics
 
     def save_checkpoint(self, iteration: int, name: Optional[str] = None) -> Path:
+        """Save a checkpoint. Always drops the frozen text anchor buffers
+        (`conditioner.anchor_*`, ~100 MB with Qwen) — those are deterministic
+        from the prompt and live on disk at `assets/text_anchor.pt`, so
+        re-serializing them every save is wasteful. If the backbone is also
+        frozen its weights are dropped too (it lives in the HF cache). Full-
+        finetune runs keep the backbone.
+        """
         path = self.run_dir / (name or f"ckpt_iter{iteration:07d}.pt")
+        sd = self.policy.state_dict()
+        backbone_frozen = self._backbone_frozen()
+        SKIP_PREFIXES = ("conditioner.anchor_emb", "conditioner.anchor_mask")
+        if backbone_frozen:
+            SKIP_PREFIXES = SKIP_PREFIXES + ("transformer.",)
+        sd = {k: v for k, v in sd.items() if not k.startswith(SKIP_PREFIXES)}
         torch.save(
             {
                 "iteration": iteration,
-                "policy_state": self.policy.state_dict(),
+                "policy_state": sd,
                 "config": self.config.__dict__,
+                "backbone_in_state": not backbone_frozen,
+                "anchor_in_state": False,
             },
             path,
         )

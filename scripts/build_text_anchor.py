@@ -53,8 +53,19 @@ def main() -> None:
 
     from transformers import AutoTokenizer, Qwen2_5_VLForConditionalGeneration
 
+    # `AutoTokenizer.from_pretrained(..., subfolder='tokenizer', revision=...)`
+    # probes `tokenizer/config.json`, which doesn't exist in this repo and
+    # returns 403 (gated metadata path). Use snapshot_download to grab just the
+    # tokenizer files we know are present, then load from the local snapshot.
+    from huggingface_hub import snapshot_download
+    import os
+    print(f"fetching tokenizer files from {args.repo_id} ({args.revision}) ...")
+    snap = snapshot_download(
+        args.repo_id, revision=args.revision, allow_patterns=["tokenizer/*"],
+    )
+    tokenizer = AutoTokenizer.from_pretrained(os.path.join(snap, "tokenizer"))
+
     print(f"loading text encoder from {args.repo_id} ({args.revision}) ...")
-    tokenizer = AutoTokenizer.from_pretrained(args.repo_id, subfolder="tokenizer", revision=args.revision)
     encoder = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         args.repo_id, subfolder="text_encoder", revision=args.revision, torch_dtype=dtype,
     ).to(args.device).eval()
