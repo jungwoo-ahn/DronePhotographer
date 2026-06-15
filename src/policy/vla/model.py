@@ -73,9 +73,13 @@ class VLAActionPolicy(nn.Module):
         freeze_backbone: bool = False,
         flow_config: FlowConfig | None = None,
         action_scale=None,
+        processor=None,
+        prompt: str = "Describe the camera framing of the subject.",
     ) -> None:
         super().__init__()
         self.backbone = backbone
+        self.processor = processor          # Qwen3VLProcessor (real path); None for mock tests
+        self.prompt = prompt
         if ctx_dim is None:
             cfg = getattr(backbone, "config", None)
             tcfg = getattr(cfg, "text_config", cfg)
@@ -103,6 +107,30 @@ class VLAActionPolicy(nn.Module):
         if freeze_backbone:
             for p in self.backbone.parameters():
                 p.requires_grad_(False)
+
+    def prepare_inputs(self, batch: dict, device, dtype) -> tuple[dict, torch.Tensor, torch.Tensor]:
+        """Build (vlm_inputs, goal_vec, action_chunk) from a dataloader batch.
+
+        Runs the Qwen3-VL processor on the [-1,1] CHW images (a fixed text prompt
+        per sample; the goal enters separately as soft tokens, not as text). The
+        mock tests bypass this and call `compute_loss` with hand-built tensors.
+        """
+        from PIL import Image
+        import numpy as np
+
+        imgs = batch["state_image"]                       # (B, 3, H, W) in [-1, 1]
+        pil = []
+        for im in imgs:
+            arr = ((im.float().permute(1, 2, 0) * 0.5 + 0.5).clamp(0, 1) * 255).to(torch.uint8).cpu().numpy()
+            pil.append(Image.fromarray(arr))
+        b = len(pil)
+        messages = [[{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": self.prompt}]}]] * b
+        text = [self.processor.apply_chat_template(m, add_generation_prompt=True, tokenize=False) for m in messages]
+        proc = self.processor(text=text, images=pil, return_tensors="pt", padding=True)
+        vlm_inputs = {k: (v.to(device) if hasattr(v, "to") else v) for k, v in proc.items()}
+        goal = batch["goal_vec"].to(device, dtype)
+        action = batch["action_chunk"].to(device, dtype)
+        return vlm_inputs, goal, action
 
     def forward_context(self, vlm_inputs: dict, goal_vec: torch.Tensor) -> torch.Tensor:
         """Run the VLM and append goal tokens → context (B, L + n_goal_tokens, D)."""

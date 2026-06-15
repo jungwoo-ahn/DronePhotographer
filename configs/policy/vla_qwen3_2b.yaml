@@ -1,0 +1,61 @@
+# π0-style VLA ablation baseline (issue #22): "ours without the world model".
+# Same v7 data / goal space / 5D action / flow convention / eval as the Cosmos
+# policy — only the world model is removed (VLM predicts the action directly).
+
+backbone:
+  repo_id: Qwen/Qwen3-VL-2B-Instruct
+  dtype: bfloat16
+  freeze_backbone: false        # full finetune, matching our Cosmos run
+  gradient_checkpointing: true
+  n_goal_tokens: 4
+  prompt: "Describe the camera framing of the subject."
+
+expert:
+  dim: 512
+  depth: 6
+  heads: 8
+
+data:
+  annotation_roots:
+    - data/trajectories_full     # symlink -> full v7 set (same as cosmos)
+  chunk_size: 8
+  stride: 1
+  max_samples: null
+  target_resolution: [480, 720]
+  goal_score_keys:
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+flow:
+  p_mean: 0.0
+  p_std: 1.0
+  use_balanced_two_heads: true
+  high_sigma_ratio: 0.25
+  low_sigma_ratio: 0.25
+
+trainer:
+  output_root: runs
+  run_name: vla_qwen3_2b
+  max_iter: 50000
+  batch_size: 1
+  grad_accum: 8
+  learning_rate: 1.0e-5
+  weight_decay: 0.0
+  warmup_iter: 1000
+  save_iter: 2000
+  log_iter: 100
+  seed: 0
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: 4
+  pin_memory: true
+  shuffle: true
+  drop_last: true
