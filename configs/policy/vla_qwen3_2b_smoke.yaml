@@ -49,13 +49,13 @@ trainer:
   weight_decay: 0.0
   warmup_iter: 20
   save_iter: 100
-  log_iter: 100
+  log_iter: 20
   seed: 0
   device: cuda
   dtype: bfloat16
 
 dataloader:
-  num_workers: 4
+  num_workers: 2
   pin_memory: true
   shuffle: true
   drop_last: true
