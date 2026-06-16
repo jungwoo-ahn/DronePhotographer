@@ -32,6 +32,14 @@ data:
     - bbox_x_offset
     - bbox_y_offset
 
+  # Held-out val: same scene-level manifest as the Cosmos policy.
+  val_split_level: scene
+  val_names: configs/policy/val_scenes.txt
+  val_stride: 4
+  val_max_samples: 64
+  val_iter: 60
+  val_sample_steps: 10
+
 flow:
   p_mean: 0.0
   p_std: 1.0

@@ -115,18 +115,9 @@ class VLAActionPolicy(nn.Module):
         per sample; the goal enters separately as soft tokens, not as text). The
         mock tests bypass this and call `compute_loss` with hand-built tensors.
         """
-        from PIL import Image
-        import numpy as np
+        from src.policy.vla.dataset import build_vlm_inputs
 
-        imgs = batch["state_image"]                       # (B, 3, H, W) in [-1, 1]
-        pil = []
-        for im in imgs:
-            arr = ((im.float().permute(1, 2, 0) * 0.5 + 0.5).clamp(0, 1) * 255).to(torch.uint8).cpu().numpy()
-            pil.append(Image.fromarray(arr))
-        b = len(pil)
-        messages = [[{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": self.prompt}]}]] * b
-        text = [self.processor.apply_chat_template(m, add_generation_prompt=True, tokenize=False) for m in messages]
-        proc = self.processor(text=text, images=pil, return_tensors="pt", padding=True)
+        proc = build_vlm_inputs(self.processor, self.prompt, batch["state_image"])
         vlm_inputs = {k: (v.to(device) if hasattr(v, "to") else v) for k, v in proc.items()}
         goal = batch["goal_vec"].to(device, dtype)
         action = batch["action_chunk"].to(device, dtype)
@@ -141,12 +132,19 @@ class VLAActionPolicy(nn.Module):
         goal_tok = self.goal_norm(goal_tok).to(h.dtype)
         return torch.cat([h, goal_tok], dim=1)
 
-    def compute_loss(self, vlm_inputs: dict, goal_vec: torch.Tensor, action_chunk: torch.Tensor) -> VLALossOutputs:
-        """Flow-matching velocity MSE on the action chunk (a0 = ground-truth chunk)."""
+    def compute_loss(self, vlm_inputs: dict, goal_vec: torch.Tensor, action_chunk: torch.Tensor,
+                     sigma: Optional[torch.Tensor] = None) -> VLALossOutputs:
+        """Flow-matching velocity MSE on the action chunk (a0 = ground-truth chunk).
+
+        `sigma` (B,) overrides the random draw — validation passes a fixed grid so
+        the metric is comparable across checkpoints.
+        """
         ctx = self.forward_context(vlm_inputs, goal_vec)
         a0 = action_chunk
         b = a0.shape[0]
-        sigma = sample_flow_sigma(b, self.flow, device=a0.device).to(a0.dtype)
+        if sigma is None:
+            sigma = sample_flow_sigma(b, self.flow, device=a0.device)
+        sigma = sigma.to(a0.dtype)
         eps = torch.randn_like(a0)
         s = sigma[:, None, None]
         a_sigma = (1.0 - s) * a0 + s * eps

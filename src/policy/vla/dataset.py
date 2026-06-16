@@ -40,6 +40,48 @@ def _load_image_as_tensor(image_path: Path, target_resolution: tuple[int, int]) 
     return torch.from_numpy(arr).permute(2, 0, 1).contiguous()
 
 
+def build_vlm_inputs(processor, prompt: str, images: torch.Tensor) -> dict:
+    """Run the Qwen3-VL processor on a batch of [-1,1] CHW images + a fixed prompt.
+
+    Shared by the training collate (runs in dataloader workers → overlaps GPU
+    compute, the fix for the ~50% idle util) and by eval (single image). The goal
+    enters separately as soft tokens, so the text is a fixed prompt, not the goal.
+    """
+    from PIL import Image
+
+    pil = []
+    for im in images:
+        arr = ((im.float().permute(1, 2, 0) * 0.5 + 0.5).clamp(0, 1) * 255).to(torch.uint8).cpu().numpy()
+        pil.append(Image.fromarray(arr))
+    messages = [[{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": prompt}]}]] * len(pil)
+    text = [processor.apply_chat_template(m, add_generation_prompt=True, tokenize=False) for m in messages]
+    proc = processor(text=text, images=pil, return_tensors="pt", padding=True)
+    return dict(proc)
+
+
+class VLACollate:
+    """Picklable collate_fn that does Qwen preprocessing in the dataloader worker.
+
+    Bound with the processor + prompt; the DataLoader pickles it to each worker,
+    so the (CPU-heavy) image processing overlaps GPU compute instead of
+    serializing in the training loop. Returns the model-ready batch.
+    """
+
+    def __init__(self, processor, prompt: str) -> None:
+        self.processor = processor
+        self.prompt = prompt
+
+    def __call__(self, samples: list[dict]) -> dict:
+        images = torch.stack([s["state_image"] for s in samples])
+        vlm_inputs = build_vlm_inputs(self.processor, self.prompt, images)
+        return {
+            "vlm_inputs": vlm_inputs,
+            "goal_vec": torch.stack([s["goal_vec"] for s in samples]),
+            "action_chunk": torch.stack([s["action_chunk"] for s in samples]),
+            "meta": [s["meta"] for s in samples],
+        }
+
+
 class VLADroneDataset(Dataset):
     def __init__(
         self,
@@ -109,4 +151,4 @@ class VLADroneDataset(Dataset):
         }
 
 
-__all__ = ["VLADroneDataset"]
+__all__ = ["VLADroneDataset", "VLACollate", "build_vlm_inputs"]

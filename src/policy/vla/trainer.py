@@ -50,6 +50,10 @@ class VLATrainerConfig:
     device: str = "cuda"
     dtype: str = "bfloat16"
     best_ema_beta: float = 0.98
+    # Validation (rank 0). 0 = off. ckpt_best is selected by val action MSE when
+    # a val loader is given, else by training-loss EMA.
+    val_iter: int = 0
+    val_sample_steps: int = 10
 
 
 class VLATrainer:
@@ -83,7 +87,14 @@ class VLATrainer:
         sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda step: min(1.0, step / warmup))
         return opt, sched
 
-    def fit(self, dataloader_train: DataLoader) -> None:
+    def _batch_to_device(self, batch: dict):
+        """Move a VLACollate batch (vlm_inputs dict + goal + action) to device."""
+        vlm = {k: (v.to(self.device) if hasattr(v, "to") else v) for k, v in batch["vlm_inputs"].items()}
+        goal = batch["goal_vec"].to(self.device, self.dtype)
+        action = batch["action_chunk"].to(self.device, self.dtype)
+        return vlm, goal, action
+
+    def fit(self, dataloader_train: DataLoader, dataloader_val: Optional[DataLoader] = None) -> None:
         cfg = self.config
         self.policy.to(self.device)
         loss_module: nn.Module = _LossForward(self.policy)
@@ -106,7 +117,8 @@ class VLATrainer:
         opt.zero_grad(set_to_none=True)
         last_log = time.time()
         loss_ema: Optional[float] = None
-        best_ema = float("inf")
+        best_metric = float("inf")          # val action MSE if val present, else loss EMA
+        have_val = dataloader_val is not None
 
         while iteration < cfg.max_iter:
             if isinstance(getattr(dataloader_train, "sampler", None), DistributedSampler):
@@ -115,7 +127,7 @@ class VLATrainer:
             for batch in dataloader_train:
                 if iteration >= cfg.max_iter:
                     break
-                vlm_inputs, goal, action_chunk = self.policy.prepare_inputs(batch, self.device, self.dtype)
+                vlm_inputs, goal, action_chunk = self._batch_to_device(batch)
 
                 is_sync = accum + 1 >= cfg.grad_accum
                 sync_ctx = (loss_module.no_sync() if self.distributed and not is_sync else contextlib.nullcontext())
@@ -144,12 +156,25 @@ class VLATrainer:
                         last_log = time.time()
                         line = (f"iter={iteration} total={cur:.4f} ema={loss_ema:.4f} "
                                 f"lr={sched.get_last_lr()[0]:.2e} {cfg.log_iter/dt:.2f}it/s")
-                        print(line); log_f.write(line + "\n"); log_f.flush()
+                        print(line, flush=True); log_f.write(line + "\n"); log_f.flush()
+
+                    metric = loss_ema
+                    if have_val and cfg.val_iter and iteration % cfg.val_iter == 0 and self.is_main:
+                        vmetrics = self.validate(dataloader_val, iteration, tb)
+                        metric = vmetrics["val/action_mse"]
+                        line = "iter=%d VAL " % iteration + " ".join(
+                            f"{k.removeprefix('val/')}={v:.4f}" for k, v in vmetrics.items())
+                        print(line, flush=True); log_f.write(line + "\n"); log_f.flush()
+
                     if iteration % cfg.save_iter == 0 and self.is_main:
                         self.save_checkpoint(iteration, "ckpt_last.pt")
-                        if loss_ema is not None and loss_ema < best_ema:
-                            best_ema = loss_ema
+                        # When validating, only update best on a val step (metric is fresh).
+                        fresh = (not have_val) or (cfg.val_iter and iteration % cfg.val_iter == 0)
+                        if fresh and metric is not None and metric < best_metric:
+                            best_metric = metric
                             self.save_checkpoint(iteration, "ckpt_best.pt")
+                            log_f.write(f"iter={iteration} new best ({'val_action_mse' if have_val else 'loss_ema'}={metric:.4f})\n")
+                            log_f.flush()
 
         if self.is_main:
             self.save_checkpoint(iteration, "ckpt_last.pt")
@@ -158,6 +183,35 @@ class VLATrainer:
                 tb.close()
         if self.distributed:
             dist.barrier()
+
+    # Fixed sigma grid for the val flow loss (random per-batch training sigma is
+    # high-variance); fixed noise seed → curves comparable across checkpoints.
+    VAL_SIGMA_GRID = (0.1, 0.3, 0.5, 0.7, 0.9)
+
+    @torch.no_grad()
+    def validate(self, dataloader_val: DataLoader, iteration: int, tb=None) -> dict:
+        cfg = self.config
+        self.policy.eval()
+        torch.manual_seed(cfg.seed + 7777)
+        sigma_losses = {s: [] for s in self.VAL_SIGMA_GRID}
+        action_mse = []
+        for batch in dataloader_val:
+            vlm, goal, action = self._batch_to_device(batch)
+            b = action.shape[0]
+            with torch.amp.autocast(self.device.type, dtype=self.dtype):
+                for s in self.VAL_SIGMA_GRID:
+                    out = self.policy.compute_loss(vlm, goal, action, sigma=torch.full((b,), s, device=self.device))
+                    sigma_losses[s].append(float(out.total))
+                pred = self.policy.sample(vlm, goal, n_steps=cfg.val_sample_steps, denormalize=False)
+            action_mse.append(float(((pred.pred_action_chunk.float() - action.float()) ** 2).mean()))
+        metrics = {f"val/flow_loss_sigma_{s}": sum(v) / len(v) for s, v in sigma_losses.items() if v}
+        metrics["val/flow_loss_mean"] = sum(metrics.values()) / len(metrics) if metrics else float("nan")
+        metrics["val/action_mse"] = sum(action_mse) / len(action_mse) if action_mse else float("nan")
+        if tb is not None:
+            for k, v in metrics.items():
+                tb.add_scalar(k, v, iteration)
+        self.policy.train()
+        return metrics
 
     def save_checkpoint(self, iteration: int, name: str) -> Path:
         path = self.run_dir / name

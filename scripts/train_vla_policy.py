@@ -12,7 +12,7 @@ import yaml
 from torch.utils.data import DataLoader
 
 from src.policy.common.flow import FlowConfig
-from src.policy.vla.dataset import VLADroneDataset
+from src.policy.vla.dataset import VLACollate, VLADroneDataset
 from src.policy.vla.model import VLAActionPolicy
 from src.policy.vla.trainer import VLATrainer, VLATrainerConfig
 
@@ -59,16 +59,44 @@ def main() -> None:
         prompt=cfg["backbone"].get("prompt", "Describe the camera framing of the subject."),
     )
 
-    dataset = VLADroneDataset(
-        cfg["data"]["annotation_roots"],
+    # Held-out validation split — same scene-level manifest the Cosmos policy
+    # uses (configs/policy/val_scenes.txt), so the two are directly comparable
+    # and neither trains on the val scenes.
+    val_split_level = cfg["data"].get("val_split_level", "scene")
+    val_pair_stride = int(cfg["data"].get("val_pair_stride", 0))
+    val_names = cfg["data"].get("val_names")
+    if isinstance(val_names, str):
+        val_names = [ln.strip() for ln in Path(val_names).read_text().splitlines()
+                     if ln.strip() and not ln.strip().startswith("#")]
+
+    common = dict(
         goal_score_keys=cfg["data"]["goal_score_keys"],
         chunk_size=cfg["data"]["chunk_size"],
-        stride=cfg["data"].get("stride", 1),
-        max_samples=cfg["data"].get("max_samples"),
         target_resolution=tuple(cfg["data"]["target_resolution"]),
+        val_pair_stride=val_pair_stride,
+        val_split_level=val_split_level,
+        val_names=val_names,
     )
-    print(f"dataset size: {len(dataset)}")
+    dataset = VLADroneDataset(
+        cfg["data"]["annotation_roots"], stride=cfg["data"].get("stride", 1),
+        max_samples=cfg["data"].get("max_samples"),
+        goal_sampling=cfg["data"].get("goal_sampling", "uniform_future"),
+        split="train", **common,
+    )
+    val_dataset = None
+    if val_pair_stride > 0 or val_names:
+        val_dataset = VLADroneDataset(
+            cfg["data"]["annotation_roots"], stride=cfg["data"].get("val_stride", 4),
+            goal_sampling="end", split="val", **common,
+        )
+        val_max = int(cfg["data"].get("val_max_samples", 64))
+        if val_max and len(val_dataset) > val_max:
+            from torch.utils.data import Subset
+            idx = sorted({round(i * (len(val_dataset) - 1) / (val_max - 1)) for i in range(val_max)})
+            val_dataset = Subset(val_dataset, idx)
+    print(f"dataset size: {len(dataset)}" + (f" | val: {len(val_dataset)}" if val_dataset is not None else ""))
 
+    collate = VLACollate(processor, cfg["backbone"].get("prompt", "Describe the camera framing of the subject."))
     loader = DataLoader(
         dataset,
         batch_size=cfg["trainer"]["batch_size"],
@@ -76,6 +104,12 @@ def main() -> None:
         pin_memory=cfg["dataloader"]["pin_memory"],
         shuffle=cfg["dataloader"]["shuffle"],
         drop_last=cfg["dataloader"]["drop_last"],
+        collate_fn=collate,
+        persistent_workers=cfg["dataloader"]["num_workers"] > 0,
+    )
+    val_loader = (
+        DataLoader(val_dataset, batch_size=cfg["trainer"]["batch_size"], num_workers=2, collate_fn=collate)
+        if val_dataset is not None else None
     )
 
     tcfg = VLATrainerConfig(
@@ -92,10 +126,12 @@ def main() -> None:
         seed=cfg["trainer"]["seed"],
         device=cfg["trainer"]["device"],
         dtype=cfg["trainer"]["dtype"],
+        val_iter=int(cfg["data"].get("val_iter", 0)),
+        val_sample_steps=int(cfg["data"].get("val_sample_steps", 10)),
     )
     trainer = VLATrainer(policy, tcfg)
     (trainer.run_dir / "config.yaml").write_text(yaml.safe_dump(cfg))
-    trainer.fit(loader)
+    trainer.fit(loader, val_loader)
 
 
 if __name__ == "__main__":
