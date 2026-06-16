@@ -1,0 +1,62 @@
+# Diffusion Policy ablation baseline (issue #22): "ours without the world model".
+# Frozen DINOv2-large encoder + conditional 1D U-Net DDPM action head. Same v7
+# data / goal space / 5D action / held-out val / eval as the Cosmos policy — the
+# world model is removed and the backbone is a frozen vision encoder (no VLM).
+
+backbone:
+  repo_id: facebook/dinov2-large
+  dtype: bfloat16
+  freeze_backbone: true         # canonical Diffusion Policy: frozen pretrained encoder
+
+model:
+  goal_embed_dim: 128
+  down_dims: [128, 256, 512]
+  diffusion_step_embed_dim: 128
+  num_train_timesteps: 100
+  beta_schedule: squaredcos_cap_v2
+
+data:
+  annotation_roots:
+    - data/trajectories_full     # symlink -> full v7 set (same as cosmos/vla)
+  chunk_size: 8
+  stride: 1
+  max_samples: null
+  target_resolution: [480, 720]  # DINOv2 processor re-crops to its own size
+  goal_score_keys:
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+  # Held-out val: same scene-level manifest as the Cosmos / VLA policies.
+  val_split_level: scene
+  val_names: configs/policy/val_scenes.txt
+  val_stride: 4
+  val_max_samples: 64
+  val_iter: 500
+  val_sample_steps: 16
+
+trainer:
+  output_root: runs
+  run_name: diffusion_policy_dinov2
+  max_iter: 50000
+  batch_size: 64                 # frozen backbone + tiny head -> large batch fits
+  grad_accum: 1
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-6
+  warmup_iter: 500
+  save_iter: 2000
+  log_iter: 100
+  seed: 0
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: 8
+  pin_memory: true
+  shuffle: true
+  drop_last: true
