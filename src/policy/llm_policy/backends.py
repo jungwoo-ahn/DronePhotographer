@@ -98,11 +98,12 @@ class OpenAIBackend(VLMBackend):
 
         from openai import OpenAI
 
-        api_key = os.environ.get(self.cfg.get("api_key_env", "LETSUR_API_KEY"))
+        key_env = self.cfg.get("api_key_env", "GATEWAY_API_KEY")
+        api_key = os.environ.get(key_env)
         if not api_key:
             raise RuntimeError(
-                f"API key env '{self.cfg.get('api_key_env', 'LETSUR_API_KEY')}' is not set. "
-                "Export it before running the API backend."
+                f"API key env '{key_env}' is not set. Export it before running the API backend "
+                "(LetSur gateway: GATEWAY_API_KEY, base_url https://gw.letsur.ai/v1)."
             )
         client = OpenAI(base_url=self.cfg["api_base"], api_key=api_key)
         content = [{"type": "text", "text": user}]

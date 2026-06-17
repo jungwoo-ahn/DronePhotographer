@@ -1,6 +1,6 @@
 # LLM Policy baseline (issue #22) — VLM-as-policy, Photo Agent style (training-free).
-# Default backend is the local Qwen3-VL-2B placeholder (free). For final runs,
-# switch `backend: api` (OpenAI-compatible, e.g. LETSUR) — see the commented block.
+# Default backend is the local Qwen3-VL-2B placeholder (free). For final runs use the
+# API backend — see configs/policy/llm_policy_api.yaml (LetSur gateway, gemini-2.5-flash).
 
 backend: qwen_local
 
@@ -15,14 +15,5 @@ policy:
   max_translation_m: 3.0
   max_angle_deg: 60.0
 
-# --- Final-run API backend (uncomment and set `backend: api` above) ---
-# Keep `model` CHEAP (e.g. a Flash-tier model). Do NOT silently use a
-# premium/preview model — see the project cost note.
-# api:
-#   api_base: https://api.letsur.ai/v1     # or any OpenAI-compatible endpoint
-#   model: gemini-2.0-flash                # cheap tier
-#   api_key_env: LETSUR_API_KEY            # exported in the shell, not committed
-#   max_tokens: 512
-#   temperature: 0.2
-#   retry_attempts: 3
-#   retry_delay_seconds: 2
+# For the final-run API backend, use configs/policy/llm_policy_api.yaml
+# (LetSur gateway: base_url https://gw.letsur.ai/v1, GATEWAY_API_KEY, gemini-2.5-flash).
