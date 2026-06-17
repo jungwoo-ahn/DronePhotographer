@@ -151,6 +151,39 @@ class BlenderRolloutEnv:
         self.forward: Optional[np.ndarray] = None
         self.up: Optional[np.ndarray] = None
         self.t = 0
+        self.sample = None            # set by from_validation_sample
+        self._owns_run_info = False   # whether to clean up a temp run_info on close
+
+    @classmethod
+    def from_validation_sample(cls, sample, renderer: Renderer, *,
+                               run_info_path: Optional[str] = None) -> "BlenderRolloutEnv":
+        """Set up the env for a `ValidationSample` (issue #23 points 1-2).
+
+        Writes the sample's (extended) run_info — `scene_scale` + object transform +
+        intrinsics — so the setup-aware renderer reconstructs the exact scene/object,
+        and primes `object_position` (subject center) for the pose proxy. Use
+        `reset_to_start(pair_idx)` to begin at a recorded start pose.
+        """
+        import os
+        import tempfile
+
+        owns = run_info_path is None
+        if owns:
+            fd, run_info_path = tempfile.mkstemp(suffix="_run_info.json",
+                                                 prefix=f"{sample.placement}_")
+            os.close(fd)
+        Path(run_info_path).write_text(json.dumps(sample.to_run_info(), indent=2))
+        env = cls(run_info_path, renderer, object_position=sample.subject_center)
+        env.sample = sample
+        env._owns_run_info = owns
+        return env
+
+    def reset_to_start(self, pair_idx: int = 0, *, render: bool = True) -> dict:
+        """Reset to a recorded start pose of the loaded validation sample."""
+        if self.sample is None:
+            raise RuntimeError("reset_to_start requires from_validation_sample()")
+        pos, fwd, up = self.sample.start_pose(pair_idx)
+        return self.reset(pos, fwd, up, render=render)
 
     def reset(self, position, forward, up, *, render: bool = True) -> dict:
         self.position = np.asarray(position, dtype=np.float32)
@@ -181,6 +214,12 @@ class BlenderRolloutEnv:
 
     def close(self) -> None:
         self.renderer.close()
+        if self._owns_run_info:
+            try:
+                Path(self.run_info_path).unlink()
+            except OSError:
+                pass
 
 
-__all__ = ["Renderer", "MockRenderer", "SubprocessBlenderRenderer", "BlenderRolloutEnv", "pose_proxy_distance"]
+__all__ = ["Renderer", "MockRenderer", "SubprocessBlenderRenderer",
+           "BlenderRolloutEnv", "pose_proxy_distance"]
