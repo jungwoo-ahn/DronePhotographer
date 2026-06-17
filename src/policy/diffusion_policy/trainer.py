@@ -51,10 +51,18 @@ class DPTrainerConfig:
     device: str = "cuda"
     dtype: str = "bfloat16"
     best_ema_beta: float = 0.98
-    # Validation (rank 0). 0 = off. ckpt_best is selected by val action MSE when a
+    # Validation (rank 0). 0 = off. ckpt_best is selected by the val metric when a
     # val loader is given, else by training-loss EMA.
     val_iter: int = 0
+    # val_sample_steps > 0 also runs the (slow) sampler for action_mse; 0 = val
+    # LOSS ONLY (no per-step simulation) — the selection/early-stop metric then
+    # falls back to the fixed-timestep noise loss.
     val_sample_steps: int = 16
+    # Resume policy (+ optimizer if present) from this checkpoint and continue
+    # the iteration counter. LR stays at its post-warmup constant.
+    resume_from: Optional[str] = None
+    # Stop if the val metric hasn't improved for this many validations (0 = off).
+    early_stop_patience: int = 0
 
 
 class DPTrainer:
@@ -107,27 +115,45 @@ class DPTrainer:
             )
         opt, sched = self._build_optimizer()
 
+        # Resume: load weights (+ optimizer if the ckpt has it) and continue the
+        # iteration counter. Past warmup the LR is constant, so we just advance
+        # the scheduler's epoch to match.
+        start_iter = 0
+        if cfg.resume_from:
+            ckpt = torch.load(cfg.resume_from, map_location="cpu", weights_only=False)
+            self.policy.load_state_dict(ckpt["policy_state"])
+            self.policy.to(self.device)
+            start_iter = int(ckpt.get("iteration", 0))
+            if "optimizer_state" in ckpt:
+                opt.load_state_dict(ckpt["optimizer_state"])
+            sched.last_epoch = start_iter
+            if self.is_main:
+                print(f"resumed from {cfg.resume_from} at iter {start_iter}"
+                      f" ({'with' if 'optimizer_state' in ckpt else 'NO'} optimizer state)", flush=True)
+
         log_f = open(self.run_dir / "train.log", "a") if self.is_main else None
         tb = None
         if self.is_main:
             from torch.utils.tensorboard import SummaryWriter
             tb = SummaryWriter(log_dir=str(self.run_dir / "tb"))
 
-        iteration = 0
+        iteration = start_iter
         accum = 0
         epoch = 0
         opt.zero_grad(set_to_none=True)
         last_log = time.time()
         loss_ema: Optional[float] = None
         best_metric = float("inf")
+        no_improve = 0
+        stop = False
         have_val = dataloader_val is not None
 
-        while iteration < cfg.max_iter:
+        while iteration < cfg.max_iter and not stop:
             if isinstance(getattr(dataloader_train, "sampler", None), DistributedSampler):
                 dataloader_train.sampler.set_epoch(epoch)
             epoch += 1
             for batch in dataloader_train:
-                if iteration >= cfg.max_iter:
+                if iteration >= cfg.max_iter or stop:
                     break
                 obs_inputs, goal, action_chunk = self._batch_to_device(batch)
 
@@ -160,25 +186,56 @@ class DPTrainer:
                                 f"lr={sched.get_last_lr()[0]:.2e} {cfg.log_iter/dt:.2f}it/s")
                         print(line, flush=True); log_f.write(line + "\n"); log_f.flush()
 
+                    # Rank-agnostic: depends only on iteration (synced across ranks)
+                    # and the config — NOT on have_val (the val loader lives on rank 0
+                    # only, so gating on it would make the early-stop broadcast
+                    # asymmetric and deadlock the collectives).
+                    is_val_iter = bool(cfg.val_iter and iteration % cfg.val_iter == 0)
                     metric = loss_ema
-                    if have_val and cfg.val_iter and iteration % cfg.val_iter == 0 and self.is_main:
+                    improved = False
+                    if is_val_iter and self.is_main and have_val:
                         vmetrics = self.validate(dataloader_val, iteration, tb)
-                        metric = vmetrics["val/action_mse"]
+                        # Selection/early-stop metric: action_mse if the sampler ran,
+                        # else the fixed-timestep noise loss (loss-only validation).
+                        metric = vmetrics.get("val/action_mse")
+                        if metric is None or metric != metric:  # absent or NaN
+                            metric = vmetrics["val/noise_loss_mean"]
+                        improved = metric < best_metric - 1e-5
+                        if improved:
+                            best_metric = metric
+                            no_improve = 0
+                        else:
+                            no_improve += 1
                         line = "iter=%d VAL " % iteration + " ".join(
                             f"{k.removeprefix('val/')}={v:.4f}" for k, v in vmetrics.items())
                         print(line, flush=True); log_f.write(line + "\n"); log_f.flush()
 
                     if iteration % cfg.save_iter == 0 and self.is_main:
-                        self.save_checkpoint(iteration, "ckpt_last.pt")
-                        fresh = (not have_val) or (cfg.val_iter and iteration % cfg.val_iter == 0)
-                        if fresh and metric is not None and metric < best_metric:
+                        self.save_checkpoint(iteration, opt, "ckpt_last.pt")
+                        # ckpt_best by val metric (or training EMA if no val loader).
+                        if not have_val and metric is not None and metric < best_metric:
                             best_metric = metric
-                            self.save_checkpoint(iteration, "ckpt_best.pt")
-                            log_f.write(f"iter={iteration} new best ({'val_action_mse' if have_val else 'loss_ema'}={metric:.4f})\n")
+                            improved = True
+                        if improved:
+                            self.save_checkpoint(iteration, opt, "ckpt_best.pt")
+                            log_f.write(f"iter={iteration} new best ({'val' if have_val else 'loss_ema'}={best_metric:.4f})\n")
                             log_f.flush()
 
+                    # Early stopping: rank 0 decides on val iters; broadcast so all
+                    # ranks leave together (no half-collective hang).
+                    if is_val_iter and cfg.early_stop_patience > 0:
+                        if self.is_main and no_improve >= cfg.early_stop_patience:
+                            msg = (f"iter={iteration} EARLY STOP: val metric did not improve for "
+                                   f"{no_improve} validations (best={best_metric:.4f})")
+                            print(msg, flush=True); log_f.write(msg + "\n"); log_f.flush()
+                            stop = True
+                        if self.distributed:
+                            flag = torch.tensor([1 if stop else 0], device=self.device)
+                            dist.broadcast(flag, src=0)
+                            stop = bool(flag.item())
+
         if self.is_main:
-            self.save_checkpoint(iteration, "ckpt_last.pt")
+            self.save_checkpoint(iteration, opt, "ckpt_last.pt")
             log_f.close()
             if tb is not None:
                 tb.close()
@@ -205,11 +262,15 @@ class DPTrainer:
                 for t in grid:
                     out = self.policy.compute_loss(obs, goal, action, timesteps=torch.full((b,), t, device=self.device))
                     t_losses[t].append(float(out.total))
-                pred = self.policy.sample(obs, goal, n_steps=cfg.val_sample_steps, denormalize=False)
-            action_mse.append(float(((pred.pred_action_chunk.float() - action.float()) ** 2).mean()))
+                # Sampler-based action_mse is the (slow) per-step simulation; skip
+                # it unless val_sample_steps > 0. Loss-only validation otherwise.
+                if cfg.val_sample_steps > 0:
+                    pred = self.policy.sample(obs, goal, n_steps=cfg.val_sample_steps, denormalize=False)
+                    action_mse.append(float(((pred.pred_action_chunk.float() - action.float()) ** 2).mean()))
         metrics = {f"val/noise_loss_t{t}": sum(v) / len(v) for t, v in t_losses.items() if v}
         metrics["val/noise_loss_mean"] = sum(metrics.values()) / len(metrics) if metrics else float("nan")
-        metrics["val/action_mse"] = sum(action_mse) / len(action_mse) if action_mse else float("nan")
+        if action_mse:
+            metrics["val/action_mse"] = sum(action_mse) / len(action_mse)
         if tb is not None:
             for k, v in metrics.items():
                 tb.add_scalar(k, v, iteration)
@@ -218,10 +279,13 @@ class DPTrainer:
             self.policy.backbone.eval()
         return metrics
 
-    def save_checkpoint(self, iteration: int, name: str) -> Path:
+    def save_checkpoint(self, iteration: int, opt=None, name: str = "ckpt_last.pt") -> Path:
         path = self.run_dir / name
-        torch.save({"iteration": iteration, "policy_state": self.policy.state_dict(),
-                    "config": self.config.__dict__}, path)
+        blob = {"iteration": iteration, "policy_state": self.policy.state_dict(),
+                "config": self.config.__dict__}
+        if opt is not None:
+            blob["optimizer_state"] = opt.state_dict()
+        torch.save(blob, path)
         return path
 
 

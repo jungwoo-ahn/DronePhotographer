@@ -37,13 +37,14 @@ data:
   val_names: configs/policy/val_scenes.txt
   val_stride: 4
   val_max_samples: 64
-  val_iter: 500
-  val_sample_steps: 16
+  val_iter: 2000           # aligned with save_iter so each save has a fresh val
+  val_sample_steps: 0      # LOSS-ONLY validation (no per-step sampler simulation)
 
 trainer:
   output_root: runs
   run_name: diffusion_policy_dinov2
-  max_iter: 50000
+  max_iter: 300000               # ceiling; early stopping ends it sooner
+  early_stop_patience: 10        # stop if val loss hasn't improved for 10 vals (20k iters)
   batch_size: 64                 # frozen backbone + tiny head -> large batch fits
   grad_accum: 1
   learning_rate: 1.0e-4

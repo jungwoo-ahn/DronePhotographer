@@ -53,7 +53,10 @@ class VLATrainerConfig:
     # Validation (rank 0). 0 = off. ckpt_best is selected by val action MSE when
     # a val loader is given, else by training-loss EMA.
     val_iter: int = 0
+    # >0 also runs the slow sampler for action_mse; 0 = val LOSS ONLY.
     val_sample_steps: int = 10
+    # Stop if the val metric hasn't improved for this many validations (0 = off).
+    early_stop_patience: int = 0
 
 
 class VLATrainer:
@@ -117,15 +120,17 @@ class VLATrainer:
         opt.zero_grad(set_to_none=True)
         last_log = time.time()
         loss_ema: Optional[float] = None
-        best_metric = float("inf")          # val action MSE if val present, else loss EMA
+        best_metric = float("inf")          # val metric if val present, else loss EMA
+        no_improve = 0
+        stop = False
         have_val = dataloader_val is not None
 
-        while iteration < cfg.max_iter:
+        while iteration < cfg.max_iter and not stop:
             if isinstance(getattr(dataloader_train, "sampler", None), DistributedSampler):
                 dataloader_train.sampler.set_epoch(epoch)
             epoch += 1
             for batch in dataloader_train:
-                if iteration >= cfg.max_iter:
+                if iteration >= cfg.max_iter or stop:
                     break
                 vlm_inputs, goal, action_chunk = self._batch_to_device(batch)
 
@@ -158,23 +163,45 @@ class VLATrainer:
                                 f"lr={sched.get_last_lr()[0]:.2e} {cfg.log_iter/dt:.2f}it/s")
                         print(line, flush=True); log_f.write(line + "\n"); log_f.flush()
 
+                    # Rank-agnostic (iteration is synced); never gate on have_val,
+                    # which is rank-0-only and would desync the early-stop broadcast.
+                    is_val_iter = bool(cfg.val_iter and iteration % cfg.val_iter == 0)
                     metric = loss_ema
-                    if have_val and cfg.val_iter and iteration % cfg.val_iter == 0 and self.is_main:
+                    improved = False
+                    if is_val_iter and self.is_main and have_val:
                         vmetrics = self.validate(dataloader_val, iteration, tb)
-                        metric = vmetrics["val/action_mse"]
+                        # action_mse if the sampler ran, else the fixed-sigma flow loss.
+                        metric = vmetrics.get("val/action_mse")
+                        if metric is None or metric != metric:
+                            metric = vmetrics["val/flow_loss_mean"]
+                        improved = metric < best_metric - 1e-5
+                        if improved:
+                            best_metric = metric; no_improve = 0
+                        else:
+                            no_improve += 1
                         line = "iter=%d VAL " % iteration + " ".join(
                             f"{k.removeprefix('val/')}={v:.4f}" for k, v in vmetrics.items())
                         print(line, flush=True); log_f.write(line + "\n"); log_f.flush()
 
                     if iteration % cfg.save_iter == 0 and self.is_main:
                         self.save_checkpoint(iteration, "ckpt_last.pt")
-                        # When validating, only update best on a val step (metric is fresh).
-                        fresh = (not have_val) or (cfg.val_iter and iteration % cfg.val_iter == 0)
-                        if fresh and metric is not None and metric < best_metric:
-                            best_metric = metric
+                        if not have_val and metric is not None and metric < best_metric:
+                            best_metric = metric; improved = True
+                        if improved:
                             self.save_checkpoint(iteration, "ckpt_best.pt")
-                            log_f.write(f"iter={iteration} new best ({'val_action_mse' if have_val else 'loss_ema'}={metric:.4f})\n")
+                            log_f.write(f"iter={iteration} new best ({'val' if have_val else 'loss_ema'}={best_metric:.4f})\n")
                             log_f.flush()
+
+                    if is_val_iter and cfg.early_stop_patience > 0:
+                        if self.is_main and no_improve >= cfg.early_stop_patience:
+                            msg = (f"iter={iteration} EARLY STOP: val metric did not improve for "
+                                   f"{no_improve} validations (best={best_metric:.4f})")
+                            print(msg, flush=True); log_f.write(msg + "\n"); log_f.flush()
+                            stop = True
+                        if self.distributed:
+                            flag = torch.tensor([1 if stop else 0], device=self.device)
+                            dist.broadcast(flag, src=0)
+                            stop = bool(flag.item())
 
         if self.is_main:
             self.save_checkpoint(iteration, "ckpt_last.pt")
@@ -202,11 +229,15 @@ class VLATrainer:
                 for s in self.VAL_SIGMA_GRID:
                     out = self.policy.compute_loss(vlm, goal, action, sigma=torch.full((b,), s, device=self.device))
                     sigma_losses[s].append(float(out.total))
-                pred = self.policy.sample(vlm, goal, n_steps=cfg.val_sample_steps, denormalize=False)
-            action_mse.append(float(((pred.pred_action_chunk.float() - action.float()) ** 2).mean()))
+                # Sampler-based action_mse is slow (forward through the 2B VLM per
+                # step); skip unless val_sample_steps > 0 (loss-only validation).
+                if cfg.val_sample_steps > 0:
+                    pred = self.policy.sample(vlm, goal, n_steps=cfg.val_sample_steps, denormalize=False)
+                    action_mse.append(float(((pred.pred_action_chunk.float() - action.float()) ** 2).mean()))
         metrics = {f"val/flow_loss_sigma_{s}": sum(v) / len(v) for s, v in sigma_losses.items() if v}
         metrics["val/flow_loss_mean"] = sum(metrics.values()) / len(metrics) if metrics else float("nan")
-        metrics["val/action_mse"] = sum(action_mse) / len(action_mse) if action_mse else float("nan")
+        if action_mse:
+            metrics["val/action_mse"] = sum(action_mse) / len(action_mse)
         if tb is not None:
             for k, v in metrics.items():
                 tb.add_scalar(k, v, iteration)

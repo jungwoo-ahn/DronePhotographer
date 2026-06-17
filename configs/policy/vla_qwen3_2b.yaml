@@ -6,7 +6,12 @@ backbone:
   repo_id: Qwen/Qwen3-VL-2B-Instruct
   dtype: bfloat16
   freeze_backbone: false        # full finetune, matching our Cosmos run
-  gradient_checkpointing: true
+  gradient_checkpointing: false # OFF for speed (48GB headroom); re-enable if OOM
+  # Qwen3-VL vision tower costs ~5ms/patch (linear; flash-attn does NOT help —
+  # it's a per-patch Python/sync cost, not attention). So minimize patches:
+  # ~64 vision tokens is enough for global composition (subject size/position).
+  max_pixels: 50176             # ~64 vision tokens (was 200704/~256 -> ~4x faster)
+  min_pixels: 12544             # ~16 vision tokens
   n_goal_tokens: 4
   prompt: "Describe the camera framing of the subject."
 
@@ -36,9 +41,9 @@ data:
   val_split_level: scene
   val_names: configs/policy/val_scenes.txt
   val_stride: 4
-  val_max_samples: 64
-  val_iter: 500
-  val_sample_steps: 10
+  val_max_samples: 24    # small: each val window forwards through the 2B model
+  val_iter: 2000         # infrequent: VLA is slow, so a val pass is a real stall
+  val_sample_steps: 0    # LOSS-ONLY validation (no per-step sampler simulation)
 
 flow:
   p_mean: 0.0
@@ -51,8 +56,10 @@ trainer:
   output_root: runs
   run_name: vla_qwen3_2b
   max_iter: 50000
-  batch_size: 1
-  grad_accum: 8
+  early_stop_patience: 10        # stop if val loss flat for 10 vals (20k iters); same as DP
+  batch_size: 4        # bs=4 x grad_accum=1 x 2 GPUs (DDP) = effective batch 8.
+  grad_accum: 1        # no accumulation needed: the 2 ranks supply the batch,
+                       # and no gradient checkpointing -> fewer/faster steps.
   learning_rate: 1.0e-5
   weight_decay: 0.0
   warmup_iter: 1000
@@ -63,7 +70,7 @@ trainer:
   dtype: bfloat16
 
 dataloader:
-  num_workers: 4
+  num_workers: 8        # processor (image preproc) is the CPU bottleneck
   pin_memory: true
   shuffle: true
   drop_last: true
