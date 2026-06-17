@@ -11,7 +11,7 @@ from mathutils import Euler, Matrix, Vector
 
 from src.scenes.scene import open_scene, set_nishita_sky
 from src.utils.rotation_utils import apply_camera_local_action, orthonormalize_forward_up
-from render_object import place_imported_object
+from render_object import apply_scene_scale, place_imported_object
 
 
 def _to_path(path: str | Path) -> Path:
@@ -173,6 +173,10 @@ class BlenderDrone:
         self.options = dict(self.run_info.get("options", {}))
         self.scene_path = Path(str(self.run_info["input_scene"]))
         self.scene = open_scene(str(self.scene_path))
+        # Apply the scene scale used at render time (v7 validation samples carry it
+        # in run_info; absent for legacy run_infos -> unchanged behavior).
+        if self.run_info.get("scene_scale") is not None:
+            apply_scene_scale(self.scene, float(self.run_info["scene_scale"]))
         self.camera = _ensure_camera(self.scene)
         _prepare_camera(self.camera)
 
@@ -181,11 +185,19 @@ class BlenderDrone:
         if input_object is not None:
             obj_pos_raw = self.options.get("object_position", [0, 0, 0])
             scale = float(self.run_info.get("scale", 1.0))
-            rotation_z_deg = float(self.run_info.get("rotation_z_deg", 0.0))
-            place_imported_object(
-                self.scene, input_object, obj_pos_raw,
-                rotation_z_deg=rotation_z_deg, scale=scale,
-            )
+            # Prefer a full XYZ euler (v7 samples) over the legacy z-only rotation.
+            rotation_xyz_rad = self.run_info.get("rotation_xyz_rad")
+            if rotation_xyz_rad is not None:
+                place_imported_object(
+                    self.scene, input_object, obj_pos_raw,
+                    rotation_xyz_rad=[float(v) for v in rotation_xyz_rad], scale=scale,
+                )
+            else:
+                rotation_z_deg = float(self.run_info.get("rotation_z_deg", 0.0))
+                place_imported_object(
+                    self.scene, input_object, obj_pos_raw,
+                    rotation_z_deg=rotation_z_deg, scale=scale,
+                )
 
         self.object_position = np.asarray(self.options["object_position"], dtype=np.float32)
         self.camera_radius_range = [float(value) for value in self.options.get("camera_radius_range", [2.0, 10.0])]
