@@ -1,13 +1,15 @@
 # LLM Policy baseline (issue #22) — API backend via the LetSur gateway.
 # Final-run config (cf. llm_policy_qwen.yaml which uses the local Qwen placeholder).
 #
-# Export the key first (never commit it):  export GATEWAY_API_KEY=sk-...
-#   client = OpenAI(api_key=os.environ["GATEWAY_API_KEY"], base_url="https://gw.letsur.ai/v1")
+#   client = OpenAI(api_key=..., base_url="https://gw.letsur.ai/v1")
+# Key is inlined below (private repo, per owner). Treat as compromised + rotate if the
+# repo is ever made public/shared. `api_key_env` (GATEWAY_API_KEY) overrides it if set.
 
 backend: api
 
 api:
   api_base: https://gw.letsur.ai/v1
+  api_key: sk-YHQtS3KgsFvI9wPMuUhdwQ
   api_key_env: GATEWAY_API_KEY
   model: gemini-2.5-flash       # cheap Flash-tier, vision-capable. Do NOT silently
                                 # swap to a premium/preview model (cost note).
