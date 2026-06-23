@@ -21,9 +21,14 @@ SYSTEM_PROMPT = (
     "+z = forward (toward the scene). Translations are in metres. Rotations: yaw turns "
     "the camera left/right (positive = pan right), pitch tilts it up/down (positive = "
     "tilt up); both in degrees. There is no roll.\n\n"
-    "Respond with ONLY a JSON object and nothing else:\n"
+    "Respond with ONLY a JSON object and nothing else — no markdown code fences, no "
+    "prose before or after. All five move fields are required and must be numbers.\n"
+    "Schema:\n"
     '{"reasoning": "<one short sentence>", "dx": <float>, "dy": <float>, '
-    '"dz": <float>, "dyaw_deg": <float>, "dpitch_deg": <float>}'
+    '"dz": <float>, "dyaw_deg": <float>, "dpitch_deg": <float>}\n'
+    "Example:\n"
+    '{"reasoning": "dolly in and pan right to center the subject", "dx": 0.2, '
+    '"dy": 0.0, "dz": 0.8, "dyaw_deg": 12.0, "dpitch_deg": -3.0}'
 )
 
 
@@ -74,4 +79,15 @@ def build_user_prompt(target: Mapping[str, float]) -> str:
     )
 
 
-__all__ = ["SYSTEM_PROMPT", "describe_goal", "build_user_prompt"]
+def build_retry_prompt(target: Mapping[str, float], missing: list[str] | None = None) -> str:
+    """Corrective re-prompt after a malformed/incomplete response."""
+    detail = (f" The previous reply was missing or non-numeric for: {', '.join(missing)}."
+              if missing else " The previous reply was not valid JSON.")
+    return (
+        f"{build_user_prompt(target)}\n\n"
+        f"IMPORTANT:{detail} Reply with ONLY the JSON object containing all five numeric "
+        "fields (dx, dy, dz, dyaw_deg, dpitch_deg) — no markdown, no extra text."
+    )
+
+
+__all__ = ["SYSTEM_PROMPT", "describe_goal", "build_user_prompt", "build_retry_prompt"]
