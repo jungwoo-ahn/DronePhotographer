@@ -83,7 +83,14 @@ def main() -> None:
         learning_rate=float(cfg["train"].get("learning_rate", 3e-4)),
         tensorboard_log=str(out_dir / "tb"),
     )
-    model.learn(total_timesteps=total)
+    # Periodic checkpoints: Blender-in-the-loop RL is slow (~8-11s/env-step), so a
+    # multi-hour run must survive interruption. Save every `save_freq` env steps.
+    from stable_baselines3.common.callbacks import CheckpointCallback
+
+    save_freq = int(cfg["train"].get("save_freq", 2000))
+    cb = CheckpointCallback(save_freq=save_freq, save_path=str(out_dir / "ckpts"),
+                            name_prefix="autophoto")
+    model.learn(total_timesteps=total, callback=cb)
     model.save(str(out_dir / "autophoto_policy"))
     env.close()
     print("saved policy ->", out_dir / "autophoto_policy.zip")
