@@ -1,0 +1,25 @@
+# LLM Policy baseline (issue #22) — API backend via the LetSur gateway.
+# Final-run config (cf. llm_policy_qwen.yaml which uses the local Qwen placeholder).
+#
+#   client = OpenAI(api_key=..., base_url="https://gw.letsur.ai/v1")
+# Key is inlined below (private repo, per owner). Treat as compromised + rotate if the
+# repo is ever made public/shared. `api_key_env` (GATEWAY_API_KEY) overrides it if set.
+
+backend: api
+
+api:
+  api_base: https://gw.letsur.ai/v1
+  api_key: sk-YHQtS3KgsFvI9wPMuUhdwQ
+  api_key_env: GATEWAY_API_KEY
+  model: gemini-2.5-flash       # cheap Flash-tier, vision-capable. Do NOT silently
+                                # swap to a premium/preview model (cost note).
+                                # (gpt-4o-mini also works on the gateway as a fallback.)
+  max_tokens: 2048              # gemini-2.5-flash is a thinking model — needs headroom
+                                # past reasoning tokens or the JSON gets truncated.
+  temperature: 0.2
+  retry_attempts: 3
+  retry_delay_seconds: 2
+
+policy:
+  max_translation_m: 3.0
+  max_angle_deg: 60.0

@@ -1,0 +1,60 @@
+# Smoke config for the Diffusion Policy baseline — tiny, fast, real backbone.
+# Exercises the full path (DINOv2 load -> dataset -> DDPM train -> val -> ckpt) on
+# a handful of placements. Not a real training run.
+
+backbone:
+  repo_id: facebook/dinov2-large
+  dtype: bfloat16
+  freeze_backbone: true
+
+model:
+  goal_embed_dim: 128
+  down_dims: [128, 256, 512]
+  diffusion_step_embed_dim: 128
+  num_train_timesteps: 100
+  beta_schedule: squaredcos_cap_v2
+
+data:
+  annotation_roots:
+    - data/trajectories_full
+  chunk_size: 8
+  stride: 1
+  max_samples: 256
+  target_resolution: [224, 224]
+  goal_score_keys:
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+  val_split_level: scene
+  val_names: configs/policy/val_scenes.txt
+  val_stride: 8
+  val_max_samples: 16
+  val_iter: 10
+  val_sample_steps: 8
+
+trainer:
+  output_root: runs
+  run_name: diffusion_policy_dinov2_smoke
+  max_iter: 20
+  batch_size: 4
+  grad_accum: 1
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-6
+  warmup_iter: 5
+  save_iter: 10
+  log_iter: 2
+  seed: 0
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: 2
+  pin_memory: true
+  shuffle: true
+  drop_last: true
