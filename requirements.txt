@@ -1,5 +1,6 @@
 # Cosmos Policy (new pipeline)
 torch>=2.7.0
+torchvision  # diffusers Cosmos transformer uses torchvision.transforms (padding-mask resize)
 diffusers>=0.35.2
 transformers>=4.57
 accelerate

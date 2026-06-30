@@ -138,8 +138,16 @@ def iter_windows(
     *,
     chunk_size: int = 8,
     stride: int = 1,
+    reverse: bool = False,
 ) -> Iterator[TrajectoryWindow]:
-    """Slide a chunk_size-step window over each accepted_pair's trajectory_32f."""
+    """Slide a chunk_size-step window over each accepted_pair's trajectory_32f.
+
+    reverse=True plays each trajectory backward (camera path end->start): the action
+    chunks become the inverse motion (dolly-OUT where the forward path dollies in) and
+    the HER-"future" goals are FARTHER frames. Used to balance the dataset's strong
+    far->near bias (~81% of trajectories dolly in). No re-render — the same rendered
+    frames are reused in reverse order.
+    """
     data_json_path = Path(data_json_path)
     placement_dir = data_json_path.parent
     doc = load_annotation(data_json_path)
@@ -157,7 +165,10 @@ def iter_windows(
             _frame_to_view(doc, data_json_path, placement_dir, pair_idx, j, trajectory[j], recs_by_idx.get(j))
             for j in range(len(trajectory))
         ]
-        for start_idx in range(0, len(trajectory) - chunk_size, stride):
+        if reverse:
+            view_records = list(reversed(view_records))
+        n = len(view_records)
+        for start_idx in range(0, n - chunk_size, stride):
             end_idx = start_idx + chunk_size
             yield TrajectoryWindow(
                 annotation_path=data_json_path,
@@ -166,8 +177,8 @@ def iter_windows(
                 object=view_records[start_idx].object,
                 object_file=view_records[start_idx].object_file,
                 pair_idx=pair_idx,
-                start_frame_idx=start_idx,
-                end_frame_idx=end_idx,
+                start_frame_idx=view_records[start_idx].frame_idx,
+                end_frame_idx=view_records[end_idx].frame_idx,
                 chunk_size=chunk_size,
                 start=view_records[start_idx],
                 end=view_records[end_idx],

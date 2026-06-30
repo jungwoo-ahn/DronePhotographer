@@ -56,6 +56,9 @@ class TrainerConfig:
     val_iter: int = 0
     # Euler steps for the sampling-based val metrics (action MSE / value MAE).
     val_sample_steps: int = 8
+    # Resume from a run dir or checkpoint .pt (restores optimizer/scheduler/
+    # iteration/RNG so a stopped run continues exactly). None = fresh run.
+    resume_from: Optional[str] = None
 
 
 class CosmosPolicyTrainer:
@@ -73,15 +76,35 @@ class CosmosPolicyTrainer:
         self.rank = dist.get_rank() if self.distributed else 0
         self.world_size = dist.get_world_size() if self.distributed else 1
         self.is_main = self.rank == 0
+        # Resolve a resume checkpoint (a run dir or a .pt file) before choosing
+        # the run dir: a resumed run continues in its original dir.
+        self.resume_ckpt_path = self._resolve_resume(config.resume_from)
         self.run_dir = self._make_run_dir()
         self.dtype = getattr(torch, config.dtype)
         self.device = torch.device(config.device)
         # Per-rank seed so EDM/flow sigma draws decorrelate across ranks.
         torch.manual_seed(config.seed + self.rank)
 
+    def _resolve_resume(self, resume_from: Optional[str]) -> Optional[Path]:
+        if not resume_from:
+            return None
+        p = Path(resume_from)
+        ckpt = p / "ckpt_last.pt" if p.is_dir() else p
+        if not ckpt.exists():
+            raise FileNotFoundError(f"resume checkpoint not found: {ckpt}")
+        return ckpt
+
     def _make_run_dir(self) -> Path:
-        # Rank 0 names the dir by timestamp; other ranks receive it by broadcast
-        # so a tick boundary can't split the run across two directories.
+        # Resuming: continue in the checkpoint's own run dir so TensorBoard,
+        # train.log and checkpoints stay contiguous. Every rank derives the same
+        # path from the same config, so no broadcast is needed.
+        if self.resume_ckpt_path is not None:
+            run_dir = self.resume_ckpt_path.parent
+            if self.is_main:
+                run_dir.mkdir(parents=True, exist_ok=True)
+            return run_dir
+        # Fresh run: rank 0 names the dir by timestamp; other ranks receive it by
+        # broadcast so a tick boundary can't split the run across two directories.
         ts = time.strftime("%Y%m%d_%H%M%S")
         if self.distributed:
             obj = [ts if self.is_main else None]
@@ -108,6 +131,19 @@ class CosmosPolicyTrainer:
         self.policy.to(self.device)
         self.vae.to(self.device)
 
+        # Resume: restore policy weights before the DDP wrap so every rank enters
+        # the all-reduce with identical parameters (all ranks read the same NAS
+        # checkpoint). Optimizer/scheduler/loop state is restored below, once they
+        # are built. weights_only=False: it's our own trusted checkpoint and the
+        # saved `config` holds non-tensor objects (Path), which the torch>=2.6
+        # default (weights_only=True) would refuse to unpickle.
+        resume_state = None
+        if self.resume_ckpt_path is not None:
+            resume_state = torch.load(
+                self.resume_ckpt_path, map_location=self.device, weights_only=False,
+            )
+            self.policy.load_state_dict(resume_state["policy_state"])
+
         # DDP wraps a forward shim around compute_loss; self.policy stays the
         # raw module (checkpoints save un-prefixed state dicts).
         loss_module: nn.Module = _LossForward(self.policy)
@@ -129,12 +165,37 @@ class CosmosPolicyTrainer:
         iteration = 0
         accum = 0
         epoch = 0
-        opt.zero_grad(set_to_none=True)
-        last_log = time.time()
         # Keep only best + last checkpoints. "Best" = lowest EMA of the total
         # loss (per-iter loss is too noisy under EDM sigma sampling to compare raw).
         loss_ema: Optional[float] = None
         best_ema = float("inf")
+
+        # Resume: restore optimizer/scheduler/scaler + loop counters and RNG so
+        # the continued run faithfully extends the original.
+        if resume_state is not None:
+            if "optimizer_state" in resume_state:
+                opt.load_state_dict(resume_state["optimizer_state"])
+            if "scheduler_state" in resume_state:
+                sched.load_state_dict(resume_state["scheduler_state"])
+            if scaler is not None and "scaler_state" in resume_state:
+                scaler.load_state_dict(resume_state["scaler_state"])
+            iteration = int(resume_state.get("iteration", 0))
+            epoch = int(resume_state.get("epoch", 0))
+            loss_ema = resume_state.get("loss_ema", None)
+            best_ema = resume_state.get("best_ema", float("inf"))
+            if "torch_rng_state" in resume_state:
+                torch.set_rng_state(resume_state["torch_rng_state"].cpu())
+            if torch.cuda.is_available() and "cuda_rng_state" in resume_state:
+                torch.cuda.set_rng_state(resume_state["cuda_rng_state"].cpu(), self.device)
+            if self.is_main:
+                print(f"[resume] {self.resume_ckpt_path} -> continuing at "
+                      f"iter {iteration}/{cfg.max_iter}")
+                if log_f is not None:
+                    log_f.write(f"[resume] from {self.resume_ckpt_path} at iter {iteration}\n")
+                    log_f.flush()
+
+        opt.zero_grad(set_to_none=True)
+        last_log = time.time()
 
         while iteration < cfg.max_iter:
             if isinstance(getattr(dataloader_train, "sampler", None), DistributedSampler):
@@ -189,11 +250,11 @@ class CosmosPolicyTrainer:
                     iteration += 1
 
                     if tb is not None:
-                        parts = loss_out.detach_dict()
+                        parts = loss_out.detach_dict()   # total, world, action, value
                         for k, v in parts.items():
-                            tb.add_scalar(f"loss/{k}", v, iteration)
-                        tb.add_scalar("lr", sched.get_last_lr()[0], iteration)
-                        tb.add_scalar("loss/total_ema", loss_ema, iteration)
+                            tb.add_scalar(f"train/{k}", v, iteration)
+                        tb.add_scalar("train/lr", sched.get_last_lr()[0], iteration)
+                        tb.add_scalar("train/total_ema", loss_ema, iteration)
 
                     if iteration % cfg.log_iter == 0 and self.is_main:
                         dt = time.time() - last_log
@@ -227,14 +288,22 @@ class CosmosPolicyTrainer:
                         log_f.flush()
 
                     if iteration % cfg.save_iter == 0 and self.is_main:
-                        self.save_checkpoint(iteration, name="ckpt_last.pt")
+                        ckpt_kw = dict(
+                            optimizer=opt, scheduler=sched, scaler=scaler,
+                            loss_ema=loss_ema, best_ema=best_ema, epoch=epoch,
+                        )
+                        self.save_checkpoint(iteration, name="ckpt_last.pt", **ckpt_kw)
                         if loss_ema is not None and loss_ema < best_ema:
                             best_ema = loss_ema
-                            self.save_checkpoint(iteration, name="ckpt_best.pt")
+                            ckpt_kw["best_ema"] = best_ema
+                            self.save_checkpoint(iteration, name="ckpt_best.pt", **ckpt_kw)
                             log_f.write(f"iter={iteration} new best (loss EMA {loss_ema:.4f})\n")
 
         if self.is_main:
-            self.save_checkpoint(iteration, name="ckpt_last.pt")
+            self.save_checkpoint(
+                iteration, name="ckpt_last.pt", optimizer=opt, scheduler=sched,
+                scaler=scaler, loss_ema=loss_ema, best_ema=best_ema, epoch=epoch,
+            )
             log_f.close()
             if tb is not None:
                 tb.close()
@@ -255,7 +324,7 @@ class CosmosPolicyTrainer:
         # evals is the model.
         torch.manual_seed(cfg.seed + 7777)
 
-        sigma_losses = {s: [] for s in self.VAL_SIGMA_GRID}
+        comp = {"world": [], "action": [], "value": []}   # teacher-forced flow loss per component
         action_mse, value_mae, n = [], [], 0
         for batch in dataloader_val:
             state_img = batch["state_image"].to(self.device, dtype=self.dtype)
@@ -276,7 +345,10 @@ class CosmosPolicyTrainer:
                         value_target=value_target,
                         sigma=torch.full((b,), s),
                     )
-                    sigma_losses[s].append(float(out.total))
+                    comp["world"].append(float(out.world))
+                    comp["action"].append(float(out.action))
+                    if out.value is not None:
+                        comp["value"].append(float(out.value))
                 # (b) sample-quality: run the Euler sampler, compare to ground truth
                 pred = self.policy.sample(
                     image_latent=image_latent, goal_vec=goal,
@@ -287,8 +359,12 @@ class CosmosPolicyTrainer:
                 value_mae.append(float((pred.pred_value.float() - value_target.float()).abs().mean()))
             n += b
 
-        metrics = {f"val/flow_loss_sigma_{s}": sum(v) / len(v) for s, v in sigma_losses.items() if v}
-        metrics["val/flow_loss_mean"] = sum(metrics.values()) / len(metrics) if metrics else float("nan")
+        # Flow loss per component (teacher-forced, averaged over the fixed-sigma grid) + the
+        # combined total — SAME names as train/{world,action,value,total} so they overlay in TB.
+        metrics = {f"val/{name}": sum(vals) / len(vals) for name, vals in comp.items() if vals}
+        metrics["val/total"] = sum(metrics.get(f"val/{k}", 0.0) for k in ("world", "action", "value"))
+        # Sampled-quality (run the Euler sampler): val/action_mse is the DEPLOYED action error,
+        # distinct from val/action (the single-step denoising loss above).
         if action_mse:
             metrics["val/action_mse"] = sum(action_mse) / len(action_mse)
         if value_mae:
@@ -299,14 +375,41 @@ class CosmosPolicyTrainer:
         self.policy.train()
         return metrics
 
-    def save_checkpoint(self, iteration: int, name: Optional[str] = None) -> Path:
+    def save_checkpoint(
+        self,
+        iteration: int,
+        name: Optional[str] = None,
+        *,
+        optimizer: Optional[torch.optim.Optimizer] = None,
+        scheduler=None,
+        scaler=None,
+        loss_ema: Optional[float] = None,
+        best_ema: Optional[float] = None,
+        epoch: Optional[int] = None,
+    ) -> Path:
         path = self.run_dir / (name or f"ckpt_iter{iteration:07d}.pt")
-        torch.save(
-            {
-                "iteration": iteration,
-                "policy_state": self.policy.state_dict(),
-                "config": self.config.__dict__,
-            },
-            path,
-        )
+        ckpt = {
+            "iteration": iteration,
+            "policy_state": self.policy.state_dict(),
+            "config": self.config.__dict__,
+        }
+        # Full training state — passed in from the training loop so a preempted /
+        # time-limited / crashed run can resume exactly (see --resume). Absent
+        # when callers ask for a weights-only snapshot.
+        if optimizer is not None:
+            ckpt["optimizer_state"] = optimizer.state_dict()
+        if scheduler is not None:
+            ckpt["scheduler_state"] = scheduler.state_dict()
+        if scaler is not None:
+            ckpt["scaler_state"] = scaler.state_dict()
+        if loss_ema is not None:
+            ckpt["loss_ema"] = loss_ema
+        if best_ema is not None:
+            ckpt["best_ema"] = best_ema
+        if epoch is not None:
+            ckpt["epoch"] = epoch
+        ckpt["torch_rng_state"] = torch.get_rng_state()
+        if torch.cuda.is_available():
+            ckpt["cuda_rng_state"] = torch.cuda.get_rng_state(self.device)
+        torch.save(ckpt, path)
         return path

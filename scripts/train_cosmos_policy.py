@@ -35,6 +35,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--max_iter", type=int, default=None, help="CLI override")
     p.add_argument("--max_samples", type=int, default=None, help="CLI override")
     p.add_argument("--warmup_iter", type=int, default=None, help="CLI override (full config's 1000 assumes a 50k-iter run)")
+    p.add_argument("--log_iter", type=int, default=None, help="CLI override (it/s log cadence)")
+    p.add_argument("--save_iter", type=int, default=None, help="CLI override (checkpoint cadence)")
+    p.add_argument("--resume", type=str, default=None,
+                   help="resume from a run dir or ckpt .pt (restores optimizer/scheduler/iteration)")
     p.add_argument("--debug", action="store_true", help="reduce iters + samples for a smoke run")
     return p.parse_args()
 
@@ -54,6 +58,10 @@ def main() -> None:
         cfg["data"]["max_samples"] = args.max_samples
     if args.warmup_iter is not None:
         cfg["trainer"]["warmup_iter"] = args.warmup_iter
+    if args.log_iter is not None:
+        cfg["trainer"]["log_iter"] = args.log_iter
+    if args.save_iter is not None:
+        cfg["trainer"]["save_iter"] = args.save_iter
 
     import torch
     import torch.distributed as dist
@@ -146,6 +154,7 @@ def main() -> None:
         val_split_level=val_split_level,
         val_names=val_names,
         split="train",
+        augment_reverse=cfg["data"].get("augment_reverse", False),
     )
     val_dataset = None
     if val_pair_stride > 0 or val_names:
@@ -162,6 +171,7 @@ def main() -> None:
             val_split_level=val_split_level,
             val_names=val_names,
             split="val",
+            augment_reverse=cfg["data"].get("augment_reverse", False),
         )
         # Cap val cost by subsampling EVENLY across the val set (a head-truncation
         # via max_samples would take all windows from the first scene only).
@@ -211,6 +221,7 @@ def main() -> None:
         dtype=cfg["trainer"]["dtype"],
         val_iter=int(cfg["trainer"].get("val_iter", 0)),
         val_sample_steps=int(cfg["trainer"].get("val_sample_steps", 8)),
+        resume_from=(args.resume if args.resume is not None else cfg["trainer"].get("resume_from")),
     )
     trainer = CosmosPolicyTrainer(policy, vae, trainer_cfg)
     if is_main:

@@ -6,7 +6,9 @@ backbone:
   revision: diffusers/base/post-trained
   dtype: bfloat16
   freeze_backbone: false        # full finetune (upstream cosmos-policy does the same)
-  gradient_checkpointing: true
+  gradient_checkpointing: false # B200: full-finetune measured ~27GB WITH ckpt (179GB card) → ample
+                                # headroom, so disable activation recompute for ~25-40% speedup.
+                                # Re-enable on <=40GB cards (A6000) where it's required to fit.
   n_goal_tokens: 4
 
 conditioner:
@@ -23,6 +25,8 @@ data:
   chunk_size: 8                # ALOHA-style: 8 future actions per diffusion sample
   stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
   goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
+  augment_reverse: true          # also train each trajectory reversed (dolly-OUT) — fixes the ~81%
+                                 # far->near data bias, balances action direction ~50/50, no re-render
   val_split_level: scene         # unseen-scene generalization (pair | placement | scene | object)
   val_names: configs/policy/val_scenes.txt   # frozen manifest — pins the val scenes forever;
                                  # new data arrivals always go to train. Overrides the hash split.
@@ -60,7 +64,7 @@ flow:
 
 trainer:
   output_root: runs
-  run_name: cosmos_2b
+  run_name: cosmos_2b_balanced   # forward+reverse (dolly in/out) balanced data
   max_iter: 50000
   batch_size: 1
   grad_accum: 8

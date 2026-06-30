@@ -23,6 +23,7 @@ by design.
 from __future__ import annotations
 
 import hashlib
+import itertools
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
@@ -182,6 +183,7 @@ class BasePolicyDataset(Dataset):
         val_split_level: str = "pair",
         val_names: Sequence[str] | None = None,
         split: str = "train",
+        augment_reverse: bool = False,
     ) -> None:
         if goal_sampling not in GOAL_SAMPLING_MODES:
             raise ValueError(f"goal_sampling must be one of {GOAL_SAMPLING_MODES}, got {goal_sampling!r}")
@@ -195,10 +197,18 @@ class BasePolicyDataset(Dataset):
         self.stride = stride
         self.filter_clamped_goals = filter_clamped_goals
         self.goal_sampling = goal_sampling
+        self.augment_reverse = augment_reverse
         self._files = list_annotation_files(annotation_roots)
         self._entries: list[_Entry] = []
         for f in self._files:
-            for window in iter_windows(f, chunk_size=chunk_size, stride=stride):
+            windows = iter_windows(f, chunk_size=chunk_size, stride=stride)
+            if augment_reverse:
+                # Reversed trajectories give the dolly-OUT direction the data lacks
+                # (~81% of forward trajectories dolly in); each forward window gets a
+                # reversed counterpart, balancing the action direction ~50/50.
+                windows = itertools.chain(
+                    windows, iter_windows(f, chunk_size=chunk_size, stride=stride, reverse=True))
+            for window in windows:
                 if val_pair_stride > 0 or self._val_names is not None:
                     is_val = _is_val_pair(
                         window.annotation_path, window.pair_idx, val_pair_stride,

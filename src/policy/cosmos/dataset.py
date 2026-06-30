@@ -65,6 +65,7 @@ class CosmosDroneDataset(Dataset):
         val_split_level: str = "pair",
         val_names: Sequence[str] | None = None,
         split: str = "train",
+        augment_reverse: bool = False,
     ) -> None:
         self.target_resolution = target_resolution
         self.normalize = normalize_goal_to_unit_cube
@@ -83,6 +84,7 @@ class CosmosDroneDataset(Dataset):
             val_split_level=val_split_level,
             val_names=val_names,
             split=split,
+            augment_reverse=augment_reverse,
         )
         # Sanity-check that the first sample's images exist
         if len(self.base):
