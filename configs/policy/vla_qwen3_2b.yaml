@@ -5,13 +5,14 @@
 backbone:
   repo_id: Qwen/Qwen3-VL-2B-Instruct
   dtype: bfloat16
-  freeze_backbone: false        # full finetune, matching our Cosmos run
+  freeze_backbone: false        # the LM + expert still finetune...
+  freeze_vision: true           # ...but the vision tower is frozen (memory + baseline choice)
   gradient_checkpointing: false # OFF for speed (48GB headroom); re-enable if OOM
   # Qwen3-VL vision tower costs ~5ms/patch (linear; flash-attn does NOT help —
-  # it's a per-patch Python/sync cost, not attention). So minimize patches:
-  # ~64 vision tokens is enough for global composition (subject size/position).
-  max_pixels: 50176             # ~64 vision tokens (was 200704/~256 -> ~4x faster)
-  min_pixels: 12544             # ~16 vision tokens
+  # it's a per-patch Python/sync cost, not attention). So minimize patches.
+  # 25088 -> resized ~160x128 -> 80 patches -> 20 merged tokens (~2x faster than 50176).
+  max_pixels: 25088             # ~160x128 input, 20 vision tokens
+  min_pixels: 6272              # floor (~80x64)
   n_goal_tokens: 4
   prompt: "Describe the camera framing of the subject."
 

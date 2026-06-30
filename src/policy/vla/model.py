@@ -71,6 +71,7 @@ class VLAActionPolicy(nn.Module):
         expert_depth: int = 6,
         expert_heads: int = 8,
         freeze_backbone: bool = False,
+        freeze_vision: bool = False,
         flow_config: FlowConfig | None = None,
         action_scale=None,
         processor=None,
@@ -107,6 +108,17 @@ class VLAActionPolicy(nn.Module):
         if freeze_backbone:
             for p in self.backbone.parameters():
                 p.requires_grad_(False)
+        elif freeze_vision:
+            # Freeze only the vision tower; finetune the LM + expert + goal proj.
+            # The vision tower is the slow part (its forward still runs every step),
+            # so this is a baseline-design + memory choice, not a big speedup.
+            vis = getattr(self.backbone, "visual", None) or getattr(self.backbone, "vision_tower", None)
+            if vis is None:
+                raise AttributeError("could not find the vision tower on the backbone (.visual / .vision_tower)")
+            n = 0
+            for p in vis.parameters():
+                p.requires_grad_(False); n += 1
+            print(f"[VLA] froze vision tower: {n} param tensors", flush=True)
 
     def prepare_inputs(self, batch: dict, device, dtype) -> tuple[dict, torch.Tensor, torch.Tensor]:
         """Build (vlm_inputs, goal_vec, action_chunk) from a dataloader batch.

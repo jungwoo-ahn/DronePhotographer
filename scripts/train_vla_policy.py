@@ -89,6 +89,7 @@ def main() -> None:
         expert_depth=cfg["expert"]["depth"],
         expert_heads=cfg["expert"]["heads"],
         freeze_backbone=cfg["backbone"]["freeze_backbone"],
+        freeze_vision=cfg["backbone"].get("freeze_vision", False),
         flow_config=flow_cfg,
         processor=processor,
         prompt=cfg["backbone"].get("prompt", "Describe the camera framing of the subject."),
