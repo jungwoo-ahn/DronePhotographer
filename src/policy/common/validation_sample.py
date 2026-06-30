@@ -53,6 +53,8 @@ class ValidationSample:
     focal_length: float = V7_FOCAL_LENGTH_MM
     sensor_width: float = V7_SENSOR_WIDTH_MM
     sensor_height: float = V7_SENSOR_HEIGHT_MM
+    render_device: str = "GPU"   # faithful re-render uses GPU like the dataset (OPTIX/CUDA);
+                                 # BlenderDrone._configure_gpu falls back to CPU if no GPU is found.
 
     def hfov_deg(self) -> float:
         return math.degrees(2.0 * math.atan(self.sensor_width / (2.0 * self.focal_length)))
@@ -82,11 +84,12 @@ class ValidationSample:
             "options": {
                 "object_position": list(self.object_position),
                 "resolution": [self.render_width, self.render_height],
-                "samples": self.render_samples,
                 "focal_length": self.focal_length,
                 "sensor_width": self.sensor_width,
                 "sensor_height": self.sensor_height,
                 **V7_RENDER_OPTIONS,
+                "samples": self.render_samples,
+                "render_device": self.render_device,   # last → wins over V7_RENDER_OPTIONS
             },
         }
 
