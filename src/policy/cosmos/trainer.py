@@ -194,6 +194,9 @@ class CosmosPolicyTrainer:
                             tb.add_scalar(f"loss/{k}", v, iteration)
                         tb.add_scalar("lr", sched.get_last_lr()[0], iteration)
                         tb.add_scalar("loss/total_ema", loss_ema, iteration)
+                        # Watch the zero-init goal gate ramp off 0 — if it stays
+                        # ~0, the goal condition never engaged.
+                        tb.add_scalar("cond/gate", float(self.policy.conditioner.gate.detach()), iteration)
 
                     if iteration % cfg.log_iter == 0 and self.is_main:
                         dt = time.time() - last_log

@@ -53,16 +53,17 @@ yield NaN goals and are silently skipped by the loader.
 pip install -r requirements.txt
 pip install --no-build-isolation flash-attn>=2.7.3
 
-# (b) build the fixed T5 anchor (loads T5-11B once, ~22 GB, ~3 min on an H100).
-#     Produces assets/t5_anchor.pt, which the conditioner loads every run.
-python scripts/build_t5_anchor.py \
+# (b) build the fixed text anchor (loads Cosmos-Predict2.5's Qwen2.5-VL text
+#     encoder once). Produces assets/text_anchor.pt (real text tokens only),
+#     which the conditioner loads every run.
+python scripts/build_text_anchor.py \
     --prompt "A drone cinematography" \
-    --output assets/t5_anchor.pt
+    --output assets/text_anchor.pt
 ```
 
-The T5-11B encoder is used **only** by step (b) and never again — the goal
-conditioner is a small learnable projection on top of the frozen anchor (see
-COSMOS_API.md § "EDM" and § conditioner).
+The Qwen2.5-VL text encoder is used **only** by step (b) and never again — the goal
+conditioner is a small learnable projection whose K goal tokens are concatenated
+after the frozen anchor's real text tokens (see COSMOS_API.md § conditioner).
 
 ## 3. Train
 
@@ -87,7 +88,7 @@ Key config knobs (`configs/policy/cosmos_2b.yaml`):
 | `data` | `goal_score_keys` | which V5 keys form the goal vector (default all 8) |
 | `loss` | `lambda_world/action/value` | per-component loss weights |
 | `edm` | `use_balanced_two_heads`, `high/low_sigma_ratio` | σ-sampling (cosmos-policy `BALANCED_TWO_HEADS_V1`) |
-| `conditioner` | `anchor_path` | path to `t5_anchor.pt` from step 2b |
+| `conditioner` | `anchor_path` | path to `text_anchor.pt` from step (b) |
 
 ## 4. (Optional) precompute VAE latents
 
