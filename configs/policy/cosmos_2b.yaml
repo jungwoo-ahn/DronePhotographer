@@ -64,7 +64,7 @@ flow:
 
 trainer:
   output_root: runs
-  run_name: cosmos_2b_balanced   # forward+reverse (dolly in/out) balanced data
+  run_name: cosmos_2b_goalcond   # goal-cond fix (no-padding emit + gate removed) + reverse-aug
   max_iter: 50000
   batch_size: 1
   grad_accum: 8

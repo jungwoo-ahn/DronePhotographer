@@ -2,10 +2,9 @@
 
 GPU-free — pure torch.nn. Uses a synthetic anchor (no Qwen forward needed).
 
-The conditioner emits ONLY real text tokens + K goal tokens (no padding). At init
-the zero-init gate makes the goal tokens exactly zero, so the conditioned context
-is the anchor text + K zero tokens regardless of the goal; a non-zero gate makes
-the goal tokens depend on the goal.
+The conditioner emits ONLY real text tokens + K goal tokens (no padding). There is
+no gate — this is prefix tuning, so the goal tokens are active from step 0 and the
+conditioned context is the anchor text + K goal tokens that depend on the goal.
 """
 
 import pytest
@@ -53,28 +52,18 @@ def test_only_real_tokens_are_used_padding_is_ignored():
     torch.testing.assert_close(out[:, :6], cond._test_anchor_full[:6].unsqueeze(0).expand(2, -1, -1))
 
 
-def test_gate_initialized_to_zero():
-    assert torch.all(_make_cond(goal_dim=8).gate == 0.0)
+def test_no_gate_parameter():
+    # The zero-init gate was removed — prefix tuning conditions the goal from step 0.
+    assert not hasattr(_make_cond(goal_dim=8), "gate")
 
 
-def test_goal_tokens_zero_at_init_regardless_of_goal():
+def test_goal_tokens_active_and_depend_on_goal():
     cond = _make_cond(goal_dim=8, n_tokens=4, anchor_real_len=6).eval()
-    o1 = cond({"goal_vec": torch.randn(2, 8)}).crossattn_emb
-    o2 = cond({"goal_vec": torch.randn(2, 8) * 100}).crossattn_emb
-    # goal-token region is exactly zero at init, independent of the goal
-    assert torch.all(o1[:, 6:] == 0.0)
-    torch.testing.assert_close(o1, o2, atol=0, rtol=0)
-
-
-def test_nonzero_gate_makes_goal_tokens_depend_on_goal():
-    cond = _make_cond(goal_dim=8, n_tokens=4, anchor_real_len=6)
-    with torch.no_grad():
-        cond.gate.fill_(1.0)
     o1 = cond({"goal_vec": torch.zeros(1, 8)}).crossattn_emb
     o2 = cond({"goal_vec": torch.randn(1, 8)}).crossattn_emb
-    # text region unchanged; goal-token region changes with the goal
-    torch.testing.assert_close(o1[:, :6], o2[:, :6])
-    assert not torch.allclose(o1[:, 6:], o2[:, 6:])
+    assert not torch.all(o1[:, 6:] == 0.0)              # active (non-zero) even at init
+    assert not torch.allclose(o1[:, 6:], o2[:, 6:])     # goal region depends on the goal
+    torch.testing.assert_close(o1[:, :6], o2[:, :6])    # text region unchanged
 
 
 def test_padding_mask_is_all_valid():
@@ -85,16 +74,12 @@ def test_padding_mask_is_all_valid():
 
 def test_dropout_zeros_goal_tokens_in_train():
     cond = _make_cond(goal_dim=8, dropout_rate=1.0, n_tokens=4, anchor_real_len=6).train()
-    with torch.no_grad():
-        cond.gate.fill_(10.0)
     out = cond({"goal_vec": torch.randn(8, 8)}).crossattn_emb
     assert torch.all(out[:, 6:] == 0.0)                # rate=1 -> every item dropped
 
 
 def test_no_dropout_in_eval():
     cond = _make_cond(goal_dim=8, dropout_rate=1.0, n_tokens=4, anchor_real_len=6).eval()
-    with torch.no_grad():
-        cond.gate.fill_(1.0)
     out = cond({"goal_vec": torch.randn(2, 8)}).crossattn_emb
     assert not torch.all(out[:, 6:] == 0.0)            # eval -> no dropout, goal active
 
@@ -110,13 +95,10 @@ def test_promotes_unbatched_input():
     assert out.crossattn_emb.shape[0] == 1
 
 
-def test_gradient_flows_to_goal_proj_and_gate():
+def test_gradient_flows_to_goal_proj():
     cond = _make_cond(goal_dim=4).train()
-    with torch.no_grad():
-        cond.gate.fill_(0.5)
     cond({"goal_vec": torch.randn(2, 4)}).crossattn_emb.pow(2).sum().backward()
     assert cond.goal_proj.weight.grad is not None and cond.goal_proj.weight.grad.abs().sum() > 0
-    assert cond.gate.grad is not None and cond.gate.grad.abs().item() > 0
 
 
 def test_rejects_real_len_longer_than_anchor():
@@ -133,9 +115,9 @@ def test_rejects_anchor_dim_mismatch():
                                      anchor_embedding=emb, anchor_real_len=6)
 
 
-def test_anchor_text_is_buffer_gate_and_proj_are_params():
+def test_anchor_text_is_buffer_proj_is_param():
     cond = _make_cond(goal_dim=8)
     params = {n for n, _ in cond.named_parameters()}
     buffers = {n for n, _ in cond.named_buffers()}
     assert "anchor_text" in buffers and "anchor_text" not in params
-    assert "gate" in params and "goal_proj.weight" in params
+    assert "goal_proj.weight" in params and "gate" not in params

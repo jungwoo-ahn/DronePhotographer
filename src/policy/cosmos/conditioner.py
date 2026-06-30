@@ -112,9 +112,12 @@ class ShotProfileVectorConditioner(nn.Module):
         # Store ONLY the real text tokens — the padding region is never used.
         self.register_buffer("anchor_text", anchor_embedding[: self.anchor_real_len].to(torch.float32))
 
-        # Trainable: goal projection + zero-init gate.
+        # Trainable: goal projection only. No zero-init gate: this is prefix tuning
+        # (learnable goal tokens), so the goal conditions from step 0 at full scale.
+        # ControlNet-style zero-init only made sense for injecting into a frozen,
+        # already-trained path — here it just kept the goal washed out (gate stalled
+        # near 0), so we drop it.
         self.goal_proj = nn.Linear(goal_dim, n_tokens * model_dim)
-        self.gate = nn.Parameter(torch.zeros(1))
 
     def forward(
         self,
@@ -133,7 +136,7 @@ class ShotProfileVectorConditioner(nn.Module):
         # Real anchor text tokens only (never the padding region).
         text = self.anchor_text.to(dtype=dtype, device=device).unsqueeze(0).expand(b, -1, -1)  # (B, real_len, D)
 
-        # Project goal → K tokens, scaled by the zero-init gate (0 at init → zero tokens).
+        # Project goal → K tokens (active from step 0, no gate).
         goal_tokens = self.goal_proj(goal).view(b, self.n_tokens, self.model_dim)
 
         # Classifier-free dropout: zero the goal tokens for some items (uncondition path).
@@ -142,7 +145,7 @@ class ShotProfileVectorConditioner(nn.Module):
             keep = (torch.rand(b, 1, 1, device=device) > rate).to(dtype)
         else:
             keep = torch.ones(1, device=device, dtype=dtype)
-        goal_tokens = (self.gate.to(dtype) * keep) * goal_tokens
+        goal_tokens = keep * goal_tokens
 
         # Concatenate: [real text | goal tokens]. Every emitted token is valid.
         emb = torch.cat([text, goal_tokens], dim=1)                      # (B, real_len + K, D)
