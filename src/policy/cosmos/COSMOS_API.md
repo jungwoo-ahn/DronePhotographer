@@ -58,35 +58,42 @@ Source-of-truth files for the upstream specs (verified at commit `18a2acc` of `n
 
 | Field | Shape | Notes |
 |---|---|---|
-| `crossattn_emb` | `(B, 512, 1024)` | Exact shape T5-11B produces — backbone sees in-distribution input |
-| `padding_mask` | `(B, 512) bool` | True for the anchor's real tokens (~6) + our K=4 goal tokens; False elsewhere |
+| `crossattn_emb` | `(B, real_len + K, D)` | Real Qwen text tokens (~6) + K=4 goal tokens. D = Qwen per-layer concat (3584×28 = 100352). No padding tokens emitted. |
+| `padding_mask` | `(B, real_len + K) bool` | All True — every emitted token is valid (no padding to mask). |
 | `raw_goal` | `(B, D_goal=8)` | Kept for debugging / value-head input if we want it |
 
-**Architecture (zero-init prefix injection, ControlNet-style)**:
+**Architecture (zero-init goal tokens, ControlNet-style — no padding emitted)**:
 
 ```
-anchor_emb:  (512, 1024)  ← frozen buffer, loaded from assets/t5_anchor.pt
-anchor_mask: (512,) bool  ← T5's padding mask for the anchor prompt
-gate:        ()           ← nn.Parameter, initialized to 0
-goal_proj:   Linear(8, K·1024)
+anchor_text: (real_len, D)  ← frozen buffer (real text only), from assets/text_anchor.pt
+gate:        ()             ← nn.Parameter, initialized to 0
+goal_proj:   Linear(8, K·D)
 
 # At forward:
-emb = anchor_emb.expand(B, -1, -1).clone()
-goal_tokens = goal_proj(goal_vec).view(B, K, 1024)
-emb[:, real_len : real_len + K] += gate * goal_tokens
-mask = anchor_mask.expand(B, -1).clone()
-mask[:, real_len : real_len + K] = True
+text = anchor_text.expand(B, -1, -1)                              # (B, real_len, D)
+goal_tokens = (gate * keep) * goal_proj(goal_vec).view(B, K, D)   # 0 at init
+emb = cat([text, goal_tokens], dim=1)                            # (B, real_len + K, D), all valid
 ```
 
-At init `gate=0` → conditioner output **equals the frozen anchor exactly**, so the backbone starts as the pretrained T5-conditioned model. Gradient descent ramps the gate up as the action/value/flow losses demand goal-specific signal.
+At init `gate=0` → the goal tokens are exactly zero, so the context is the anchor's
+real text + K zero tokens (the pretrained Qwen-conditioned path). Gradient descent
+ramps the gate up as the action/value/flow losses demand goal-specific signal.
 
-**Building the anchor** (one-time, requires T5-11B):
+> We deliberately never emit the anchor's padding region. The earlier design kept
+> all 512 anchor positions (real text + ~500 *non-zero*, per-position-normalized
+> padding embeddings) behind a `padding_mask` that the diffusers backbone adapter
+> never applied (it sets the transformer's spatial `padding_mask`, not the
+> cross-attention `attention_mask`) — so the K goal tokens were drowned by ~500
+> constant padding tokens. Emitting only valid tokens fixes that at the source.
+
+**Building the anchor** (one-time, requires the Qwen2.5-VL text encoder):
 
 ```bash
-python scripts/build_t5_anchor.py --prompt "A drone cinematography" --output assets/t5_anchor.pt
+python scripts/build_text_anchor.py --prompt "A drone cinematography" --output assets/text_anchor.pt
 ```
 
-This is the **only** time T5-11B is ever loaded. The resulting ~1 MB tensor is loaded by the conditioner at every training/inference run.
+This is the **only** time the Qwen2.5-VL text encoder is loaded; the saved tensor
+(real text tokens only) is loaded by the conditioner at every training/inference run.
 
 **Adaptation from upstream** (issue #18: "Goal condition: We need to embed shot profiles somehow"):
 
@@ -319,7 +326,7 @@ Disable `use_balanced_two_heads` for ablations vs. the pure log-normal schedule.
   2. The same command string (`"fold shirt"`) appears across many samples, so reusing one cached encoding amortizes the cost.
   3. T5-11B forward is non-trivial (~hundreds of ms per command on a single H100); training would be I/O-bound on text encoding without the cache.
 
-**We don't need to do this** for the shot-profile goal vector. Our "encoder" is a single `Linear(8, K·1024)` + zero-init gate that operates on a frozen T5 anchor (`assets/t5_anchor.pt`, ~1 MB). The anchor is precomputed once via `scripts/build_t5_anchor.py`; the goal-projection weights themselves are trainable and change every step, so they cannot be cached.
+**We don't need to do this** for the shot-profile goal vector. Our "encoder" is a single `Linear(8, K·D)` + zero-init gate that operates on a frozen **Qwen2.5-VL** text anchor (`assets/text_anchor.pt`). The anchor is precomputed once via `scripts/build_text_anchor.py`; the goal-projection weights themselves are trainable and change every step, so they cannot be cached. (Cosmos-Predict2.5's text encoder is Qwen2.5-VL, not T5 — the upstream cosmos-policy reference above is the older ALOHA codebase, which used T5.)
 
 **What we should precompute instead**: the **VAE latents** for the rendered drone images. The Cosmos VAE is frozen for the prototype and its output is sample-dependent (not goal-dependent), so a `{(annotation_path, placement_idx, view_idx): latent}` cache buys a lot. That's what `scripts/encode_vae_latents.py` is for — it saves `(C_lat=16, T_lat, H_lat, W_lat) bfloat16` tensors keyed by view identity. Each latent is ~1–10 MB depending on resolution; the full v6 set of ~20K views fits in well under 200 GB on disk.
 
@@ -328,8 +335,8 @@ Summary:
 | Modality | Encoder | Output shape | Encoder size | Should we cache? |
 |---|---|---|---|---|
 | Upstream Cosmos text | T5-11B (frozen, per-sample) | `(B, 512, 1024) bfloat16` | ~11 B params, ~22 GB | **Yes** — cosmos-policy ships a script for this |
-| Our T5 anchor (one fixed prompt) | T5-11B (one-shot) | `(512, 1024) bfloat16` | One-time ~3-minute encode | **Yes** — `scripts/build_t5_anchor.py` saves `assets/t5_anchor.pt` |
-| Our goal projection (in the model) | `Linear(8, K·1024)` + zero-init gate (trainable) | adds delta into 4 anchor positions | ~33K params | **No** — encoder weights change every step |
+| Our text anchor (one fixed prompt) | Qwen2.5-VL (one-shot) | `(real_len, D)` bfloat16, D=100352 | One-time encode | **Yes** — `scripts/build_text_anchor.py` saves `assets/text_anchor.pt` (real tokens only) |
+| Our goal projection (in the model) | `Linear(8, K·D)` + zero-init gate (trainable) | K goal tokens concatenated after the text | trainable | **No** — encoder weights change every step |
 | Image / video | Cosmos VAE (frozen) | `(B, 16, T_lat, H_lat, W_lat) bfloat16` | ~0.4 B params | **Yes** — see `scripts/encode_vae_latents.py` |
 
 ## Hot-path overhead estimate (per training iteration)

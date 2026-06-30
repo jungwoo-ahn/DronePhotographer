@@ -1,0 +1,19 @@
+# LLM Policy baseline (issue #22) — VLM-as-policy, Photo Agent style (training-free).
+# Default backend is the local Qwen3-VL-2B placeholder (free). For final runs use the
+# API backend — see configs/policy/llm_policy_api.yaml (LetSur gateway, gemini-2.5-flash).
+
+backend: qwen_local
+
+qwen:
+  repo_id: Qwen/Qwen3-VL-2B-Instruct
+  dtype: bfloat16
+  device: cuda
+  max_new_tokens: 256
+  temperature: 0.2
+
+policy:
+  max_translation_m: 3.0
+  max_angle_deg: 60.0
+
+# For the final-run API backend, use configs/policy/llm_policy_api.yaml
+# (LetSur gateway: base_url https://gw.letsur.ai/v1, GATEWAY_API_KEY, gemini-2.5-flash).

@@ -1,28 +1,34 @@
-"""Shot-profile vector conditioner — zero-init prefix injection on a T5 anchor.
+"""Shot-profile vector conditioner — zero-init goal tokens on a Qwen text anchor.
 
 Design (issue #18 — "Goal condition: We need to embed shot profiles somehow"):
 
-  1. **Anchor**: T5-11B encodes a fixed prompt (e.g. "A drone cinematography")
-     *once*, offline (`scripts/build_t5_anchor.py`). The `(512, 1024) bf16`
-     output and its padding mask are saved to `assets/t5_anchor.pt`. T5 is
-     **never loaded again** at training or inference time.
+  1. **Anchor**: Cosmos-Predict2.5's text encoder — **Qwen2.5-VL (Cosmos-Reason1),
+     NOT T5** — encodes a fixed prompt (e.g. "A drone cinematography") *once*,
+     offline (`scripts/build_text_anchor.py`). The saved embedding is the
+     per-position-normalized concatenation of all Qwen layers
+     (28 × 3584 = 100352 dims/token). The real cross-attention dim is detected
+     from the backbone at build time (see `train_cosmos_policy.py`); the module
+     default `COSMOS_CROSSATTN_DIM` below is only a small fallback for tests.
 
   2. **Goal projection**: a learnable `Linear(goal_dim, K·D)` produces K new
-     "goal tokens" of dim D=1024 from the normalized 8-dim goal vector.
+     "goal tokens" of dim D from the normalized 8-dim goal vector.
 
-  3. **Zero-init prefix injection**: the goal tokens are *added* to K positions
-     immediately after the anchor's real-text tokens (those positions are
-     originally padding). The scale is a learnable scalar `gate`, **initialized
-     to 0** — so at init the conditioner output is exactly the frozen anchor,
-     regardless of the goal vector. Gradient descent ramps the gate up.
+  3. **Zero-init goal tokens**: the K goal tokens are **concatenated** after the
+     anchor's real text tokens, scaled by a learnable scalar `gate` **initialized
+     to 0** — so at init the goal tokens are exactly zero and the conditioner
+     output is the frozen anchor's real tokens only, regardless of the goal.
+     Gradient descent ramps the gate up.
 
-  4. **Padding mask**: the anchor's real tokens + the K injected goal positions
-     are marked valid; the rest stay padding so cross-attention ignores them.
+  4. **No padding tokens are ever emitted.** We pass ONLY the anchor's real text
+     tokens + the K goal tokens to cross-attention. The previous design kept all
+     512 anchor positions (real text + ~500 *non-zero*, per-position-normalized
+     padding embeddings) and relied on a mask that the backbone adapter never
+     applied — so the goal was drowned by ~500 constant padding tokens. Emitting
+     only valid tokens removes both the masking requirement and that dilution.
 
 This gives the "zero-init add" property (ControlNet-style) without touching the
 backbone's internals. If the gate stays small and we plateau early, escalate to
-IP-Adapter-style **decoupled cross-attention** (see COSMOS_API.md for the
-documented next step).
+IP-Adapter-style **decoupled cross-attention** (see COSMOS_API.md).
 """
 
 from __future__ import annotations
@@ -34,38 +40,41 @@ from typing import Optional
 import torch
 from torch import nn
 
-# Cosmos cross-attention embedding dim (T5-11B hidden size).
+# Fallback cross-attention dim for tests / naive construction. The REAL Cosmos
+# dim (Qwen2.5-VL per-layer concat = 3584 × 28 = 100352) is detected from the
+# backbone in train_cosmos_policy.py and passed in explicitly.
 COSMOS_CROSSATTN_DIM = 1024
 
-# T5 max sequence length used by Cosmos.
-COSMOS_T5_MAX_LEN = 512
+# Max anchor length we accept (the saved anchor may be padded to this; we only
+# ever read its first `real_len` tokens).
+COSMOS_TEXT_MAX_LEN = 512
 
-# Default number of "goal tokens" injected as a prefix after the real T5 text.
+# Default number of "goal tokens" concatenated after the real text tokens.
 DEFAULT_GOAL_TOKENS = 4
 
 
 @dataclass
 class ShotProfileCondition:
-    crossattn_emb: torch.Tensor                  # (B, max_seq_len, D)
-    padding_mask: Optional[torch.Tensor] = None  # (B, max_seq_len) bool
+    crossattn_emb: torch.Tensor                  # (B, real_len + K, D) — all valid tokens
+    padding_mask: Optional[torch.Tensor] = None  # (B, real_len + K) bool, all True (no padding)
     raw_goal: Optional[torch.Tensor] = None      # (B, D_goal)
 
 
 class ShotProfileVectorConditioner(nn.Module):
-    """Zero-init prefix-injection conditioner on a fixed T5 anchor."""
+    """Zero-init goal-token conditioner on a fixed Qwen text anchor (no padding emitted)."""
 
     def __init__(
         self,
         goal_dim: int = 8,
         model_dim: int = COSMOS_CROSSATTN_DIM,
         n_tokens: int = DEFAULT_GOAL_TOKENS,
-        max_seq_len: int = COSMOS_T5_MAX_LEN,
+        max_seq_len: int = COSMOS_TEXT_MAX_LEN,
         dropout_rate: float = 0.0,
         *,
         anchor_path: str | Path | None = None,
-        anchor_embedding: Optional[torch.Tensor] = None,   # (max_seq_len, model_dim)
+        anchor_embedding: Optional[torch.Tensor] = None,   # (L, model_dim), L >= real_len
         anchor_real_len: Optional[int] = None,
-        anchor_padding_mask: Optional[torch.Tensor] = None,  # (max_seq_len,) bool
+        anchor_padding_mask: Optional[torch.Tensor] = None,  # (L,) bool (real tokens True)
     ) -> None:
         super().__init__()
         self.goal_dim = goal_dim
@@ -79,35 +88,29 @@ class ShotProfileVectorConditioner(nn.Module):
                 blob = torch.load(anchor_path, map_location="cpu", weights_only=False)
                 anchor_embedding = blob["embedding"]
                 anchor_real_len = int(blob["real_len"])
-                anchor_padding_mask = blob["padding_mask"]
+                anchor_padding_mask = blob.get("padding_mask")
             else:
-                # No anchor → zeros buffer. Allowed for tests but degrades the
-                # conditioner to a learnable prefix with no T5 grounding.
-                anchor_embedding = torch.zeros(max_seq_len, model_dim)
+                # No anchor → empty text. Allowed for tests but degrades the
+                # conditioner to a learnable prefix with no Qwen grounding.
+                anchor_embedding = torch.zeros(0, model_dim)
                 anchor_real_len = 0
-                anchor_padding_mask = torch.zeros(max_seq_len, dtype=torch.bool)
+                anchor_padding_mask = None
 
-        if anchor_embedding.shape != (max_seq_len, model_dim):
+        if anchor_embedding.dim() != 2 or anchor_embedding.shape[1] != model_dim:
             raise ValueError(
-                f"anchor_embedding shape {tuple(anchor_embedding.shape)} != "
-                f"({max_seq_len}, {model_dim})"
+                f"anchor_embedding shape {tuple(anchor_embedding.shape)} != (L, {model_dim})"
             )
-        if anchor_padding_mask is None:
-            anchor_padding_mask = torch.zeros(max_seq_len, dtype=torch.bool)
-            anchor_padding_mask[: int(anchor_real_len or 0)] = True
         if anchor_real_len is None:
-            anchor_real_len = int(anchor_padding_mask.sum().item())
-
-        self.anchor_real_len = int(anchor_real_len)
-        if self.anchor_real_len + n_tokens > max_seq_len:
+            anchor_real_len = (int(anchor_padding_mask.sum().item())
+                               if anchor_padding_mask is not None else anchor_embedding.shape[0])
+        if anchor_real_len > anchor_embedding.shape[0]:
             raise ValueError(
-                f"anchor_real_len ({self.anchor_real_len}) + n_tokens ({n_tokens}) "
-                f"exceeds max_seq_len ({max_seq_len})"
+                f"anchor_real_len ({anchor_real_len}) > anchor length ({anchor_embedding.shape[0]})"
             )
+        self.anchor_real_len = int(anchor_real_len)
 
-        # Anchor + its padding mask are frozen.
-        self.register_buffer("anchor_emb", anchor_embedding.to(torch.float32))
-        self.register_buffer("anchor_mask", anchor_padding_mask.to(torch.bool))
+        # Store ONLY the real text tokens — the padding region is never used.
+        self.register_buffer("anchor_text", anchor_embedding[: self.anchor_real_len].to(torch.float32))
 
         # Trainable: goal projection + zero-init gate.
         self.goal_proj = nn.Linear(goal_dim, n_tokens * model_dim)
@@ -127,34 +130,29 @@ class ShotProfileVectorConditioner(nn.Module):
         dtype = goal.dtype
         device = goal.device
 
-        # Broadcast frozen anchor to batch; cast to goal dtype so AMP works.
-        emb = self.anchor_emb.to(dtype=dtype, device=device).unsqueeze(0).expand(b, -1, -1).clone()
+        # Real anchor text tokens only (never the padding region).
+        text = self.anchor_text.to(dtype=dtype, device=device).unsqueeze(0).expand(b, -1, -1)  # (B, real_len, D)
 
-        # Project goal → K tokens
+        # Project goal → K tokens, scaled by the zero-init gate (0 at init → zero tokens).
         goal_tokens = self.goal_proj(goal).view(b, self.n_tokens, self.model_dim)
 
-        # Classifier-free dropout zeroes the gate's effect entirely for some
-        # items (uncondition path). At init the gate is 0 → no effect from goal.
+        # Classifier-free dropout: zero the goal tokens for some items (uncondition path).
         rate = override_dropout_rate if override_dropout_rate is not None else self.dropout_rate
         if self.training and rate > 0.0:
             keep = (torch.rand(b, 1, 1, device=device) > rate).to(dtype)
         else:
             keep = torch.ones(1, device=device, dtype=dtype)
+        goal_tokens = (self.gate.to(dtype) * keep) * goal_tokens
 
-        start = self.anchor_real_len
-        end = start + self.n_tokens
-        emb[:, start:end] = emb[:, start:end] + (self.gate.to(dtype) * keep) * goal_tokens
-
-        # Padding mask: real anchor tokens + goal positions are valid
-        mask = self.anchor_mask.to(device=device).unsqueeze(0).expand(b, -1).clone()
-        mask[:, start:end] = True
-
+        # Concatenate: [real text | goal tokens]. Every emitted token is valid.
+        emb = torch.cat([text, goal_tokens], dim=1)                      # (B, real_len + K, D)
+        mask = torch.ones(b, emb.shape[1], dtype=torch.bool, device=device)
         return ShotProfileCondition(crossattn_emb=emb, padding_mask=mask, raw_goal=goal)
 
 
 __all__ = [
     "COSMOS_CROSSATTN_DIM",
-    "COSMOS_T5_MAX_LEN",
+    "COSMOS_TEXT_MAX_LEN",
     "DEFAULT_GOAL_TOKENS",
     "ShotProfileCondition",
     "ShotProfileVectorConditioner",

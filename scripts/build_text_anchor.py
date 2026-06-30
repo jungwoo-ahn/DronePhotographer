@@ -87,8 +87,12 @@ def main() -> None:
     ]
     embedding = torch.cat(normalized, dim=-1)[0].to(dtype).cpu()   # (max_length, n_layers*hidden)
 
-    padding_mask = torch.zeros(args.max_length, dtype=torch.bool)
-    padding_mask[:real_len] = True
+    # The encoder runs on the padded sequence (pipeline convention), but we save
+    # ONLY the real text tokens: the conditioner emits real text + goal tokens and
+    # never the padding region, so saving ~500 padding vectors is wasted space
+    # (and was the source of the goal-dilution bug). Drop them here.
+    embedding = embedding[:real_len]
+    padding_mask = torch.ones(real_len, dtype=torch.bool)
 
     blob = {
         "embedding": embedding,

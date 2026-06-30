@@ -1,0 +1,77 @@
+# π0-style VLA ablation baseline (issue #22): "ours without the world model".
+# Same v7 data / goal space / 5D action / flow convention / eval as the Cosmos
+# policy — only the world model is removed (VLM predicts the action directly).
+
+backbone:
+  repo_id: Qwen/Qwen3-VL-2B-Instruct
+  dtype: bfloat16
+  freeze_backbone: false        # the LM + expert still finetune...
+  freeze_vision: true           # ...but the vision tower is frozen (memory + baseline choice)
+  gradient_checkpointing: false # OFF for speed (48GB headroom); re-enable if OOM
+  # Qwen3-VL vision tower costs ~5ms/patch (linear; flash-attn does NOT help —
+  # it's a per-patch Python/sync cost, not attention). So minimize patches.
+  # 25088 -> resized ~160x128 -> 80 patches -> 20 merged tokens (~2x faster than 50176).
+  max_pixels: 25088             # ~160x128 input, 20 vision tokens
+  min_pixels: 6272              # floor (~80x64)
+  n_goal_tokens: 4
+  prompt: "Describe the camera framing of the subject."
+
+expert:
+  dim: 512
+  depth: 6
+  heads: 8
+
+data:
+  annotation_roots:
+    - data/trajectories_full     # symlink -> full v7 set (same as cosmos)
+  chunk_size: 8
+  stride: 1
+  max_samples: null
+  target_resolution: [480, 720]
+  goal_score_keys:
+    - occupancy
+    - body_in_frame_ratio
+    - cam_to_obj_azimuth_deg
+    - cam_to_obj_elevation_deg
+    - object_center_x
+    - object_center_y
+    - bbox_x_offset
+    - bbox_y_offset
+
+  # Held-out val: same scene-level manifest as the Cosmos policy.
+  val_split_level: scene
+  val_names: configs/policy/val_scenes.txt
+  val_stride: 4
+  val_max_samples: 24    # small: each val window forwards through the 2B model
+  val_iter: 2000         # infrequent: VLA is slow, so a val pass is a real stall
+  val_sample_steps: 0    # LOSS-ONLY validation (no per-step sampler simulation)
+
+flow:
+  p_mean: 0.0
+  p_std: 1.0
+  use_balanced_two_heads: true
+  high_sigma_ratio: 0.25
+  low_sigma_ratio: 0.25
+
+trainer:
+  output_root: runs
+  run_name: vla_qwen3_2b
+  max_iter: 50000
+  early_stop_patience: 10        # stop if val loss flat for 10 vals (20k iters); same as DP
+  batch_size: 4        # bs=4 x grad_accum=1 x 2 GPUs (DDP) = effective batch 8.
+  grad_accum: 1        # no accumulation needed: the 2 ranks supply the batch,
+                       # and no gradient checkpointing -> fewer/faster steps.
+  learning_rate: 1.0e-5
+  weight_decay: 0.0
+  warmup_iter: 1000
+  save_iter: 2000
+  log_iter: 100
+  seed: 0
+  device: cuda
+  dtype: bfloat16
+
+dataloader:
+  num_workers: 8        # processor (image preproc) is the CPU bottleneck
+  pin_memory: true
+  shuffle: true
+  drop_last: true

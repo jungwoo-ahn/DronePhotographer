@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DronePhotographer — Cosmos Policy Model</title>
+<style>
+  :root{
+    --bg:#0f1117; --panel:#171a23; --panel2:#1e222d; --ink:#e6e9ef; --muted:#9aa3b2;
+    --accent:#6ea8fe; --accent2:#7ee0c0; --warn:#ffb86b; --line:#2a2f3b;
+    --world:#6ea8fe; --action:#7ee0c0; --value:#ffb86b; --goal:#c08bff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 22px 90px}
+  h1{font-size:30px;margin:.2em 0 .1em;letter-spacing:-.02em}
+  h2{font-size:22px;margin:1.8em 0 .5em;padding-top:.4em;border-top:1px solid var(--line);letter-spacing:-.01em}
+  h3{font-size:16px;margin:1.3em 0 .4em;color:var(--accent)}
+  p{margin:.6em 0}
+  a{color:var(--accent);text-decoration:none}
+  code{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.88em;
+    background:#0b0d12;border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#cfe0ff}
+  .sub{color:var(--muted);font-size:15px;margin-top:0}
+  .lead{font-size:16.5px;color:#cdd4e0}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:740px){.g2,.g3{grid-template-columns:1fr}}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:2px 8px;border-radius:20px;border:1px solid var(--line);color:var(--muted);background:#0b0d12}
+  .pill{display:inline-block;border-radius:6px;padding:2px 9px;font-weight:600;font-size:13px}
+  .p-world{background:rgba(110,168,254,.16);color:#bcd4ff;border:1px solid rgba(110,168,254,.5)}
+  .p-action{background:rgba(126,224,192,.15);color:#b6f0dd;border:1px solid rgba(126,224,192,.5)}
+  .p-value{background:rgba(255,184,107,.15);color:#ffd9ad;border:1px solid rgba(255,184,107,.5)}
+  .p-goal{background:rgba(192,139,255,.15);color:#e3ccff;border:1px solid rgba(192,139,255,.5)}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#0b0d12;color:#cdd4e0;font-weight:600}
+  td code{white-space:nowrap}
+  .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:14px 0}
+  .step{flex:1 1 140px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
+  .step .n{font-size:11px;color:var(--accent2);font-weight:700;letter-spacing:.05em}
+  .step b{display:block;margin:3px 0}
+  .step small{color:var(--muted)}
+  .arrow{align-self:center;color:var(--muted);font-size:20px}
+  .seq{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;align-items:stretch}
+  .frame{border-radius:8px;padding:9px 10px;min-width:74px;text-align:center;font-size:12px;border:1px solid}
+  .f-world{background:rgba(110,168,254,.10);border-color:rgba(110,168,254,.45)}
+  .f-action{background:rgba(126,224,192,.10);border-color:rgba(126,224,192,.5)}
+  .f-value{background:rgba(255,184,107,.10);border-color:rgba(255,184,107,.5)}
+  .frame .idx{color:var(--muted);font-size:11px}
+  .frame b{display:block;margin-top:2px}
+  .note{border-left:3px solid var(--accent);background:rgba(110,168,254,.07);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+  .warnbox{border-left:3px solid var(--warn);background:rgba(255,184,107,.08);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+  pre{background:#0b0d12;border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:13px;line-height:1.5}
+  pre code{background:none;border:none;padding:0;color:#d7e2f5}
+  ul{margin:.5em 0 .5em 0;padding-left:1.2em}
+  li{margin:.25em 0}
+  .toc{columns:2;column-gap:30px;font-size:14px}
+  @media(max-width:560px){.toc{columns:1}}
+  .toc a{display:block;padding:2px 0;color:#c6cfdd}
+  .kv{font-size:13.5px}
+  .kv b{color:var(--accent2)}
+  .small{font-size:13px;color:var(--muted)}
+  .center{text-align:center}
+  .dim{color:var(--muted)}
+  footer{margin-top:50px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="tag">DronePhotographer · branch 005-cosmos-policy-integration</span>
+  <h1>The Cosmos Goal-Conditioned Policy</h1>
+  <p class="sub">A visual map of the model: what the pieces are, how data flows through them, and how to run it.</p>
+  <p class="lead">We reframe autonomous photography as <b>counterfactual visuomotor policy learning</b>. To frame a shot, the camera must imagine what the scene looks like from viewpoints it hasn't occupied yet. So the model jointly <span class="pill p-world">imagines the next frame</span>, <span class="pill p-action">predicts a camera action</span>, and <span class="pill p-value">estimates how close it is to the goal</span> — all conditioned on a <span class="pill p-goal">shot-profile goal</span>.</p>
+
+  <div class="panel">
+    <h3 style="margin-top:0">Contents</h3>
+    <div class="toc">
+      <a href="#bigpicture">1 · The big picture</a>
+      <a href="#data">2 · From Blender to a training sample</a>
+      <a href="#sample">3 · What one training sample is</a>
+      <a href="#arch">4 · Architecture (how it predicts)</a>
+      <a href="#latent">5 · The latent sequence trick</a>
+      <a href="#conditioner">6 · The goal conditioner</a>
+      <a href="#spaces">7 · Goal / action / value spaces</a>
+      <a href="#train">8 · Training</a>
+      <a href="#infer">9 · Inference</a>
+      <a href="#eval">10 · How to know if it's good</a>
+      <a href="#repo">11 · Where everything lives</a>
+      <a href="#run">12 · How to run it</a>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <h2 id="bigpicture">1 · The big picture</h2>
+  <p>One model, built on the frozen-or-finetuned <b>Cosmos-Predict2.5-2B</b> video backbone, takes the current view and a goal and produces three things at once with a single diffusion (flow-matching) process:</p>
+  <div class="grid g3">
+    <div class="panel"><span class="pill p-world">WORLD</span><p style="margin:.5em 0 0">Predicts the <b>next frame</b> (what the camera will see after the move). This is the "imagine before you act" inductive bias.</p></div>
+    <div class="panel"><span class="pill p-action">ACTION</span><p style="margin:.5em 0 0">Predicts a <b>chunk of 8 future camera moves</b> (Δposition + Δorientation), ALOHA-style.</p></div>
+    <div class="panel"><span class="pill p-value">VALUE</span><p style="margin:.5em 0 0">Predicts <b>how far the current view is from the goal framing</b> (a geometric distance).</p></div>
+  </div>
+  <div class="note"><b>The key idea you keep coming back to:</b> the goal is a <b>shot profile</b> (a small, geometric, scene-agnostic vector — "subject this big, this far off-center, camera at this angle"), <i>not</i> a target image or a text prompt. Every random camera trajectory in the data is relabeled, after the fact, with the framing it happened to achieve. That turns aimless rollouts into goal-conditioned supervision for free (hindsight relabeling).</p></div>
+
+  <!-- 2 -->
+  <h2 id="data">2 · From Blender to a training sample</h2>
+  <p>Data is generated entirely in Blender, then enriched and reshaped. Stages 1–3 produce the on-disk dataset; the policy loader (stage 4) turns it into model tensors.</p>
+  <div class="flow">
+    <div class="step"><span class="n">STAGE 1</span><b>Sample trajectories</b><small>Curated design-asset scenes. Random camera paths around a placed subject → <code>accepted_pairs[i].trajectory_32f</code> (32 poses each).</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><span class="n">STAGE 2</span><b>Render</b><small>Each pose rendered → <code>renders/pair_PP_frame_FF.jpg</code>. Writes <code>done.flag</code>.</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><span class="n">STAGE 3</span><b>Score</b><small>Detect subject bbox + compute the 8-key shot profile per frame → <code>render_records[i][j].scores</code>. Writes <code>scored.flag</code>.</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><span class="n">STAGE 4</span><b>Window + relabel</b><small>The policy dataset slides windows, relabels goals, computes actions &amp; value. (in code, at load time)</small></div>
+  </div>
+
+  <h3>On-disk layout — one directory per placement</h3>
+  <pre><code>data/trajectories/
+  &lt;scene&gt;__&lt;object&gt;/
+    data.json        accepted_pairs[].trajectory_32f  +  render_records[][].scores
+    renders/         pair_00_frame_00.jpg … pair_KK_frame_31.jpg
+    done.flag        stage 2 complete
+    scored.flag      stage 3 complete   ← a placement is only usable once this exists</code></pre>
+  <p class="small">The loader recursively globs <code>**/data.json</code> under <code>data.annotation_roots</code> (default <code>data/trajectories</code>). Drop or symlink the full v7 render output here. Full dataset to date: <b>1945 scored placements across 26 scenes</b>.</p>
+
+  <!-- 3 -->
+  <h2 id="sample">3 · What one training sample is</h2>
+  <p>A sample is one <b>8-step window</b> sliding along a single 32-frame trajectory (so it touches 9 poses: a start, 7 intermediates, an end). The goal, crucially, is sampled <i>further out</i>.</p>
+
+  <div class="panel">
+    <div class="seq">
+      <div class="frame f-world"><span class="idx">frame t</span><b>START</b><span class="small">state image</span></div>
+      <div class="frame f-world" style="opacity:.55"><span class="idx">t+1…t+7</span><b>mid</b><span class="small">poses only</span></div>
+      <div class="frame f-world"><span class="idx">t+8</span><b>END</b><span class="small">next-state image</span></div>
+      <div class="frame f-action" style="margin-left:14px"><span class="idx">drawn ~ U[t+8, 31]</span><b>GOAL</b><span class="small">profile + value</span></div>
+    </div>
+    <p class="small" style="margin:.2em 0 0">The <b>8 actions</b> and the <b>next-state image</b> are anchored to the window (they're the <i>consequence</i> of moving). The <b>goal</b> is drawn from anywhere at-or-after the window end — its profile and the start→goal distance are what condition/supervise the policy.</p>
+  </div>
+
+  <table>
+    <tr><th>Field</th><th>Shape</th><th>What it is</th><th>Anchored to</th></tr>
+    <tr><td><code>state_image</code></td><td class="mono">3×H×W</td><td>Current view (window start), in [−1, 1]</td><td>window start</td></tr>
+    <tr><td><code>next_state_image</code></td><td class="mono">3×H×W</td><td>View after the 8 moves (world-model target)</td><td>window end (t+8)</td></tr>
+    <tr><td><code>action_chunk</code></td><td class="mono">8×5</td><td>The 8 consecutive camera deltas, normalized</td><td>window (t→t+8)</td></tr>
+    <tr><td><code>goal_vec</code> <span class="pill p-goal">goal</span></td><td class="mono">8</td><td>Shot profile of the <b>drawn goal frame</b>, normalized to [−1,1]</td><td><b>sampled frame</b></td></tr>
+    <tr><td><code>value_target</code> <span class="pill p-value">value</span></td><td class="mono">scalar</td><td>−geometric distance(start pose → goal pose). Always ≤ 0.</td><td><b>sampled frame</b></td></tr>
+  </table>
+
+  <h3>HER-"future" goal relabeling</h3>
+  <p>The goal frame is drawn <b>uniformly from <code>[end_frame, 31]</code></b> on every <code>__getitem__</code> (config: <code>data.goal_sampling: uniform_future</code>). This is the Hindsight Experience Replay "future" strategy — it decouples the goal horizon from the 8-step action horizon, so the value head and conditioner see goals at <i>every</i> distance, matching what they'll face at inference. <code>goal_sampling: "end"</code> restores the legacy fixed-offset behavior. Goal candidates that hit the scorer's off-screen sentinel are excluded; windows with no valid candidate are dropped.</p>
+  <div class="warnbox"><b>Sign of the value:</b> <code>value_target</code> is the <i>negative</i> distance (0 = the start already achieves the goal framing, more negative = farther). "Higher value = better," the standard convention. The positive <code>value=</code> you see in the training log is the value head's MSE <i>loss</i>, a different number.</div>
+
+  <!-- 4 -->
+  <h2 id="arch">4 · Architecture (how it predicts)</h2>
+  <div class="flow">
+    <div class="step"><b>VAE encode</b><small>state &amp; next-state frames → 16-channel latents (Wan VAE, frozen).</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Assemble latent sequence</b><small>image latents + 1 action latent + 1 value latent.</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Goal conditioner</b><small>goal vector → 4 "goal tokens" added onto a fixed text anchor → cross-attention.</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Cosmos transformer</b><small>one flow-matching pass denoises the whole sequence jointly.</small></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Read off</b><small>extract action chunk &amp; value from their latent positions.</small></div>
+  </div>
+  <p>There are <b>no separate action/value MLP heads.</b> Action and value are encoded as extra "frames" inside the same latent video that the backbone already knows how to denoise. This is the cosmos-policy pattern — see the next section.</p>
+
+  <!-- 5 -->
+  <h2 id="latent">5 · The latent sequence trick</h2>
+  <p>The model's "input/output" is a single latent video of <code>T_img + 2</code> frames. The backbone predicts a velocity over <i>all</i> of them; we split the loss by position.</p>
+  <div class="panel">
+    <div class="seq">
+      <div class="frame f-world"><span class="idx">pos 0</span><b>image</b></div>
+      <div class="frame f-world"><span class="idx">pos 1 … T_img−1</span><b>image</b></div>
+      <div class="frame f-action"><span class="idx">pos T_img</span><b>ACTION</b></div>
+      <div class="frame f-value"><span class="idx">pos T_img+1</span><b>VALUE</b></div>
+    </div>
+    <p class="small" style="margin:.3em 0 0">
+      <span class="pill p-world">world loss</span> = MSE over the image positions &nbsp;·&nbsp;
+      <span class="pill p-action">action loss</span> = MSE over the action position &nbsp;·&nbsp;
+      <span class="pill p-value">value loss</span> = MSE over the value position. &nbsp; <code>total = Σ λ·loss</code> (all λ=1 by default).
+    </p>
+  </div>
+  <h3>How action/value get into a "frame"</h3>
+  <p>Pure tile-and-reshape, <b>no learned parameters</b> (<code>action_latent.py</code>):</p>
+  <ul>
+    <li><b>Inject (train):</b> flatten the 8×5 action chunk, tile it to fill the <code>C×H×W</code> latent frame. The value scalar is broadcast across the whole frame.</li>
+    <li><b>Extract (inference):</b> split the denoised frame back into its repeated tiles and <b>average</b> them — the repetition gives many noisy estimates of the same chunk to average over, which stabilizes the readout.</li>
+  </ul>
+
+  <!-- 6 -->
+  <h2 id="conditioner">6 · The goal conditioner</h2>
+  <p>How an 8-number shot profile becomes something the cross-attention can use, without retraining a text encoder (<code>conditioner.py</code>):</p>
+  <div class="grid g2">
+    <div class="panel">
+      <h3 style="margin-top:0">1 · Fixed anchor</h3>
+      <p>A real text encoder (Cosmos-2.5's <b>Qwen2.5-VL</b>) encodes one fixed drone-cinematography prompt <b>once, offline</b> → <code>assets/text_anchor.pt</code>. The text encoder is then <b>never loaded again</b>.</p>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">2 · Goal tokens</h3>
+      <p>A learnable <code>Linear(8 → 4·D)</code> turns the goal vector into <b>4 new tokens</b>, added onto the anchor at the positions right after its real text (originally padding).</p>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">3 · Zero-init gate</h3>
+      <p>The goal tokens are scaled by a learnable <code>gate</code> <b>initialized to 0</b> (ControlNet-style). So at step 0 the model behaves exactly like the frozen anchor; training ramps the gate up. Safe start, no shock to the backbone.</p>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">4 · Padding mask</h3>
+      <p>Only the real anchor tokens + the 4 goal positions are marked valid; everything else stays masked so cross-attention ignores it.</p>
+    </div>
+  </div>
+  <div class="note">The cross-attention input dimension is set at runtime to the backbone projection's true <code>in_features</code> (the Qwen stacked hidden states, <b>100352</b>) — not the module-level default of 1024. The training script discovers this from <code>transformer.crossattn_proj</code>.</div>
+
+  <!-- 7 -->
+  <h2 id="spaces">7 · Goal / action / value spaces</h2>
+
+  <h3><span class="pill p-goal">Goal</span> — 8-key shot profile (<code>goal_space.py</code>)</h3>
+  <table>
+    <tr><th>Key</th><th>Meaning</th><th>Range → [−1,1]</th></tr>
+    <tr><td><code>occupancy</code></td><td>how much of frame the subject fills</td><td>0–100</td></tr>
+    <tr><td><code>body_in_frame_ratio</code></td><td>fraction of subject inside frame</td><td>0–100</td></tr>
+    <tr><td><code>cam_to_obj_azimuth_deg</code></td><td>camera→subject horizontal angle <span class="dim">(cyclic — linear seam at 0/360)</span></td><td>0–360</td></tr>
+    <tr><td><code>cam_to_obj_elevation_deg</code></td><td>camera→subject vertical angle</td><td>−90–90</td></tr>
+    <tr><td><code>object_center_x / _y</code></td><td>subject bbox center, in pixels</td><td>0–W / 0–H</td></tr>
+    <tr><td><code>bbox_x_offset / _y_offset</code></td><td>half bbox width/height (a size cue), pixels</td><td>0–W / 0–H</td></tr>
+  </table>
+  <p class="small">Pixel keys are <b>not clipped</b> on normalization — an off-frame subject deliberately reads as |value|&gt;1 ("past the edge"). Ranges assume 1024×768 renders.</p>
+
+  <h3><span class="pill p-action">Action</span> — 5D camera delta (<code>action_repr.py</code>)</h3>
+  <p><code>(Δright, Δup, Δforward, Δyaw, Δpitch)</code> in the previous frame's <b>camera-local</b> basis (Blender: +X right, +Y up, −Z forward). Translations in metres, angles in radians. <b>Roll is dropped</b> (drones don't roll the camera here). Per-dim normalized by <code>ACTION_SCALE</code> (p99 magnitudes) so metres and radians weight fairly in the L2 loss — and that scale is <b>saved in the checkpoint</b> so train/eval can't drift.</p>
+
+  <h3><span class="pill p-value">Value</span> — geometric goal distance (<code>reward.py</code>)</h3>
+  <p><code>value = −pose_distance(start, goal)</code>: a weight-free product metric in radians — great-circle angle on the viewing sphere (handles azimuth cyclicity + polar degeneracy) + Δ apparent size + Δ optical-axis aim. Computed <b>from camera poses</b>, not from the bbox score pixels (which the scorer zeroes at close range), so it's exact at every frame.</p>
+
+  <!-- 8 -->
+  <h2 id="train">8 · Training</h2>
+  <h3>Flow matching (this is the "diffusion")</h3>
+  <p>Matches the 2.5 checkpoint's native convention exactly:</p>
+  <pre><code>x_t       = (1 − σ)·x0 + σ·ε          σ ∈ [0,1], sampled per batch
+v_target  = ε − x0                     (velocity prediction)
+v_pred    = transformer(x_t, timestep=σ, goal_condition)   # raw x_t, no preconditioning
+loss      = MSE(v_pred, v_target)      split into world / action / value</code></pre>
+  <p>σ is sampled logit-normal with forced near-noise / near-clean tails ("balanced two heads"). EDM utilities are retained for ablations but unused by default.</p>
+
+  <div class="warnbox"><b>Why the per-iter loss looks noisy:</b> each step draws a random σ. A near-noise batch has intrinsically high MSE across all components — that's the σ-lottery, not divergence. Trust the EMA curve (<code>loss/total_ema</code>) and the validation metrics, not single iterations.</div>
+
+  <h3>Validation — built to survive the σ-noise</h3>
+  <div class="grid g2">
+    <div class="panel"><h3 style="margin-top:0">Fixed-σ flow loss</h3><p>Every val batch evaluated at σ ∈ {0.1, 0.3, 0.5, 0.7, 0.9} with a <b>fixed noise seed</b> — the only thing changing between checkpoints is the model. → <code>val/flow_loss_*</code></p></div>
+    <div class="panel"><h3 style="margin-top:0">Sampler metrics</h3><p>Runs the real Euler sampler and compares to ground truth → <code>val/action_mse</code>, <code>val/value_mae</code>. The actual policy-quality numbers.</p></div>
+  </div>
+
+  <h3>Validation split — leak-safe &amp; stable</h3>
+  <ul>
+    <li><b>Whole units, never windows.</b> Overlapping windows share frames, so the split is by trajectory pair / placement / <b>scene</b> / object — never individual windows.</li>
+    <li><b>Frozen scene manifest</b> (<code>configs/policy/val_scenes.txt</code>): the 4 smallest scenes (73/1945 placements ≈ 3.8%), both Forest-field assets held out together to avoid lookalike leakage. The val set is <b>pinned forever</b>: new data always goes to train.</li>
+    <li><b>Hash split</b> (<code>val_split_level: pair|placement|scene|object</code>) for dev: assignment depends only on a unit's own name, so it's stable under dataset growth. <code>val_names</code> overrides it.</li>
+  </ul>
+
+  <h3>Multi-GPU (DDP)</h3>
+  <p><code>torchrun</code> is auto-detected. Effective batch = <code>batch_size × grad_accum × nproc</code>. Already solved: <code>no_sync</code> on grad-accum micro-steps, <code>DistributedSampler</code> + per-epoch reshuffle, rank-0 run-dir broadcast, staggered HF download, per-rank seeds, rank-0-only logging/val/checkpointing. Checkpoints store the <b>raw</b> (un-prefixed) policy state dict, so eval loads them unchanged. Measured on 2× A6000 48GB: frozen 0.14 it/s/rank (≈0 DDP overhead); full finetune 0.05 it/s/rank (fits 48GB only with gradient checkpointing).</p>
+
+  <!-- 9 -->
+  <h2 id="infer">9 · Inference</h2>
+  <p>A <b>single forward pass per action decision</b> — no MPC, no planning, no candidate sampling. Flow-matching Euler sampling over σ: 1→0:</p>
+  <pre><code>x = pure noise (B, 16, T_total, H, W)
+for σ in schedule(1 → 0):
+    pin image positions to the encoded current view  (clean, condition_mask=1, timestep=cond_timestep)
+    v = transformer(x, timestep=σ, goal_condition)
+    x = x + (σ_next − σ) · v                          # Euler step
+action_chunk = average-of-tiles(x[action position]) · action_scale   # denormalized to m / rad
+value        = mean(x[value position])</code></pre>
+  <p class="small">Standalone eval: <code>scripts/eval_cosmos_policy.py --checkpoint … --target … --chunk_size 8</code> (must match training). The closed-loop Blender rollout (<code>--render</code>) is still stubbed.</p>
+
+  <!-- 10 -->
+  <h2 id="eval">10 · How to know if it's good</h2>
+  <table>
+    <tr><th>Level</th><th>Signal</th><th>Status</th></tr>
+    <tr><td><b>1 · Val metrics</b></td><td>train/val loss tracking; <code>val/action_mse</code> below a shuffled-goal baseline</td><td>✅ built</td></tr>
+    <tr><td><b>2 · Value correlation</b></td><td>predicted value vs true pose distance (Spearman ≈ 1) — proves it understands goal geometry</td><td>◻ ~30 lines to add</td></tr>
+    <tr><td><b>3 · Closed-loop rollout</b></td><td>roll out in Blender, re-score the final frame: <b>final goal distance + success rate on unseen scenes</b>, vs zero-action / random / goal-blind / action-only baselines</td><td>◻ <b>the headline number — not built</b></td></tr>
+    <tr><td><b>4 · World-model quality</b></td><td>decode predicted next-frame latents; PSNR/LPIPS — paper figures for "imagines before it acts"</td><td>◻ not built</td></tr>
+  </table>
+  <div class="warnbox"><b>Caveat on action MSE:</b> diffusion policies are multimodal. If two camera paths reach the same framing (orbit left vs right), a model that picks the other valid mode scores bad MSE while being a perfectly good policy. That's why <b>Level 3 (closed-loop success rate)</b> is the metric that actually answers "is this a good photographer."</div>
+
+  <!-- 11 -->
+  <h2 id="repo">11 · Where everything lives</h2>
+  <table>
+    <tr><th>Path</th><th>Role</th></tr>
+    <tr><td><code>src/policy/common/annotations.py</code></td><td>v7 reader; slides windows over <code>trajectory_32f</code>, carries the future-frame pool for HER goals</td></tr>
+    <tr><td><code>src/policy/common/dataset_base.py</code></td><td>Sample assembly: HER-future goal draw, action chunk, value, clamp filter, val split</td></tr>
+    <tr><td><code>src/policy/common/goal_space.py</code></td><td>8-key goal definition + normalization</td></tr>
+    <tr><td><code>src/policy/common/action_repr.py</code></td><td>5D action encode/normalize + <code>ACTION_SCALE</code></td></tr>
+    <tr><td><code>src/policy/common/reward.py</code></td><td>pose-based geometric value metric</td></tr>
+    <tr><td><code>src/policy/cosmos/dataset.py</code></td><td>turns Samples into model tensors (image load, normalize)</td></tr>
+    <tr><td><code>src/policy/cosmos/vae.py</code></td><td>Wan VAE wrapper (16-ch latents, (B,C,T,H,W))</td></tr>
+    <tr><td><code>src/policy/cosmos/conditioner.py</code></td><td>anchor + goal-token + zero-init-gate conditioner</td></tr>
+    <tr><td><code>src/policy/cosmos/action_latent.py</code></td><td>tile-inject / average-extract action &amp; value latent frames</td></tr>
+    <tr><td><code>src/policy/cosmos/model.py</code></td><td><b>CosmosWorldActionPolicy</b>: latent assembly, flow loss, sampler, backbone adapters</td></tr>
+    <tr><td><code>src/policy/cosmos/edm.py</code></td><td>flow-σ sampling &amp; schedule (+ retained EDM utils)</td></tr>
+    <tr><td><code>src/policy/cosmos/trainer.py</code></td><td>training loop, DDP, TensorBoard, validation, checkpointing</td></tr>
+    <tr><td><code>scripts/train_cosmos_policy.py</code></td><td>entry point: builds backbone/VAE/dataset/trainer; torchrun-aware</td></tr>
+    <tr><td><code>scripts/eval_cosmos_policy.py</code></td><td>standalone inference (Blender rollout still stubbed)</td></tr>
+    <tr><td><code>scripts/build_text_anchor.py</code></td><td>builds <code>assets/text_anchor.pt</code> from Qwen2.5-VL (once)</td></tr>
+    <tr><td><code>configs/policy/cosmos_2b.yaml</code></td><td>main config; <code>cosmos_2b_smoke.yaml</code> = fast smoke test</td></tr>
+    <tr><td><code>configs/policy/val_scenes.txt</code></td><td>frozen validation scene manifest</td></tr>
+    <tr><td><code>docs/cosmos_policy_training_handoff.md</code></td><td>runbook for training on another machine</td></tr>
+  </table>
+
+  <!-- 12 -->
+  <h2 id="run">12 · How to run it</h2>
+  <pre><code># 0. data: drop / symlink scored v7 placements under data/trajectories
+ln -s /path/to/outputs/v7_renders/* data/trajectories/
+
+# 1. single GPU
+PYTHONPATH=. python scripts/train_cosmos_policy.py --config configs/policy/cosmos_2b.yaml
+
+# 2. multi-GPU (one process per GPU)
+CUDA_VISIBLE_DEVICES=0,1 PYTHONPATH=. torchrun --standalone --nproc_per_node=2 \
+    scripts/train_cosmos_policy.py --config configs/policy/cosmos_2b.yaml
+
+# 3. fast smoke run (short, capped samples)
+PYTHONPATH=. python scripts/train_cosmos_policy.py --config configs/policy/cosmos_2b_smoke.yaml
+
+# 4. watch it
+tensorboard --logdir runs --port 6006 --bind_all
+
+# 5. tests (no GPU / no diffusers needed)
+python -m pytest tests/policy/</code></pre>
+  <div class="note">Outputs land in <code>runs/&lt;timestamp&gt;_&lt;run_name&gt;/</code>: resolved <code>config.yaml</code>, <code>train.log</code>, <code>tb/</code>, and <code>ckpt_last.pt</code> / <code>ckpt_best.pt</code>. <b>Prereqs:</b> HF login with the NVIDIA Cosmos license accepted (gated repo), and <code>assets/text_anchor.pt</code> present (copy it or rebuild with <code>build_text_anchor.py</code>). For short runs pass <code>--warmup_iter 100</code> — the config's 1000 assumes a long run.</div>
+
+  <footer>
+    Generated for the DronePhotographer Cosmos policy · branch <code>005-cosmos-policy-integration</code>.
+    For the architecture/tensor contract see <code>src/policy/cosmos/COSMOS_API.md</code>; for the runbook see
+    <code>docs/cosmos_policy_training_handoff.md</code>. Where the older <code>src/policy/README.md</code> disagrees with this page or the code, the code wins.
+  </footer>
+
+</div>
+</body>
+</html>

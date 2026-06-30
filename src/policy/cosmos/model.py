@@ -102,14 +102,22 @@ class BackboneAdapter(Protocol):
 class DiffusersStyleAdapter:
     """Calls diffusers' `CosmosTransformer3DModel` the way `Cosmos2_5_PredictBasePipeline` does:
 
-        transformer(hidden_states=(B,16,T,H,W), timestep=(B,T), encoder_hidden_states=(B,N,1024),
+        transformer(hidden_states=(B,16,T,H,W), timestep=(B,T), encoder_hidden_states=(B,N,D),
                     condition_mask=(B,1,T,H,W), padding_mask=(B,1,H_img,W_img))
 
     `condition_mask` is the transformer's 17th input channel (concatenated
     internally): 1 = conditioning frame, 0 = frame being denoised. We default to
     zeros — in our joint training all frames (image + action + value) are noised.
-    `padding_mask` is the spatial mask; the official pipeline passes zeros, we
-    mirror that. The text-token mask is not passed (the pipeline doesn't either).
+
+    Two DIFFERENT masks the transformer accepts (don't confuse them):
+      - `padding_mask` (passed here) is the **spatial** image-H×W mask, resized and
+        concatenated as an extra input channel. The official pipeline passes zeros;
+        we mirror that. Nothing to do with text/goal tokens.
+      - `attention_mask` (NOT passed) is the **cross-attention** mask over the N
+        conditioning tokens. We don't need it: the conditioner emits only valid
+        tokens (real text + goal), no padding. If padded conditioning is ever
+        reintroduced, pass the conditioner mask here as `attention_mask=(B,N)`
+        (verify diffusers' keep/zero polarity first).
     """
 
     def __call__(self, transformer, x, timestep, crossattn_emb, padding_mask=None, condition_mask=None):
@@ -162,7 +170,10 @@ class CosmosWorldActionPolicy(nn.Module):
       transformer: the Cosmos backbone transformer (from `pipe.transformer`).
       latent_channels: number of channels in the VAE latent (16 for Cosmos).
       goal_dim: dimension of the normalized goal vector (default 8).
-      crossattn_dim: cross-attention emb dim — matches Cosmos T5-11B (1024) by default.
+      crossattn_dim: cross-attention emb dim. Cosmos-Predict2.5's text encoder is
+                     Qwen2.5-VL (Cosmos-Reason1); its real dim (per-layer concat,
+                     3584×28 = 100352) is detected from the backbone and passed in
+                     by train_cosmos_policy.py. The default here is a test fallback.
       n_goal_tokens: cross-attention tokens per goal (default 4).
       action_dim: per-step action dim (5 for our (Δx, Δy, Δz, Δyaw, Δpitch)).
       chunk_size: number of future action steps predicted per diffusion sample.
@@ -172,7 +183,7 @@ class CosmosWorldActionPolicy(nn.Module):
                        True by default per issue #18.
       freeze_backbone: if True (default for prototype), only train conditioner.
       adapter: which call signature to use for the backbone.
-      anchor_path: path to the T5 anchor file (see scripts/build_t5_anchor.py).
+      anchor_path: path to the text anchor file (see scripts/build_text_anchor.py).
     """
 
     def __init__(
