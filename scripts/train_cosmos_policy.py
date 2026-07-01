@@ -128,6 +128,7 @@ def main() -> None:
         lambda_world=float(loss_cfg.get("lambda_world", 1.0)),
         lambda_action=float(loss_cfg.get("lambda_action", 1.0)),
         lambda_value=float(loss_cfg.get("lambda_value", 1.0)),
+        goal_adaln=cfg["backbone"].get("goal_adaln", False),
         flow_config=flow_cfg,
     )
 

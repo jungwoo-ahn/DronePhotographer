@@ -10,6 +10,8 @@ backbone:
                                 # headroom, so disable activation recompute for ~25-40% speedup.
                                 # Re-enable on <=40GB cards (A6000) where it's required to fit.
   n_goal_tokens: 4
+  goal_adaln: true              # inject goal into every block's AdaLN (temb) — strong global
+                                # conditioning, additive on top of the cross-attn goal tokens
 
 conditioner:
   anchor_path: assets/text_anchor.pt
@@ -64,7 +66,7 @@ flow:
 
 trainer:
   output_root: runs
-  run_name: cosmos_2b_goalcond   # goal-cond fix (no-padding emit + gate removed) + reverse-aug
+  run_name: cosmos_2b_adaln      # + AdaLN goal conditioning (goal into every block's temb)
   max_iter: 50000
   batch_size: 1
   grad_accum: 8

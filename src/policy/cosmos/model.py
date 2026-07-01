@@ -205,6 +205,7 @@ class CosmosWorldActionPolicy(nn.Module):
         lambda_value: float = 1.0,
         flow_config: FlowConfig | None = None,
         action_scale: "np.ndarray | torch.Tensor | None" = None,
+        goal_adaln: bool = False,
     ) -> None:
         super().__init__()
         self.transformer = transformer
@@ -235,6 +236,34 @@ class CosmosWorldActionPolicy(nn.Module):
         if freeze_backbone:
             for p in self.transformer.parameters():
                 p.requires_grad_(False)
+
+        # AdaLN goal conditioning (optional): inject the goal into the transformer's
+        # timestep embedding `temb`, which EVERY block adds directly to its AdaLN
+        # shift/scale/gate (CosmosAdaLayerNormZero). Unlike the cross-attention goal
+        # tokens — which the backbone learned to ignore, being drowned by the text
+        # anchor — this modulates every layer globally and cannot be washed out. It is
+        # additive on top of the cross-attention conditioner (both stay active).
+        # Small-init (not zero) so the goal conditions from step 0 without destabilizing
+        # the pretrained backbone.
+        self.use_goal_adaln = goal_adaln
+        self._goal_temb: Optional[torch.Tensor] = None
+        if goal_adaln:
+            temb_dim = self.transformer.time_embed.t_embedder.linear_2.out_features
+            self.goal_adaln = nn.Sequential(
+                nn.Linear(goal_dim, 256),
+                nn.SiLU(),
+                nn.Linear(256, temb_dim),
+            )
+            nn.init.normal_(self.goal_adaln[-1].weight, std=0.02)
+            nn.init.zeros_(self.goal_adaln[-1].bias)
+
+            def _add_goal_temb(_module, _inputs, output):
+                temb, embedded_timestep = output
+                if self._goal_temb is not None:
+                    temb = temb + self._goal_temb.unsqueeze(1).to(temb.dtype)  # broadcast over T
+                return temb, embedded_timestep
+
+            self.transformer.time_embed.register_forward_hook(_add_goal_temb)
 
     # ------------------------------------------------------------------
     # Latent-sequence assembly helpers
@@ -296,6 +325,9 @@ class CosmosWorldActionPolicy(nn.Module):
         receives RAW x_t (no preconditioning), the per-frame timestep IS the flow
         sigma in [0, 1], and the output is the flow velocity v = eps - x0.
         """
+        if self.use_goal_adaln:
+            # Stashed for the time_embed forward hook to add into temb (every block's AdaLN).
+            self._goal_temb = self.goal_adaln(cond.raw_goal.to(self.goal_adaln[0].weight.dtype))
         return self.adapter(
             self.transformer,
             x_t,

@@ -107,6 +107,7 @@ def load_policy(ckpt_path: Path, device, dtype):
         lambda_world=float(loss.get("lambda_world", 1.0)),
         lambda_action=float(loss.get("lambda_action", 1.0)),
         lambda_value=float(loss.get("lambda_value", 1.0)),
+        goal_adaln=bk.get("goal_adaln", False),
         flow_config=flow_cfg,
     ).to(device).eval()
 
