@@ -10,11 +10,16 @@ backbone:
                                 # headroom, so disable activation recompute for ~25-40% speedup.
                                 # Re-enable on <=40GB cards (A6000) where it's required to fit.
   n_goal_tokens: 4
-  goal_adaln: true              # inject goal into every block's AdaLN (temb) — strong global
-                                # conditioning, additive on top of the cross-attn goal tokens
 
 conditioner:
   anchor_path: assets/text_anchor.pt
+  # How the goal enters the backbone:
+  #   cross_attn — goal -> K prefix tokens in cross-attention (conditional prefix tuning)
+  #   adaln      — goal -> zero-init embedding ADDED to the timestep embedding (AdaLN-Zero
+  #                scale/shift/gate); cross-attention then carries the anchor text only.
+  goal_conditioning: adaln       # pure AdaLN goal conditioning (jooyeol's version, adopted);
+                                 # cross-attention then carries the anchor text only
+  adaln_hidden_dim: 256          # only used when goal_conditioning: adaln
 
 data:
   # Point at the directory holding all v7 placement subdirs. The dataset

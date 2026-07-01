@@ -2,9 +2,10 @@
 
 GPU-free — pure torch.nn. Uses a synthetic anchor (no Qwen forward needed).
 
-The conditioner emits ONLY real text tokens + K goal tokens (no padding). There is
-no gate — this is prefix tuning, so the goal tokens are active from step 0 and the
-conditioned context is the anchor text + K goal tokens that depend on the goal.
+Conditional prefix tuning (no gate): the conditioner emits ONLY real text tokens +
+K goal tokens. `goal_proj` is zero-initialized, so the prefix is exactly zero at
+init (output = anchor text + K zero tokens, independent of the goal), yet `goal_proj`
+still receives gradient from step 1 — no zero-init deadlock.
 """
 
 import pytest
@@ -20,8 +21,6 @@ from src.policy.cosmos.conditioner import (
 
 
 def _make_anchor(model_dim=COSMOS_CROSSATTN_DIM, max_len=COSMOS_TEXT_MAX_LEN, real_len=6):
-    """Synthetic anchor: `max_len` rows, but only the first `real_len` are real text.
-    The padding rows are deliberately non-zero so tests catch any code that uses them."""
     emb = torch.randn(max_len, model_dim)
     return emb, real_len
 
@@ -33,8 +32,15 @@ def _make_cond(**overrides):
         real_len=overrides.pop("anchor_real_len", 6),
     )
     cond = ShotProfileVectorConditioner(**overrides, anchor_embedding=emb, anchor_real_len=real_len)
-    cond._test_anchor_full = emb            # stash the full anchor for assertions
+    cond._test_anchor_full = emb
     return cond
+
+
+def _activate(cond, std=0.1):
+    """Break the zero init so goal tokens become non-trivial (simulates trained proj)."""
+    with torch.no_grad():
+        cond.goal_proj.weight.normal_(0, std)
+        cond.goal_proj.bias.normal_(0, std)
 
 
 def test_output_shape_is_real_text_plus_goal_tokens():
@@ -48,57 +54,70 @@ def test_output_shape_is_real_text_plus_goal_tokens():
 def test_only_real_tokens_are_used_padding_is_ignored():
     cond = _make_cond(goal_dim=8, n_tokens=4, anchor_real_len=6)
     out = cond({"goal_vec": torch.randn(2, 8)}).crossattn_emb
-    # text region equals the anchor's first real_len rows (padding rows never appear)
     torch.testing.assert_close(out[:, :6], cond._test_anchor_full[:6].unsqueeze(0).expand(2, -1, -1))
 
 
-def test_no_gate_parameter():
-    # The zero-init gate was removed — prefix tuning conditions the goal from step 0.
-    assert not hasattr(_make_cond(goal_dim=8), "gate")
+def test_goal_proj_zero_initialized():
+    cond = _make_cond(goal_dim=8)
+    assert torch.all(cond.goal_proj.weight == 0.0) and torch.all(cond.goal_proj.bias == 0.0)
+    assert not hasattr(cond, "gate")   # the scalar gate is gone
 
 
-def test_goal_tokens_active_and_depend_on_goal():
+def test_goal_tokens_zero_at_init_regardless_of_goal():
     cond = _make_cond(goal_dim=8, n_tokens=4, anchor_real_len=6).eval()
+    o1 = cond({"goal_vec": torch.randn(2, 8)}).crossattn_emb
+    o2 = cond({"goal_vec": torch.randn(2, 8) * 100}).crossattn_emb
+    assert torch.all(o1[:, 6:] == 0.0)                 # zero-init proj -> zero prefix
+    torch.testing.assert_close(o1, o2, atol=0, rtol=0)
+
+
+def test_activated_proj_makes_goal_tokens_depend_on_goal():
+    cond = _make_cond(goal_dim=8, n_tokens=4, anchor_real_len=6)
+    _activate(cond)
     o1 = cond({"goal_vec": torch.zeros(1, 8)}).crossattn_emb
     o2 = cond({"goal_vec": torch.randn(1, 8)}).crossattn_emb
-    assert not torch.all(o1[:, 6:] == 0.0)              # active (non-zero) even at init
-    assert not torch.allclose(o1[:, 6:], o2[:, 6:])     # goal region depends on the goal
-    torch.testing.assert_close(o1[:, :6], o2[:, :6])    # text region unchanged
+    torch.testing.assert_close(o1[:, :6], o2[:, :6])    # text unchanged
+    assert not torch.allclose(o1[:, 6:], o2[:, 6:])     # goal tokens depend on goal
 
 
 def test_padding_mask_is_all_valid():
     cond = _make_cond(goal_dim=8, n_tokens=4, anchor_real_len=6)
     mask = cond({"goal_vec": torch.randn(2, 8)}).padding_mask
-    assert mask.shape == (2, 10) and torch.all(mask)   # no padding -> all True
+    assert mask.shape == (2, 10) and torch.all(mask)
+
+
+def test_goal_proj_gets_gradient_AT_ZERO_INIT():
+    """The point of dropping the gate: gradient reaches goal_proj from step 1, even
+    though the prefix is zero-initialized (a linear loss => d/dW = upstream · goal)."""
+    cond = _make_cond(goal_dim=4, n_tokens=4, anchor_real_len=6).train()
+    out = cond({"goal_vec": torch.randn(3, 4)})
+    out.crossattn_emb.sum().backward()                  # linear loss
+    assert cond.goal_proj.weight.grad is not None and cond.goal_proj.weight.grad.abs().sum() > 0
+    assert cond.goal_proj.bias.grad is not None and cond.goal_proj.bias.grad.abs().sum() > 0
 
 
 def test_dropout_zeros_goal_tokens_in_train():
     cond = _make_cond(goal_dim=8, dropout_rate=1.0, n_tokens=4, anchor_real_len=6).train()
+    _activate(cond)
     out = cond({"goal_vec": torch.randn(8, 8)}).crossattn_emb
-    assert torch.all(out[:, 6:] == 0.0)                # rate=1 -> every item dropped
+    assert torch.all(out[:, 6:] == 0.0)                 # rate=1 -> every item dropped
 
 
 def test_no_dropout_in_eval():
     cond = _make_cond(goal_dim=8, dropout_rate=1.0, n_tokens=4, anchor_real_len=6).eval()
+    _activate(cond)
     out = cond({"goal_vec": torch.randn(2, 8)}).crossattn_emb
-    assert not torch.all(out[:, 6:] == 0.0)            # eval -> no dropout, goal active
+    assert not torch.all(out[:, 6:] == 0.0)
 
 
 def test_rejects_wrong_goal_dim():
-    cond = _make_cond(goal_dim=8)
     with pytest.raises(ValueError):
-        cond({"goal_vec": torch.randn(2, 5)})
+        _make_cond(goal_dim=8)({"goal_vec": torch.randn(2, 5)})
 
 
 def test_promotes_unbatched_input():
     out = _make_cond(goal_dim=4)({"goal_vec": torch.randn(4)})
     assert out.crossattn_emb.shape[0] == 1
-
-
-def test_gradient_flows_to_goal_proj():
-    cond = _make_cond(goal_dim=4).train()
-    cond({"goal_vec": torch.randn(2, 4)}).crossattn_emb.pow(2).sum().backward()
-    assert cond.goal_proj.weight.grad is not None and cond.goal_proj.weight.grad.abs().sum() > 0
 
 
 def test_rejects_real_len_longer_than_anchor():
@@ -115,9 +134,31 @@ def test_rejects_anchor_dim_mismatch():
                                      anchor_embedding=emb, anchor_real_len=6)
 
 
-def test_anchor_text_is_buffer_proj_is_param():
+def test_anchor_text_buffer_goal_proj_param_no_gate():
     cond = _make_cond(goal_dim=8)
     params = {n for n, _ in cond.named_parameters()}
     buffers = {n for n, _ in cond.named_buffers()}
     assert "anchor_text" in buffers and "anchor_text" not in params
-    assert "goal_proj.weight" in params and "gate" not in params
+    assert "goal_proj.weight" in params
+    assert "gate" not in params and "gate" not in buffers
+
+
+# --- AdaLN-Zero goal conditioner (the alternative to cross-attention prefix) ---
+
+def test_goal_adaln_is_zero_at_init_but_output_layer_gets_gradient():
+    from src.policy.cosmos.conditioner import GoalAdaLNConditioner
+    m = GoalAdaLNConditioner(goal_dim=8, temb_dim=48, hidden_dim=32)
+    out = m(torch.randn(3, 8))
+    assert out.shape == (3, 48)
+    assert torch.all(out == 0.0)                       # zero-init -> timestep path untouched
+    out.sum().backward()
+    # AdaLN-Zero: the zero-init OUTPUT layer still gets gradient from step 1
+    assert m.proj[-1].weight.grad is not None and m.proj[-1].weight.grad.abs().sum() > 0
+
+
+def test_goal_adaln_depends_on_goal_once_output_layer_activated():
+    from src.policy.cosmos.conditioner import GoalAdaLNConditioner
+    m = GoalAdaLNConditioner(goal_dim=8, temb_dim=48)
+    with torch.no_grad():
+        m.proj[-1].weight.normal_(0, 0.1)
+    assert not torch.allclose(m(torch.zeros(1, 8)), m(torch.randn(1, 8)))

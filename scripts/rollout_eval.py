@@ -107,7 +107,8 @@ def load_policy(ckpt_path: Path, device, dtype):
         lambda_world=float(loss.get("lambda_world", 1.0)),
         lambda_action=float(loss.get("lambda_action", 1.0)),
         lambda_value=float(loss.get("lambda_value", 1.0)),
-        goal_adaln=bk.get("goal_adaln", False),
+        goal_conditioning=cfg.get("conditioner", {}).get("goal_conditioning", "cross_attn"),
+        adaln_hidden_dim=int(cfg.get("conditioner", {}).get("adaln_hidden_dim", 256)),
         flow_config=flow_cfg,
     ).to(device).eval()
 
