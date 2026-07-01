@@ -114,6 +114,8 @@ def main() -> None:
         crossattn_dim=crossattn_dim,
         goal_dim=len(cfg["data"]["goal_score_keys"]),
         n_goal_tokens=cfg["backbone"]["n_goal_tokens"],
+        goal_conditioning=cfg.get("conditioner", {}).get("goal_conditioning", "cross_attn"),
+        adaln_hidden_dim=int(cfg.get("conditioner", {}).get("adaln_hidden_dim", 256)),
         freeze_backbone=cfg["backbone"]["freeze_backbone"],
         anchor_path=cfg.get("conditioner", {}).get("anchor_path"),
         chunk_size=cfg["data"]["chunk_size"],

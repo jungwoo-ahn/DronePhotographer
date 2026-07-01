@@ -45,9 +45,25 @@ from src.policy.cosmos.action_latent import (
 )
 from src.policy.cosmos.conditioner import (
     COSMOS_CROSSATTN_DIM,
+    GoalAdaLNConditioner,
     ShotProfileCondition,
     ShotProfileVectorConditioner,
 )
+
+
+def _adaln_time_embed_hook(module, inputs, output):
+    """Forward hook on the Cosmos `time_embed`: ADD the stashed goal embedding to
+    `temb` (leaving `embedded_timestep` untouched). `temb` is (B·T, temb_dim) — the
+    goal embedding is (B, temb_dim), broadcast per frame. If no goal is stashed the
+    output is returned unchanged (so the timestep path is identical when unused)."""
+    emb = getattr(module, "_goal_adaln_emb", None)
+    if emb is None:
+        return output
+    temb, embedded_timestep = output
+    t_flat, b = temb.shape[0], emb.shape[0]
+    if t_flat != b and t_flat % b == 0:                       # timestep flattened to B·T
+        emb = emb.repeat_interleave(t_flat // b, dim=0)
+    return (temb + emb.to(temb.dtype), embedded_timestep)
 from src.policy.cosmos.edm import (
     FlowConfig,
     flow_sigma_schedule,
@@ -194,6 +210,9 @@ class CosmosWorldActionPolicy(nn.Module):
         goal_dim: int = 8,
         crossattn_dim: int = COSMOS_CROSSATTN_DIM,
         n_goal_tokens: int = 4,
+        goal_conditioning: str = "cross_attn",   # "cross_attn" | "adaln"
+        adaln_hidden_dim: int = 256,
+        adaln_temb_dim: Optional[int] = None,    # None -> detect from transformer.time_embed
         action_dim: int = ACTION_DIM,
         chunk_size: int = 1,
         use_value_latent: bool = True,
@@ -225,12 +244,32 @@ class CosmosWorldActionPolicy(nn.Module):
         scale = ACTION_SCALE if action_scale is None else action_scale
         self.register_buffer("action_scale", torch.as_tensor(np.asarray(scale), dtype=torch.float32))
 
+        if goal_conditioning not in ("cross_attn", "adaln"):
+            raise ValueError(f"goal_conditioning must be 'cross_attn' or 'adaln', got {goal_conditioning!r}")
+        self.goal_conditioning = goal_conditioning
+
+        # Cross-attention conditioner. In "adaln" mode it emits ONLY the anchor text
+        # (n_tokens=0) — the goal enters through AdaLN instead, not as prefix tokens.
         self.conditioner = ShotProfileVectorConditioner(
             goal_dim=goal_dim,
             model_dim=crossattn_dim,
-            n_tokens=n_goal_tokens,
+            n_tokens=n_goal_tokens if goal_conditioning == "cross_attn" else 0,
             anchor_path=anchor_path,
         )
+
+        # AdaLN-Zero goal conditioning: project the goal to a zero-init embedding and
+        # ADD it to `temb` (the timestep embedding driving every block's AdaLN) via a
+        # forward hook on `time_embed`. Zero-init => the timestep conditioning is
+        # exactly unchanged at init. The goal_adaln module is separate from the
+        # backbone, so it trains even when freeze_backbone=True.
+        self.goal_adaln = None
+        self._adaln_handle = None
+        if goal_conditioning == "adaln":
+            temb_dim = adaln_temb_dim
+            if temb_dim is None:
+                temb_dim = self.transformer.time_embed.t_embedder.linear_2.out_features
+            self.goal_adaln = GoalAdaLNConditioner(goal_dim, temb_dim, hidden_dim=adaln_hidden_dim)
+            self._adaln_handle = self.transformer.time_embed.register_forward_hook(_adaln_time_embed_hook)
 
         if freeze_backbone:
             for p in self.transformer.parameters():
@@ -295,7 +334,12 @@ class CosmosWorldActionPolicy(nn.Module):
         Verified against `Cosmos2_5_PredictBasePipeline.__call__`: the transformer
         receives RAW x_t (no preconditioning), the per-frame timestep IS the flow
         sigma in [0, 1], and the output is the flow velocity v = eps - x0.
+
+        In "adaln" mode we stash the goal embedding on `time_embed` here; the forward
+        hook adds it to `temb` inside the transformer's forward.
         """
+        if self.goal_conditioning == "adaln":
+            self.transformer.time_embed._goal_adaln_emb = self.goal_adaln(cond.raw_goal)
         return self.adapter(
             self.transformer,
             x_t,

@@ -141,3 +141,24 @@ def test_anchor_text_buffer_goal_proj_param_no_gate():
     assert "anchor_text" in buffers and "anchor_text" not in params
     assert "goal_proj.weight" in params
     assert "gate" not in params and "gate" not in buffers
+
+
+# --- AdaLN-Zero goal conditioner (the alternative to cross-attention prefix) ---
+
+def test_goal_adaln_is_zero_at_init_but_output_layer_gets_gradient():
+    from src.policy.cosmos.conditioner import GoalAdaLNConditioner
+    m = GoalAdaLNConditioner(goal_dim=8, temb_dim=48, hidden_dim=32)
+    out = m(torch.randn(3, 8))
+    assert out.shape == (3, 48)
+    assert torch.all(out == 0.0)                       # zero-init -> timestep path untouched
+    out.sum().backward()
+    # AdaLN-Zero: the zero-init OUTPUT layer still gets gradient from step 1
+    assert m.proj[-1].weight.grad is not None and m.proj[-1].weight.grad.abs().sum() > 0
+
+
+def test_goal_adaln_depends_on_goal_once_output_layer_activated():
+    from src.policy.cosmos.conditioner import GoalAdaLNConditioner
+    m = GoalAdaLNConditioner(goal_dim=8, temb_dim=48)
+    with torch.no_grad():
+        m.proj[-1].weight.normal_(0, 0.1)
+    assert not torch.allclose(m(torch.zeros(1, 8)), m(torch.randn(1, 8)))

@@ -11,6 +11,12 @@ backbone:
 
 conditioner:
   anchor_path: assets/text_anchor.pt
+  # How the goal enters the backbone:
+  #   cross_attn — goal -> K prefix tokens in cross-attention (conditional prefix tuning)
+  #   adaln      — goal -> zero-init embedding ADDED to the timestep embedding (AdaLN-Zero
+  #                scale/shift/gate); cross-attention then carries the anchor text only.
+  goal_conditioning: cross_attn
+  adaln_hidden_dim: 256          # only used when goal_conditioning: adaln
 
 data:
   # Point at the directory holding all v7 placement subdirs. The dataset

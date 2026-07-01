@@ -159,10 +159,42 @@ class ShotProfileVectorConditioner(nn.Module):
         return ShotProfileCondition(crossattn_emb=emb, padding_mask=mask, raw_goal=goal)
 
 
+class GoalAdaLNConditioner(nn.Module):
+    """AdaLN-Zero goal conditioning (the alternative to cross-attention prefixing).
+
+    Projects the goal vector to an embedding that is **added to the diffusion
+    timestep embedding `temb`**, which drives every Cosmos block's AdaLN
+    scale/shift/gate. The projection is **zero-initialized**, so at init the added
+    embedding is exactly 0 — the timestep conditioning is untouched — and the goal
+    then modulates the AdaLN as the projection learns (standard AdaLN-Zero, the DiT
+    class-conditioning pattern of adding an extra embedding to the time embedding).
+
+    `temb_dim` is the width of Cosmos's `temb` (= 3 * hidden_size: shift|scale|gate).
+    The model wires the output onto `temb` via a forward hook on `time_embed`; this
+    module only produces the (B, temb_dim) embedding.
+    """
+
+    def __init__(self, goal_dim: int, temb_dim: int, hidden_dim: int = 256) -> None:
+        super().__init__()
+        self.proj = nn.Sequential(
+            nn.Linear(goal_dim, hidden_dim), nn.SiLU(), nn.Linear(hidden_dim, temb_dim),
+        )
+        # AdaLN-Zero: the final layer is zero-init so the goal contributes nothing at
+        # init (timestep conditioning preserved), yet still gets gradient from step 1.
+        nn.init.zeros_(self.proj[-1].weight)
+        nn.init.zeros_(self.proj[-1].bias)
+
+    def forward(self, goal_vec: torch.Tensor) -> torch.Tensor:
+        if goal_vec.dim() == 1:
+            goal_vec = goal_vec.unsqueeze(0)
+        return self.proj(goal_vec)                                       # (B, temb_dim), 0 at init
+
+
 __all__ = [
     "COSMOS_CROSSATTN_DIM",
     "COSMOS_TEXT_MAX_LEN",
     "DEFAULT_GOAL_TOKENS",
     "ShotProfileCondition",
     "ShotProfileVectorConditioner",
+    "GoalAdaLNConditioner",
 ]

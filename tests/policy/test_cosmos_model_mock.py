@@ -218,3 +218,90 @@ def test_action_latent_indices_offset_correctly():
     assert no_value.num_extra_latent_frames() == 1
     with pytest.raises(ValueError):
         no_value.value_latent_idx(t_img=4)
+
+
+# --- AdaLN-Zero goal conditioning ---------------------------------------------
+
+class _MockTimeEmbed(nn.Module):
+    """Mimics CosmosEmbedding: forward(hidden, timestep) -> (temb, embedded_timestep),
+    with a `t_embedder.linear_2` so the model can auto-detect temb_dim."""
+
+    def __init__(self, temb_dim: int):
+        super().__init__()
+        self.t_embedder = nn.Module()
+        self.t_embedder.linear_2 = nn.Linear(1, temb_dim, bias=False)  # out_features = temb_dim
+        self.temb_dim = temb_dim
+
+    def forward(self, hidden_states, timestep):
+        temb = timestep.float().view(-1, 1).expand(-1, self.temb_dim).to(hidden_states.dtype)
+        return temb, temb
+
+
+class _AdaLNMockBackbone(nn.Module):
+    """Diffusers-style backbone whose output depends on `temb` (so an AdaLN goal
+    injection actually changes it). `time_embed` is a submodule the model hooks."""
+
+    def __init__(self, latent_channels=16, model_dim=1024, temb_dim=48):
+        super().__init__()
+        self.conv = nn.Conv3d(latent_channels, latent_channels, kernel_size=1)
+        self.time_embed = _MockTimeEmbed(temb_dim)
+        self.temb_to_c = nn.Linear(temb_dim, latent_channels)
+        self.cond_proj = nn.Linear(model_dim, latent_channels)
+
+    def forward(self, hidden_states, timestep, encoder_hidden_states, condition_mask=None, padding_mask=None, return_dict=True):
+        b, c, t, h, w = hidden_states.shape
+        temb, _ = self.time_embed(hidden_states, timestep.flatten())   # hook adds goal to temb here
+        mod = self.temb_to_c(temb).view(b, t, c).permute(0, 2, 1)[:, :, :, None, None]
+        x = self.conv(hidden_states) + mod
+        if encoder_hidden_states.shape[1] > 0:   # anchor-only context can be empty in tests
+            x = x + self.cond_proj(encoder_hidden_states.mean(dim=1))[:, :, None, None, None]
+        return _DiffusersOutput(sample=x) if return_dict else (x,)
+
+
+def test_adaln_mode_drops_prefix_tokens_and_builds_goal_adaln():
+    p = CosmosWorldActionPolicy(_AdaLNMockBackbone(), goal_conditioning="adaln",
+                                adaln_temb_dim=48, chunk_size=1, freeze_backbone=False)
+    assert p.conditioner.n_tokens == 0 and p.goal_adaln is not None    # goal not in cross-attn
+    p2 = CosmosWorldActionPolicy(_DiffusersStyleMockBackbone(), n_goal_tokens=4)
+    assert p2.conditioner.n_tokens == 4 and p2.goal_adaln is None       # default cross_attn intact
+
+
+def test_adaln_temb_dim_autodetected_from_backbone():
+    p = CosmosWorldActionPolicy(_AdaLNMockBackbone(temb_dim=48), goal_conditioning="adaln",
+                                chunk_size=1)   # no adaln_temb_dim -> detect
+    assert p.goal_adaln.proj[-1].out_features == 48
+
+
+def test_adaln_goal_has_no_effect_at_init_timestep_preserved():
+    p = CosmosWorldActionPolicy(_AdaLNMockBackbone(), goal_conditioning="adaln",
+                                adaln_temb_dim=48, chunk_size=1, freeze_backbone=False).eval()
+    img = _make_image_latent(t_img=2)
+    g0, g1 = torch.zeros(2, 8), torch.randn(2, 8) * 5   # build goals BEFORE seeding the sampler noise
+    torch.manual_seed(0); o1 = p.sample(img, g0, n_steps=2).pred_action_chunk
+    torch.manual_seed(0); o2 = p.sample(img, g1, n_steps=2).pred_action_chunk
+    torch.testing.assert_close(o1, o2)     # zero-init goal_adaln -> goal inert -> timestep path intact
+
+
+def test_adaln_goal_engages_when_output_layer_activated():
+    p = CosmosWorldActionPolicy(_AdaLNMockBackbone(), goal_conditioning="adaln",
+                                adaln_temb_dim=48, chunk_size=1, freeze_backbone=False).eval()
+    with torch.no_grad():
+        p.goal_adaln.proj[-1].weight.normal_(0, 0.5)
+    img = _make_image_latent(t_img=2)
+    g0, g1 = torch.zeros(2, 8), torch.randn(2, 8) * 5   # build goals BEFORE seeding the sampler noise
+    torch.manual_seed(0); o1 = p.sample(img, g0, n_steps=2).pred_action_chunk
+    torch.manual_seed(0); o2 = p.sample(img, g1, n_steps=2).pred_action_chunk
+    assert not torch.allclose(o1, o2)      # goal now modulates the prediction via AdaLN
+
+
+def test_adaln_goal_adaln_gets_gradient_even_with_frozen_backbone():
+    p = CosmosWorldActionPolicy(_AdaLNMockBackbone(), goal_conditioning="adaln",
+                                adaln_temb_dim=48, chunk_size=1, freeze_backbone=True)
+    img = _make_image_latent(t_img=2)
+    p.compute_loss(img, torch.randn(2, 1, ACTION_DIM), torch.randn(2, 8)).total.backward()
+    assert any(pp.grad is not None and pp.grad.abs().sum() > 0 for pp in p.goal_adaln.parameters())
+
+
+def test_adaln_rejects_bad_conditioning_name():
+    with pytest.raises(ValueError):
+        CosmosWorldActionPolicy(_DiffusersStyleMockBackbone(), goal_conditioning="bogus")
