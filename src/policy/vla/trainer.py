@@ -156,6 +156,10 @@ class VLATrainer:
                             tb.add_scalar(f"loss/{k}", v, iteration)
                         tb.add_scalar("loss/total_ema", loss_ema, iteration)
                         tb.add_scalar("lr", sched.get_last_lr()[0], iteration)
+                        # Goal-conditioning engagement (matches WAM's cond/goal_proj_norm):
+                        # weight norm of the goal->soft-token projection.
+                        tb.add_scalar("cond/goal_proj_norm",
+                                      float(self.policy.goal_proj.weight.detach().norm()), iteration)
                     if iteration % cfg.log_iter == 0 and self.is_main:
                         dt = time.time() - last_log
                         last_log = time.time()
