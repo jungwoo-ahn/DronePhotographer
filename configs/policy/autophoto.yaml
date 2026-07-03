@@ -21,5 +21,10 @@ train:
   total_timesteps: 100000        # reduced scale (AutoPhoto used 1.5M in fast Habitat)
   max_steps: 100                 # episode horizon (AutoPhoto: 100)
   scene_change_freq: 5           # swap scene every N episodes
-  n_steps: 256
+  n_steps: 256                   # per env per PPO update
+  n_envs: 8                      # parallel Blender workers (SubprocVecEnv); rollouts are
+  env_gpus: [1, 2, 3, 4]         # render-bound ~4-11s/step, so wall-clock scales ~n_envs.
+                                 # 2 workers per GPU; each env pins its reward model + EEVEE
+                                 # to one of these GPUs. (Per Jooyeol: NEVER use GPU 0.)
+  save_freq: 2000                # checkpoint cadence in TOTAL env steps
   learning_rate: 3.0e-4

@@ -7,12 +7,15 @@ persistent rendering make it tractable (see REFERENCES.md).
 
   python scripts/train_autophoto.py --config configs/policy/autophoto.yaml
 
-Runs on the render machine (needs the blender binary + scenes).
+Rollouts are render-bound (~4-11s/env-step), so training parallelizes across
+`train.n_envs` Blender workers (SubprocVecEnv, one persistent Blender + reward
+model per env, spread over `train.env_gpus`). Runs on the render machine.
 """
 
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 import yaml
@@ -32,34 +35,21 @@ def _load_placements(manifest: str | list) -> list[str]:
             if ln.strip() and not ln.strip().startswith("#")]
 
 
-def main() -> None:
-    args = parse_args()
-    cfg = yaml.safe_load(args.config.read_text())
-    total = args.total_timesteps or int(cfg["train"]["total_timesteps"])
-
-    from sb3_contrib import RecurrentPPO
-
+def _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps):
+    """Build a PhotoEnv that swaps to the next placement every `freq` episodes."""
     from src.policy.autophoto.env import PhotoEnv
     from src.policy.autophoto.renderer import PersistentBlenderRenderer
-    from src.policy.autophoto.reward import AestheticReward
     from src.policy.common.blender_env import BlenderRolloutEnv
     from src.policy.common.validation_sample import load_validation_sample
 
-    reward = AestheticReward(cfg["reward"]["checkpoint"], device=cfg["reward"].get("device", "cuda"))
-    placements = _load_placements(cfg["data"]["placements"])
-    vlm_dir = cfg["data"]["vlm_placements_dir"]
-    rcfg = cfg.get("renderer", {})
-
     class SceneCyclingPhotoEnv(PhotoEnv):
-        """PhotoEnv that swaps to the next placement every `scene_change_freq` episodes."""
-
         def __init__(self):
             self._placements = placements
-            self._freq = int(cfg["train"].get("scene_change_freq", 5))
+            self._freq = freq
             self._ep = 0
             self._idx = 0
             rollout = self._build_rollout(0)
-            super().__init__(rollout, reward, max_steps=int(cfg["train"].get("max_steps", 100)))
+            super().__init__(rollout, reward, max_steps=max_steps)
 
         def _build_rollout(self, idx):
             sample = load_validation_sample(self._placements[idx], vlm_dir)
@@ -75,19 +65,81 @@ def main() -> None:
             self._ep += 1
             return super().reset(seed=seed, options=options)
 
-    env = SceneCyclingPhotoEnv()
-    out_dir = Path(cfg["train"]["output_dir"]); out_dir.mkdir(parents=True, exist_ok=True)
+    return SceneCyclingPhotoEnv()
+
+
+class EnvFactory:
+    """Picklable per-worker env builder for SubprocVecEnv (spawn).
+
+    Holds only plain data; everything heavy (reward model, Blender worker) is
+    constructed inside the child process. `gpu_id` pins BOTH the reward model and
+    the child's Blender/EEVEE to one physical GPU via CUDA_VISIBLE_DEVICES, set
+    before the first CUDA touch in that process.
+    """
+
+    def __init__(self, placements, vlm_dir, rcfg, reward_ckpt, freq, max_steps, gpu_id=None):
+        self.placements = list(placements)
+        self.vlm_dir = vlm_dir
+        self.rcfg = dict(rcfg)
+        self.reward_ckpt = reward_ckpt
+        self.freq = freq
+        self.max_steps = max_steps
+        self.gpu_id = gpu_id
+
+    def __call__(self):
+        if self.gpu_id is not None:
+            os.environ["CUDA_VISIBLE_DEVICES"] = str(self.gpu_id)
+        from src.policy.autophoto.reward import AestheticReward
+
+        reward = AestheticReward(self.reward_ckpt, device="cuda")
+        return _make_scene_cycling_env(
+            self.placements, self.vlm_dir, self.rcfg, reward, self.freq, self.max_steps)
+
+
+def main() -> None:
+    args = parse_args()
+    cfg = yaml.safe_load(args.config.read_text())
+    total = args.total_timesteps or int(cfg["train"]["total_timesteps"])
+
+    from sb3_contrib import RecurrentPPO
+    from stable_baselines3.common.callbacks import CheckpointCallback
+    from stable_baselines3.common.vec_env import SubprocVecEnv
+
+    placements = _load_placements(cfg["data"]["placements"])
+    vlm_dir = cfg["data"]["vlm_placements_dir"]
+    rcfg = cfg.get("renderer", {})
+    tcfg = cfg["train"]
+    freq = int(tcfg.get("scene_change_freq", 5))
+    max_steps = int(tcfg.get("max_steps", 100))
+    n_envs = int(tcfg.get("n_envs", 1))
+    gpus = tcfg.get("env_gpus") or [None]
+
+    if n_envs > 1:
+        # Disjoint placement shards per env: parallel envs see different scenes
+        # (more diverse rollouts) and never contend for the same Blender worker.
+        factories = [
+            EnvFactory(placements[i::n_envs], vlm_dir, rcfg, cfg["reward"]["checkpoint"],
+                       freq, max_steps, gpu_id=gpus[i % len(gpus)])
+            for i in range(n_envs)
+        ]
+        env = SubprocVecEnv(factories, start_method="spawn")
+    else:
+        from src.policy.autophoto.reward import AestheticReward
+
+        reward = AestheticReward(cfg["reward"]["checkpoint"], device=cfg["reward"].get("device", "cuda"))
+        env = _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps)
+
+    out_dir = Path(tcfg["output_dir"]); out_dir.mkdir(parents=True, exist_ok=True)
     model = RecurrentPPO(
         "MlpLstmPolicy", env, verbose=1,
-        n_steps=int(cfg["train"].get("n_steps", 256)),
-        learning_rate=float(cfg["train"].get("learning_rate", 3e-4)),
+        n_steps=int(tcfg.get("n_steps", 256)),
+        learning_rate=float(tcfg.get("learning_rate", 3e-4)),
         tensorboard_log=str(out_dir / "tb"),
     )
-    # Periodic checkpoints: Blender-in-the-loop RL is slow (~8-11s/env-step), so a
-    # multi-hour run must survive interruption. Save every `save_freq` env steps.
-    from stable_baselines3.common.callbacks import CheckpointCallback
-
-    save_freq = int(cfg["train"].get("save_freq", 2000))
+    # Periodic checkpoints: multi-day run must survive interruption. save_freq is
+    # counted in vec-env steps (n_envs timesteps each), so divide to keep the
+    # cadence ~`save_freq` TOTAL env steps.
+    save_freq = max(1, int(tcfg.get("save_freq", 2000)) // max(1, n_envs))
     cb = CheckpointCallback(save_freq=save_freq, save_path=str(out_dir / "ckpts"),
                             name_prefix="autophoto")
     model.learn(total_timesteps=total, callback=cb)
