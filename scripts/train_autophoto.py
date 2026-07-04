@@ -25,6 +25,8 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     p.add_argument("--config", required=True, type=Path)
     p.add_argument("--total_timesteps", type=int, default=None)
+    p.add_argument("--resume_from", type=str, default=None,
+                   help="SB3 .zip checkpoint to resume from (continues num_timesteps)")
     return p.parse_args()
 
 
@@ -48,7 +50,7 @@ def _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps):
             self._freq = freq
             self._ep = 0
             self._idx = 0
-            rollout = self._build_rollout(0)
+            rollout = self._build_rollout_skipping_bad(0)
             super().__init__(rollout, reward, max_steps=max_steps)
 
         def _build_rollout(self, idx):
@@ -57,11 +59,26 @@ def _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps):
                 engine=rcfg.get("engine", "BLENDER_EEVEE_NEXT"), samples=int(rcfg.get("samples", 16)))
             return BlenderRolloutEnv.from_validation_sample(sample, renderer)
 
+        def _build_rollout_skipping_bad(self, idx):
+            """A broken placement (e.g. unreadable .blend) must not kill a multi-day
+            run: try successive placements, skipping any whose scene fails to load.
+            The first render is forced here so load errors surface NOW, not later."""
+            for k in range(len(self._placements)):
+                j = (idx + k) % len(self._placements)
+                try:
+                    rollout = self._build_rollout(j)
+                    rollout.reset_to_start(0, render=True)
+                    self._idx = j
+                    return rollout
+                except Exception as e:  # noqa: BLE001
+                    print(f"[autophoto] skipping bad placement {self._placements[j]}: "
+                          f"{str(e)[:200]}", flush=True)
+            raise RuntimeError("no loadable placement in this env's shard")
+
         def reset(self, *, seed=None, options=None):
             if self._ep and self._ep % self._freq == 0 and len(self._placements) > 1:
                 self.rollout.close()
-                self._idx = (self._idx + 1) % len(self._placements)
-                self.rollout = self._build_rollout(self._idx)
+                self.rollout = self._build_rollout_skipping_bad((self._idx + 1) % len(self._placements))
             self._ep += 1
             return super().reset(seed=seed, options=options)
 
@@ -130,19 +147,26 @@ def main() -> None:
         env = _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps)
 
     out_dir = Path(tcfg["output_dir"]); out_dir.mkdir(parents=True, exist_ok=True)
-    model = RecurrentPPO(
-        "MlpLstmPolicy", env, verbose=1,
-        n_steps=int(tcfg.get("n_steps", 256)),
-        learning_rate=float(tcfg.get("learning_rate", 3e-4)),
-        tensorboard_log=str(out_dir / "tb"),
-    )
+    if args.resume_from:
+        model = RecurrentPPO.load(args.resume_from, env=env,
+                                  tensorboard_log=str(out_dir / "tb"))
+        print(f"resumed from {args.resume_from} at num_timesteps={model.num_timesteps}", flush=True)
+    else:
+        model = RecurrentPPO(
+            "MlpLstmPolicy", env, verbose=1,
+            n_steps=int(tcfg.get("n_steps", 256)),
+            learning_rate=float(tcfg.get("learning_rate", 3e-4)),
+            tensorboard_log=str(out_dir / "tb"),
+        )
     # Periodic checkpoints: multi-day run must survive interruption. save_freq is
     # counted in vec-env steps (n_envs timesteps each), so divide to keep the
     # cadence ~`save_freq` TOTAL env steps.
     save_freq = max(1, int(tcfg.get("save_freq", 2000)) // max(1, n_envs))
     cb = CheckpointCallback(save_freq=save_freq, save_path=str(out_dir / "ckpts"),
                             name_prefix="autophoto")
-    model.learn(total_timesteps=total, callback=cb)
+    # reset_num_timesteps=False on resume: `total` stays the CUMULATIVE budget.
+    model.learn(total_timesteps=total, callback=cb,
+                reset_num_timesteps=not args.resume_from)
     model.save(str(out_dir / "autophoto_policy"))
     env.close()
     print("saved policy ->", out_dir / "autophoto_policy.zip")
