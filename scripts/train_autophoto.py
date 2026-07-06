@@ -50,6 +50,7 @@ def _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps):
             self._freq = freq
             self._ep = 0
             self._idx = 0
+            self._force_advance = False
             rollout = self._build_rollout_skipping_bad(0)
             super().__init__(rollout, reward, max_steps=max_steps)
 
@@ -76,11 +77,39 @@ def _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps):
             raise RuntimeError("no loadable placement in this env's shard")
 
         def reset(self, *, seed=None, options=None):
-            if self._ep and self._ep % self._freq == 0 and len(self._placements) > 1:
-                self.rollout.close()
+            if (self._force_advance or (self._ep and self._ep % self._freq == 0)) and len(self._placements) > 1:
+                try:
+                    self.rollout.close()
+                except Exception:  # noqa: BLE001
+                    pass
                 self.rollout = self._build_rollout_skipping_bad((self._idx + 1) % len(self._placements))
+            self._force_advance = False
             self._ep += 1
-            return super().reset(seed=seed, options=options)
+            # A reset render can still fail (e.g. render timeout); advance until one works.
+            for _ in range(len(self._placements)):
+                try:
+                    return super().reset(seed=seed, options=options)
+                except Exception as e:  # noqa: BLE001
+                    print(f"[autophoto] reset failed on {self._placements[self._idx]}: "
+                          f"{str(e)[:150]}; advancing scene", flush=True)
+                    try:
+                        self.rollout.close()
+                    except Exception:  # noqa: BLE001
+                        pass
+                    self.rollout = self._build_rollout_skipping_bad((self._idx + 1) % len(self._placements))
+            raise RuntimeError("no placement produced a valid reset in this shard")
+
+        def step(self, action):
+            # A render failure mid-episode (e.g. hung EEVEE -> RenderTimeout) must NOT
+            # propagate: an uncaught exception kills this SubprocVecEnv worker, which
+            # then deadlocks the whole trainer. End the episode + advance scene instead.
+            try:
+                return super().step(action)
+            except Exception as e:  # noqa: BLE001
+                print(f"[autophoto] step render failed on {self._placements[self._idx]}: "
+                      f"{str(e)[:150]}; ending episode", flush=True)
+                self._force_advance = True
+                return self._last_obs, 0.0, True, False, {"render_error": True}
 
     return SceneCyclingPhotoEnv()
 
