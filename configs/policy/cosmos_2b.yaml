@@ -30,7 +30,7 @@ data:
   stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
   goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
   val_split_level: scene         # unseen-scene generalization (pair | placement | scene | object)
-  val_names: configs/policy/val_scenes.txt   # frozen manifest — pins the val scenes forever;
+  val_names: configs/policy/val_scenes.yaml   # frozen manifest — pins the val scenes forever;
                                  # new data arrivals always go to train. Overrides the hash split.
   val_pair_stride: 0             # unused while val_names is set (hash-split fallback)
   val_stride: 4                  # window stride within val trajectories

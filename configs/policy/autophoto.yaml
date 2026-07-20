@@ -7,9 +7,10 @@ reward:
   device: cuda
 
 data:
-  # A text manifest of v7 placement data.json paths to TRAIN on (NOT the val scenes
-  # in configs/policy/val_scenes.txt — keep eval held out). One path per line.
-  placements: configs/policy/autophoto_train_placements.txt
+  # YAML manifest of v7 placement data.json paths to TRAIN on — every scored
+  # placement NOT in the val scenes (configs/policy/val_scenes.yaml). Both are
+  # regenerated together by scripts/make_val_split.py (--train-out).
+  placements: configs/policy/autophoto_train_placements.yaml
   vlm_placements_dir: data/vlm_object_placing_v6_260428_061326   # holds scene_scale + object transform
 
 renderer:

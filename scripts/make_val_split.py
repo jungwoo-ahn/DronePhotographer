@@ -40,6 +40,8 @@ def parse_args() -> argparse.Namespace:
                    help="stop once the val set reaches this many windows (minimal split)")
     p.add_argument("--windows-per-placement", type=int, default=20,
                    help="approx windows per placement (32-frame traj, chunk 8, stride ~1)")
+    p.add_argument("--train-out", default=None, type=Path,
+                   help="also write the AutoPhoto train placement list (scored, not in val) here")
     p.add_argument("--date", default=None, help="stamp for provenance (YYYY-MM-DD); avoids nondeterminism")
     return p.parse_args()
 
@@ -86,6 +88,24 @@ def main() -> None:
     print(f"wrote {a.out}: {len(val_scenes)} scenes, {acc}/{total} placements ({acc/total*100:.1f}%)")
     for s in val_scenes:
         print(f"  {counts[s]:4d}  {s}")
+
+    # Optionally materialize the TRAIN placement list (scored, NOT in val) —
+    # AutoPhoto's RL env iterates an explicit list rather than splitting on the fly.
+    if a.train_out:
+        val_set = set(val_scenes)
+        train = [f"{a.root}/{d.name}/data.json" for d in sorted(a.root.iterdir())
+                 if d.is_dir() and (d / "scored.flag").exists() and scene_of(d.name) not in val_set]
+        tdoc = {
+            "description": "AutoPhoto TRAIN placements: every scored placement NOT in the "
+                           "val scenes (configs/policy/val_scenes.yaml). Regenerate with "
+                           "scripts/make_val_split.py --train-out when the data changes.",
+            "root": str(a.root),
+            "generated": a.date,
+            "n_placements": len(train),
+            "placements": train,
+        }
+        Path(a.train_out).write_text(yaml.safe_dump(tdoc, sort_keys=False, default_flow_style=False))
+        print(f"wrote {a.train_out}: {len(train)} train placements (val scenes excluded)")
 
 
 if __name__ == "__main__":

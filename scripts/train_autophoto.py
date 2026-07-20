@@ -31,9 +31,20 @@ def parse_args() -> argparse.Namespace:
 
 
 def _load_placements(manifest: str | list) -> list[str]:
-    if isinstance(manifest, list):
-        return manifest
-    return [ln.strip() for ln in Path(manifest).read_text().splitlines()
+    """Resolve the train placements: an inline list, a .yaml/.json manifest
+    ({placements: [...]} or a bare list), or a legacy .txt (one path per line)."""
+    if isinstance(manifest, (list, tuple)):
+        return list(manifest)
+    path = Path(manifest)
+    suffix = path.suffix.lower()
+    if suffix in (".yaml", ".yml"):
+        doc = yaml.safe_load(path.read_text())
+        return doc["placements"] if isinstance(doc, dict) and "placements" in doc else list(doc)
+    if suffix == ".json":
+        import json
+        doc = json.loads(path.read_text())
+        return doc["placements"] if isinstance(doc, dict) and "placements" in doc else list(doc)
+    return [ln.strip() for ln in path.read_text().splitlines()
             if ln.strip() and not ln.strip().startswith("#")]
 
 
