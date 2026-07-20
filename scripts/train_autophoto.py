@@ -68,7 +68,9 @@ def _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps):
         def _build_rollout(self, idx):
             sample = load_validation_sample(self._placements[idx], vlm_dir)
             renderer = PersistentBlenderRenderer(
-                engine=rcfg.get("engine", "BLENDER_EEVEE_NEXT"), samples=int(rcfg.get("samples", 16)))
+                engine=rcfg.get("engine", "BLENDER_EEVEE_NEXT"), samples=int(rcfg.get("samples", 16)),
+                cycles_gpu=bool(rcfg.get("cycles_gpu", False)),
+                timeout_s=float(rcfg.get("timeout_s", 90.0)))
             return BlenderRolloutEnv.from_validation_sample(sample, renderer)
 
         def _build_rollout_skipping_bad(self, idx):
