@@ -1,35 +1,19 @@
-description: Held-out validation scenes (unseen-scene generalization). Smallest scenes
-  by scored-placement count; asset families kept together. Regenerate with scripts/make_val_split.py
-  when the dataset changes.
+description: 'Held-out validation scenes (unseen-scene generalization). Minimal: fewest
+  smallest scenes reaching ~min_windows; asset families kept together. Regenerate
+  with scripts/make_val_split.py when the data changes.'
 root: data/trajectories_full
 generated: '2026-07-20'
 total_scenes: 91
 total_scored_placements: 7668
-val_placements: 404
-val_fraction: 0.0527
+val_scenes: 5
+val_placements: 80
+val_fraction: 0.0104
+approx_val_windows: 1600
 scenes:
 - name: Desert-Roadside-Repair-Garage_a1a2b2ac
   placements: 25
-- name: FordTransit-2006_ab281362
-  placements: 33
-- name: Forest-field_3c5ba348
-  placements: 15
-- name: Forest-field_665e2d80
-  placements: 17
-- name: Gas-Station_b8467c86
-  placements: 44
-- name: Rainy-newyork_4a9039be
-  placements: 48
-- name: Rocky-Beach-Landscape_0d65b1fb
-  placements: 47
 - name: Serene-Island-at-Sunset_0932b882
   placements: 7
-- name: nature-animation_c0dc9353-5a45-4f26-9a2e-bec8a08ac779
-  placements: 43
-- name: paris-metro-entr_9df0d343-37fa-44ea-b312-f11361311266
-  placements: 41
-- name: realistic-desert-scene
-  placements: 36
 - name: realistic-grassl_c55fc382-caf1-4794-9d4b-1dab2c8fee48
   placements: 12
 - name: the-eternal-bloo_7df06803-df19-445f-bb2e-d12ee2cd31ea
