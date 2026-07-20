@@ -33,6 +33,9 @@ from src.policy.common.annotations import iter_multiscale_windows
 from src.policy.common.dataset_base import _compute_action_chunk, _compute_value_sequence
 from src.policy.common.goal_space import goal_vector, normalize_goal
 from src.policy.cosmos.dataset import _load_image_as_tensor
+# Blender action-executed render (optional --blender path)
+from src.policy.common.blender_env import BlenderRolloutEnv, PersistentBlenderRenderer
+from src.policy.common.validation_sample import load_validation_sample
 
 PROFILE_FMT = [
     ("occupancy", "%", "{:.0f}"), ("body_in_frame", "%", "{:.0f}"),
@@ -52,6 +55,13 @@ def _b64(t: torch.Tensor) -> str:
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
+def _b64_pil(img, size_wh) -> str:
+    """PIL RGB image -> base64 PNG data URI, resized to (W,H) to match the other columns."""
+    buf = io.BytesIO()
+    img.resize(size_wh).save(buf, format="PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--checkpoint", required=True, type=Path)
@@ -64,6 +74,14 @@ def main() -> None:
     ap.add_argument("--n-steps", type=int, default=16)
     ap.add_argument("--guidance-scale", type=float, default=1.0)
     ap.add_argument("--negative-mode", choices=["flip", "null"], default="flip")
+    # Blender: render what the predicted action ACTUALLY produces (4th column).
+    ap.add_argument("--blender", action="store_true", help="render the predicted-action-executed frame in Blender")
+    ap.add_argument("--blender-bin", default="blender/blender")
+    ap.add_argument("--render-device", default="CPU", choices=["CPU", "GPU"],
+                    help="CPU avoids the ~10-15min sm_100 Cycles kernel compile; GPU is faster once warm")
+    ap.add_argument("--render-samples", type=int, default=16)
+    ap.add_argument("--render-timeout", type=float, default=1200.0)
+    ap.add_argument("--vlm-v6-dir", default="data/vlm_object_placing_v6_260428_061326")
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--dtype", default="bfloat16")
     ap.add_argument("--resolution", nargs=2, type=int, default=[480, 720])
@@ -88,6 +106,22 @@ def main() -> None:
         image_latent = vae.encode_pair_frames(state, state)
     t_img = image_latent.shape[2]
 
+    env = None
+    if args.blender:
+        # Blender needs libGL / libXfixes / libxkbcommon, which login + bare workers
+        # lack; ship them from blender/syslibs/lib (same as sbatch_rollout_eval.sh) so
+        # the spawned Blender subprocess inherits them — no external env var needed.
+        import os
+        syslibs = str(Path(args.blender_bin).resolve().parent / "syslibs" / "lib")
+        os.environ["LD_LIBRARY_PATH"] = syslibs + os.pathsep + os.environ.get("LD_LIBRARY_PATH", "")
+        sample = load_validation_sample(dj, args.vlm_v6_dir, require_vlm=True)
+        sample.render_samples = args.render_samples
+        sample.render_device = args.render_device
+        renderer = PersistentBlenderRenderer(blender_bin=args.blender_bin, render_timeout_s=args.render_timeout)
+        env = BlenderRolloutEnv.from_validation_sample(sample, renderer)
+        print(f"[blender] env ready ({args.render_device}, {args.render_samples} samples) — "
+              "first render compiles Cycles kernels, be patient", flush=True)
+
     goals = []
     for w in wins:
         offset = w.end_frame_idx - w.start_frame_idx
@@ -110,10 +144,21 @@ def main() -> None:
                     world0 = vae.decode(out.pred_latents[:, :, t_img - 1:t_img])[:, :, 0][0]
         pred_action = np.mean(pred_actions, axis=0)
 
+        exec_render = None
+        if env is not None:
+            # execute the predicted chunk from the current pose, render the endpoint
+            env.reset(state_rec.camera_position, state_rec.camera_forward, state_rec.camera_up, render=False)
+            obs = None
+            for i, a in enumerate(pred_action):
+                obs, _ = env.step(a, render=(i == len(pred_action) - 1))
+            exec_render = _b64_pil(obs["image"], (res[1], res[0]))
+            print(f"[blender] rendered action-executed endpoint for goal +{int(offset)}", flush=True)
+
         goal_occ = float(goal_raw[0])
         goals.append(dict(
             offset=int(offset), end=int(w.end_frame_idx),
             direction="dolly-in" if offset > 0 else "dolly-out",
+            exec_render=exec_render,
             occ_state=round(state_occ), occ_goal=round(goal_occ),
             profile=[fmt.format(v) + u for (lbl, u, fmt), v in zip(PROFILE_FMT, goal_raw)],
             profile_labels=[lbl for lbl, _, _ in PROFILE_FMT],
@@ -124,10 +169,13 @@ def main() -> None:
             world_pred=_b64(world0), world_gt=_b64(gt_world),
         ))
 
+    if env is not None:
+        env.close()
+
     payload = dict(
         iteration=int(iteration), placement=args.data_root.name, pair=args.pair,
         start_frame=args.start_frame, adims=ADIMS, seeds=args.seeds, n_steps=args.n_steps,
-        guidance=args.guidance_scale, negative=args.negative_mode,
+        guidance=args.guidance_scale, negative=args.negative_mode, has_exec=bool(args.blender),
         state_img=_b64(state[0]), goals=goals,
     )
     args.out.write_text(_HTML.replace("/*__DATA__*/", json.dumps(payload)))
@@ -181,7 +229,7 @@ _HTML = r"""
   <details>
     <summary>How to read this</summary>
     <p>A <b>fixed current frame</b> is shown to the policy under several <b>goals</b> &mdash; target shot-profiles taken from points further along the camera path. For each goal the policy predicts, in a single forward pass: the <b>camera action</b> to reach it, the <b>next frame</b> it imagines after that action, and the <b>value</b> &mdash; each shown beside its <b class="gt">ground truth</b>.</p>
-    <p>The <b class="pred">predicted next frame</b> is <b>diffusion-sampled</b>, not looked up: the policy denoises the next-frame / action / value latents from pure noise over 16 flow-matching steps, conditioned on the goal and the clean pinned current frame, then VAE-decodes the frame latent to pixels (single noise seed). The <b>action</b> shown is the mean over 4 seeds, which cancels sampler noise and isolates the goal's effect.</p>
+    <p>The <b class="pred">predicted next frame</b> is <b>diffusion-sampled</b>, not looked up: the policy denoises the next-frame / action / value latents from pure noise over 16 flow-matching steps, conditioned on the goal and the clean pinned current frame, then VAE-decodes the frame latent to pixels (single noise seed). The <b>action</b> shown is the mean over 4 seeds, which cancels sampler noise and isolates the goal's effect. When the <b>action executed</b> column is present it is a Blender render of the pose reached by <i>actually running</i> the predicted action &mdash; the real consequence: predicted-next &asymp; action-executed means the world head imagined correctly, and action-executed &asymp; GT-next means the action itself is good.</p>
     <p><b>Action</b> &mdash; per-step camera move in the camera's own axes: &Delta;right / &Delta;up / &Delta;fwd in metres, &Delta;yaw / &Delta;pitch in radians; <b>action[0]</b> is the immediate move. <b>Value</b> &mdash; cost-to-go, the normalized negative pose-distance from each step to the goal (higher = closer). Early checkpoints predict frames worst (the world head is downweighted), so read action / value first.</p>
   </details>
   <div class="state">
@@ -233,12 +281,12 @@ function render(i){
   const amax=Math.max(0.2,...g.action_gt[0].map(Math.abs),...g.action_pred[0].map(Math.abs));
   const prof=g.profile.map((v,k)=>`<span title="${KDESC[g.profile_labels[k]]||''}">${g.profile_labels[k]} ${v}</span>`).join('');
   const barsHtml=P.adims.map((d,k)=>bar(d,g.action_pred[0][k],g.action_gt[0][k],amax)).join('');
+  const fr=[`<figure><img src="${P.state_img}" title="Current frame (the policy input)."><figcaption>current</figcaption></figure>`,
+    `<figure><img src="${g.world_pred}" title="Diffusion-sampled: denoised from noise over ${P.n_steps} flow-matching steps, conditioned on this goal + the pinned current frame, then VAE-decoded (1 seed). The model's IMAGINED frame after the action."><figcaption class="pred">predicted next &mdash; diffusion</figcaption></figure>`];
+  if(g.exec_render) fr.push(`<figure><img src="${g.exec_render}" title="Blender render of the pose reached by actually EXECUTING the predicted 8-step action from the current frame — the real consequence of the action. ≈ GT next ⇒ the action is good; ≈ predicted-next ⇒ the world head imagined it correctly."><figcaption>action executed &mdash; Blender</figcaption></figure>`);
+  fr.push(`<figure><img src="${g.world_gt}" title="The actual rendered frame at the goal endpoint (what the GT action achieves)."><figcaption class="gt">GT next (frame ${g.end})</figcaption></figure>`);
   document.getElementById('panel').innerHTML =
-    `<div class="frames">
-       <figure><img src="${P.state_img}" title="Current frame (the policy input)."><figcaption>current</figcaption></figure>
-       <figure><img src="${g.world_pred}" title="Diffusion-sampled: denoised from noise over ${P.n_steps} flow-matching steps, conditioned on this goal + the pinned current frame, then VAE-decoded (1 seed). The model's imagined frame after the action."><figcaption class="pred">predicted next &mdash; diffusion-sampled</figcaption></figure>
-       <figure><img src="${g.world_gt}" title="The actual rendered frame at the goal endpoint."><figcaption class="gt">GT next (frame ${g.end})</figcaption></figure>
-     </div>
+    `<div class="frames" style="grid-template-columns:repeat(${fr.length},1fr)">${fr.join('')}</div>
      <div class="prof" title="The goal: the target shot-profile the policy is conditioned on. Hover each key.">${prof}</div>
      <div class="cols" style="margin-top:14px">
        <div><h3 title="The immediate next camera move (step 0), camera-local. Bar: solid green = GT, translucent blue = pred; centre line = 0; length grows with magnitude.">Action[0] &mdash; the immediate move</h3><div class="bars">${barsHtml}</div>
