@@ -176,6 +176,38 @@ def iter_windows(
             )
 
 
+def load_val_names(spec) -> list[str] | None:
+    """Resolve a `val_names` config value into a list of scene names.
+
+    Accepts:
+      - a list (inline in YAML) -> returned as-is;
+      - a path to `.yaml`/`.yml` -> the manifest's `scenes[].name` (new format,
+        see scripts/make_val_split.py), or a bare top-level list;
+      - a path to `.json` -> a list, or `{"scenes": [...]}`;
+      - a path to `.txt` -> one name per line, `#` comments allowed (legacy).
+    Returns None for a falsy spec.
+    """
+    if not spec:
+        return None
+    if isinstance(spec, (list, tuple)):
+        return list(spec)
+    path = Path(spec)
+    suffix = path.suffix.lower()
+    if suffix in (".yaml", ".yml"):
+        import yaml
+
+        doc = yaml.safe_load(path.read_text())
+        if isinstance(doc, dict) and "scenes" in doc:
+            return [s["name"] if isinstance(s, dict) else s for s in doc["scenes"]]
+        return list(doc)
+    if suffix == ".json":
+        doc = json.loads(path.read_text())
+        return doc["scenes"] if isinstance(doc, dict) and "scenes" in doc else list(doc)
+    # legacy .txt: one name per line, '#' comments
+    return [ln.strip() for ln in path.read_text().splitlines()
+            if ln.strip() and not ln.strip().startswith("#")]
+
+
 def list_annotation_files(roots: Iterable[str | Path]) -> list[Path]:
     """Find every `data.json` under each root.
 
@@ -196,5 +228,6 @@ __all__ = [
     "TrajectoryWindow",
     "iter_windows",
     "list_annotation_files",
+    "load_val_names",
     "load_annotation",
 ]

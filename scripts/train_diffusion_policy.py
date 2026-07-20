@@ -81,10 +81,8 @@ def main() -> None:
     # (configs/policy/val_scenes.txt), so the baselines are directly comparable.
     val_split_level = cfg["data"].get("val_split_level", "scene")
     val_pair_stride = int(cfg["data"].get("val_pair_stride", 0))
-    val_names = cfg["data"].get("val_names")
-    if isinstance(val_names, str):
-        val_names = [ln.strip() for ln in Path(val_names).read_text().splitlines()
-                     if ln.strip() and not ln.strip().startswith("#")]
+    from src.policy.common.annotations import load_val_names
+    val_names = load_val_names(cfg["data"].get("val_names"))
 
     common = dict(
         goal_score_keys=cfg["data"]["goal_score_keys"],
