@@ -8,7 +8,7 @@ that predicts the image latents. There are no separate action / value MLPs.
 Latent sequence layout (training):
   pos 0          .. T_img - 1   : image latents from the VAE
   pos T_img                      : action latent (filled with tiled action chunk)
-  pos T_img + 1                  : value latent (filled with scalar return)
+  pos T_img + 1                  : value latent (filled with the tiled per-step value sequence)
 
 At training:
   - Encode images with the VAE → (B, 16, T_img, H_lat, W_lat).
@@ -37,12 +37,14 @@ import torch
 from torch import nn
 
 from src.policy.common.action_repr import ACTION_DIM, ACTION_SCALE
+from src.policy.common.reward import VALUE_SCALE
 from src.policy.cosmos.action_latent import (
     extract_action_chunk,
-    extract_value,
+    extract_value_seq,
     inject_action_chunk,
-    inject_value,
+    inject_value_seq,
 )
+from src.policy.common.goal_space import flip_goal_torch
 from src.policy.cosmos.conditioner import (
     COSMOS_CROSSATTN_DIM,
     GoalAdaLNConditioner,
@@ -76,7 +78,8 @@ class PolicyOutputs:
     pred_latents: torch.Tensor                          # (B, C, T_total, H, W) — full predicted sequence
     backbone_loss: Optional[torch.Tensor] = None        # scalar flow-matching MSE if next-state given
     pred_action_chunk: Optional[torch.Tensor] = None    # (B, chunk_size, ACTION_DIM) at inference
-    pred_value: Optional[torch.Tensor] = None           # (B,) at inference
+    pred_value: Optional[torch.Tensor] = None           # (B, chunk_size) [cost_to_go] or
+                                                        # (B, chunk_size, value_dim) [profile modes] at inference
 
 
 @dataclass
@@ -210,12 +213,16 @@ class CosmosWorldActionPolicy(nn.Module):
         goal_dim: int = 8,
         crossattn_dim: int = COSMOS_CROSSATTN_DIM,
         n_goal_tokens: int = 4,
+        cfg_dropout_prob: float = 0.0,           # goal-dropout prob (train) for classifier-free guidance
         goal_conditioning: str = "cross_attn",   # "cross_attn" | "adaln"
         adaln_hidden_dim: int = 256,
         adaln_temb_dim: Optional[int] = None,    # None -> detect from transformer.time_embed
         action_dim: int = ACTION_DIM,
         chunk_size: int = 1,
         use_value_latent: bool = True,
+        num_conditional_frames: int = 1,   # leading image latents kept CLEAN as conditioning
+                                           # (current observation); everything after — future
+                                           # frame(s) + action + value — is noised & predicted.
         freeze_backbone: bool = True,
         adapter: BackboneAdapter | str = "diffusers",
         anchor_path: str | None = None,
@@ -224,6 +231,8 @@ class CosmosWorldActionPolicy(nn.Module):
         lambda_value: float = 1.0,
         flow_config: FlowConfig | None = None,
         action_scale: "np.ndarray | torch.Tensor | None" = None,
+        value_scale: "float | None" = None,
+        value_dim: int = 1,
     ) -> None:
         super().__init__()
         self.transformer = transformer
@@ -231,18 +240,28 @@ class CosmosWorldActionPolicy(nn.Module):
         self.latent_channels = latent_channels
         self.action_dim = action_dim
         self.chunk_size = chunk_size
+        self.value_dim = value_dim   # per-step value width: 1 (cost_to_go) or goal_dim (profile modes)
         self.use_value_latent = use_value_latent
+        self.num_conditional_frames = num_conditional_frames
         self.lambda_world = lambda_world
         self.lambda_action = lambda_action
         self.lambda_value = lambda_value
         self.flow = flow_config or FlowConfig()
 
         # Per-dim action normalization scale, registered as a buffer so it travels
-        # with the checkpoint — the dataset normalizes by this and sample() can
-        # denormalize by the same values, so train/eval can never drift even if
-        # the module-level ACTION_SCALE constant later changes.
+        # with the checkpoint — sample() denormalizes by exactly the scale the model
+        # was built with, so eval reproduces training regardless of later ACTION_SCALE
+        # edits. (The dataset normalizes by its own action_scale, default = the same
+        # ACTION_SCALE constant; they agree unless you override only one side.)
         scale = ACTION_SCALE if action_scale is None else action_scale
         self.register_buffer("action_scale", torch.as_tensor(np.asarray(scale), dtype=torch.float32))
+
+        # Scalar value normalization scale, buffered so it travels with the checkpoint
+        # (sample() denormalizes by exactly this; the dataset normalizes by its own
+        # value_scale, default = the same reward.VALUE_SCALE constant — they agree
+        # unless overridden on only one side).
+        vscale = VALUE_SCALE if value_scale is None else value_scale
+        self.register_buffer("value_scale", torch.as_tensor(float(vscale), dtype=torch.float32))
 
         if goal_conditioning not in ("cross_attn", "adaln"):
             raise ValueError(f"goal_conditioning must be 'cross_attn' or 'adaln', got {goal_conditioning!r}")
@@ -254,6 +273,7 @@ class CosmosWorldActionPolicy(nn.Module):
             goal_dim=goal_dim,
             model_dim=crossattn_dim,
             n_tokens=n_goal_tokens if goal_conditioning == "cross_attn" else 0,
+            dropout_rate=cfg_dropout_prob,
             anchor_path=anchor_path,
         )
 
@@ -296,7 +316,7 @@ class CosmosWorldActionPolicy(nn.Module):
         self,
         image_latent: torch.Tensor,                  # (B, C, T_img, H, W)
         action_chunk: torch.Tensor,                  # (B, chunk_size, action_dim)
-        value_target: Optional[torch.Tensor] = None, # (B,)
+        value_target: Optional[torch.Tensor] = None, # (B, chunk_size) per-step value
     ) -> torch.Tensor:
         """Assemble the clean latent sequence x0 with action+value injected.
 
@@ -313,8 +333,10 @@ class CosmosWorldActionPolicy(nn.Module):
         if self.use_value_latent:
             v_idx = self.value_latent_idx(t_img)
             if value_target is None:
-                value_target = torch.zeros(b, dtype=image_latent.dtype, device=image_latent.device)
-            x0[:, :, v_idx] = inject_value(x0[:, :, v_idx], value_target)
+                value_target = torch.zeros(
+                    b, self.chunk_size * self.value_dim, dtype=image_latent.dtype, device=image_latent.device)
+            # inject_value_seq flattens the trailing dims, so (B, chunk) and (B, chunk, value_dim) both work.
+            x0[:, :, v_idx] = inject_value_seq(x0[:, :, v_idx], value_target)
 
         return x0
 
@@ -354,24 +376,38 @@ class CosmosWorldActionPolicy(nn.Module):
         image_latent: torch.Tensor,                  # (B, C, T_img, H, W)
         action_chunk: torch.Tensor,                  # (B, chunk_size, action_dim)
         goal_vec: torch.Tensor,                      # (B, goal_dim)
-        value_target: Optional[torch.Tensor] = None, # (B,)
+        value_target: Optional[torch.Tensor] = None, # (B, chunk_size) per-step value
         sigma: Optional[torch.Tensor] = None,        # (B,) fixed sigmas (validation); None = sample
     ) -> LossOutputs:
-        """Joint flow-matching velocity loss decomposed by latent-sequence component.
+        """Joint flow-matching velocity loss — CONDITIONAL-FRAME convention (matches `sample()`).
 
-        Matches the 2.5 checkpoint's pretraining convention exactly:
+        The first `num_conditional_frames` image latents are the current observation:
+        they are held CLEAN at `flow.cond_timestep` with condition_mask=1 — never noised,
+        never supervised — exactly as `sample()` and cosmos-policy's `denoise()` treat
+        conditioning frames. Everything after (future frame(s) + action + value) is noised
+        at the sampled sigma and supervised.
+
+        This keeps training and inference in the SAME input regime. Previously the loss
+        noised *all* frames with condition_mask=0 — a regime the sampler never sees — so
+        teacher-forced val losses looked healthy while the SAMPLED metrics (action_mse /
+        value_mae) and closed-loop rollouts never improved (train/inference mismatch).
+
+        Steps:
           1. Sample sigma in [0, 1] (logit-normal + balanced two-heads tails).
-          2. x_t = (1 - sigma) * x0 + sigma * eps; v_target = eps - x0.
-          3. Run the backbone raw (no preconditioning); it predicts the velocity.
-          4. Squared error, split by latent position -> world / action / value.
-
-        Returns `LossOutputs(total, world, action, value)` with components on a
-        comparable scale (per-element means) so the lambda weights are intuitive.
+          2. x_t = (1 - sigma) * x0 + sigma * eps on the DENOISED frames; conditioning
+             frames stay = x0 (clean). v_target = eps - x0.
+          3. Per-frame timestep = cond_timestep on conditioning frames, sigma elsewhere;
+             condition_mask marks the conditioning frames.
+          4. Squared error on the predicted positions only -> world (future frame) / action / value.
         """
         x0 = self.build_training_latents(image_latent, action_chunk, value_target)
         cond = self.conditioner({"goal_vec": goal_vec})
 
         b = x0.shape[0]
+        t_total = x0.shape[2]
+        t_img = image_latent.shape[2]
+        n_cond = max(0, min(self.num_conditional_frames, t_img))   # leading clean frames
+
         if sigma is None:
             sigma = sample_flow_sigma(b, self.flow, device=x0.device)   # (B,) in [0, 1]
         sigma = sigma.to(device=x0.device, dtype=x0.dtype)
@@ -379,17 +415,29 @@ class CosmosWorldActionPolicy(nn.Module):
         view_shape = (b,) + (1,) * (x0.dim() - 1)
         sigma_v = sigma.view(*view_shape)
 
-        # Flow-matching forward process (the 2.5 checkpoint's native convention):
+        # Flow-matching forward process, but ONLY on the non-conditioning frames.
         #   x_t = (1 - sigma) * x0 + sigma * eps,  v_target = eps - x0
         x_t = (1.0 - sigma_v) * x0 + sigma_v * epsilon
         v_target = epsilon - x0
-        v_pred = self._backbone_velocity(x_t, sigma, cond)
+        x_t[:, :, :n_cond] = x0[:, :, :n_cond]          # pin conditioning frames CLEAN
 
+        # Per-frame timestep + condition mask (mirror sample()): cond_timestep on the clean
+        # conditioning frames, the sampled sigma on the frames being denoised.
+        t_frames = sigma.view(b, 1).expand(b, t_total).clone()
+        t_frames[:, :n_cond] = self.flow.cond_timestep
+        cond_mask = x0.new_zeros(b, 1, t_total, *x0.shape[3:])
+        cond_mask[:, :, :n_cond] = 1.0
+
+        v_pred = self._backbone_velocity(x_t, t_frames, cond, condition_mask=cond_mask)
         sq = (v_pred - v_target) ** 2                                       # (B, C, T_total, H, W)
 
-        t_img = image_latent.shape[2]
         a_idx = self.action_latent_idx(t_img)
-        loss_world = sq[:, :, :t_img].mean()
+        # "world" = the PREDICTED image frame(s) only (future frame); the conditioning
+        # frames are clean context and are excluded from the loss.
+        if t_img > n_cond:
+            loss_world = sq[:, :, n_cond:t_img].mean()
+        else:
+            loss_world = sq.new_zeros(())
         loss_action = sq[:, :, a_idx].mean()
         if self.use_value_latent:
             v_idx = self.value_latent_idx(t_img)
@@ -411,47 +459,75 @@ class CosmosWorldActionPolicy(nn.Module):
     @torch.no_grad()
     def sample(
         self,
-        image_latent: torch.Tensor,                  # (B, C, T_img, H, W) — conditioning frames
+        image_latent: torch.Tensor,                  # (B, C, T_img, H, W); only the first
+                                                     # num_conditional_frames are used as conditioning
         goal_vec: torch.Tensor,                      # (B, goal_dim)
         *,
         n_steps: int = 32,
         denormalize: bool = True,
+        guidance_scale: float = 1.0,                 # 1.0 = no CFG; >1 amplifies the goal
+        negative_mode: str = "flip",                 # "flip" | "null" negative condition
     ) -> PolicyOutputs:
         """Flow-matching Euler sampling over sigmas 1 -> 0 (the 2.5 native convention).
 
-        Conditioning (image) frames are passed clean with timestep = cond_timestep
-        and condition_mask = 1, exactly like `Cosmos2_5_PredictBasePipeline`; the
-        action + value latent positions are denoised by the flow.
+        The first `num_conditional_frames` image frames (the current observation) are
+        passed clean with timestep = cond_timestep and condition_mask = 1, exactly like
+        `Cosmos2_5_PredictBasePipeline` and matching `compute_loss`. Every other position
+        — the future frame(s), action, value — is denoised by the flow. (Image frames in
+        `image_latent` beyond the conditioning ones are ignored; the model predicts them.)
 
         `denormalize=True` (default) returns the action chunk in physical units
         (metres / radians) by multiplying through `self.action_scale` — the same
         buffer the dataset normalized by — so callers never need to know the scale
-        and train/eval can't drift. Pass `denormalize=False` to get the raw
-        normalized action.
+        and train/eval can't drift. The per-step value is likewise returned in
+        physical units (radians) via `self.value_scale`. Pass `denormalize=False`
+        to get the raw normalized action + value (used by the val metrics, which
+        compare against the normalized targets from the dataset).
         """
         b, c, t_img, h, w = image_latent.shape
         n_extra = self.num_extra_latent_frames()
         t_total = t_img + n_extra
+        n_cond = max(0, min(self.num_conditional_frames, t_img))   # clean conditioning frames
         cond = self.conditioner({"goal_vec": goal_vec})
+
+        # Classifier-free guidance. The negative condition is either the goal-free
+        # ("null") pass — goal tokens zeroed, matching training dropout — or the
+        # point-symmetric "flip" goal (opposite orientation/framing, a valid
+        # in-distribution goal that needs no dropout training). Each Euler step
+        # then extrapolates: v = v_neg + s * (v_cond - v_neg). s=1 → plain sampling.
+        use_cfg = guidance_scale != 1.0
+        cond_neg = None
+        if use_cfg:
+            if negative_mode == "null":
+                cond_neg = self.conditioner({"goal_vec": goal_vec}, force_uncond=True)
+            elif negative_mode == "flip":
+                cond_neg = self.conditioner({"goal_vec": flip_goal_torch(goal_vec)})
+            else:
+                raise ValueError(f"negative_mode must be 'flip' or 'null', got {negative_mode!r}")
 
         sigmas = flow_sigma_schedule(n_steps, device=image_latent.device)
         # Start from pure noise (sigma = 1 in flow space)
         x = torch.randn(b, c, t_total, h, w, dtype=image_latent.dtype, device=image_latent.device)
 
-        # Pipeline conventions for pinned conditioning frames: they enter the
-        # transformer CLEAN, with condition_mask = 1 and timestep = cond_timestep.
+        # Pipeline conventions for pinned conditioning frames: the first `n_cond` image
+        # frames (the current observation) enter the transformer CLEAN, with
+        # condition_mask = 1 and timestep = cond_timestep. Every other position — the
+        # future frame(s), action, value — is denoised by the flow.
         cond_mask = x.new_zeros(b, 1, t_total, h, w)
-        cond_mask[:, :, :t_img] = 1.0
+        cond_mask[:, :, :n_cond] = 1.0
         for i in range(n_steps):
             sigma_i = float(sigmas[i])
             sigma_next = float(sigmas[i + 1])
             in_x = x.clone()
-            in_x[:, :, :t_img] = image_latent                   # conditioning frames are clean
+            in_x[:, :, :n_cond] = image_latent[:, :, :n_cond]   # conditioning frames are clean
             t_frames = x.new_full((b, t_total), sigma_i)
-            t_frames[:, :t_img] = self.flow.cond_timestep
+            t_frames[:, :n_cond] = self.flow.cond_timestep
             v_pred = self._backbone_velocity(in_x, t_frames, cond, condition_mask=cond_mask)
+            if use_cfg:
+                v_neg = self._backbone_velocity(in_x, t_frames, cond_neg, condition_mask=cond_mask)
+                v_pred = v_neg + guidance_scale * (v_pred - v_neg)
             x = x + (sigma_next - sigma_i) * v_pred             # Euler step over flow sigmas
-            x[:, :, :t_img] = image_latent                      # re-pin
+            x[:, :, :n_cond] = image_latent[:, :, :n_cond]      # re-pin conditioning frames
 
         a_idx = self.action_latent_idx(t_img)
         pred_action = extract_action_chunk(
@@ -462,7 +538,11 @@ class CosmosWorldActionPolicy(nn.Module):
         pred_value: Optional[torch.Tensor] = None
         if self.use_value_latent:
             v_idx = self.value_latent_idx(t_img)
-            pred_value = extract_value(x[:, :, v_idx])
+            pred_value = extract_value_seq(x[:, :, v_idx], seq_len=self.chunk_size * self.value_dim)
+            if self.value_dim > 1:   # profile modes -> (B, chunk_size, value_dim); else (B, chunk_size)
+                pred_value = pred_value.reshape(pred_value.shape[0], self.chunk_size, self.value_dim)
+            if denormalize:
+                pred_value = pred_value * self.value_scale.to(pred_value.dtype)
 
         return PolicyOutputs(pred_latents=x, pred_action_chunk=pred_action, pred_value=pred_value)
 

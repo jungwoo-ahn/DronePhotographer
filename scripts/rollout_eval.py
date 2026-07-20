@@ -96,6 +96,11 @@ def load_policy(ckpt_path: Path, device, dtype):
     flow_cfg = FlowConfig(**{k: v for k, v in flow_dict.items() if k in FlowConfig.__dataclass_fields__})
     loss = cfg.get("loss", {})
     keys = goal_keys(data["goal_score_keys"])
+    # value target mode must match training so the value latent is extracted at the right
+    # width (value_dim). value_scale is also restored from the checkpoint buffer.
+    from src.policy.common.dataset_base import resolve_value_spec
+
+    value_dim, value_scale = resolve_value_spec(data.get("value_target_mode", "cost_to_go"), len(keys))
     policy = CosmosWorldActionPolicy(
         transformer,
         crossattn_dim=crossattn_dim,
@@ -110,6 +115,8 @@ def load_policy(ckpt_path: Path, device, dtype):
         goal_conditioning=cfg.get("conditioner", {}).get("goal_conditioning", "cross_attn"),
         adaln_hidden_dim=int(cfg.get("conditioner", {}).get("adaln_hidden_dim", 256)),
         flow_config=flow_cfg,
+        value_dim=value_dim,
+        value_scale=value_scale,
     ).to(device).eval()
 
     ckpt = torch.load(ckpt_path, map_location="cpu", weights_only=False)
@@ -178,7 +185,7 @@ def is_success(achieved: dict, goal: dict) -> bool:
 
 @torch.no_grad()
 def rollout(env, policy, vae, geom, goal, keys, subject_center, *, max_steps, execute_k,
-            n_steps, device, dtype, intr, start_pose=None):
+            n_steps, device, dtype, intr, start_pose=None, guidance_scale=1.0, negative_mode="flip"):
     goal_norm = torch.from_numpy(
         normalize_goal(np.array([goal[k] for k in keys], dtype=np.float32), keys)
     ).unsqueeze(0).to(device, dtype=dtype)
@@ -198,8 +205,11 @@ def rollout(env, policy, vae, geom, goal, keys, subject_center, *, max_steps, ex
         # Match training: the transformer is bf16 but the conditioner is fp32, so
         # autocast reconciles the mixed dtypes (disabled for the cpu/fp32 mock path).
         with torch.autocast(device.type, dtype=dtype, enabled=(dtype != torch.float32)):
-            latent = vae.encode_pair_frames(state, state)   # (1,16,2,h,w) — matches training
-            out = policy.sample(image_latent=latent, goal_vec=goal_norm, n_steps=n_steps)
+            # Only frame 0 (current observation) is used as conditioning; sample() predicts
+            # the next_state slot, so the 2nd frame is a placeholder (ignored by sample()).
+            latent = vae.encode_pair_frames(state, state)   # (1,16,2,h,w) — [state | (predicted)]
+            out = policy.sample(image_latent=latent, goal_vec=goal_norm, n_steps=n_steps,
+                                guidance_scale=guidance_scale, negative_mode=negative_mode)
         chunk = out.pred_action_chunk.squeeze(0).float().cpu().numpy()   # (chunk, 5)
         for a in chunk[:max(1, execute_k)]:
             obs, _ = env.step(a, render=True)
@@ -336,6 +346,8 @@ def main() -> None:
     ap.add_argument("--max-steps", type=int, default=16)
     ap.add_argument("--execute-k", type=int, default=1)
     ap.add_argument("--n-steps", type=int, default=32, help="diffusion sampler steps")
+    ap.add_argument("--guidance-scale", type=float, default=1.0, help="CFG scale; 1.0 = off")
+    ap.add_argument("--negative-mode", choices=["flip", "null"], default="flip", help="CFG negative condition")
     ap.add_argument("--out-dir", default=None)
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--dtype", default="bfloat16")
@@ -391,7 +403,8 @@ def main() -> None:
                 summ, frames = rollout(
                     env, policy, vae, geom, goal["profile"], keys, sample.subject_center,
                     max_steps=args.max_steps, execute_k=args.execute_k, n_steps=args.n_steps,
-                    device=device, dtype=dtype, intr=intr, start_pose=start_pose)
+                    device=device, dtype=dtype, intr=intr, start_pose=start_pose,
+                    guidance_scale=args.guidance_scale, negative_mode=args.negative_mode)
                 tag = f"{pl.name[:40]}__{goal['name']}"
                 (out_dir / f"{tag}.json").write_text(json.dumps(
                     {"placement": pl.name, "goal": goal["name"], "goal_profile": goal["profile"], **summ}, indent=2))

@@ -49,6 +49,15 @@ DEFAULT_V5_RANGES: dict[str, tuple[float, float]] = {
 # fix if azimuth conditioning proves unreliable near 0/360.
 CYCLIC_GOAL_KEYS: frozenset[str] = frozenset({"cam_to_obj_azimuth_deg"})
 
+# Keys negated to build the point-symmetric "opposite" goal (see flip_goal):
+# elevation flips above<->below the subject; object_center mirrors about the
+# frame center (which normalizes to 0, so negation == point reflection). NOT
+# negated: occupancy / body_in_frame_ratio / bbox_*_offset are size cues (>=0)
+# that an orientation flip leaves unchanged; azimuth is handled cyclically.
+NEGATE_ON_FLIP: frozenset[str] = frozenset(
+    {"cam_to_obj_elevation_deg", "object_center_x", "object_center_y"}
+)
+
 
 def goal_keys(custom: Sequence[str] | None = None) -> list[str]:
     return list(custom) if custom else list(DEFAULT_GOAL_KEYS)
@@ -135,6 +144,48 @@ def denormalize_goal(
     for i, k in enumerate(keys):
         lo, hi = ranges.get(k, (0.0, 1.0))
         out[i] = 0.5 * (vec[i] + 1.0) * (hi - lo) + lo
+    return out
+
+
+def flip_goal(vec: np.ndarray, keys: Sequence[str] | None = None) -> np.ndarray:
+    """Point-symmetric "opposite" of a *normalized* goal, for CFG negatives.
+
+    Operates in [-1, 1] normalized space (exactly what the model receives).
+    Azimuth is turned a half-circle (cyclic +180 deg == +2.0 in normalized
+    units, wrapped); elevation and object_center_x/y are negated (camera on the
+    opposite vertical angle, subject mirrored to the opposite frame quadrant).
+    Size / framing cues (occupancy, body_in_frame_ratio, bbox_x/y_offset) are
+    physically unchanged by an orientation flip and pass through unchanged.
+    `flip_goal(flip_goal(x)) == x` for all keys (up to the azimuth seam). NaN
+    passes through.
+    """
+    keys = goal_keys(keys)
+    out = np.array(vec, dtype=np.float32, copy=True)
+    for i, k in enumerate(keys):
+        if k in CYCLIC_GOAL_KEYS:
+            out[i] = ((vec[i] + 2.0) % 2.0) - 1.0
+        elif k in NEGATE_ON_FLIP:
+            out[i] = -vec[i]
+    return out
+
+
+def flip_goal_torch(vec, keys: Sequence[str] | None = None):
+    """Torch version of `flip_goal` for a normalized goal batch (B, D).
+
+    Same per-key rule (azimuth cyclic half-turn, elevation/object_center negated,
+    size cues unchanged). Used to build the CFG negative condition at inference
+    without a numpy round-trip. `torch` is imported lazily so this module stays
+    numpy-only at import time.
+    """
+    import torch
+
+    keys = goal_keys(keys)
+    out = vec.clone()
+    for i, k in enumerate(keys):
+        if k in CYCLIC_GOAL_KEYS:
+            out[..., i] = torch.remainder(vec[..., i] + 2.0, 2.0) - 1.0
+        elif k in NEGATE_ON_FLIP:
+            out[..., i] = -vec[..., i]
     return out
 
 

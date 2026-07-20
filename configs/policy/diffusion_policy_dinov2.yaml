@@ -17,9 +17,14 @@ model:
 
 data:
   annotation_roots:
-    - data/trajectories_full     # symlink -> full v7 set (same as cosmos/vla)
+    - data/trajectories          # full v7 set (same as cosmos)
   chunk_size: 8
-  stride: 1
+  # PREMISE CHECK: use the SAME multiscale goal-dependent data as the Cosmos policy, so
+  # this dedicated-action-head baseline tests whether goal-conditioned actions are learnable
+  # at all (isolating the Cosmos tiled-latent as the suspected culprit).
+  sampling_scheme: multiscale_bidir
+  offsets: [8, 16, 24]
+  stride: 1                      # sliding_window only (unused under multiscale_bidir)
   max_samples: null
   target_resolution: [480, 720]  # DINOv2 processor re-crops to its own size
   goal_score_keys:

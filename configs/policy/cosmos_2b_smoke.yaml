@@ -20,8 +20,12 @@ data:
   annotation_roots:
     - data/trajectories
   chunk_size: 8
-  stride: 2
-  goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
+  sampling_scheme: multiscale_bidir   # bidirectional multi-scale endpoints (goal = endpoint)
+  offsets: [8, 16, 24]
+  stride: 2                    # sliding_window only (unused under multiscale_bidir)
+  goal_sampling: uniform_future  # sliding_window only (unused under multiscale_bidir)
+  augment_reverse: false
+  value_target_mode: cost_to_go  # cost_to_go | achieved_profile | profile_delta
   max_samples: 512
   target_resolution: [480, 720]
   goal_score_keys:

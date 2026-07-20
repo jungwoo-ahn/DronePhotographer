@@ -86,7 +86,8 @@ def build_payload(args: argparse.Namespace) -> list[dict]:
             windows.append({
                 "start_idx": s.start.frame_idx,
                 "end_idx": s.end.frame_idx,
-                "value": round(float(s.value), 4),
+                # value is now a per-step sequence; value[0] is the start→goal scalar this viz plots
+                "value": round(float(s.value[0]), 4),
                 "value_fixed": round(float(profile_distance_value(s.start.raw, fixed_goal, intr)), 4),
                 "start_img": _thumb_b64(s.start.image, args.thumb_width, cache),
                 "end_img": _thumb_b64(s.end.image, args.thumb_width, cache),

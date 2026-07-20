@@ -25,7 +25,7 @@ import torch
 from torch.utils.data import Dataset
 
 from src.policy.common.action_repr import normalize_action_5d
-from src.policy.common.dataset_base import BasePolicyDataset
+from src.policy.common.dataset_base import DEFAULT_MULTISCALE_OFFSETS, BasePolicyDataset
 from src.policy.common.goal_space import normalize_goal
 
 
@@ -96,6 +96,8 @@ class DiffusionPolicyDataset(Dataset):
         val_split_level: str = "pair",
         val_names: Sequence[str] | None = None,
         split: str = "train",
+        sampling_scheme: str = "sliding_window",
+        offsets: Sequence[int] = DEFAULT_MULTISCALE_OFFSETS,
     ) -> None:
         self.target_resolution = target_resolution
         self.normalize = normalize_goal_to_unit_cube
@@ -113,6 +115,8 @@ class DiffusionPolicyDataset(Dataset):
             val_split_level=val_split_level,
             val_names=val_names,
             split=split,
+            sampling_scheme=sampling_scheme,
+            offsets=offsets,
         )
         if len(self.base):
             p = Path(self.base[0].start.image)

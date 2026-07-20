@@ -49,6 +49,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--dtype", default="bfloat16")
     p.add_argument("--device", default="cuda")
     p.add_argument("--n_steps", type=int, default=32, help="diffusion-sampler steps")
+    p.add_argument("--guidance_scale", type=float, default=1.0, help="CFG scale; 1.0 = off")
+    p.add_argument("--negative_mode", choices=["flip", "null"], default="flip", help="CFG negative condition")
     p.add_argument("--chunk_size", type=int, default=1,
                    help="must match the chunk_size used at training")
     p.add_argument("--render", action="store_true",
@@ -102,22 +104,31 @@ def main() -> None:
     image = _load_image_as_tensor(img_path, tuple(args.resolution)).unsqueeze(0).to(device, dtype=dtype)
 
     with torch.no_grad():
-        # Build the conditioning clip the same way the trainer does: state repeated
-        # in both halves of the 4-frame VAE chunk (no "next" view at inference time).
-        clip = vae.assemble_clip(image, image)
-        image_latent = vae.encode(clip)
+        # Build the conditioning latent exactly like the trainer/rollout: two
+        # separately-encoded latent frames (T_img=2). Only frame 0 (current observation)
+        # is used as conditioning; sample() predicts the next_state slot. (assemble_clip +
+        # encode would temporally compress a 4-frame clip to T_img=1 and misplace the
+        # action/value latents.)
+        image_latent = vae.encode_pair_frames(image, image)
         goal_tensor = torch.from_numpy(target_norm).unsqueeze(0).to(device, dtype=dtype)
-        out = policy.sample(image_latent=image_latent, goal_vec=goal_tensor, n_steps=args.n_steps)
+        out = policy.sample(image_latent=image_latent, goal_vec=goal_tensor, n_steps=args.n_steps,
+                            guidance_scale=args.guidance_scale, negative_mode=args.negative_mode)
 
     # sample() already returns the action chunk in physical units (it denormalizes
     # by the model's action_scale buffer loaded from the checkpoint).
     action_chunk = out.pred_action_chunk.squeeze(0).float().cpu().numpy()   # (chunk_size, 5)
-    pred_value = float(out.pred_value.squeeze(0)) if out.pred_value is not None else None
+    # pred_value is a per-step sequence: (chunk_size,) for cost_to_go, or
+    # (chunk_size, goal_dim) for the profile modes.
+    pv = out.pred_value.squeeze(0).float().cpu().numpy() if out.pred_value is not None else None
+    pred_value = pv.tolist() if pv is not None else None
 
     print(f"predicted {args.chunk_size}-step action chunk (m/rad):")
     for i, a in enumerate(action_chunk):
         print(f"  step {i}: dx={a[0]:.3f} dy={a[1]:.3f} dz={a[2]:.3f} dyaw={a[3]:.3f} dpitch={a[4]:.3f}")
-    print(f"predicted value (~ -score_distance to goal): {pred_value}")
+    if pv is not None and pv.ndim == 1:
+        print("predicted per-step value (~ -distance to goal): " + " ".join(f"{v:.3f}" for v in pv))
+    elif pv is not None:
+        print(f"predicted per-step value: shape {pv.shape} (profile-space); step0={np.round(pv[0], 3).tolist()}")
 
     # Apply only the first action of the chunk to get the next pose
     next_pos, next_fwd, next_up = apply_action_5d(

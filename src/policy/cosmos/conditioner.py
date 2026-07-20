@@ -13,15 +13,18 @@ Design (issue #18 — "Goal condition: We need to embed shot profiles somehow"):
   2. **Goal projection**: a learnable `Linear(goal_dim, K·D)` produces K continuous
      "goal tokens" of dim D from the normalized 8-dim goal vector.
 
-  3. **Conditional prefix tuning (no gate)**: the K goal tokens are **concatenated**
-     after the anchor's real text tokens and the frozen backbone attends to them —
-     standard prefix tuning, but with the prefix conditioned on the goal. `goal_proj`
-     is **zero-initialized**, so the prefix is exactly zero at init (the conditioner
-     output is the anchor's real text only — backbone unperturbed), yet `goal_proj`
-     gets gradient from step 1 (`d loss / d W = upstream · goal`, nonzero even when
-     W = 0). We dropped the earlier scalar `gate`: `goal_tokens = gate · proj` made
-     `d loss / d goal_proj ∝ gate ≈ 0`, a zero-init deadlock — and gating isn't part
-     of standard prefix tuning anyway.
+  3. **Conditional prefix tuning (magnitude-matched)**: the K goal tokens are
+     **concatenated** after the anchor's real text tokens and the backbone attends to
+     them — standard prefix tuning, prefix conditioned on the goal. The goal tokens are
+     **RMSNorm'd to the anchor's per-token scale** (per-element unit RMS → L2 ≈
+     sqrt(model_dim)) times a **learnable gain** (init 1 = anchor parity). This is the
+     fix for the goal being inaudible: the saved anchor is per-position-normalized
+     (per-token L2 ≈ 317 at model_dim=100352), so a **zero-init** `goal_proj` (the old
+     design) left the goal tokens ~1700× quieter than the anchor and they never ramped
+     out of it (measured goal-dependence ratio ~0.02). Matching the magnitude by
+     construction makes the goal audible from step 1; `goal_proj` then only learns token
+     *direction* (content), and the gain lets training dial loudness. No zero-init
+     deadlock (the failure mode of the earlier scalar `gate`, which we also dropped).
 
   4. **No padding tokens are ever emitted.** We pass ONLY the anchor's real text
      tokens + the K goal tokens to cross-attention. The previous design kept all
@@ -65,7 +68,8 @@ class ShotProfileCondition:
 
 
 class ShotProfileVectorConditioner(nn.Module):
-    """Zero-init goal-token conditioner on a fixed Qwen text anchor (no padding emitted)."""
+    """Goal-token conditioner on a fixed Qwen text anchor: goal tokens are RMSNorm'd to
+    the anchor's per-token magnitude × a learnable gain (no padding emitted)."""
 
     def __init__(
         self,
@@ -116,21 +120,28 @@ class ShotProfileVectorConditioner(nn.Module):
         # Store ONLY the real text tokens — the padding region is never used.
         self.register_buffer("anchor_text", anchor_embedding[: self.anchor_real_len].to(torch.float32))
 
-        # Trainable: the goal projection (this is conditional prefix tuning).
-        # Zero-initialized so the prefix is exactly zero at init — the backbone
-        # starts as the pretrained model — yet goal_proj still gets gradient from
-        # step 1 (d loss / d W = upstream · goal, nonzero even when W = 0). There is
-        # NO scalar gate: gating (goal_tokens = gate · proj) created a zero-init
-        # deadlock (d loss / d goal_proj ∝ gate ≈ 0) and isn't part of standard
-        # prefix tuning — a small/zero init gives the same gentle start without it.
+        # Trainable goal projection (conditional prefix tuning). It learns the goal
+        # token DIRECTION (content); the MAGNITUDE is set structurally in forward()
+        # (RMSNorm to the anchor's per-token scale × a learnable gain), so it is NOT
+        # zero-initialized. History: a zero-init proj against a fixed per-position-
+        # normalized anchor (per-token L2 = sqrt(model_dim) ≈ 317) left the goal tokens
+        # at ~0.06% of the anchor magnitude — inaudible in cross-attention (goal-
+        # dependence ratio ~0.02) and unable to ramp out of it under the weak, noise-
+        # dominated action-frame gradient. Matching the magnitude by construction
+        # removes that failure mode.
         self.goal_proj = nn.Linear(goal_dim, n_tokens * model_dim)
-        nn.init.zeros_(self.goal_proj.weight)
-        nn.init.zeros_(self.goal_proj.bias)
+        if n_tokens > 0:
+            # Scalar loudness. Init 1.0 → after the RMSNorm in forward() each goal
+            # token starts at per-element unit RMS (L2 ≈ sqrt(model_dim)), i.e. at
+            # parity with the anchor tokens. Learnable, so training can dial it (down
+            # to ~0 if the goal truly doesn't help) — no zero-init deadlock.
+            self.goal_gain = nn.Parameter(torch.ones(()))
 
     def forward(
         self,
         batch: dict,
         override_dropout_rate: Optional[float] = None,
+        force_uncond: bool = False,
     ) -> ShotProfileCondition:
         goal = batch["goal_vec"]
         if goal.dim() == 1:
@@ -144,14 +155,31 @@ class ShotProfileVectorConditioner(nn.Module):
         # Real anchor text tokens only (never the padding region).
         text = self.anchor_text.to(dtype=dtype, device=device).unsqueeze(0).expand(b, -1, -1)  # (B, real_len, D)
 
-        # Project goal → K prefix tokens (exactly zero at init via goal_proj's zero init).
+        # Project goal → K prefix tokens, then match the anchor's per-token magnitude:
+        # RMSNorm each token to unit per-element RMS (→ L2 ≈ sqrt(model_dim), the
+        # per-position-normalized anchor scale) × a learnable gain. Without this the
+        # goal tokens sit ~1700× below the anchor and cross-attention can't hear them.
+        # Normed in fp32 (reducing over model_dim ~1e5 in bf16 is lossy); zero input
+        # stays zero (eps floor), so a genuinely all-zero goal can't produce NaNs.
         goal_tokens = self.goal_proj(goal).view(b, self.n_tokens, self.model_dim)
+        if self.n_tokens > 0:
+            g = goal_tokens.float()
+            g = g * torch.rsqrt(g.pow(2).mean(dim=-1, keepdim=True) + 1e-6)   # per-token unit RMS
+            goal_tokens = (g * self.goal_gain.float()).to(dtype)
 
-        # Classifier-free dropout: zero the goal tokens for some items (uncondition path).
-        rate = override_dropout_rate if override_dropout_rate is not None else self.dropout_rate
-        if self.training and rate > 0.0:
-            keep = (torch.rand(b, 1, 1, device=device) > rate).to(dtype)
-            goal_tokens = keep * goal_tokens
+        # Classifier-free conditioning. `force_uncond` (inference) zeros EVERY
+        # goal token — the unconditional pass for guided sampling, reproducing
+        # what training dropout emits (eval mode makes the dropout branch below
+        # inert, so guidance needs this explicit path). Otherwise, during
+        # training, `dropout_rate` zeros the goal for a random subset of items so
+        # the model also learns the unconditional score P(x|∅) needed for CFG.
+        if force_uncond:
+            goal_tokens = torch.zeros_like(goal_tokens)
+        else:
+            rate = override_dropout_rate if override_dropout_rate is not None else self.dropout_rate
+            if self.training and rate > 0.0:
+                keep = (torch.rand(b, 1, 1, device=device) > rate).to(dtype)
+                goal_tokens = keep * goal_tokens
 
         # Concatenate: [real text | goal tokens]. Every emitted token is valid.
         emb = torch.cat([text, goal_tokens], dim=1)                      # (B, real_len + K, D)

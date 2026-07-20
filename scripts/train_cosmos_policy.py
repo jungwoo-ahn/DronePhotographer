@@ -117,6 +117,11 @@ def main() -> None:
     loss_cfg = cfg.get("loss", {})
     flow_cfg_dict = cfg.get("flow", {})
     flow_cfg = FlowConfig(**{k: v for k, v in flow_cfg_dict.items() if k in FlowConfig.__dataclass_fields__})
+    # value target mode: cost_to_go (scalar/step) | achieved_profile | profile_delta (goal_dim/step)
+    from src.policy.common.dataset_base import resolve_value_spec
+
+    value_target_mode = cfg["data"].get("value_target_mode", "cost_to_go")
+    value_dim, value_scale = resolve_value_spec(value_target_mode, len(cfg["data"]["goal_score_keys"]))
     policy = CosmosWorldActionPolicy(
         transformer,
         crossattn_dim=crossattn_dim,
@@ -124,6 +129,7 @@ def main() -> None:
         n_goal_tokens=cfg["backbone"]["n_goal_tokens"],
         goal_conditioning=cfg.get("conditioner", {}).get("goal_conditioning", "cross_attn"),
         adaln_hidden_dim=int(cfg.get("conditioner", {}).get("adaln_hidden_dim", 256)),
+        cfg_dropout_prob=float(cfg.get("conditioner", {}).get("cfg_dropout_prob", 0.0)),
         freeze_backbone=cfg["backbone"]["freeze_backbone"],
         anchor_path=cfg.get("conditioner", {}).get("anchor_path"),
         chunk_size=cfg["data"]["chunk_size"],
@@ -131,6 +137,8 @@ def main() -> None:
         lambda_action=float(loss_cfg.get("lambda_action", 1.0)),
         lambda_value=float(loss_cfg.get("lambda_value", 1.0)),
         flow_config=flow_cfg,
+        value_dim=value_dim,
+        value_scale=value_scale,
     )
 
     val_pair_stride = int(cfg["data"].get("val_pair_stride", 0))
@@ -144,6 +152,18 @@ def main() -> None:
             ln.strip() for ln in Path(val_names).read_text().splitlines()
             if ln.strip() and not ln.strip().startswith("#")
         ]
+    # Placements to drop from TRAIN only (scene/object crossover cells of a
+    # disjoint split — see scripts/make_val_split.py). Same YAML-list-or-txt-path form.
+    train_exclude_names = cfg["data"].get("train_exclude_names")
+    if isinstance(train_exclude_names, str):
+        train_exclude_names = [
+            ln.strip() for ln in Path(train_exclude_names).read_text().splitlines()
+            if ln.strip() and not ln.strip().startswith("#")
+        ]
+    # Sampling scheme (multiscale_bidir makes actions goal-dependent). Val uses the
+    # same scheme so val action/value metrics are on the same distribution as train.
+    sampling_scheme = cfg["data"].get("sampling_scheme", "sliding_window")
+    offsets = tuple(cfg["data"].get("offsets", (8, 16, 24)))
     dataset = CosmosDroneDataset(
         cfg["data"]["annotation_roots"],
         goal_score_keys=cfg["data"]["goal_score_keys"],
@@ -151,12 +171,17 @@ def main() -> None:
         stride=cfg["data"].get("stride", 1),
         max_samples=cfg["data"].get("max_samples"),
         target_resolution=tuple(cfg["data"]["target_resolution"]),
+        filter_clamped_goals=cfg["data"].get("filter_clamped_goals", True),
         goal_sampling=cfg["data"].get("goal_sampling", "uniform_future"),
         val_pair_stride=val_pair_stride,
         val_split_level=val_split_level,
         val_names=val_names,
+        train_exclude_names=train_exclude_names,
         split="train",
         augment_reverse=cfg["data"].get("augment_reverse", False),
+        sampling_scheme=sampling_scheme,
+        offsets=offsets,
+        value_target_mode=value_target_mode,
     )
     val_dataset = None
     if val_pair_stride > 0 or val_names:
@@ -168,12 +193,17 @@ def main() -> None:
             chunk_size=cfg["data"]["chunk_size"],
             stride=cfg["data"].get("val_stride", 4),
             target_resolution=tuple(cfg["data"]["target_resolution"]),
+            filter_clamped_goals=cfg["data"].get("filter_clamped_goals", True),
             goal_sampling="end",
             val_pair_stride=val_pair_stride,
             val_split_level=val_split_level,
             val_names=val_names,
+            train_exclude_names=train_exclude_names,
             split="val",
             augment_reverse=cfg["data"].get("augment_reverse", False),
+            sampling_scheme=sampling_scheme,
+            offsets=offsets,
+            value_target_mode=value_target_mode,
         )
         # Cap val cost by subsampling EVENLY across the val set (a head-truncation
         # via max_samples would take all windows from the first scene only).
@@ -223,6 +253,9 @@ def main() -> None:
         dtype=cfg["trainer"]["dtype"],
         val_iter=int(cfg["trainer"].get("val_iter", 0)),
         val_sample_steps=int(cfg["trainer"].get("val_sample_steps", 8)),
+        viz_iter=int(cfg["trainer"].get("viz_iter", 0)),
+        viz_samples=int(cfg["trainer"].get("viz_samples", 4)),
+        viz_steps=int(cfg["trainer"].get("viz_steps", cfg["trainer"].get("val_sample_steps", 16))),
         resume_from=(args.resume if args.resume is not None else cfg["trainer"].get("resume_from")),
     )
     trainer = CosmosPolicyTrainer(policy, vae, trainer_cfg)

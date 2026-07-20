@@ -12,8 +12,10 @@ from src.policy.cosmos.action_latent import (
     action_capacity,
     extract_action_chunk,
     extract_value,
+    extract_value_seq,
     inject_action_chunk,
     inject_value,
+    inject_value_seq,
 )
 
 
@@ -89,3 +91,38 @@ def test_action_capacity_reports_complete_repeats():
     assert action_capacity((1, 16, 8, 8), chunk_size=4, action_dim=5) == 1024 // 20
     # Tight fit
     assert action_capacity((1, 4, 4, 4), chunk_size=2, action_dim=4) == 8
+
+
+def test_value_seq_inject_extract_roundtrip_clean():
+    """Per-step value sequence tiles + averages like the action chunk (dim=1)."""
+    b, c, h, w = 2, 16, 8, 8
+    vseq = torch.randn(b, 8)
+    filled = inject_value_seq(torch.zeros(b, c, h, w), vseq)
+    decoded = extract_value_seq(filled, seq_len=8)
+    torch.testing.assert_close(decoded, vseq, atol=1e-5, rtol=0)
+
+
+def test_value_seq_extract_averages_noisy_repeats():
+    b, c, h, w = 1, 16, 16, 16   # 4096 elements → many repeats of the 8 values
+    vseq = torch.randn(b, 8)
+    filled = inject_value_seq(torch.zeros(b, c, h, w), vseq)
+    noisy = filled + torch.randn_like(filled) * 0.01
+    decoded = extract_value_seq(noisy, seq_len=8)
+    torch.testing.assert_close(decoded, vseq, atol=5e-3, rtol=0)
+
+
+def test_value_seq_len1_matches_scalar_broadcast():
+    """A length-1 value sequence == the scalar inject_value/extract_value path."""
+    b, c, h, w = 3, 16, 4, 4
+    val = torch.tensor([1.0, -2.5, 0.3])
+    seq_decoded = extract_value_seq(inject_value_seq(torch.zeros(b, c, h, w), val.view(b, 1)), seq_len=1)
+    scalar_decoded = extract_value(inject_value(torch.zeros(b, c, h, w), val))
+    torch.testing.assert_close(seq_decoded.view(-1), scalar_decoded, atol=1e-6, rtol=0)
+
+
+def test_value_seq_rejects_oversized():
+    frame = torch.zeros(1, 1, 2, 2)   # 4 elements
+    with pytest.raises(ValueError):
+        inject_value_seq(frame, torch.zeros(1, 5))
+    with pytest.raises(ValueError):
+        extract_value_seq(frame, seq_len=5)

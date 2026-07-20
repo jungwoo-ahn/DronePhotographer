@@ -236,14 +236,17 @@ def test_cosmos_dataset_loads_v7(v7_placement):
 
 
 def test_clamped_goal_windows_are_filtered(v7_placement):
-    """Windows whose goal frame hit the scorer's off-screen sentinel are dropped."""
+    """Windows whose goal frame is a GENUINE no-projection sentinel (bbox is None,
+    subject behind the camera) are dropped. Near-plane blow-ups that still carry a
+    stored bbox are RECOVERED instead — see test_clamped_near_plane_goal_is_recovered."""
     import json as _json
 
-    # Zero-clamp the scores of frames >= 24 in pair 0 (mimics close-range blow-up)
+    # Genuine clamp: zero the scores AND drop the bbox (nothing to recover from).
     doc = _json.loads(Path(v7_placement).read_text())
     for rec in doc["render_records"][0]:
         if rec["frame_idx"] >= 24:
             rec["scores"] = {k: 0 for k in rec["scores"]}
+            rec["bbox_xyxy_full"] = None
     clamped_path = Path(v7_placement).parent / "data.json"
     clamped_path.write_text(_json.dumps(doc))
 
@@ -325,18 +328,22 @@ def test_uniform_future_value_matches_drawn_goal(v7_placement):
             subject_center=s.start.subject_center,
             subject_height=s.start.subject_height,
         )
-        assert s.value == pytest.approx(expected)
+        # value is now a (chunk_size,) per-step sequence; value[0] is the START->GOAL scalar.
+        assert s.value.shape == (8,)
+        assert s.value[0] == pytest.approx(expected)
 
 
 def test_clamped_frames_excluded_from_goal_pool(v7_placement):
-    """Clamped frames are dropped from the candidate pool, not just the end frame."""
+    """Genuine no-projection frames (bbox None) are dropped from the candidate pool,
+    not just the end frame."""
     import json as _json
 
     doc = _json.loads(Path(v7_placement).read_text())
-    # Zero-clamp frames >= 24 in pair 0 — goals must never land there
+    # Genuine no-projection sentinel: zero scores AND no bbox to recover from.
     for rec in doc["render_records"][0]:
         if rec["frame_idx"] >= 24:
             rec["scores"] = {k: 0 for k in rec["scores"]}
+            rec["bbox_xyxy_full"] = None
     Path(v7_placement).write_text(_json.dumps(doc))
 
     from src.policy.common.dataset_base import BasePolicyDataset
@@ -348,6 +355,31 @@ def test_clamped_frames_excluded_from_goal_pool(v7_placement):
             s = ds[i]
             if s.start.pair_idx == 0:
                 assert s.goal.frame_idx < 24
+
+
+def test_clamped_near_plane_goal_is_recovered(v7_placement):
+    """A near-plane blow-up (baked scores zeroed) is RECOVERED from the stored bbox +
+    occupancy_clipped rather than dropped: occupancy comes back at round(100*occ_clip)
+    and the deep frame becomes a valid goal candidate."""
+    import json as _json
+
+    doc = _json.loads(Path(v7_placement).read_text())
+    for rec in doc["render_records"][0]:
+        if rec["frame_idx"] >= 24:
+            rec["scores"] = {k: 0 for k in rec["scores"]}              # baked sentinel
+            rec["bbox_xyxy_full"] = [-2000.0, -3000.0, 1800.0, 900.0]  # near-plane blow-up (extreme_h)
+            rec["occupancy_clipped"] = 1.0                             # subject fills frame
+    clamped_path = Path(v7_placement).parent / "data.json"
+    clamped_path.write_text(_json.dumps(doc))
+
+    from src.policy.common.dataset_base import BasePolicyDataset
+
+    ds = BasePolicyDataset([clamped_path], chunk_size=8, stride=1, goal_sampling="end")
+    deep = [ds[i] for i in range(len(ds)) if ds[i].start.pair_idx == 0 and ds[i].end.frame_idx >= 24]
+    assert deep, "deep windows should be KEPT (recovered), not dropped"
+    for s in deep:
+        assert s.goal.raw.get("occupancy") == 100          # round(100 * occupancy_clipped)
+        assert s.goal.raw.get("bbox_y_offset", 0) > 0      # no longer the zero sentinel
 
 
 def test_cosmos_dataset_meta_has_goal_frame_idx(v7_placement):
@@ -463,5 +495,29 @@ def test_v7_end_to_end_sample(v7_placement):
     image_latent = vae.encode(clip)
     out = policy.sample(image_latent=image_latent, goal_vec=sample["goal_vec"].unsqueeze(0), n_steps=4)
     assert out.pred_action_chunk.shape == (1, 4, ACTION_DIM)
-    assert out.pred_value.shape == (1,)
+    assert out.pred_value.shape == (1, 4)   # per-step value sequence (chunk_size,)
     assert torch.isfinite(out.pred_action_chunk).all()
+
+
+@pytest.mark.parametrize("mode", ["achieved_profile", "profile_delta"])
+def test_v7_value_profile_modes_end_to_end(v7_placement, mode):
+    """Profile value modes produce a (chunk, goal_dim) target that flows through the model."""
+    from src.policy.common.dataset_base import resolve_value_spec
+
+    ds = CosmosDroneDataset(
+        [v7_placement], chunk_size=4, sampling_scheme="multiscale_bidir",
+        target_resolution=(16, 16), max_samples=4, value_target_mode=mode,
+    )
+    sample = ds[0]
+    gd = sample["goal_vec"].shape[0]
+    assert sample["value_target"].shape == (4, gd)   # (chunk, goal_dim), not (chunk,)
+    vdim, vscale = resolve_value_spec(mode, gd)
+    assert vdim == gd
+
+    vae = CosmosVAEWrapper(_IdentityVAE())
+    policy = CosmosWorldActionPolicy(
+        _MockBackbone(), chunk_size=4, value_dim=vdim, value_scale=vscale).eval()
+    il = vae.encode_pair_frames(sample["state_image"].unsqueeze(0), sample["next_state_image"].unsqueeze(0))
+    out = policy.sample(image_latent=il, goal_vec=sample["goal_vec"].unsqueeze(0), n_steps=3)
+    assert out.pred_value.shape == (1, 4, gd)
+    assert torch.isfinite(out.pred_value).all()

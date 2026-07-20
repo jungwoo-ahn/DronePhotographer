@@ -26,7 +26,7 @@ Source-of-truth files for the upstream specs (verified at commit `18a2acc` of `n
 | `D_xattn` | cross-attention emb dim = **1024** (T5-11B hidden size) | conditioner |
 | `D_goal` | goal-vector dim = **8** (V5_SCORE_KEYS); the v6 prototype uses 2 (az/el) | conditioner input |
 | `D_act` | action dim = **5** `(Δx, Δy, Δz, Δyaw, Δpitch)` in camera-local frame | action head |
-| `D_val` | value dim = **1** (scalar) | value head |
+| `D_val` | per-step value: **chunk_size** (`cost_to_go`) or **chunk_size × goal_dim** (`achieved_profile` / `profile_delta`) — selectable via `value_target_mode` | value latent |
 | `chunk` | future action steps predicted per diffusion sample = **1** (v6) → **4/8** (post-#17) | model.chunk_size |
 | `T_total` | full latent sequence length = `T_img + 1 (+1 if value_latent)` | model |
 
@@ -119,7 +119,7 @@ This is the **only** time the Qwen2.5-VL text encoder is loaded; the saved tenso
 ```
 pos 0 .. T_img-1   : image latents (from VAE)
 pos T_img          : action latent  ← filled by tiling action_chunk to fit C·H·W
-pos T_img + 1      : value latent   ← filled with scalar broadcast (optional)
+pos T_img + 1      : value latent   ← filled by tiling the (chunk_size,) per-step value (optional)
 ```
 Total length `T_total = T_img + num_extra_frames` where `num_extra_frames ∈ {1, 2}`.
 
@@ -127,7 +127,7 @@ Total length `T_total = T_img + num_extra_frames` where `num_extra_frames ∈ {1
 
 - **Inject**: flatten `(chunk_size, action_dim)` → repeat to fill the latent frame's `C·H·W` volume → reshape back. No learned encoder.
 - **Extract**: flatten the predicted latent frame → split into `K = ⌊C·H·W / (chunk·act_dim)⌋` whole tiles → **mean across tiles**. The averaging is what makes the decoding robust to per-element diffusion-sampler noise.
-- **Value**: scalar broadcast across the whole frame at inject; `frame.mean()` at extract.
+- **Value**: the `(chunk_size,)` per-step cost-to-go is tiled/averaged exactly like the action chunk (per-step dim = 1) via `inject_value_seq` / `extract_value_seq`. (`inject_value` / `extract_value` keep the legacy scalar broadcast for other callers.)
 
 For 480×720 inputs with the Cosmos VAE's 8× spatial compression, a latent frame is `(16, 1, 60, 90) = 86,400` elements. A `(chunk_size=4, action_dim=5) = 20`-float chunk fits **4,320 times** — that's the averaging margin at decode.
 
@@ -139,7 +139,7 @@ loss = policy.compute_loss(
     image_latent: (B, C, T_img, H, W),
     action_chunk: (B, chunk_size, ACTION_DIM),
     goal_vec:     (B, D_goal),
-    value_target: (B,)  | None,
+    value_target: (B, chunk_size)  | None,   # per-step cost-to-go
 ) -> scalar              # single flow-matching MSE over the full sequence
 
 # Inference
@@ -149,7 +149,7 @@ out = policy.sample(
     n_steps:      int = 32,             # rectified-flow Euler steps
 ) -> PolicyOutputs
 # out.pred_action_chunk: (B, chunk_size, ACTION_DIM)
-# out.pred_value:        (B,)
+# out.pred_value:        (B, chunk_size)   # per-step cost-to-go
 # out.pred_latents:      (B, C, T_total, H, W)
 ```
 
@@ -190,10 +190,12 @@ Operates exclusively on the **v7 schema** (`docs/v7_handoff_jooyeol.md` on branc
 | `next_state_image: (3, H, W) [-1, 1]` | Window's end frame — ALOHA-style T_img=2 supervision |
 | `goal_vec: (D_goal,)` | `render_records[i][end].scores` (the 8 V5 keys), normalized to `[-1, 1]` |
 | `action_chunk: (chunk_size, 5)` | K consecutive 5D actions computed from `accepted_pairs[i].trajectory_32f[j].{pos,forward,up}` deltas |
-| `value_target: ()` | Currently 0 (on-policy hindsight relabel); will become `score_distance_reward` once we have off-policy samples |
+| `value_target: (chunk_size,)` | Per-step cost-to-go: `value[k] = −pose_distance(keyframe_k, goal)` for the state before each action (value[0] = start→goal). Normalized by `VALUE_SCALE`. |
 | `meta` | `{annotation_path, pair_idx, start_frame_idx, end_frame_idx, chunk_size, scene, object}` |
 
 With `chunk_size=8, stride=1` over each 32-frame trajectory: **24 windows × K_accepted pairs per placement**. Across 7,885 placements × ~8 K_accepted × 24 windows ≈ **1.5M training samples**.
+
+**Sampling scheme (`sampling_scheme`, default now `multiscale_bidir`)**: instead of the sliding window above, emit — per start frame — one window per signed offset `±o ∈ ±{8,16,24}` whose endpoint exists. The goal is that endpoint, so the SAME start with DIFFERENT endpoints has DIFFERENT action targets → the action must depend on the goal (fixing the collapse to `f(state)`). Offset 16/24 "merge" 2/3 real steps into each of the 8 actions by re-encoding between STRIDED keyframes (camera-local deltas don't sum). ~96 windows/pair; negative offsets subsume `augment_reverse`. `next_state_image`/`goal_vec` come from the endpoint (= goal frame). See `annotations.iter_multiscale_windows`. `sampling_scheme="sliding_window"` restores the legacy HER-window behavior.
 
 
 **Output dict per sample**:
@@ -204,7 +206,7 @@ With `chunk_size=8, stride=1` over each 32-frame trajectory: **24 windows × K_a
 | `next_state_image` | `(C=3, H, W)` | float32 | In `[-1, 1]`. The target view (whose profile is the goal). |
 | `goal_vec` | `(D_goal,)` | float32 | Normalized via `normalize_goal`. v6 uses `D_goal=2`. |
 | `action_chunk` | `(chunk_size, ACTION_DIM=5)` | float32 | K future (Δx, Δy, Δz, Δyaw, Δpitch) actions in prev-frame camera-local basis. v6 single-shot: auto-tiles one action across the chunk axis. |
-| `value_target` | `()` | float32 | `pose_distance_value(start_pose, goal_pose)` — camera-subject geometric distance the action chunk closes (0 at goal, more negative further away). Pose-based, immune to the scorer's off-screen clamp; windows with sentinel-clamped goal profiles are filtered at load. See `src/policy/common/reward.py`. |
+| `value_target` | `(chunk_size,)` or `(chunk_size, goal_dim)` | float32 | Per-step value at the state BEFORE each action, selected by `value_target_mode`: **`cost_to_go`** `(chunk_size,)` = `−pose_distance(keyframe_k, goal)` (pose-based, clamp-immune, ÷`VALUE_SCALE`); **`achieved_profile`** `(chunk_size, goal_dim)` = `normalize_goal(profile(keyframe_k))`; **`profile_delta`** `(chunk_size, goal_dim)` = `normalize_goal(goal) − achieved`. Profile modes are score-derived (inherit the off-screen clamp). `resolve_value_spec(mode, goal_dim)` → `(value_dim, value_scale)`. See `src/policy/common/reward.py`, `dataset_base.py`. |
 | `meta` | `dict` | — | `annotation_path`, `placement_idx`, `prev_view_idx`, `next_view_idx`, `scene`, `object`. |
 
 **Image normalization**: PNG → `np.asarray / 127.5 - 1.0` → `(C, H, W)` torch tensor in `[-1, 1]`. Resized to `target_resolution=(H, W)` (default `(480, 720)` for Cosmos 720p).

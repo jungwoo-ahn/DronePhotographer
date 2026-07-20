@@ -85,6 +85,49 @@ def extract_value(latent_frame: torch.Tensor) -> torch.Tensor:
     return latent_frame.reshape(latent_frame.shape[0], -1).mean(dim=1)
 
 
+def inject_value_seq(latent_frame: torch.Tensor, value_seq: torch.Tensor) -> torch.Tensor:
+    """Fill a latent frame with a tiled flat copy of a per-step value sequence.
+
+    The per-step value generalization of `inject_value`: `value_seq` is `(B, seq_len)`
+    (e.g. the cost-to-go for each of the chunk_size actions). Uses the same
+    tile-and-reshape as `inject_action_chunk` (per-step dim = 1) so the decoder can
+    average many noisy repeats.
+
+    Args:
+      latent_frame: `(B, C, H, W)` — target frame, will be overwritten.
+      value_seq: `(B, seq_len)` — per-step values to inject.
+
+    Returns:
+      `(B, C, H, W)` latent frame with the tiled value sequence.
+    """
+    b, c, h, w = latent_frame.shape
+    flat = value_seq.reshape(b, -1)                       # (B, seq_len)
+    n_value = flat.shape[1]
+    n_latent = c * h * w
+    if n_value > n_latent:
+        raise ValueError(f"value volume {n_value} > latent volume {n_latent}")
+    n_repeats = (n_latent + n_value - 1) // n_value        # ceiling
+    tiled = flat.repeat(1, n_repeats)[:, :n_latent]
+    return tiled.reshape(b, c, h, w).to(latent_frame.dtype)
+
+
+def extract_value_seq(latent_frame: torch.Tensor, *, seq_len: int) -> torch.Tensor:
+    """Decode a latent frame back to a `(B, seq_len)` per-step value sequence.
+
+    Splits the flattened frame into all whole repeats of length `seq_len` and
+    averages them (the diffusion sampler is noisy; the repeated structure gives many
+    estimates to average). The per-step generalization of `extract_value`.
+    """
+    b, c, h, w = latent_frame.shape
+    n_latent = c * h * w
+    if seq_len > n_latent:
+        raise ValueError(f"value volume {seq_len} > latent volume {n_latent}")
+    n_repeats = n_latent // seq_len
+    flat = latent_frame.reshape(b, -1)
+    repeats = flat[:, : n_repeats * seq_len].reshape(b, n_repeats, seq_len)
+    return repeats.mean(dim=1)                             # (B, seq_len)
+
+
 def action_capacity(latent_frame_shape: tuple[int, int, int, int], chunk_size: int, action_dim: int) -> int:
     """Return the number of complete repeats of the action chunk that fit in the latent.
 
@@ -99,5 +142,7 @@ __all__ = [
     "extract_action_chunk",
     "inject_value",
     "extract_value",
+    "inject_value_seq",
+    "extract_value_seq",
     "action_capacity",
 ]

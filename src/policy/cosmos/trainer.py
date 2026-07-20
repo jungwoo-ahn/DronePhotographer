@@ -56,6 +56,11 @@ class TrainerConfig:
     val_iter: int = 0
     # Euler steps for the sampling-based val metrics (action MSE / value MAE).
     val_sample_steps: int = 8
+    # Denoising-sample viz: every N iters dump [state|pred-world|gt-world] grids +
+    # action/value pred-vs-GT json to <run>/samples/iter<N>/ (0 = off, rank 0 only).
+    viz_iter: int = 0
+    viz_samples: int = 4
+    viz_steps: int = 16
     # Resume from a run dir or checkpoint .pt (restores optimizer/scheduler/
     # iteration/RNG so a stopped run continues exactly). None = fresh run.
     resume_from: Optional[str] = None
@@ -197,6 +202,20 @@ class CosmosPolicyTrainer:
         opt.zero_grad(set_to_none=True)
         last_log = time.time()
 
+        # Fixed viz batch: the first `viz_samples` val examples, collated once so the
+        # same states/goals are re-sampled every viz step (progress is comparable across
+        # iters). val_loader is batch_size=1, so we pull and concat a few batches.
+        viz_batch = None
+        if cfg.viz_iter and dataloader_val is not None and self.is_main:
+            collected = []
+            for vb in dataloader_val:
+                collected.append(vb)
+                if len(collected) >= cfg.viz_samples:
+                    break
+            if collected:
+                keys = ("state_image", "next_state_image", "goal_vec", "action_chunk", "value_target")
+                viz_batch = {k: torch.cat([c[k] for c in collected], dim=0) for k in keys}
+
         while iteration < cfg.max_iter:
             if isinstance(getattr(dataloader_train, "sampler", None), DistributedSampler):
                 dataloader_train.sampler.set_epoch(epoch)
@@ -286,6 +305,29 @@ class CosmosPolicyTrainer:
                         print(line)
                         log_f.write(line + "\n")
                         log_f.flush()
+
+                    # Denoising-sample viz dump (rank 0). Wrapped so a viz/decode failure
+                    # never kills the run — it just logs and continues training.
+                    if (
+                        cfg.viz_iter
+                        and viz_batch is not None
+                        and iteration % cfg.viz_iter == 0
+                        and self.is_main
+                    ):
+                        from src.policy.cosmos.sample_logging import log_denoise_samples
+
+                        try:
+                            s = log_denoise_samples(
+                                self.policy, self.vae, viz_batch,
+                                self.run_dir / "samples" / f"iter{iteration:06d}",
+                                device=self.device, dtype=self.dtype,
+                                n_steps=cfg.viz_steps, max_samples=cfg.viz_samples,
+                            )
+                            log_f.write(f"iter={iteration} VIZ samples/iter{iteration:06d}/ "
+                                        f"action_rmse_mean={s.get('action_rmse_mean')}\n")
+                            log_f.flush()
+                        except Exception as e:  # pragma: no cover - viz must never crash training
+                            print(f"[viz] iter {iteration} failed: {e!r}")
 
                     if iteration % cfg.save_iter == 0 and self.is_main:
                         ckpt_kw = dict(

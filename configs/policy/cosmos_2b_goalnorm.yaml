@@ -93,17 +93,22 @@ flow:
 
 trainer:
   output_root: runs
-  run_name: cosmos_2b_xattn      # cross_attn goal conditioning (goal -> 4 prefix tokens); lambda_world=0.1
-  max_iter: 50000
+  run_name: cosmos_2b_goalnorm   # cross_attn + RMSNorm goal tokens to anchor scale (goal/anchor 0.0006 -> 1.0)
+  max_iter: 8000                 # extended run (resume from the iter-2000 probe); watch the ratio climb
   batch_size: 1
   grad_accum: 8
   learning_rate: 1.0e-5         # full-finetune LR (conditioner-only used 1e-4)
   weight_decay: 0.0
-  warmup_iter: 1000
-  save_iter: 2000
+  warmup_iter: 200
+  save_iter: 1000                # ckpt_last every 1000 (check_goal_dependence probes the ramp)
   log_iter: 100
-  val_iter: 200                 # fixed-sigma val loss + sampler action MSE / value MAE (rank 0)
+  val_iter: 500                  # fixed-sigma val loss + sampler action MSE / value MAE (rank 0)
   val_sample_steps: 8
+  # Denoising-sample viz: every N iters dump [state|pred-world|gt-world] grids + action/value
+  # pred-vs-GT json to <run>/samples/iter<N>/ (rank 0). Watch the world/action track the goal.
+  viz_iter: 1000
+  viz_samples: 4
+  viz_steps: 16
   seed: 0
   device: cuda
   dtype: bfloat16

@@ -185,6 +185,32 @@ def pose_distance_value(
     return -_geometry_distance(a, g)
 
 
+# --- Value normalization (analogue of ACTION_SCALE) ---------------------------
+
+# Scale used to bring the per-step value (−geometric distance to the goal, radians)
+# into ~[-1, 1] before it is tile-injected into the Cosmos value latent frame —
+# matching cosmos-policy's [-1, 1] value normalization and keeping the value loss on
+# the same scale as the world / action components. Unlike ACTION_SCALE this does NOT
+# clip: the value magnitude (how far the goal is) is signal, so the far tail is
+# allowed to exceed |1|. Fit as the p99 of |value| over an 80-placement
+# multiscale_bidir sample with `scripts/fit_action_scale.py`; recompute on the full
+# data (via sbatch) to refine. A named constant so it's a one-line swap (or pass
+# `value_scale=` to the policy).
+VALUE_SCALE: float = 1.455
+
+
+def normalize_value(value: np.ndarray, scale: float | None = None) -> np.ndarray:
+    """Divide the per-step value by VALUE_SCALE (no clip). Inverse: `denormalize_value`."""
+    s = VALUE_SCALE if scale is None else float(scale)
+    return (np.asarray(value, dtype=np.float32) / s).astype(np.float32)
+
+
+def denormalize_value(value: np.ndarray, scale: float | None = None) -> np.ndarray:
+    """Inverse of `normalize_value`."""
+    s = VALUE_SCALE if scale is None else float(scale)
+    return (np.asarray(value, dtype=np.float32) * s).astype(np.float32)
+
+
 # --- Legacy weighted-L2 score distance (eval pose-proxy / ablations) ----------
 
 

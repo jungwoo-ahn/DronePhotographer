@@ -93,6 +93,8 @@ def main() -> None:
         val_pair_stride=val_pair_stride,
         val_split_level=val_split_level,
         val_names=val_names,
+        sampling_scheme=cfg["data"].get("sampling_scheme", "sliding_window"),
+        offsets=tuple(cfg["data"].get("offsets", (8, 16, 24))),
     )
     dataset = DiffusionPolicyDataset(
         cfg["data"]["annotation_roots"], stride=cfg["data"].get("stride", 1),

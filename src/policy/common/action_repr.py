@@ -24,19 +24,20 @@ from src.utils.rotation_utils import (
 ACTION_DIM = 5
 
 # Per-dimension scale used to normalize the 5D action into ~[-1, 1] before it is
-# tile-injected into the Cosmos action latent frame. Each entry is the p99 of
-# |Δ| over the v7 Stage-1 trajectories: [right, up, forward (m), yaw, pitch (rad)].
-# Measured over 400 placements / 137k per-step actions (recompute with
-# `scripts/fit_action_scale.py`). The forward (dolly) axis dominates and
-# metres-vs-radians differ ~10x, so normalization is essential for the
-# flow-matching L2 to weight all dims fairly.
+# tile-injected into the Cosmos action latent frame. Each entry is the p99 of |Δ|
+# over the TRAINING sampling scheme's per-step actions: [right, up, forward (m),
+# yaw, pitch (rad)].
 #
-# Still a sample, not the full set — but rotations are stable and the translation
-# tails have converged enough that the earlier 40-file estimate (which clipped
-# ~1.5x of lateral motion) is fixed. Recompute on the full data when available;
-# kept as a named variable so it's a one-line swap (or pass `action_scale=`).
+# Fit for `sampling_scheme=multiscale_bidir` (offsets 8/16/24), whose strided
+# offset-16/24 actions merge 2-3 real steps — so the rotation p99s (yaw/pitch) are
+# ~2.3-2.8x the old single-step values ([0.32,0.28,0.95,0.081,0.071]); using that
+# single-step scale here would clip most rotation for far goals. metres-vs-radians
+# differ ~10x, so normalization is essential for the flow-matching L2 to weight all
+# dims fairly. Measured over an 80-placement sample (~576k per-step actions) with
+# `scripts/fit_action_scale.py --sampling multiscale_bidir`; recompute on the full
+# data (via sbatch) to refine. One-line swap here (or pass `action_scale=`).
 ACTION_SCALE: np.ndarray = np.array(
-    [0.32, 0.28, 0.95, 0.081, 0.071], dtype=np.float32
+    [0.552, 0.316, 0.969, 0.223, 0.164], dtype=np.float32
 )
 
 

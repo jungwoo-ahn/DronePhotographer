@@ -166,7 +166,7 @@ def test_sample_produces_action_chunk_and_value():
     goal = torch.randn(2, 8)
     out: PolicyOutputs = policy.sample(img, goal, n_steps=4)
     assert out.pred_action_chunk.shape == (2, 4, ACTION_DIM)
-    assert out.pred_value.shape == (2,)
+    assert out.pred_value.shape == (2, 4)   # per-step value sequence (chunk_size,)
     assert out.pred_latents.shape == (2, 16, 6, 8, 8)
 
 
@@ -176,8 +176,10 @@ def test_sample_pins_image_latent_frames_each_step():
     img = _make_image_latent()
     goal = torch.randn(2, 8)
     out = policy.sample(img, goal, n_steps=8)
-    # The first T_img frames should equal the conditioning input — they're re-pinned each step
-    torch.testing.assert_close(out.pred_latents[:, :, :4], img, atol=1e-5, rtol=0)
+    # Only the first num_conditional_frames image frames (the current observation) are
+    # re-pinned each step; the rest — future frame(s), action, value — are denoised.
+    n_cond = policy.num_conditional_frames
+    torch.testing.assert_close(out.pred_latents[:, :, :n_cond], img[:, :, :n_cond], atol=1e-5, rtol=0)
 
 
 def test_freeze_backbone_disables_grads():
@@ -305,3 +307,22 @@ def test_adaln_goal_adaln_gets_gradient_even_with_frozen_backbone():
 def test_adaln_rejects_bad_conditioning_name():
     with pytest.raises(ValueError):
         CosmosWorldActionPolicy(_DiffusersStyleMockBackbone(), goal_conditioning="bogus")
+
+
+def test_sample_cfg_guidance_changes_output_and_runs_both_negatives():
+    """CFG in sample(): guidance_scale>1 extrapolates the goal (output differs from the
+    s=1 baseline), both flip and null negatives run finite, and a bad mode is rejected."""
+    import pytest
+    policy = CosmosWorldActionPolicy(_DiffusersStyleMockBackbone(), chunk_size=4).eval()
+    img = _make_image_latent()
+    goal = torch.randn(2, 8)
+    torch.manual_seed(0)
+    base = policy.sample(img, goal, n_steps=4).pred_action_chunk               # s=1 -> no CFG
+    torch.manual_seed(0)
+    flip = policy.sample(img, goal, n_steps=4, guidance_scale=3.0, negative_mode="flip").pred_action_chunk
+    assert flip.shape == base.shape and not torch.allclose(flip, base)
+    torch.manual_seed(0)
+    null = policy.sample(img, goal, n_steps=4, guidance_scale=3.0, negative_mode="null").pred_action_chunk
+    assert torch.isfinite(null).all()
+    with pytest.raises(ValueError):
+        policy.sample(img, goal, n_steps=2, guidance_scale=2.0, negative_mode="bogus")

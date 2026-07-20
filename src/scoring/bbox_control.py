@@ -170,37 +170,53 @@ def compute_v5_scores(
     bbox_full_h = max(0.0, y2f - y1f)
     full_area = bbox_full_w * bbox_full_h
 
-    # Clamp pathological projections (camera near-plane blow-ups when a 3D
-    # bbox corner is essentially at camera depth = 0). Anything beyond ~4x
-    # the image dimension is "fully off-screen"; report it as such instead of
-    # leaking 5-digit pixel coordinates that the VLM can't predict.
-    extreme_w = bbox_full_w > 4.0 * image_width
-    extreme_h = bbox_full_h > 4.0 * image_height
-    if extreme_w or extreme_h or full_area > 16.0 * (float(image_width) * float(image_height)):
-        out = zero_v5_scores()
-        out["cam_to_obj_azimuth_deg"] = az
-        out["cam_to_obj_elevation_deg"] = el
-        return out
+    # Near-plane blow-up handling. When the dolly closes in, a grazing mesh
+    # vertex at depth ~0 projects to +/-thousands of px and inflates the
+    # mesh-tight AABB (often in a single axis). This is a legitimate extreme
+    # close-up (the subject fills or overflows the view), NOT an off-subject
+    # frame. The old VLM-era policy zeroed the whole profile here to avoid
+    # "5-digit pixel coords the VLM can't predict"; for the geometric goal
+    # space we instead read bounded geometry off the FRAME-CLIPPED bbox so the
+    # close-up becomes a valid, distinct goal (occupancy stays high, center /
+    # offset stay inside the frame). `normalize_goal` still lets genuinely
+    # off-frame (but finite) subjects read |n|>1 via the normal branch below.
+    img_w, img_h = float(image_width), float(image_height)
+    img_area = img_w * img_h
+    extreme = (
+        bbox_full_w > 4.0 * img_w
+        or bbox_full_h > 4.0 * img_h
+        or full_area > 16.0 * img_area
+    )
 
-    cx = (x1f + x2f) * 0.5
-    cy = (y1f + y2f) * 0.5
-    x_offset = int(round(bbox_full_w * 0.5))
-    y_offset = int(round(bbox_full_h * 0.5))
+    cx1 = max(0.0, min(x1f, img_w))
+    cx2 = max(0.0, min(x2f, img_w))
+    cy1 = max(0.0, min(y1f, img_h))
+    cy2 = max(0.0, min(y2f, img_h))
+    clipped_w = max(0.0, cx2 - cx1)
+    clipped_h = max(0.0, cy2 - cy1)
+    clipped_area = clipped_w * clipped_h
 
-    cx1 = max(0.0, min(x1f, float(image_width)))
-    cx2 = max(0.0, min(x2f, float(image_width)))
-    cy1 = max(0.0, min(y1f, float(image_height)))
-    cy2 = max(0.0, min(y2f, float(image_height)))
-    clipped_area = max(0.0, cx2 - cx1) * max(0.0, cy2 - cy1)
-    img_area = float(image_width) * float(image_height)
+    if extreme:
+        # Geometry from the clipped bbox (bounded to the frame); body_in_frame
+        # from the full area capped at the blow-up threshold so a single grazing
+        # vertex cannot drive the ratio to ~0.
+        cx = (cx1 + cx2) * 0.5
+        cy = (cy1 + cy2) * 0.5
+        x_offset = int(round(clipped_w * 0.5))
+        y_offset = int(round(clipped_h * 0.5))
+        denom = min(bbox_full_w, 4.0 * img_w) * min(bbox_full_h, 4.0 * img_h)
+    else:
+        cx = (x1f + x2f) * 0.5
+        cy = (y1f + y2f) * 0.5
+        x_offset = int(round(bbox_full_w * 0.5))
+        y_offset = int(round(bbox_full_h * 0.5))
+        denom = full_area
 
-    occupancy_pct = int(round(100.0 * clipped_area / img_area))
-    if full_area > 0.0:
-        body_in_frame_pct = int(round(100.0 * clipped_area / full_area))
+    occupancy_pct = max(0, min(100, int(round(100.0 * clipped_area / img_area))))
+    if denom > 0.0:
+        body_in_frame_pct = max(0, min(100, int(round(100.0 * clipped_area / denom))))
     else:
         body_in_frame_pct = 0
-    occupancy_pct = max(0, min(100, occupancy_pct))
-    body_in_frame_pct = max(0, min(100, body_in_frame_pct))
 
     return {
         "occupancy": occupancy_pct,

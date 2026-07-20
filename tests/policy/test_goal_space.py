@@ -117,3 +117,24 @@ def test_custom_keys_override_default():
     assert keys == ["occupancy"]
     keys2 = goal_keys()
     assert keys2 == DEFAULT_GOAL_KEYS
+
+
+def test_flip_goal_involution_and_semantics():
+    """flip_goal: involutive for all keys; azimuth turns a half-circle; elevation and
+    object-center negate; size cues (occupancy/body/bbox-offset) pass through."""
+    import numpy as _np
+    from src.policy.common.goal_space import (
+        flip_goal, normalize_goal, denormalize_goal, DEFAULT_GOAL_KEYS,
+    )
+    keys = DEFAULT_GOAL_KEYS
+    rng = _np.random.default_rng(0)
+    x = rng.uniform(-1, 1, size=len(keys)).astype(_np.float32)
+    assert _np.allclose(flip_goal(flip_goal(x, keys), keys), x, atol=1e-5)
+    for raw_az in (0, 90, 180, 270):
+        g = _np.zeros(len(keys), dtype=_np.float32); g[2] = raw_az
+        back = denormalize_goal(flip_goal(normalize_goal(g, keys), keys), keys)[2] % 360
+        assert abs(back - (raw_az + 180) % 360) < 1e-3
+    g = _np.array([0.5, 0.6, 0.0, 0.3, 0.2, -0.4, 0.7, 0.8], dtype=_np.float32)
+    f = flip_goal(g, keys)
+    assert f[0] == g[0] and f[1] == g[1] and f[6] == g[6] and f[7] == g[7]   # sizes unchanged
+    assert f[3] == -g[3] and f[4] == -g[4] and f[5] == -g[5]                 # elev + center negated
