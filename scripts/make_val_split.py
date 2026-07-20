@@ -1,111 +1,108 @@
-"""Regenerate the held-out validation scene manifest.
+"""Generate a leak-free validation split.
 
-Scene-level split for unseen-scene generalization, kept MINIMAL: hold out the
-FEWEST (smallest) scenes that still give a statistically stable val set. Each
-placement yields ~`--windows-per-placement` windows, so we add the smallest
-scenes until the val set reaches `--min-windows` — then stop. This spends as
-little scene diversity + training data as possible. Scenes sharing an asset
-family (e.g. the two Forest-field IDs) are kept together to avoid lookalike
-leakage. Deterministic — rerun when the dataset changes.
+Given the v7 data structure — 101 subjects each rendered across ~all 46 scenes
+(mean 38.5 scenes/subject) — scene and object are almost fully crossed, so a
+strict scene-AND-object-disjoint split is infeasible (it would discard ~89% of
+placements). We hold out one axis cleanly instead (0 discard):
 
-  python scripts/make_val_split.py \
-      --root data/trajectories_full --out configs/policy/val_scenes.yaml --min-windows 1500
+  object  (default) — hold out whole SUBJECTS: val = every placement of the
+          held-out subjects (across shared scenes); train = all other subjects.
+          Measures generalization to unseen subjects — the axis a framing policy
+          must generalize on, and the one the old scene-level split leaked.
+  scene   — hold out whole SCENES (old val_scenes.txt semantics); objects stay
+          shared across train/val.
+
+Identity is name-level (trailing `_<8hex>` asset hash stripped) so the same
+asset under two hashes is one unit and never straddles the split.
+
+Output (consumed via `val_split_level: placement`, `val_names: <file>`):
+  * val_placements_v7.txt — explicit val placement dir names.
+Train is everything not listed; neither axis produces crossover to exclude.
+
+Usage:
+  PYTHONPATH=. python scripts/make_val_split.py --mode object --n-units 5
 """
-
 from __future__ import annotations
 
 import argparse
-from collections import Counter, defaultdict
+import hashlib
+import re
+from collections import defaultdict
 from pathlib import Path
 
-import yaml
+HASH_SUFFIX = re.compile(r"_[0-9a-fA-F]{8}$")
 
 
-def scene_of(placement: str) -> str:
-    return placement.split("__")[0]
+def scene_name(placement: str) -> str:
+    """Name-level scene identity: '<Scene>_<hash>__<Obj>_<hash>' -> '<Scene>'."""
+    return HASH_SUFFIX.sub("", placement.split("__")[0])
 
 
-def family_of(scene: str) -> str:
-    # Group scenes whose name (minus the trailing _<hash>) matches — e.g. the two
-    # Forest-field_<id> scenes share family "Forest-field" and must not straddle
-    # the train/val boundary.
-    return scene.rsplit("_", 1)[0] if "_" in scene else scene
+def object_name(placement: str) -> str:
+    """Name-level object (subject) identity, hash stripped."""
+    return HASH_SUFFIX.sub("", placement.split("__")[-1])
 
 
-def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser()
-    p.add_argument("--root", default="data/trajectories_full", type=Path)
-    p.add_argument("--out", default="configs/policy/val_scenes.yaml", type=Path)
-    p.add_argument("--min-windows", type=int, default=1500,
-                   help="stop once the val set reaches this many windows (minimal split)")
-    p.add_argument("--windows-per-placement", type=int, default=20,
-                   help="approx windows per placement (32-frame traj, chunk 8, stride ~1)")
-    p.add_argument("--train-out", default=None, type=Path,
-                   help="also write the AutoPhoto train placement list (scored, not in val) here")
-    p.add_argument("--date", default=None, help="stamp for provenance (YYYY-MM-DD); avoids nondeterminism")
-    return p.parse_args()
+def enumerate_placements(root: Path) -> list[str]:
+    """Placement dir names carrying a data.json (the set training sees).
+
+    One-level scan of a known dir (no recursion) — safe on the shared NAS.
+    """
+    return sorted(p.name for p in root.iterdir() if (p / "data.json").exists())
+
+
+def select_units(placements: list[str], key_fn, n_units: int) -> set[str]:
+    """Pick `n_units` held-out units (scenes or subjects) in a stable pseudo-random
+    order (md5 of the unit name), so the choice is representative and reproducible."""
+    units = sorted({key_fn(p) for p in placements},
+                   key=lambda u: hashlib.md5(u.encode()).hexdigest())
+    if n_units >= len(units):
+        raise SystemExit(f"n_units={n_units} >= total units={len(units)} — nothing left for train")
+    return set(units[:n_units])
 
 
 def main() -> None:
-    a = parse_args()
-    counts: Counter[str] = Counter()
-    for d in sorted(a.root.iterdir()):
-        if d.is_dir() and (d / "scored.flag").exists():
-            counts[scene_of(d.name)] += 1
-    total = sum(counts.values())
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--root", type=Path, default=Path("data/trajectories"))
+    ap.add_argument("--mode", choices=["object", "scene"], default="object")
+    ap.add_argument("--n-units", type=int, default=5, help="how many subjects (object) / scenes to hold out")
+    ap.add_argument("--out-val", type=Path, default=Path("configs/policy/val_placements_v7.txt"))
+    args = ap.parse_args()
 
-    # family size = sum over member scenes; order families by size then name.
-    fam_scenes: dict[str, list[str]] = defaultdict(list)
-    for s in counts:
-        fam_scenes[family_of(s)].append(s)
-    fam_size = {f: sum(counts[s] for s in ss) for f, ss in fam_scenes.items()}
+    placements = enumerate_placements(args.root)
+    total = len(placements)
+    if not total:
+        raise SystemExit(f"no placements with data.json under {args.root}")
 
-    min_placements = -(-a.min_windows // max(1, a.windows_per_placement))  # ceil
-    val_scenes: list[str] = []
-    acc = 0
-    for fam in sorted(fam_size, key=lambda f: (fam_size[f], f)):
-        val_scenes.extend(sorted(fam_scenes[fam]))
-        acc += fam_size[fam]
-        if acc >= min_placements:
-            break
-    val_scenes.sort()
+    key_fn = object_name if args.mode == "object" else scene_name
+    other_fn = scene_name if args.mode == "object" else object_name
+    held = select_units(placements, key_fn, args.n_units)
 
-    doc = {
-        "description": "Held-out validation scenes (unseen-scene generalization). Minimal: "
-                       "fewest smallest scenes reaching ~min_windows; asset families kept "
-                       "together. Regenerate with scripts/make_val_split.py when the data changes.",
-        "root": str(a.root),
-        "generated": a.date,
-        "total_scenes": len(counts),
-        "total_scored_placements": total,
-        "val_scenes": len(val_scenes),
-        "val_placements": acc,
-        "val_fraction": round(acc / total, 4),
-        "approx_val_windows": acc * a.windows_per_placement,
-        "scenes": [{"name": s, "placements": counts[s]} for s in val_scenes],
-    }
-    a.out.write_text(yaml.safe_dump(doc, sort_keys=False, default_flow_style=False))
-    print(f"wrote {a.out}: {len(val_scenes)} scenes, {acc}/{total} placements ({acc/total*100:.1f}%)")
-    for s in val_scenes:
-        print(f"  {counts[s]:4d}  {s}")
+    val = [p for p in placements if key_fn(p) in held]
+    train = [p for p in placements if key_fn(p) not in held]
 
-    # Optionally materialize the TRAIN placement list (scored, NOT in val) —
-    # AutoPhoto's RL env iterates an explicit list rather than splitting on the fly.
-    if a.train_out:
-        val_set = set(val_scenes)
-        train = [f"{a.root}/{d.name}/data.json" for d in sorted(a.root.iterdir())
-                 if d.is_dir() and (d / "scored.flag").exists() and scene_of(d.name) not in val_set]
-        tdoc = {
-            "description": "AutoPhoto TRAIN placements: every scored placement NOT in the "
-                           "val scenes (configs/policy/val_scenes.yaml). Regenerate with "
-                           "scripts/make_val_split.py --train-out when the data changes.",
-            "root": str(a.root),
-            "generated": a.date,
-            "n_placements": len(train),
-            "placements": train,
-        }
-        Path(a.train_out).write_text(yaml.safe_dump(tdoc, sort_keys=False, default_flow_style=False))
-        print(f"wrote {a.train_out}: {len(train)} train placements (val scenes excluded)")
+    # Disjointness on the held-out axis (the guarantee); the other axis is shared.
+    val_units = {key_fn(p) for p in val}
+    train_units = {key_fn(p) for p in train}
+    assert not (val_units & train_units), f"{args.mode} overlap between val and train"
+    assert len(val) + len(train) == total, "partition does not cover all placements"
+    shared_other = len({other_fn(p) for p in val} & {other_fn(p) for p in train})
+    other_label = "scenes" if args.mode == "object" else "subjects"
+
+    header = (
+        f"# leak-free val split (scripts/make_val_split.py) — mode={args.mode}\n"
+        f"# total placements: {total}\n"
+        f"# val:   {len(val):5d} ({100*len(val)/total:.1f}%)  holding out {len(held)} {args.mode}(s)\n"
+        f"# train: {len(train):5d} ({100*len(train)/total:.1f}%)  (0 discard)\n"
+        f"# held-out {args.mode}s: {', '.join(sorted(held))}\n"
+        f"# val {args.mode}s are disjoint from train; the {other_label} axis is shared "
+        f"({shared_other} {other_label} in both — expected for this data)\n"
+    )
+    args.out_val.parent.mkdir(parents=True, exist_ok=True)
+    args.out_val.write_text(header + "\n".join(val) + "\n")
+
+    print(header)
+    print(f"wrote {args.out_val}  ({len(val)} placements)")
 
 
 if __name__ == "__main__":

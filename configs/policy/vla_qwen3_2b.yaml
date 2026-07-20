@@ -39,8 +39,8 @@ data:
     - bbox_y_offset
 
   # Held-out val: same scene-level manifest as the Cosmos policy.
-  val_split_level: scene
-  val_names: configs/policy/val_scenes.yaml
+  val_split_level: placement
+  val_names: configs/policy/val_placements_v7.txt
   val_stride: 4
   val_max_samples: 24    # small: each val window forwards through the 2B model
   val_iter: 2000         # infrequent: VLA is slow, so a val pass is a real stall

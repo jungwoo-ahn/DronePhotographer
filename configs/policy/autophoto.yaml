@@ -8,8 +8,8 @@ reward:
 
 data:
   # YAML manifest of v7 placement data.json paths to TRAIN on — every scored
-  # placement NOT in the val scenes (configs/policy/val_scenes.yaml). Both are
-  # regenerated together by scripts/make_val_split.py (--train-out).
+  # placement NOT in the object-disjoint val (configs/policy/val_placements_v7.txt,
+  # jungwoo's held-out subjects). Keep in sync with that file.
   placements: configs/policy/autophoto_train_placements.yaml
   vlm_placements_dir: data/vlm_object_placing_v6_260428_061326   # holds scene_scale + object transform
 
