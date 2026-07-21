@@ -1,18 +1,19 @@
-"""Interactive HTML rollout viz: goal -> (action, predicted next-frame, value) vs GT.
+"""Interactive HTML rollout viz with a CFG-scale sweep.
 
-For a FIXED state (a placement's start frame) the policy is sampled under several
-goals — the multiscale endpoints, each labelled by what it asks for (e.g. "dolly-in,
-occupancy 40%->86%"). Per goal we show, next to the ground truth:
+For a FIXED state the policy is sampled under several goals (the multiscale
+endpoints). For each goal AND each CFG guidance scale, we show, next to GT:
 
-    current frame  ·  goal-conditioned action  ·  predicted next world-frame  ·  value
+    current  ·  diffusion-predicted next  ·  predicted-action-executed (Blender)  ·  GT next
 
-Everything is baked into a single self-contained interactive HTML (base64 images,
-inline JS — no external assets), with a "how to read this" panel and hover tooltips
-on every label, so it opens anywhere / publishes as an Artifact.
+plus the action (vs GT) and value. A CFG-scale selector sweeps guidance so you
+can watch the action grow / become goal-dependent as the scale rises. Everything
+is one self-contained interactive HTML (base64 images, inline JS), with a
+how-to-read panel and hover tooltips.
 
   PYTHONPATH=. python scripts/viz_rollout_html.py \
       --checkpoint runs/<ts>_cosmos_2b_v8/ckpt_last.pt \
-      --data-root data/trajectories/<placement> --out /tmp/rollout.html
+      --data-root data/trajectories/<placement> --blender \
+      --cfg-scales 1,2,4,8,10,12 --out /tmp/rollout.html
 """
 from __future__ import annotations
 
@@ -47,19 +48,18 @@ ADIMS = ["Δright", "Δup", "Δfwd", "Δyaw", "Δpitch"]
 
 
 def _b64(t: torch.Tensor) -> str:
-    """(3,H,W) in [-1,1] -> base64 PNG data URI."""
+    # JPEG (not PNG) so the many-image sweep stays under the 16MB Artifact cap.
     from PIL import Image
     arr = ((t.detach().float().cpu().clamp(-1, 1).permute(1, 2, 0).numpy() + 1.0) * 127.5).astype(np.uint8)
     buf = io.BytesIO()
-    Image.fromarray(arr).save(buf, format="PNG")
-    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+    Image.fromarray(arr).save(buf, format="JPEG", quality=80)
+    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
 def _b64_pil(img, size_wh) -> str:
-    """PIL RGB image -> base64 PNG data URI, resized to (W,H) to match the other columns."""
     buf = io.BytesIO()
-    img.resize(size_wh).save(buf, format="PNG")
-    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+    img.convert("RGB").resize(size_wh).save(buf, format="JPEG", quality=80)
+    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
 def main() -> None:
@@ -70,15 +70,13 @@ def main() -> None:
     ap.add_argument("--pair", type=int, default=0)
     ap.add_argument("--start-frame", type=int, default=0)
     ap.add_argument("--offsets", nargs="+", type=int, default=[8, 16, 24])
-    ap.add_argument("--seeds", type=int, default=4, help="noise draws averaged for the action (goal effect)")
+    ap.add_argument("--seeds", type=int, default=2, help="noise draws averaged for the action per scale")
     ap.add_argument("--n-steps", type=int, default=16)
-    ap.add_argument("--guidance-scale", type=float, default=1.0)
+    ap.add_argument("--cfg-scales", default="1,2,4,8,10,12", help="comma-separated CFG guidance scales to sweep")
     ap.add_argument("--negative-mode", choices=["flip", "null"], default="flip")
-    # Blender: render what the predicted action ACTUALLY produces (4th column).
     ap.add_argument("--blender", action="store_true", help="render the predicted-action-executed frame in Blender")
     ap.add_argument("--blender-bin", default="blender/blender")
-    ap.add_argument("--render-device", default="CPU", choices=["CPU", "GPU"],
-                    help="CPU avoids the ~10-15min sm_100 Cycles kernel compile; GPU is faster once warm")
+    ap.add_argument("--render-device", default="CPU", choices=["CPU", "GPU"])
     ap.add_argument("--render-samples", type=int, default=16)
     ap.add_argument("--render-timeout", type=float, default=1200.0)
     ap.add_argument("--vlm-v6-dir", default="data/vlm_object_placing_v6_260428_061326")
@@ -89,6 +87,7 @@ def main() -> None:
 
     device = torch.device(args.device)
     dtype = getattr(torch, args.dtype)
+    scales = [float(x) for x in args.cfg_scales.split(",")]
     policy, vae, keys, chunk_size, iteration = load_policy(args.checkpoint, device, dtype)
     res = tuple(args.resolution)
     dj = args.data_root / "data.json"
@@ -108,9 +107,8 @@ def main() -> None:
 
     env = None
     if args.blender:
-        # Blender needs libGL / libXfixes / libxkbcommon, which login + bare workers
-        # lack; ship them from blender/syslibs/lib (same as sbatch_rollout_eval.sh) so
-        # the spawned Blender subprocess inherits them — no external env var needed.
+        # Blender needs libGL/libXfixes/libxkbcommon (login + bare workers lack them);
+        # ship from blender/syslibs/lib so the spawned subprocess inherits them.
         import os
         syslibs = str(Path(args.blender_bin).resolve().parent / "syslibs" / "lib")
         os.environ["LD_LIBRARY_PATH"] = syslibs + os.pathsep + os.environ.get("LD_LIBRARY_PATH", "")
@@ -119,54 +117,58 @@ def main() -> None:
         sample.render_device = args.render_device
         renderer = PersistentBlenderRenderer(blender_bin=args.blender_bin, render_timeout_s=args.render_timeout)
         env = BlenderRolloutEnv.from_validation_sample(sample, renderer)
-        print(f"[blender] env ready ({args.render_device}, {args.render_samples} samples) — "
-              "first render compiles Cycles kernels, be patient", flush=True)
+        print(f"[blender] env ready ({args.render_device}, {args.render_samples} samples)", flush=True)
+
+    def sample_one(goal_t, s):
+        preds, world0, val0 = [], None, None
+        for seed in range(args.seeds):
+            torch.manual_seed(3000 + seed)
+            with torch.no_grad(), torch.autocast(device.type, dtype=dtype, enabled=(dtype != torch.float32)):
+                out = policy.sample(image_latent=image_latent, goal_vec=goal_t, n_steps=args.n_steps,
+                                    guidance_scale=s, negative_mode=args.negative_mode)
+            preds.append(out.pred_action_chunk.squeeze(0).float().cpu().numpy())
+            if seed == 0:
+                val0 = out.pred_value.squeeze(0).float().cpu().numpy() if out.pred_value is not None else None
+                with torch.no_grad(), torch.autocast(device.type, dtype=dtype, enabled=(dtype != torch.float32)):
+                    world0 = vae.decode(out.pred_latents[:, :, t_img - 1:t_img])[:, :, 0][0]
+        return np.mean(preds, axis=0), world0, val0
 
     goals = []
     for w in wins:
         offset = w.end_frame_idx - w.start_frame_idx
         goal_raw = goal_vector(w.end.raw, keys)
-        gt = torch.from_numpy(normalize_goal(goal_raw, keys)).unsqueeze(0).to(device, dtype=dtype)
+        goal_t = torch.from_numpy(normalize_goal(goal_raw, keys)).unsqueeze(0).to(device, dtype=dtype)
         gt_action = _compute_action_chunk(w)
         gt_value = _compute_value_sequence(w, w.end, "cost_to_go", keys)
         gt_world = _load_image_as_tensor(Path(w.end.image), res)
 
-        pred_actions, world0, val0 = [], None, None
-        for s in range(args.seeds):
-            torch.manual_seed(3000 + s)
-            with torch.no_grad(), torch.autocast(device.type, dtype=dtype, enabled=(dtype != torch.float32)):
-                out = policy.sample(image_latent=image_latent, goal_vec=gt, n_steps=args.n_steps,
-                                    guidance_scale=args.guidance_scale, negative_mode=args.negative_mode)
-            pred_actions.append(out.pred_action_chunk.squeeze(0).float().cpu().numpy())
-            if s == 0:
-                val0 = out.pred_value.squeeze(0).float().cpu().numpy() if out.pred_value is not None else None
-                with torch.no_grad(), torch.autocast(device.type, dtype=dtype, enabled=(dtype != torch.float32)):
-                    world0 = vae.decode(out.pred_latents[:, :, t_img - 1:t_img])[:, :, 0][0]
-        pred_action = np.mean(pred_actions, axis=0)
+        sweep = []
+        for s in scales:
+            pred_action, world0, val0 = sample_one(goal_t, s)
+            exec_render = None
+            if env is not None:
+                env.reset(state_rec.camera_position, state_rec.camera_forward, state_rec.camera_up, render=False)
+                obs = None
+                for i, a in enumerate(pred_action):
+                    obs, _ = env.step(a, render=(i == len(pred_action) - 1))
+                exec_render = _b64_pil(obs["image"], (res[1], res[0]))
+            sweep.append(dict(
+                scale=s,
+                action_pred=[[round(float(x), 3) for x in step] for step in pred_action],
+                value_pred=[round(float(x), 3) for x in np.ravel(val0)] if val0 is not None else None,
+                world_pred=_b64(world0), exec_render=exec_render,
+            ))
+            print(f"[sweep] goal +{int(offset)}  CFG s={s}  done", flush=True)
 
-        exec_render = None
-        if env is not None:
-            # execute the predicted chunk from the current pose, render the endpoint
-            env.reset(state_rec.camera_position, state_rec.camera_forward, state_rec.camera_up, render=False)
-            obs = None
-            for i, a in enumerate(pred_action):
-                obs, _ = env.step(a, render=(i == len(pred_action) - 1))
-            exec_render = _b64_pil(obs["image"], (res[1], res[0]))
-            print(f"[blender] rendered action-executed endpoint for goal +{int(offset)}", flush=True)
-
-        goal_occ = float(goal_raw[0])
         goals.append(dict(
             offset=int(offset), end=int(w.end_frame_idx),
             direction="dolly-in" if offset > 0 else "dolly-out",
-            exec_render=exec_render,
-            occ_state=round(state_occ), occ_goal=round(goal_occ),
+            occ_state=round(state_occ), occ_goal=round(float(goal_raw[0])),
             profile=[fmt.format(v) + u for (lbl, u, fmt), v in zip(PROFILE_FMT, goal_raw)],
             profile_labels=[lbl for lbl, _, _ in PROFILE_FMT],
-            action_pred=[[round(float(x), 3) for x in step] for step in pred_action],
             action_gt=[[round(float(x), 3) for x in step] for step in gt_action],
-            value_pred=[round(float(x), 3) for x in np.ravel(val0)] if val0 is not None else None,
             value_gt=[round(float(x), 3) for x in np.ravel(gt_value)],
-            world_pred=_b64(world0), world_gt=_b64(gt_world),
+            world_gt=_b64(gt_world), sweep=sweep,
         ))
 
     if env is not None:
@@ -175,11 +177,11 @@ def main() -> None:
     payload = dict(
         iteration=int(iteration), placement=args.data_root.name, pair=args.pair,
         start_frame=args.start_frame, adims=ADIMS, seeds=args.seeds, n_steps=args.n_steps,
-        guidance=args.guidance_scale, negative=args.negative_mode, has_exec=bool(args.blender),
+        scales=scales, negative=args.negative_mode, has_exec=bool(args.blender),
         state_img=_b64(state[0]), goals=goals,
     )
     args.out.write_text(_HTML.replace("/*__DATA__*/", json.dumps(payload)))
-    print(f"wrote {args.out}  ({len(goals)} goals, iter {iteration})")
+    print(f"wrote {args.out}  ({len(goals)} goals x {len(scales)} CFG scales, iter {iteration})")
 
 
 _HTML = r"""
@@ -197,7 +199,7 @@ _HTML = r"""
   details[open] summary{border-bottom:1px solid var(--line)}
   details p{margin:10px 0;color:var(--mut);font-size:13px;max-width:72ch}details b{color:var(--fg);font-weight:600}
   .state{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:16px}
-  .state img{width:220px;border-radius:8px;border:1px solid var(--line)}
+  .state img{width:200px;border-radius:8px;border:1px solid var(--line)}
   .layout{display:grid;grid-template-columns:236px 1fr;gap:16px}
   .goals{display:flex;flex-direction:column;gap:8px}
   .gbtn{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;color:var(--fg);font:inherit}
@@ -205,7 +207,11 @@ _HTML = r"""
   .gbtn .t{font-weight:600}.gbtn .d{color:var(--mut);font-size:12px;margin-top:2px}
   .pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:20px;background:var(--line);color:var(--mut);font-weight:500}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
-  .frames{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+  .scalebar{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .scalebar .lbl{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+  .sbtn{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px 11px;cursor:pointer;color:var(--fg);font:inherit;font-variant-numeric:tabular-nums}
+  .sbtn:hover{border-color:var(--acc)}.sbtn.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+  .frames{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:14px}
   .frames figure{margin:0}.frames img{width:100%;border-radius:8px;border:1px solid var(--line);display:block}
   .frames figcaption{font-size:12px;color:var(--mut);margin-top:5px;text-align:center}
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -221,21 +227,22 @@ _HTML = r"""
   .prof{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
   .prof span{font-size:11.5px;background:var(--line);border-radius:6px;padding:2px 8px;color:var(--fg)}
   .legend{font-size:12.5px;color:var(--mut);margin:2px 0 0;line-height:1.6}.legend b.pred{color:var(--pred)}.legend b.gt{color:var(--gt)}
+  .spark{margin-top:6px}.spark .cap{font-size:12px;color:var(--mut);margin-bottom:4px}
   [title]{cursor:help}
 </style>
 <div class="wrap">
-  <h1>Goal &rarr; action rollout <span class="pill" id="iter"></span></h1>
+  <h1>Goal &rarr; action rollout &mdash; CFG sweep <span class="pill" id="iter"></span></h1>
   <div class="sub" id="meta"></div>
   <details>
     <summary>How to read this</summary>
-    <p>A <b>fixed current frame</b> is shown to the policy under several <b>goals</b> &mdash; target shot-profiles taken from points further along the camera path. For each goal the policy predicts, in a single forward pass: the <b>camera action</b> to reach it, the <b>next frame</b> it imagines after that action, and the <b>value</b> &mdash; each shown beside its <b class="gt">ground truth</b>.</p>
-    <p>The <b class="pred">predicted next frame</b> is <b>diffusion-sampled</b>, not looked up: the policy denoises the next-frame / action / value latents from pure noise over 16 flow-matching steps, conditioned on the goal and the clean pinned current frame, then VAE-decodes the frame latent to pixels (single noise seed). The <b>action</b> shown is the mean over 4 seeds, which cancels sampler noise and isolates the goal's effect. When the <b>action executed</b> column is present it is a Blender render of the pose reached by <i>actually running</i> the predicted action &mdash; the real consequence: predicted-next &asymp; action-executed means the world head imagined correctly, and action-executed &asymp; GT-next means the action itself is good.</p>
-    <p><b>Action</b> &mdash; per-step camera move in the camera's own axes: &Delta;right / &Delta;up / &Delta;fwd in metres, &Delta;yaw / &Delta;pitch in radians; <b>action[0]</b> is the immediate move. <b>Value</b> &mdash; cost-to-go, the normalized negative pose-distance from each step to the goal (higher = closer). Early checkpoints predict frames worst (the world head is downweighted), so read action / value first.</p>
+    <p>A <b>fixed current frame</b> is shown to the policy under several <b>goals</b> (target shot-profiles further along the camera path). Pick a goal (left) and a <b>CFG scale</b> (top of the panel). For that combination you see, beside <b class="gt">ground truth</b>: the <b class="pred">diffusion-predicted next frame</b>, the <b>predicted-action-executed</b> Blender render (the real consequence of running the predicted action), and the action / value.</p>
+    <p><b>CFG (classifier-free guidance)</b> extrapolates the goal at inference: <code>v = v_neg + s·(v_cond − v_neg)</code> with the negative being the point-symmetric <b>flip</b> goal. As the scale <b>s</b> rises the action is pushed further along the goal direction &mdash; watch the action grow and the frames move. s=1 is plain sampling (no CFG). The <b>Δfwd vs CFG scale</b> sparkline tracks the immediate forward move across scales (dashed = GT).</p>
+    <p><b>Action</b> = per-step camera move, camera-local: Δright/up/fwd (m), Δyaw/pitch (rad); action[0] is the immediate move. <b>Value</b> = cost-to-go (normalized −pose-distance to goal; higher = closer). The predicted frame is roughest at early checkpoints (world head downweighted) &mdash; read the action first. Action shown is the mean over noise seeds.</p>
   </details>
   <div class="state">
     <img id="stateImg" alt="current state">
     <div><h3>Current state (fixed)</h3><div id="stateInfo" class="sub" style="margin:0"></div>
-    <div class="legend">Pick a goal on the left &rarr; its action, predicted next frame, and value appear on the right. <b class="pred">blue = predicted</b>, <b class="gt">green = ground truth</b>. Hover any label for what it means.</div></div>
+    <div class="legend">Left = goal, top of panel = CFG scale. <b class="pred">blue = predicted</b>, <b class="gt">green = ground truth</b>. Hover any label.</div></div>
   </div>
   <div class="layout">
     <div class="goals" id="goals"></div>
@@ -245,20 +252,20 @@ _HTML = r"""
 <script>
 const P = /*__DATA__*/;
 const ADESC={"Δright":"camera-local left(-)/right(+) shift, metres","Δup":"camera-local down(-)/up(+) shift, metres","Δfwd":"back(-)/toward-subject(+), metres","Δyaw":"turn left/right, radians","Δpitch":"tilt down/up, radians"};
-const KDESC={"occupancy":"% of the frame the subject fills","body_in_frame":"% of the subject's bbox inside the frame (100 = fully framed)","azimuth":"camera->subject horizontal angle, 0-360°","elevation":"camera->subject vertical angle (- = camera above)","center_x":"subject centre X in px (frame 1024 wide; 512 = centred)","center_y":"subject centre Y in px (frame 768 tall; 384 = centred)","bbox_x":"half the subject bbox width, px - apparent-size cue","bbox_y":"half the subject bbox height, px - apparent-size cue"};
+const KDESC={"occupancy":"% of the frame the subject fills","body_in_frame":"% of the subject's bbox inside the frame (100 = fully framed)","azimuth":"camera->subject horizontal angle, 0-360°","elevation":"camera->subject vertical angle (- = camera above)","center_x":"subject centre X in px (frame 1024 wide; 512 = centred)","center_y":"subject centre Y in px (frame 768 tall; 384 = centred)","bbox_x":"half the subject bbox width, px","bbox_y":"half the subject bbox height, px"};
+let gi=0, si=0;
 document.getElementById('iter').textContent = 'iter ' + P.iteration;
 document.getElementById('meta').textContent = P.placement + '  ·  pair ' + P.pair + ', start frame ' + P.start_frame +
-   '  ·  ' + P.seeds + ' seeds, ' + P.n_steps + ' sampler steps' + (P.guidance!==1 ? '  ·  CFG s='+P.guidance+' ('+P.negative+')' : '');
+   '  ·  ' + P.seeds + ' seeds, ' + P.n_steps + ' steps  ·  CFG negative = ' + P.negative;
 document.getElementById('stateImg').src = P.state_img;
 document.getElementById('stateImg').title = 'The fixed current frame fed to the policy (a val / unseen subject).';
-document.getElementById('stateInfo').textContent = 'occupancy ' + (P.goals[0]?P.goals[0].occ_state:'?') + '%  ·  ' + P.goals.length + ' goals';
+document.getElementById('stateInfo').textContent = 'occupancy ' + (P.goals[0]?P.goals[0].occ_state:'?') + '%  ·  ' + P.goals.length + ' goals  ×  ' + P.scales.length + ' CFG scales';
 function num(x){return (x>=0?'+':'')+x.toFixed(3);}
 function bar(lab,pred,gt,scale){
   const w=v=>Math.max(2,Math.min(50,Math.abs(v)/scale*50)); const off=v=>v>=0?50:50-w(v);
   return `<div class="bar" title="${ADESC[lab]||''}"><div class="lab">${lab}</div><div class="track"><div class="mid"></div>`+
     `<div class="fill" style="left:${off(gt)}%;width:${w(gt)}%;background:var(--gt)" title="GT ${num(gt)}"></div>`+
-    `<div class="fill" style="left:${off(pred)}%;width:${w(pred)}%;background:var(--pred);opacity:.72" title="pred ${num(pred)}"></div>`+
-    `</div></div>`;
+    `<div class="fill" style="left:${off(pred)}%;width:${w(pred)}%;background:var(--pred);opacity:.72" title="pred ${num(pred)}"></div></div></div>`;
 }
 function chunkTable(pred,gt){
   let h='<table><tr><th>step</th>'+P.adims.map(d=>`<th title="${ADESC[d]||''}">${d}</th>`).join('')+'</tr>';
@@ -275,34 +282,50 @@ function valTable(pred,gt){
   h+='<tr><td>gt</td>'+gt.map(x=>`<td class="gt">${num(x)}</td>`).join('')+'</tr>';
   return h+'</table>';
 }
-function render(i){
-  const g=P.goals[i];
-  document.querySelectorAll('.gbtn').forEach((b,j)=>b.classList.toggle('on',j===i));
-  const amax=Math.max(0.2,...g.action_gt[0].map(Math.abs),...g.action_pred[0].map(Math.abs));
+function sparkline(g){
+  // Δfwd (action[0][2]) across CFG scales; dashed line = GT.
+  const vals=g.sweep.map(s=>s.action_pred[0][2]); const gt=g.action_gt[0][2];
+  const all=vals.concat([gt,0]); const lo=Math.min(...all), hi=Math.max(...all); const rng=(hi-lo)||1;
+  const W=260,H=54,pad=6; const x=i=>pad+i*(W-2*pad)/(vals.length-1); const y=v=>H-pad-(v-lo)/rng*(H-2*pad);
+  let pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  let dots=vals.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="${i===si?4:2.5}" fill="${i===si?'var(--acc)':'var(--pred)'}"/>`).join('');
+  let labs=g.sweep.map((s,i)=>`<text x="${x(i)}" y="${H-1}" font-size="8" fill="var(--mut)" text-anchor="middle">${s.scale}</text>`).join('');
+  return `<div class="spark"><div class="cap">Δfwd (immediate) vs CFG scale &mdash; <span class="gt">dashed = GT</span></div>`+
+    `<svg width="${W}" height="${H}" style="overflow:visible">`+
+    `<line x1="${pad}" y1="${y(gt)}" x2="${W-pad}" y2="${y(gt)}" stroke="var(--gt)" stroke-dasharray="4 3" stroke-width="1"/>`+
+    `<polyline points="${pts}" fill="none" stroke="var(--pred)" stroke-width="1.5"/>${dots}${labs}</svg></div>`;
+}
+function render(){
+  const g=P.goals[gi], sw=g.sweep[si];
+  document.querySelectorAll('.gbtn').forEach((b,j)=>b.classList.toggle('on',j===gi));
+  const amax=Math.max(0.2,...g.action_gt[0].map(Math.abs),...sw.action_pred[0].map(Math.abs));
   const prof=g.profile.map((v,k)=>`<span title="${KDESC[g.profile_labels[k]]||''}">${g.profile_labels[k]} ${v}</span>`).join('');
-  const barsHtml=P.adims.map((d,k)=>bar(d,g.action_pred[0][k],g.action_gt[0][k],amax)).join('');
-  const fr=[`<figure><img src="${P.state_img}" title="Current frame (the policy input)."><figcaption>current</figcaption></figure>`,
-    `<figure><img src="${g.world_pred}" title="Diffusion-sampled: denoised from noise over ${P.n_steps} flow-matching steps, conditioned on this goal + the pinned current frame, then VAE-decoded (1 seed). The model's IMAGINED frame after the action."><figcaption class="pred">predicted next &mdash; diffusion</figcaption></figure>`];
-  if(g.exec_render) fr.push(`<figure><img src="${g.exec_render}" title="Blender render of the pose reached by actually EXECUTING the predicted 8-step action from the current frame — the real consequence of the action. ≈ GT next ⇒ the action is good; ≈ predicted-next ⇒ the world head imagined it correctly."><figcaption>action executed &mdash; Blender</figcaption></figure>`);
-  fr.push(`<figure><img src="${g.world_gt}" title="The actual rendered frame at the goal endpoint (what the GT action achieves)."><figcaption class="gt">GT next (frame ${g.end})</figcaption></figure>`);
+  const barsHtml=P.adims.map((d,k)=>bar(d,sw.action_pred[0][k],g.action_gt[0][k],amax)).join('');
+  const scaleBtns=P.scales.map((s,k)=>`<button class="sbtn ${k===si?'on':''}" onclick="si=${k};render()">${s}×</button>`).join('');
+  const fr=[`<figure><img src="${P.state_img}" title="Current frame (input)."><figcaption>current</figcaption></figure>`,
+    `<figure><img src="${sw.world_pred}" title="Diffusion-sampled next frame at CFG ${sw.scale}× (goal-conditioned, VAE-decoded, 1 seed)."><figcaption class="pred">predicted next</figcaption></figure>`];
+  if(sw.exec_render) fr.push(`<figure><img src="${sw.exec_render}" title="Blender render of the pose reached by EXECUTING the predicted 8-step action at CFG ${sw.scale}× — the real consequence."><figcaption>action executed</figcaption></figure>`);
+  fr.push(`<figure><img src="${g.world_gt}" title="Actual rendered frame at the goal endpoint (frame ${g.end})."><figcaption class="gt">GT next</figcaption></figure>`);
   document.getElementById('panel').innerHTML =
-    `<div class="frames" style="grid-template-columns:repeat(${fr.length},1fr)">${fr.join('')}</div>
-     <div class="prof" title="The goal: the target shot-profile the policy is conditioned on. Hover each key.">${prof}</div>
+    `<div class="scalebar"><span class="lbl">CFG scale</span>${scaleBtns}<span class="pill" style="margin-left:6px">neg=${P.negative}</span></div>
+     <div class="frames" style="grid-template-columns:repeat(${fr.length},1fr)">${fr.join('')}</div>
+     <div class="prof" title="The goal (target shot-profile). Hover each key.">${prof}</div>
      <div class="cols" style="margin-top:14px">
-       <div><h3 title="The immediate next camera move (step 0), camera-local. Bar: solid green = GT, translucent blue = pred; centre line = 0; length grows with magnitude.">Action[0] &mdash; the immediate move</h3><div class="bars">${barsHtml}</div>
-         <h3 style="margin-top:14px" title="All ${g.action_pred.length} predicted steps vs GT (metres / radians, camera-local).">Full ${g.action_pred.length}-step chunk</h3>${chunkTable(g.action_pred,g.action_gt)}</div>
-       <div><h3 title="Predicted cost-to-go per step: normalized -(pose distance) from that step to the goal. Higher (less negative) = closer to the goal.">Value (cost-to-go)</h3>${valTable(g.value_pred,g.value_gt)}</div>
+       <div><h3 title="Immediate move (step 0) at the selected CFG scale, camera-local. Solid green = GT, translucent blue = pred.">Action[0] @ CFG ${sw.scale}×</h3><div class="bars">${barsHtml}</div>
+         ${sparkline(g)}</div>
+       <div><h3>Value (cost-to-go)</h3>${valTable(sw.value_pred,g.value_gt)}
+         <h3 style="margin-top:14px">Full ${sw.action_pred.length}-step chunk</h3>${chunkTable(sw.action_pred,g.action_gt)}</div>
      </div>`;
 }
 const gc=document.getElementById('goals');
 P.goals.forEach((g,i)=>{
   const arrow=g.occ_goal>g.occ_state?'↑':(g.occ_goal<g.occ_state?'↓':'→');
   const b=document.createElement('button');b.className='gbtn';
-  b.title='Goal = the shot-profile achieved '+Math.abs(g.offset)+' keyframes '+(g.offset>0?'ahead (dolly-in)':'back (dolly-out)')+' on the camera path.';
+  b.title='Goal = shot-profile '+Math.abs(g.offset)+' keyframes '+(g.offset>0?'ahead (dolly-in)':'back (dolly-out)')+' on the path.';
   b.innerHTML=`<div class="t">${g.direction} ${g.offset>0?'+':''}${g.offset}</div><div class="d">occupancy ${g.occ_state}% ${arrow} ${g.occ_goal}%</div>`;
-  b.onclick=()=>render(i);gc.appendChild(b);
+  b.onclick=()=>{gi=i;si=0;render()};gc.appendChild(b);
 });
-render(0);
+render();
 </script>
 """
 
