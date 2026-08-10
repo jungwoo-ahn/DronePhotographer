@@ -72,6 +72,12 @@ class TrajectoryWindow:
     future: list[ViewRecord] = field(default_factory=list)
     # frames AFTER end on the same trajectory (end_frame_idx+1 .. 31) — the
     # HER-"future" goal candidate pool (goal = any frame in [end, 31]).
+    keyframes: list[ViewRecord] = field(default_factory=list)
+    # the chunk_size+1 frames the action chunk is encoded BETWEEN. For
+    # sliding_window these are consecutive ([start, *intermediate, end]); for
+    # multiscale_bidir they are strided ([p, p±s, …, p±chunk·s]).
+    frame_step: int = 1                 # frames advanced per action (multiscale: o//chunk)
+    direction: int = 1                  # +1 forward, -1 reversed (dolly-out)
 
 
 def load_annotation(path: str | Path) -> dict:
@@ -173,7 +179,83 @@ def iter_windows(
                 end=view_records[end_idx],
                 intermediate=view_records[start_idx + 1 : end_idx],
                 future=view_records[end_idx + 1 :],
+                keyframes=view_records[start_idx : end_idx + 1],
+                frame_step=1,
+                direction=1,
             )
+
+
+def iter_multiscale_windows(
+    data_json_path: str | Path,
+    *,
+    chunk_size: int = 8,
+    offsets: Iterable[int] = (8, 16, 24),
+) -> Iterator[TrajectoryWindow]:
+    """Bidirectional multi-scale endpoint windows — makes actions depend on the goal.
+
+    For each start frame `p` and each signed offset `±o` (o in `offsets`) whose
+    endpoint `p±o` exists, emit a window whose chunk_size actions traverse `p`→`p±o`.
+    The endpoint frame IS the goal, so the SAME start with DIFFERENT endpoints yields
+    DIFFERENT action targets — forcing goal-conditioning instead of collapse to
+    f(state) (the sliding-window failure mode, where the action is pinned to the
+    window while the HER goal varies independently). Negative offsets play the path
+    backward (dolly-out), subsuming the reverse augmentation.
+
+    Each offset must be a positive multiple of chunk_size; the ratio is the per-action
+    `frame_step` s (o=8→1, 16→2, 24→3 at chunk_size=8). The chunk is re-encoded between
+    the STRIDED keyframes `[p, p±s, …, p±chunk·s]` downstream — not by summing single
+    deltas (which don't compose in the camera-local basis).
+    """
+    data_json_path = Path(data_json_path)
+    placement_dir = data_json_path.parent
+    doc = load_annotation(data_json_path)
+    accepted_pairs = doc.get("accepted_pairs") or []
+    render_records = doc.get("render_records") or []
+
+    offset_list = sorted({int(o) for o in offsets})
+    for o in offset_list:
+        if o <= 0 or o % chunk_size != 0:
+            raise ValueError(
+                f"offset {o} must be a positive multiple of chunk_size={chunk_size}"
+            )
+
+    for pair_idx, pair in enumerate(accepted_pairs):
+        trajectory = pair.get("trajectory_32f") or []
+        n = len(trajectory)
+        if n <= 1:
+            continue
+        recs = render_records[pair_idx] if pair_idx < len(render_records) else []
+        recs_by_idx = {int(r.get("frame_idx", k)): r for k, r in enumerate(recs)}
+        view_records = [
+            _frame_to_view(doc, data_json_path, placement_dir, pair_idx, j, trajectory[j], recs_by_idx.get(j))
+            for j in range(n)
+        ]
+        for start_idx in range(n):
+            for o in offset_list:
+                step = o // chunk_size
+                for direction in (1, -1):
+                    end_idx = start_idx + direction * o
+                    if end_idx < 0 or end_idx >= n:
+                        continue
+                    keyframes = [view_records[start_idx + direction * step * k] for k in range(chunk_size + 1)]
+                    yield TrajectoryWindow(
+                        annotation_path=data_json_path,
+                        scene=keyframes[0].scene,
+                        scene_file=keyframes[0].scene_file,
+                        object=keyframes[0].object,
+                        object_file=keyframes[0].object_file,
+                        pair_idx=pair_idx,
+                        start_frame_idx=start_idx,
+                        end_frame_idx=end_idx,
+                        chunk_size=chunk_size,
+                        start=keyframes[0],
+                        end=keyframes[-1],
+                        intermediate=keyframes[1:-1],
+                        future=[],                      # goal pinned to endpoint; no HER pool
+                        keyframes=keyframes,
+                        frame_step=step,
+                        direction=direction,
+                    )
 
 
 def load_val_names(spec) -> list[str] | None:
@@ -227,6 +309,7 @@ __all__ = [
     "ViewRecord",
     "TrajectoryWindow",
     "iter_windows",
+    "iter_multiscale_windows",
     "list_annotation_files",
     "load_val_names",
     "load_annotation",

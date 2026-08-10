@@ -26,6 +26,8 @@ data:
     - data/trajectories_full     # symlink -> full v7 set (same as cosmos)
   chunk_size: 8
   stride: 1
+  sampling_scheme: multiscale_bidir  # ±offset endpoint windows -> goal-dependent actions (V12)
+  offsets: [8, 16, 24]               # per-start signed offsets; each a multiple of chunk_size
   max_samples: null
   target_resolution: [480, 720]
   goal_score_keys:

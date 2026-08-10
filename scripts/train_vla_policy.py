@@ -106,6 +106,8 @@ def main() -> None:
     common = dict(
         goal_score_keys=cfg["data"]["goal_score_keys"],
         chunk_size=cfg["data"]["chunk_size"],
+        sampling_scheme=cfg["data"].get("sampling_scheme", "sliding_window"),
+        offsets=cfg["data"].get("offsets", [8, 16, 24]),
         target_resolution=tuple(cfg["data"]["target_resolution"]),
         val_pair_stride=val_pair_stride,
         val_split_level=val_split_level,

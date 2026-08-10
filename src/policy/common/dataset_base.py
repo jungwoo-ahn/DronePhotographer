@@ -39,6 +39,7 @@ from src.policy.common.action_repr import ACTION_DIM, encode_action_5d
 from src.policy.common.annotations import (
     TrajectoryWindow,
     ViewRecord,
+    iter_multiscale_windows,
     iter_windows,
     list_annotation_files,
 )
@@ -46,6 +47,7 @@ from src.policy.common.goal_space import goal_keys, goal_vector
 from src.policy.common.reward import pose_distance_value
 
 GOAL_SAMPLING_MODES = ("uniform_future", "end")
+SAMPLING_SCHEMES = ("sliding_window", "multiscale_bidir")
 
 
 VAL_SPLIT_LEVELS = ("pair", "placement", "scene", "object")
@@ -133,7 +135,11 @@ class _Entry:
 
 
 def _compute_action_chunk(window: TrajectoryWindow) -> np.ndarray:
-    frames = [window.start, *window.intermediate, window.end]
+    # keyframes are the chunk_size+1 frames to encode between: consecutive for
+    # sliding_window, strided for multiscale_bidir. Re-encoding between the strided
+    # keyframes (not summing single-step deltas) is required — camera-local deltas
+    # do not compose additively.
+    frames = window.keyframes or [window.start, *window.intermediate, window.end]
     out = np.zeros((window.chunk_size, ACTION_DIM), dtype=np.float32)
     for i in range(window.chunk_size):
         prev = frames[i]
@@ -178,6 +184,8 @@ class BasePolicyDataset(Dataset):
         max_samples: int | None = None,
         filter_clamped_goals: bool = True,
         goal_sampling: str = "uniform_future",
+        sampling_scheme: str = "sliding_window",
+        offsets: Sequence[int] = (8, 16, 24),
         val_pair_stride: int = 0,
         val_split_level: str = "pair",
         val_names: Sequence[str] | None = None,
@@ -185,6 +193,8 @@ class BasePolicyDataset(Dataset):
     ) -> None:
         if goal_sampling not in GOAL_SAMPLING_MODES:
             raise ValueError(f"goal_sampling must be one of {GOAL_SAMPLING_MODES}, got {goal_sampling!r}")
+        if sampling_scheme not in SAMPLING_SCHEMES:
+            raise ValueError(f"sampling_scheme must be one of {SAMPLING_SCHEMES}, got {sampling_scheme!r}")
         if split not in ("train", "val"):
             raise ValueError(f"split must be 'train' or 'val', got {split!r}")
         if split == "val" and val_pair_stride <= 0 and not val_names:
@@ -195,10 +205,18 @@ class BasePolicyDataset(Dataset):
         self.stride = stride
         self.filter_clamped_goals = filter_clamped_goals
         self.goal_sampling = goal_sampling
+        self.sampling_scheme = sampling_scheme
+        self.offsets = tuple(offsets)
         self._files = list_annotation_files(annotation_roots)
         self._entries: list[_Entry] = []
+
+        def _windows(f):
+            if sampling_scheme == "multiscale_bidir":
+                return iter_multiscale_windows(f, chunk_size=chunk_size, offsets=self.offsets)
+            return iter_windows(f, chunk_size=chunk_size, stride=stride)
+
         for f in self._files:
-            for window in iter_windows(f, chunk_size=chunk_size, stride=stride):
+            for window in _windows(f):
                 if val_pair_stride > 0 or self._val_names is not None:
                     is_val = _is_val_pair(
                         window.annotation_path, window.pair_idx, val_pair_stride,
@@ -206,7 +224,10 @@ class BasePolicyDataset(Dataset):
                     )
                     if is_val != (split == "val"):
                         continue
-                pool = [window.end] if goal_sampling == "end" else [window.end, *window.future]
+                # multiscale_bidir pins the goal to the endpoint (window.future is
+                # empty); sliding_window uses the HER pool per goal_sampling.
+                pool = [window.end] if (goal_sampling == "end" or sampling_scheme == "multiscale_bidir") \
+                    else [window.end, *window.future]
                 candidates: list[tuple[ViewRecord, np.ndarray]] = []
                 for view in pool:
                     g = goal_vector(view.raw, self.goal_keys)
