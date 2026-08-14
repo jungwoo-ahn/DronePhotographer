@@ -1,0 +1,29 @@
+{
+  "_why": "Val = these 8 scenes, held out whole. The split this replaces took the last 5% of episode_index; that is placement-disjoint (0% leak) but every val scene and object was also in train, so val loss measured a new camera path in an already-known room. Measured before the change: scene overlap 88/88, object overlap 99/99.",
+  "_how_chosen": "Scenes sorted by placement count, then every (91/8)-th taken. An even spread rather than the smallest 8: the smallest scene has 7 placements against a median of 99, so a val set of runts would be its own distribution rather than a sample of the data.",
+  "_contract": "A MANIFEST, not a hash rule. A hash silently redefines the split whenever the scene list changes -- the same failure mode the export's --seed already has. Edit this file only to deliberately redefine the split, and expect val curves before and after to be incomparable.",
+  "level": "scene",
+  "scenes": [
+    "Chill-Camping_150d7263",
+    "Desert-Roadside-Repair-Garage_a1a2b2ac",
+    "Modern-Office-Full-set-01_d2deb1e1",
+    "Modern-Warehouse_a5eea495",
+    "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+    "Parking_70ae1f27",
+    "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+    "office-buildingwarehouse-creative-headquarters"
+  ],
+  "placements_per_scene": {
+    "Chill-Camping_150d7263": 60,
+    "Desert-Roadside-Repair-Garage_a1a2b2ac": 25,
+    "Modern-Office-Full-set-01_d2deb1e1": 97,
+    "Modern-Warehouse_a5eea495": 100,
+    "Nature-Snowy-Mountain-Village-Retreat_f884ef3e": 94,
+    "Parking_70ae1f27": 99,
+    "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8": 100,
+    "office-buildingwarehouse-creative-headquarters": 100
+  },
+  "val_placements": 675,
+  "total_placements": 7731,
+  "source_root": "data/trajectories/v7_stage2_renders_lookat075"
+}

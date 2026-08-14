@@ -20,8 +20,17 @@ data:
     - data/trajectories_full     # symlink -> full v7 set (same as cosmos/vla)
   chunk_size: 8
   stride: 1
-  sampling_scheme: multiscale_bidir  # ±offset endpoint windows -> goal-dependent actions (V12)
-  offsets: [8, 16, 24]               # per-start signed offsets; each a multiple of chunk_size
+  # V12 goal-start windows: a well-framed goal + a start delta 0-32 away, the chunk
+  # walks toward it one frame at a time and CLAMPS at the goal (arrival -> zero pose
+  # action + shoot=1). near/far stratified per pair. Gives goal-dependence AND the
+  # meaningful shoot channel, and fixes the overshoot the old endpoint scheme caused.
+  sampling_scheme: goal_start
+  goal_start_max_per_pair: 24        # kept windows per pair (25% near, 75% far)
+  goal_start_seed: 0
+  # Disk cache for the built window index (keyed on all index params + each
+  # annotation file's size/mtime, so reruns / DDP ranks load in seconds; a changed
+  # action rep / sampler busts it via _INDEX_CACHE_VERSION). Shared across baselines.
+  cache_dir: /home/nas5/jooyeolyun/datasets/drone_data/.index_cache
   max_samples: null
   target_resolution: [480, 720]  # DINOv2 processor re-crops to its own size
   goal_score_keys:
@@ -34,9 +43,10 @@ data:
     - bbox_x_offset
     - bbox_y_offset
 
-  # Held-out val: same scene-level manifest as the Cosmos / VLA policies.
-  val_split_level: placement
-  val_names: configs/policy/val_placements_v7.txt
+  # Held-out val: jungwoo's V12 scene-level manifest (8 whole scenes, 675 placements).
+  # Same file/semantics as V12 so DP is directly comparable to the Cosmos policy.
+  val_split_level: scene
+  val_names: configs/policy/val_scenes.json
   val_stride: 4
   val_max_samples: 64
   val_iter: 2000           # aligned with save_iter so each save has a fresh val

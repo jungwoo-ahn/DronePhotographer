@@ -31,7 +31,14 @@ from src.utils.rotation_utils import (
     translation_camera_local_to_world,
 )
 
-ACTION_DIM = 5
+# The pose action is 5D (Δright, Δup, Δforward, Δyaw, Δpitch); encode/decode/apply
+# operate on this. The full ACTION the policies predict is 6D: the 5 pose dims plus a
+# `shoot` channel (dim 5), a latched 0/1 "I have arrived, take the photo" state — the
+# camera analog of V12's gripper dim (see `dataset_base.shoot_column`). ACTION_SCALE /
+# ACTION_STD stay POSE_DIM-long; the shoot dim is already 0/1 and is left unnormalized.
+POSE_DIM = 5
+SHOOT_DIM = 1
+ACTION_DIM = POSE_DIM + SHOOT_DIM  # 6
 
 # World up axis (Blender +Z). Yaw rotates about this so a level camera stays level.
 WORLD_UP = np.array([0.0, 0.0, 1.0], dtype=np.float64)
@@ -86,13 +93,22 @@ def normalize_action_5d(
     4 sigma is bounded without cutting real signal.
     """
     s = ACTION_SCALE if scale is None else np.asarray(scale, dtype=np.float32)
-    return np.clip(np.asarray(action, dtype=np.float32) / s, -clip, clip).astype(np.float32)
+    a = np.asarray(action, dtype=np.float32)
+    # 6D action (pose + shoot): scale/clip the POSE_DIM pose dims, pass the 0/1 shoot
+    # channel through untouched (it is already bounded and must stay {0, 1}).
+    if a.shape[-1] == ACTION_DIM and s.shape[-1] == POSE_DIM:
+        pose = np.clip(a[..., :POSE_DIM] / s, -clip, clip)
+        return np.concatenate([pose, a[..., POSE_DIM:]], axis=-1).astype(np.float32)
+    return np.clip(a / s, -clip, clip).astype(np.float32)
 
 
 def denormalize_action_5d(action: np.ndarray, scale: np.ndarray | None = None) -> np.ndarray:
     """Inverse of `normalize_action_5d` (clipping is not inverted)."""
     s = ACTION_SCALE if scale is None else np.asarray(scale, dtype=np.float32)
-    return (np.asarray(action, dtype=np.float32) * s).astype(np.float32)
+    a = np.asarray(action, dtype=np.float32)
+    if a.shape[-1] == ACTION_DIM and s.shape[-1] == POSE_DIM:
+        return np.concatenate([a[..., :POSE_DIM] * s, a[..., POSE_DIM:]], axis=-1).astype(np.float32)
+    return (a * s).astype(np.float32)
 
 
 def yaw_pitch_from_rotation_matrix(rot: np.ndarray) -> tuple[float, float]:
@@ -147,8 +163,8 @@ def decode_action_5d(action: np.ndarray) -> tuple[np.ndarray, tuple[float, float
     needs the current pose (`apply_action_5d`). This helper validates + splits.
     """
     a = np.asarray(action, dtype=np.float32).reshape(-1)
-    if a.shape[0] != ACTION_DIM:
-        raise ValueError(f"expected {ACTION_DIM}-D action, got shape {a.shape}")
+    if a.shape[0] not in (POSE_DIM, ACTION_DIM):
+        raise ValueError(f"expected {POSE_DIM}- or {ACTION_DIM}-D action, got shape {a.shape}")
     return a[:3].astype(np.float32), (float(a[3]), float(a[4]))
 
 
@@ -166,8 +182,9 @@ def apply_action_5d(
     zero rotation preserves the orientation exactly, including at the poles.
     """
     a = np.asarray(action, dtype=np.float32).reshape(-1)
-    if a.shape[0] != ACTION_DIM:
-        raise ValueError(f"expected {ACTION_DIM}-D action, got shape {a.shape}")
+    if a.shape[0] not in (POSE_DIM, ACTION_DIM):
+        raise ValueError(f"expected {POSE_DIM}- or {ACTION_DIM}-D action, got shape {a.shape}")
+    # a[5] (shoot) is a policy output, not motion — ignored here.
     forward = np.asarray(forward, dtype=np.float64)
     up = np.asarray(up, dtype=np.float64)
     dt = a[:3].astype(np.float64)
@@ -194,6 +211,8 @@ def apply_action_5d(
 
 __all__ = [
     "ACTION_DIM",
+    "POSE_DIM",
+    "SHOOT_DIM",
     "ACTION_SCALE",
     "normalize_action_5d",
     "denormalize_action_5d",

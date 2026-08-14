@@ -458,7 +458,13 @@ class CosmosWorldActionPolicy(nn.Module):
             x[:, :, a_idx], chunk_size=self.chunk_size, action_dim=self.action_dim,
         )
         if denormalize:
-            pred_action = pred_action * self.action_scale.to(pred_action.dtype)
+            scale = self.action_scale.to(pred_action.dtype)   # (POSE_DIM,)
+            p = scale.shape[-1]
+            if pred_action.shape[-1] > p:
+                # 6D action (pose + shoot): scale pose dims, pass shoot (0/1) through.
+                pred_action = torch.cat([pred_action[..., :p] * scale, pred_action[..., p:]], dim=-1)
+            else:
+                pred_action = pred_action * scale
         pred_value: Optional[torch.Tensor] = None
         if self.use_value_latent:
             v_idx = self.value_latent_idx(t_img)

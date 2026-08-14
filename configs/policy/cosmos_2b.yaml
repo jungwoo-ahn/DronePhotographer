@@ -27,11 +27,12 @@ data:
   annotation_roots:
     - data/trajectories
   chunk_size: 8                # ALOHA-style: 8 future actions per diffusion sample
-  stride: 1                    # sliding window; ~24 samples per accepted_pair (32-frame trajectory)
-  goal_sampling: uniform_future  # HER-"future": goal frame ~ U[end_frame, 31]; "end" = legacy fixed offset
-  val_split_level: placement         # unseen-scene generalization (pair | placement | scene | object)
-  val_names: configs/policy/val_placements_v7.txt   # frozen manifest — pins the val scenes forever;
-                                 # new data arrivals always go to train. Overrides the hash split.
+  stride: 1                    # (goal_start ignores stride)
+  sampling_scheme: goal_start  # V12 goal-start windows (well-framed goal + clamp-walk) -> 6D action w/ shoot
+  goal_start_max_per_pair: 24
+  goal_sampling: uniform_future  # (goal_start pins the goal to its well-framed goal_frame)
+  val_split_level: scene             # V12 scene-level held-out manifest (8 scenes, 675 placements)
+  val_names: configs/policy/val_scenes.json
   val_pair_stride: 0             # unused while val_names is set (hash-split fallback)
   val_stride: 4                  # window stride within val trajectories
   val_max_samples: 64            # cap val windows so the val pass stays fast (5 sigma evals

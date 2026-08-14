@@ -148,11 +148,15 @@ class EnvFactory:
     def __call__(self):
         if self.gpu_id is not None:
             os.environ["CUDA_VISIBLE_DEVICES"] = str(self.gpu_id)
+        from stable_baselines3.common.monitor import Monitor
+
         from src.policy.autophoto.reward import AestheticReward
 
         reward = AestheticReward(self.reward_ckpt, device="cuda")
-        return _make_scene_cycling_env(
-            self.placements, self.vlm_dir, self.rcfg, reward, self.freq, self.max_steps)
+        # Monitor records per-episode reward/length -> ep_info_buffer -> the
+        # rollout/ep_rew_mean the PPO logger prints (else the reward curve is invisible).
+        return Monitor(_make_scene_cycling_env(
+            self.placements, self.vlm_dir, self.rcfg, reward, self.freq, self.max_steps))
 
 
 def main() -> None:
@@ -183,10 +187,11 @@ def main() -> None:
         ]
         env = SubprocVecEnv(factories, start_method="spawn")
     else:
+        from stable_baselines3.common.monitor import Monitor
         from src.policy.autophoto.reward import AestheticReward
 
         reward = AestheticReward(cfg["reward"]["checkpoint"], device=cfg["reward"].get("device", "cuda"))
-        env = _make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps)
+        env = Monitor(_make_scene_cycling_env(placements, vlm_dir, rcfg, reward, freq, max_steps))
 
     out_dir = Path(tcfg["output_dir"]); out_dir.mkdir(parents=True, exist_ok=True)
     if args.resume_from:

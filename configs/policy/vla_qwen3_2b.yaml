@@ -13,8 +13,12 @@ backbone:
   # 25088 -> resized ~160x128 -> 80 patches -> 20 merged tokens (~2x faster than 50176).
   max_pixels: 25088             # ~160x128 input, 20 vision tokens
   min_pixels: 6272              # floor (~80x64)
-  n_goal_tokens: 4
-  prompt: "Describe the camera framing of the subject."
+  n_goal_tokens: 4                 # (unused when goal_conditioning: text)
+  prompt: "Describe the camera framing of the subject."   # (unused when goal_conditioning: text)
+  # "text": the goal IS the prompt — jungwoo's cinematography sentence (subject-relative
+  # bearing via the facing map), serialized per-sample by src/policy/common/goal_text.py.
+  # VLA-only NL conditioning (DP/cosmos keep the raw-azimuth soft-token goal space).
+  goal_conditioning: text
 
 expert:
   dim: 512
@@ -26,8 +30,13 @@ data:
     - data/trajectories_full     # symlink -> full v7 set (same as cosmos)
   chunk_size: 8
   stride: 1
-  sampling_scheme: multiscale_bidir  # ±offset endpoint windows -> goal-dependent actions (V12)
-  offsets: [8, 16, 24]               # per-start signed offsets; each a multiple of chunk_size
+  sampling_scheme: goal_start        # V12 goal-start windows (well-framed goal + clamp-walk) -> shoot channel
+  goal_start_max_per_pair: 24
+  goal_start_seed: 0
+  # Shared window-index disk cache (see diffusion_policy_dinov2.yaml). With
+  # matching index params the first baseline to run populates it; the rest
+  # (and every DDP rank) load in seconds instead of re-enumerating ~5M windows.
+  cache_dir: /home/nas5/jooyeolyun/datasets/drone_data/.index_cache
   max_samples: null
   target_resolution: [480, 720]
   goal_score_keys:
@@ -41,8 +50,8 @@ data:
     - bbox_y_offset
 
   # Held-out val: same scene-level manifest as the Cosmos policy.
-  val_split_level: placement
-  val_names: configs/policy/val_placements_v7.txt
+  val_split_level: scene
+  val_names: configs/policy/val_scenes.json
   val_stride: 4
   val_max_samples: 24    # small: each val window forwards through the 2B model
   val_iter: 2000         # infrequent: VLA is slow, so a val pass is a real stall

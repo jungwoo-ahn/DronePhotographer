@@ -93,6 +93,7 @@ def main() -> None:
         flow_config=flow_cfg,
         processor=processor,
         prompt=cfg["backbone"].get("prompt", "Describe the camera framing of the subject."),
+        goal_conditioning=cfg["backbone"].get("goal_conditioning", "soft_token"),
     )
 
     # Held-out validation split — same scene-level manifest the Cosmos policy
@@ -108,10 +109,13 @@ def main() -> None:
         chunk_size=cfg["data"]["chunk_size"],
         sampling_scheme=cfg["data"].get("sampling_scheme", "sliding_window"),
         offsets=cfg["data"].get("offsets", [8, 16, 24]),
+        goal_start_max_per_pair=int(cfg["data"].get("goal_start_max_per_pair", 24)),
+        goal_start_seed=int(cfg["data"].get("goal_start_seed", 0)),
         target_resolution=tuple(cfg["data"]["target_resolution"]),
         val_pair_stride=val_pair_stride,
         val_split_level=val_split_level,
         val_names=val_names,
+        cache_dir=cfg["data"].get("cache_dir"),
     )
     dataset = VLADroneDataset(
         cfg["data"]["annotation_roots"], stride=cfg["data"].get("stride", 1),
@@ -133,7 +137,8 @@ def main() -> None:
     if is_main:
         print(f"dataset size: {len(dataset)}" + (f" | val: {len(val_dataset)}" if val_dataset is not None else ""))
 
-    collate = VLACollate(processor, cfg["backbone"].get("prompt", "Describe the camera framing of the subject."))
+    collate = VLACollate(processor, cfg["backbone"].get("prompt", "Describe the camera framing of the subject."),
+                         goal_conditioning=cfg["backbone"].get("goal_conditioning", "soft_token"))
     sampler = (
         DistributedSampler(dataset, shuffle=cfg["dataloader"]["shuffle"], drop_last=cfg["dataloader"]["drop_last"])
         if is_distributed else None

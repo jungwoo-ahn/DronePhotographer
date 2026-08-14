@@ -172,7 +172,13 @@ class DiffusionPolicy(nn.Module):
             model_out = self.denoiser(x.to(cond.dtype), t.expand(b), cond).float()
             x = self.scheduler_infer.step(model_out, t, x).prev_sample
         if denormalize:
-            x = x * self.action_scale.to(x.dtype)
+            scale = self.action_scale.to(x.dtype)   # (POSE_DIM,)
+            p = scale.shape[-1]
+            if x.shape[-1] > p:
+                # 6D action (pose + shoot): scale the pose dims, pass shoot (0/1) through.
+                x = torch.cat([x[..., :p] * scale, x[..., p:]], dim=-1)
+            else:
+                x = x * scale
         return DPOutputs(pred_action_chunk=x)
 
 

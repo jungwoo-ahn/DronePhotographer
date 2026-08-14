@@ -76,11 +76,16 @@ class VLAActionPolicy(nn.Module):
         action_scale=None,
         processor=None,
         prompt: str = "Describe the camera framing of the subject.",
+        goal_conditioning: str = "soft_token",
     ) -> None:
         super().__init__()
         self.backbone = backbone
         self.processor = processor          # Qwen3VLProcessor (real path); None for mock tests
         self.prompt = prompt
+        # "soft_token": goal -> soft tokens appended to context (fixed text prompt).
+        # "text": the goal IS the prompt (jungwoo's goal_prompt, subject-relative bearing);
+        #         no goal tokens, goal_vec is ignored. See src/policy/common/goal_text.py.
+        self.goal_conditioning = goal_conditioning
         if ctx_dim is None:
             cfg = getattr(backbone, "config", None)
             tcfg = getattr(cfg, "text_config", cfg)
@@ -93,8 +98,11 @@ class VLAActionPolicy(nn.Module):
         self.flow = flow_config or FlowConfig()
 
         # Goal vector -> soft tokens in the VLM hidden space (appended to context).
-        self.goal_proj = nn.Linear(goal_dim, n_goal_tokens * ctx_dim)
-        self.goal_norm = nn.LayerNorm(ctx_dim)
+        # Only built for soft-token conditioning: in "text" mode the goal is in the
+        # prompt and these would be unused params (a hard DDP error under all-reduce).
+        if self.goal_conditioning != "text":
+            self.goal_proj = nn.Linear(goal_dim, n_goal_tokens * ctx_dim)
+            self.goal_norm = nn.LayerNorm(ctx_dim)
         self.action_expert = ActionExpert(
             action_dim=action_dim, ctx_dim=ctx_dim, dim=expert_dim,
             depth=expert_depth, n_heads=expert_heads, chunk_size=chunk_size,
@@ -127,18 +135,25 @@ class VLAActionPolicy(nn.Module):
         per sample; the goal enters separately as soft tokens, not as text). The
         mock tests bypass this and call `compute_loss` with hand-built tensors.
         """
-        from src.policy.vla.dataset import build_vlm_inputs
+        from src.policy.vla.dataset import build_vlm_inputs, goal_to_prompt
 
-        proc = build_vlm_inputs(self.processor, self.prompt, batch["state_image"])
+        if self.goal_conditioning == "text" and "goal_raw" in batch:
+            objs = [m["object"] for m in batch["meta"]] if "meta" in batch else batch["object"]
+            prompt = [goal_to_prompt(gr.cpu().numpy(), o) for gr, o in zip(batch["goal_raw"], objs)]
+        else:
+            prompt = self.prompt
+        proc = build_vlm_inputs(self.processor, prompt, batch["state_image"])
         vlm_inputs = {k: (v.to(device) if hasattr(v, "to") else v) for k, v in proc.items()}
         goal = batch["goal_vec"].to(device, dtype)
         action = batch["action_chunk"].to(device, dtype)
         return vlm_inputs, goal, action
 
     def forward_context(self, vlm_inputs: dict, goal_vec: torch.Tensor) -> torch.Tensor:
-        """Run the VLM and append goal tokens → context (B, L + n_goal_tokens, D)."""
+        """Run the VLM; append goal tokens unless the goal is already in the text prompt."""
         out = self.backbone(**vlm_inputs)
         h = out.last_hidden_state if hasattr(out, "last_hidden_state") else out[0]
+        if self.goal_conditioning == "text":
+            return h                        # goal is in the prompt; no soft tokens
         b = h.shape[0]
         goal_tok = self.goal_proj(goal_vec).view(b, self.n_goal_tokens, self.ctx_dim)
         goal_tok = self.goal_norm(goal_tok).to(h.dtype)
@@ -180,7 +195,13 @@ class VLAActionPolicy(nn.Module):
             v = self.action_expert(x, sig, ctx)
             x = x + (sigmas[i + 1] - sigmas[i]).to(x.dtype) * v
         if denormalize:
-            x = x * self.action_scale.to(x.dtype)
+            scale = self.action_scale.to(x.dtype)   # (POSE_DIM,)
+            p = scale.shape[-1]
+            if x.shape[-1] > p:
+                # 6D action (pose + shoot): scale pose dims, pass shoot (0/1) through.
+                x = torch.cat([x[..., :p] * scale, x[..., p:]], dim=-1)
+            else:
+                x = x * scale
         return VLAOutputs(pred_action_chunk=x)
 
 

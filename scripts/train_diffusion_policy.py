@@ -89,10 +89,13 @@ def main() -> None:
         chunk_size=cfg["data"]["chunk_size"],
         sampling_scheme=cfg["data"].get("sampling_scheme", "sliding_window"),
         offsets=cfg["data"].get("offsets", [8, 16, 24]),
+        goal_start_max_per_pair=int(cfg["data"].get("goal_start_max_per_pair", 24)),
+        goal_start_seed=int(cfg["data"].get("goal_start_seed", 0)),
         target_resolution=tuple(cfg["data"]["target_resolution"]),
         val_pair_stride=val_pair_stride,
         val_split_level=val_split_level,
         val_names=val_names,
+        cache_dir=cfg["data"].get("cache_dir"),
     )
     dataset = DiffusionPolicyDataset(
         cfg["data"]["annotation_roots"], stride=cfg["data"].get("stride", 1),
