@@ -35,6 +35,7 @@ DEFAULT_V5_RANGES: dict[str, tuple[float, float]] = {
     "occupancy": (0.0, 100.0),
     "body_in_frame_ratio": (0.0, 100.0),
     "cam_to_obj_azimuth_deg": (0.0, 360.0),
+    "subject_bearing_deg": (0.0, 360.0),   # subject-relative bearing (jungwoo's usable goal axis)
     "cam_to_obj_elevation_deg": (-90.0, 90.0),
     "object_center_x": (0.0, RENDER_WIDTH),
     "object_center_y": (0.0, RENDER_HEIGHT),
@@ -47,7 +48,7 @@ DEFAULT_V5_RANGES: dict[str, tuple[float, float]] = {
 # map to opposite ends of [-1, 1]). For the prototype we accept the seam; a
 # sin/cos encoding (which would add one dimension per cyclic key) is the proper
 # fix if azimuth conditioning proves unreliable near 0/360.
-CYCLIC_GOAL_KEYS: frozenset[str] = frozenset({"cam_to_obj_azimuth_deg"})
+CYCLIC_GOAL_KEYS: frozenset[str] = frozenset({"cam_to_obj_azimuth_deg", "subject_bearing_deg"})
 
 
 def goal_keys(custom: Sequence[str] | None = None) -> list[str]:

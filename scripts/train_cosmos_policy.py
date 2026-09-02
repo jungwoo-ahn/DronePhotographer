@@ -130,12 +130,8 @@ def main() -> None:
     # Frozen manifest: a YAML list of unit names, or a path to a txt file
     # (one name per line, '#' comments). Overrides the hash split — the val
     # set is pinned and all future data arrivals are train.
-    val_names = cfg["data"].get("val_names")
-    if isinstance(val_names, str):
-        val_names = [
-            ln.strip() for ln in Path(val_names).read_text().splitlines()
-            if ln.strip() and not ln.strip().startswith("#")
-        ]
+    from src.policy.common.annotations import load_val_names
+    val_names = load_val_names(cfg["data"].get("val_names"))
     dataset = CosmosDroneDataset(
         cfg["data"]["annotation_roots"],
         goal_score_keys=cfg["data"]["goal_score_keys"],

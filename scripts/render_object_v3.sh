@@ -84,7 +84,7 @@ PIDS=()
 for i in "${!GPUS[@]}"; do
   gpu_id="${GPUS[$i]}"
   echo "  Starting worker ${i} on GPU ${gpu_id} (log: ${LOG_DIR}/worker_${i}.log)"
-  CUDA_VISIBLE_DEVICES="${gpu_id}" "${BLENDER_BIN}" -b -t "${BLENDER_THREADS}" -P "${REPO_ROOT}/render_object_v3.py" -- \
+  CUDA_VISIBLE_DEVICES="${gpu_id}" "${BLENDER_BIN}" -b -t "${BLENDER_THREADS}" -P "${REPO_ROOT}/scripts/render_object_v3.py" -- \
     "${COMMON_ARGS[@]}" \
     --worker_index "${i}" \
     --gpu_devices 0 \

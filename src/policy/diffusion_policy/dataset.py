@@ -92,10 +92,15 @@ class DiffusionPolicyDataset(Dataset):
         action_scale=None,
         filter_clamped_goals: bool = True,
         goal_sampling: str = "uniform_future",
+        sampling_scheme: str = "sliding_window",
+        offsets: Sequence[int] = (8, 16, 24),
+        goal_start_max_per_pair: int = 24,
+        goal_start_seed: int = 0,
         val_pair_stride: int = 0,
         val_split_level: str = "pair",
         val_names: Sequence[str] | None = None,
         split: str = "train",
+        cache_dir: str | Path | None = None,
     ) -> None:
         self.target_resolution = target_resolution
         self.normalize = normalize_goal_to_unit_cube
@@ -109,10 +114,15 @@ class DiffusionPolicyDataset(Dataset):
             max_samples=max_samples,
             filter_clamped_goals=filter_clamped_goals,
             goal_sampling=goal_sampling,
+            sampling_scheme=sampling_scheme,
+            offsets=offsets,
+            goal_start_max_per_pair=goal_start_max_per_pair,
+            goal_start_seed=goal_start_seed,
             val_pair_stride=val_pair_stride,
             val_split_level=val_split_level,
             val_names=val_names,
             split=split,
+            cache_dir=cache_dir,
         )
         if len(self.base):
             p = Path(self.base[0].start.image)

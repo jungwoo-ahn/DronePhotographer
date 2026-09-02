@@ -19,12 +19,16 @@ data:
     - data/trajectories_full
   chunk_size: 8
   stride: 1
+  sampling_scheme: goal_start
+  goal_start_max_per_pair: 24
+  goal_start_seed: 0
+  cache_dir: /home/nas5/jooyeolyun/datasets/drone_data/.index_cache
   max_samples: 256
   target_resolution: [224, 224]
   goal_score_keys:
     - occupancy
     - body_in_frame_ratio
-    - cam_to_obj_azimuth_deg
+    - subject_bearing_deg
     - cam_to_obj_elevation_deg
     - object_center_x
     - object_center_y
@@ -32,7 +36,7 @@ data:
     - bbox_y_offset
 
   val_split_level: scene
-  val_names: configs/policy/val_scenes.txt
+  val_names: configs/policy/val_scenes.json
   val_stride: 8
   val_max_samples: 16
   val_iter: 10

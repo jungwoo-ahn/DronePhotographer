@@ -13,6 +13,7 @@ pure-Python env/RL logic is covered by tests with MockRenderer.)
 from __future__ import annotations
 
 import json
+import select
 import subprocess
 import sys
 import tempfile
@@ -21,16 +22,24 @@ from pathlib import Path
 from src.policy.common.blender_env import Renderer
 
 
+class RenderTimeout(RuntimeError):
+    """A single Blender render exceeded the timeout (hung EEVEE/GPU)."""
+
+
 class PersistentBlenderRenderer(Renderer):
     def __init__(self, blender_bin: str = "blender/blender",
                  worker_script: str = "scripts/blender_render_worker.py",
                  repo_root: Path | None = None, *, engine: str = "BLENDER_EEVEE_NEXT",
-                 samples: int = 16) -> None:
+                 samples: int = 16, timeout_s: float = 90.0, cycles_gpu: bool = False) -> None:
         self.repo_root = Path(repo_root) if repo_root else Path(__file__).resolve().parents[3]
         self.blender_bin = str((self.repo_root / blender_bin).resolve())
         self.worker_script = str((self.repo_root / worker_script).resolve())
         self.engine = engine
         self.samples = samples
+        self.timeout_s = timeout_s
+        # Cycles+OptiX honors CUDA_VISIBLE_DEVICES (EEVEE does NOT — it always
+        # lands on physical GPU 0). Use Cycles to keep renders off a forbidden GPU.
+        self.cycles_gpu = cycles_gpu
         self._proc: subprocess.Popen | None = None
         self._run_info: str | None = None
         self._tmpdir = tempfile.mkdtemp(prefix="autophoto_frames_")
@@ -39,8 +48,8 @@ class PersistentBlenderRenderer(Renderer):
     def _start(self, run_info_path: str) -> None:
         self._stop()
         cmd = [self.blender_bin, "-b", "-P", self.worker_script, "--",
-               "--run_info_path", str(run_info_path), "--engine", self.engine,
-               "--samples", str(self.samples)]
+               "--run_info_path", str(run_info_path), "--samples", str(self.samples)]
+        cmd += ["--cycles-gpu"] if self.cycles_gpu else ["--engine", self.engine]
         self._proc = subprocess.Popen(cmd, cwd=str(self.repo_root), stdin=subprocess.PIPE,
                                       stdout=subprocess.PIPE, text=True, bufsize=1)
         self._run_info = str(run_info_path)
@@ -50,11 +59,21 @@ class PersistentBlenderRenderer(Renderer):
                 break
 
     def _readline_ok(self) -> dict:
-        for line in self._proc.stdout:
+        """Read one JSON response, but never block forever: a hung render (EEVEE/GPU
+        deadlock) must surface as RenderTimeout so the caller can recover, instead
+        of wedging the whole SubprocVecEnv on an unbounded pipe read."""
+        fd = self._proc.stdout
+        while True:
+            ready, _, _ = select.select([fd], [], [], self.timeout_s)
+            if not ready:
+                self._stop()  # kill the hung worker; next render() restarts it
+                raise RenderTimeout(f"render exceeded {self.timeout_s}s")
+            line = fd.readline()
+            if line == "":  # EOF -> worker died
+                raise RuntimeError("Blender worker closed unexpectedly")
             line = line.strip()
             if line.startswith("{"):
                 return json.loads(line)
-        raise RuntimeError("Blender worker closed unexpectedly")
 
     def render(self, run_info_path, position, forward, up):
         from PIL import Image

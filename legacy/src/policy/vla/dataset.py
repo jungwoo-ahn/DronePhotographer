@@ -40,12 +40,13 @@ def _load_image_as_tensor(image_path: Path, target_resolution: tuple[int, int]) 
     return torch.from_numpy(arr).permute(2, 0, 1).contiguous()
 
 
-def build_vlm_inputs(processor, prompt: str, images: torch.Tensor) -> dict:
-    """Run the Qwen3-VL processor on a batch of [-1,1] CHW images + a fixed prompt.
+def build_vlm_inputs(processor, prompt, images: torch.Tensor) -> dict:
+    """Run the Qwen3-VL processor on a batch of [-1,1] CHW images + prompt(s).
 
-    Shared by the training collate (runs in dataloader workers → overlaps GPU
-    compute, the fix for the ~50% idle util) and by eval (single image). The goal
-    enters separately as soft tokens, so the text is a fixed prompt, not the goal.
+    `prompt` may be a single string (soft-token conditioning: a fixed prompt, goal
+    enters as soft tokens) or a per-sample list of strings (NL conditioning: each
+    prompt IS the goal, via `goal_text.goal_prompt`). Shared by the training collate
+    (runs in dataloader workers → overlaps GPU compute) and by eval.
     """
     from PIL import Image
 
@@ -53,10 +54,22 @@ def build_vlm_inputs(processor, prompt: str, images: torch.Tensor) -> dict:
     for im in images:
         arr = ((im.float().permute(1, 2, 0) * 0.5 + 0.5).clamp(0, 1) * 255).to(torch.uint8).cpu().numpy()
         pil.append(Image.fromarray(arr))
-    messages = [[{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": prompt}]}]] * len(pil)
+    prompts = prompt if isinstance(prompt, (list, tuple)) else [prompt] * len(pil)
+    messages = [[{"role": "user", "content": [{"type": "image"}, {"type": "text", "text": p}]}] for p in prompts]
     text = [processor.apply_chat_template(m, add_generation_prompt=True, tokenize=False) for m in messages]
     proc = processor(text=text, images=pil, return_tensors="pt", padding=True)
     return dict(proc)
+
+
+def goal_to_prompt(goal_raw: "np.ndarray", object_key: str | None = None) -> str:
+    """NL conditioning prompt for one sample. The VLA goal space now uses
+    `subject_bearing_deg` (its goal_score_keys == goal_text.NL_GOAL_KEYS order), so the raw
+    goal vector serializes directly — the subject-relative bearing is already in it (derived
+    in annotations._frame_to_view from the facing map). `object_key` is accepted for
+    signature compatibility but unused."""
+    from src.policy.common.goal_text import NL_GOAL_KEYS, goal_prompt
+
+    return goal_prompt(np.asarray(goal_raw, dtype=np.float32), NL_GOAL_KEYS)
 
 
 class VLACollate:
@@ -67,16 +80,25 @@ class VLACollate:
     serializing in the training loop. Returns the model-ready batch.
     """
 
-    def __init__(self, processor, prompt: str) -> None:
+    def __init__(self, processor, prompt: str, goal_conditioning: str = "soft_token") -> None:
         self.processor = processor
         self.prompt = prompt
+        self.goal_conditioning = goal_conditioning   # "soft_token" | "text"
 
     def __call__(self, samples: list[dict]) -> dict:
         images = torch.stack([s["state_image"] for s in samples])
-        vlm_inputs = build_vlm_inputs(self.processor, self.prompt, images)
+        if self.goal_conditioning == "text":
+            # The goal IS the prompt (per sample). goal_vec is then unused by the model;
+            # pass zeros so the batch shape is unchanged.
+            prompts = [goal_to_prompt(s["goal_raw"].numpy(), s["meta"]["object"]) for s in samples]
+            vlm_inputs = build_vlm_inputs(self.processor, prompts, images)
+            goal_vec = torch.zeros_like(torch.stack([s["goal_vec"] for s in samples]))
+        else:
+            vlm_inputs = build_vlm_inputs(self.processor, self.prompt, images)
+            goal_vec = torch.stack([s["goal_vec"] for s in samples])
         return {
             "vlm_inputs": vlm_inputs,
-            "goal_vec": torch.stack([s["goal_vec"] for s in samples]),
+            "goal_vec": goal_vec,
             "action_chunk": torch.stack([s["action_chunk"] for s in samples]),
             "meta": [s["meta"] for s in samples],
         }
@@ -97,10 +119,15 @@ class VLADroneDataset(Dataset):
         action_scale=None,
         filter_clamped_goals: bool = True,
         goal_sampling: str = "uniform_future",
+        sampling_scheme: str = "sliding_window",
+        offsets: Sequence[int] = (8, 16, 24),
+        goal_start_max_per_pair: int = 24,
+        goal_start_seed: int = 0,
         val_pair_stride: int = 0,
         val_split_level: str = "pair",
         val_names: Sequence[str] | None = None,
         split: str = "train",
+        cache_dir: str | Path | None = None,
     ) -> None:
         self.target_resolution = target_resolution
         self.normalize = normalize_goal_to_unit_cube
@@ -114,10 +141,15 @@ class VLADroneDataset(Dataset):
             max_samples=max_samples,
             filter_clamped_goals=filter_clamped_goals,
             goal_sampling=goal_sampling,
+            sampling_scheme=sampling_scheme,
+            offsets=offsets,
+            goal_start_max_per_pair=goal_start_max_per_pair,
+            goal_start_seed=goal_start_seed,
             val_pair_stride=val_pair_stride,
             val_split_level=val_split_level,
             val_names=val_names,
             split=split,
+            cache_dir=cache_dir,
         )
         if len(self.base):
             p = Path(self.base[0].start.image)
@@ -139,6 +171,9 @@ class VLADroneDataset(Dataset):
         return {
             "state_image": img,
             "goal_vec": torch.from_numpy(goal),
+            # Raw (unnormalized) goal + object: the NL collate serializes these into the
+            # goal_prompt text (needs degrees/%/px + the object's facing for bearing).
+            "goal_raw": torch.from_numpy(np.asarray(s.goal_vec, dtype=np.float32)),
             "action_chunk": torch.from_numpy(action_chunk),
             "meta": {
                 "annotation_path": str(s.start.annotation_path),
@@ -146,7 +181,7 @@ class VLADroneDataset(Dataset):
                 "start_frame_idx": s.start.frame_idx,
                 "goal_frame_idx": s.goal.frame_idx,
                 "scene": s.start.scene,
-                "object": s.start.object,
+                "object": s.goal.object,
             },
         }
 

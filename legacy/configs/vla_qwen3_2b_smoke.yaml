@@ -9,6 +9,7 @@ backbone:
   gradient_checkpointing: true
   n_goal_tokens: 4
   prompt: "Describe the camera framing of the subject."
+  goal_conditioning: text        # goal as jungwoo's NL prompt (subject-relative bearing)
 
 expert:
   dim: 512
@@ -20,12 +21,15 @@ data:
     - data/trajectories_full
   chunk_size: 8
   stride: 1
+  sampling_scheme: goal_start
+  goal_start_max_per_pair: 24
+  cache_dir: /home/nas5/jooyeolyun/datasets/drone_data/.index_cache
   max_samples: 512
   target_resolution: [224, 336]
   goal_score_keys:
     - occupancy
     - body_in_frame_ratio
-    - cam_to_obj_azimuth_deg
+    - subject_bearing_deg
     - cam_to_obj_elevation_deg
     - object_center_x
     - object_center_y
@@ -34,7 +38,7 @@ data:
 
   # Held-out val: same scene-level manifest as the Cosmos policy.
   val_split_level: scene
-  val_names: configs/policy/val_scenes.txt
+  val_names: configs/policy/val_scenes.json
   val_stride: 4
   val_max_samples: 64
   val_iter: 60

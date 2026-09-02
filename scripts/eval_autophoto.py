@@ -56,12 +56,25 @@ def main() -> None:
 
     obs, info = env.reset()
     init_score = info["init_score"]
-    lstm_state, done = None, False
+    lstm_state, done, n_steps = None, False, 0
     while not done:
         action, lstm_state = model.predict(obs, state=lstm_state, deterministic=True)
         obs, _, terminated, truncated, info = env.step(int(action))
         done = terminated or truncated
+        n_steps += 1
     final_pos = env.rollout.position
+
+    # Save the actual photos the policy "took": the renderer wrote every rendered
+    # frame to its tmpdir as f0.png (initial pose) .. f{N-1}.png (final pose).
+    import shutil
+    frames_dir = Path(renderer._tmpdir)
+    out_frames = (args.out.parent if args.out else args.start_annotation.parent)
+    last = renderer._n - 1
+    if (frames_dir / "f0.png").exists():
+        shutil.copy(frames_dir / "f0.png", out_frames / "autophoto_initial.jpg")
+    if last >= 0 and (frames_dir / f"f{last}.png").exists():
+        shutil.copy(frames_dir / f"f{last}.png", out_frames / "autophoto_final.jpg")
+    print(f"rolled out {n_steps} steps; frames -> {out_frames}/autophoto_(initial|final).jpg")
 
     target = {(("object_center_x" if k == "center_x" else "object_center_y" if k == "center_y" else k)): float(v)
               for k, v in yaml.safe_load(args.target.read_text()).get("target", {}).items()}

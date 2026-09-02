@@ -13,7 +13,7 @@ The current configs default to rule-based bbox controllability targets derived f
 
 ## What Is In This Repo
 
-- `render_object.py`: Blender rendering entry point. Produces RGB images, optional depth maps, `annotations.json`, and `run_info.json`.
+- `scripts/render_object.py`: Blender rendering entry point. Produces RGB images, optional depth maps, `annotations.json`, and `run_info.json`.
 - `src/detectors/detector.py`: GroundingDINO wrapper plus optional visualization helpers.
 - `src/scoring/`: score extraction and normalization utilities.
 - `src/vlm_qwen25/`: dataset construction, prompt formatting, rotation math, collator, JSON parsing, MPC planner, and composition objectives.
@@ -27,7 +27,7 @@ The current configs default to rule-based bbox controllability targets derived f
 
 ## End-To-End Workflow
 
-1. Render many single views around a subject with `render_object.py`.
+1. Render many single views around a subject with `scripts/render_object.py`.
 2. Add detections to each rendered view with `scripts/annotate_detections.py`.
 3. Optionally materialize `score_*` fields with `scripts/score_annotations.py`.
 4. Build training pairs on the fly from nearby views:
@@ -103,7 +103,7 @@ Supported environment overrides:
 ### Full Render Launcher
 
 ```bash
-bash render_object.sh
+bash scripts/render_object.sh
 ```
 
 This wrapper defaults to a 10k-image DogWalk render and writes a run directory under `outputs/`.
@@ -125,7 +125,7 @@ Selection precedence in the renderer is:
 Example:
 
 ```bash
-blender/blender -b -P render_object.py -- \
+blender/blender -b -P scripts/render_object.py -- \
   --input_scene /abs/path/to/DogWalk.blend \
   --output_dir outputs \
   --run_name demo \

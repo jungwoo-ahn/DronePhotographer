@@ -38,15 +38,45 @@ def _parse(argv):
     p.add_argument("--run_info_path", required=True)
     p.add_argument("--engine", default=None, help="e.g. BLENDER_EEVEE_NEXT for fast rollouts")
     p.add_argument("--samples", type=int, default=None)
+    p.add_argument("--cycles-gpu", action="store_true",
+                   help="Cycles on GPU (OptiX). Unlike EEVEE, Cycles honors CUDA_VISIBLE_DEVICES, "
+                        "so this is the only way to keep a headless render OFF a forbidden GPU.")
     i = argv.index("--") + 1 if "--" in argv else len(argv)
     return p.parse_args(argv[i:])
+
+
+def _enable_cycles_gpu(scene) -> str:
+    """Set Cycles + OptiX GPU. CUDA_VISIBLE_DEVICES masks which physical GPU(s)
+    OptiX sees, so the render lands on the intended (non-forbidden) GPU. Returns
+    a short status string for the ready handshake."""
+    import bpy
+
+    scene.render.engine = "CYCLES"
+    prefs = bpy.context.preferences.addons["cycles"].preferences
+    prefs.compute_device_type = "OPTIX"
+    prefs.get_devices()
+    on = [d.name for d in prefs.devices if d.type != "CPU"]
+    for d in prefs.devices:
+        d.use = (d.type != "CPU")
+    scene.cycles.device = "GPU"
+    # Reuse the OptiX BVH across renders in the same scene — the BVH build on
+    # heavy scenes dominates the FIRST render (can exceed a minute); persistent
+    # data makes every subsequent render in that scene fast.
+    scene.render.use_persistent_data = True
+    return f"cycles/optix devices: {on}"
 
 
 def main(argv) -> None:
     args = _parse(argv)
     drone = BlenderDrone.from_run_info(args.run_info_path)
     scene = drone.scene
-    if args.engine:                       # speed: EEVEE instead of Cycles for RL
+    status = None
+    if args.cycles_gpu:
+        try:
+            status = _enable_cycles_gpu(scene)
+        except Exception as e:  # noqa: BLE001
+            print(json.dumps({"warn": f"cycles-gpu setup failed: {e}"}), flush=True)
+    elif args.engine:                     # speed: EEVEE instead of Cycles for RL
         try:
             scene.render.engine = args.engine
         except Exception as e:  # noqa: BLE001
@@ -56,6 +86,8 @@ def main(argv) -> None:
             scene.cycles.samples = args.samples
         if hasattr(scene, "eevee"):
             scene.eevee.taa_render_samples = args.samples
+    if status:
+        print(json.dumps({"info": status}), flush=True)
 
     print(json.dumps({"ready": True}), flush=True)
     for line in sys.stdin:

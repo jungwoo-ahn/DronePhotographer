@@ -274,3 +274,57 @@ def rotation_quality(rotation: np.ndarray) -> tuple[float, float]:
     det_error = abs(float(np.linalg.det(rotation)) - 1.0)
     orth_error = float(np.linalg.norm(rotation.T @ rotation - np.eye(3), ord="fro"))
     return det_error, orth_error
+
+
+# --- OpenCV camera rotation + 6D rotation (Cosmos/V12 convention) — for the 9D action ---
+WORLD_UP_Z = np.array([0.0, 0.0, 1.0], dtype=np.float64)
+
+
+def nearest_rotation_matrix(matrix: np.ndarray) -> np.ndarray:
+    """Project a 3x3 matrix onto the nearest rotation (SVD; det forced to +1)."""
+    u, _, vt = np.linalg.svd(np.asarray(matrix, dtype=np.float64))
+    if np.linalg.det(u @ vt) < 0:
+        u = u.copy(); u[:, -1] *= -1.0
+    return (u @ vt).astype(np.float64)
+
+
+def camera_rotation_opencv_from_forward_up(forward: np.ndarray, up: np.ndarray) -> np.ndarray:
+    """Camera-to-world rotation in the OPENCV camera frame (columns = right, down, forward)."""
+    basis = make_camera_basis_from_forward_up(forward, up)   # [right, up, forward]
+    right, upn, fwd = basis[:, 0], basis[:, 1], basis[:, 2]
+    return np.stack([right, -upn, fwd], axis=1).astype(np.float64)
+
+
+def forward_up_from_camera_rotation_opencv(rotation: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Inverse of `camera_rotation_opencv_from_forward_up` -> (forward, up), world frame."""
+    r = np.asarray(rotation, dtype=np.float64)
+    return normalize(r[:, 2]).astype(np.float32), normalize(-r[:, 1]).astype(np.float32)
+
+
+def rot6d_from_matrix(rotation: np.ndarray) -> np.ndarray:
+    """3x3 rotation -> 6D (first two COLUMNS, Cosmos convention)."""
+    r = np.asarray(rotation, dtype=np.float64)
+    return np.concatenate([r[:, 0], r[:, 1]]).astype(np.float32)
+
+
+def matrix_from_rot6d(rot6d: np.ndarray, normalize_matrix: bool = True) -> np.ndarray:
+    """6D -> 3x3 rotation: col2 = cross(col0, col1), then (optionally) project to SO(3)."""
+    v = np.asarray(rot6d, dtype=np.float64).reshape(-1)
+    if v.shape[0] != 6:
+        raise ValueError(f"expected 6-D rotation, got shape {v.shape}")
+    col0, col1 = v[:3], v[3:]
+    matrix = np.stack([col0, col1, np.cross(col0, col1)], axis=1)
+    return nearest_rotation_matrix(matrix) if normalize_matrix else matrix
+
+
+def project_forward_up_upright(forward, up=None, world_up=WORLD_UP_Z):
+    """Re-impose ROLL-FREE: rebuild `up` in the vertical plane containing `forward`."""
+    fwd = normalize(np.asarray(forward, dtype=np.float64))
+    right = np.cross(fwd, np.asarray(world_up, dtype=np.float64))
+    if np.linalg.norm(right) < 1e-6:                          # aim ~ vertical: roll undefined
+        if up is None:
+            raise ValueError("forward parallel to world_up and no fallback up")
+        return orthonormalize_forward_up(fwd.astype(np.float32), np.asarray(up, dtype=np.float32))
+    right = normalize(right)
+    upright = normalize(np.cross(right, fwd))
+    return fwd.astype(np.float32), upright.astype(np.float32)
