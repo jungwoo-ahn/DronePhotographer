@@ -24,7 +24,7 @@ from torch import nn
 
 from src.policy.common.action_repr import ACTION_DIM, ACTION_SCALE
 from src.policy.common.flow import FlowConfig, flow_sigma_schedule, sample_flow_sigma
-from src.policy.vla.action_expert import ActionExpert
+from src.policy.vla.action_expert import ActionExpert, DiTActionExpert
 
 
 @dataclass
@@ -70,6 +70,7 @@ class VLAActionPolicy(nn.Module):
         expert_dim: int = 512,
         expert_depth: int = 6,
         expert_heads: int = 8,
+        expert_type: str = "mlp",           # "mlp" (π0-style) | "dit" (GR00T-style AdaLN-Zero)
         freeze_backbone: bool = False,
         freeze_vision: bool = False,
         flow_config: FlowConfig | None = None,
@@ -103,7 +104,9 @@ class VLAActionPolicy(nn.Module):
         if self.goal_conditioning != "text":
             self.goal_proj = nn.Linear(goal_dim, n_goal_tokens * ctx_dim)
             self.goal_norm = nn.LayerNorm(ctx_dim)
-        self.action_expert = ActionExpert(
+        # "mlp" = the π0-style add-timestep expert; "dit" = GR00T-style AdaLN-Zero DiT head.
+        _Expert = DiTActionExpert if expert_type == "dit" else ActionExpert
+        self.action_expert = _Expert(
             action_dim=action_dim, ctx_dim=ctx_dim, dim=expert_dim,
             depth=expert_depth, n_heads=expert_heads, chunk_size=chunk_size,
         )

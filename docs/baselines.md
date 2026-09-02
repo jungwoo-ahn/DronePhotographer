@@ -43,7 +43,7 @@ class — not the data or metric:
 | **AutoPhoto** | **no** (aesthetic only) | yes (RL) | aesthetic ResNet18 reward + RecurrentPPO (LSTM) | no goal conditioning at all |
 | **UNIC** | **no** (generic composition) | training-free | vendored UNIC composition detector → heuristic pan/zoom | no goal, no learning, reactive only |
 
-_Retired: the hand-rolled **Qwen3-VL "π0-style" VLA** (`src/policy/vla/`) was replaced by
+_Retired: the hand-rolled **Qwen3-VL "π0-style" VLA** (now `legacy/src/policy/vla/`) was replaced by
 the two real pretrained VLAs above (pi0.5, GR00T) loaded via LeRobot — see `pi05-baseline-setup`
 / `groot-baseline-setup` for env + vendoring details._
 

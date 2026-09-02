@@ -94,6 +94,7 @@ def main() -> None:
         processor=processor,
         prompt=cfg["backbone"].get("prompt", "Describe the camera framing of the subject."),
         goal_conditioning=cfg["backbone"].get("goal_conditioning", "soft_token"),
+        expert_type=cfg["expert"].get("type", "mlp"),
     )
 
     # Held-out validation split — same scene-level manifest the Cosmos policy

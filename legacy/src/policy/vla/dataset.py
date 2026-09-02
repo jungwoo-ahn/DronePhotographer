@@ -61,20 +61,15 @@ def build_vlm_inputs(processor, prompt, images: torch.Tensor) -> dict:
     return dict(proc)
 
 
-def goal_to_prompt(goal_raw: "np.ndarray", object_key: str) -> str:
-    """NL conditioning prompt for one sample: substitute the subject-relative bearing for
-    the raw world azimuth, then serialize with `goal_text.goal_prompt`. Falls back to the
-    world angle only if the object has no facing entry (shouldn't happen: 102/102 mapped)."""
-    from src.policy.common.facing import subject_bearing_deg
-    from src.policy.common.goal_space import goal_keys
+def goal_to_prompt(goal_raw: "np.ndarray", object_key: str | None = None) -> str:
+    """NL conditioning prompt for one sample. The VLA goal space now uses
+    `subject_bearing_deg` (its goal_score_keys == goal_text.NL_GOAL_KEYS order), so the raw
+    goal vector serializes directly — the subject-relative bearing is already in it (derived
+    in annotations._frame_to_view from the facing map). `object_key` is accepted for
+    signature compatibility but unused."""
     from src.policy.common.goal_text import NL_GOAL_KEYS, goal_prompt
 
-    az_idx = goal_keys().index("cam_to_obj_azimuth_deg")
-    g = np.asarray(goal_raw, dtype=np.float32).copy()
-    b = subject_bearing_deg(float(g[az_idx]), object_key)   # yaw=0 on original renders
-    if b is not None:
-        g[az_idx] = b
-    return goal_prompt(g, NL_GOAL_KEYS)
+    return goal_prompt(np.asarray(goal_raw, dtype=np.float32), NL_GOAL_KEYS)
 
 
 class VLACollate:

@@ -12,7 +12,7 @@ The model is built on Cosmos (video foundation backbone) with diffusion heads fo
 
 The repository is mid-pivot from a **Qwen VLM forward model** (predicts next-state shot profile scores) with **MPC inference** to a **goal-conditioned Cosmos video world-action policy**. Code from the previous direction remains in-tree but is **legacy**.
 
-See **`CLEANUP.md`** for the migration plan and instructions on retiring legacy code. When in doubt about whether a file is current or legacy, check that document.
+See **`Cleanup.md`** for the migration plan and instructions on retiring legacy code. When in doubt about whether a file is current or legacy, check that document.
 
 ## Pipeline Stages
 
@@ -45,7 +45,7 @@ See **`CLEANUP.md`** for the migration plan and instructions on retiring legacy 
 - `src/scoring/` — shot profile computation. **Keep — this is now the goal space.**
   - `bbox_control.py`: 7-key profile from primary bbox geometry
   - `subject_aware.py`: 8-key composition profile (rule of thirds, lead room, etc.)
-- `src/vlm_qwen25/` — **Legacy.** See `CLEANUP.md`.
+- `src/vlm_qwen25/` — **Legacy.** See `Cleanup.md`.
 - `src/policy/` — **New (to be added).** Cosmos policy training, diffusion heads, hindsight-relabeling dataset, goal conditioning.
 - `src/utils/` — **New (to be added).** Relocated camera/rotation utilities.
 
