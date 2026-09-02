@@ -55,6 +55,14 @@ O = np.asarray(stage1["subject_center"], dtype=np.float64)
 R_obj_T = euler_xyz(chosen.get("rotation", [0, 0, 0])).T
 elev_sign = -1 if str(stage1.get("stage3_elev_sign", "neg")) == "neg" else 1
 
+# The models were retrained on SUBJECT-frame bearing (subject_bearing_deg), not world azimuth.
+# Emit it so the sim goal space matches training: bearing = (front_az + yaw - azimuth) % 360,
+# yaw=0 (our data.json has no placement_yaw_deg). Computed inline from the facing-map JSON —
+# `import src.policy...` fails inside Blender's Python, so just read the file + do arithmetic.
+import json as _json
+_fm = _json.loads((Path(a.assets_root) / "configs" / "policy" / "facing_map_final.json").read_text())
+_front_az = (_fm.get(Path(stage1["object_file"]).stem) or {}).get("front_az")
+
 import bpy
 bpy.ops.wm.read_factory_settings(use_empty=True)
 meta = smoke.setup_blender_scene(placement, Path(a.assets_root))
@@ -80,7 +88,10 @@ def score(pos, fwd, up):
     el = float(elev_sign * math.degrees(math.asin(float(np.clip(u[2], -1, 1)))))
     v5 = compute_v5_scores(image_width=W, image_height=H,
                            bbox_full=tuple(bbox) if bbox is not None else None, azimuth_deg=az, elevation_deg=el)
-    return {k: int(v) for k, v in v5.items()}, bool(in_frame), float(occ)
+    out = {k: int(v) for k, v in v5.items()}
+    if _front_az is not None:                          # world azimuth -> subject-frame bearing
+        out["subject_bearing_deg"] = int(round((float(_front_az) - az) % 360.0))
+    return out, bool(in_frame), float(occ)
 
 
 (ctl / "ready.flag").write_text("ok")
