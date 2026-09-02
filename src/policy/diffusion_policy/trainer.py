@@ -50,7 +50,11 @@ class DPTrainerConfig:
     seed: int = 0
     device: str = "cuda"
     dtype: str = "bfloat16"
-    best_ema_beta: float = 0.98
+    best_ema_beta: float = 0.98      # loss EMA (for logging + best-ckpt selection)
+    # Weight EMA (canonical Diffusion Policy): an exponential moving average of the
+    # network weights, used for validation + ckpt_best + inference. Chi et al. rely on
+    # this for sample quality. 0 disables it.
+    ema_decay: float = 0.999
     # Validation (rank 0). 0 = off. ckpt_best is selected by the val metric when a
     # val loader is given, else by training-loss EMA.
     val_iter: int = 0
@@ -131,6 +135,12 @@ class DPTrainer:
                 print(f"resumed from {cfg.resume_from} at iter {start_iter}"
                       f" ({'with' if 'optimizer_state' in ckpt else 'NO'} optimizer state)", flush=True)
 
+        # Weight EMA (canonical DP): an on-device shadow of the trainable params,
+        # accumulated each step and used for validation + ckpt_best + inference.
+        self._ema_src = [p for p in self.policy.parameters() if p.requires_grad] if cfg.ema_decay > 0 else []
+        self._ema_shadow = [p.detach().clone() for p in self._ema_src]
+        self._ema_backup = None
+
         log_f = open(self.run_dir / "train.log", "a") if self.is_main else None
         tb = None
         if self.is_main:
@@ -173,6 +183,11 @@ class DPTrainer:
                     sched.step()
                     accum = 0
                     iteration += 1
+                    if self._ema_shadow:                         # weight-EMA update
+                        d = cfg.ema_decay
+                        with torch.no_grad():
+                            for e, p in zip(self._ema_shadow, self._ema_src):
+                                e.mul_(d).add_(p.detach().to(e.dtype), alpha=1.0 - d)
 
                     if tb is not None:
                         for k, v in loss_out.detach_dict().items():
@@ -221,7 +236,10 @@ class DPTrainer:
                             best_metric = metric
                             improved = True
                         if improved:
+                            used = self._apply_ema()          # ckpt_best holds the EMA weights
                             self.save_checkpoint(iteration, opt, "ckpt_best.pt")
+                            if used:
+                                self._restore_ema()
                             log_f.write(f"iter={iteration} new best ({'val' if have_val else 'loss_ema'}={best_metric:.4f})\n")
                             log_f.flush()
 
@@ -254,6 +272,7 @@ class DPTrainer:
     def validate(self, dataloader_val: DataLoader, iteration: int, tb=None) -> dict:
         cfg = self.config
         self.policy.eval()
+        used_ema = self._apply_ema()      # validate on the EMA weights (canonical DP)
         torch.manual_seed(cfg.seed + 7777)
         T = self.policy.num_train_timesteps
         grid = [max(0, min(T - 1, int(round(f * T)))) for f in self.VAL_TIMESTEP_FRACS]
@@ -278,10 +297,31 @@ class DPTrainer:
         if tb is not None:
             for k, v in metrics.items():
                 tb.add_scalar(k, v, iteration)
+        if used_ema:
+            self._restore_ema()
         self.policy.train()
         if self.policy.freeze_backbone:
             self.policy.backbone.eval()
         return metrics
+
+    def _apply_ema(self) -> bool:
+        """Swap the EMA shadow into the live params (backing up the raw weights)."""
+        if not getattr(self, "_ema_shadow", None):
+            return False
+        self._ema_backup = [p.detach().clone() for p in self._ema_src]
+        with torch.no_grad():
+            for p, e in zip(self._ema_src, self._ema_shadow):
+                p.data.copy_(e)
+        return True
+
+    def _restore_ema(self) -> None:
+        """Restore the raw (non-EMA) weights saved by `_apply_ema`."""
+        if self._ema_backup is None:
+            return
+        with torch.no_grad():
+            for p, b in zip(self._ema_src, self._ema_backup):
+                p.data.copy_(b)
+        self._ema_backup = None
 
     def save_checkpoint(self, iteration: int, opt=None, name: str = "ckpt_last.pt") -> Path:
         path = self.run_dir / name

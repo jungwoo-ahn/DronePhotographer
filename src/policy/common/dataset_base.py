@@ -37,7 +37,7 @@ except ImportError:  # pragma: no cover
     class Dataset:  # type: ignore[no-redef]
         pass
 
-from src.policy.common.action_repr import ACTION_DIM, POSE_DIM, encode_action_5d
+from src.policy.common.action_repr import ACTION_DIM, POSE_DIM, encode_action_9d
 from src.policy.common.annotations import (
     TrajectoryWindow,
     ViewRecord,
@@ -57,7 +57,7 @@ SAMPLING_SCHEMES = ("sliding_window", "multiscale_bidir", "goal_start")
 # window enumeration, or action encoding) so stale caches are ignored, not
 # silently reused. The key already folds in every config knob + the annotation
 # files' size/mtime; this covers code changes those can't see.
-_INDEX_CACHE_VERSION = "2"  # v2: 6D action (pose+shoot) + goal_start sampler
+_INDEX_CACHE_VERSION = "3"  # v3: 10D action (9D pos+rot6d, raw + shoot), goal_start sampler
 
 
 def _index_cache_key(
@@ -249,7 +249,7 @@ def _compute_action_chunk(window: TrajectoryWindow) -> np.ndarray:
     for i in range(window.chunk_size):
         prev = frames[i]
         nxt = frames[i + 1]
-        out[i, :POSE_DIM] = encode_action_5d(
+        out[i, :POSE_DIM] = encode_action_9d(
             np.asarray(prev.camera_position, dtype=np.float32),
             np.asarray(prev.camera_forward, dtype=np.float32),
             np.asarray(prev.camera_up, dtype=np.float32),

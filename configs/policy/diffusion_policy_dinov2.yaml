@@ -10,7 +10,7 @@ backbone:
 
 model:
   goal_embed_dim: 128
-  down_dims: [128, 256, 512]
+  down_dims: [256, 512, 1024]
   diffusion_step_embed_dim: 128
   num_train_timesteps: 100
   beta_schedule: squaredcos_cap_v2
@@ -36,7 +36,7 @@ data:
   goal_score_keys:
     - occupancy
     - body_in_frame_ratio
-    - cam_to_obj_azimuth_deg
+    - subject_bearing_deg
     - cam_to_obj_elevation_deg
     - object_center_x
     - object_center_y

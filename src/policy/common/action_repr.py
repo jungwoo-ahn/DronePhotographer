@@ -25,20 +25,29 @@ from __future__ import annotations
 import numpy as np
 
 from src.utils.rotation_utils import (
+    camera_rotation_opencv_from_forward_up,
+    forward_up_from_camera_rotation_opencv,
+    matrix_from_rot6d,
     orthonormalize_forward_up,
+    project_forward_up_upright,
     relative_translation_camera_local,
+    rot6d_from_matrix,
     rotvec_to_rotation_matrix,
     translation_camera_local_to_world,
 )
 
-# The pose action is 5D (Δright, Δup, Δforward, Δyaw, Δpitch); encode/decode/apply
-# operate on this. The full ACTION the policies predict is 6D: the 5 pose dims plus a
-# `shoot` channel (dim 5), a latched 0/1 "I have arrived, take the photo" state — the
-# camera analog of V12's gripper dim (see `dataset_base.shoot_column`). ACTION_SCALE /
-# ACTION_STD stay POSE_DIM-long; the shoot dim is already 0/1 and is left unnormalized.
-POSE_DIM = 5
+# The pose action is jungwoo's V12 9D: [Δtranslation_cam(3), rot6d(6)] — left RAW
+# (unnormalized): translation std <=0.14 m and rot6d entries in [-1,1] already sit at a
+# commensurate scale (~3.4x), so ACTION_SCALE is all ones (normalize == identity). The
+# full ACTION the policies predict is 10D: the 9 pose dims + a `shoot` channel (dim 9),
+# a latched 0/1 "arrived, take the photo" state (see `dataset_base.shoot_column`).
+POSE_DIM = 9
 SHOOT_DIM = 1
-ACTION_DIM = POSE_DIM + SHOOT_DIM  # 6
+ACTION_DIM = POSE_DIM + SHOOT_DIM  # 10
+POSE_DIM_5D = 5                    # legacy 5D (Δright,Δup,Δfwd,Δyaw,Δpitch); kept for eval/reference
+
+# World up axis (Blender +Z). Yaw rotates about this so a level camera stays level.
+WORLD_UP = np.array([0.0, 0.0, 1.0], dtype=np.float64)
 
 # World up axis (Blender +Z). Yaw rotates about this so a level camera stays level.
 WORLD_UP = np.array([0.0, 0.0, 1.0], dtype=np.float64)
@@ -67,9 +76,10 @@ def _forward_azimuth_elevation(forward: np.ndarray) -> tuple[float, float]:
 # old camera-local-yaw); translation is unchanged by that change. Measured over a
 # 120-file multiscale_bidir sample (~917k per-step actions) with
 # `scripts/fit_action_scale.py`; recompute on the full data (via sbatch) to refine.
-ACTION_SCALE: np.ndarray = np.array(
-    [0.552, 0.316, 0.969, 0.295, 0.170], dtype=np.float32
-)
+# 9D-raw scheme (jungwoo V12): the action is left UNNORMALIZED, so ACTION_SCALE is all
+# ones and normalize/denormalize are the identity on the pose dims. Kept as a (POSE_DIM,)
+# vector so the shoot-aware normalize_action_5d split still works.
+ACTION_SCALE: np.ndarray = np.ones(POSE_DIM, dtype=np.float32)
 
 # Per-dim STANDARD DEVIATION of the raw action over the multiscale_bidir scheme — the
 # alternative "unit-variance" normalization. The Cosmos policy divides by this (instead of
@@ -77,9 +87,7 @@ ACTION_SCALE: np.ndarray = np.array(
 # the flow-matching L2 and the action signal is ~unit-scale (commensurate with the VAE image
 # latents / flow noise). Diffusion / VLA keep the p99 ACTION_SCALE + [-1,1] clip. Refit with
 # `scripts/fit_action_scale.py --stat std`.
-ACTION_STD: np.ndarray = np.array(
-    [0.153, 0.104, 0.252, 0.103, 0.054], dtype=np.float32
-)
+ACTION_STD: np.ndarray = np.ones(POSE_DIM, dtype=np.float32)
 
 
 def normalize_action_5d(
@@ -209,6 +217,49 @@ def apply_action_5d(
     return next_position.astype(np.float32), next_forward, next_up
 
 
+# ---------------------------------------------------------------------------- #
+# 9D action (V12: [Δtranslation_cam(3), rot6d(6)]) — the active representation.
+# ---------------------------------------------------------------------------- #
+def encode_action_9d(prev_position, prev_forward, prev_up,
+                     next_position, next_forward, next_up) -> np.ndarray:
+    """Encode a pose pair as the 9D action [Δtranslation(3), rot6d(6)] (V12 port).
+
+    `apply_action_9d` inverts this exactly. Translation is in the OpenCV camera frame
+    of the previous pose; rotation is the first two columns of the relative rotation.
+    """
+    rot_prev = camera_rotation_opencv_from_forward_up(prev_forward, prev_up)
+    rot_next = camera_rotation_opencv_from_forward_up(next_forward, next_up)
+    delta_rot = rot_prev.T @ rot_next
+    delta_world = np.asarray(next_position, dtype=np.float64) - np.asarray(prev_position, dtype=np.float64)
+    delta_translation = rot_prev.T @ delta_world
+    return np.concatenate([delta_translation, rot6d_from_matrix(delta_rot)]).astype(np.float32)
+
+
+def decode_action_9d(action: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Split a 9D (or 10D pose+shoot) action into (Δtranslation_cam, relative 3x3 rotation)."""
+    a = np.asarray(action, dtype=np.float32).reshape(-1)
+    if a.shape[0] not in (POSE_DIM, ACTION_DIM):
+        raise ValueError(f"expected {POSE_DIM}- or {ACTION_DIM}-D action, got shape {a.shape}")
+    return a[:3].astype(np.float32), matrix_from_rot6d(a[3:9])
+
+
+def apply_action_9d(position, forward, up, action, upright: bool = True):
+    """Apply a 9D action to a pose; returns (next_position, next_forward, next_up).
+
+    `upright=True` re-projects the decoded pose roll-free (aim kept, bank removed).
+    a[9] (shoot) is a policy output, not motion — ignored here.
+    """
+    delta_translation, delta_rot = decode_action_9d(action)
+    rot_cur = camera_rotation_opencv_from_forward_up(forward, up)
+    next_position = np.asarray(position, dtype=np.float64) + rot_cur @ delta_translation.astype(np.float64)
+    next_forward, next_up = forward_up_from_camera_rotation_opencv(rot_cur @ delta_rot)
+    if upright:
+        next_forward, next_up = project_forward_up_upright(next_forward, next_up)
+    else:
+        next_forward, next_up = orthonormalize_forward_up(next_forward, next_up)
+    return next_position.astype(np.float32), next_forward, next_up
+
+
 __all__ = [
     "ACTION_DIM",
     "POSE_DIM",
@@ -221,4 +272,7 @@ __all__ = [
     "encode_action_5d",
     "decode_action_5d",
     "apply_action_5d",
+    "encode_action_9d",
+    "decode_action_9d",
+    "apply_action_9d",
 ]

@@ -29,6 +29,8 @@ from typing import Iterable, Iterator
 
 import numpy as np
 
+from src.policy.common.facing import subject_bearing_deg
+
 
 @dataclass
 class ViewRecord:
@@ -146,6 +148,16 @@ def _frame_to_view(
         # Derive visible_frac (+ crop side) for the goal-start well-framed gate. Pure
         # geometry — leaves object_center / bbox_offset (our goal space) untouched.
         _apply_crop_extent(raw, raw["bbox_xyxy_full"], doc.get("render_height"))
+    # Subject-relative bearing: the usable goal axis (jungwoo). The stored
+    # cam_to_obj_azimuth_deg is a WORLD angle — unlearnable as a goal, since the
+    # world frame is not observable from the image. Any goal space listing
+    # 'subject_bearing_deg' reads it here; harmless (unused) for those that don't.
+    _az = raw.get("cam_to_obj_azimuth_deg")
+    if _az is not None:
+        _obj = doc.get("object", "") or doc.get("placement", "").split("__")[-1]
+        _b = subject_bearing_deg(float(_az), _obj, yaw_deg=float(doc.get("placement_yaw_deg") or 0.0))
+        if _b is not None:
+            raw["subject_bearing_deg"] = _b
 
     return ViewRecord(
         annotation_path=annotation_path,

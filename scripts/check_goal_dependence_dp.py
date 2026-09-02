@@ -53,8 +53,10 @@ def main() -> None:
     # images come out exactly as the model saw them in training.
     ds = DiffusionPolicyDataset(
         cfg["annotation_roots"], goal_score_keys=keys, chunk_size=cfg["chunk_size"],
-        stride=cfg.get("val_stride", 4), sampling_scheme=cfg.get("sampling_scheme"),
-        offsets=cfg.get("offsets"), target_resolution=tuple(cfg["target_resolution"]),
+        stride=cfg.get("val_stride", 4), sampling_scheme=cfg.get("sampling_scheme", "sliding_window"),
+        offsets=cfg.get("offsets", [8, 16, 24]),
+        goal_start_max_per_pair=int(cfg.get("goal_start_max_per_pair", 24)),
+        target_resolution=tuple(cfg["target_resolution"]),
         val_pair_stride=int(cfg.get("val_pair_stride", 0)), val_split_level=cfg.get("val_split_level"),
         val_names=load_val_names(cfg.get("val_names")), split="val", goal_sampling="end",
         cache_dir=cfg.get("cache_dir"),
