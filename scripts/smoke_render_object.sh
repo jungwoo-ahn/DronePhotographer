@@ -28,7 +28,7 @@ echo "  images:  ${NUM_IMAGES}"
 echo "  backend: ${GPU_BACKEND}"
 echo "  devices: ${GPU_DEVICES}"
 
-"${BLENDER_BIN}" -b -P render_object.py -- \
+"${BLENDER_BIN}" -b -P scripts/render_object.py -- \
   --input_scene "${SCENE_PATH}" \
   --output_dir "${OUTPUT_DIR}" \
   --run_name smoke_rotation_fix \

@@ -1,32 +1,18 @@
 #!/usr/bin/env bash
-set -euo pipefail
+# Render rp_posedplus character in Namaqualand scene using render_object_v3.
+# Usage: bash render_namaqualand.sh
 
-# Parallel multi-GPU rendering with render_object.py.
-# Launches one Blender process per GPU for maximum throughput.
-#
-# Usage:
-#   bash render_object.sh
-#
-# Optional overrides:
-#   BLENDER_BIN=blender/blender
-#   SCENE_PATH=/home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/DogWalk.blend
-#   OUTPUT_DIR=outputs
-#   RUN_NAME=full_10000
-#   NUM_IMAGES=8000
-#   GPU_BACKEND=OPTIX
-#   GPU_DEVICES="3 4 5"
-#   BLENDER_THREADS=4
+export SCENE_PATH="/home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/namaqualand/Namaqualand.blend"
+export RUN_NAME="namaqualand_v3"
+export NUM_IMAGES="${NUM_IMAGES:-10000}"
+export GPU_DEVICES="${GPU_DEVICES:-1 2 3 4 5 6 7}"
 
+# Override COMMON_ARGS in render_object_v3.sh by patching inline
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-
 BLENDER_BIN="${BLENDER_BIN:-${REPO_ROOT}/blender/blender}"
 BLENDER_THREADS="${BLENDER_THREADS:-4}"
-SCENE_PATH="${SCENE_PATH:-/home/nas5/jungwooahn/datasets/DronePhotos/assets/scenes/DogWalk.blend}"
 OUTPUT_DIR="${OUTPUT_DIR:-${REPO_ROOT}/outputs}"
-RUN_NAME="${RUN_NAME:-v2_8k}"
-NUM_IMAGES="${NUM_IMAGES:-8000}"
 GPU_BACKEND="${GPU_BACKEND:-OPTIX}"
-GPU_DEVICES="${GPU_DEVICES:-3 4 5}"
 
 export OMP_NUM_THREADS="${BLENDER_THREADS}"
 export OPENBLAS_NUM_THREADS="${BLENDER_THREADS}"
@@ -35,7 +21,8 @@ export MKL_NUM_THREADS="${BLENDER_THREADS}"
 read -ra GPUS <<< "${GPU_DEVICES}"
 NUM_WORKERS=${#GPUS[@]}
 
-# Kill all child processes on exit (Ctrl+C, error, etc.)
+set -euo pipefail
+
 cleanup() {
   echo ""
   echo "Stopping all workers..."
@@ -43,7 +30,6 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-# Generate a single run directory for all workers
 TIMESTAMP=$(date +%y%m%d_%H%M%S)
 SCENE_STEM=$(basename "${SCENE_PATH}" .blend)
 RUN_DIR="${OUTPUT_DIR}/${SCENE_STEM}_${RUN_NAME}_${TIMESTAMP}"
@@ -51,22 +37,28 @@ mkdir -p "${RUN_DIR}/images"
 
 START_TIME=$(date +%s)
 
-echo "Launching ${NUM_WORKERS} parallel workers..."
+echo "=== Namaqualand Render ==="
 echo "  blender:  ${BLENDER_BIN}"
 echo "  scene:    ${SCENE_PATH}"
-echo "  output:   ${OUTPUT_DIR}"
-echo "  run_name: ${RUN_NAME}"
+echo "  object:   rp_posedplus_00068_18_100k"
+echo "  position: (16.117, -5.1769, 5.6461)"
+echo "  rotation: 135 deg"
+echo "  output:   ${RUN_DIR}"
 echo "  images:   ${NUM_IMAGES}"
-echo "  backend:  ${GPU_BACKEND}"
-echo "  GPUs:     ${GPU_DEVICES} (1 worker per GPU)"
+echo "  GPUs:     ${GPU_DEVICES} (${NUM_WORKERS} workers)"
 
 COMMON_ARGS=(
   --input_scene "${SCENE_PATH}"
   --output_run_dir "${RUN_DIR}"
-  --object_position -0.011 0.0364 0.8
+  --input_object /home/nas5/jungwooahn/datasets/DronePhotos/assets/objects/rp_posedplus_00068_18_100k
+  --object_position 16.117 -5.1769 5.6461
+  --rotation_z_deg 135
+  --scale 0.01004
+  --use_aabb_center
+  --sky_strength 0.2
   --num_images "${NUM_IMAGES}"
   --gpu_backend "${GPU_BACKEND}"
-  --camera_radius_range 1 8
+  --camera_radius_range 0.5 6
   --hemisphere
   --camera_direction_offsets 15 15 0
   --samples 32
@@ -84,7 +76,7 @@ PIDS=()
 for i in "${!GPUS[@]}"; do
   gpu_id="${GPUS[$i]}"
   echo "  Starting worker ${i} on GPU ${gpu_id} (log: ${LOG_DIR}/worker_${i}.log)"
-  CUDA_VISIBLE_DEVICES="${gpu_id}" "${BLENDER_BIN}" -b -t "${BLENDER_THREADS}" -P "${REPO_ROOT}/render_object.py" -- \
+  CUDA_VISIBLE_DEVICES="${gpu_id}" "${BLENDER_BIN}" -b -t "${BLENDER_THREADS}" -P "${REPO_ROOT}/scripts/render_object_v3.py" -- \
     "${COMMON_ARGS[@]}" \
     --worker_index "${i}" \
     --gpu_devices 0 \
@@ -92,7 +84,6 @@ for i in "${!GPUS[@]}"; do
   PIDS+=($!)
 done
 
-# Monitor progress by counting rendered images
 echo ""
 IMAGES_DIR="${RUN_DIR}/images"
 while true; do
@@ -132,7 +123,7 @@ if [ "${FAIL}" -eq 1 ]; then
   exit 1
 fi
 
-# Merge worker annotations into a single annotations.json
+# Merge worker annotations
 if [ "${NUM_WORKERS}" -gt 1 ]; then
     python3 -c "
 import json
@@ -154,6 +145,6 @@ print(f'Merged {len(all_annotations)} annotations into {run_dir / \"annotations.
 "
 fi
 
-# Disable cleanup trap on successful exit
 trap - EXIT
 echo "Render finished. ${NUM_IMAGES} images across ${NUM_WORKERS} GPUs."
+echo "Output: ${RUN_DIR}"

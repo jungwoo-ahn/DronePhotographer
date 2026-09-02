@@ -16,7 +16,7 @@ See **`Cleanup.md`** for the migration plan and instructions on retiring legacy 
 
 ## Pipeline Stages
 
-1. **Render** — `render_object.py` (run via Blender): curated design-asset scenes with random camera poses → RGB images, depth maps, `annotations.json`
+1. **Render** — `scripts/render_object.py` (run via Blender): curated design-asset scenes with random camera poses → RGB images, depth maps, `annotations.json`
 2. **Detect** — `scripts/annotate_detections.py`: GroundingDINO bboxes → `annotations_detected.json`
 3. **Profile** — `scripts/score_annotations.py`: compute shot profiles (geometric, deterministic from bboxes + camera state) → augments annotation JSON
 4. **Pair** — assemble (state, action, next-state, achieved-profile) tuples via hindsight relabeling (every random transition becomes a goal-conditioned training example with the achieved profile as the goal)
@@ -70,7 +70,7 @@ pip install --no-build-isolation -e ./repos/GroundingDINO
 ```bash
 # Rendering (requires Blender binary at blender/blender)
 bash scripts/smoke_render_object.sh          # smoke test
-bash render_object.sh                         # full render
+bash scripts/render_object.sh                         # full render
 
 # Detection
 python scripts/annotate_detections.py \

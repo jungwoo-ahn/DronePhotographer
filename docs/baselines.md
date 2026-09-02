@@ -1,6 +1,6 @@
 # Baseline policies (issue #22)
 
-_Last updated 2026-08-27. This supersedes the pre-pivot version, which described a
+_Last updated 2026-09-02. This supersedes the pre-pivot version, which described a
 hand-rolled Qwen3-VL "π0-style" VLA, a 5D action space, and a 4-scene val split —
 all retired (see history below)._
 
@@ -11,8 +11,8 @@ class — not the data or metric:
 - **Data**: v7 placements (`data/trajectories_full`); trainable baselines use the
   hindsight-relabeled (image, goal, action-chunk) tuples via the **goal-start
   sampler** (8-action windows: start → 8-step walk → achieved goal). The
-  pretrained VLAs train on the LeRobot export `lerobot_pi05_v2` (150k episodes,
-  1.35M frames), built by `scripts/export_lerobot.py`.
+  pretrained VLAs train on the LeRobot export `lerobot_pi05_v3` (138k episodes,
+  1.1M frames), built by `scripts/export_lerobot.py`.
 - **Goal space**: the shot profile, with **`subject_bearing_deg`** replacing
   `cam_to_obj_azimuth_deg` (subject-frame bearing via `facing_map_final.json`).
   DP receives the goal as a **numeric vector**; the pretrained VLAs receive it as
@@ -109,58 +109,87 @@ No goal, no previsualization, lateral translation fixed at 0.
 
 ## Results (8 held-out val scenes)
 
-**Open-loop reconstruction** (sampled 8-action chunk → walk endpoint; GT-chunk
-sanity 0.000 cm, so the metric is valid):
+All numbers below are on the **clean `lerobot_pi05_v3` export** and the fair
+retrains. The earlier 100k/`v2` numbers are superseded — see History.
 
-| Policy | recon dist | rotation | within 20cm | fails on |
-|---|---|---|---|---|
-| **DP** (dinov2) | **39.7 cm** | **7.0°** | **40%** | — (best on both) |
-| **pi0.5** (100k) | 75 cm | 57.3° | 15% | rotation (rot6d r0/r4 MSE≈0.35) |
-| **GR00T** (100k) | 258–278 cm | 17° | 0% | translation / depth (tz MSE≈0.28) |
+### Closed-loop — the metric that decides the ranking
 
-**Closed-loop sim** (own-goal, non-trivial gaps): DP reaches 2/3 (Nature-Snowy
-0.63→0.085, basement 0.26→0.105) and halves Parking; pi0.5 halves the far goals
-but is erratic; GR00T makes minimal progress (emits large ~constant moves largely
-**independent of goal distance** — moves ~1 m even when already at goal). GIFs +
-viewer: `outputs/dp_rollout_gifs/` (published artifact). Goal-dependence probe
-(`check_reconstruction_lerobot.py --shuffle_goals`) queued to confirm whether
-GR00T ignores the goal.
+Ported from `DronePhotographerV12/scripts/closed_loop_eval.py` so these are directly
+comparable to the WAM (`scripts/closed_loop_eval_baselines.py`). Distance is
+`d = sqrt(great_circle(az,el)^2 + dsize^2 + daim^2)` in **radians**
+(`src/policy/common/reward.py`, byte-identical to V12's), headline
+`improvement = d_start - d_end` (a no-op scores exactly 0). Adaptive horizon
+`ceil(|goal_idx - start_idx| / 8)` chunks, chunk-boundary re-render, shoot-stop at 0.5.
 
-The two VLAs fail in **opposite dimensions** (pi0.5 rotation, GR00T translation) —
-so the failure is backbone/action-head specific, not the NL-goal encoding (pi0.5
-gets translation right from the same prompt).
+**val**, n=8, same episodes for all three (`mean d_start` 0.721):
 
-## ⚠️ Fairness caveat — the 100k VLA numbers above are UNFAIR
-Both 100k VLAs trained only **0.59 epoch** (batch 8 × 100k on 1.35M frames),
-while DP trained **~8 epochs** and early-stopped at convergence. Worse, **pi0.5
-had an LR-floor bug**: its openpi cosine preset (`scheduler_decay_steps=30000`
-default) floored the LR at step 30k while the run went to 100k → ~70% of training
-at min-LR. So DP's lead is **provisional**; do not cite the raw 100k VLA numbers
-as an architecture verdict.
+| Policy | mean imp | median | frac+ | best imp | d_end | % gap closed |
+|---|---|---|---|---|---|---|
+| **pi0.5** @190k | **0.455** | 0.358 | 0.62 | **0.538** | **0.266** | 43% |
+| **DP** (converged) | 0.409 | **0.433** | **0.75** | 0.469 | 0.312 | 43% |
+| **GR00T** @130k | 0.284 | 0.147 | 0.50 | 0.450 | 0.437 | 14% |
 
-## Status (2026-08-27)
-**Fair retrains in progress.** DDP via `PARALLEL=ddp NPROC=2` (plain torchrun
-auto-fills `dp_replicate=world_size`; the model fits one 49 GB GPU at per-GPU
-batch 8, so this is data-parallel, not FSDP — FSDP had a DTensor bug).
-- **pi0.5_fair** (`runs/pi05_fair/`): GPUs 6+7, eff batch 16, **300k steps ≈ 3.5
-  epochs**, cosine over the full 300k (LR-fix). In progress (~1/3 done, loss
-  0.11 and dropping).
-- **GR00T_fair** (`runs/groot_fair/`): queued — launches on pi0.5's completion
-  (2 GPUs needed for DDP), same ~3.5-epoch budget.
-- Old 100k runs kept at `runs/{pi05,groot}_drone/checkpoints/100000` as the
-  documented (unfair) baseline of record.
+**train** (V12's `--split train` control), n=6, `mean d_start` 0.861: pi0.5 0.613 /
+DP 0.461 / GR00T 0.305. By % gap closed: DP 38%→43% (no generalization gap), pi0.5
+53%→43% (modest), GR00T 14%→14% (uniformly weak, not overfit).
 
-TensorBoard: DP has native TB (`runs/…_dinov2/tb`); the VLAs get TB via
-`scripts/tb_from_log.py` (parses train stdout → tfevents; wandb is off). View all
-with `tensorboard --logdir runs`.
+Raw per-episode traces: `outputs/v12metric_results/` (gitignored, this box only).
 
-**Not yet re-run on the new substrate:** LLM policy, AutoPhoto (`runs/autophoto/`
-is an older run), UNIC. Re-run + fold into the results table before the final WAM
-comparison.
+### Open-loop reconstruction — useful for fit, NOT for ranking
+
+| Policy | recon dist | rotation | within 20cm |
+|---|---|---|---|
+| **pi0.5** @190k | **22.2 cm** | 1.60° | **72%** |
+| **GR00T** @130k | 31.0 cm | **1.90°** | 36% |
+| **DP** (converged) | 39.7 cm | 7.00° | 40% |
+
+⚠️ **Reconstruction anti-correlates with closed-loop control.** Recon ranks pi0.5
+~1.8x above DP; closed-loop they tie, with DP *better* on median and consistency.
+V12 hit the same thing independently — `src/train/heldout_loss.py` there notes "v11
+found its sampled action MSE was ANTI-correlated with closed-loop success. Treat this
+as a fit/overfit tripwire." **Do not rank policies by recon cm.**
+
+Validation curves (`scripts/val_sweep.sh`, written to TensorBoard as `val/*`) pick each
+VLA's best checkpoint the way DP's `ckpt_best` was picked. pi0.5 was still improving at
+190k (30.9 → 22.2 cm over 50k→190k); GR00T flattened (43.4 → 31.0 over 50k→130k) and was
+stopped there.
+
+## History — two bugs that invalidated the first round
+
+Kept because both were silent and either could recur.
+
+1. **Zero-action padding poisoned the export.** Each episode's final, actionless frame
+   was written with a zero 10D action (~11% of frames). Those rows dragged the rot6d
+   quantiles from [0.994, 1.0] to [0, 1], so under pi0.5's QUANTILES normalization the
+   real rotation signal occupied <1% of the output range. Fixed in
+   `scripts/export_lerobot.py` (emit only frames with a real outgoing action) → `v3`.
+   Effect at 10k steps: pi0.5 rotation **57.3° → 4.4°**, GR00T **255 cm → 85 cm**. The
+   zeros were also poison *targets* ("from here, do nothing"), which is why translation
+   improved too.
+2. **Unfair budget + an LR floor.** The first VLA runs did 0.59 epoch vs DP's ~8, and
+   pi0.5's openpi preset (`scheduler_decay_steps` default 30000) floored the LR at step
+   30k of a 100k run — ~70% of training at min-LR. Fixed by passing
+   `--policy.scheduler_decay_steps=<STEPS>`.
+
+Also: GR00T's first fair run **diverged** (grad-norm creep → NaN at 168k; every
+checkpoint after ~130k is NaN, and 150k had already degraded to 320 cm). Retrained at
+half LR (5e-5 vs the 1e-4 default), which was stable. Its 130k checkpoint is final.
+
+## Status (2026-09-02)
+- **pi0.5** (`runs/pi05_fair/`): training, ~200k/300k, DDP eff-batch 16 on `v3`.
+  Best checkpoint so far 190k.
+- **GR00T** (`runs/groot_fair/`): **final at 130k** — stopped once its val curve
+  flattened. Budget is therefore unequal vs pi0.5; state that when quoting the gap.
+- **Not yet re-run on the new substrate:** LLM policy, AutoPhoto, UNIC.
+
+TensorBoard: one canonical tag scheme across every run (`train/loss`, `train/lr`,
+`train/grad_norm`, `val/*`) via `scripts/tb_align.py`; the VLAs get TB from
+`scripts/tb_from_log.py` (lerobot-train writes none and wandb is off). `tensorboard --logdir runs`.
 
 ## Reproduce
-- Export data: `scripts/export_lerobot.py` → `lerobot_pi05_v2`.
+- Export data: `scripts/export_lerobot.py` → `lerobot_pi05_v3` (the padding-free export).
 - Train: `scripts/train_pi05.sh`, `scripts/train_groot.sh` (see per-run env vars).
 - Recon: `scripts/check_reconstruction_{dp,lerobot}.py --scenes val`.
-- Sim: `scripts/rollout_{dp,vla}.py --own_goal`; batch via `scripts/vla_val_eval.sh`.
+- Sim (V12 metric, the ranking number): `scripts/closed_loop_eval_baselines.py --policy {dp,pi05,groot} --split {val,train}`.
+- Val curve over all checkpoints: `scripts/val_sweep.sh <run> <policy> <env> "<gpus>"`.
 - GIFs: `scripts/make_rollout_gif.py`.
