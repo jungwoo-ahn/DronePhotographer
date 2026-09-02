@@ -6,7 +6,7 @@
 GPU_DEVICES="1 2 3 4 5 6 7"
 
 python scripts/render_objects_in_multiple_scenes.py \
-    --placements placements_best25.json \
+    --placements configs/placements_best25.json \
     --assets_root /home/nas5/jungwooahn/datasets/DronePhotos/assets \
     --output_dir outputs \
     --num_images_per_placement 100 \
