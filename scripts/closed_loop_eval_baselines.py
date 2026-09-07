@@ -31,6 +31,8 @@ import subprocess
 import time
 from pathlib import Path
 
+from types import SimpleNamespace
+
 import numpy as np
 import torch
 
@@ -169,6 +171,55 @@ class Renderer:
 
 
 # --------------------------------------------------------------------------- episodes
+def episodes_from_manifest(path, roots, extra_chunks):
+    """Shared-episode mode: V12's configs/eval_episodes_v1.json.
+
+    Poses-only (option 1 of docs/shared_eval_protocol.md): start/goal poses, subject
+    geometry and n_chunks all come from the manifest, so this does NOT depend on our
+    window enumeration matching theirs. Only `data_json` is rebuilt against our own root
+    (their absolute paths are on their NAS).
+
+    `d_start` is the contract checksum: recompute it from the manifest's own poses and
+    refuse to run on a mismatch, because an episode set that silently differs makes every
+    downstream number incomparable.
+    """
+    m = json.loads(Path(path).read_text())
+    eps, missing, bad = [], [], []
+    for e in m["episodes"]:
+        dj = next((Path(r) / e["placement"] / "data.json" for r in roots
+                   if (Path(r) / e["placement"] / "data.json").exists()), None)
+        if dj is None:
+            missing.append(e["placement"]); continue
+        # goal_raw carries the WORLD azimuth; subject_bearing_deg is normally derived by our
+        # loader via the facing map, which the manifest path bypasses. Take the manifest's
+        # own `bearing` (verified to match our facing map on all 64 episodes) so both the DP
+        # goal vector and the NL prompt see the key they expect instead of NaN.
+        raw = dict(e["goal_raw"])
+        raw.setdefault("subject_bearing_deg", float(e["bearing"]))
+        gf = SimpleNamespace(raw=raw,
+                             camera_position=e["goal_pose"]["position"],
+                             camera_forward=e["goal_pose"]["forward"],
+                             camera_up=e["goal_pose"]["up"],
+                             subject_center=e["subject_center"],
+                             subject_height=e["subject_height"])
+        st = SimpleNamespace(camera_position=e["start_pose"]["position"],
+                             camera_forward=e["start_pose"]["forward"],
+                             camera_up=e["start_pose"]["up"])
+        d = geometry_distance(st.camera_position, st.camera_forward, st.camera_up, gf)
+        if abs(d - e["d_start"]) >= 1e-6:
+            bad.append((e["key"], d, e["d_start"]))
+        eps.append(SimpleNamespace(key=e["key"], name=e["placement"], scene=e["scene"],
+                                   data_json=dj, start=st, goal_frame=gf,
+                                   n_chunks=int(e["n_chunks"]) + extra_chunks))
+    if bad:
+        raise SystemExit(f"d_start CHECKSUM FAILED on {len(bad)} episode(s), e.g. {bad[:2]} -- "
+                         "the two repos are not rolling out the same shots; refusing to run")
+    if missing:
+        print(f"WARNING: {len(missing)} manifest placements absent locally: {missing[:3]}", flush=True)
+    print(f"manifest {path}: {len(eps)}/{len(m['episodes'])} episodes, d_start checksum OK", flush=True)
+    return eps
+
+
 def select_placements(split, val_scenes_path, roots, limit):
     vs = frozenset(json.loads(Path(val_scenes_path).read_text())["scenes"])
     fm = json.loads((REPO / "configs/policy/facing_map_final.json").read_text())
@@ -203,6 +254,9 @@ def main():
     ap.add_argument("--val-scenes", default="configs/policy/val_scenes.json", dest="val_scenes")
     ap.add_argument("--roots", nargs="+", default=["data/trajectories_full"])
     ap.add_argument("--episodes", type=int, default=12)
+    ap.add_argument("--episodes-from", default=None, dest="episodes_from",
+                    help="shared episode manifest (configs/eval_episodes_v1.json). Fixes the "
+                         "episode set AND the horizon, so --episodes/--split no longer apply.")
     ap.add_argument("--chunk-size", type=int, default=8, dest="chunk_size")
     ap.add_argument("--extra-chunks", type=int, default=0, dest="extra_chunks")
     ap.add_argument("--shoot-threshold", type=float, default=0.5, dest="shoot_threshold")
@@ -216,25 +270,34 @@ def main():
            else LeRobotPolicy(a.policy, a.checkpoint, dev))
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
 
-    places = select_placements(a.split, a.val_scenes, a.roots, a.episodes)
-    print(f"{a.policy} | split={a.split} | {len(places)} placements", flush=True)
+    if a.episodes_from:
+        episodes = episodes_from_manifest(a.episodes_from, a.roots, a.extra_chunks)
+        print(f"{a.policy} | SHARED MANIFEST | {len(episodes)} episodes", flush=True)
+    else:
+        episodes = []
+        for name, dj in select_placements(a.split, a.val_scenes, a.roots, a.episodes):
+            try:
+                w = next(iter(iter_goal_start_windows(str(dj), chunk_size=a.chunk_size)))
+            except StopIteration:
+                continue
+            delta = abs(w.goal_frame.frame_idx - w.start_frame_idx)
+            episodes.append(SimpleNamespace(
+                key=None, name=name, scene=name.split("__")[0], data_json=dj,
+                start=w.start, goal_frame=w.goal_frame,
+                n_chunks=int(math.ceil(delta / a.chunk_size)) + a.extra_chunks))
+        print(f"{a.policy} | split={a.split} | {len(episodes)} episodes", flush=True)
 
     results = []
-    for i, (name, dj) in enumerate(places):
-        try:
-            w = next(iter(iter_goal_start_windows(str(dj), chunk_size=a.chunk_size)))
-        except StopIteration:
-            continue
-        delta = abs(w.goal_frame.frame_idx - w.start_frame_idx)
-        n_chunks = int(math.ceil(delta / a.chunk_size)) + a.extra_chunks
-        g = pol.goal(w)
-        pos = np.asarray(w.start.camera_position, np.float32)
-        fwd = np.asarray(w.start.camera_forward, np.float32)
-        up = np.asarray(w.start.camera_up, np.float32)
-        d0 = geometry_distance(pos, fwd, up, w.goal_frame)
+    for i, ep in enumerate(episodes):
+        name, dj, n_chunks = ep.name, ep.data_json, ep.n_chunks
+        g = pol.goal(ep)
+        pos = np.asarray(ep.start.camera_position, np.float32)
+        fwd = np.asarray(ep.start.camera_forward, np.float32)
+        up = np.asarray(ep.start.camera_up, np.float32)
+        d0 = geometry_distance(pos, fwd, up, ep.goal_frame)
         trace, declared = [d0], None
         try:
-            rend = Renderer(dj, V6_DIR / f"{name}.json", out / name, a.blender)
+            rend = Renderer(dj, V6_DIR / f"{name}.json", out / (ep.key or name), a.blender)
         except Exception as e:
             print(f"  [{i}] {name[:40]}: renderer failed ({e})", flush=True); continue
         try:
@@ -249,11 +312,11 @@ def main():
                 for step in chunk[:, :POSE_DIM]:
                     pos, fwd, up = apply_action_9d(pos, fwd, up, step)
                 img = rend.render(c + 1, pos, fwd, up)
-                trace.append(geometry_distance(pos, fwd, up, w.goal_frame))
+                trace.append(geometry_distance(pos, fwd, up, ep.goal_frame))
         finally:
             rend.close()
         d1, dbest = trace[-1], float(min(trace))
-        results.append({"placement": name, "scene": name.split("__")[0], "n_chunks": n_chunks,
+        results.append({"key": ep.key, "placement": name, "scene": ep.scene, "n_chunks": n_chunks,
                         "declared_stop": declared, "d_start": d0, "d_end": d1, "d_best": dbest,
                         "improvement": d0 - d1, "best_improvement": d0 - dbest, "trace": trace})
         print(f"  [{i}] {name[:42]:42s} d {d0:.3f}->{d1:.3f} (best {dbest:.3f}) "
@@ -271,6 +334,13 @@ def main():
         "frac_best_positive": float((best > 0).mean()) if len(best) else None,
         "mean_d_start": float(np.mean([r["d_start"] for r in results])) if results else None,
         "mean_d_end": float(np.mean([r["d_end"] for r in results])) if results else None,
+        # success@tau: `improvement` says the camera got closer, not that the requested
+        # photograph was taken. V12's calibrate_shot_threshold puts ~66% of real frame pairs
+        # under d<0.10 on the same six cinematography words, ~0% past 0.60.
+        "success_at": {f"{t}": {"end": float(np.mean([r["d_end"] <= t for r in results])),
+                                "best": float(np.mean([r["d_best"] <= t for r in results]))}
+                       for t in (0.05, 0.10, 0.20)} if results else None,
+        "episodes_from": a.episodes_from,
         "config": {"chunk_size": a.chunk_size, "extra_chunks": a.extra_chunks,
                    "shoot_threshold": a.shoot_threshold, "stop_on_shoot": bool(a.stop_on_shoot)},
         "results": results,
