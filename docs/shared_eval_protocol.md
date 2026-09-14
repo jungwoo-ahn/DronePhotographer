@@ -1,13 +1,35 @@
 # Comparing policies: what has to be shared, and what already is
 
-For jooyeol, and for anyone who later wants a baseline in the same table.
+## SUPERSEDED, 2026-09-14 — the baselines now run HERE
+
+This was written to hand the manifest to jooyeol so the baselines could be run on their side
+and the `summary.json` files sent back. That is no longer the plan, for two reasons that
+arrived together:
+
+* **The checkpoints are local.** `baseline_ckpts/` holds pi0.5 @300k, GR00T @210k and the
+  Diffusion Policy `ckpt_best.pt`, copied with sha256 verification (`PROVENANCE.md`).
+* **Two bugs invalidated every closed-loop number on both sides** (commit `e766c09`): the stop
+  rule discarded a mean 5.8 of 8 steps on any chunk that declared arrival, and eval rendered
+  256x256 natively where training squashed 1024x768, making the subject 0.75x too small on
+  every frame. Their harness is a port of ours and carries both. Re-running under a corrected
+  port would mean trusting that the port stayed faithful through the fix as well.
+
+So instead of two harnesses agreeing, there is now **one harness with four adapters**:
+`scripts/closed_loop_eval.py --policy {cosmos,pi05,groot,dp}`. The renderer, the episodes, the
+stop rule, the horizon and the metric code are literally the same objects; the only
+policy-specific thing left is `act(frame, goal_vec, goal_raw, seed) -> (8, 10)`, in
+`src/baselines/adapters.py`. The comparison is then true by construction rather than by audit.
+
+Submit them all with `scripts/submit_policy_comparison.sh`; join with `compare_policies.py`.
+
+**Everything below still holds** — it is why the manifest exists and what the distance means.
+The parts about editing `closed_loop_eval_baselines.py` and mailing results back do not apply.
 
 ## The short version
 
 The protocol is already aligned; the **episodes** are not, and that is the whole difference.
 `configs/eval_episodes_v1.json` fixes it: 64 episodes, materialised, with a checksum that makes a
-mismatch impossible to miss. Add `--episodes-from` to `closed_loop_eval_baselines.py`, run the
-three baselines, send the `summary.json` files back.
+mismatch impossible to miss.
 
 ## What is already the same (checked, not assumed)
 

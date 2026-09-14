@@ -29,3 +29,9 @@ runs/
 *.mp4
 
 .DS_Store
+
+# Baseline checkpoints copied from the yj server (23 GB: pi0.5 300k, GR00T 210k, DP, AutoPhoto,
+# UNIC). Weights, not source. `baseline_ckpts/PROVENANCE.md` records where each came from, with
+# sha256s, and IS tracked so the provenance survives without the binaries.
+baseline_ckpts/*
+!baseline_ckpts/PROVENANCE.md

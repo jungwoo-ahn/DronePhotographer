@@ -58,7 +58,10 @@ import numpy as np
 # script does `os.chdir(CF_ROOT)` (Cosmos resolves model configs by relative path), so a
 # relative default is looked for inside the vendored checkout. That already killed a
 # training run once; re-introducing it here as a new flag killed all three rollouts.
-from src.data.cosmos_camera_dataset import DEFAULT_VAL_SCENES  # noqa: E402
+# Mirrors src/data/cosmos_camera_dataset.DEFAULT_VAL_SCENES. Not imported from there: that
+# module pulls cosmos_framework in at import time, and this script now also runs in the
+# LeRobot venv for the baselines. tests/test_policy_adapters.py pins the two together.
+DEFAULT_VAL_SCENES = str(Path(V12) / "configs" / "val_scenes.json")
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--checkpoint", required=True)
@@ -133,6 +136,21 @@ ap.add_argument("--stop-on-shoot", type=int, default=1,
 ap.add_argument("--shoot-threshold", type=float, default=0.5)
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--no-ema", action="store_true", help="load raw weights instead of EMA")
+ap.add_argument("--policy", default="cosmos", choices=("cosmos", "pi05", "groot", "dp"),
+                help="which policy answers act(frame, goal). Everything else in this script -- "
+                     "renderer, episodes, stop rule, metric -- is shared, which is what makes "
+                     "the numbers comparable. See src/baselines/adapters.py.")
+ap.add_argument("--limit", type=int, default=0,
+                help="run only the first N episodes of whatever was selected (0 = all). For "
+                     "smokes. Deliberately separate from --episodes, whose default of 24 would "
+                     "otherwise silently truncate a 64-episode manifest.")
+ap.add_argument("--policy-config", default="",
+                help="DP only: the training run's config.yaml (goal keys, resolution, U-Net shape)")
+ap.add_argument("--render-res", type=int, nargs=2, default=None, metavar=("W", "H"),
+                help="Blender render size. Default: the smallest 4:3 multiple that squashes to "
+                     "--image-size (344x258 for 256). For a cross-policy comparison use 1024 768, "
+                     "the training-native render every policy here was exported from, so each "
+                     "adapter's squash reproduces its own training frames exactly.")
 args = ap.parse_args()
 
 
@@ -153,29 +171,21 @@ def _repo_path(p: str) -> str:
     return p if (not p or Path(p).is_absolute()) else str(Path(V12) / p)
 
 
-for _flag in ("out", "root", "val_scenes", "episodes_from", "write_episodes", "checkpoint"):
+for _flag in ("out", "root", "val_scenes", "episodes_from", "write_episodes", "checkpoint",
+              "policy_config"):
     setattr(args, _flag, _repo_path(getattr(args, _flag)))
 
 # ---------------------------------------------------------------- policy
-from cosmos_framework.inference.common.init import init_script  # noqa: E402
-
-init_script()  # must precede other cosmos imports
-
+# Nothing from cosmos_framework is imported at module level any more. The cosmos adapter
+# imports it (after `init_script`) when `--policy cosmos` is constructed, and the baselines'
+# adapters import lerobot / transformers instead -- the two stacks cannot share a venv.
 import torch  # noqa: E402
 
-from cosmos_framework.data.generator.action.json_formatter import (  # noqa: E402
-    ActionPromptJsonFormatter,
-)
-from cosmos_framework.inference.action import build_action_batch  # noqa: E402
-from cosmos_framework.inference.args import ModelMode, OmniSetupOverrides  # noqa: E402
-from cosmos_framework.inference.common.init import init_output_dir  # noqa: E402
-from cosmos_framework.inference.inference import OmniInference  # noqa: E402
-from cosmos_framework.scripts.action_policy_server_utils import (  # noqa: E402
-    maybe_init_distributed,
-)
-
+from src.baselines.adapters import make_adapter  # noqa: E402
 from src.common.annotations import iter_goal_start_windows  # noqa: E402
-from src.common.blender_env import BlenderRolloutEnv, SubprocessBlenderRenderer  # noqa: E402
+from src.common.blender_env import (  # noqa: E402
+    BlenderRolloutEnv, PersistentBlenderRenderer, SubprocessBlenderRenderer,
+)
 from src.common.dataset_base import DEFAULT_EXCLUDE_OBJECTS, _window_object  # noqa: E402
 from src.common.facing import sector3, sector8  # noqa: E402
 from src.common.goal_space import (  # noqa: E402
@@ -183,142 +193,13 @@ from src.common.goal_space import (  # noqa: E402
 )
 from src.common.dataset_base import arrival_step  # noqa: E402
 from src.common.reward import CameraIntrinsics, pose_to_geometry, _geometry_distance  # noqa: E402
-from src.common.run_info import to_policy_frame  # noqa: E402
 from src.common.run_info import write_run_info as _write_run_info  # noqa: E402
-from src.data.cosmos_camera_dataset import CAMERA_ACTION_DIM, DOMAIN_NAME  # noqa: E402
-from src.data.lerobot_export import goal_prompt  # noqa: E402
+
+# Mirrors src/data/cosmos_camera_dataset.CAMERA_ACTION_DIM (see DEFAULT_VAL_SCENES above).
+CAMERA_ACTION_DIM = 10
 
 SECTOR_ORDER = ("front", "front-right", "right", "back-right",
                 "back", "back-left", "left", "front-left")
-
-
-def load_policy():
-    maybe_init_distributed()
-    wan = os.environ.get(
-        "WAN_VAE_PATH",
-        f"{V12}/repos/cosmos-framework/examples/checkpoints/wan22_vae/Wan2.2_VAE.pth",
-    )
-    overrides = OmniSetupOverrides.model_validate({
-        "checkpoint_path": args.checkpoint,
-        "config_file": "cosmos_framework/configs/base/config.py",
-        "experiment": "action_policy_camera_nano",
-        "experiment_overrides": [f"model.config.tokenizer.vae_path={wan}"],
-        "output_dir": str(Path(args.out).parent / "_infer"),
-        "sampler": "unipc",
-        "guardrails": False,          # a rollout loop must not pay for the safety models
-        "use_ema_weights": not args.no_ema,
-    })
-    setup = overrides.build_setup()
-    init_output_dir(setup.output_dir)
-    pipe = OmniInference.create(setup)
-    pipe.model.eval()
-    return pipe.model
-
-
-def make_prompt(goal_vec: np.ndarray, crop=None, *, idle_frames: int | None = 0) -> str:
-    """The goal as the JSON string the model was trained on.
-
-    `crop` is not optional in practice: the exporter always passes it
-    (`export_lerobot.py` -> `goal_prompt(g, crop=w.goal_frame.raw)`), so every training
-    prompt ends with a crop phrase and a `visible` number. Omitting it here made every
-    rollout so far ask the policy with a prompt shape it had never seen.
-
-    Training prompts carry `idle_frame`, and the stock inference path drops it, so
-    pass mode/idle_frames explicitly — otherwise the prompt drifts from training in
-    a way that is invisible until the numbers come out wrong.
-
-    `idle_frames` is a knob because that field LEAKS the shoot label. Measured over 6000
-    exported episodes: idle_frames > 0 => shoot=1 in 896/896 (100%), idle_frames == 0 =>
-    11.3%. It cannot be otherwise — post-arrival steps have translation exactly 0 and rot6d
-    exactly identity, so they are idle by construction. 0 is the training-modal value (81%);
-    `None` omits the field entirely, which is the ablation that separates "the policy learned
-    to declare arrival" from "the policy is reading the leak".
-    """
-    formatter = ActionPromptJsonFormatter()
-    # __call__ takes the sample dict and REPLACES ai_caption with the JSON structure,
-    # reading fps/size/idle from the same keys the dataset uses — hence `viewpoint`
-    # and `conditioning_fps`, not `view_point`/`fps`.
-    sample = {
-        "ai_caption": goal_prompt(goal_vec, crop=crop),
-        "viewpoint": "ego_view",
-        "conditioning_fps": torch.tensor(args.fps, dtype=torch.long),
-        "image_size": torch.tensor([args.image_size, args.image_size]),
-        "mode": "policy",
-        # `action` is here ONLY so the formatter can count total frames: `_get_total_frames`
-        # reads action.shape[0], and without it idle_frame reads "0." where training says
-        # "0 out of 8." — a 9-character divergence that string-level inspection missed and
-        # only a field-by-field diff against the dataset's own output surfaced. Zeros are
-        # correct: policy mode never conditions on the action, only on its length.
-        "action": torch.zeros(args.chunk_size, 1, dtype=torch.float32),
-        "video": torch.zeros(3, args.chunk_size + 1, args.image_size, args.image_size,
-                             dtype=torch.uint8),
-    }
-    if idle_frames is not None:
-        sample["idle_frames"] = torch.tensor(int(idle_frames))
-    out = formatter(sample)["ai_caption"]
-    return out if isinstance(out, str) else json.dumps(out)
-
-
-def predict_chunk(model, frame_uint8: np.ndarray, prompt: str, seed: int) -> np.ndarray:
-    """One (chunk_size, CAMERA_ACTION_DIM) action chunk: 9 pose dims + shoot on dim 9.
-
-    The batch is rebuilt every call on purpose: the model normalizes video in place
-    and stamps `is_preprocessed`, so a reused dict silently takes the float branch.
-    """
-    # The render is at the training ASPECT (4:3); squash it to the square the policy
-    # was trained on. A native square render would widen the vertical FOV by 4/3.
-    frame_uint8 = to_policy_frame(frame_uint8, args.image_size)
-    video = torch.from_numpy(frame_uint8).permute(2, 0, 1).contiguous()      # [C,H,W]
-    video = video.unsqueeze(1).repeat(1, args.chunk_size + 1, 1, 1)          # [C,T,H,W]
-    batch = build_action_batch(
-        video=video,
-        action=torch.zeros(args.chunk_size, 64, dtype=torch.float32),
-        raw_action_dim=CAMERA_ACTION_DIM,
-        prompt=prompt,
-        view_point="ego_view",
-        domain_name=DOMAIN_NAME,
-        # ModelMode, not the bare string: `build_action_batch` reads `model_mode.value`.
-        # ModelMode is a StrEnum, so "policy" compares equal and every type check passes
-        # — it only blows up inside the builder, once per episode.
-        model_mode=ModelMode.POLICY,
-        action_chunk_size=args.chunk_size,
-        fps=args.fps,
-        input_video_key=model.config.input_video_key,
-        batch_size=1,
-        device="cuda",
-    )
-    # `build_action_batch` runs `_format_prompt` on whatever it is handed, and `prompt` is
-    # ALREADY the formatted JSON from `make_prompt`. That formatted it a second time: the
-    # model saw an 868-char JSON whose actions[0].description was the entire escaped
-    # 573-char first JSON, a shape training never produced. Training formats exactly once
-    # (the dataset transform), so overwrite the field rather than let it be wrapped again.
-    batch["ai_caption"] = [prompt] * len(batch["ai_caption"])
-
-    with torch.no_grad():
-        draws = []
-        for k in range(max(1, args.samples)):
-            r = model.generate_samples_from_batch(
-                batch, guidance=args.guidance, num_steps=args.num_steps,
-                seed=[seed + 100_000 * k],
-            )
-            draws.append(r["action"][0].float().cpu().numpy())
-    # Mean of K. Averaging the SHOOT dim too is deliberate: its output is effectively binary
-    # (measured on 300 held-out windows: 90.5% below 0.05, 9.5% above 0.95, 0.1% between), so
-    # the mean is the FRACTION OF DRAWS that voted to stop and thresholding it at 0.5 is a
-    # majority vote, not a blurred number.
-    # `draws` are already numpy (`.float().cpu().numpy()` above), so the old
-    # `out["action"][0].float()...` tail cannot apply to them -- that mismatch made EVERY
-    # episode raise AttributeError and be recorded as FAILED, while the run itself kept
-    # going and looked like a preemption problem.
-    chunk = (draws[0] if len(draws) == 1 else np.mean(draws, axis=0))
-    # Slice to the FULL action width, not 9. Truncating here dropped the shoot channel
-    # before the caller ever saw it, and the caller's `if chunk.shape[1] > 9` guard then
-    # quietly read 0.0 forever -- termination would simply never fire, with nothing in the
-    # log to say why. Same silent-fallback shape as the diagnostics collector bug.
-    chunk = chunk[:, :CAMERA_ACTION_DIM]
-    assert chunk.shape[1] == CAMERA_ACTION_DIM, (
-        f"predicted chunk is {chunk.shape[1]} wide, expected {CAMERA_ACTION_DIM}")
-    return chunk
 
 
 def geometry_distance(position, forward, up, goal_view, intr) -> float:
@@ -335,8 +216,21 @@ def geometry_distance(position, forward, up, goal_view, intr) -> float:
 
 def write_run_info(placement: str, data_path: str, out_dir: Path) -> str:
     """Placement-faithful run_info; see `src.common.run_info` for why it is shared."""
-    return _write_run_info(placement, data_path, out_dir,
-                           shared_root=SHARED, resolution=args.image_size)
+    # An explicit (W, H) renders at that size; an int renders at the training aspect sized
+    # for that square (src/common/run_info.render_resolution). Adapters squash from there.
+    res = tuple(args.render_res) if args.render_res else args.image_size
+    # RENDER ON THE GPU. `BlenderDrone` defaults to CPU with 4 threads, which write_run_info
+    # calls "right for a 256x256 rollout frame and far too slow for a full-resolution one" --
+    # and it is: at 1024x768 a frame took ~35 s and an episode ~2.7 min, nearly all of it
+    # Cycles on the CPU while an idle B200 sat next to it. Same options the full-resolution
+    # renderer already uses (scripts/render_authored_goals.py RENDER_OPTS); `samples` stays at
+    # BlenderDrone's 64, which is what the training data was rendered with
+    # (render_v5_from_placements.py --samples default 64), so the picture is unchanged.
+    # persistent_data keeps the BVH between frames, which is the whole point of the
+    # persistent server.
+    opts = {"render_device": "GPU", "blender_threads": 8, "persistent_data": True}
+    return _write_run_info(placement, data_path, out_dir, shared_root=SHARED, resolution=res,
+                           extra_options=opts)
 
 
 def trained_placements() -> set[str]:
@@ -580,6 +474,9 @@ def main() -> int:
     t0 = time.time()
     episodes = (episodes_from_manifest(args.episodes_from) if args.episodes_from
                 else pick_episodes())
+    if args.limit > 0:
+        episodes = episodes[:args.limit]
+        print(f"--limit {args.limit}: running the first {len(episodes)} episode(s) only", flush=True)
     if args.write_episodes:
         write_manifest(episodes, args.write_episodes)
         return 0
@@ -588,7 +485,8 @@ def main() -> int:
         print("[eval] nothing to evaluate", flush=True)
         return 1
 
-    model = load_policy()
+    adapter = make_adapter(args, Path(args.out).parent)
+    print(f"policy: {adapter.name}  checkpoint: {args.checkpoint}", flush=True)
     print(f"[eval] policy loaded ({time.time()-t0:.0f}s)", flush=True)
     intr = CameraIntrinsics.from_render(1024, 768)
     # Resume from a previous run's partial output. This eval keeps getting preempted on
@@ -616,6 +514,8 @@ def main() -> int:
     # other's renders — the numbers stay correct (they come from env poses) but the
     # saved images end up belonging to a different scene, which only shows up as a
     # subject changing mid-strip in the report.
+    # Placements whose scene has killed the render server; they use one process per frame.
+    _renderer_fallback: set[str] = set()
     frames_dir = Path(args.out).parent / f"frames_{Path(args.out).stem}"
     frames_dir.mkdir(parents=True, exist_ok=True)
 
@@ -625,6 +525,7 @@ def main() -> int:
                 f":g{window.goal_frame.frame_idx:02d}")
         if _key in done_keys or (name, window.start.image, window.goal_frame.image) in done_keys:
             continue
+        renderer = None
         try:
             delta = abs(window.goal_frame.frame_idx - window.start_frame_idx)
             # However many chunks the goal actually is away — a fixed count would make
@@ -632,8 +533,20 @@ def main() -> int:
             n_chunks = args.chunks or int(np.ceil(delta / args.chunk_size))
             n_chunks += args.extra_chunks
 
-            renderer = SubprocessBlenderRenderer(repo_root=SHARED)
+            # ONE Blender per episode, not one per frame. `SubprocessBlenderRenderer`
+            # reloads the scene, rebuilds the BVH and recompiles kernels for EVERY render;
+            # at the training render size (1024x768) that was ~95 s a frame and ~8 min an
+            # episode, nearly all of it setup. The persistent server pays that once and then
+            # only moves the camera (~1-2 s a frame) -- the same trade
+            # `scripts/render_authored_goals.py` already makes in production.
+            #
+            # A scene that kills the SERVER falls back to one-process-per-frame rather than
+            # losing the episode: Parking_70ae1f27 does exactly that (rc=-11), reproducibly,
+            # while loading fine through the same BlenderDrone for a geometry dump.
             run_info = write_run_info(name, path, Path(args.out).parent / "_run_info")
+            renderer = (SubprocessBlenderRenderer(repo_root=SHARED)
+                        if name in _renderer_fallback
+                        else PersistentBlenderRenderer(repo_root=SHARED))
             env = BlenderRolloutEnv(run_info_path=run_info, renderer=renderer,
                                     object_position=window.start.object_position)
             start = window.start
@@ -653,14 +566,14 @@ def main() -> int:
 
             shots.append({"tag": "start", "path": save("start", obs["image"]), "d": d0})
 
-            prompt = make_prompt(goal_vec, crop=window.goal_frame.raw)
             declared_stop = None            # chunk index where the policy said "shoot"
             stop_step = None                # step WITHIN that chunk where it crossed
             shoot_log: list[list[float]] = []
             executed_steps = 0
             for c in range(n_chunks):
                 frame = np.asarray(obs["image"])
-                chunk = predict_chunk(model, frame, prompt, seed=args.seed + i * 100 + c)
+                chunk = adapter.act(frame, goal_vec, window.goal_frame.raw,
+                                    seed=args.seed + i * 100 + c)
                 # dim 9 is the shoot channel: a latched [0,1] state, thresholded the way
                 # NVIDIA's own reference client thresholds the gripper
                 # (docs/action_policy_libero_posttrain.md: "model emits [0,1]"). This is
@@ -742,6 +655,14 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001
             print(f"[eval] {i+1} FAILED {name[:40]}: {type(exc).__name__}: {exc}", flush=True)
             _failed += 1
+            # A render server that dies takes the episode with it, but the scene is usually
+            # fine through one-process-per-frame (Parking_70ae1f27 is the known case). Mark
+            # it so the retry, and any later window from the same placement, uses the slow
+            # path instead of failing again the same way.
+            if "render server" in str(exc) or "rc=-11" in str(exc):
+                _renderer_fallback.add(name)
+                print(f"[eval] {name[:40]}: render server died — that placement falls back "
+                      "to one process per frame", flush=True)
             # Abort instead of grinding through 160 identical failures. A per-episode
             # try/except is right for a bad placement, but it also swallowed a code bug that
             # broke EVERY episode: the run kept going, finished, and looked like a
@@ -750,6 +671,15 @@ def main() -> int:
                 print(f"[eval] ABORT — first {_failed} episodes all failed and none "
                       f"succeeded; this is a code fault, not bad data", flush=True)
                 raise SystemExit(1)
+        finally:
+            # One Blender per EPISODE. Without this the persistent servers accumulate -- 64
+            # of them, each holding a loaded scene and a GPU context.
+            if renderer is not None:
+                try:
+                    renderer.close()
+                except Exception:  # noqa: BLE001
+                    pass
+                renderer = None
 
     if not results:
         print("[eval] every episode failed", flush=True)
@@ -804,6 +734,8 @@ def main() -> int:
         "scenes_completed": sorted({r["placement"].split("__")[0] for r in results}),
         "frames_dir": str(frames_dir),
         "guidance": args.guidance, "num_steps": args.num_steps,
+        "policy": adapter.name, "policy_config": args.policy_config or None,
+        "render_res": list(args.render_res) if args.render_res else None,
         "chunks": args.chunks, "ema": not args.no_ema,
         "elapsed_s": time.time() - t0,
     }

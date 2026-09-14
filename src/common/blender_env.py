@@ -84,7 +84,12 @@ class SubprocessBlenderRenderer(Renderer):
         blender_bin: str = "blender/blender",
         render_script: str = "scripts/blender_render_pose.py",
         repo_root: Optional[Path] = None,
-        timeout_s: float = 300.0,
+        # 900, not 300. A rollout renders at the TRAINING resolution (1024x768) so each
+        # policy's own squash reproduces its training frames; that is ~9x the pixels of the
+        # 344x258 this default was set for, and the heavy scenes (basement_8f9ffd5b) went
+        # from comfortable to over the limit -- losing the whole episode, in every run, for
+        # a render that simply needed longer.
+        timeout_s: float = 900.0,
     ) -> None:
         self.repo_root = Path(repo_root) if repo_root else Path(__file__).resolve().parents[3]
         self.blender_bin = str((self.repo_root / blender_bin).resolve())
@@ -137,7 +142,9 @@ class PersistentBlenderRenderer(Renderer):
         server_script: str = "scripts/blender_render_server.py",
         repo_root: Optional[Path] = None,
         ready_timeout_s: float = 900.0,    # first startup may compile sm_100 kernels
-        render_timeout_s: float = 300.0,   # first render builds BVH; later ones are quick
+        render_timeout_s: float = 900.0,   # first render builds BVH; later ones are quick.
+                                           # 900 for the same reason as SubprocessBlenderRenderer
+                                           # above: a 1024x768 rollout render is ~9x the pixels.
     ) -> None:
         self.repo_root = Path(repo_root) if repo_root else Path(__file__).resolve().parents[3]
         self.blender_bin = str((self.repo_root / blender_bin).resolve())
