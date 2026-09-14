@@ -217,6 +217,27 @@ class _Entry:
     candidates: list[tuple[ViewRecord, np.ndarray]]   # (goal frame, goal_vec)
 
 
+def arrival_step(shoot, threshold: float = 0.5):
+    """First step in a predicted chunk where the shoot channel crosses `threshold`.
+
+    Returns that index, or None if the chunk never crosses. It is also the number of pose
+    steps to EXECUTE before halting, which is the whole point of returning an index rather
+    than a bool.
+
+    The channel is latched (`shoot_column`), so a chunk reads "travel, travel, ..., arrived,
+    arrived". Only the steps at and after the crossing are the "you are there" steps whose
+    pose action is zero by construction; everything before it is travel the policy planned.
+    Halting on `max(shoot) > threshold` without consulting the index therefore throws that
+    travel away -- and it is not a rare corner: over the 103 declarations in
+    `runs/eval/shoot_probe_iter40000.json` the first crossing was at step 5, 6 or 7 and
+    never at 0, so the discarded travel averaged 5.8 of the 8 steps.
+    """
+    import numpy as np
+
+    crossed = np.asarray(shoot, dtype=np.float32) > float(threshold)
+    return int(np.argmax(crossed)) if bool(crossed.any()) else None
+
+
 def shoot_column(window: TrajectoryWindow) -> np.ndarray:
     """The `shoot` channel for this window: (chunk_size,) float32, latched at arrival.
 

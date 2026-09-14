@@ -181,6 +181,7 @@ from src.common.facing import sector3, sector8  # noqa: E402
 from src.common.goal_space import (  # noqa: E402
     DEFAULT_GOAL_KEYS, SUBJECT_BEARING_KEY, goal_vector,
 )
+from src.common.dataset_base import arrival_step  # noqa: E402
 from src.common.reward import CameraIntrinsics, pose_to_geometry, _geometry_distance  # noqa: E402
 from src.common.run_info import to_policy_frame  # noqa: E402
 from src.common.run_info import write_run_info as _write_run_info  # noqa: E402
@@ -654,6 +655,9 @@ def main() -> int:
 
             prompt = make_prompt(goal_vec, crop=window.goal_frame.raw)
             declared_stop = None            # chunk index where the policy said "shoot"
+            stop_step = None                # step WITHIN that chunk where it crossed
+            shoot_log: list[list[float]] = []
+            executed_steps = 0
             for c in range(n_chunks):
                 frame = np.asarray(obs["image"])
                 chunk = predict_chunk(model, frame, prompt, seed=args.seed + i * 100 + c)
@@ -666,22 +670,32 @@ def main() -> int:
                 assert chunk.shape[1] == CAMERA_ACTION_DIM, (
                     f"predicted chunk is {chunk.shape[1]} wide, expected "
                     f"{CAMERA_ACTION_DIM}; the shoot channel is missing")
-                shoot = float(np.max(chunk[:, 9]))
-                if declared_stop is None and shoot > args.shoot_threshold:
-                    declared_stop = c
-                    if args.stop_on_shoot:
-                        # Stop BEFORE executing: the shoot state means "you are already
-                        # there". Its own pose action is zero in training anyway.
-                        break
-                # BlenderRolloutEnv.step applies the 9D action via apply_action_9d, which
-                # decodes rot6d and re-projects upright — the same decode the training
-                # data was encoded with.
-                for step in chunk[:, :9]:
-                    obs, _ = env.step(step, render=False)
-                obs = env.reset(env.position, env.forward, env.up)   # render the new view
-                d = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
-                trace.append(d)
-                shots.append({"tag": f"chunk{c+1}", "path": save(f"chunk{c+1}", obs["image"]), "d": d})
+                # Raw channel, per step, every chunk — so a threshold sweep is a re-read
+                # of the results rather than another GPU run.
+                shoot_log.append([round(float(v), 5) for v in chunk[:, 9]])
+                k = arrival_step(chunk[:, 9], args.shoot_threshold)
+                halt = bool(args.stop_on_shoot) and declared_stop is None and k is not None
+                if declared_stop is None and k is not None:
+                    declared_stop, stop_step = c, k
+                # Execute UP TO the declared arrival. The shoot state is latched, so only the
+                # steps at and after `k` are the zero-action "you are already there" steps;
+                # the ones before it are travel the policy planned, and halting on
+                # `max(shoot)` discarded all of it. See `src.common.dataset_base.arrival_step`
+                # — over 103 declarations the first crossing was never at step 0.
+                steps = chunk[:k, :9] if halt else chunk[:, :9]
+                if len(steps):
+                    # BlenderRolloutEnv.step applies the 9D action via apply_action_9d, which
+                    # decodes rot6d and re-projects upright — the same decode the training
+                    # data was encoded with.
+                    for step in steps:
+                        obs, _ = env.step(step, render=False)
+                    executed_steps += len(steps)
+                    obs = env.reset(env.position, env.forward, env.up)   # render the new view
+                    d = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
+                    trace.append(d)
+                    shots.append({"tag": f"chunk{c+1}", "path": save(f"chunk{c+1}", obs["image"]), "d": d})
+                if halt:
+                    break
 
             d1 = trace[-1]
             d_best = float(min(trace))
@@ -695,6 +709,7 @@ def main() -> int:
                 # Logged even when --stop-on-shoot is off, so a fixed-length rollout still
                 # answers "where WOULD it have stopped" against the same trace.
                 "declared_stop": declared_stop, "executed_chunks": len(trace) - 1,
+                "stop_step": stop_step, "executed_steps": executed_steps, "shoot": shoot_log,
                 "d_start": d0, "d_end": d1, "d_best": d_best,
                 "improvement": d0 - d1, "best_improvement": d0 - d_best,
                 "trace": trace, "shots": shots,
