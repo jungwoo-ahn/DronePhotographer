@@ -276,3 +276,49 @@ def test_autophoto_cannot_move_laterally_or_vertically():
     assert all(a[1] == 0 for a in moves), "dy is never non-zero"
     assert all(a[4] == 0 for a in moves), "dpitch (tilt) is never non-zero"
     assert any(a[2] != 0 for a in moves) and any(a[3] != 0 for a in moves), "dolly and yaw exist"
+
+
+def test_autophoto_action_needs_the_real_pose_not_a_synthetic_frame():
+    """The bug that made AutoPhoto's row an exact no-op.
+
+    `apply_action_5d` yaws about the WORLD up axis, so what a discrete action does depends on
+    where the camera actually is. The first adapter built the chunk in a synthetic frame
+    (forward = +Z, up = +Y) on the assumption that a relative action is basis-free. It is not:
+    there forward IS the world up axis, so a yaw spins the up vector and leaves forward alone,
+    and the encoded rot6d decodes to a 0-degree rotation on the real pose. 44 of 54 episodes
+    ended with the camera exactly where it started, which reads as a clean floor result.
+    """
+    np_ = pytest.importorskip("numpy")
+    from src.common.action_repr import apply_action_5d, apply_action_9d, encode_action_9d
+
+    yaw = np_.asarray((0, 0, 0, np_.deg2rad(30), 0), np_.float32)
+    pos = np_.array([3.0, 0.0, 1.5], np_.float32)
+    fwd = np_.array([-1.0, 0.0, 0.0], np_.float32)
+    up = np_.array([0.0, 0.0, 1.0], np_.float32)
+
+    # encoded from the REAL pose: the rotation survives the 9-D round trip
+    p2, f2, u2 = apply_action_5d(pos, fwd, up, yaw)
+    good = encode_action_9d(pos, fwd, up, p2, f2, u2)
+    _, gf, _ = apply_action_9d(pos, fwd, up, good)
+    ang = np_.degrees(np_.arccos(np_.clip(float(np_.dot(fwd, gf / np_.linalg.norm(gf))), -1, 1)))
+    assert 29.0 < ang < 31.0, f"real-pose encoding lost the rotation ({ang:.1f} deg)"
+
+    # encoded from the synthetic frame the bug used: it decodes to nothing
+    sp = np_.zeros(3, np_.float32)
+    sf, su = np_.array([0, 0, 1], np_.float32), np_.array([0, 1, 0], np_.float32)
+    q2, qf2, qu2 = apply_action_5d(sp, sf, su, yaw)
+    bad = encode_action_9d(sp, sf, su, q2, qf2, qu2)
+    _, bf, _ = apply_action_9d(pos, fwd, up, bad)
+    bang = np_.degrees(np_.arccos(np_.clip(float(np_.dot(fwd, bf / np_.linalg.norm(bf))), -1, 1)))
+    assert bang < 1.0, "the synthetic frame is supposed to lose the rotation — pin the failure"
+
+
+def test_every_adapter_accepts_the_pose_argument():
+    """The loop passes `pose=` to all of them; an adapter that did not accept it would raise
+    on the first chunk, but only for that policy and only at rollout time."""
+    import inspect
+    for cls in (adapters.CosmosAdapter, adapters.LeRobotAdapter,
+                adapters.DPAdapter, adapters.AutoPhotoAdapter):
+        sig = inspect.signature(cls.act)
+        assert "pose" in sig.parameters, f"{cls.__name__}.act has no `pose` parameter"
+    assert "pose=_pose_now()" in SCRIPT, "the loop must pass the current pose"

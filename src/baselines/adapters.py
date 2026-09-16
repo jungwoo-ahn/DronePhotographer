@@ -45,7 +45,13 @@ class PolicyAdapter(Protocol):
     name: str
 
     def act(self, frame_uint8: np.ndarray, goal_vec: np.ndarray, goal_raw: dict,
-            seed: int) -> np.ndarray: ...
+            seed: int, pose: dict | None = None) -> np.ndarray:
+        """`pose` is the camera's CURRENT world pose, for adapters whose action is defined
+        against world axes rather than the camera's own. Every trained policy here ignores it
+        -- they emit a relative chunk -- but AutoPhoto's yaw is about the WORLD up axis, so a
+        chunk built in a synthetic local frame decodes to a different rotation, or to none.
+        """
+        ...
 
 
 def _squash(frame_uint8: np.ndarray, size_wh: tuple[int, int]) -> np.ndarray:
@@ -149,7 +155,7 @@ class CosmosAdapter:
         out = self._fmt(sample)["ai_caption"]
         return out if isinstance(out, str) else json.dumps(out)
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed):
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
         torch = self._torch
         prompt = self.make_prompt(goal_vec, crop=goal_raw)
         frame = self._to_policy_frame(frame_uint8, self.image_size)          # 4:3 -> square
@@ -217,7 +223,7 @@ class LeRobotAdapter:
         self.resize = int(resize)
         self.state = torch.zeros(state_dim, dtype=torch.float32)
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed):
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
         torch = self._torch
         task = self._goal_prompt(np.asarray(goal_vec, dtype=np.float32), self._keys, crop=goal_raw)
         a = _squash(frame_uint8, (self.resize, self.resize)).astype(np.float32) / 255.0
@@ -275,7 +281,7 @@ class DPAdapter:
         if bad:
             raise RuntimeError(f"DP checkpoint/model MISMATCH: {bad[:5]} -- wrong --policy-config?")
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed):
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
         torch = self._torch
         # EXACTLY what `_load_image_as_tensor` did to the training frames: LANCZOS to (W, H),
         # then [-1, 1] via /127.5 - 1. Not interchangeable with a BILINEAR [0, 1] tensor --
@@ -348,13 +354,25 @@ class AutoPhotoAdapter:
             (0, 0, 0, -_T90, 0), (0, 0, 0, _T90, 0),
         ]
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed):
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
         """Eight discrete moves from one observation, as 9-D pose actions + a shoot channel.
 
         `goal_vec` and `goal_raw` are accepted and ignored — deliberately, and it is the whole
         finding: this policy has no way to take them.
+
+        `pose` is NOT optional here. `apply_action_5d` yaws about the WORLD up axis, so the
+        rotation a discrete action produces depends on where the camera actually is. Building
+        the chunk in a synthetic local frame (forward = +Z, up = +Y) put forward parallel to
+        WORLD_UP, where a yaw rotates the up vector and leaves forward untouched; the encoded
+        rot6d then decoded to a 0-degree rotation on the real pose, and the camera never moved
+        in 44 of 54 episodes. The row read as an exact no-op, which looked like a clean floor
+        result and was a bug.
         """
         from PIL import Image
+        if pose is None:
+            raise RuntimeError(
+                "AutoPhotoAdapter needs the current pose: its yaw is about the world up axis, "
+                "so the chunk cannot be built in a synthetic frame")
         # New episode when the loop's seed base changes; the LSTM state must not leak across.
         ep = int(seed) // 100
         if ep != self._episode:
@@ -363,12 +381,9 @@ class AutoPhotoAdapter:
         _, obs = self.reward.score_and_features(Image.fromarray(np.asarray(frame_uint8)))
         obs = np.asarray(obs, dtype=np.float32)
 
-        # Integrate the discrete moves on a local pose, then encode each step as the 9-D
-        # action the env applies. A local basis is enough: apply_action_5d/encode_action_9d
-        # are both relative, so the chunk is the same wherever the camera actually is.
-        pos = np.zeros(3, np.float32)
-        fwd = np.array([0, 0, 1], np.float32)
-        up = np.array([0, 1, 0], np.float32)
+        pos = np.asarray(pose["position"], np.float32)
+        fwd = np.asarray(pose["forward"], np.float32)
+        up = np.asarray(pose["up"], np.float32)
         chunk = np.zeros((self.chunk_size, CHUNK_DIM), np.float32)
         for t in range(self.chunk_size):
             a, self._lstm = self.model.predict(obs, state=self._lstm, deterministic=True)

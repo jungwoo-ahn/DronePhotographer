@@ -585,8 +585,10 @@ def main() -> int:
             executed_steps = 0
             for c in range(n_chunks):
                 frame = np.asarray(obs["image"])
+                # `pose` matters only to adapters whose action is defined against world axes
+                # (AutoPhoto's yaw); the trained policies emit a relative chunk and ignore it.
                 chunk = adapter.act(frame, goal_vec, window.goal_frame.raw,
-                                    seed=args.seed + i * 100 + c)
+                                    seed=args.seed + i * 100 + c, pose=_pose_now())
                 # dim 9 is the shoot channel: a latched [0,1] state, thresholded the way
                 # NVIDIA's own reference client thresholds the gripper
                 # (docs/action_policy_libero_posttrain.md: "model emits [0,1]"). This is
