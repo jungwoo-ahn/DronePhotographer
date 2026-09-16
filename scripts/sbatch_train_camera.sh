@@ -201,17 +201,19 @@ _handle_term() {
     # Fast and best-effort. Anything slow here is work the SIGKILL will interrupt, and the
     # successor is already queued, so nothing the chain depends on happens in this function.
     touch "$SLURM_LOG_DIR/SIGUSR1_RECEIVED" 2>/dev/null || true
-    local state
-    state=$(sacct -j "$SLURM_JOB_ID" -X -n -P -o State 2>/dev/null | head -1)
-    case "$state" in
-        PREEMPTED*|TIMEOUT*|*CANCELLED\ by\ 0*|NODE_FAIL*)
-            echo "[chain] ended by the scheduler (state=$state) at banked $(_ckpt_iter);" \
-                 "successor ${_SUCCESSOR:-?} takes over" >&2 ;;
-        *)
-            echo "[chain] state=$state — a person stopped this; stopping the chain" >&2
-            touch "$_STOP_FILE"
-            [ -n "$_SUCCESSOR" ] && scancel "$_SUCCESSOR" 2>/dev/null || true ;;
-    esac
+    # NEVER cancel the successor from here. This used to ask sacct whether the scheduler or a
+    # person ended the job, and stop the chain if it could not tell. It cannot tell: at the
+    # moment SIGTERM arrives sacct still reports RUNNING for a timeout exactly as it does for
+    # a `scancel`, so the "a person stopped this" branch fired on the ordinary 3-day boundary
+    # -- wrote the stop file, cancelled the successor, and ended the run at iteration 42000 of
+    # 100000 with nothing in the log but a line claiming a person had done it.
+    #
+    # The asymmetry decides the default: guessing "scheduler" when it was a person costs ONE
+    # job that starts and exits immediately, while guessing "person" when it was the scheduler
+    # costs the whole run. So the chain always continues, and stopping it is an explicit act:
+    # `touch $_STOP_FILE` (every later link checks it at startup), then scancel.
+    echo "[chain] SIGTERM at banked $(_ckpt_iter); successor ${_SUCCESSOR:-?} takes over." \
+         "To stop the chain: touch $_STOP_FILE" >&2
     exit 143
 }
 

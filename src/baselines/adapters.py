@@ -298,6 +298,90 @@ class DPAdapter:
         return _check_chunk(chunk[:, :CHUNK_DIM], self.name)
 
 
+# ---------------------------------------------------------------------------- AutoPhoto (RL)
+class AutoPhotoAdapter:
+    """AutoPhoto: RecurrentPPO (actor-critic + LSTM) over a pretrained aesthetic reward.
+
+    THE FLOOR ROW, and it is here to be one. Two things make it structurally unable to do this
+    task, and saying so is the point of running it:
+
+    * **It never sees the goal.** Its observation is 512-d features from AutoPhoto's aesthetic
+      ResNet18, and its reward was that network's score. Nothing about a requested shot reaches
+      it. A goal-conditioned metric should therefore score it near the no-op, and if it does
+      not, the metric is measuring "moving the camera helps" rather than "following the goal".
+    * **Its action space cannot express the goal space.** The nine discrete actions are dolly
+      forward/back and yaw by +-10/30/90 degrees, plus terminate. In the 5-D delta they map to,
+      `dx`, `dy` and `dpitch` are ALWAYS zero -- no lateral, no vertical, no tilt. Elevation and
+      the vertical half of `d_aim` are unreachable by construction.
+
+    Fitted to the shared contract rather than given its own loop: it emits one discrete action
+    per step, so the adapter runs it `chunk_size` times from a single observation, carrying the
+    LSTM state across chunks, and each discrete move is converted to the 9-D action the rollout
+    env applies. That is exactly the deal every other policy gets -- eight steps from one frame
+    -- and it is a worse deal for a reactive policy than for a chunk predictor. Its `terminate`
+    action drives the shoot channel, so it stops when it says it is done.
+    """
+
+    name = "autophoto"
+
+    def __init__(self, checkpoint: str, reward_ckpt: str, *, chunk_size: int = 8,
+                 device: str = "cuda"):
+        import torch
+        from sb3_contrib import RecurrentPPO
+        from src.baselines.autophoto_vendor import AestheticReward
+        from src.common.action_repr import apply_action_5d, encode_action_9d
+
+        self._torch = torch
+        self._apply5d, self._encode9d = apply_action_5d, encode_action_9d
+        self.chunk_size = int(chunk_size)
+        self.model = RecurrentPPO.load(checkpoint, device=device)
+        self.reward = AestheticReward(reward_ckpt, device=device)
+        self._lstm = None            # carried across chunks, as in AutoPhoto's own eval loop
+        self._episode = None
+        # The action table, copied from the source repo's PhotoEnv rather than imported: that
+        # module pulls in gymnasium, its Blender env and its renderer, none of which this needs.
+        _F, _T10, _T30, _T90 = 0.25, np.deg2rad(10), np.deg2rad(30), np.deg2rad(90)
+        self.actions = [
+            (0, 0, _F, 0, 0), (0, 0, 0, -_T30, 0), (0, 0, 0, _T30, 0),
+            None,                                            # terminate
+            (0, 0, -_F, 0, 0), (0, 0, 0, -_T10, 0), (0, 0, 0, _T10, 0),
+            (0, 0, 0, -_T90, 0), (0, 0, 0, _T90, 0),
+        ]
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed):
+        """Eight discrete moves from one observation, as 9-D pose actions + a shoot channel.
+
+        `goal_vec` and `goal_raw` are accepted and ignored — deliberately, and it is the whole
+        finding: this policy has no way to take them.
+        """
+        from PIL import Image
+        # New episode when the loop's seed base changes; the LSTM state must not leak across.
+        ep = int(seed) // 100
+        if ep != self._episode:
+            self._episode, self._lstm = ep, None
+
+        _, obs = self.reward.score_and_features(Image.fromarray(np.asarray(frame_uint8)))
+        obs = np.asarray(obs, dtype=np.float32)
+
+        # Integrate the discrete moves on a local pose, then encode each step as the 9-D
+        # action the env applies. A local basis is enough: apply_action_5d/encode_action_9d
+        # are both relative, so the chunk is the same wherever the camera actually is.
+        pos = np.zeros(3, np.float32)
+        fwd = np.array([0, 0, 1], np.float32)
+        up = np.array([0, 1, 0], np.float32)
+        chunk = np.zeros((self.chunk_size, CHUNK_DIM), np.float32)
+        for t in range(self.chunk_size):
+            a, self._lstm = self.model.predict(obs, state=self._lstm, deterministic=True)
+            spec = self.actions[int(a)]
+            if spec is None:                       # terminate -> latch the shoot channel
+                chunk[t:, 9] = 1.0
+                break
+            np_, fwd_, up_ = self._apply5d(pos, fwd, up, np.asarray(spec, np.float32))
+            chunk[t, :9] = self._encode9d(pos, fwd, up, np_, fwd_, up_)
+            pos, fwd, up = np_, fwd_, up_
+        return _check_chunk(chunk, self.name)
+
+
 # ---------------------------------------------------------------------------- factory
 def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
     """Build the adapter `--policy` names from the eval script's parsed args."""
@@ -308,6 +392,10 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
                              use_ema=not args.no_ema, idle_frames=getattr(args, "idle_frames", 0))
     if args.policy in ("pi05", "groot"):
         return LeRobotAdapter(args.policy, args.checkpoint)
+    if args.policy == "autophoto":
+        if not args.policy_config:
+            raise SystemExit("--policy autophoto needs --policy-config <aesthetic resnet .pt>")
+        return AutoPhotoAdapter(args.checkpoint, args.policy_config, chunk_size=args.chunk_size)
     if args.policy == "dp":
         if not args.policy_config:
             raise SystemExit("--policy dp needs --policy-config <config.yaml> from the training run")
@@ -315,4 +403,4 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
     raise SystemExit(f"unknown --policy {args.policy!r}")
 
 
-__all__ = ["PolicyAdapter", "CosmosAdapter", "LeRobotAdapter", "DPAdapter", "make_adapter", "CHUNK_DIM"]
+__all__ = ["PolicyAdapter", "CosmosAdapter", "LeRobotAdapter", "DPAdapter", "AutoPhotoAdapter", "make_adapter", "CHUNK_DIM"]

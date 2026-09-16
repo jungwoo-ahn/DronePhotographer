@@ -40,10 +40,12 @@ CK[v6_27k]="$V6/iter_000027000";   CFG[v6_27k]="--policy cosmos"     # the one t
 CK[v5_49k]="$V5/iter_000049000";   CFG[v5_49k]="--policy cosmos"     # v5's best survivor; same rule as the rest
 CK[pi05]="baseline_ckpts/pi05_fair/checkpoints/300000/pretrained_model";  CFG[pi05]="--policy pi05"
 CK[groot]="baseline_ckpts/groot_fair/checkpoints/210000/pretrained_model"; CFG[groot]="--policy groot"
+CK[autophoto]="baseline_ckpts/autophoto/autophoto_22000_steps.zip"
+CFG[autophoto]="--policy autophoto --policy-config baseline_ckpts/weights/autophoto/resnet-model42.pt"
 CK[dp]="baseline_ckpts/20260818_064526_diffusion_policy_dinov2/ckpt_best.pt"
 CFG[dp]="--policy dp --policy-config baseline_ckpts/20260818_064526_diffusion_policy_dinov2/config.yaml"
 
-ORDER=(v6_12k v6_27k v5_49k pi05 groot dp)
+ORDER=(v6_12k v6_27k v5_49k pi05 groot dp autophoto)
 [ $# -gt 0 ] && ORDER=("$@")
 for name in "${ORDER[@]}"; do
     [ -n "${CK[$name]:-}" ] || { echo "unknown policy '$name' (choose from ${!CK[*]})" >&2; exit 2; }

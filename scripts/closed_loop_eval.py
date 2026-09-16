@@ -136,7 +136,7 @@ ap.add_argument("--stop-on-shoot", type=int, default=1,
 ap.add_argument("--shoot-threshold", type=float, default=0.5)
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--no-ema", action="store_true", help="load raw weights instead of EMA")
-ap.add_argument("--policy", default="cosmos", choices=("cosmos", "pi05", "groot", "dp"),
+ap.add_argument("--policy", default="cosmos", choices=("cosmos", "pi05", "groot", "dp", "autophoto"),
                 help="which policy answers act(frame, goal). Everything else in this script -- "
                      "renderer, episodes, stop rule, metric -- is shared, which is what makes "
                      "the numbers comparable. See src/baselines/adapters.py.")
@@ -145,7 +145,7 @@ ap.add_argument("--limit", type=int, default=0,
                      "smokes. Deliberately separate from --episodes, whose default of 24 would "
                      "otherwise silently truncate a 64-episode manifest.")
 ap.add_argument("--policy-config", default="",
-                help="DP only: the training run's config.yaml (goal keys, resolution, U-Net shape)")
+                help="DP: the training run's config.yaml. autophoto: the aesthetic ResNet .pt")
 ap.add_argument("--render-res", type=int, nargs=2, default=None, metavar=("W", "H"),
                 help="Blender render size. Default: the smallest 4:3 multiple that squashes to "
                      "--image-size (344x258 for 256). For a cross-policy comparison use 1024 768, "
@@ -514,7 +514,11 @@ def main() -> int:
     # other's renders — the numbers stay correct (they come from env poses) but the
     # saved images end up belonging to a different scene, which only shows up as a
     # subject changing mid-strip in the report.
-    # Placements whose scene has killed the render server; they use one process per frame.
+    # SCENES whose render server dies; their placements use one process per frame. Keyed by
+    # scene, not placement: Parking_70ae1f27 kills the server for every object placed in it,
+    # and a placement-keyed set demoted one placement at a time while the other nine failed
+    # exactly the same way -- which is how that scene has been missing from every held-out
+    # number this project has published.
     _renderer_fallback: set[str] = set()
     frames_dir = Path(args.out).parent / f"frames_{Path(args.out).stem}"
     frames_dir.mkdir(parents=True, exist_ok=True)
@@ -545,7 +549,7 @@ def main() -> int:
             # while loading fine through the same BlenderDrone for a geometry dump.
             run_info = write_run_info(name, path, Path(args.out).parent / "_run_info")
             renderer = (SubprocessBlenderRenderer(repo_root=SHARED)
-                        if name in _renderer_fallback
+                        if name.split("__")[0] in _renderer_fallback
                         else PersistentBlenderRenderer(repo_root=SHARED))
             env = BlenderRolloutEnv(run_info_path=run_info, renderer=renderer,
                                     object_position=window.start.object_position)
@@ -554,6 +558,15 @@ def main() -> int:
 
             d0 = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
             trace = [d0]
+            # The POSE at every scored point, not just the scalar distance. Costs nine floats
+            # a chunk and makes every "what does 0.25 rad mean in degrees / metres / percent"
+            # question a re-read of the results instead of another rollout -- which is exactly
+            # what it cost the first time it was asked.
+            def _pose_now():
+                return {"position": [float(v) for v in env.position],
+                        "forward": [float(v) for v in env.forward],
+                        "up": [float(v) for v in env.up]}
+            pose_trace = [_pose_now()]
             shots = []
 
             def save(tag: str, image) -> str | None:
@@ -606,6 +619,7 @@ def main() -> int:
                     obs = env.reset(env.position, env.forward, env.up)   # render the new view
                     d = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
                     trace.append(d)
+                    pose_trace.append(_pose_now())
                     shots.append({"tag": f"chunk{c+1}", "path": save(f"chunk{c+1}", obs["image"]), "d": d})
                 if halt:
                     break
@@ -625,7 +639,13 @@ def main() -> int:
                 "stop_step": stop_step, "executed_steps": executed_steps, "shoot": shoot_log,
                 "d_start": d0, "d_end": d1, "d_best": d_best,
                 "improvement": d0 - d1, "best_improvement": d0 - d_best,
-                "trace": trace, "shots": shots,
+                "trace": trace, "pose_trace": pose_trace, "shots": shots,
+                # The goal this was scored against, so the units breakdown needs nothing else.
+                "goal_pose": {"position": [float(v) for v in window.goal_frame.camera_position],
+                              "forward": [float(v) for v in window.goal_frame.camera_forward],
+                              "up": [float(v) for v in window.goal_frame.camera_up]},
+                "subject_center": [float(v) for v in window.goal_frame.subject_center],
+                "subject_height": float(window.goal_frame.subject_height),
                 "goal_frame_image": window.goal_frame.image,
                 "start_frame_image": start.image,
             })
@@ -659,10 +679,16 @@ def main() -> int:
             # fine through one-process-per-frame (Parking_70ae1f27 is the known case). Mark
             # it so the retry, and any later window from the same placement, uses the slow
             # path instead of failing again the same way.
-            if "render server" in str(exc) or "rc=-11" in str(exc):
-                _renderer_fallback.add(name)
-                print(f"[eval] {name[:40]}: render server died — that placement falls back "
-                      "to one process per frame", flush=True)
+            if ("render server" in str(exc) or "rc=-11" in str(exc)) and \
+                    name.split("__")[0] not in _renderer_fallback:
+                _renderer_fallback.add(name.split("__")[0])
+                print(f"[eval] {name.split('__')[0]}: render server died — that SCENE falls "
+                      "back to one process per frame; re-queueing this episode", flush=True)
+                # Retry this episode now on the slow path rather than losing it. Appending to
+                # the list being iterated is deliberate: `enumerate` reads it lazily, so the
+                # retry runs after everything already queued, by which time the scene is in
+                # the fallback set. Guarded by the membership check above, so one retry only.
+                episodes.append(episodes[i])
             # Abort instead of grinding through 160 identical failures. A per-episode
             # try/except is right for a bad placement, but it also swallowed a code bug that
             # broke EVERY episode: the run kept going, finished, and looked like a
