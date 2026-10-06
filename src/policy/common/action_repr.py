@@ -163,6 +163,19 @@ def encode_action_5d(
     return np.array([dt[0], dt[1], dt[2], dyaw, dpitch], dtype=np.float32)
 
 
+# Sign of the 5D yaw, verified empirically against apply_action_5d (see
+# tests/policy/test_action_5d_conventions.py): dyaw rotates `forward` about WORLD up, and with
+# camera right = cross(forward, WORLD_UP) a POSITIVE dyaw turns the camera LEFT. Human-facing
+# descriptions ("pan right") are right-positive, so anything that speaks in those terms must
+# convert through here instead of assuming the signs agree -- they do not.
+YAW_RIGHT_SIGN = -1.0
+
+
+def yaw_from_right_positive(angle: float) -> float:
+    """Convert a right-positive yaw (the human/VLM convention) to the 5D repr's dyaw."""
+    return YAW_RIGHT_SIGN * float(angle)
+
+
 def decode_action_5d(action: np.ndarray) -> tuple[np.ndarray, tuple[float, float]]:
     """Split a 5D action into (Δtranslation_camera_local, (Δyaw, Δpitch)).
 
@@ -171,8 +184,13 @@ def decode_action_5d(action: np.ndarray) -> tuple[np.ndarray, tuple[float, float
     needs the current pose (`apply_action_5d`). This helper validates + splits.
     """
     a = np.asarray(action, dtype=np.float32).reshape(-1)
-    if a.shape[0] not in (POSE_DIM, ACTION_DIM):
-        raise ValueError(f"expected {POSE_DIM}- or {ACTION_DIM}-D action, got shape {a.shape}")
+    if a.shape[0] not in (POSE_DIM_5D, POSE_DIM_5D + SHOOT_DIM):
+        # NB: these guards used to read POSE_DIM/ACTION_DIM. The V12 port moved those to 9/10,
+        # which made the 5D helpers reject 5D input and ACCEPT 9D -- silently reading rot6d[0:2]
+        # as (dyaw, dpitch) radians. Any 5D baseline (AutoPhoto, UNIC, LLM policy) would have
+        # been corrupted without raising.
+        raise ValueError(f"expected {POSE_DIM_5D}- or {POSE_DIM_5D + SHOOT_DIM}-D (legacy 5D) "
+                         f"action, got shape {a.shape}")
     return a[:3].astype(np.float32), (float(a[3]), float(a[4]))
 
 
@@ -190,8 +208,13 @@ def apply_action_5d(
     zero rotation preserves the orientation exactly, including at the poles.
     """
     a = np.asarray(action, dtype=np.float32).reshape(-1)
-    if a.shape[0] not in (POSE_DIM, ACTION_DIM):
-        raise ValueError(f"expected {POSE_DIM}- or {ACTION_DIM}-D action, got shape {a.shape}")
+    if a.shape[0] not in (POSE_DIM_5D, POSE_DIM_5D + SHOOT_DIM):
+        # NB: these guards used to read POSE_DIM/ACTION_DIM. The V12 port moved those to 9/10,
+        # which made the 5D helpers reject 5D input and ACCEPT 9D -- silently reading rot6d[0:2]
+        # as (dyaw, dpitch) radians. Any 5D baseline (AutoPhoto, UNIC, LLM policy) would have
+        # been corrupted without raising.
+        raise ValueError(f"expected {POSE_DIM_5D}- or {POSE_DIM_5D + SHOOT_DIM}-D (legacy 5D) "
+                         f"action, got shape {a.shape}")
     # a[5] (shoot) is a policy output, not motion — ignored here.
     forward = np.asarray(forward, dtype=np.float64)
     up = np.asarray(up, dtype=np.float64)
@@ -264,6 +287,8 @@ __all__ = [
     "ACTION_DIM",
     "POSE_DIM",
     "SHOOT_DIM",
+    "YAW_RIGHT_SIGN",
+    "yaw_from_right_positive",
     "ACTION_SCALE",
     "normalize_action_5d",
     "denormalize_action_5d",

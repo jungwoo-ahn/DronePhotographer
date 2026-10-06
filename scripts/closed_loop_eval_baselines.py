@@ -36,13 +36,16 @@ from types import SimpleNamespace
 import numpy as np
 import torch
 
-from src.policy.common.action_repr import POSE_DIM, apply_action_9d
+from src.policy.common.action_repr import (POSE_DIM, apply_action_5d, apply_action_9d,
+                                           yaw_from_right_positive)
 from src.policy.common.annotations import iter_goal_start_windows
 from src.policy.common.goal_space import goal_keys, goal_vector, normalize_goal
+from src.policy.common.goal_space import RENDER_HEIGHT, RENDER_WIDTH
 from src.policy.common.goal_text import NL_GOAL_KEYS, goal_prompt
 from src.policy.common.reward import _geometry_distance, pose_to_geometry
 
 REPO = Path(__file__).resolve().parents[1]
+GOAL_RENDER_T = 99      # distinct frame index so the goal preview cannot collide with a rollout step
 V6_DIR = REPO / "data/vlm_object_placing_v6_260428_061326"
 
 
@@ -128,6 +131,332 @@ class LeRobotPolicy:
             return self.post(self.policy.predict_action_chunk(self.pre(batch))).squeeze(0).float().cpu().numpy()
 
 
+
+class _FiveDPolicy:
+    """Base for policies that emit the interpretable 5D action (dx,dy,dz,dyaw,dpitch).
+
+    The learned baselines predict a 10D chunk with rot6d, which neither an LLM nor a 2D
+    composition model can express. Both of these instead emit one camera-local 5D move per
+    observation, stepped with `apply_action_5d`. The metric is unaffected: `geometry_distance`
+    is pure pose math, so a 5D-stepped pose scores identically to a 9D-stepped one.
+
+    Horizon is OBSERVATION-matched, not step-matched: these get `n_chunks` decisions, the same
+    number of renders the learned policies see at chunk boundaries. Matching the learned
+    policies' 8 pose-steps per chunk instead would give these 8x the decisions (and, for the
+    agent, 8x the API calls) for the same visual evidence.
+    """
+    action_space = "5d"
+    # Clamps matched to what the learned policies actually do in ONE chunk (8 pose steps),
+    # measured over 867 chunks of data/trajectories_full: translation median 1.62 m / p90 2.44 /
+    # p99 4.14, aim change median 16.5 deg / p99 38.1 / max 39.2. llm_policy's inherited 60 deg
+    # was 1.5x anything the data ever does.
+    max_trans = 3.0
+    max_ang_deg = 40.0
+
+
+class GPT5Agent(_FiveDPolicy):
+    """GPT-5 as a closed-loop camera agent, conditioned on TEXT or on a GOAL IMAGE.
+
+    Text mode gets the same natural-language shot brief the VLAs are conditioned on, so it is
+    the apples-to-apples row. Image mode gets the goal frame itself, which is strictly more
+    information (it reveals the scene, not just the requested composition) and is reported
+    separately rather than mixed in.
+    """
+
+    wants_profile = False        # set by --feedback: include the measured current profile
+
+    def __init__(self, model, goal_mode="text", feedback=False,
+                 cfg_path="configs/policy/llm_policy_api.yaml",
+                 max_tokens=8192, temperature=0.2):
+        # NB max_tokens is NOT taken from llm_policy_api.yaml: its 2048 was sized for a
+        # non-reasoning model (gemini-2.5-flash). gpt-5 spends ~2.1k reasoning tokens on an
+        # image + measurement prompt, so at 2048 it returns finish_reason="length" with EMPTY
+        # content -- half the decisions in the first feedback smoke were silently zero-actions.
+        import yaml
+        from openai import OpenAI
+        cfg = yaml.safe_load(Path(cfg_path).read_text())
+        vc = cfg.get("api") or cfg.get("vlm") or cfg
+        key = vc.get("api_key") or os.environ.get(vc.get("api_key_env", "GATEWAY_API_KEY"))
+        if not key:
+            raise SystemExit("no gateway api_key in config and no GATEWAY_API_KEY in env")
+        self.client = OpenAI(base_url=vc["api_base"], api_key=key)
+        self.model, self.goal_mode = model, goal_mode
+        self.wants_profile = bool(feedback)
+        self.max_tokens, self.temperature = max_tokens, temperature
+        self.calls = self.failures = 0
+
+    SYSTEM = (
+        "You are a camera operator in a 3D scene. You see the CURRENT camera view and a "
+        "description of the SHOT you must achieve. Move the camera one step toward that shot.\n"
+        "Reply with STRICT JSON only, no prose:\n"
+        '{"reasoning":"<one short sentence>","dx":<float>,"dy":<float>,"dz":<float>,'
+        '"dyaw_deg":<float>,"dpitch_deg":<float>,"done":<true|false>}\n'
+        "Axes are camera-local in metres: dx=right(+)/left(-), dy=up(+)/down(-), "
+        "dz=forward(+)/backward(-). dyaw_deg turns right(+)/left(-); dpitch_deg tilts up(+)/down(-). "
+        "Limits: |d*| <= 3.0 m, |angles| <= 40 deg.\n"
+        "THE LENS IS NARROW: horizontal field of view 29.9 deg, vertical 22.6 deg. The subject is "
+        "typically ~5 m away, so a yaw of more than ~15 deg, or a sideways move of more than ~1.3 m "
+        "that you do not compensate for, pushes the subject OUT OF FRAME -- and once it is gone you "
+        "are searching blind. To change which side of the subject you are shooting from, ORBIT: "
+        "strafe with dx AND turn back toward the subject with the opposite-sign dyaw in the SAME "
+        "move, so it stays centred. Keep the subject in frame on every single move; prefer a small "
+        "correct move over a large one.\n"
+        "Set done=true only when the current view already matches the requested shot."
+    )
+
+    @property
+    def needs_goal_render(self):
+        return self.goal_mode == "image"
+
+    def goal(self, ep, goal_image=None):
+        """Text mode -> the NL shot brief. Image mode -> the goal pose, rendered live."""
+        if self.goal_mode == "image":
+            if goal_image is None:
+                raise RuntimeError("image goal mode needs a rendered goal frame")
+            return {"mode": "image", "image": goal_image, "raw": ep.goal_frame.raw}
+        return {"mode": "text", "raw": ep.goal_frame.raw,
+                "text": goal_prompt(goal_vector(ep.goal_frame.raw, NL_GOAL_KEYS),
+                                    NL_GOAL_KEYS, crop=ep.goal_frame.raw)}
+
+    @staticmethod
+    def _b64(path):
+        import base64
+        return base64.b64encode(Path(path).read_bytes()).decode()
+
+    # Units legend for the measured profile, so the numbers are not bare ints to the agent.
+    _FB_KEYS = (
+        ("subject_bearing_deg",       "deg around subject, 0-360 (0 = subject's front)"),
+        ("cam_to_obj_elevation_deg",  "deg, negative = camera above looking down"),
+        ("occupancy",                 "% of frame filled by subject"),
+        ("body_in_frame_ratio",       "% of the subject that is inside the frame"),
+        ("object_center_x",           "px, subject centre x (frame is 0-%d)" % RENDER_WIDTH),
+        ("object_center_y",           "px, subject centre y (frame is 0-%d)" % RENDER_HEIGHT),
+    )
+
+    @staticmethod
+    def _wrap180(d):
+        """Signed shortest angular error; bearing is circular, so 350 -> 10 is +20, not -340."""
+        return (float(d) + 180.0) % 360.0 - 180.0
+
+    def _feedback_text(self, achieved, raw):
+        cur, tgt, err = {}, {}, {}
+        for k, unit in self._FB_KEYS:
+            a, g = achieved.get(k), raw.get(k)
+            if a is None or g is None:
+                continue
+            cur[k], tgt[k] = float(a), float(g)
+            err[k] = round(self._wrap180(g - a) if k == "subject_bearing_deg"
+                           else float(g) - float(a), 1)
+        if not err:
+            return None
+        legend = "; ".join(f"{k} ({u})" for k, u in self._FB_KEYS if k in cur)
+        dist = achieved.get("subject_distance_m")
+        scale = ""
+        if dist:
+            # Lets it convert a desired bearing change into a strafe instead of guessing.
+            scale = (f"\nSubject is {float(dist):.1f} m away, so a 1 deg change of your angle around "
+                     f"it is about {float(dist) * 0.01745:.2f} m of sideways travel, and a sideways "
+                     f"move of {float(dist) * 0.2679:.2f} m swings it to the edge of the frame "
+                     f"unless you turn back toward it in the same move.")
+        return ("MEASUREMENTS (units: " + legend + ")\n"
+                "YOUR VIEW NOW: " + json.dumps(cur) + "\n"
+                "TARGET: " + json.dumps(tgt) + "\n"
+                "REMAINING ERROR (target - now): " + json.dumps(err) + "\n"
+                + scale +
+                "\nDrive every error toward 0. Note subject_bearing_deg is your angular position "
+                "AROUND the subject: it changes only by orbiting (strafe sideways and re-aim), "
+                "never by panning in place. occupancy changes by moving along dz.")
+
+    def act(self, image_path, goal, achieved=None):
+        content = [{"type": "text", "text": "CURRENT VIEW:"},
+                   {"type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{self._b64(image_path)}"}}]
+        if goal["mode"] == "image":
+            content += [{"type": "text", "text": "TARGET SHOT (reproduce this viewpoint):"},
+                        {"type": "image_url",
+                         "image_url": {"url": f"data:image/jpeg;base64,{self._b64(goal['image'])}"}}]
+        else:
+            content.append({"type": "text", "text": f"TARGET SHOT: {goal['text']}"})
+        if self.wants_profile and achieved and goal.get("raw"):
+            # Without this the agent gets a quantitative brief but no measurement of its OWN
+            # bearing/occupancy, so it cannot tell which direction reduces the error and searches
+            # blindly. This is the Reviewer signal a real agentic system (PhotoFlow) would have.
+            fb = self._feedback_text(achieved, goal["raw"])
+            if fb:
+                content.append({"type": "text", "text": fb})
+        self.calls += 1
+        msgs = [{"role": "system", "content": self.SYSTEM}, {"role": "user", "content": content}]
+        txt, why = "", ""
+        for budget in (self.max_tokens, self.max_tokens * 2):   # retry once if reasoning ran long
+            try:
+                r = self.client.chat.completions.create(
+                    model=self.model, max_tokens=budget, temperature=self.temperature,
+                    messages=msgs)
+            except Exception as e:
+                self.failures += 1
+                return np.zeros(5, np.float32), 0.0, {"error": str(e)[:160]}
+            txt = r.choices[0].message.content or ""
+            why = r.choices[0].finish_reason
+            if txt.strip():
+                break
+        if not txt.strip():
+            self.failures += 1
+            return np.zeros(5, np.float32), 0.0, {"empty": why}
+        d = _parse_json_obj(txt)
+        if d is None:
+            self.failures += 1
+            return np.zeros(5, np.float32), 0.0, {"unparsed": txt[:160], "finish": why}
+        a = np.zeros(5, np.float32)
+        try:
+            for i, k in enumerate(("dx", "dy", "dz")):
+                a[i] = float(np.clip(float(d.get(k, 0.0)), -self.max_trans, self.max_trans))
+            ang = np.deg2rad(self.max_ang_deg)
+            # The prompt speaks human ("dyaw_deg turns right(+)"), the repr's dyaw is left-positive.
+            a[3] = float(np.clip(yaw_from_right_positive(np.deg2rad(float(d.get("dyaw_deg", 0.0)))),
+                                 -ang, ang))
+            a[4] = float(np.clip(np.deg2rad(float(d.get("dpitch_deg", 0.0))), -ang, ang))
+        except (TypeError, ValueError):
+            self.failures += 1
+            return np.zeros(5, np.float32), 0.0, {"bad_fields": str(d)[:160]}
+        return a, (1.0 if d.get("done") is True else 0.0), {"reasoning": str(d.get("reasoning", ""))[:120]}
+
+
+class GatewayVLM:
+    """Minimal `ask_json` over the LetSur OpenAI-compatible gateway, for PhotoFlow's roles."""
+
+    def __init__(self, model, cfg_path="configs/policy/llm_policy_api.yaml",
+                 max_tokens=8192, temperature=0.2):
+        import yaml
+        from openai import OpenAI
+        cfg = yaml.safe_load(Path(cfg_path).read_text())
+        vc = cfg.get("api") or cfg.get("vlm") or cfg
+        key = vc.get("api_key") or os.environ.get(vc.get("api_key_env", "GATEWAY_API_KEY"))
+        if not key:
+            raise SystemExit("no gateway api_key in config and no GATEWAY_API_KEY in env")
+        self.client = OpenAI(base_url=vc["api_base"], api_key=key)
+        self.model, self.max_tokens, self.temperature = model, max_tokens, temperature
+
+    def ask_json(self, system, user, image=None):
+        content = [{"type": "text", "text": user}]
+        if image:
+            import base64
+            b64 = base64.b64encode(Path(image).read_bytes()).decode()
+            content.append({"type": "image_url",
+                            "image_url": {"url": f"data:image/jpeg;base64,{b64}"}})
+        msgs = [{"role": "system", "content": system}, {"role": "user", "content": content}]
+        for budget in (self.max_tokens, self.max_tokens * 2):   # reasoning models run long
+            try:
+                r = self.client.chat.completions.create(
+                    model=self.model, max_tokens=budget, temperature=self.temperature,
+                    messages=msgs)
+            except Exception:
+                return None
+            txt = r.choices[0].message.content or ""
+            if txt.strip():
+                return _parse_json_obj(txt)
+        return None
+
+
+class PhotoFlowPolicy:
+    """PhotoFlow-style agentic search, adapted to this harness (see src/policy/photoflow/).
+
+    Unlike every other row this is a GLOBAL SEARCH, not an incremental policy: it proposes
+    absolute camera states and keeps the best, so `improvement = d_start - d_end` stops
+    measuring navigation and starts measuring "can a search find the requested viewpoint".
+    Its render count is reported in the summary because that, not the algorithm, is the main
+    confound against policies that get `n_chunks` renders.
+    """
+
+    search_space = "global"
+
+    def __init__(self, model, render_budget=None, rounds=None, candidates=None):
+        from src.policy.photoflow.agent import (CANDIDATES_PER_ROUND, ROUNDS, PhotoFlowAgent,
+                                                pose_from_look_at)
+        self._pose = pose_from_look_at
+        self.agent = PhotoFlowAgent(GatewayVLM(model), rounds=rounds or ROUNDS,
+                                    candidates=candidates or CANDIDATES_PER_ROUND,
+                                    render_budget=render_budget)
+
+    def goal(self, ep):
+        """The brief, plus the composition point/half the brief's placement words imply."""
+        raw = ep.goal_frame.raw
+        cx = float(raw.get("object_center_x", RENDER_WIDTH / 2)) / RENDER_WIDTH
+        cy = float(raw.get("object_center_y", RENDER_HEIGHT / 2)) / RENDER_HEIGHT
+        half = None
+        if cx < 0.4:
+            half = "left"
+        elif cx > 0.6:
+            half = "right"
+        return {"text": goal_prompt(goal_vector(raw, NL_GOAL_KEYS), NL_GOAL_KEYS, crop=raw),
+                "target_point": (cx, cy), "requested_half": half}
+
+    def search(self, rend, ep, g):
+        """Drive the renderer directly; returns (final_pose, trace, info)."""
+        scout = rend.scene_scout() or {}
+        t = {"n": 0}
+
+        def render(position, look_at):
+            pos, fwd, up = self._pose(position, look_at)
+            t["n"] += 1
+            img, achieved = rend.render(t["n"], pos, fwd, up, True)
+            achieved = achieved or {}
+            return img, achieved, bool(achieved.get("in_frame", False))
+
+        best, info = self.agent.search(
+            render, scout, g["text"], requested_half=g["requested_half"],
+            target_point=g["target_point"], resolution=(int(RENDER_WIDTH), int(RENDER_HEIGHT)))
+        if best is None:
+            return None, info
+        return self._pose(best["position"], best["look_at"]), info
+
+
+class UNICComposition(_FiveDPolicy):
+    """UNIC (ICCV'23 "Beyond Image Borders") composition model driven in 3D.
+
+    The published pretrained model, used as-is, via the reviewed wrapper in
+    `src/policy/unic/` (see its REFERENCES.md): UNIC recommends a composition box for the
+    current frame, and `UNICPolicy` maps that box to a camera-local 5D move (box centre ->
+    pan, box width -> dolly) using the real render FOV.
+
+    It is GOAL-AGNOSTIC by construction: a 2D composition model has no notion of the
+    requested shot, so it moves toward whatever it considers well-composed. That is exactly
+    the point of the row -- it isolates how much of this task is generic composition versus
+    goal-following, and it is the "reactive, no previsualization" end of the axis.
+    """
+
+    def __init__(self, checkpoint="weights/unic/unic_pretrained.pth", device="cuda"):
+        from src.policy.unic.model import UNICModel
+        from src.policy.unic.policy import UNICPolicy
+        self.inner = UNICPolicy(UNICModel.load(checkpoint, device=device),
+                                max_translation_m=self.max_trans, max_angle_deg=self.max_ang_deg)
+
+    def goal(self, ep):
+        return None                                  # goal-agnostic by construction
+
+    def act(self, image_path, goal):
+        from PIL import Image
+        with Image.open(image_path) as im:
+            a5, meta = self.inner.act(im.convert("RGB"))
+        rec = meta.get("recommendation", {})
+        return a5, 0.0, {k: round(float(v), 3) for k, v in rec.items()}
+
+
+def _parse_json_obj(text):
+    """Pull the first JSON object out of a model reply (handles ``` fences and prose)."""
+    import re
+    if not text:
+        return None
+    t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
+    for cand in (t, *(m.group(0) for m in re.finditer(r"\{.*?\}", t, re.S))):
+        try:
+            v = json.loads(cand)
+            if isinstance(v, dict):
+                return v
+        except Exception:
+            continue
+    return None
+
+
 # --------------------------------------------------------------------------- blender
 class Renderer:
     """One persistent Blender server per placement (scripts/rollout_server.py)."""
@@ -151,7 +480,13 @@ class Renderer:
             time.sleep(1)
         raise RuntimeError("blender server load timeout")
 
-    def render(self, t, pos, fwd, up) -> str:
+    def scene_scout(self):
+        """The one-shot geometric scene summary the server writes at load (PhotoFlow Director)."""
+        f = self.ctl / "scene.json"
+        return json.loads(f.read_text()) if f.exists() else None
+
+    def render(self, t, pos, fwd, up, want_profile=False):
+        """Returns the image path, or (image, achieved_profile) when want_profile."""
         req = {"t": t, "pose": {"pos": list(map(float, pos)), "forward": list(map(float, fwd)),
                                 "up": list(map(float, up))}}
         (self.ctl / "req.json.tmp").write_text(json.dumps(req))
@@ -159,7 +494,8 @@ class Renderer:
         resp = self.ctl / f"resp_{t:03d}.json"
         for _ in range(12000):
             if resp.exists():
-                return json.loads(resp.read_text())["image"]
+                r = json.loads(resp.read_text())
+                return (r["image"], r.get("achieved")) if want_profile else r["image"]
             time.sleep(0.05)
         raise RuntimeError(f"render timeout t={t}")
 
@@ -208,6 +544,13 @@ def episodes_from_manifest(path, roots, extra_chunks):
         d = geometry_distance(st.camera_position, st.camera_forward, st.camera_up, gf)
         if abs(d - e["d_start"]) >= 1e-6:
             bad.append((e["key"], d, e["d_start"]))
+        # NB no goal_image/start_image here. The manifest's image paths live on V12's NAS, and
+        # remapping them into our renders/ by BASENAME silently returns the wrong frame: the
+        # filenames line up (pair_00_frame_29.jpg, 32 frames) but our trajectory_32f is a
+        # different render pass, so frame 29 is a blank wall while the manifest's goal pose
+        # looks at the subject. The d_start checksum cannot catch this -- it is recomputed from
+        # the manifest's own poses and never touches our renders. Image-conditioned policies get
+        # the goal pose RENDERED LIVE instead (see `needs_goal_render` in the rollout loop).
         eps.append(SimpleNamespace(key=e["key"], name=e["placement"], scene=e["scene"],
                                    data_json=dj, start=st, goal_frame=gf,
                                    n_chunks=int(e["n_chunks"]) + extra_chunks))
@@ -246,8 +589,21 @@ def select_placements(split, val_scenes_path, roots, limit):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--policy", required=True, choices=["dp", "pi05", "groot"])
-    ap.add_argument("--checkpoint", required=True)
+    ap.add_argument("--policy", required=True,
+                    choices=["dp", "pi05", "groot", "gpt5", "unic", "photoflow"])
+    ap.add_argument("--render-budget", type=int, default=None, dest="render_budget",
+                    help="photoflow: cap total preview renders. Default = rounds*candidates = 24 "
+                         "(the paper's budget). Set it to n_chunks for a render-matched row.")
+    ap.add_argument("--model", default="gpt-5", help="gateway model id for --policy gpt5")
+    ap.add_argument("--feedback", type=int, default=0,
+                    help="gpt5: also give the agent its MEASURED current profile and the remaining "
+                         "error (PhotoFlow's Reviewer signal). Off = matched to the VLAs, which "
+                         "see only image+goal; on = strictly more information, reported separately.")
+    ap.add_argument("--goal-mode", default="text", choices=["text", "image"], dest="goal_mode",
+                    help="gpt5 only: condition on the NL shot brief (text, comparable to the "
+                         "VLAs) or on the goal frame itself (image, strictly more information)")
+    ap.add_argument("--checkpoint", default=None,
+                    help="not used by the training-free rows (gpt5, unic)")
     ap.add_argument("--config", default=None, help="DP training config (required for --policy dp)")
     ap.add_argument("--split", default="val", choices=["val", "train", "all"],
                     help="val = held-out (generalization); train = the control V12 added in be8f72f")
@@ -266,8 +622,16 @@ def main():
     a = ap.parse_args()
 
     dev = torch.device("cuda")
-    pol = (DPPolicy(a.checkpoint, a.config, dev, chunk=a.chunk_size) if a.policy == "dp"
-           else LeRobotPolicy(a.policy, a.checkpoint, dev))
+    if a.policy == "dp":
+        pol = DPPolicy(a.checkpoint, a.config, dev, chunk=a.chunk_size)
+    elif a.policy in ("pi05", "groot"):
+        pol = LeRobotPolicy(a.policy, a.checkpoint, dev)
+    elif a.policy == "gpt5":
+        pol = GPT5Agent(a.model, goal_mode=a.goal_mode, feedback=bool(a.feedback))
+    elif a.policy == "photoflow":
+        pol = PhotoFlowPolicy(a.model, render_budget=a.render_budget)
+    else:
+        pol = UNICComposition(a.checkpoint or "weights/unic/unic_pretrained.pth")
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
 
     if a.episodes_from:
@@ -290,35 +654,89 @@ def main():
     results = []
     for i, ep in enumerate(episodes):
         name, dj, n_chunks = ep.name, ep.data_json, ep.n_chunks
-        g = pol.goal(ep)
         pos = np.asarray(ep.start.camera_position, np.float32)
         fwd = np.asarray(ep.start.camera_forward, np.float32)
         up = np.asarray(ep.start.camera_up, np.float32)
         d0 = geometry_distance(pos, fwd, up, ep.goal_frame)
-        trace, declared = [d0], None
+        trace, declared, notes = [d0], None, []
         try:
             rend = Renderer(dj, V6_DIR / f"{name}.json", out / (ep.key or name), a.blender)
         except Exception as e:
             print(f"  [{i}] {name[:40]}: renderer failed ({e})", flush=True); continue
         try:
-            img = rend.render(0, pos, fwd, up)
+            if getattr(pol, "needs_goal_render", False):
+                gf = ep.goal_frame
+                g = pol.goal(ep, goal_image=rend.render(
+                    GOAL_RENDER_T, np.asarray(gf.camera_position, np.float32),
+                    np.asarray(gf.camera_forward, np.float32),
+                    np.asarray(gf.camera_up, np.float32)))
+            else:
+                g = pol.goal(ep)
+        except Exception as e:
+            rend.close()
+            print(f"  [{i}] {name[:40]}: goal setup failed ({e})", flush=True); continue
+        if getattr(pol, "search_space", "incremental") == "global":
+            # A global search that finds nothing leaves the trace at d_start, i.e. it scores
+            # exactly 0 -- the same convention a no-op gets everywhere else in this harness.
+            info = {}
+            try:
+                final, info = pol.search(rend, ep, g)
+                if final is not None:
+                    pos, fwd, up = final
+                    trace.append(geometry_distance(pos, fwd, up, ep.goal_frame))
+            except Exception as e:
+                info = {**info, "error": f"{type(e).__name__}: {e}"[:200]}
+                print(f"  [{i}] {name[:40]}: search failed ({info['error']})", flush=True)
+            finally:
+                rend.close()
+            notes.append({k: v for k, v in info.items() if k != "log"})
+            epdir = out / (ep.key or name)
+            epdir.mkdir(parents=True, exist_ok=True)
+            (epdir / "photoflow_log.json").write_text(json.dumps(info, indent=1))
+            d1 = trace[-1]
+            dbest = min(trace)
+            results.append({"key": ep.key, "placement": name, "scene": ep.scene,
+                            "n_chunks": n_chunks, "renders": info.get("renders"),
+                            "d_start": d0, "d_end": d1, "d_best": dbest,
+                            "improvement": d0 - d1, "best_improvement": d0 - dbest,
+                            "trace": trace, "declared": None, "notes": notes})
+            print(f"  [{i}] {name[:40]:40s} d {d0:.3f}->{d1:.3f} (best {dbest:.3f}) "
+                  f"improve {d0 - d1:+.3f} renders {info.get('renders')}", flush=True)
+            continue
+
+        try:
+            want = getattr(pol, "wants_profile", False)
+            img, prof = (rend.render(0, pos, fwd, up, True) if want
+                         else (rend.render(0, pos, fwd, up), None))
             for c in range(n_chunks):
-                chunk = pol.act(img, g)
-                shoot = float(np.max(chunk[:, POSE_DIM])) if chunk.shape[1] > POSE_DIM else 0.0
-                if declared is None and shoot > a.shoot_threshold:
-                    declared = c
-                    if a.stop_on_shoot:
-                        break                       # stop BEFORE executing (V12 semantics)
-                for step in chunk[:, :POSE_DIM]:
-                    pos, fwd, up = apply_action_9d(pos, fwd, up, step)
-                img = rend.render(c + 1, pos, fwd, up)
+                if getattr(pol, "action_space", "9d") == "5d":
+                    # one interpretable 5D move per observation (see _FiveDPolicy)
+                    act5, shoot, meta = (pol.act(img, g, prof) if want else pol.act(img, g))
+                    notes.append(meta)
+                    if declared is None and shoot > a.shoot_threshold:
+                        declared = c
+                        if a.stop_on_shoot:
+                            break
+                    pos, fwd, up = apply_action_5d(pos, fwd, up, act5)
+                else:
+                    chunk = pol.act(img, g)
+                    shoot = float(np.max(chunk[:, POSE_DIM])) if chunk.shape[1] > POSE_DIM else 0.0
+                    if declared is None and shoot > a.shoot_threshold:
+                        declared = c
+                        if a.stop_on_shoot:
+                            break                   # stop BEFORE executing (V12 semantics)
+                    for step in chunk[:, :POSE_DIM]:
+                        pos, fwd, up = apply_action_9d(pos, fwd, up, step)
+                img, prof = (rend.render(c + 1, pos, fwd, up, True) if want
+                             else (rend.render(c + 1, pos, fwd, up), None))
                 trace.append(geometry_distance(pos, fwd, up, ep.goal_frame))
         finally:
             rend.close()
         d1, dbest = trace[-1], float(min(trace))
         results.append({"key": ep.key, "placement": name, "scene": ep.scene, "n_chunks": n_chunks,
                         "declared_stop": declared, "d_start": d0, "d_end": d1, "d_best": dbest,
-                        "improvement": d0 - d1, "best_improvement": d0 - dbest, "trace": trace})
+                        "improvement": d0 - d1, "best_improvement": d0 - dbest, "trace": trace,
+                        **({"notes": notes} if notes else {})})
         print(f"  [{i}] {name[:42]:42s} d {d0:.3f}->{d1:.3f} (best {dbest:.3f}) "
               f"improve {d0 - d1:+.3f} stop@{declared}", flush=True)
 
@@ -341,6 +759,11 @@ def main():
                                 "best": float(np.mean([r["d_best"] <= t for r in results]))}
                        for t in (0.05, 0.10, 0.20)} if results else None,
         "episodes_from": a.episodes_from,
+        "model": a.model if a.policy == "gpt5" else None,
+        "goal_mode": a.goal_mode if a.policy == "gpt5" else None,
+        "feedback": bool(a.feedback) if a.policy == "gpt5" else None,
+        "render_budget": (pol.agent.render_budget if a.policy == "photoflow" else None),
+        "api_calls": getattr(pol, "calls", None), "api_failures": getattr(pol, "failures", None),
         "config": {"chunk_size": a.chunk_size, "extra_chunks": a.extra_chunks,
                    "shoot_threshold": a.shoot_threshold, "stop_on_shoot": bool(a.stop_on_shoot)},
         "results": results,

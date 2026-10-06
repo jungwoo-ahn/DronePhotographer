@@ -64,6 +64,7 @@ _fm = _json.loads((Path(a.assets_root) / "configs" / "policy" / "facing_map_fina
 _front_az = (_fm.get(Path(stage1["object_file"]).stem) or {}).get("front_az")
 
 import bpy
+from mathutils import Vector
 bpy.ops.wm.read_factory_settings(use_empty=True)
 meta = smoke.setup_blender_scene(placement, Path(a.assets_root))
 cam = smoke.configure_renderer(W, H, int(a.samples), focal_length=24.0,
@@ -91,8 +92,42 @@ def score(pos, fwd, up):
     out = {k: int(v) for k, v in v5.items()}
     if _front_az is not None:                          # world azimuth -> subject-frame bearing
         out["subject_bearing_deg"] = int(round((float(_front_az) - az) % 360.0))
+    out["subject_distance_m"] = round(n, 3)      # for agents that reason about move scale
     return out, bool(in_frame), float(occ)
 
+
+def scene_scout(max_objects=24):
+    """Geometric scene summary for PhotoFlow's Director (paper 4.1: object names, bboxes,
+    centers, scene extents). Written once at load; cheap, and nothing else reads it."""
+    objs, lo, hi = [], None, None
+    for ob in bpy.data.objects:
+        if ob.type != "MESH" or not len(ob.data.vertices):
+            continue
+        a = np.array([list(ob.matrix_world @ Vector(c)) for c in ob.bound_box], dtype=np.float64)
+        bmin, bmax = a.min(0), a.max(0)
+        lo = bmin if lo is None else np.minimum(lo, bmin)
+        hi = bmax if hi is None else np.maximum(hi, bmax)
+        dims = bmax - bmin
+        objs.append({"name": ob.name, "center": [round(float(v), 2) for v in (bmin + bmax) / 2.0],
+                     "size": [round(float(v), 2) for v in dims],
+                     "volume": float(dims[0] * dims[1] * dims[2])})
+    objs.sort(key=lambda o: -o["volume"])                 # biggest first = the ones worth naming
+    for o in objs:
+        o.pop("volume")
+    ext = {"min": [round(float(v), 2) for v in lo], "max": [round(float(v), 2) for v in hi]} if lo is not None else {}
+    return {"scene": stage1["placement"], "scene_scale": placement["scene_scale"],
+            "extents": ext, "subject": {"names": stage1.get("subject_names", []),
+                                        "center": [round(float(v), 3) for v in O],
+                                        "height": stage1.get("subject_height")},
+            "objects": objs[:max_objects], "n_objects": len(objs),
+            "camera": {"focal_mm": 24.0, "sensor_mm": [12.8, 9.6], "resolution": [W, H],
+                       "hfov_deg": 29.86, "vfov_deg": 22.62}}
+
+
+try:
+    (ctl / "scene.json").write_text(json.dumps(scene_scout(), indent=1))
+except Exception as e:                                    # a scout failure must not kill rollouts
+    print(f"scene_scout failed: {e}", flush=True)
 
 (ctl / "ready.flag").write_text("ok")
 print("server ready", flush=True)
@@ -107,6 +142,7 @@ while True:
         img = ctl / f"frame_{t:03d}.jpg"; scene.render.filepath = str(img)
         bpy.ops.render.render(write_still=True)
         achieved, in_frame, occ = score(p["pos"], p["forward"], p["up"])
+        achieved["in_frame"] = bool(in_frame)       # agents that read `achieved` need this too
         tmp = ctl / f"resp_{t:03d}.json.tmp"
         tmp.write_text(json.dumps({"image": str(img), "achieved": achieved, "in_frame": in_frame, "occ": occ}))
         tmp.rename(ctl / f"resp_{t:03d}.json")

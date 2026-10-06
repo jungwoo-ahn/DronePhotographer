@@ -18,7 +18,7 @@ from typing import Mapping
 
 import numpy as np
 
-from src.policy.common.action_repr import ACTION_DIM
+from src.policy.common.action_repr import POSE_DIM_5D, yaw_from_right_positive
 from src.policy.llm_policy.backends import VLMBackend
 from src.policy.llm_policy.prompt import SYSTEM_PROMPT, build_retry_prompt, build_user_prompt
 from src.policy.llm_policy.response import ACTION_FIELDS as _FIELDS
@@ -43,7 +43,9 @@ class LLMPhotoPolicy:
 
     def _to_action(self, res: ParseResult) -> np.ndarray:
         """ParseResult -> 5D action (m / rad), clamped. Missing/garbage fields -> 0."""
-        a = np.zeros(ACTION_DIM, dtype=np.float32)
+        # 5D pose only. This read ACTION_DIM, which the V12 port redefined 6 -> 10, so the
+        # action grew four unused rot6d slots and apply_action_5d rejects it outright.
+        a = np.zeros(POSE_DIM_5D, dtype=np.float32)
         if res.parsed is None:
             return a
         vals = []
@@ -58,7 +60,9 @@ class LLMPhotoPolicy:
         a[0] = float(np.clip(dx, -t, t))
         a[1] = float(np.clip(dy, -t, t))
         a[2] = float(np.clip(dz, -t, t))
-        a[3] = float(np.clip(np.deg2rad(dyaw_deg), -ang, ang))
+        # The prompt asks for right-positive yaw; this repr's dyaw is left-positive, so the
+        # raw deg2rad used here inverted every pan the model asked for.
+        a[3] = float(np.clip(yaw_from_right_positive(np.deg2rad(dyaw_deg)), -ang, ang))
         a[4] = float(np.clip(np.deg2rad(dpitch_deg), -ang, ang))
         return a
 

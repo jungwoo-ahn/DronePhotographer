@@ -23,8 +23,15 @@ from typing import Protocol
 
 import numpy as np
 
-from src.policy.common.action_repr import ACTION_DIM
+from src.policy.common.action_repr import POSE_DIM_5D, yaw_from_right_positive
 from src.policy.common.goal_space import RENDER_HEIGHT, RENDER_WIDTH
+
+
+# The render camera, from scripts/rollout_server.py:69 (focal 24 mm, sensor 12.8x9.6 mm,
+# 1024x768 -> sensor and frame are both 4:3, so there is no sensor-fit ambiguity).
+RENDER_FOCAL_MM = 24.0
+RENDER_SENSOR_W_MM = 12.8
+RENDER_HFOV_DEG = math.degrees(2.0 * math.atan(RENDER_SENSOR_W_MM / (2.0 * RENDER_FOCAL_MM)))
 
 
 class _Recommender(Protocol):
@@ -39,11 +46,13 @@ class UNICPolicy:
         `UNICModel`, or a mock in tests).
       hfov_deg: horizontal field of view of the render camera (sets how a box-center
         offset maps to a rotation angle). vFOV is derived from the frame aspect.
+        Defaults to the actual render camera's 29.9 deg -- the old 50 deg default
+        over-rotated every pan by ~1.7x.
       dolly_gain: metres of dolly per unit of (1 - recommended_width).
       max_translation_m / max_angle_deg: defensive per-step clamps.
     """
 
-    def __init__(self, model: _Recommender, *, hfov_deg: float = 50.0,
+    def __init__(self, model: _Recommender, *, hfov_deg: float = RENDER_HFOV_DEG,
                  aspect: float = RENDER_WIDTH / RENDER_HEIGHT, dolly_gain: float = 1.5,
                  max_translation_m: float = 3.0, max_angle_deg: float = 60.0) -> None:
         self.model = model
@@ -66,12 +75,17 @@ class UNICPolicy:
         # below center (dy>0, image y is down) -> pitch down (-).
         dx = rec.center_x - 0.5
         dy = rec.center_y - 0.5
-        yaw = math.radians(dx * self.hfov_deg)
+        # Recentering a box that sits right of centre means turning RIGHT, which is NEGATIVE
+        # dyaw in this repr -- this line used to emit +yaw and so de-centred the recommendation.
+        yaw = yaw_from_right_positive(math.radians(dx * self.hfov_deg))
         pitch = -math.radians(dy * self._vfov_deg())
         # zoom -> dolly forward when the recommended crop is tighter than the frame.
         dz = self.dolly_gain * (1.0 - rec.width)
 
-        action = np.zeros(ACTION_DIM, dtype=np.float32)
+        # 5D pose only: (dx, dy, dz, dyaw, dpitch). NB this used to be ACTION_DIM, which the
+        # V12 port redefined from 6 to 10 -- the action silently grew four unused rot6d slots
+        # and no longer round-tripped through apply_action_5d.
+        action = np.zeros(POSE_DIM_5D, dtype=np.float32)
         action[2] = float(np.clip(dz, -t, t))
         action[3] = float(np.clip(yaw, -ang, ang))
         action[4] = float(np.clip(pitch, -ang, ang))
