@@ -763,7 +763,11 @@ def main():
         "goal_mode": a.goal_mode if a.policy == "gpt5" else None,
         "feedback": bool(a.feedback) if a.policy == "gpt5" else None,
         "render_budget": (pol.agent.render_budget if a.policy == "photoflow" else None),
-        "api_calls": getattr(pol, "calls", None), "api_failures": getattr(pol, "failures", None),
+        # PhotoFlow's counters live on the inner agent, not the adapter -- reading only
+        # `pol.calls` reported 0 calls for a run that actually made 21,588.
+        "api_calls": getattr(pol, "calls", None) or getattr(getattr(pol, "agent", None), "calls", None),
+        "api_failures": (getattr(pol, "failures", None)
+                         or getattr(getattr(pol, "agent", None), "failures", None)),
         "config": {"chunk_size": a.chunk_size, "extra_chunks": a.extra_chunks,
                    "shoot_threshold": a.shoot_threshold, "stop_on_shoot": bool(a.stop_on_shoot)},
         "results": results,
