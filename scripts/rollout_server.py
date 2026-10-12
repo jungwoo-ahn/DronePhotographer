@@ -115,10 +115,23 @@ def scene_scout(max_objects=24):
     for o in objs:
         o.pop("volume")
     ext = {"min": [round(float(v), 2) for v in lo], "max": [round(float(v), 2) for v in hi]} if lo is not None else {}
+    # The subject's FRONT direction. Our goal space measures bearing around the subject from
+    # its front (configs/policy/facing_map_final.json), and the NL brief is phrased that way
+    # ("from the subject's back-right"). Without it a planner cannot turn the brief into a world
+    # position at all -- it has to guess among 360 deg. The VLAs get the goal already expressed
+    # in this frame, so emitting it here removes a handicap rather than leaking the metric.
+    subj = {"names": stage1.get("subject_names", []),
+            "center": [round(float(v), 3) for v in O],
+            "height": stage1.get("subject_height")}
+    if _front_az is not None:
+        fa = float(_front_az)
+        subj["front_azimuth_deg"] = round(fa, 1)
+        subj["front_vector_world"] = [round(math.cos(math.radians(fa)), 3),
+                                      round(math.sin(math.radians(fa)), 3), 0.0]
+        subj["bearing_convention"] = (
+            "bearing B = angle around the subject measured from its front. The subject's front points along front_vector_world. IMPORTANT: to shoot at bearing B, place the CAMERA at world azimuth (front_azimuth_deg - B + 180) mod 360 from the subject centre, i.e. camera = subject_centre + distance * [cos(theta), sin(theta), height_offset] with theta = radians((front_azimuth_deg - B + 180) mod 360), then look_at the subject. (front_azimuth_deg - B) alone is the direction FROM the camera TO the subject, which is the opposite side -- using it places the camera 180 deg wrong.")
     return {"scene": stage1["placement"], "scene_scale": placement["scene_scale"],
-            "extents": ext, "subject": {"names": stage1.get("subject_names", []),
-                                        "center": [round(float(v), 3) for v in O],
-                                        "height": stage1.get("subject_height")},
+            "extents": ext, "subject": subj,
             "objects": objs[:max_objects], "n_objects": len(objs),
             "camera": {"focal_mm": 24.0, "sensor_mm": [12.8, 9.6], "resolution": [W, H],
                        "hfov_deg": 29.86, "vfov_deg": 22.62}}

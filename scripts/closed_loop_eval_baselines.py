@@ -336,13 +336,21 @@ class GatewayVLM:
         self.client = OpenAI(base_url=vc["api_base"], api_key=key)
         self.model, self.max_tokens, self.temperature = model, max_tokens, temperature
 
-    def ask_json(self, system, user, image=None):
+    @staticmethod
+    def _img(path):
+        import base64
+        return {"type": "image_url", "image_url": {
+            "url": f"data:image/jpeg;base64,{base64.b64encode(Path(path).read_bytes()).decode()}"}}
+
+    def ask_json(self, system, user, image=None, images=()):
         content = [{"type": "text", "text": user}]
+        for item in images or ():                      # labelled establishing shots
+            path, label = item if isinstance(item, (tuple, list)) else (item, None)
+            if label:
+                content.append({"type": "text", "text": label})
+            content.append(self._img(path))
         if image:
-            import base64
-            b64 = base64.b64encode(Path(image).read_bytes()).decode()
-            content.append({"type": "image_url",
-                            "image_url": {"url": f"data:image/jpeg;base64,{b64}"}})
+            content.append(self._img(image))
         msgs = [{"role": "system", "content": system}, {"role": "user", "content": content}]
         for budget in (self.max_tokens, self.max_tokens * 2):   # reasoning models run long
             try:
@@ -390,9 +398,37 @@ class PhotoFlowPolicy:
         return {"text": goal_prompt(goal_vector(raw, NL_GOAL_KEYS), NL_GOAL_KEYS, crop=raw),
                 "target_point": (cx, cy), "requested_half": half}
 
+    @staticmethod
+    def _subject_front_az(ep):
+        """World azimuth of the subject's front, recovered from the manifest.
+
+        The render server reads this from configs/policy/facing_map_final.json, but our object
+        stems only match it on 50/64 manifest episodes. The manifest publishes `bearing` for the
+        goal on all 64, and bearing = (front_az - az) mod 360, so front_az = (bearing + az) mod
+        360 is exact wherever the goal pose is known. Same information the VLAs' prompts already
+        carry -- without it "from the subject's back-right" cannot be placed in the world at all.
+        """
+        gf = ep.goal_frame
+        b = (gf.raw or {}).get("subject_bearing_deg")
+        if b is None:
+            return None
+        geo = pose_to_geometry(gf.camera_position, gf.camera_forward, gf.camera_up,
+                               gf.subject_center, gf.subject_height)
+        return (float(b) + math.degrees(geo["az"])) % 360.0
+
     def search(self, rend, ep, g):
         """Drive the renderer directly; returns (final_pose, trace, info)."""
         scout = rend.scene_scout() or {}
+        fa = self._subject_front_az(ep)
+        if fa is not None:
+            subj = dict(scout.get("subject") or {})
+            subj.setdefault("front_azimuth_deg", round(fa, 1))
+            subj.setdefault("front_vector_world",
+                            [round(math.cos(math.radians(fa)), 3),
+                             round(math.sin(math.radians(fa)), 3), 0.0])
+            subj.setdefault("bearing_convention",
+                            "bearing B = angle around the subject measured from its front. The subject's front points along front_vector_world. IMPORTANT: to shoot at bearing B, place the CAMERA at world azimuth (front_azimuth_deg - B + 180) mod 360 from the subject centre, i.e. camera = subject_centre + distance * [cos(theta), sin(theta), height_offset] with theta = radians((front_azimuth_deg - B + 180) mod 360), then look_at the subject. (front_azimuth_deg - B) alone is the direction FROM the camera TO the subject, which is the opposite side -- using it places the camera 180 deg wrong.")
+            scout = {**scout, "subject": subj}
         t = {"n": 0}
 
         def render(position, look_at):

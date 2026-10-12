@@ -11,8 +11,8 @@ import math
 import numpy as np
 import pytest
 
-from src.policy.photoflow.agent import (CANDIDATES_PER_ROUND, ROUNDS, PhotoFlowAgent,
-                                        pose_from_look_at)
+from src.policy.photoflow.agent import (CANDIDATES_PER_ROUND, ROUNDS, SCOUT_VIEWS,
+                                        PhotoFlowAgent, pose_from_look_at)
 from src.policy.photoflow.anchors import build_anchor_bank, framing_radius
 from src.policy.photoflow.memory import (CELL_MIN, CELL_SCALE, PROMISING_SCORE,
                                          PROMISING_SEMANTIC, RegionMemory, cell_size)
@@ -180,7 +180,7 @@ class _VLM:
         self.sweet = np.asarray(sweet, float)
         self.by_image: dict[str, np.ndarray] = {}
 
-    def ask_json(self, system, user, image=None):
+    def ask_json(self, system, user, image=None, images=()):
         # Dispatch on the IMAGE, not on prompt text: the critique prompt mentions "blueprint",
         # so matching that word sent critiques to the blueprint branch and quietly zeroed
         # m3-m6 in every test that used this mock.
@@ -218,9 +218,27 @@ def _runner(vlm, budget=None):
 def test_search_respects_the_render_budget_and_returns_the_best_state():
     vlm = _VLM()
     best, info, rendered = _runner(vlm)
-    assert info["renders"] <= 24 and len(rendered) == info["renders"]
+    # `renders` counts PREVIEWS, which is what the budget caps. The Director's establishing
+    # scout views are separate renders and are never scored or selected, so they sit outside
+    # it -- but they are still renders, so total cost is the sum.
+    assert info["renders"] <= 24
+    assert info["scout_views"] == SCOUT_VIEWS
+    assert len(rendered) == info["renders"] + info["scout_views"]
     assert np.allclose(best["position"], [3.0, 0.0, 1.0])     # the scripted sweet spot
     assert best["J"] == pytest.approx(combined_score(best["m"]))
+
+
+def test_scout_views_are_establishing_shots_not_candidates():
+    """They must never be scored, selected, or counted against the preview budget."""
+    vlm = _VLM()
+    best, info, rendered = _runner(vlm, budget=4)
+    scored = [e for e in info["log"] if "J" in e]
+    assert len(scored) == 4                       # only the 4 previews were reviewed
+    # the first SCOUT_VIEWS renders are the establishing ring, none of them a scored candidate
+    ring = rendered[:SCOUT_VIEWS]
+    assert len(ring) == SCOUT_VIEWS
+    for e in scored:
+        assert not any(np.allclose(e["position"], r) for r in ring)
 
 
 def test_every_preview_is_scored_from_its_own_image():
@@ -235,12 +253,13 @@ def test_every_preview_is_scored_from_its_own_image():
 
 def test_render_matched_budget_caps_renders_for_the_fair_ablation():
     _, info, rendered = _runner(_VLM(), budget=4)
-    assert info["renders"] == 4 and len(rendered) == 4
+    assert info["renders"] == 4
+    assert len(rendered) == 4 + SCOUT_VIEWS
 
 
 def test_search_survives_a_vlm_that_returns_nothing():
     class _Dead:
-        def ask_json(self, system, user, image=None):
+        def ask_json(self, system, user, image=None, images=()):
             return None
 
     def render(position, look_at):
@@ -250,3 +269,32 @@ def test_search_survives_a_vlm_that_returns_nothing():
     best, info = agent.search(render, SCOUT, "a shot")
     assert info["renders"] == 6          # falls back to the anchor bank instead of stalling
     assert best is not None and info["vlm_failures"] > 0
+
+
+# ---------------------------------------------------------------- bearing convention
+def test_bearing_convention_places_the_camera_on_the_correct_side():
+    """The instruction handed to the Director must reproduce the goal pose, not its antipode.
+
+    `pose_to_geometry`'s `az` is the CAMERA->SUBJECT direction, so the camera stands at
+    az + 180. An earlier version of this instruction omitted the 180 and would have sent the
+    Director to the opposite side of every subject.
+    """
+    import math
+
+    from src.policy.common.reward import pose_to_geometry
+
+    subject = np.array([0.043, 5.747, 0.421])
+    camera = np.array([-3.01, 9.05, 0.48])          # a real manifest goal pose
+    geo = pose_to_geometry(camera, subject - camera, [0, 0, 1], subject, 0.84)
+    bearing = 137.0
+    front_az = (bearing + math.degrees(geo["az"])) % 360.0
+
+    theta = math.radians((front_az - bearing + 180.0) % 360.0)
+    r = float(np.linalg.norm((subject - camera)[:2]))
+    placed = subject + np.array([r * math.cos(theta), r * math.sin(theta), 0.0])
+
+    assert np.allclose(placed[:2], camera[:2], atol=1e-6), "camera placed on the wrong side"
+    # and the naive version (no +180) must land on the opposite side, i.e. be wrong
+    theta_bad = math.radians((front_az - bearing) % 360.0)
+    bad = subject + np.array([r * math.cos(theta_bad), r * math.sin(theta_bad), 0.0])
+    assert np.linalg.norm(bad[:2] - camera[:2]) > r, "the naive convention should be ~2r away"

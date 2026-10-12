@@ -24,13 +24,14 @@ from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
 
-from src.policy.photoflow.anchors import build_anchor_bank
+from src.policy.photoflow.anchors import _clip_into, build_anchor_bank, framing_radius
 from src.policy.photoflow.memory import RegionMemory
 from src.policy.photoflow.reviewer import (SEMANTIC_KEY, combined_score, pairwise_choose,
                                            rule_composition_distance, rule_in_requested_half)
 
 ROUNDS = 6
 CANDIDATES_PER_ROUND = 4
+SCOUT_VIEWS = 4          # "low-sample preview renders from a small set of canonical cameras"
 STAGNATION_ROUNDS = 2            # rounds with no incumbent change before a high-explore jump
 MAX_CRITIQUE_WORKERS = 4         # = candidates per round; keeps the gateway load flat
 
@@ -69,7 +70,35 @@ class PhotoFlowAgent:
         self.calls = self.failures = 0
 
     # ---------------------------------------------------------------- Director
-    def blueprint(self, scout: dict, brief: str) -> dict:
+    def scout_views(self, render, scout, n=SCOUT_VIEWS):
+        """Canonical establishing renders, so the Director SEES the scene before planning.
+
+        The paper's Director conditions on "global scout views ... low-sample preview renders
+        from a small set of canonical or visibility-oriented cameras". Without them it plans an
+        entire mission from a text list of bounding boxes, which leaves it unable to tell which
+        way the subject faces -- and the brief is phrased in the subject's own frame.
+
+        These are establishing shots, not candidates: they are never scored by the Reviewer and
+        never become the incumbent, so they do not consume the preview budget.
+        """
+        subj = (scout or {}).get("subject", {}) or {}
+        target = np.asarray(subj.get("center") or [0.0, 0.0, 0.0], float)
+        r = framing_radius(float(subj.get("height") or 1.7), 0.35)
+        views = []
+        for i in range(n):
+            a = 2.0 * math.pi * i / n
+            p = target + np.array([r * math.cos(a), r * math.sin(a), 0.35 * r], float)
+            p = _clip_into(p, (scout or {}).get("extents") or {})
+            try:
+                img, _, _ = render(p.tolist(), target.tolist())
+            except Exception:
+                continue
+            views.append({"position": [round(float(v), 2) for v in p],
+                          "look_at": [round(float(v), 2) for v in target],
+                          "world_azimuth_deg": round(math.degrees(a), 1), "image": img})
+        return views
+
+    def blueprint(self, scout: dict, brief: str, views=()) -> dict:
         """Soft photographic blueprint: subject, context, cues, angle/zone/axis preferences."""
         d = self.vlm.ask_json(
             system=(
@@ -82,14 +111,16 @@ class PhotoFlowAgent:
                 '"symmetry_preference":"none|weak|strong","semantic_vibe":"<short>",'
                 '"negative_preferences":["<what to avoid>",...]}\n'
                 "Preferences are soft hints for a search, not hard constraints."),
-            user=f"SCENE SUMMARY:\n{json.dumps(scout)[:6000]}\n\nBRIEF:\n{brief}")
+            user=f"SCENE SUMMARY:\n{json.dumps(scout)[:6000]}\n\nBRIEF:\n{brief}",
+            images=[(v["image"], f"scout view from world azimuth {v['world_azimuth_deg']} deg, "
+                                 f"camera at {v['position']}") for v in views])
         self.calls += 1
         if not isinstance(d, dict):
             self.failures += 1
             return {}
         return d
 
-    def propose(self, scout, brief, blueprint, incumbent, memory, anchors, k):
+    def propose(self, scout, brief, blueprint, incumbent, memory, anchors, k, views=()):
         """Propose k absolute camera states, biased by the incumbent's critique and memory."""
         dead = [list(key) for key, r in memory.regions.items() if r.dead][:40]
         inc = None
@@ -110,7 +141,9 @@ class PhotoFlowAgent:
                   f"BLUEPRINT:\n{json.dumps(blueprint)[:1500]}\n\n"
                   f"SUGGESTED ANCHORS (ranked, you may use or ignore):\n{json.dumps(top)}\n\n"
                   f"CURRENT BEST:\n{json.dumps(inc)}\n\n"
-                  f"DEAD CELLS (cell index, side {memory.h:.2f} m):\n{json.dumps(dead)}"))
+                  f"DEAD CELLS (cell index, side {memory.h:.2f} m):\n{json.dumps(dead)}"),
+            images=[(v["image"], f"scout view from world azimuth {v['world_azimuth_deg']} deg")
+                    for v in views])
         self.calls += 1
         cands = (d or {}).get("candidates")
         out = []
@@ -176,8 +209,9 @@ class PhotoFlowAgent:
         Returns (best, log) where `best` carries the chosen position/look_at and J.
         """
         memory = RegionMemory(float((scout or {}).get("scene_scale") or 1.0))
-        bp = self.blueprint(scout, brief)
-        anchors = build_anchor_bank(scout, bp)
+        views = self.scout_views(render, scout)
+        bp = self.blueprint(scout, brief, views)
+        anchors = build_anchor_bank(scout, bp, scout_views=views)
         subject = np.asarray((scout.get("subject") or {}).get("center") or [0, 0, 0], float)
         incumbent, log, used, stalled = None, [], 0, 0
 
@@ -187,7 +221,7 @@ class PhotoFlowAgent:
             target_pos = np.asarray(incumbent["position"], float) if incumbent else subject
             ranked = memory.rank_anchors(anchors, target_pos)
             k = min(self.candidates, self.render_budget - used)
-            cands = self.propose(scout, brief, bp, incumbent, memory, ranked, k)
+            cands = self.propose(scout, brief, bp, incumbent, memory, ranked, k, views)
             if not cands:                                  # Director failed -> fall back to anchors
                 cands = [{"position": a["position"], "look_at": a["look_at"],
                           "why": f"anchor:{a['source']}"} for a in ranked[:k]]
@@ -236,7 +270,7 @@ class PhotoFlowAgent:
                             "was": round(before["J"], 4) if before else None})
             stalled = 0 if replaced_this_round else stalled + 1
 
-        return incumbent, {"log": log, "renders": used, "blueprint": bp,
+        return incumbent, {"log": log, "renders": used, "scout_views": len(views), "blueprint": bp,
                            "anchors": len(anchors), "cells": len(memory.regions),
                            "dead_cells": sum(1 for r in memory.regions.values() if r.dead),
                            "vlm_calls": self.calls, "vlm_failures": self.failures}
