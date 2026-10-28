@@ -325,7 +325,7 @@ class GatewayVLM:
     """Minimal `ask_json` over the LetSur OpenAI-compatible gateway, for PhotoFlow's roles."""
 
     def __init__(self, model, cfg_path="configs/policy/llm_policy_api.yaml",
-                 max_tokens=8192, temperature=0.2):
+                 max_tokens=8192, temperature=0.2, reasoning=None):
         import yaml
         from openai import OpenAI
         cfg = yaml.safe_load(Path(cfg_path).read_text())
@@ -335,6 +335,7 @@ class GatewayVLM:
             raise SystemExit("no gateway api_key in config and no GATEWAY_API_KEY in env")
         self.client = OpenAI(base_url=vc["api_base"], api_key=key)
         self.model, self.max_tokens, self.temperature = model, max_tokens, temperature
+        self.reasoning = reasoning          # Astra: the blog runs every query at "low"
 
     @staticmethod
     def _img(path):
@@ -342,7 +343,12 @@ class GatewayVLM:
         return {"type": "image_url", "image_url": {
             "url": f"data:image/jpeg;base64,{base64.b64encode(Path(path).read_bytes()).decode()}"}}
 
-    def ask_json(self, system, user, image=None, images=()):
+    def ask_json(self, system, user=None, image=None, images=(), content=None):
+        if content is not None:
+            # already-built blocks: {"type":"text","text":...} | {"type":"image","path":...}
+            content = [b if b["type"] != "image"
+                       else self._img(b["path"]) for b in content]
+            return self._ask(system, content)
         content = [{"type": "text", "text": user}]
         for item in images or ():                      # labelled establishing shots
             path, label = item if isinstance(item, (tuple, list)) else (item, None)
@@ -351,12 +357,16 @@ class GatewayVLM:
             content.append(self._img(path))
         if image:
             content.append(self._img(image))
+        return self._ask(system, content)
+
+    def _ask(self, system, content):
         msgs = [{"role": "system", "content": system}, {"role": "user", "content": content}]
+        kw = {"reasoning_effort": self.reasoning} if self.reasoning else {}
         for budget in (self.max_tokens, self.max_tokens * 2):   # reasoning models run long
             try:
                 r = self.client.chat.completions.create(
                     model=self.model, max_tokens=budget, temperature=self.temperature,
-                    messages=msgs)
+                    messages=msgs, **kw)
             except Exception:
                 return None
             txt = r.choices[0].message.content or ""
@@ -444,6 +454,73 @@ class PhotoFlowPolicy:
         if best is None:
             return None, info
         return self._pose(best["position"], best["look_at"]), info
+
+
+class AstraPolicy:
+    """Astra-style velocity pilot (src/policy/astra/), conditioned on our goal.
+
+    Unlike the GPT-5 agent rows this is a CONTINUOUS-CONTROL, ACCUMULATING-CONTEXT pilot: one
+    query per rendered frame, a velocity held for dt, every past frame/command/scratchpad
+    resent, and `status: "Complete"` as the model's own shutter. That last part is the
+    interesting comparison -- the GPT-5 agent never set `done` on any of 192 episodes, and here
+    terminating is the pilot's job by construction.
+
+    It runs at its own rate rather than at chunk boundaries, so `--astra-steps` sets the query
+    (and render) budget and the summary reports it, exactly as PhotoFlow's render budget is.
+    """
+
+    action_space = "astra"
+
+    def __init__(self, model, goal_mode="text", steps=16, dt=None, reasoning="low"):
+        from src.policy.astra.pilot import DT, AstraPilot
+        self.pilot = AstraPilot(GatewayVLM(model, reasoning=reasoning),
+                                goal_mode=goal_mode, dt=dt or DT)
+        self.goal_mode, self.steps = goal_mode, int(steps)
+        self.dt = dt or DT
+
+    @property
+    def needs_goal_render(self):
+        return self.goal_mode == "image"
+
+    @property
+    def calls(self):
+        return self.pilot.calls
+
+    @property
+    def failures(self):
+        return self.pilot.failures
+
+    def goal(self, ep, goal_image=None):
+        if self.goal_mode == "image":
+            if goal_image is None:
+                raise RuntimeError("astra image goal mode needs a rendered goal frame")
+            return {"mode": "image", "image": goal_image, "raw": ep.goal_frame.raw}
+        return {"mode": "text", "raw": ep.goal_frame.raw,
+                "text": goal_prompt(goal_vector(ep.goal_frame.raw, NL_GOAL_KEYS),
+                                    NL_GOAL_KEYS, crop=ep.goal_frame.raw)}
+
+    def fly(self, rend, ep, g, geometry_distance):
+        """Run the pilot loop; returns (pose, trace, declared_step, notes)."""
+        from src.policy.astra.pilot import apply_velocity
+        self.pilot.reset()
+        pos = np.asarray(ep.start.camera_position, np.float32)
+        fwd = np.asarray(ep.start.camera_forward, np.float32)
+        up = np.asarray(ep.start.camera_up, np.float32)
+        trace = [geometry_distance(pos, fwd, up, ep.goal_frame)]
+        notes, declared = [], None
+        img = rend.render(0, pos, fwd, up)
+        for t in range(self.steps):
+            cmd, done = self.pilot.act(img, g)
+            notes.append({k: round(float(cmd[k]), 2) for k in
+                          ("vx", "vy", "vz", "yaw_rate_deg_s", "pitch_rate_deg_s")}
+                         | {"status": cmd["status"], "note": cmd["scratchpad"][:90]})
+            if done:
+                declared = t
+                break                           # "Complete" ends the run, before moving again
+            pos, fwd, up = apply_velocity(pos, fwd, up, cmd, self.dt)
+            img = rend.render(t + 1, pos, fwd, up)
+            trace.append(geometry_distance(pos, fwd, up, ep.goal_frame))
+        return (pos, fwd, up), trace, declared, notes
 
 
 class UNICComposition(_FiveDPolicy):
@@ -626,7 +703,13 @@ def select_placements(split, val_scenes_path, roots, limit):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--policy", required=True,
-                    choices=["dp", "pi05", "groot", "gpt5", "unic", "photoflow"])
+                    choices=["dp", "pi05", "groot", "gpt5", "unic", "photoflow", "astra"])
+    ap.add_argument("--astra-steps", type=int, default=16, dest="astra_steps",
+                    help="astra: queries (= renders) per episode. The blog flies at 2 Hz with "
+                         "no fixed cap; this bounds it. Each step holds a velocity for dt.")
+    ap.add_argument("--astra-model", default="gpt-6-astra", dest="astra_model")
+    ap.add_argument("--astra-reasoning", default="low", dest="astra_reasoning",
+                    help="the blog runs every query at low reasoning")
     ap.add_argument("--render-budget", type=int, default=None, dest="render_budget",
                     help="photoflow: cap total preview renders. Default = rounds*candidates = 24 "
                          "(the paper's budget). Set it to n_chunks for a render-matched row.")
@@ -664,6 +747,9 @@ def main():
         pol = LeRobotPolicy(a.policy, a.checkpoint, dev)
     elif a.policy == "gpt5":
         pol = GPT5Agent(a.model, goal_mode=a.goal_mode, feedback=bool(a.feedback))
+    elif a.policy == "astra":
+        pol = AstraPolicy(a.astra_model, goal_mode=a.goal_mode, steps=a.astra_steps,
+                          reasoning=a.astra_reasoning)
     elif a.policy == "photoflow":
         pol = PhotoFlowPolicy(a.model, render_budget=a.render_budget)
     else:
@@ -711,6 +797,26 @@ def main():
         except Exception as e:
             rend.close()
             print(f"  [{i}] {name[:40]}: goal setup failed ({e})", flush=True); continue
+        if getattr(pol, "action_space", "") == "astra":
+            info = {}
+            try:
+                final, trace, declared, notes = pol.fly(rend, ep, g, geometry_distance)
+                pos, fwd, up = final
+            except Exception as e:
+                print(f"  [{i}] {name[:40]}: astra failed ({type(e).__name__}: {e})", flush=True)
+            finally:
+                rend.close()
+            d1, dbest = trace[-1], float(min(trace))
+            results.append({"key": ep.key, "placement": name, "scene": ep.scene,
+                            "n_chunks": n_chunks, "steps": len(trace) - 1,
+                            "declared_stop": declared, "d_start": d0, "d_end": d1,
+                            "d_best": dbest, "improvement": d0 - d1,
+                            "best_improvement": d0 - dbest, "trace": trace, "notes": notes})
+            print(f"  [{i}] {name[:40]:40s} d {d0:.3f}->{d1:.3f} (best {dbest:.3f}) "
+                  f"improve {d0 - d1:+.3f} steps {len(trace) - 1} "
+                  f"stop@{declared}", flush=True)
+            continue
+
         if getattr(pol, "search_space", "incremental") == "global":
             # A global search that finds nothing leaves the trace at d_start, i.e. it scores
             # exactly 0 -- the same convention a no-op gets everywhere else in this harness.
@@ -799,6 +905,9 @@ def main():
         "goal_mode": a.goal_mode if a.policy == "gpt5" else None,
         "feedback": bool(a.feedback) if a.policy == "gpt5" else None,
         "render_budget": (pol.agent.render_budget if a.policy == "photoflow" else None),
+        "astra": ({"model": a.astra_model, "steps": a.astra_steps, "dt": pol.dt,
+                   "reasoning": a.astra_reasoning, "goal_mode": a.goal_mode}
+                  if a.policy == "astra" else None),
         # PhotoFlow's counters live on the inner agent, not the adapter -- reading only
         # `pol.calls` reported 0 calls for a run that actually made 21,588.
         "api_calls": getattr(pol, "calls", None) or getattr(getattr(pol, "agent", None), "calls", None),

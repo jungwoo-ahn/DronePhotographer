@@ -48,6 +48,7 @@ class — not the data or metric:
 | **UNIC** | **no** (generic composition) | training-free | vendored UNIC composition detector → heuristic pan/zoom | no goal, no learning, reactive only |
 | **GPT-5 agent** | yes (brief, goal frame, or measured profile) | training-free | gpt-5 via LetSur, one 5D move per observation | no training, frontier VLM instead of a policy |
 | **PhotoFlow-style** | yes (brief + scout views + subject facing) | training-free | Director/Reviewer/Reflector search over absolute camera states | policy replaced by inference-time search |
+| **Astra pilot** | yes (brief or reference image) | training-free | gpt-6-astra, accumulating context + scratchpad, velocity control | no training, continuous control, model owns the shutter |
 
 _Retired: the hand-rolled **Qwen3-VL "π0-style" VLA** (now `legacy/src/policy/vla/`) was replaced by
 the two real pretrained VLAs above (pi0.5, GR00T) loaded via LeRobot — see `pi05-baseline-setup`
@@ -183,6 +184,41 @@ shoots bearing `B` stands at world azimuth `(front_azimuth_deg - B + 180) mod 36
 version of the instruction omitted the `+180` and would have sent the Director to the opposite side
 of every subject; `test_bearing_convention_places_the_camera_on_the_correct_side` reconstructs a
 real manifest goal pose from the instruction and asserts the naive form lands ~2r away.
+
+## Astra pilot (`--policy astra`, `src/policy/astra/`)
+VLM-as-drone-pilot, after `jirl-upenn.github.io/blog/astra-as-a-drone-pilot.html`. A single
+forward camera frame plus a text prompt go to **`gpt-6-astra`** at **low reasoning**, and it
+replies with a velocity command and a free-text scratchpad. Faithful to the blog:
+
+- action vector `{vx, vy, vz, yaw_rate_deg_s, status, scratchpad}` with its signs — `vy`
+  positive is **left**, `vz` is climb, `yaw_rate` positive is **left**;
+- limits `|vx|<5`, `|vy|<1.5`, `|vz|<1`, `|yaw_rate|<120 deg/s`, each command **held for
+  dt = 0.5 s** (2 Hz velocity mode);
+- **accumulating context**: every past frame, command and scratchpad is resent each query;
+- **`status: "Complete"` is the pilot's own shutter** and ends the run.
+
+`vx` is levelled to horizontal, so a pitched camera still flies level rather than into the floor.
+Astra's `yaw_rate` is left-positive, which happens to match this repr's `dyaw` — the one prompted
+baseline here that needs **no** `yaw_from_right_positive` conversion. That is pinned by a test
+precisely because every other one did need it.
+
+Two documented departures, both forced by the task:
+1. **Gimbal pitch.** The blog's velocity mode keeps the camera level because its task is to reach
+   a *position* ("within 1 m of the target"); aim never matters. Photography is scored partly on
+   where the subject sits in frame, and a level-locked camera can never fix the aim term, so
+   `pitch_rate_deg_s` is added. A real camera drone has a gimbal.
+2. **Goal conditioning.** The blog describes targets in words only. Here the goal is the shot to
+   achieve, as the NL brief (`--goal-mode text`) or a rendered reference image
+   (`--goal-mode image`), so the row is comparable to the other goal-conditioned baselines.
+
+It runs at its own rate rather than at chunk boundaries, so `--astra-steps` (default 16) sets the
+query-and-render budget and the summary reports it, as PhotoFlow's render budget is.
+
+**Why this row is worth having even though GPT-5 already covers "VLM as policy":** the GPT-5 agent
+never set `done` on any of 192 episodes, and that cost it the whole result (see the termination
+table). Astra's protocol makes terminating the model's job by construction, and adds accumulating
+context and a scratchpad that the stateless GPT-5 agent has no equivalent of. If those three
+ingredients are what a prompted pilot was missing, this row is where it shows.
 
 ## The 5D action conventions (read this before adding a baseline)
 
