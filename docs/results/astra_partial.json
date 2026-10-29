@@ -1,0 +1,483 @@
+{
+ "_what": "PARTIAL Astra baseline results. NOT the 64-episode row -- the runs were stopped early for handover. Episodes are a prefix of each shard, so this is a subset, not a sample.",
+ "_how": "python scripts/closed_loop_eval_baselines.py --policy astra --goal-mode {text,image} --episodes-from configs/eval_episodes_v1.json --out runs/shared/astra_<mode>",
+ "_metric": "V12 closed-loop geometric distance in radians; improvement = d_start - d_end; no-op = 0",
+ "_caveat": "Subset mean d_start is 1.006 (image) / 0.996 (text) vs 0.866 for the full manifest, i.e. the episodes that ran were HARDER than average. Sector coverage is uneven.",
+ "model": "gpt-6-astra",
+ "reasoning": "low",
+ "steps_budget": 16,
+ "dt_s": 0.5,
+ "modes": {
+  "text": {
+   "n": 28,
+   "mean_improvement": 0.31464285714285717,
+   "median_improvement": 0.1315,
+   "frac_positive": 0.7142857142857143,
+   "mean_d_end": 0.6818571428571428,
+   "mean_d_best": 0.5867857142857142,
+   "mean_overshoot": 0.09507142857142857,
+   "frac_declared_stop": 0.6071428571428571,
+   "succ_at_0_10": 0.03571428571428571,
+   "succ_at_0_20": 0.10714285714285714,
+   "mean_steps": 10.178571428571429,
+   "results": [
+    {
+     "key": "Modern-Warehouse_a5eea495__sitting-survi",
+     "d0": 0.562,
+     "d1": 0.659,
+     "dbest": 0.562,
+     "imp": -0.097,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Girl-in-bombe",
+     "d0": 1.553,
+     "d1": 0.252,
+     "dbest": 0.249,
+     "imp": 1.301,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Nature-Snowy-Mountain-Village-Retreat_f8",
+     "d0": 1.043,
+     "d1": 0.363,
+     "dbest": 0.351,
+     "imp": 0.68,
+     "steps": 10,
+     "stop": 10
+    },
+    {
+     "key": "Chill-Camping_150d7263__spider-man-no-wa",
+     "d0": 0.459,
+     "d1": 0.259,
+     "dbest": 0.211,
+     "imp": 0.201,
+     "steps": 7,
+     "stop": 7
+    },
+    {
+     "key": "Chill-Camping_150d7263__Relaxed-Pose-Sne",
+     "d0": 1.348,
+     "d1": 1.301,
+     "dbest": 1.301,
+     "imp": 0.047,
+     "steps": 4,
+     "stop": 4
+    },
+    {
+     "key": "Nature-Snowy-Mountain-Village-Retreat_f8",
+     "d0": 0.695,
+     "d1": 0.653,
+     "dbest": 0.653,
+     "imp": 0.042,
+     "steps": 3,
+     "stop": 3
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Girl-walk_544",
+     "d0": 0.628,
+     "d1": 0.216,
+     "dbest": 0.212,
+     "imp": 0.412,
+     "steps": 5,
+     "stop": 5
+    },
+    {
+     "key": "Parking_70ae1f27__Pardon-His-French_3960",
+     "d0": 0.78,
+     "d1": 0.231,
+     "dbest": 0.226,
+     "imp": 0.549,
+     "steps": 10,
+     "stop": 10
+    },
+    {
+     "key": "Parking_70ae1f27__Girl-wrapped-herself-i",
+     "d0": 1.606,
+     "d1": 1.718,
+     "dbest": 1.606,
+     "imp": -0.112,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49",
+     "d0": 0.708,
+     "d1": 0.737,
+     "dbest": 0.676,
+     "imp": -0.029,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Girl-wrapped-",
+     "d0": 0.838,
+     "d1": 0.817,
+     "dbest": 0.812,
+     "imp": 0.021,
+     "steps": 3,
+     "stop": 3
+    },
+    {
+     "key": "office-buildingwarehouse-creative-headqu",
+     "d0": 0.518,
+     "d1": 0.535,
+     "dbest": 0.518,
+     "imp": -0.017,
+     "steps": 2,
+     "stop": 2
+    },
+    {
+     "key": "office-buildingwarehouse-creative-headqu",
+     "d0": 0.407,
+     "d1": 0.257,
+     "dbest": 0.257,
+     "imp": 0.15,
+     "steps": 4,
+     "stop": 4
+    },
+    {
+     "key": "Chill-Camping_150d7263__Office-Move_3d4b",
+     "d0": 1.286,
+     "d1": 1.21,
+     "dbest": 1.21,
+     "imp": 0.076,
+     "steps": 4,
+     "stop": 4
+    },
+    {
+     "key": "Modern-Office-Full-set-01_d2deb1e1__Girl",
+     "d0": 1.142,
+     "d1": 1.682,
+     "dbest": 0.512,
+     "imp": -0.54,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Hahaha-woman-",
+     "d0": 0.578,
+     "d1": 0.112,
+     "dbest": 0.069,
+     "imp": 0.466,
+     "steps": 10,
+     "stop": 10
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Squattin-guy-",
+     "d0": 0.821,
+     "d1": 0.701,
+     "dbest": 0.701,
+     "imp": 0.12,
+     "steps": 14,
+     "stop": 14
+    },
+    {
+     "key": "Parking_70ae1f27__Casual-Crouch_b3e2a7cc",
+     "d0": 0.649,
+     "d1": 0.548,
+     "dbest": 0.547,
+     "imp": 0.101,
+     "steps": 4,
+     "stop": 4
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Guy-in-Japan-",
+     "d0": 1.118,
+     "d1": 0.127,
+     "dbest": 0.127,
+     "imp": 0.991,
+     "steps": 7,
+     "stop": 7
+    },
+    {
+     "key": "Chill-Camping_150d7263__Guy-in-Japan-bom",
+     "d0": 1.91,
+     "d1": 0.211,
+     "dbest": 0.211,
+     "imp": 1.699,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49",
+     "d0": 1.448,
+     "d1": 1.495,
+     "dbest": 1.448,
+     "imp": -0.046,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Parking_70ae1f27__Sitting-Man-Bandana-Cl",
+     "d0": 1.466,
+     "d1": 1.616,
+     "dbest": 1.466,
+     "imp": -0.15,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Office-Full-set-01_d2deb1e1__snow",
+     "d0": 0.617,
+     "d1": 0.474,
+     "dbest": 0.322,
+     "imp": 0.143,
+     "steps": 8,
+     "stop": 8
+    },
+    {
+     "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49",
+     "d0": 0.378,
+     "d1": 0.022,
+     "dbest": 0.022,
+     "imp": 0.356,
+     "steps": 5,
+     "stop": 5
+    },
+    {
+     "key": "Parking_70ae1f27__Young-boy-in-jumpsuit_",
+     "d0": 1.4,
+     "d1": 0.612,
+     "dbest": 0.612,
+     "imp": 0.788,
+     "steps": 9,
+     "stop": 9
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Buyer-in-Beig",
+     "d0": 1.882,
+     "d1": 0.402,
+     "dbest": 0.402,
+     "imp": 1.48,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "office-buildingwarehouse-creative-headqu",
+     "d0": 0.878,
+     "d1": 1.613,
+     "dbest": 0.878,
+     "imp": -0.735,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Office-Full-set-01_d2deb1e1__Sitt",
+     "d0": 1.181,
+     "d1": 0.269,
+     "dbest": 0.269,
+     "imp": 0.913,
+     "steps": 16,
+     "stop": null
+    }
+   ]
+  },
+  "image": {
+   "n": 21,
+   "mean_improvement": 0.3564761904761905,
+   "median_improvement": 0.491,
+   "frac_positive": 0.7619047619047619,
+   "mean_d_end": 0.6494285714285715,
+   "mean_d_best": 0.4369047619047619,
+   "mean_overshoot": 0.2125238095238095,
+   "frac_declared_stop": 0.5238095238095238,
+   "succ_at_0_10": 0.5714285714285714,
+   "succ_at_0_20": 0.5714285714285714,
+   "mean_steps": 12.476190476190476,
+   "results": [
+    {
+     "key": "Modern-Warehouse_a5eea495__sitting-survi",
+     "d0": 0.562,
+     "d1": 0.858,
+     "dbest": 0.531,
+     "imp": -0.296,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Girl-in-bombe",
+     "d0": 1.553,
+     "d1": 0.066,
+     "dbest": 0.066,
+     "imp": 1.487,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Nature-Snowy-Mountain-Village-Retreat_f8",
+     "d0": 1.043,
+     "d1": 0.013,
+     "dbest": 0.013,
+     "imp": 1.031,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Chill-Camping_150d7263__spider-man-no-wa",
+     "d0": 0.459,
+     "d1": 0.408,
+     "dbest": 0.398,
+     "imp": 0.051,
+     "steps": 5,
+     "stop": 5
+    },
+    {
+     "key": "Chill-Camping_150d7263__Relaxed-Pose-Sne",
+     "d0": 1.348,
+     "d1": 0.023,
+     "dbest": 0.023,
+     "imp": 1.325,
+     "steps": 12,
+     "stop": 12
+    },
+    {
+     "key": "Nature-Snowy-Mountain-Village-Retreat_f8",
+     "d0": 0.695,
+     "d1": 0.073,
+     "dbest": 0.073,
+     "imp": 0.622,
+     "steps": 8,
+     "stop": 8
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Girl-walk_544",
+     "d0": 0.628,
+     "d1": 0.036,
+     "dbest": 0.036,
+     "imp": 0.592,
+     "steps": 8,
+     "stop": 8
+    },
+    {
+     "key": "Parking_70ae1f27__Pardon-His-French_3960",
+     "d0": 0.78,
+     "d1": 0.042,
+     "dbest": 0.042,
+     "imp": 0.737,
+     "steps": 11,
+     "stop": 11
+    },
+    {
+     "key": "Parking_70ae1f27__Girl-wrapped-herself-i",
+     "d0": 1.606,
+     "d1": 0.055,
+     "dbest": 0.055,
+     "imp": 1.551,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49",
+     "d0": 0.708,
+     "d1": 0.644,
+     "dbest": 0.644,
+     "imp": 0.064,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Girl-wrapped-",
+     "d0": 0.838,
+     "d1": 0.089,
+     "dbest": 0.089,
+     "imp": 0.75,
+     "steps": 11,
+     "stop": 11
+    },
+    {
+     "key": "office-buildingwarehouse-creative-headqu",
+     "d0": 0.518,
+     "d1": 0.028,
+     "dbest": 0.028,
+     "imp": 0.491,
+     "steps": 7,
+     "stop": 7
+    },
+    {
+     "key": "office-buildingwarehouse-creative-headqu",
+     "d0": 0.407,
+     "d1": 0.027,
+     "dbest": 0.027,
+     "imp": 0.38,
+     "steps": 10,
+     "stop": 10
+    },
+    {
+     "key": "Chill-Camping_150d7263__Guy-in-Japan-bom",
+     "d0": 1.91,
+     "d1": 0.413,
+     "dbest": 0.413,
+     "imp": 1.497,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49",
+     "d0": 1.448,
+     "d1": 1.667,
+     "dbest": 1.23,
+     "imp": -0.219,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Parking_70ae1f27__Sitting-Man-Bandana-Cl",
+     "d0": 1.466,
+     "d1": 2.606,
+     "dbest": 1.46,
+     "imp": -1.14,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Office-Full-set-01_d2deb1e1__snow",
+     "d0": 0.617,
+     "d1": 0.059,
+     "dbest": 0.059,
+     "imp": 0.558,
+     "steps": 10,
+     "stop": 10
+    },
+    {
+     "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49",
+     "d0": 0.378,
+     "d1": 0.002,
+     "dbest": 0.002,
+     "imp": 0.375,
+     "steps": 8,
+     "stop": 8
+    },
+    {
+     "key": "Parking_70ae1f27__Young-boy-in-jumpsuit_",
+     "d0": 1.4,
+     "d1": 1.342,
+     "dbest": 1.226,
+     "imp": 0.058,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "Modern-Warehouse_a5eea495__Buyer-in-Beig",
+     "d0": 1.882,
+     "d1": 2.747,
+     "dbest": 1.882,
+     "imp": -0.865,
+     "steps": 16,
+     "stop": null
+    },
+    {
+     "key": "office-buildingwarehouse-creative-headqu",
+     "d0": 0.878,
+     "d1": 2.44,
+     "dbest": 0.878,
+     "imp": -1.563,
+     "steps": 12,
+     "stop": 12
+    }
+   ]
+  }
+ }
+}

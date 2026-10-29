@@ -5,7 +5,7 @@ import math
 import numpy as np
 import pytest
 
-from src.policy.common.action_repr import ACTION_DIM
+from src.policy.common.action_repr import POSE_DIM_5D
 from src.policy.unic.model import UNICRecommendation
 from src.policy.unic.policy import UNICPolicy
 
@@ -26,17 +26,19 @@ def test_centered_full_frame_gives_near_zero_action():
     # box centered, width 1.0 -> no pan, no zoom
     rec = UNICRecommendation(0.5, 0.5, 1.0, 1.0, 0.9)
     a, info = _policy(rec).act(object())
-    assert a.shape == (ACTION_DIM,)
-    np.testing.assert_allclose(a, np.zeros(ACTION_DIM), atol=1e-6)
+    assert a.shape == (POSE_DIM_5D,)
+    np.testing.assert_allclose(a, np.zeros(POSE_DIM_5D), atol=1e-6)
     assert info["recommendation"]["score"] == 0.9
 
 
 def test_box_right_pans_yaw_right():
     rec = UNICRecommendation(0.75, 0.5, 1.0, 1.0, 0.9)
     a, _ = _policy(rec, hfov_deg=50.0).act(object())
-    # dx=0.25 -> yaw = 0.25 * 50deg
-    assert a[3] == pytest.approx(math.radians(0.25 * 50.0), abs=1e-5)
-    assert a[3] > 0 and a[4] == pytest.approx(0.0, abs=1e-6)
+    # dx=0.25 -> 0.25 * 50deg of pan to the RIGHT. This repr's dyaw is left-positive, so
+    # turning right is NEGATIVE; this assertion used to demand +yaw and so locked in an
+    # inverted pan. test_action_5d_conventions.py checks the resulting pose, not just the sign.
+    assert a[3] == pytest.approx(-math.radians(0.25 * 50.0), abs=1e-5)
+    assert a[3] < 0 and a[4] == pytest.approx(0.0, abs=1e-6)
 
 
 def test_box_below_pitches_down():

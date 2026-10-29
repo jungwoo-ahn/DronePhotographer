@@ -1,0 +1,6256 @@
+{
+ "_what": "The shared closed-loop episode set. Every policy compared in one table must run exactly these, because the score is dominated by how far the start is (corr(d_start, improvement) = 0.66 over 138 held-out rollouts).",
+ "_contract": "A MANIFEST, not a rule. Regenerating this file redefines the comparison and makes earlier numbers incomparable \u2014 add a new version instead of editing this one.",
+ "_verify": "Recompute d_start from start_pose/goal_pose/subject_center/subject_height via reward.pose_to_geometry + _geometry_distance and refuse to run if it differs by more than 1e-6. That check is what proves two repos ran the same shots.",
+ "version": 1,
+ "source_root": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075",
+ "val_scenes": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/configs/val_scenes.json",
+ "scenes": [
+  "Chill-Camping_150d7263",
+  "Desert-Roadside-Repair-Garage_a1a2b2ac",
+  "Modern-Office-Full-set-01_d2deb1e1",
+  "Modern-Warehouse_a5eea495",
+  "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+  "Parking_70ae1f27",
+  "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+  "office-buildingwarehouse-creative-headquarters"
+ ],
+ "chunk_size": 8,
+ "max_per_pair": 2,
+ "seed": 0,
+ "per_sector_target": 8,
+ "per_scene_cap": 12,
+ "sector_mix": {
+  "front": 8,
+  "front-right": 8,
+  "right": 8,
+  "back-right": 8,
+  "back": 8,
+  "back-left": 8,
+  "left": 8,
+  "front-left": 8
+ },
+ "scene_mix": {
+  "Modern-Warehouse_a5eea495": 12,
+  "Chill-Camping_150d7263": 9,
+  "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8": 11,
+  "Nature-Snowy-Mountain-Village-Retreat_f884ef3e": 6,
+  "Parking_70ae1f27": 10,
+  "Modern-Office-Full-set-01_d2deb1e1": 5,
+  "office-buildingwarehouse-creative-headquarters": 9,
+  "Desert-Roadside-Repair-Garage_a1a2b2ac": 2
+ },
+ "under_target": {},
+ "n_episodes": 64,
+ "mean_d_start": 0.8656147704338897,
+ "episodes": [
+  {
+   "key": "Modern-Warehouse_a5eea495__sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43:p00:s02:g29",
+   "placement": "Modern-Warehouse_a5eea495__sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 29,
+   "start_pose": {
+    "position": [
+     -1.6774124486971966,
+     12.85106461096316,
+     0.943415633414979
+    ],
+    "forward": [
+     0.26403486688011785,
+     -0.9617533149256601,
+     -0.07291193524453002
+    ],
+    "up": [
+     0.019302669434271023,
+     -0.0703104348856825,
+     0.9973383827462461
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.008366812801061,
+     9.054174719913076,
+     0.4813461064144276
+    ],
+    "forward": [
+     0.5321179072656318,
+     -0.8431989093959417,
+     0.07659067802767668
+    ],
+    "up": [
+     -0.04087533771094922,
+     0.06477143450437921,
+     0.9970626199187596
+    ]
+   },
+   "subject_center": [
+    0.04323361814022064,
+    5.7474470138549805,
+    0.42108180932700634
+   ],
+   "subject_height": 0.8421636261045933,
+   "goal_raw": {
+    "pitch_deg": 2.4797988398543973,
+    "yaw_deg": -10.447433105553936,
+    "occupancy": 16.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 313.0,
+    "cam_to_obj_elevation_deg": -1.0,
+    "object_center_x": 170.0,
+    "object_center_y": 567.0,
+    "bbox_x_offset": 163.0,
+    "bbox_y_offset": 191.0,
+    "frame_idx": 29.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.1580182069994022,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    16.0,
+    100.0,
+    137.0,
+    -1.0,
+    170.0,
+    567.0,
+    163.0,
+    191.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43/renders/pair_00_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__sitting-survivor_5357eeb0-816d-4d2b-b5e1-8f351e9ccf43/renders/pair_00_frame_29.jpg",
+   "delta": 27,
+   "n_chunks": 4,
+   "sector": "back-right",
+   "bearing": 137.0,
+   "d_start": 0.5619047633507189
+  },
+  {
+   "key": "Chill-Camping_150d7263__Guy-in-Japan-bomber_e8891318:p00:s00:g27",
+   "placement": "Chill-Camping_150d7263__Guy-in-Japan-bomber_e8891318",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Guy-in-Japan-bomber_e8891318",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Guy-in-Japan-bomber_e8891318/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 0,
+   "goal_frame_idx": 27,
+   "start_pose": {
+    "position": [
+     -3.111475866837761,
+     6.747117311424715,
+     1.2564572627324295
+    ],
+    "forward": [
+     -0.4816250325307685,
+     -0.8749792064209666,
+     -0.049484506369890616
+    ],
+    "up": [
+     -0.023862210790559807,
+     -0.04335102382710974,
+     0.9987748913690854
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -4.839648080155759,
+     -0.8998068592378032,
+     2.074194886037456
+    ],
+    "forward": [
+     -0.6721852724904249,
+     0.5479152037175664,
+     -0.49795169342227474
+    ],
+    "up": [
+     -0.3859708880474223,
+     0.3146146254737616,
+     0.8672047687933278
+    ]
+   },
+   "subject_center": [
+    -6.183250904083252,
+    0.6565242558717728,
+    0.918621588498354
+   ],
+   "subject_height": 1.9457932934165,
+   "goal_raw": {
+    "pitch_deg": -11.837701103862843,
+    "yaw_deg": 10.011142322747133,
+    "occupancy": 34.0,
+    "body_in_frame_ratio": 29.0,
+    "cam_to_obj_azimuth_deg": 131.0,
+    "cam_to_obj_elevation_deg": -29.0,
+    "object_center_x": 852.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 172.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 27.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3357895667016731,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.2947844177919362,
+    "bot_cut_frac": 0.2537506616164639,
+    "visible_frac": 0.45146492059159987
+   },
+   "goal_vec": [
+    34.0,
+    29.0,
+    319.0,
+    -29.0,
+    852.0,
+    384.0,
+    172.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Guy-in-Japan-bomber_e8891318/renders/pair_00_frame_00.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Guy-in-Japan-bomber_e8891318/renders/pair_00_frame_27.jpg",
+   "delta": 27,
+   "n_chunks": 4,
+   "sector": "front-left",
+   "bearing": 319.0,
+   "d_start": 1.9096592462389947
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Girl-in-bomber_3d225092:p00:s00:g22",
+   "placement": "Modern-Warehouse_a5eea495__Girl-in-bomber_3d225092",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Girl-in-bomber_3d225092",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-in-bomber_3d225092/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 0,
+   "goal_frame_idx": 22,
+   "start_pose": {
+    "position": [
+     0.5973942759736026,
+     9.074263404945572,
+     1.3077992024499607
+    ],
+    "forward": [
+     -0.48068351076246635,
+     -0.8732687223015506,
+     -0.07965614308317578
+    ],
+    "up": [
+     -0.03841145070349289,
+     -0.06978296056875567,
+     0.9968224008664296
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -0.8159318253585406,
+     2.1497043658425254,
+     2.1638958536264017
+    ],
+    "forward": [
+     -0.7595265591743736,
+     0.2597319403311449,
+     -0.5963712980019708
+    ],
+    "up": [
+     -0.5642891794779967,
+     0.1929674765461906,
+     0.8027087111271713
+    ]
+   },
+   "subject_center": [
+    -2.4749999046325684,
+    2.9824427366256714,
+    0.8334500185810612
+   ],
+   "subject_height": 1.666700007088366,
+   "goal_raw": {
+    "pitch_deg": -10.401919205778492,
+    "yaw_deg": 7.774589476821513,
+    "occupancy": 43.0,
+    "body_in_frame_ratio": 59.0,
+    "cam_to_obj_azimuth_deg": 153.0,
+    "cam_to_obj_elevation_deg": -36.0,
+    "object_center_x": 782.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 222.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 22.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.4338878221206042,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.28866477201733837,
+    "bot_cut_frac": 0.1260586075389418,
+    "visible_frac": 0.5852766204437199
+   },
+   "goal_vec": [
+    43.0,
+    59.0,
+    297.0,
+    -36.0,
+    782.0,
+    384.0,
+    222.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-in-bomber_3d225092/renders/pair_00_frame_00.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-in-bomber_3d225092/renders/pair_00_frame_22.jpg",
+   "delta": 22,
+   "n_chunks": 3,
+   "sector": "front-left",
+   "bearing": 297.0,
+   "d_start": 1.5527137881565918
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__koky_62993eba-1768-46e1-9a7d-712e0ef109fb:p01:s03:g21",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "koky_62993eba-1768-46e1-9a7d-712e0ef109fb",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__koky_62993eba-1768-46e1-9a7d-712e0ef109fb/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 3,
+   "goal_frame_idx": 21,
+   "start_pose": {
+    "position": [
+     -22.843484821526598,
+     1.144603548071668,
+     -21.01387434953439
+    ],
+    "forward": [
+     -0.06829945898058119,
+     -0.9736624531848098,
+     -0.2175238174570733
+    ],
+    "up": [
+     -0.015221231228188461,
+     -0.2169906110434186,
+     0.9760550132235898
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -27.353633694292302,
+     -4.937407582401176,
+     -20.78548816318272
+    ],
+    "forward": [
+     0.8194240010312632,
+     -0.0034516175451850756,
+     -0.5731774532116891
+    ],
+    "up": [
+     0.5731723683247765,
+     -0.0024143444668880292,
+     0.819431270534486
+    ]
+   },
+   "subject_center": [
+    -24.182578086853027,
+    -5.5208563804626465,
+    -22.85436248779297
+   ],
+   "subject_height": 1.738433837890625,
+   "goal_raw": {
+    "pitch_deg": -8.093395084703092,
+    "yaw_deg": 10.184021392953303,
+    "occupancy": 17.0,
+    "body_in_frame_ratio": 87.0,
+    "cam_to_obj_azimuth_deg": 350.0,
+    "cam_to_obj_elevation_deg": -33.0,
+    "object_center_x": 808.0,
+    "object_center_y": 355.0,
+    "bbox_x_offset": 97.0,
+    "bbox_y_offset": 355.0,
+    "frame_idx": 21.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.17447766980248894,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.12562490943902085,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.8743750905609792
+   },
+   "goal_vec": [
+    17.0,
+    87.0,
+    100.0,
+    -33.0,
+    808.0,
+    355.0,
+    97.0,
+    355.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__koky_62993eba-1768-46e1-9a7d-712e0ef109fb/renders/pair_01_frame_03.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__koky_62993eba-1768-46e1-9a7d-712e0ef109fb/renders/pair_01_frame_21.jpg",
+   "delta": 18,
+   "n_chunks": 3,
+   "sector": "right",
+   "bearing": 100.0,
+   "d_start": 1.4484853040851962
+  },
+  {
+   "key": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Bar-Connoisseur_bd5a51d0:p00:s01:g19",
+   "placement": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Bar-Connoisseur_bd5a51d0",
+   "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+   "object": "Bar-Connoisseur_bd5a51d0",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Bar-Connoisseur_bd5a51d0/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 1,
+   "goal_frame_idx": 19,
+   "start_pose": {
+    "position": [
+     53.6211756994305,
+     20.455113468744376,
+     -31.131871459155747
+    ],
+    "forward": [
+     -0.9461637056378756,
+     0.3172130901400967,
+     0.06442125097647902
+    ],
+    "up": [
+     0.06107992514380405,
+     -0.020477800707150974,
+     0.9979227938185526
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     49.461957493114234,
+     19.794092916602146,
+     -32.49365527763755
+    ],
+    "forward": [
+     -0.25260559679541794,
+     0.9542125740717846,
+     0.16021478068808057
+    ],
+    "up": [
+     0.04100079125760343,
+     -0.15487966640970074,
+     0.9870821769483382
+    ]
+   },
+   "subject_center": [
+    49.476097106933594,
+    23.3027286529541,
+    -32.02353858947754
+   ],
+   "subject_height": 1.6130180358886719,
+   "goal_raw": {
+    "pitch_deg": -4.758541525180197,
+    "yaw_deg": 15.058495152477334,
+    "occupancy": 19.0,
+    "body_in_frame_ratio": 41.0,
+    "cam_to_obj_azimuth_deg": 90.0,
+    "cam_to_obj_elevation_deg": 8.0,
+    "object_center_x": 924.0,
+    "object_center_y": 386.0,
+    "bbox_x_offset": 100.0,
+    "bbox_y_offset": 382.0,
+    "frame_idx": 19.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.1945699724251562,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.14883133680838853,
+    "visible_frac": 0.8511686631916114
+   },
+   "goal_vec": [
+    19.0,
+    41.0,
+    330.0,
+    8.0,
+    924.0,
+    386.0,
+    100.0,
+    382.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Bar-Connoisseur_bd5a51d0/renders/pair_00_frame_01.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Bar-Connoisseur_bd5a51d0/renders/pair_00_frame_19.jpg",
+   "delta": 18,
+   "n_chunks": 3,
+   "sector": "front-left",
+   "bearing": 330.0,
+   "d_start": 1.0434407358809843
+  },
+  {
+   "key": "Parking_70ae1f27__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac:p00:s04:g29",
+   "placement": "Parking_70ae1f27__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "scene": "Parking_70ae1f27",
+   "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 4,
+   "goal_frame_idx": 29,
+   "start_pose": {
+    "position": [
+     14.061428007089493,
+     1.1317713378156373,
+     1.46511920150331
+    ],
+    "forward": [
+     -0.8803039579822765,
+     0.47392517415671614,
+     0.02144459981591705
+    ],
+    "up": [
+     0.01888210826025804,
+     -0.010165473373764982,
+     0.9997700381281365
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     8.730766941799557,
+     1.8228784185874436,
+     0.0629340672419677
+    ],
+    "forward": [
+     0.33126912966764627,
+     0.9419412909955293,
+     0.05483947526112845
+    ],
+    "up": [
+     -0.0181940038740385,
+     -0.0517334154096498,
+     0.9984951837405548
+    ]
+   },
+   "subject_center": [
+    10.553397178649902,
+    4.5314555168151855,
+    0.6526995056192391
+   ],
+   "subject_height": 1.3066000236431137,
+   "goal_raw": {
+    "pitch_deg": -12.535940412550383,
+    "yaw_deg": 14.560883875989049,
+    "occupancy": 21.0,
+    "body_in_frame_ratio": 32.0,
+    "cam_to_obj_azimuth_deg": 56.0,
+    "cam_to_obj_elevation_deg": 10.0,
+    "object_center_x": 868.0,
+    "object_center_y": 265.0,
+    "bbox_x_offset": 156.0,
+    "bbox_y_offset": 265.0,
+    "frame_idx": 29.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.20996635229693292,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.2950324951689823,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.7049675048310177
+   },
+   "goal_vec": [
+    21.0,
+    32.0,
+    64.0,
+    10.0,
+    868.0,
+    265.0,
+    156.0,
+    265.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_04.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_29.jpg",
+   "delta": 25,
+   "n_chunks": 4,
+   "sector": "front-right",
+   "bearing": 64.0,
+   "d_start": 1.4656497297245228
+  },
+  {
+   "key": "Chill-Camping_150d7263__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb:p00:s00:g08",
+   "placement": "Chill-Camping_150d7263__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+   "scene": "Chill-Camping_150d7263",
+   "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 0,
+   "goal_frame_idx": 8,
+   "start_pose": {
+    "position": [
+     -4.411541567397393,
+     -0.8495349529573066,
+     1.745349148643187
+    ],
+    "forward": [
+     -0.9606083811847086,
+     0.2646684261391546,
+     0.08474763833120319
+    ],
+    "up": [
+     0.08170322328480592,
+     -0.022511008586679752,
+     0.9964024477073928
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -6.135284056549887,
+     -1.9551736291570259,
+     0.900784039483576
+    ],
+    "forward": [
+     -0.7599912565621876,
+     0.6320761697181276,
+     0.15130434766882203
+    ],
+    "up": [
+     0.11632925381033743,
+     -0.09674973039454876,
+     0.9884872251964172
+    ]
+   },
+   "subject_center": [
+    -8.714953422546387,
+    1.7781028747558594,
+    0.8411459196358919
+   ],
+   "subject_height": 1.796566154807806,
+   "goal_raw": {
+    "pitch_deg": 3.7965972509270123,
+    "yaw_deg": 15.605867556614449,
+    "occupancy": 17.0,
+    "body_in_frame_ratio": 24.0,
+    "cam_to_obj_azimuth_deg": 125.0,
+    "cam_to_obj_elevation_deg": -1.0,
+    "object_center_x": 876.0,
+    "object_center_y": 539.0,
+    "bbox_x_offset": 148.0,
+    "bbox_y_offset": 229.0,
+    "frame_idx": 8.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.17324487625520665,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.4533226280040579,
+    "visible_frac": 0.546677371995942
+   },
+   "goal_vec": [
+    17.0,
+    24.0,
+    355.0,
+    -1.0,
+    876.0,
+    539.0,
+    148.0,
+    229.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/renders/pair_00_frame_00.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/renders/pair_00_frame_08.jpg",
+   "delta": 8,
+   "n_chunks": 1,
+   "sector": "front",
+   "bearing": 355.0,
+   "d_start": 0.4593479046985333
+  },
+  {
+   "key": "Modern-Office-Full-set-01_d2deb1e1__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da:p00:s22:g31",
+   "placement": "Modern-Office-Full-set-01_d2deb1e1__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da",
+   "scene": "Modern-Office-Full-set-01_d2deb1e1",
+   "object": "snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 22,
+   "goal_frame_idx": 31,
+   "start_pose": {
+    "position": [
+     -3.0215219928435166,
+     1.5547905372847932,
+     2.1334381100216193
+    ],
+    "forward": [
+     -0.8360951913735941,
+     0.3009988462746502,
+     -0.4586333235857186
+    ],
+    "up": [
+     -0.43152156791282437,
+     0.15535012690480882,
+     0.8886256098586837
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.7519241883677834,
+     0.22059227664565118,
+     2.163747750600983
+    ],
+    "forward": [
+     -0.5166061157625421,
+     0.7240501791105663,
+     -0.45702238379175225
+    ],
+    "up": [
+     -0.26544401596818845,
+     0.3720335114924136,
+     0.8894551932016049
+    ]
+   },
+   "subject_center": [
+    -4.7294429540634155,
+    2.4466736912727356,
+    1.0447567030787468
+   ],
+   "subject_height": 2.013569250702858,
+   "goal_raw": {
+    "pitch_deg": -12.986326622330322,
+    "yaw_deg": 11.800384599487629,
+    "occupancy": 64.0,
+    "body_in_frame_ratio": 28.0,
+    "cam_to_obj_azimuth_deg": 114.0,
+    "cam_to_obj_elevation_deg": -25.0,
+    "object_center_x": 694.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 330.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 31.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.6449761620977352,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.33135713237022957,
+    "bot_cut_frac": 0.1512619065668996,
+    "visible_frac": 0.5173809610628708
+   },
+   "goal_vec": [
+    64.0,
+    28.0,
+    336.0,
+    -25.0,
+    694.0,
+    384.0,
+    330.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/renders/pair_00_frame_22.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/renders/pair_00_frame_31.jpg",
+   "delta": 9,
+   "n_chunks": 2,
+   "sector": "front-left",
+   "bearing": 336.0,
+   "d_start": 0.6169915115738157
+  },
+  {
+   "key": "Chill-Camping_150d7263__Relaxed-Pose-Sneakerhead_75996846:p00:s04:g27",
+   "placement": "Chill-Camping_150d7263__Relaxed-Pose-Sneakerhead_75996846",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Relaxed-Pose-Sneakerhead_75996846",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Relaxed-Pose-Sneakerhead_75996846/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 4,
+   "goal_frame_idx": 27,
+   "start_pose": {
+    "position": [
+     -0.045199950410704126,
+     -11.656882347139627,
+     1.3406336072815765
+    ],
+    "forward": [
+     -0.8809813570639313,
+     0.4656699209579581,
+     0.08380556795823911
+    ],
+    "up": [
+     0.0740917885905319,
+     -0.03916350449409449,
+     0.9964821256696966
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -5.040378698023768,
+     -11.118920677094978,
+     0.03528000363482309
+    ],
+    "forward": [
+     0.20941965222386327,
+     0.966803321593446,
+     0.1464061017113563
+    ],
+    "up": [
+     -0.03099429166945341,
+     -0.14308773707842634,
+     0.9892245717640075
+    ]
+   },
+   "subject_center": [
+    -3.5953444242477417,
+    -8.268438816070557,
+    0.7566597927361727
+   ],
+   "subject_height": 1.6160000823438168,
+   "goal_raw": {
+    "pitch_deg": -10.980460635076348,
+    "yaw_deg": 14.660406131286706,
+    "occupancy": 18.0,
+    "body_in_frame_ratio": 35.0,
+    "cam_to_obj_azimuth_deg": 63.0,
+    "cam_to_obj_elevation_deg": 13.0,
+    "object_center_x": 928.0,
+    "object_center_y": 364.0,
+    "bbox_x_offset": 96.0,
+    "bbox_y_offset": 364.0,
+    "frame_idx": 27.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.17866472965235589,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.24410706555728526,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.7558929344427148
+   },
+   "goal_vec": [
+    18.0,
+    35.0,
+    27.0,
+    13.0,
+    928.0,
+    364.0,
+    96.0,
+    364.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Relaxed-Pose-Sneakerhead_75996846/renders/pair_00_frame_04.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Relaxed-Pose-Sneakerhead_75996846/renders/pair_00_frame_27.jpg",
+   "delta": 23,
+   "n_chunks": 3,
+   "sector": "front-right",
+   "bearing": 27.0,
+   "d_start": 1.3484566007580292
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e:p00:s02:g11",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 11,
+   "start_pose": {
+    "position": [
+     -23.10710534867782,
+     -14.99528164841731,
+     -21.68719768718936
+    ],
+    "forward": [
+     -0.9737562733368408,
+     0.07914866345216996,
+     -0.21338746263752922
+    ],
+    "up": [
+     -0.21268603951822587,
+     0.017287504300349543,
+     0.9769676508406597
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -24.22788590951351,
+     -13.112520317660325,
+     -21.9195970522105
+    ],
+    "forward": [
+     -0.9047729280400573,
+     -0.3816660873421964,
+     -0.1889892760415793
+    ],
+    "up": [
+     -0.17413035748271394,
+     -0.07345451015194719,
+     0.9819791512762783
+    ]
+   },
+   "subject_center": [
+    -29.171320915222168,
+    -15.473449230194092,
+    -22.91177272796631
+   ],
+   "subject_height": 1.6186656951904297,
+   "goal_raw": {
+    "pitch_deg": -4.7726061368791,
+    "yaw_deg": -2.6568316939373373,
+    "occupancy": 16.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 206.0,
+    "cam_to_obj_elevation_deg": -10.0,
+    "object_center_x": 425.0,
+    "object_center_y": 367.0,
+    "bbox_x_offset": 109.0,
+    "bbox_y_offset": 286.0,
+    "frame_idx": 11.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.15806737529245207,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    16.0,
+    100.0,
+    244.0,
+    -10.0,
+    425.0,
+    367.0,
+    109.0,
+    286.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/renders/pair_00_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__luke_4bea31a4-e972-4bb9-a62b-4d1b9093d66e/renders/pair_00_frame_11.jpg",
+   "delta": 9,
+   "n_chunks": 2,
+   "sector": "back-left",
+   "bearing": 244.0,
+   "d_start": 0.3777801076053519
+  },
+  {
+   "key": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Tattooed-Authority_9dc64931:p00:s02:g14",
+   "placement": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Tattooed-Authority_9dc64931",
+   "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+   "object": "Tattooed-Authority_9dc64931",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Tattooed-Authority_9dc64931/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 14,
+   "start_pose": {
+    "position": [
+     12.879572355846316,
+     4.037470944207993,
+     -8.19165879470784
+    ],
+    "forward": [
+     -0.9273528140950341,
+     0.37405575397617014,
+     -0.009952442280171808
+    ],
+    "up": [
+     -0.009229882481995952,
+     0.003722952686873102,
+     0.999950473219879
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     9.933775744195525,
+     3.2488800570699996,
+     -9.099149148768582
+    ],
+    "forward": [
+     -0.4923965226394848,
+     0.8702436818841953,
+     0.014886189343918523
+    ],
+    "up": [
+     0.0073307201520841445,
+     -0.012956047824657826,
+     0.9998891945444841
+    ]
+   },
+   "subject_center": [
+    8.964126586914062,
+    7.082440376281738,
+    -9.27001428604126
+   ],
+   "subject_height": 1.1591997146606445,
+   "goal_raw": {
+    "pitch_deg": -0.8698420814951024,
+    "yaw_deg": 15.307300790721477,
+    "occupancy": 16.0,
+    "body_in_frame_ratio": 48.0,
+    "cam_to_obj_azimuth_deg": 104.0,
+    "cam_to_obj_elevation_deg": -2.0,
+    "object_center_x": 914.0,
+    "object_center_y": 484.0,
+    "bbox_x_offset": 110.0,
+    "bbox_y_offset": 284.0,
+    "frame_idx": 14.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.15822005384906326,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.10473562309857426,
+    "visible_frac": 0.8952643769014257
+   },
+   "goal_vec": [
+    16.0,
+    48.0,
+    346.0,
+    -2.0,
+    914.0,
+    484.0,
+    110.0,
+    284.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Tattooed-Authority_9dc64931/renders/pair_00_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Tattooed-Authority_9dc64931/renders/pair_00_frame_14.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "front",
+   "bearing": 346.0,
+   "d_start": 0.6952475349254035
+  },
+  {
+   "key": "Parking_70ae1f27__Young-boy-in-jumpsuit_0e1ed811:p00:s01:g25",
+   "placement": "Parking_70ae1f27__Young-boy-in-jumpsuit_0e1ed811",
+   "scene": "Parking_70ae1f27",
+   "object": "Young-boy-in-jumpsuit_0e1ed811",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Young-boy-in-jumpsuit_0e1ed811/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 1,
+   "goal_frame_idx": 25,
+   "start_pose": {
+    "position": [
+     17.63116585571292,
+     33.90989401772502,
+     1.6901227219691328
+    ],
+    "forward": [
+     -0.945080539585567,
+     0.3159192894389686,
+     0.0837721687497152
+    ],
+    "up": [
+     0.07945072097003915,
+     -0.026558599254699805,
+     0.9964849340270878
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     12.389288496771446,
+     33.74979705198025,
+     0.11691060135641074
+    ],
+    "forward": [
+     0.08740308688933045,
+     0.9781953960889163,
+     0.1883997544389702
+    ],
+    "up": [
+     -0.016766975976002466,
+     -0.18765216755818312,
+     0.9820924256541926
+    ]
+   },
+   "subject_center": [
+    13.476468563079834,
+    36.758705139160156,
+    0.867250022594817
+   ],
+   "subject_height": 1.7285000139381737,
+   "goal_raw": {
+    "pitch_deg": -9.424980857602309,
+    "yaw_deg": 14.759928386584363,
+    "occupancy": 24.0,
+    "body_in_frame_ratio": 41.0,
+    "cam_to_obj_azimuth_deg": 70.0,
+    "cam_to_obj_elevation_deg": 13.0,
+    "object_center_x": 903.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 121.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 25.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.23710538210635912,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.2123957428486081,
+    "bot_cut_frac": 0.0579352001977272,
+    "visible_frac": 0.7296690569536646
+   },
+   "goal_vec": [
+    24.0,
+    41.0,
+    20.0,
+    13.0,
+    903.0,
+    384.0,
+    121.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Young-boy-in-jumpsuit_0e1ed811/renders/pair_00_frame_01.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Young-boy-in-jumpsuit_0e1ed811/renders/pair_00_frame_25.jpg",
+   "delta": 24,
+   "n_chunks": 3,
+   "sector": "front",
+   "bearing": 20.0,
+   "d_start": 1.4003446500993102
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Girl-walk_544c79c8:p00:s18:g09",
+   "placement": "Modern-Warehouse_a5eea495__Girl-walk_544c79c8",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Girl-walk_544c79c8",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-walk_544c79c8/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 18,
+   "goal_frame_idx": 9,
+   "start_pose": {
+    "position": [
+     1.5464412941177395,
+     -12.24736822066157,
+     2.142673389152394
+    ],
+    "forward": [
+     -0.8470648435516724,
+     0.046182154595164254,
+     -0.5294793286009654
+    ],
+    "up": [
+     -0.528694152255652,
+     0.02882451710621655,
+     0.8483228398341466
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     2.3074460659077602,
+     -10.455368126394365,
+     2.0828956525629168
+    ],
+    "forward": [
+     -0.80490583883907,
+     -0.4781919740027313,
+     -0.3513673670137059
+    ],
+    "up": [
+     -0.30207890000972987,
+     -0.17946410440825186,
+     0.9362376692901518
+    ]
+   },
+   "subject_center": [
+    -0.39205360412597656,
+    -11.936662197113037,
+    0.8789806189015508
+   ],
+   "subject_height": 1.7670750971883535,
+   "goal_raw": {
+    "pitch_deg": -6.668886270759182,
+    "yaw_deg": 1.9595520774149018,
+    "occupancy": 34.0,
+    "body_in_frame_ratio": 76.0,
+    "cam_to_obj_azimuth_deg": 209.0,
+    "cam_to_obj_elevation_deg": -21.0,
+    "object_center_x": 581.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 176.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 9.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.34337350278988327,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.11013785601746569,
+    "bot_cut_frac": 0.12721431170031297,
+    "visible_frac": 0.7626478322822213
+   },
+   "goal_vec": [
+    34.0,
+    76.0,
+    241.0,
+    -21.0,
+    581.0,
+    384.0,
+    176.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-walk_544c79c8/renders/pair_00_frame_18.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-walk_544c79c8/renders/pair_00_frame_09.jpg",
+   "delta": 9,
+   "n_chunks": 2,
+   "sector": "back-left",
+   "bearing": 241.0,
+   "d_start": 0.6280679600972023
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Buyer-in-Beige_5c9ab0f2:p00:s28:g01",
+   "placement": "Modern-Warehouse_a5eea495__Buyer-in-Beige_5c9ab0f2",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Buyer-in-Beige_5c9ab0f2",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Buyer-in-Beige_5c9ab0f2/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 28,
+   "goal_frame_idx": 1,
+   "start_pose": {
+    "position": [
+     2.8540098390330706,
+     12.396067139711766,
+     2.140549985231298
+    ],
+    "forward": [
+     -0.609242005870283,
+     0.5690178525606674,
+     -0.5523068547016239
+    ],
+    "up": [
+     -0.40363727223077517,
+     0.37698781706641366,
+     0.8336408928607085
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     4.9927210455424245,
+     19.80104794613674,
+     1.4990068390436182
+    ],
+    "forward": [
+     -0.5291973123668487,
+     -0.8422928401451529,
+     -0.10243522843199894
+    ],
+    "up": [
+     -0.054495109483696375,
+     -0.086736722708872,
+     0.9947396764863078
+    ]
+   },
+   "subject_center": [
+    1.6146599650382996,
+    14.071148872375488,
+    0.8825303895864636
+   ],
+   "subject_height": 1.765581491868943,
+   "goal_raw": {
+    "pitch_deg": -4.371635233824221,
+    "yaw_deg": -1.6189324760660904,
+    "occupancy": 12.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 239.0,
+    "cam_to_obj_elevation_deg": -5.0,
+    "object_center_x": 458.0,
+    "object_center_y": 369.0,
+    "bbox_x_offset": 93.0,
+    "bbox_y_offset": 261.0,
+    "frame_idx": 1.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.1229620521679559,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    12.0,
+    100.0,
+    211.0,
+    -5.0,
+    458.0,
+    369.0,
+    93.0,
+    261.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Buyer-in-Beige_5c9ab0f2/renders/pair_00_frame_28.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Buyer-in-Beige_5c9ab0f2/renders/pair_00_frame_01.jpg",
+   "delta": 27,
+   "n_chunks": 4,
+   "sector": "back-left",
+   "bearing": 211.0,
+   "d_start": 1.8816935279484617
+  },
+  {
+   "key": "Parking_70ae1f27__Pardon-His-French_39605017:p00:s08:g19",
+   "placement": "Parking_70ae1f27__Pardon-His-French_39605017",
+   "scene": "Parking_70ae1f27",
+   "object": "Pardon-His-French_39605017",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Pardon-His-French_39605017/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 8,
+   "goal_frame_idx": 19,
+   "start_pose": {
+    "position": [
+     9.2592574503537,
+     30.571549361559722,
+     1.992065315567472
+    ],
+    "forward": [
+     -0.8062014048538378,
+     -0.5277065585782242,
+     -0.2675165094816125
+    ],
+    "up": [
+     -0.22383005794023011,
+     -0.14651002698688875,
+     0.9635532767599176
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     8.321497963692025,
+     28.3382335759744,
+     2.102535826506676
+    ],
+    "forward": [
+     -0.8761173858517313,
+     0.12134839122391104,
+     -0.466575711064879
+    ],
+    "up": [
+     -0.4621636534933379,
+     0.06401290139797859,
+     0.8844812637044963
+    ]
+   },
+   "subject_center": [
+    6.425992012023926,
+    28.822038650512695,
+    0.9703279752284288
+   ],
+   "subject_height": 1.9451999627053738,
+   "goal_raw": {
+    "pitch_deg": -9.540450066927882,
+    "yaw_deg": 6.432657769266141,
+    "occupancy": 43.0,
+    "body_in_frame_ratio": 49.0,
+    "cam_to_obj_azimuth_deg": 166.0,
+    "cam_to_obj_elevation_deg": -30.0,
+    "object_center_x": 687.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 222.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 19.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.43316854029916313,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.27511675124990476,
+    "bot_cut_frac": 0.2339945189422612,
+    "visible_frac": 0.4908887298078341
+   },
+   "goal_vec": [
+    43.0,
+    49.0,
+    254.0,
+    -30.0,
+    687.0,
+    384.0,
+    222.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Pardon-His-French_39605017/renders/pair_00_frame_08.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Pardon-His-French_39605017/renders/pair_00_frame_19.jpg",
+   "delta": 11,
+   "n_chunks": 2,
+   "sector": "left",
+   "bearing": 254.0,
+   "d_start": 0.7798523262599925
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Squattin-guy-in-hoodie_5b2a348d:p00:s10:g24",
+   "placement": "office-buildingwarehouse-creative-headquarters__Squattin-guy-in-hoodie_5b2a348d",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Squattin-guy-in-hoodie_5b2a348d",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Squattin-guy-in-hoodie_5b2a348d/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 10,
+   "goal_frame_idx": 24,
+   "start_pose": {
+    "position": [
+     8.711266427659702,
+     -7.0923277869742005,
+     2.852667610829539
+    ],
+    "forward": [
+     -0.7283041276138426,
+     -0.04239965421262368,
+     -0.6839410552257335
+    ],
+    "up": [
+     -0.6827849814799491,
+     -0.03974966778119392,
+     0.7295372731921997
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     7.51225650087131,
+     -9.914892203672508,
+     2.5648539053957937
+    ],
+    "forward": [
+     -0.3375859188327809,
+     0.5769130843885516,
+     -0.7437788921898195
+    ],
+    "up": [
+     -0.37564275074125403,
+     0.6419498144579989,
+     0.6684257322492043
+    ]
+   },
+   "subject_center": [
+    5.901986122131348,
+    -8.028513669967651,
+    0.35579778254032135
+   ],
+   "subject_height": 1.0258755385875702,
+   "goal_raw": {
+    "pitch_deg": -9.842027934996446,
+    "yaw_deg": -10.150661033823523,
+    "occupancy": 22.0,
+    "body_in_frame_ratio": 95.0,
+    "cam_to_obj_azimuth_deg": 130.0,
+    "cam_to_obj_elevation_deg": -42.0,
+    "object_center_x": 218.0,
+    "object_center_y": 224.0,
+    "bbox_x_offset": 192.0,
+    "bbox_y_offset": 224.0,
+    "frame_idx": 24.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.21859844813002538,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.05376590072347767,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.9462340992765224
+   },
+   "goal_vec": [
+    22.0,
+    95.0,
+    320.0,
+    -42.0,
+    218.0,
+    224.0,
+    192.0,
+    224.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Squattin-guy-in-hoodie_5b2a348d/renders/pair_00_frame_10.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Squattin-guy-in-hoodie_5b2a348d/renders/pair_00_frame_24.jpg",
+   "delta": 14,
+   "n_chunks": 2,
+   "sector": "front-left",
+   "bearing": 320.0,
+   "d_start": 0.8777863339926317
+  },
+  {
+   "key": "Parking_70ae1f27__Girl-wrapped-herself-in-a-blazer_d175d030:p00:s01:g24",
+   "placement": "Parking_70ae1f27__Girl-wrapped-herself-in-a-blazer_d175d030",
+   "scene": "Parking_70ae1f27",
+   "object": "Girl-wrapped-herself-in-a-blazer_d175d030",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Girl-wrapped-herself-in-a-blazer_d175d030/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 1,
+   "goal_frame_idx": 24,
+   "start_pose": {
+    "position": [
+     -9.436229893228383,
+     34.39408750933118,
+     1.5200072307389063
+    ],
+    "forward": [
+     -0.5262795307997336,
+     -0.8418221583817441,
+     -0.11985536750064342
+    ],
+    "up": [
+     -0.06353543041266821,
+     -0.10162951441875183,
+     0.9927913632185194
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -11.28341470939693,
+     27.563934586191305,
+     2.1648625257456997
+    ],
+    "forward": [
+     -0.706086935158619,
+     0.3598028358136085,
+     -0.6099042214469365
+    ],
+    "up": [
+     -0.5434181882509365,
+     0.27691123490545383,
+     0.7924751356737991
+    ]
+   },
+   "subject_center": [
+    -12.802719593048096,
+    28.654515266418457,
+    0.8178511001169682
+   ],
+   "subject_height": 1.6409007832407951,
+   "goal_raw": {
+    "pitch_deg": -10.976231965012232,
+    "yaw_deg": 8.66921061519176,
+    "occupancy": 35.0,
+    "body_in_frame_ratio": 57.0,
+    "cam_to_obj_azimuth_deg": 144.0,
+    "cam_to_obj_elevation_deg": -36.0,
+    "object_center_x": 769.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 178.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 24.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.34749931072994666,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.29566028988021825,
+    "bot_cut_frac": 0.13519386943414557,
+    "visible_frac": 0.5691458406856361
+   },
+   "goal_vec": [
+    35.0,
+    57.0,
+    306.0,
+    -36.0,
+    769.0,
+    384.0,
+    178.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Girl-wrapped-herself-in-a-blazer_d175d030/renders/pair_00_frame_01.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Girl-wrapped-herself-in-a-blazer_d175d030/renders/pair_00_frame_24.jpg",
+   "delta": 23,
+   "n_chunks": 3,
+   "sector": "front-left",
+   "bearing": 306.0,
+   "d_start": 1.6060325068123447
+  },
+  {
+   "key": "Modern-Office-Full-set-01_d2deb1e1__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac:p00:s18:g01",
+   "placement": "Modern-Office-Full-set-01_d2deb1e1__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "scene": "Modern-Office-Full-set-01_d2deb1e1",
+   "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 18,
+   "goal_frame_idx": 1,
+   "start_pose": {
+    "position": [
+     -0.6932377469768283,
+     0.053381788435539285,
+     2.2820146833762642
+    ],
+    "forward": [
+     -0.7258609634635423,
+     0.00031261256404102106,
+     -0.6878413799657322
+    ],
+    "up": [
+     -0.687841316174026,
+     0.0002962383270709021,
+     0.7258610307812626
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     0.7794158067809192,
+     6.010437487740192,
+     1.6010957675970188
+    ],
+    "forward": [
+     -0.5173672164464717,
+     -0.8399817620585679,
+     -0.16359035043489956
+    ],
+    "up": [
+     -0.08579204411608721,
+     -0.1392893675834469,
+     0.9865283560266207
+    ]
+   },
+   "subject_center": [
+    -2.548602819442749,
+    0.24871668219566345,
+    0.6871967650949955
+   ],
+   "subject_height": 1.3066000267863274,
+   "goal_raw": {
+    "pitch_deg": -4.371635233824221,
+    "yaw_deg": -1.6189324760660904,
+    "occupancy": 15.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 240.0,
+    "cam_to_obj_elevation_deg": -8.0,
+    "object_center_x": 452.0,
+    "object_center_y": 341.0,
+    "bbox_x_offset": 148.0,
+    "bbox_y_offset": 196.0,
+    "frame_idx": 1.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.14737553120503577,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    15.0,
+    100.0,
+    240.0,
+    -8.0,
+    452.0,
+    341.0,
+    148.0,
+    196.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_18.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_01.jpg",
+   "delta": 17,
+   "n_chunks": 3,
+   "sector": "back-left",
+   "bearing": 240.0,
+   "d_start": 1.1814802709277743
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-with-purse-and-coffee_66ad3b47:p00:s00:g12",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-with-purse-and-coffee_66ad3b47",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Girl-with-purse-and-coffee_66ad3b47",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-with-purse-and-coffee_66ad3b47/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 0,
+   "goal_frame_idx": 12,
+   "start_pose": {
+    "position": [
+     -30.30316355301614,
+     -19.898399257156907,
+     -23.636618595144782
+    ],
+    "forward": [
+     0.7318456234818291,
+     0.6627891933682307,
+     0.15846914067029946
+    ],
+    "up": [
+     -0.11745916927073902,
+     -0.10637580598524754,
+     0.9873639306027018
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -28.523125358456802,
+     -15.161492703378299,
+     -22.678663266535064
+    ],
+    "forward": [
+     0.999219552052076,
+     0.03687180104861701,
+     0.014168877311903954
+    ],
+    "up": [
+     -0.014159240595950688,
+     -0.0005224844741890981,
+     0.9998996164194285
+    ]
+   },
+   "subject_center": [
+    -24.234225273132324,
+    -15.357244968414307,
+    -22.939343452453613
+   ],
+   "subject_height": 1.5723400115966797,
+   "goal_raw": {
+    "pitch_deg": -0.9545638021772874,
+    "yaw_deg": 4.726547290648443,
+    "occupancy": 25.0,
+    "body_in_frame_ratio": 81.0,
+    "cam_to_obj_azimuth_deg": 357.0,
+    "cam_to_obj_elevation_deg": -3.0,
+    "object_center_x": 670.0,
+    "object_center_y": 474.0,
+    "bbox_x_offset": 169.0,
+    "bbox_y_offset": 294.0,
+    "frame_idx": 12.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.25219411823430393,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.1924783389406678,
+    "visible_frac": 0.8075216610593322
+   },
+   "goal_vec": [
+    25.0,
+    81.0,
+    93.0,
+    -3.0,
+    670.0,
+    474.0,
+    169.0,
+    294.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-with-purse-and-coffee_66ad3b47/renders/pair_00_frame_00.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-with-purse-and-coffee_66ad3b47/renders/pair_00_frame_12.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "right",
+   "bearing": 93.0,
+   "d_start": 0.708349364332265
+  },
+  {
+   "key": "Desert-Roadside-Repair-Garage_a1a2b2ac__Guy-in-yellow-jacket_660f924e:p00:s11:g28",
+   "placement": "Desert-Roadside-Repair-Garage_a1a2b2ac__Guy-in-yellow-jacket_660f924e",
+   "scene": "Desert-Roadside-Repair-Garage_a1a2b2ac",
+   "object": "Guy-in-yellow-jacket_660f924e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Desert-Roadside-Repair-Garage_a1a2b2ac__Guy-in-yellow-jacket_660f924e/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 11,
+   "goal_frame_idx": 28,
+   "start_pose": {
+    "position": [
+     32.54478478206182,
+     2.880700064152685,
+     1.3645116487501594
+    ],
+    "forward": [
+     -0.8687159477870695,
+     -0.3588206141432041,
+     -0.3414386752058229
+    ],
+    "up": [
+     -0.3155781922865891,
+     -0.1303486612107543,
+     0.939904054185156
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     31.300009270450584,
+     0.28554954491763773,
+     1.4437805216010586
+    ],
+    "forward": [
+     -0.6334590585954921,
+     0.5917642871903663,
+     -0.49854252525676335
+    ],
+    "up": [
+     -0.3643083871008503,
+     0.34032932371067814,
+     0.8668652435705387
+    ]
+   },
+   "subject_center": [
+    30.03976535797119,
+    1.9892565608024597,
+    0.27977216243743896
+   ],
+   "subject_height": 1.9379494190216064,
+   "goal_raw": {
+    "pitch_deg": -12.124857483479712,
+    "yaw_deg": 10.458452891932257,
+    "occupancy": 56.0,
+    "body_in_frame_ratio": 44.0,
+    "cam_to_obj_azimuth_deg": 126.0,
+    "cam_to_obj_elevation_deg": -29.0,
+    "object_center_x": 739.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 285.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 28.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.5557321049464613,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.3277563862117078,
+    "bot_cut_frac": 0.14368074565304273,
+    "visible_frac": 0.5285628681352494
+   },
+   "goal_vec": [
+    56.0,
+    44.0,
+    294.0,
+    -29.0,
+    739.0,
+    384.0,
+    285.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Desert-Roadside-Repair-Garage_a1a2b2ac__Guy-in-yellow-jacket_660f924e/renders/pair_00_frame_11.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Desert-Roadside-Repair-Garage_a1a2b2ac__Guy-in-yellow-jacket_660f924e/renders/pair_00_frame_28.jpg",
+   "delta": 17,
+   "n_chunks": 3,
+   "sector": "front-left",
+   "bearing": 294.0,
+   "d_start": 1.147953189423577
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Girl-wrapped-herself-in-a-blazer_d175d030:p00:s02:g15",
+   "placement": "Modern-Warehouse_a5eea495__Girl-wrapped-herself-in-a-blazer_d175d030",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Girl-wrapped-herself-in-a-blazer_d175d030",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-wrapped-herself-in-a-blazer_d175d030/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 15,
+   "start_pose": {
+    "position": [
+     -5.6023469535122885,
+     17.001435054009058,
+     1.5311826770316652
+    ],
+    "forward": [
+     0.8694876435790835,
+     0.49271160396183633,
+     -0.03502160739668135
+    ],
+    "up": [
+     0.030469546269823962,
+     0.017266144177503637,
+     0.9993865553505075
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.0774179606362173,
+     15.727693246079973,
+     1.7127958702180963
+    ],
+    "forward": [
+     0.06445870014835366,
+     0.9787633718708426,
+     -0.1945953181841832
+    ],
+    "up": [
+     0.012787818146404473,
+     0.19417468827387874,
+     0.9808836129433484
+    ]
+   },
+   "subject_center": [
+    -2.572540760040283,
+    18.975369453430176,
+    0.8478506077080965
+   ],
+   "subject_height": 1.640900757163763,
+   "goal_raw": {
+    "pitch_deg": -3.3440934523621584,
+    "yaw_deg": 5.068452689193218,
+    "occupancy": 29.0,
+    "body_in_frame_ratio": 80.0,
+    "cam_to_obj_azimuth_deg": 81.0,
+    "cam_to_obj_elevation_deg": -15.0,
+    "object_center_x": 671.0,
+    "object_center_y": 399.0,
+    "bbox_x_offset": 157.0,
+    "bbox_y_offset": 369.0,
+    "frame_idx": 15.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.29440821709294024,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.201512862856041,
+    "visible_frac": 0.7984871371439589
+   },
+   "goal_vec": [
+    29.0,
+    80.0,
+    9.0,
+    -15.0,
+    671.0,
+    399.0,
+    157.0,
+    369.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-wrapped-herself-in-a-blazer_d175d030/renders/pair_00_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Girl-wrapped-herself-in-a-blazer_d175d030/renders/pair_00_frame_15.jpg",
+   "delta": 13,
+   "n_chunks": 2,
+   "sector": "front",
+   "bearing": 9.0,
+   "d_start": 0.8382316303535736
+  },
+  {
+   "key": "Chill-Camping_150d7263__Retro-Style-Girl_447eeda8:p00:s15:g06",
+   "placement": "Chill-Camping_150d7263__Retro-Style-Girl_447eeda8",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Retro-Style-Girl_447eeda8",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Retro-Style-Girl_447eeda8/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 15,
+   "goal_frame_idx": 6,
+   "start_pose": {
+    "position": [
+     4.235278526395449,
+     -12.663311377997287,
+     2.1026893775904583
+    ],
+    "forward": [
+     -0.8481129492864282,
+     -0.1355542071452727,
+     -0.5121811029097942
+    ],
+    "up": [
+     -0.5057618090798248,
+     -0.08083609747010323,
+     0.8588774754422814
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     5.176873124746223,
+     -10.161956987937002,
+     1.9813638370681832
+    ],
+    "forward": [
+     -0.7185039392164339,
+     -0.6354144254675936,
+     -0.2828437682505224
+    ],
+    "up": [
+     -0.21187611225159197,
+     -0.1873742519539598,
+     0.9591659933305834
+    ]
+   },
+   "subject_center": [
+    2.0942220091819763,
+    -12.829462051391602,
+    0.7936449535191059
+   ],
+   "subject_height": 1.6925939545035362,
+   "goal_raw": {
+    "pitch_deg": -5.80741713190857,
+    "yaw_deg": 0.6176203698595295,
+    "occupancy": 32.0,
+    "body_in_frame_ratio": 99.0,
+    "cam_to_obj_azimuth_deg": 221.0,
+    "cam_to_obj_elevation_deg": -16.0,
+    "object_center_x": 509.0,
+    "object_center_y": 376.0,
+    "bbox_x_offset": 165.0,
+    "bbox_y_offset": 376.0,
+    "frame_idx": 6.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.31520491793506317,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.014800441072937265,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.9851995589270628
+   },
+   "goal_vec": [
+    32.0,
+    99.0,
+    229.0,
+    -16.0,
+    509.0,
+    376.0,
+    165.0,
+    376.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Retro-Style-Girl_447eeda8/renders/pair_00_frame_15.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Retro-Style-Girl_447eeda8/renders/pair_00_frame_06.jpg",
+   "delta": 9,
+   "n_chunks": 2,
+   "sector": "back-left",
+   "bearing": 229.0,
+   "d_start": 0.6504441510438361
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Fitness-Girl_0a34a1cb:p00:s12:g20",
+   "placement": "office-buildingwarehouse-creative-headquarters__Fitness-Girl_0a34a1cb",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Fitness-Girl_0a34a1cb",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Fitness-Girl_0a34a1cb/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 12,
+   "goal_frame_idx": 20,
+   "start_pose": {
+    "position": [
+     -0.2548422598896767,
+     2.7408705085042784,
+     1.4077013819170376
+    ],
+    "forward": [
+     0.28777120799262507,
+     0.953440323305835,
+     -0.09021796797163227
+    ],
+    "up": [
+     0.02606843956844985,
+     0.08636966020192823,
+     0.9959220442660509
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     1.4426662970105468,
+     2.763633744219506,
+     1.4195664613290109
+    ],
+    "forward": [
+     -0.3075468151273228,
+     0.9384665133379233,
+     -0.15714820981608996
+    ],
+    "up": [
+     -0.048938490703999436,
+     0.14933380051420503,
+     0.9875750301377603
+    ]
+   },
+   "subject_center": [
+    0.8979174494743347,
+    5.92956280708313,
+    0.7643930017948151
+   ],
+   "subject_height": 1.8298444151878357,
+   "goal_raw": {
+    "pitch_deg": -5.519546363330676,
+    "yaw_deg": 8.381539285325276,
+    "occupancy": 39.0,
+    "body_in_frame_ratio": 70.0,
+    "cam_to_obj_azimuth_deg": 100.0,
+    "cam_to_obj_elevation_deg": -12.0,
+    "object_center_x": 790.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 199.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 20.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3894935862298377,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.07433102314208102,
+    "bot_cut_frac": 0.22168166269923473,
+    "visible_frac": 0.7039873141586842
+   },
+   "goal_vec": [
+    39.0,
+    70.0,
+    350.0,
+    -12.0,
+    790.0,
+    384.0,
+    199.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Fitness-Girl_0a34a1cb/renders/pair_00_frame_12.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Fitness-Girl_0a34a1cb/renders/pair_00_frame_20.jpg",
+   "delta": 8,
+   "n_chunks": 1,
+   "sector": "front",
+   "bearing": 350.0,
+   "d_start": 0.5182759041535396
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__She-Looked-Around_328f8160:p00:s02:g27",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__She-Looked-Around_328f8160",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "She-Looked-Around_328f8160",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__She-Looked-Around_328f8160/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 27,
+   "start_pose": {
+    "position": [
+     -26.2126909124561,
+     -18.856158174802378,
+     -22.133168616389256
+    ],
+    "forward": [
+     -0.9265813100240274,
+     0.36670456103237836,
+     0.08351551252436731
+    ],
+    "up": [
+     0.07765520322257216,
+     -0.030732885394456122,
+     0.9965064772332352
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -31.62105945547558,
+     -18.63849884115956,
+     -23.64236325572826
+    ],
+    "forward": [
+     0.20735251564079618,
+     0.964160863746358,
+     0.1655257172686783
+    ],
+    "up": [
+     -0.03480225448368027,
+     -0.16182572774489098,
+     0.9862054739873886
+    ]
+   },
+   "subject_center": [
+    -30.189818382263184,
+    -15.80482530593872,
+    -22.876779556274414
+   ],
+   "subject_height": 1.6875,
+   "goal_raw": {
+    "pitch_deg": -10.980460635076348,
+    "yaw_deg": 14.660406131286706,
+    "occupancy": 21.0,
+    "body_in_frame_ratio": 50.0,
+    "cam_to_obj_azimuth_deg": 63.0,
+    "cam_to_obj_elevation_deg": 14.0,
+    "object_center_x": 916.0,
+    "object_center_y": 379.0,
+    "bbox_x_offset": 108.0,
+    "bbox_y_offset": 379.0,
+    "frame_idx": 27.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.2081970898053165,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.24677742721983,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.75322257278017
+   },
+   "goal_vec": [
+    21.0,
+    50.0,
+    357.0,
+    14.0,
+    916.0,
+    379.0,
+    108.0,
+    379.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__She-Looked-Around_328f8160/renders/pair_00_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__She-Looked-Around_328f8160/renders/pair_00_frame_27.jpg",
+   "delta": 25,
+   "n_chunks": 4,
+   "sector": "front",
+   "bearing": 357.0,
+   "d_start": 1.4634819633974796
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Mechanic-Character_05c46069:p00:s11:g24",
+   "placement": "office-buildingwarehouse-creative-headquarters__Mechanic-Character_05c46069",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Mechanic-Character_05c46069",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Mechanic-Character_05c46069/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 11,
+   "goal_frame_idx": 24,
+   "start_pose": {
+    "position": [
+     -0.8185563895560017,
+     4.512547554338389,
+     1.0455692402335188
+    ],
+    "forward": [
+     0.9537188665889124,
+     0.2689319609171988,
+     0.13452109094707293
+    ],
+    "up": [
+     -0.12947210926654046,
+     -0.036508859632473745,
+     0.9909107306364229
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     1.4651912217954997,
+     4.382968583374614,
+     1.6183281457285936
+    ],
+    "forward": [
+     0.742263525484638,
+     0.6400819214736392,
+     -0.19834311820108655
+    ],
+    "up": [
+     0.15020707910129028,
+     0.12952924737521218,
+     0.9801326478912279
+    ]
+   },
+   "subject_center": [
+    4.0784971714019775,
+    6.07414698600769,
+    0.950690739278798
+   ],
+   "subject_height": 1.9018752715492155,
+   "goal_raw": {
+    "pitch_deg": -7.9074034086591425,
+    "yaw_deg": 7.86386473474149,
+    "occupancy": 33.0,
+    "body_in_frame_ratio": 63.0,
+    "cam_to_obj_azimuth_deg": 33.0,
+    "cam_to_obj_elevation_deg": -12.0,
+    "object_center_x": 713.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 171.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 24.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.33406517308540834,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.1580864724781259,
+    "bot_cut_frac": 0.21165724855435458,
+    "visible_frac": 0.6302562789675195
+   },
+   "goal_vec": [
+    33.0,
+    63.0,
+    57.0,
+    -12.0,
+    713.0,
+    384.0,
+    171.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Mechanic-Character_05c46069/renders/pair_00_frame_11.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Mechanic-Character_05c46069/renders/pair_00_frame_24.jpg",
+   "delta": 13,
+   "n_chunks": 2,
+   "sector": "front-right",
+   "bearing": 57.0,
+   "d_start": 0.4074982014657873
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Hahaha-woman-on-chair_50c9329e:p00:s17:g28",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Hahaha-woman-on-chair_50c9329e",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Hahaha-woman-on-chair_50c9329e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Hahaha-woman-on-chair_50c9329e/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 17,
+   "goal_frame_idx": 28,
+   "start_pose": {
+    "position": [
+     -29.711905194902492,
+     -6.69395320549193,
+     -22.638315559354464
+    ],
+    "forward": [
+     0.9984934885367149,
+     -0.030214420767968826,
+     0.045802206578255934
+    ],
+    "up": [
+     -0.0457812511591947,
+     0.0013853410179320428,
+     0.9989505282407947
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -29.376504084375487,
+     -7.790886259148153,
+     -22.994554093927704
+    ],
+    "forward": [
+     0.9790728458303833,
+     0.20110743867213732,
+     0.031179491149265423
+    ],
+    "up": [
+     -0.030541842529955423,
+     -0.006273477759785785,
+     0.9995138014713318
+    ]
+   },
+   "subject_center": [
+    -25.006834983825684,
+    -7.522901296615601,
+    -23.044858932495117
+   ],
+   "subject_height": 1.3605003356933594,
+   "goal_raw": {
+    "pitch_deg": -2.0007721791617623,
+    "yaw_deg": 8.097983535831482,
+    "occupancy": 33.0,
+    "body_in_frame_ratio": 99.0,
+    "cam_to_obj_azimuth_deg": 4.0,
+    "cam_to_obj_elevation_deg": -1.0,
+    "object_center_x": 791.0,
+    "object_center_y": 467.0,
+    "bbox_x_offset": 216.0,
+    "bbox_y_offset": 301.0,
+    "frame_idx": 28.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3309408369949349,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.005703083713436982,
+    "visible_frac": 0.994296916286563
+   },
+   "goal_vec": [
+    33.0,
+    99.0,
+    56.0,
+    -1.0,
+    791.0,
+    467.0,
+    216.0,
+    301.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Hahaha-woman-on-chair_50c9329e/renders/pair_00_frame_17.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Hahaha-woman-on-chair_50c9329e/renders/pair_00_frame_28.jpg",
+   "delta": 11,
+   "n_chunks": 2,
+   "sector": "front-right",
+   "bearing": 56.0,
+   "d_start": 0.2623607488410413
+  },
+  {
+   "key": "Chill-Camping_150d7263__Office-Move_3d4b091c:p00:s03:g25",
+   "placement": "Chill-Camping_150d7263__Office-Move_3d4b091c",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Office-Move_3d4b091c",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Office-Move_3d4b091c/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 3,
+   "goal_frame_idx": 25,
+   "start_pose": {
+    "position": [
+     -5.701615559196654,
+     -22.420310427107555,
+     1.4289277071039161
+    ],
+    "forward": [
+     -0.9049388163487957,
+     0.41560029907987966,
+     0.09144468311474074
+    ],
+    "up": [
+     0.08310001928554428,
+     -0.03816434022353221,
+     0.9958101575752502
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -10.575680284890867,
+     -22.209766636372354,
+     0.07248534308618826
+    ],
+    "forward": [
+     0.08888205987589988,
+     0.980198807743285,
+     0.1769471015045445
+    ],
+    "up": [
+     -0.01597957475723676,
+     -0.1762240900712427,
+     0.984220363165252
+    ]
+   },
+   "subject_center": [
+    -9.480272769927979,
+    -19.19052219390869,
+    0.7943080775439739
+   ],
+   "subject_height": 1.6916999593377113,
+   "goal_raw": {
+    "pitch_deg": -9.424980857602309,
+    "yaw_deg": 14.759928386584363,
+    "occupancy": 19.0,
+    "body_in_frame_ratio": 44.0,
+    "cam_to_obj_azimuth_deg": 70.0,
+    "cam_to_obj_elevation_deg": 13.0,
+    "object_center_x": 927.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 97.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 25.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.19002000916189665,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.15978188551907543,
+    "bot_cut_frac": 0.0428713116396972,
+    "visible_frac": 0.7973468028412274
+   },
+   "goal_vec": [
+    19.0,
+    44.0,
+    50.0,
+    13.0,
+    927.0,
+    384.0,
+    97.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Office-Move_3d4b091c/renders/pair_00_frame_03.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Office-Move_3d4b091c/renders/pair_00_frame_25.jpg",
+   "delta": 22,
+   "n_chunks": 3,
+   "sector": "front-right",
+   "bearing": 50.0,
+   "d_start": 1.285744180776806
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Elegant-Woman_33974376:p01:s01:g22",
+   "placement": "office-buildingwarehouse-creative-headquarters__Elegant-Woman_33974376",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Elegant-Woman_33974376",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Elegant-Woman_33974376/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 1,
+   "goal_frame_idx": 22,
+   "start_pose": {
+    "position": [
+     -13.255976882439107,
+     5.237786666563693,
+     0.011766514183787491
+    ],
+    "forward": [
+     0.9356783181157258,
+     -0.060462475767361544,
+     0.3476354038820098
+    ],
+    "up": [
+     -0.34691187605124263,
+     0.022417053482010854,
+     0.9376297915317069
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -8.871633552193314,
+     4.305078656579012,
+     1.4312540500495814
+    ],
+    "forward": [
+     0.7812746710071048,
+     0.5829098772696697,
+     -0.22321730090698338
+    ],
+    "up": [
+     0.17890810575920357,
+     0.13348353126079784,
+     0.9747687092720003
+    ]
+   },
+   "subject_center": [
+    -6.031522750854492,
+    5.9694273471832275,
+    0.6436499729752541
+   ],
+   "subject_height": 1.5930999964475632,
+   "goal_raw": {
+    "pitch_deg": -6.1530012313521185,
+    "yaw_deg": 6.3556994472824755,
+    "occupancy": 37.0,
+    "body_in_frame_ratio": 82.0,
+    "cam_to_obj_azimuth_deg": 30.0,
+    "cam_to_obj_elevation_deg": -13.0,
+    "object_center_x": 706.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 191.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 22.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3738777426809512,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.06531932178113246,
+    "bot_cut_frac": 0.11485317500579248,
+    "visible_frac": 0.8198275032130751
+   },
+   "goal_vec": [
+    37.0,
+    82.0,
+    30.0,
+    -13.0,
+    706.0,
+    384.0,
+    191.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Elegant-Woman_33974376/renders/pair_01_frame_01.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Elegant-Woman_33974376/renders/pair_01_frame_22.jpg",
+   "delta": 21,
+   "n_chunks": 3,
+   "sector": "front-right",
+   "bearing": 30.0,
+   "d_start": 0.6656407768297319
+  },
+  {
+   "key": "Modern-Office-Full-set-01_d2deb1e1__Girl-walk-in-denim-standing_926d25cc:p00:s18:g06",
+   "placement": "Modern-Office-Full-set-01_d2deb1e1__Girl-walk-in-denim-standing_926d25cc",
+   "scene": "Modern-Office-Full-set-01_d2deb1e1",
+   "object": "Girl-walk-in-denim-standing_926d25cc",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Girl-walk-in-denim-standing_926d25cc/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 18,
+   "goal_frame_idx": 6,
+   "start_pose": {
+    "position": [
+     -1.6722070398990483,
+     6.621810877618566,
+     1.1981892601823492
+    ],
+    "forward": [
+     -0.9928179904976903,
+     0.06346093747246764,
+     0.10141571455767381
+    ],
+    "up": [
+     0.1012091667377459,
+     -0.006469291112225857,
+     0.9948441349481619
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -1.4552744785787963,
+     4.908205178506416,
+     1.0973804691173437
+    ],
+    "forward": [
+     -0.49473846151694395,
+     0.8658404081833666,
+     0.07452678882595598
+    ],
+    "up": [
+     0.03697409335821623,
+     -0.06470825815185066,
+     0.9972190119263127
+    ]
+   },
+   "subject_center": [
+    -2.6789101362228394,
+    6.415092706680298,
+    0.9237699480727315
+   ],
+   "subject_height": 1.7905187662690878,
+   "goal_raw": {
+    "pitch_deg": -3.761011207277677,
+    "yaw_deg": -9.334073325625017,
+    "occupancy": 52.0,
+    "body_in_frame_ratio": 29.0,
+    "cam_to_obj_azimuth_deg": 129.0,
+    "cam_to_obj_elevation_deg": -5.0,
+    "object_center_x": 266.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 266.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 6.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.519758343845089,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.09246861103573625,
+    "bot_cut_frac": 0.5278321331189088,
+    "visible_frac": 0.379699255845355
+   },
+   "goal_vec": [
+    52.0,
+    29.0,
+    321.0,
+    -5.0,
+    266.0,
+    384.0,
+    266.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Girl-walk-in-denim-standing_926d25cc/renders/pair_00_frame_18.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Girl-walk-in-denim-standing_926d25cc/renders/pair_00_frame_06.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "front-left",
+   "bearing": 321.0,
+   "d_start": 1.1421306708357473
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb:p00:s12:g28",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 12,
+   "goal_frame_idx": 28,
+   "start_pose": {
+    "position": [
+     -25.5192141514467,
+     -16.249440614567728,
+     -23.049508387804305
+    ],
+    "forward": [
+     -0.6021379717167258,
+     0.7831476233707052,
+     0.1552728663536672
+    ],
+    "up": [
+     0.09464356192242834,
+     -0.12309451333150176,
+     0.9878716196825963
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -28.661078496874218,
+     -15.179253026978792,
+     -23.667363924305626
+    ],
+    "forward": [
+     0.2660283019089187,
+     0.9505601973278525,
+     0.16020066741275346
+    ],
+    "up": [
+     -0.0431755466890043,
+     -0.15427289459784324,
+     0.9870844675915574
+    ]
+   },
+   "subject_center": [
+    -27.067387580871582,
+    -12.446035385131836,
+    -22.87771987915039
+   ],
+   "subject_height": 1.6935768127441406,
+   "goal_raw": {
+    "pitch_deg": -11.758200523813366,
+    "yaw_deg": 14.610645003637877,
+    "occupancy": 19.0,
+    "body_in_frame_ratio": 44.0,
+    "cam_to_obj_azimuth_deg": 60.0,
+    "cam_to_obj_elevation_deg": 14.0,
+    "object_center_x": 925.0,
+    "object_center_y": 368.0,
+    "bbox_x_offset": 99.0,
+    "bbox_y_offset": 368.0,
+    "frame_idx": 28.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.18610601938962637,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.2636695870066959,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.736330412993304
+   },
+   "goal_vec": [
+    19.0,
+    44.0,
+    30.0,
+    14.0,
+    925.0,
+    368.0,
+    99.0,
+    368.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb/renders/pair_00_frame_12.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__standing-survivo_26badeaf-406b-4416-8602-c4dbed9c0ceb/renders/pair_00_frame_28.jpg",
+   "delta": 16,
+   "n_chunks": 2,
+   "sector": "front-right",
+   "bearing": 30.0,
+   "d_start": 0.9490697893565044
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Hahaha-woman-on-chair_50c9329e:p01:s11:g03",
+   "placement": "Modern-Warehouse_a5eea495__Hahaha-woman-on-chair_50c9329e",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Hahaha-woman-on-chair_50c9329e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Hahaha-woman-on-chair_50c9329e/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 11,
+   "goal_frame_idx": 3,
+   "start_pose": {
+    "position": [
+     5.134471995391876,
+     -0.9327276592213458,
+     2.272935429393688
+    ],
+    "forward": [
+     -0.7571163982435631,
+     -0.3843550105466549,
+     -0.5282480339559963
+    ],
+    "up": [
+     -0.471028038384723,
+     -0.23912041408841528,
+     0.8490901098361849
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     6.116319256457418,
+     2.550962837468016,
+     1.9562910144464185
+    ],
+    "forward": [
+     -0.5907589259656105,
+     -0.7698721068167739,
+     -0.24145564921421983
+    ],
+    "up": [
+     -0.14699127919447524,
+     -0.19155780949424175,
+     0.9704118555863483
+    ]
+   },
+   "subject_center": [
+    2.699921131134033,
+    -2.019753873348236,
+    0.7096499716863036
+   ],
+   "subject_height": 1.360499994829297,
+   "goal_raw": {
+    "pitch_deg": -4.945947993057961,
+    "yaw_deg": -0.7243113376958423,
+    "occupancy": 13.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 233.0,
+    "cam_to_obj_elevation_deg": -12.0,
+    "object_center_x": 507.0,
+    "object_center_y": 346.0,
+    "bbox_x_offset": 106.0,
+    "bbox_y_offset": 239.0,
+    "frame_idx": 3.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.12823212391800368,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    13.0,
+    100.0,
+    187.0,
+    -12.0,
+    507.0,
+    346.0,
+    106.0,
+    239.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Hahaha-woman-on-chair_50c9329e/renders/pair_01_frame_11.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Hahaha-woman-on-chair_50c9329e/renders/pair_01_frame_03.jpg",
+   "delta": 8,
+   "n_chunks": 1,
+   "sector": "back",
+   "bearing": 187.0,
+   "d_start": 0.5778424440048127
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac:p00:s13:g05",
+   "placement": "Modern-Warehouse_a5eea495__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 13,
+   "goal_frame_idx": 5,
+   "start_pose": {
+    "position": [
+     1.4616196336606047,
+     -0.16908805807167493,
+     1.3039232378316261
+    ],
+    "forward": [
+     -0.48652803672724265,
+     -0.8706053636513755,
+     -0.07305320157112319
+    ],
+    "up": [
+     -0.03563765293489832,
+     -0.06377090208773034,
+     0.997328045198875
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     2.050356953863929,
+     -0.06048210431873979,
+     0.9073176989638552
+    ],
+    "forward": [
+     -0.5160918981994311,
+     -0.8539698710536027,
+     -0.06621640239096
+    ],
+    "up": [
+     -0.03424891538824867,
+     -0.056671189685148796,
+     0.997805285641642
+    ]
+   },
+   "subject_center": [
+    -1.7544152736663818,
+    -4.3388978242874146,
+    0.6616999502293766
+   ],
+   "subject_height": 1.3065999755635858,
+   "goal_raw": {
+    "pitch_deg": -4.6075465066147885,
+    "yaw_deg": 10.500092334296726,
+    "occupancy": 21.0,
+    "body_in_frame_ratio": 96.0,
+    "cam_to_obj_azimuth_deg": 228.0,
+    "cam_to_obj_elevation_deg": -2.0,
+    "object_center_x": 847.0,
+    "object_center_y": 347.0,
+    "bbox_x_offset": 177.0,
+    "bbox_y_offset": 234.0,
+    "frame_idx": 5.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.21064245152397199,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    21.0,
+    96.0,
+    252.0,
+    -2.0,
+    847.0,
+    347.0,
+    177.0,
+    234.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_13.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_05.jpg",
+   "delta": 8,
+   "n_chunks": 1,
+   "sector": "left",
+   "bearing": 252.0,
+   "d_start": 0.13286320106977842
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Squattin-guy-in-hoodie_5b2a348d:p01:s02:g20",
+   "placement": "Modern-Warehouse_a5eea495__Squattin-guy-in-hoodie_5b2a348d",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Squattin-guy-in-hoodie_5b2a348d",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Squattin-guy-in-hoodie_5b2a348d/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 20,
+   "start_pose": {
+    "position": [
+     3.8041226367094083,
+     8.61034008522293,
+     0.4214205030120436
+    ],
+    "forward": [
+     -0.4213371163115445,
+     -0.88452879888923,
+     -0.2002094861734781
+    ],
+    "up": [
+     -0.0860989227570141,
+     -0.18075069530690568,
+     0.9797531125983484
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     4.6084235743600015,
+     3.4918072974151606,
+     1.824824771260843
+    ],
+    "forward": [
+     -0.8179188699606328,
+     -0.40756832239726176,
+     -0.4060748511550589
+    ],
+    "up": [
+     -0.36345131430831706,
+     -0.1811075008611189,
+     0.9138398192568524
+    ]
+   },
+   "subject_center": [
+    1.0747586488723755,
+    1.8165519833564758,
+    0.5081965960562229
+   ],
+   "subject_height": 1.025875560939312,
+   "goal_raw": {
+    "pitch_deg": -8.790483362002007,
+    "yaw_deg": 1.122140528722387,
+    "occupancy": 18.0,
+    "body_in_frame_ratio": 92.0,
+    "cam_to_obj_azimuth_deg": 205.0,
+    "cam_to_obj_elevation_deg": -19.0,
+    "object_center_x": 534.0,
+    "object_center_y": 227.0,
+    "bbox_x_offset": 160.0,
+    "bbox_y_offset": 227.0,
+    "frame_idx": 20.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.18471758900482058,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.07938082240439327,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.9206191775956067
+   },
+   "goal_vec": [
+    18.0,
+    92.0,
+    245.0,
+    -19.0,
+    534.0,
+    227.0,
+    160.0,
+    227.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Squattin-guy-in-hoodie_5b2a348d/renders/pair_01_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Squattin-guy-in-hoodie_5b2a348d/renders/pair_01_frame_20.jpg",
+   "delta": 18,
+   "n_chunks": 3,
+   "sector": "back-left",
+   "bearing": 245.0,
+   "d_start": 0.8211849890169731
+  },
+  {
+   "key": "Chill-Camping_150d7263__Modern-Thinker_ae3a6545:p00:s03:g27",
+   "placement": "Chill-Camping_150d7263__Modern-Thinker_ae3a6545",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Modern-Thinker_ae3a6545",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Modern-Thinker_ae3a6545/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 3,
+   "goal_frame_idx": 27,
+   "start_pose": {
+    "position": [
+     0.04014372332047511,
+     -10.105416034890801,
+     1.515952682257713
+    ],
+    "forward": [
+     -0.9050721604684496,
+     0.42524188031299076,
+     0.003705073932458891
+    ],
+    "up": [
+     0.0033533822857246976,
+     -0.0015755634201053905,
+     0.9999931361900216
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -5.192004897172563,
+     -9.792897318103234,
+     0.0824006856501257
+    ],
+    "forward": [
+     0.21916419103631773,
+     0.9747434759539847,
+     0.042921014113605604
+    ],
+    "up": [
+     -0.009415425946720997,
+     -0.04187556813682823,
+     0.999078468663728
+    ]
+   },
+   "subject_center": [
+    -3.6806023120880127,
+    -6.868644952774048,
+    0.5620588827878237
+   ],
+   "subject_height": 1.2280000112950802,
+   "goal_raw": {
+    "pitch_deg": -10.980460635076348,
+    "yaw_deg": 14.660406131286706,
+    "occupancy": 13.0,
+    "body_in_frame_ratio": 29.0,
+    "cam_to_obj_azimuth_deg": 63.0,
+    "cam_to_obj_elevation_deg": 8.0,
+    "object_center_x": 931.0,
+    "object_center_y": 278.0,
+    "bbox_x_offset": 93.0,
+    "bbox_y_offset": 278.0,
+    "frame_idx": 27.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.13198685996868806,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.30345194099376205,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.696548059006238
+   },
+   "goal_vec": [
+    13.0,
+    29.0,
+    357.0,
+    8.0,
+    931.0,
+    278.0,
+    93.0,
+    278.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Modern-Thinker_ae3a6545/renders/pair_00_frame_03.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Modern-Thinker_ae3a6545/renders/pair_00_frame_27.jpg",
+   "delta": 24,
+   "n_chunks": 3,
+   "sector": "front",
+   "bearing": 357.0,
+   "d_start": 1.4027836229229513
+  },
+  {
+   "key": "Parking_70ae1f27__Casual-Crouch_b3e2a7cc:p00:s18:g29",
+   "placement": "Parking_70ae1f27__Casual-Crouch_b3e2a7cc",
+   "scene": "Parking_70ae1f27",
+   "object": "Casual-Crouch_b3e2a7cc",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Casual-Crouch_b3e2a7cc/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 18,
+   "goal_frame_idx": 29,
+   "start_pose": {
+    "position": [
+     -12.67831225537263,
+     18.095078385994,
+     0.5776952691794681
+    ],
+    "forward": [
+     -0.2797903046491912,
+     0.9597875120026513,
+     -0.022919799913462543
+    ],
+    "up": [
+     -0.006414422825017456,
+     0.022003918012368905,
+     0.9997373068821264
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -14.61616667434422,
+     19.00246451257113,
+     0.08267102031715745
+    ],
+    "forward": [
+     0.3346305427078618,
+     0.9421104774653309,
+     -0.021219051276814258
+    ],
+    "up": [
+     0.007102141687550184,
+     0.01999519243563399,
+     0.9997748505853266
+    ]
+   },
+   "subject_center": [
+    -12.751389026641846,
+    21.7551212310791,
+    0.49890047071676236
+   ],
+   "subject_height": 0.9974000501970295,
+   "goal_raw": {
+    "pitch_deg": -12.535940412550383,
+    "yaw_deg": 14.560883875989049,
+    "occupancy": 10.0,
+    "body_in_frame_ratio": 33.0,
+    "cam_to_obj_azimuth_deg": 56.0,
+    "cam_to_obj_elevation_deg": 7.0,
+    "object_center_x": 929.0,
+    "object_center_y": 198.0,
+    "bbox_x_offset": 95.0,
+    "bbox_y_offset": 198.0,
+    "frame_idx": 29.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.09601451007454324,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.33909972010782463,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.6609002798921754
+   },
+   "goal_vec": [
+    10.0,
+    33.0,
+    34.0,
+    7.0,
+    929.0,
+    198.0,
+    95.0,
+    198.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Casual-Crouch_b3e2a7cc/renders/pair_00_frame_18.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Casual-Crouch_b3e2a7cc/renders/pair_00_frame_29.jpg",
+   "delta": 11,
+   "n_chunks": 2,
+   "sector": "front-right",
+   "bearing": 34.0,
+   "d_start": 0.6487056604962472
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Girl-in-sportswear-standing_cbf7dfde:p00:s06:g17",
+   "placement": "office-buildingwarehouse-creative-headquarters__Girl-in-sportswear-standing_cbf7dfde",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Girl-in-sportswear-standing_cbf7dfde",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Girl-in-sportswear-standing_cbf7dfde/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 6,
+   "goal_frame_idx": 17,
+   "start_pose": {
+    "position": [
+     1.9372779984441855,
+     -4.519181986402163,
+     2.010847524623767
+    ],
+    "forward": [
+     -0.724588421589565,
+     -0.6344940504148412,
+     -0.2690518895798947
+    ],
+    "up": [
+     -0.20241582951662088,
+     -0.17724771154407074,
+     0.9631256827192847
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     0.8544179190221906,
+     -7.326321609013055,
+     2.1446106658405637
+    ],
+    "forward": [
+     -0.8521641285627147,
+     -0.013703059900771638,
+     -0.523095138708347
+    ],
+    "up": [
+     -0.5230275218342931,
+     -0.008410442567602169,
+     0.8522742961392742
+    ]
+   },
+   "subject_center": [
+    -1.150124728679657,
+    -7.164448976516724,
+    0.8703813489992172
+   ],
+   "subject_height": 1.7526989108882844,
+   "goal_raw": {
+    "pitch_deg": -8.966137307694142,
+    "yaw_deg": 5.538036630895892,
+    "occupancy": 32.0,
+    "body_in_frame_ratio": 57.0,
+    "cam_to_obj_azimuth_deg": 175.0,
+    "cam_to_obj_elevation_deg": -32.0,
+    "object_center_x": 698.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 165.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 17.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.32192516667254256,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.25418760520529177,
+    "bot_cut_frac": 0.17295023240484325,
+    "visible_frac": 0.5728621623898649
+   },
+   "goal_vec": [
+    32.0,
+    57.0,
+    275.0,
+    -32.0,
+    698.0,
+    384.0,
+    165.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Girl-in-sportswear-standing_cbf7dfde/renders/pair_00_frame_06.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Girl-in-sportswear-standing_cbf7dfde/renders/pair_00_frame_17.jpg",
+   "delta": 11,
+   "n_chunks": 2,
+   "sector": "left",
+   "bearing": 275.0,
+   "d_start": 0.7879455941101973
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Guy-in-Japan-bomber_e8891318:p00:s23:g07",
+   "placement": "Modern-Warehouse_a5eea495__Guy-in-Japan-bomber_e8891318",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Guy-in-Japan-bomber_e8891318",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Guy-in-Japan-bomber_e8891318/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 23,
+   "goal_frame_idx": 7,
+   "start_pose": {
+    "position": [
+     -3.806436291347902,
+     7.95474131368464,
+     2.116377749378854
+    ],
+    "forward": [
+     -0.7966507823992228,
+     0.3471786984631052,
+     -0.49478731010017885
+    ],
+    "up": [
+     -0.4535860748889002,
+     0.19767183639317862,
+     0.8690141067691763
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -2.4763694206137052,
+     11.094402598982377,
+     1.9646271530528616
+    ],
+    "forward": [
+     -0.7772513251423403,
+     -0.5806422499082842,
+     -0.24235295580190835
+    ],
+    "up": [
+     -0.19415734587969208,
+     -0.1450444077752581,
+     0.9701881491824553
+    ]
+   },
+   "subject_center": [
+    -5.439034938812256,
+    8.965787410736084,
+    0.9699634746648371
+   ],
+   "subject_height": 1.9457933036610484,
+   "goal_raw": {
+    "pitch_deg": -6.094573511525441,
+    "yaw_deg": 1.0649309390446535,
+    "occupancy": 42.0,
+    "body_in_frame_ratio": 73.0,
+    "cam_to_obj_azimuth_deg": 216.0,
+    "cam_to_obj_elevation_deg": -15.0,
+    "object_center_x": 551.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 215.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 7.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.41965675476001413,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.07901595709030618,
+    "bot_cut_frac": 0.18763593910390078,
+    "visible_frac": 0.7333481038057932
+   },
+   "goal_vec": [
+    42.0,
+    73.0,
+    234.0,
+    -15.0,
+    551.0,
+    384.0,
+    215.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Guy-in-Japan-bomber_e8891318/renders/pair_00_frame_23.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Guy-in-Japan-bomber_e8891318/renders/pair_00_frame_07.jpg",
+   "delta": 16,
+   "n_chunks": 2,
+   "sector": "back-left",
+   "bearing": 234.0,
+   "d_start": 1.1177579144606176
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-in-hoodie-squatting_9398c044:p00:s05:g20",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-in-hoodie-squatting_9398c044",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Girl-in-hoodie-squatting_9398c044",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-in-hoodie-squatting_9398c044/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 5,
+   "goal_frame_idx": 20,
+   "start_pose": {
+    "position": [
+     -24.746010676397162,
+     -15.966636841384476,
+     -22.25433439565636
+    ],
+    "forward": [
+     -0.8476325536400847,
+     0.5285588915653606,
+     -0.0463093096124986
+    ],
+    "up": [
+     -0.03929543653546894,
+     0.02450348596165836,
+     0.9989271484163467
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -28.282547357088635,
+     -15.969677511872948,
+     -23.244110937549934
+    ],
+    "forward": [
+     -0.1697700507540468,
+     0.9851479762590188,
+     -0.025721484011003173
+    ],
+    "up": [
+     -0.004368182868498844,
+     0.025347854310683676,
+     0.9996691478985794
+    ]
+   },
+   "subject_center": [
+    -27.95897674560547,
+    -12.435433864593506,
+    -23.23694133758545
+   ],
+   "subject_height": 0.9795436859130859,
+   "goal_raw": {
+    "pitch_deg": -5.536281413917216,
+    "yaw_deg": 15.008734024828506,
+    "occupancy": 13.0,
+    "body_in_frame_ratio": 42.0,
+    "cam_to_obj_azimuth_deg": 85.0,
+    "cam_to_obj_elevation_deg": 0.0,
+    "object_center_x": 932.0,
+    "object_center_y": 335.0,
+    "bbox_x_offset": 92.0,
+    "bbox_y_offset": 273.0,
+    "frame_idx": 20.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.1272477489477236,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    13.0,
+    42.0,
+    5.0,
+    0.0,
+    932.0,
+    335.0,
+    92.0,
+    273.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-in-hoodie-squatting_9398c044/renders/pair_00_frame_05.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Girl-in-hoodie-squatting_9398c044/renders/pair_00_frame_20.jpg",
+   "delta": 15,
+   "n_chunks": 2,
+   "sector": "front",
+   "bearing": 5.0,
+   "d_start": 0.8710591695424471
+  },
+  {
+   "key": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Smirk-Guy-in-an-Orange-Hat_3ff0e79c:p01:s00:g13",
+   "placement": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Smirk-Guy-in-an-Orange-Hat_3ff0e79c",
+   "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+   "object": "Smirk-Guy-in-an-Orange-Hat_3ff0e79c",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Smirk-Guy-in-an-Orange-Hat_3ff0e79c/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 0,
+   "goal_frame_idx": 13,
+   "start_pose": {
+    "position": [
+     9.139979481825169,
+     7.371440586908183,
+     -8.541215109578925
+    ],
+    "forward": [
+     -0.4811200895653535,
+     -0.8740618649928329,
+     -0.06737444309140599
+    ],
+    "up": [
+     -0.032489020925586726,
+     -0.05902354700603727,
+     0.9977277606732825
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     8.37841925196555,
+     1.7832791571817759,
+     -7.730576544146165
+    ],
+    "forward": [
+     -0.8625682829437924,
+     -0.24812078101862528,
+     -0.44092180178134216
+    ],
+    "up": [
+     -0.4237391330009805,
+     -0.1218900424550036,
+     0.8975455223630135
+    ]
+   },
+   "subject_center": [
+    6.067498445510864,
+    1.2794477045536041,
+    -8.958814144134521
+   ],
+   "subject_height": 1.7757997512817383,
+   "goal_raw": {
+    "pitch_deg": -7.817511789226662,
+    "yaw_deg": 3.7487943541553976,
+    "occupancy": 46.0,
+    "body_in_frame_ratio": 64.0,
+    "cam_to_obj_azimuth_deg": 192.0,
+    "cam_to_obj_elevation_deg": -27.0,
+    "object_center_x": 633.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 233.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 13.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.45527539808330575,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.2061293641679541,
+    "bot_cut_frac": 0.15006092289610706,
+    "visible_frac": 0.6438097129359389
+   },
+   "goal_vec": [
+    46.0,
+    64.0,
+    258.0,
+    -27.0,
+    633.0,
+    384.0,
+    233.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Smirk-Guy-in-an-Orange-Hat_3ff0e79c/renders/pair_01_frame_00.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Smirk-Guy-in-an-Orange-Hat_3ff0e79c/renders/pair_01_frame_13.jpg",
+   "delta": 13,
+   "n_chunks": 2,
+   "sector": "left",
+   "bearing": 258.0,
+   "d_start": 0.9686559912760241
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Little-child-in-winter-clothes_75f29c9e:p00:s28:g08",
+   "placement": "office-buildingwarehouse-creative-headquarters__Little-child-in-winter-clothes_75f29c9e",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Little-child-in-winter-clothes_75f29c9e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Little-child-in-winter-clothes_75f29c9e/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 28,
+   "goal_frame_idx": 8,
+   "start_pose": {
+    "position": [
+     -2.066608057416913,
+     -6.565248568549311,
+     2.18719938744331
+    ],
+    "forward": [
+     -0.4697560915982011,
+     0.4371066069901115,
+     -0.7669856768753733
+    ],
+    "up": [
+     -0.5615027027311069,
+     0.5224765481412892,
+     0.6416642201868711
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -0.4450647025689993,
+     -2.9191306919158673,
+     2.332132619033988
+    ],
+    "forward": [
+     -0.656261382437172,
+     -0.5551496593933071,
+     -0.5110086629374762
+    ],
+    "up": [
+     -0.39014051409716116,
+     -0.3300306544203884,
+     0.8595755617761902
+    ]
+   },
+   "subject_center": [
+    -3.1589235067367554,
+    -5.094630002975464,
+    0.5054399771252065
+   ],
+   "subject_height": 1.0104928408545675,
+   "goal_raw": {
+    "pitch_deg": -6.381729891142312,
+    "yaw_deg": 1.5122415082297773,
+    "occupancy": 10.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 219.0,
+    "cam_to_obj_elevation_deg": -28.0,
+    "object_center_x": 551.0,
+    "object_center_y": 278.0,
+    "bbox_x_offset": 88.0,
+    "bbox_y_offset": 235.0,
+    "frame_idx": 8.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.10493207107510878,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    10.0,
+    100.0,
+    231.0,
+    -28.0,
+    551.0,
+    278.0,
+    88.0,
+    235.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Little-child-in-winter-clothes_75f29c9e/renders/pair_00_frame_28.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Little-child-in-winter-clothes_75f29c9e/renders/pair_00_frame_08.jpg",
+   "delta": 20,
+   "n_chunks": 3,
+   "sector": "back-left",
+   "bearing": 231.0,
+   "d_start": 1.2850250390962938
+  },
+  {
+   "key": "Chill-Camping_150d7263__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c:p00:s30:g11",
+   "placement": "Chill-Camping_150d7263__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+   "scene": "Chill-Camping_150d7263",
+   "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 30,
+   "goal_frame_idx": 11,
+   "start_pose": {
+    "position": [
+     -5.84375807578062,
+     -14.876670581753617,
+     2.0812510041014773
+    ],
+    "forward": [
+     -0.5402630810598882,
+     0.6605359496765565,
+     -0.5213521481959832
+    ],
+    "up": [
+     -0.3300756789353032,
+     0.40355682202629783,
+     0.8533416300470953
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -4.413301788363261,
+     -11.94608930670545,
+     2.0376903747290354
+    ],
+    "forward": [
+     -0.8492768894152906,
+     -0.36336814656590194,
+     -0.38300438008768223
+    ],
+    "up": [
+     -0.3521277312506258,
+     -0.15065993512091,
+     0.9237465262904377
+    ]
+   },
+   "subject_center": [
+    -6.90781569480896,
+    -12.869321823120117,
+    0.857196319848299
+   ],
+   "subject_height": 1.8159823641180992,
+   "goal_raw": {
+    "pitch_deg": -7.243199029992922,
+    "yaw_deg": 2.854173215785149,
+    "occupancy": 33.0,
+    "body_in_frame_ratio": 64.0,
+    "cam_to_obj_azimuth_deg": 200.0,
+    "cam_to_obj_elevation_deg": -24.0,
+    "object_center_x": 605.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 169.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 11.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.32938976352597144,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.15602944613300454,
+    "bot_cut_frac": 0.20222895312349337,
+    "visible_frac": 0.6417416007435022
+   },
+   "goal_vec": [
+    33.0,
+    64.0,
+    250.0,
+    -24.0,
+    605.0,
+    384.0,
+    169.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/renders/pair_00_frame_30.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/renders/pair_00_frame_11.jpg",
+   "delta": 19,
+   "n_chunks": 3,
+   "sector": "left",
+   "bearing": 250.0,
+   "d_start": 1.276091321456684
+  },
+  {
+   "key": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da:p01:s31:g20",
+   "placement": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da",
+   "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+   "object": "snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 31,
+   "goal_frame_idx": 20,
+   "start_pose": {
+    "position": [
+     -1.9194824825799568,
+     8.612576876742285,
+     -7.719763163098882
+    ],
+    "forward": [
+     -0.5166061352854483,
+     0.7240502064729286,
+     -0.45702231837399643
+    ],
+    "up": [
+     -0.2654439779727807,
+     0.3720334582398853,
+     0.8894552268147382
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -1.05845522785562,
+     10.208502842606013,
+     -7.759274982127032
+    ],
+    "forward": [
+     -0.8764812599281818,
+     0.1869256636904395,
+     -0.44366586216272685
+    ],
+    "up": [
+     -0.4339077924780999,
+     0.09253877498312774,
+     0.89619228001105
+    ]
+   },
+   "subject_center": [
+    -2.897001266479492,
+    10.838658332824707,
+    -8.838754177093506
+   ],
+   "subject_height": 2.0135698318481445,
+   "goal_raw": {
+    "pitch_deg": -9.82760644654475,
+    "yaw_deg": 6.879968338451265,
+    "occupancy": 73.0,
+    "body_in_frame_ratio": 38.0,
+    "cam_to_obj_azimuth_deg": 161.0,
+    "cam_to_obj_elevation_deg": -29.0,
+    "object_center_x": 649.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 375.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 20.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.7320596334192944,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.2716914563494999,
+    "bot_cut_frac": 0.2921849865096969,
+    "visible_frac": 0.4361235571408032
+   },
+   "goal_vec": [
+    73.0,
+    38.0,
+    289.0,
+    -29.0,
+    649.0,
+    384.0,
+    375.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/renders/pair_01_frame_31.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman_5e87c51f-66bf-496e-8e60-8c4c3b36f3da/renders/pair_01_frame_20.jpg",
+   "delta": 11,
+   "n_chunks": 2,
+   "sector": "left",
+   "bearing": 289.0,
+   "d_start": 0.7488519957297113
+  },
+  {
+   "key": "Parking_70ae1f27__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c:p06:s14:g05",
+   "placement": "Parking_70ae1f27__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+   "scene": "Parking_70ae1f27",
+   "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/data.json",
+   "pair_idx": 6,
+   "start_frame_idx": 14,
+   "goal_frame_idx": 5,
+   "start_pose": {
+    "position": [
+     -6.015588768140517,
+     21.266123331550403,
+     1.659187787901367
+    ],
+    "forward": [
+     0.10285658492221172,
+     -0.9937259046250878,
+     -0.04392436015687528
+    ],
+    "up": [
+     0.004522274310518061,
+     -0.04369094242805162,
+     0.999034859544355
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -5.005380016010779,
+     22.40418019430592,
+     0.9357955963128329
+    ],
+    "forward": [
+     -0.05688964554216168,
+     -0.9969272721834069,
+     -0.05384776882135927
+    ],
+    "up": [
+     -0.003067831425001866,
+     -0.05376030708046898,
+     0.9985491564229383
+    ]
+   },
+   "subject_center": [
+    -4.659131765365601,
+    15.602356910705566,
+    0.9085373878479004
+   ],
+   "subject_height": 1.8159823417663574,
+   "goal_raw": {
+    "pitch_deg": -6.672068569656216,
+    "yaw_deg": -6.180179324797509,
+    "occupancy": 12.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 273.0,
+    "cam_to_obj_elevation_deg": 0.0,
+    "object_center_x": 303.0,
+    "object_center_y": 288.0,
+    "bbox_x_offset": 87.0,
+    "bbox_y_offset": 263.0,
+    "frame_idx": 5.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.11647691176715524,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    12.0,
+    100.0,
+    177.0,
+    0.0,
+    303.0,
+    288.0,
+    87.0,
+    263.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/renders/pair_06_frame_14.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/renders/pair_06_frame_05.jpg",
+   "delta": 9,
+   "n_chunks": 2,
+   "sector": "back",
+   "bearing": 177.0,
+   "d_start": 0.26157443826251914
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Office-Move_3d4b091c:p00:s02:g31",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Office-Move_3d4b091c",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Office-Move_3d4b091c",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Office-Move_3d4b091c/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 2,
+   "goal_frame_idx": 31,
+   "start_pose": {
+    "position": [
+     -33.584103386235384,
+     -11.141065180348836,
+     -22.092403681239432
+    ],
+    "forward": [
+     0.9329345882635519,
+     -0.34017099087080194,
+     0.11796927986341926
+    ],
+    "up": [
+     -0.11083153095619372,
+     0.040411913310309966,
+     0.9930172450710543
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -33.31590344573313,
+     -14.1021771179055,
+     -23.074930506108224
+    ],
+    "forward": [
+     0.9612240896531178,
+     0.2622985160888875,
+     0.085133647449776
+    ],
+    "up": [
+     -0.08213068485940572,
+     -0.022411794498159564,
+     0.9963695409193807
+    ]
+   },
+   "subject_center": [
+    -29.111855506896973,
+    -13.570404529571533,
+    -22.874879837036133
+   ],
+   "subject_height": 1.6916999816894531,
+   "goal_raw": {
+    "pitch_deg": -3.4796222636111036,
+    "yaw_deg": 8.054153217466073,
+    "occupancy": 23.0,
+    "body_in_frame_ratio": 88.0,
+    "cam_to_obj_azimuth_deg": 7.0,
+    "cam_to_obj_elevation_deg": 3.0,
+    "object_center_x": 785.0,
+    "object_center_y": 421.0,
+    "bbox_x_offset": 128.0,
+    "bbox_y_offset": 347.0,
+    "frame_idx": 31.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.2253413755898568,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.12043635139119513,
+    "visible_frac": 0.8795636486088049
+   },
+   "goal_vec": [
+    23.0,
+    88.0,
+    113.0,
+    3.0,
+    785.0,
+    421.0,
+    128.0,
+    347.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Office-Move_3d4b091c/renders/pair_00_frame_02.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Office-Move_3d4b091c/renders/pair_00_frame_31.jpg",
+   "delta": 29,
+   "n_chunks": 4,
+   "sector": "back-right",
+   "bearing": 113.0,
+   "d_start": 0.6946766343987032
+  },
+  {
+   "key": "Modern-Office-Full-set-01_d2deb1e1__Girl-walk_544c79c8:p03:s00:g24",
+   "placement": "Modern-Office-Full-set-01_d2deb1e1__Girl-walk_544c79c8",
+   "scene": "Modern-Office-Full-set-01_d2deb1e1",
+   "object": "Girl-walk_544c79c8",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Girl-walk_544c79c8/data.json",
+   "pair_idx": 3,
+   "start_frame_idx": 0,
+   "goal_frame_idx": 24,
+   "start_pose": {
+    "position": [
+     -5.634821314316062,
+     2.7286678481275626,
+     2.233438388813645
+    ],
+    "forward": [
+     0.7890896128114618,
+     0.4770542085583311,
+     -0.38698432145222855
+    ],
+    "up": [
+     0.3311678203225472,
+     0.20021173749971524,
+     0.9220862947415271
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.996246459734776,
+     6.581053275351603,
+     1.8541376277609785
+    ],
+    "forward": [
+     0.6677588658212724,
+     -0.7322784246311732,
+     -0.13366527573298592
+    ],
+    "up": [
+     0.09006436228087561,
+     -0.09876647499893043,
+     0.9910265354990375
+    ]
+   },
+   "subject_center": [
+    -1.6862412095069885,
+    4.420102834701538,
+    0.8754771975800395
+   ],
+   "subject_height": 1.7670750562101603,
+   "goal_raw": {
+    "pitch_deg": 1.9515949309206495,
+    "yaw_deg": -4.5480079664056525,
+    "occupancy": 32.0,
+    "body_in_frame_ratio": 52.0,
+    "cam_to_obj_azimuth_deg": 317.0,
+    "cam_to_obj_elevation_deg": -17.0,
+    "object_center_x": 386.0,
+    "object_center_y": 477.0,
+    "bbox_x_offset": 218.0,
+    "bbox_y_offset": 291.0,
+    "frame_idx": 24.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3218567024518353,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.47714316432036435,
+    "visible_frac": 0.5228568356796357
+   },
+   "goal_vec": [
+    32.0,
+    52.0,
+    133.0,
+    -17.0,
+    386.0,
+    477.0,
+    218.0,
+    291.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Girl-walk_544c79c8/renders/pair_03_frame_00.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__Girl-walk_544c79c8/renders/pair_03_frame_24.jpg",
+   "delta": 24,
+   "n_chunks": 3,
+   "sector": "back-right",
+   "bearing": 133.0,
+   "d_start": 1.148465326463521
+  },
+  {
+   "key": "Parking_70ae1f27__A-young-humble-man-walks-talking_eed072a6:p02:s01:g09",
+   "placement": "Parking_70ae1f27__A-young-humble-man-walks-talking_eed072a6",
+   "scene": "Parking_70ae1f27",
+   "object": "A-young-humble-man-walks-talking_eed072a6",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__A-young-humble-man-walks-talking_eed072a6/data.json",
+   "pair_idx": 2,
+   "start_frame_idx": 1,
+   "goal_frame_idx": 9,
+   "start_pose": {
+    "position": [
+     6.772333124834546,
+     19.301876186421765,
+     1.2394254631537411
+    ],
+    "forward": [
+     0.7501574425246643,
+     -0.6586636507946654,
+     0.05853209843067336
+    ],
+    "up": [
+     -0.0439836981264488,
+     0.03861917717688275,
+     0.9982855270178478
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     5.520790303725529,
+     17.201799991922517,
+     1.0049779764758333
+    ],
+    "forward": [
+     0.9625206726108166,
+     -0.21543491531040218,
+     0.1647475403823111
+    ],
+    "up": [
+     -0.16076970791001644,
+     0.035984067037360026,
+     0.986335768355776
+    ]
+   },
+   "subject_center": [
+    10.142571926116943,
+    15.760222911834717,
+    0.896199969924055
+   ],
+   "subject_height": 1.7996000677812845,
+   "goal_raw": {
+    "pitch_deg": 5.452192626956413,
+    "yaw_deg": 4.706973955600481,
+    "occupancy": 13.0,
+    "body_in_frame_ratio": 50.0,
+    "cam_to_obj_azimuth_deg": 343.0,
+    "cam_to_obj_elevation_deg": -1.0,
+    "object_center_x": 646.0,
+    "object_center_y": 579.0,
+    "bbox_x_offset": 139.0,
+    "bbox_y_offset": 189.0,
+    "frame_idx": 9.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.13384513093180467,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.4971833186781232,
+    "visible_frac": 0.5028166813218767
+   },
+   "goal_vec": [
+    13.0,
+    50.0,
+    107.0,
+    -1.0,
+    646.0,
+    579.0,
+    139.0,
+    189.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__A-young-humble-man-walks-talking_eed072a6/renders/pair_02_frame_01.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__A-young-humble-man-walks-talking_eed072a6/renders/pair_02_frame_09.jpg",
+   "delta": 8,
+   "n_chunks": 1,
+   "sector": "right",
+   "bearing": 107.0,
+   "d_start": 0.5129366809019434
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Modern-Thinker_ae3a6545:p01:s14:g29",
+   "placement": "Modern-Warehouse_a5eea495__Modern-Thinker_ae3a6545",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Modern-Thinker_ae3a6545",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Modern-Thinker_ae3a6545/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 14,
+   "goal_frame_idx": 29,
+   "start_pose": {
+    "position": [
+     -0.6503769171710845,
+     -9.444585030723168,
+     1.8992847034151823
+    ],
+    "forward": [
+     0.13827007037956177,
+     0.9302825322806028,
+     -0.3397878717241395
+    ],
+    "up": [
+     0.04995469215963451,
+     0.33609571032974583,
+     0.9405021011295933
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     2.2270094999216923,
+     -8.610155197117503,
+     1.6047346828587101
+    ],
+    "forward": [
+     -0.7849255515307454,
+     0.4974502953684742,
+     -0.36937119837904664
+    ],
+    "up": [
+     -0.3119923891433664,
+     0.19772665806255685,
+     0.9292819366629415
+    ]
+   },
+   "subject_center": [
+    0.06425002217292786,
+    -6.3143064975738525,
+    0.6133999604207929
+   ],
+   "subject_height": 1.2279999696766026,
+   "goal_raw": {
+    "pitch_deg": -9.435361603074009,
+    "yaw_deg": 14.345095158362982,
+    "occupancy": 28.0,
+    "body_in_frame_ratio": 58.0,
+    "cam_to_obj_azimuth_deg": 133.0,
+    "cam_to_obj_elevation_deg": -17.0,
+    "object_center_x": 857.0,
+    "object_center_y": 332.0,
+    "bbox_x_offset": 167.0,
+    "bbox_y_offset": 332.0,
+    "frame_idx": 29.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.28200858498151055,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.1563522770458418,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.8436477229541582
+   },
+   "goal_vec": [
+    28.0,
+    58.0,
+    287.0,
+    -17.0,
+    857.0,
+    332.0,
+    167.0,
+    332.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Modern-Thinker_ae3a6545/renders/pair_01_frame_14.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Modern-Thinker_ae3a6545/renders/pair_01_frame_29.jpg",
+   "delta": 15,
+   "n_chunks": 2,
+   "sector": "left",
+   "bearing": 287.0,
+   "d_start": 0.9417950214027663
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c:p02:s31:g11",
+   "placement": "Modern-Warehouse_a5eea495__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/data.json",
+   "pair_idx": 2,
+   "start_frame_idx": 31,
+   "goal_frame_idx": 11,
+   "start_pose": {
+    "position": [
+     -0.8627305500145732,
+     -7.965973824416748,
+     1.7789714015115141
+    ],
+    "forward": [
+     0.5364529399151774,
+     0.7470157147486077,
+     -0.3926649528223648
+    ],
+    "up": [
+     0.2290426052422592,
+     0.3189439608439524,
+     0.9196815942623894
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.841363232072273,
+     -7.844569665517848,
+     1.069772411125994
+    ],
+    "forward": [
+     0.9557793146336597,
+     0.26877164911889606,
+     0.119363739671312
+    ],
+    "up": [
+     -0.11490690969676576,
+     -0.03231260516052621,
+     0.9928505918070852
+    ]
+   },
+   "subject_center": [
+    1.0578324794769287,
+    -6.286164999008179,
+    0.9175373557955027
+   ],
+   "subject_height": 1.8159822933375835,
+   "goal_raw": {
+    "pitch_deg": 3.4962107438365173,
+    "yaw_deg": -1.9392096337421112,
+    "occupancy": 10.0,
+    "body_in_frame_ratio": 61.0,
+    "cam_to_obj_azimuth_deg": 18.0,
+    "cam_to_obj_elevation_deg": -2.0,
+    "object_center_x": 444.0,
+    "object_center_y": 551.0,
+    "bbox_x_offset": 94.0,
+    "bbox_y_offset": 217.0,
+    "frame_idx": 11.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.10313658839229033,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.39132735831712046,
+    "visible_frac": 0.6086726416828795
+   },
+   "goal_vec": [
+    10.0,
+    61.0,
+    72.0,
+    -2.0,
+    444.0,
+    551.0,
+    94.0,
+    217.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/renders/pair_02_frame_31.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__andrew_16e03125-959b-4312-8e8a-a7cb23bf3a1c/renders/pair_02_frame_11.jpg",
+   "delta": 20,
+   "n_chunks": 3,
+   "sector": "right",
+   "bearing": 72.0,
+   "d_start": 0.6194015264024753
+  },
+  {
+   "key": "Modern-Warehouse_a5eea495__Knit-and-Denim_82dd220b:p02:s30:g17",
+   "placement": "Modern-Warehouse_a5eea495__Knit-and-Denim_82dd220b",
+   "scene": "Modern-Warehouse_a5eea495",
+   "object": "Knit-and-Denim_82dd220b",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Knit-and-Denim_82dd220b/data.json",
+   "pair_idx": 2,
+   "start_frame_idx": 30,
+   "goal_frame_idx": 17,
+   "start_pose": {
+    "position": [
+     3.5405098050388366,
+     -14.857951796324638,
+     2.2561874232555583
+    ],
+    "forward": [
+     -0.13569353735690093,
+     0.8469871158183695,
+     -0.5140039781531378
+    ],
+    "up": [
+     -0.08131034036858774,
+     0.5075319872740985,
+     0.8577878003578442
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     5.219961790298059,
+     -12.691371827213565,
+     2.8350557895804815
+    ],
+    "forward": [
+     -0.6736176922781929,
+     0.3735180812411211,
+     -0.6377487339350452
+    ],
+    "up": [
+     -0.5577434749009667,
+     0.3092663315673852,
+     0.7702444757116061
+    ]
+   },
+   "subject_center": [
+    2.6387330293655396,
+    -11.932482719421387,
+    0.7821499715792015
+   ],
+   "subject_height": 1.5695000865962356,
+   "goal_raw": {
+    "pitch_deg": -7.941734104080629,
+    "yaw_deg": -12.624681283649966,
+    "occupancy": 38.0,
+    "body_in_frame_ratio": 89.0,
+    "cam_to_obj_azimuth_deg": 164.0,
+    "cam_to_obj_elevation_deg": -37.0,
+    "object_center_x": 213.0,
+    "object_center_y": 353.0,
+    "bbox_x_offset": 213.0,
+    "bbox_y_offset": 353.0,
+    "frame_idx": 17.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3824659500295496,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.0946858574367812,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.9053141425632187
+   },
+   "goal_vec": [
+    38.0,
+    89.0,
+    286.0,
+    -37.0,
+    213.0,
+    353.0,
+    213.0,
+    353.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Knit-and-Denim_82dd220b/renders/pair_02_frame_30.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Warehouse_a5eea495__Knit-and-Denim_82dd220b/renders/pair_02_frame_17.jpg",
+   "delta": 13,
+   "n_chunks": 2,
+   "sector": "left",
+   "bearing": 286.0,
+   "d_start": 0.8551519044645827
+  },
+  {
+   "key": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Car-Mechanic-Character_e64df45e:p04:s31:g00",
+   "placement": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Car-Mechanic-Character_e64df45e",
+   "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+   "object": "Car-Mechanic-Character_e64df45e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Car-Mechanic-Character_e64df45e/data.json",
+   "pair_idx": 4,
+   "start_frame_idx": 31,
+   "goal_frame_idx": 0,
+   "start_pose": {
+    "position": [
+     31.292824934151483,
+     80.18823601446569,
+     -30.791015093647236
+    ],
+    "forward": [
+     -0.9410604897927418,
+     0.26443955850508205,
+     -0.2108954111607982
+    ],
+    "up": [
+     -0.2030318019029649,
+     0.057052273089837055,
+     0.9775086319574462
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     24.618676692770055,
+     79.91301239288738,
+     -30.724494280603984
+    ],
+    "forward": [
+     0.9038649520638241,
+     0.2500094954023152,
+     -0.34716480328417626
+    ],
+    "up": [
+     0.33460088935514576,
+     0.09255077245537331,
+     0.9378041369927195
+    ]
+   },
+   "subject_center": [
+    29.232718467712402,
+    81.49636459350586,
+    -32.12379264831543
+   ],
+   "subject_height": 1.4254875183105469,
+   "goal_raw": {
+    "pitch_deg": -8.246109035630035,
+    "yaw_deg": -3.4786730847422103,
+    "occupancy": 35.0,
+    "body_in_frame_ratio": 94.0,
+    "cam_to_obj_azimuth_deg": 19.0,
+    "cam_to_obj_elevation_deg": -16.0,
+    "object_center_x": 419.0,
+    "object_center_y": 288.0,
+    "bbox_x_offset": 241.0,
+    "bbox_y_offset": 288.0,
+    "frame_idx": 0.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3532909646838817,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.05928453490221444,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.9407154650977856
+   },
+   "goal_vec": [
+    35.0,
+    94.0,
+    71.0,
+    -16.0,
+    419.0,
+    288.0,
+    241.0,
+    288.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Car-Mechanic-Character_e64df45e/renders/pair_04_frame_31.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__Car-Mechanic-Character_e64df45e/renders/pair_04_frame_00.jpg",
+   "delta": 31,
+   "n_chunks": 4,
+   "sector": "right",
+   "bearing": 71.0,
+   "d_start": 2.042002998903417
+  },
+  {
+   "key": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1:p04:s20:g04",
+   "placement": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1",
+   "scene": "Nature-Snowy-Mountain-Village-Retreat_f884ef3e",
+   "object": "snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1/data.json",
+   "pair_idx": 4,
+   "start_frame_idx": 20,
+   "goal_frame_idx": 4,
+   "start_pose": {
+    "position": [
+     16.83384601315956,
+     5.26389930680939,
+     -7.822770903337742
+    ],
+    "forward": [
+     0.20635531805022594,
+     -0.9756868764990388,
+     -0.07384173440500523
+    ],
+    "up": [
+     0.015279347626118498,
+     -0.07224363830857054,
+     0.9972699726052423
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     18.39251674078876,
+     7.41686642457647,
+     -8.984988046391893
+    ],
+    "forward": [
+     -0.07551261881139401,
+     -0.9937719053203193,
+     -0.08194659600171032
+    ],
+    "up": [
+     -0.0062088842713754625,
+     -0.08171104180202449,
+     0.9966367218820169
+    ]
+   },
+   "subject_center": [
+    18.594572067260742,
+    0.5345755517482758,
+    -9.050783634185791
+   ],
+   "subject_height": 1.5895509719848633,
+   "goal_raw": {
+    "pitch_deg": -7.457684460132872,
+    "yaw_deg": -6.026967517186106,
+    "occupancy": 27.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 272.0,
+    "cam_to_obj_elevation_deg": -1.0,
+    "object_center_x": 305.0,
+    "object_center_y": 240.0,
+    "bbox_x_offset": 235.0,
+    "bbox_y_offset": 229.0,
+    "frame_idx": 4.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.27348798729652757,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    27.0,
+    100.0,
+    178.0,
+    -1.0,
+    305.0,
+    240.0,
+    235.0,
+    229.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1/renders/pair_04_frame_20.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Nature-Snowy-Mountain-Village-Retreat_f884ef3e__snowman-characte_e89a260d-9597-40be-ac36-04c61e6865e1/renders/pair_04_frame_04.jpg",
+   "delta": 16,
+   "n_chunks": 2,
+   "sector": "back",
+   "bearing": 178.0,
+   "d_start": 0.4666960386706063
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Bang-Bang-Guy-Walking_e284e0a0:p01:s05:g26",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Bang-Bang-Guy-Walking_e284e0a0",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Bang-Bang-Guy-Walking_e284e0a0",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Bang-Bang-Guy-Walking_e284e0a0/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 5,
+   "goal_frame_idx": 26,
+   "start_pose": {
+    "position": [
+     -29.165169612861074,
+     -7.613806088223035,
+     -22.93546936849241
+    ],
+    "forward": [
+     0.29398322770125335,
+     -0.9536287232569136,
+     0.06454548791156398
+    ],
+    "up": [
+     -0.019014941474270203,
+     0.06168105065959829,
+     0.9979147658944917
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -30.08114010027823,
+     -10.816967378220951,
+     -23.252981300528923
+    ],
+    "forward": [
+     0.4903861692139651,
+     -0.8404626424345827,
+     0.23052971980968373
+    ],
+    "up": [
+     -0.11617780221449489,
+     0.19911471564939895,
+     0.9730652846980354
+    ]
+   },
+   "subject_center": [
+    -27.11093044281006,
+    -14.438610076904297,
+    -22.787028312683105
+   ],
+   "subject_height": 1.8857288360595703,
+   "goal_raw": {
+    "pitch_deg": 2.0110898345036317,
+    "yaw_deg": -9.093776832200453,
+    "occupancy": 23.0,
+    "body_in_frame_ratio": 64.0,
+    "cam_to_obj_azimuth_deg": 309.0,
+    "cam_to_obj_elevation_deg": 6.0,
+    "object_center_x": 206.0,
+    "object_center_y": 510.0,
+    "bbox_x_offset": 176.0,
+    "bbox_y_offset": 258.0,
+    "frame_idx": 26.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.23051108141181217,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.35659727572505673,
+    "visible_frac": 0.6434027242749433
+   },
+   "goal_vec": [
+    23.0,
+    64.0,
+    111.0,
+    6.0,
+    206.0,
+    510.0,
+    176.0,
+    258.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Bang-Bang-Guy-Walking_e284e0a0/renders/pair_01_frame_05.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Bang-Bang-Guy-Walking_e284e0a0/renders/pair_01_frame_26.jpg",
+   "delta": 21,
+   "n_chunks": 3,
+   "sector": "right",
+   "bearing": 111.0,
+   "d_start": 0.44820464262913273
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac:p00:s17:g29",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 17,
+   "goal_frame_idx": 29,
+   "start_pose": {
+    "position": [
+     -27.325997946676758,
+     -10.798950923408274,
+     -23.12971015038962
+    ],
+    "forward": [
+     0.7115363047060179,
+     -0.6920649729677094,
+     0.1214996307669648
+    ],
+    "up": [
+     -0.08709665589900076,
+     0.08471323868038474,
+     0.992591476753398
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -27.73186636574739,
+     -13.008643868977172,
+     -23.042312849303602
+    ],
+    "forward": [
+     0.9564062685066129,
+     -0.29008291191455277,
+     0.033748389242018395
+    ],
+    "up": [
+     -0.0322955678423196,
+     0.009795410873103538,
+     0.9994303608674141
+    ]
+   },
+   "subject_center": [
+    -23.961173057556152,
+    -14.611196517944336,
+    -23.07180881500244
+   ],
+   "subject_height": 1.306600570678711,
+   "goal_raw": {
+    "pitch_deg": -2.214263958367928,
+    "yaw_deg": 6.152775990405827,
+    "occupancy": 27.0,
+    "body_in_frame_ratio": 96.0,
+    "cam_to_obj_azimuth_deg": 337.0,
+    "cam_to_obj_elevation_deg": 0.0,
+    "object_center_x": 699.0,
+    "object_center_y": 457.0,
+    "bbox_x_offset": 170.0,
+    "bbox_y_offset": 311.0,
+    "frame_idx": 29.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.2681657856853159,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.04346379202043059,
+    "visible_frac": 0.9565362079795694
+   },
+   "goal_vec": [
+    27.0,
+    96.0,
+    143.0,
+    0.0,
+    699.0,
+    457.0,
+    170.0,
+    311.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_17.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Sitting-Man-Bandana-Clad-Denim-Rebel_a1e553ac/renders/pair_00_frame_29.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "back-right",
+   "bearing": 143.0,
+   "d_start": 0.4535993855012076
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Formal-Informal_c4d7ab91:p04:s06:g30",
+   "placement": "office-buildingwarehouse-creative-headquarters__Formal-Informal_c4d7ab91",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Formal-Informal_c4d7ab91",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Formal-Informal_c4d7ab91/data.json",
+   "pair_idx": 4,
+   "start_frame_idx": 6,
+   "goal_frame_idx": 30,
+   "start_pose": {
+    "position": [
+     -2.68379624893669,
+     7.029042854566464,
+     1.4705846746969553
+    ],
+    "forward": [
+     0.9580659992761129,
+     -0.2600478410415694,
+     0.12035223886858884
+    ],
+    "up": [
+     -0.11614965054257698,
+     0.031526498053528175,
+     0.992731251950556
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -2.29734252398052,
+     4.560481331564926,
+     0.6701659574616223
+    ],
+    "forward": [
+     0.9658787686477134,
+     0.2412796795557505,
+     0.09413989860336261
+    ],
+    "up": [
+     -0.09133334269049503,
+     -0.022815368110814888,
+     0.9955589784090888
+    ]
+   },
+   "subject_center": [
+    1.9507610201835632,
+    5.003742218017578,
+    0.8663002401008271
+   ],
+   "subject_height": 1.734800070640631,
+   "goal_raw": {
+    "pitch_deg": -2.9866722354613238,
+    "yaw_deg": 8.068763323587875,
+    "occupancy": 18.0,
+    "body_in_frame_ratio": 84.0,
+    "cam_to_obj_azimuth_deg": 6.0,
+    "cam_to_obj_elevation_deg": 3.0,
+    "object_center_x": 790.0,
+    "object_center_y": 431.0,
+    "bbox_x_offset": 105.0,
+    "bbox_y_offset": 337.0,
+    "frame_idx": 30.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.18060048403665266,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.16084881995019193,
+    "visible_frac": 0.839151180049808
+   },
+   "goal_vec": [
+    18.0,
+    84.0,
+    84.0,
+    3.0,
+    790.0,
+    431.0,
+    105.0,
+    337.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Formal-Informal_c4d7ab91/renders/pair_04_frame_06.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Formal-Informal_c4d7ab91/renders/pair_04_frame_30.jpg",
+   "delta": 24,
+   "n_chunks": 3,
+   "sector": "right",
+   "bearing": 84.0,
+   "d_start": 0.5750595268425565
+  },
+  {
+   "key": "Parking_70ae1f27__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb:p04:s06:g15",
+   "placement": "Parking_70ae1f27__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+   "scene": "Parking_70ae1f27",
+   "object": "spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/data.json",
+   "pair_idx": 4,
+   "start_frame_idx": 6,
+   "goal_frame_idx": 15,
+   "start_pose": {
+    "position": [
+     8.154936960474434,
+     1.430723623079177,
+     0.6451093796498102
+    ],
+    "forward": [
+     0.9644481162398231,
+     0.10202577179516786,
+     0.24378386528040988
+    ],
+    "up": [
+     -0.242431137273913,
+     -0.025645987037628017,
+     0.9698295865918626
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     10.409748803310432,
+     1.0913319294085926,
+     1.3023524839205736
+    ],
+    "forward": [
+     0.9178052769349891,
+     0.39693157043978433,
+     0.008877050100931112
+    ],
+    "up": [
+     -0.008147724461142364,
+     -0.0035237202783057918,
+     0.9999605982145024
+    ]
+   },
+   "subject_center": [
+    14.403998851776123,
+    2.730336308479309,
+    0.8924877510871738
+   ],
+   "subject_height": 1.7965660360641778,
+   "goal_raw": {
+    "pitch_deg": -0.012593610777531516,
+    "yaw_deg": 1.0771209411759202,
+    "occupancy": 14.0,
+    "body_in_frame_ratio": 71.0,
+    "cam_to_obj_azimuth_deg": 22.0,
+    "cam_to_obj_elevation_deg": -5.0,
+    "object_center_x": 579.0,
+    "object_center_y": 475.0,
+    "bbox_x_offset": 97.0,
+    "bbox_y_offset": 293.0,
+    "frame_idx": 15.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.14443399164719625,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.2931016713446785,
+    "visible_frac": 0.7068983286553215
+   },
+   "goal_vec": [
+    14.0,
+    71.0,
+    98.0,
+    -5.0,
+    579.0,
+    475.0,
+    97.0,
+    293.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/renders/pair_04_frame_06.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__spider-man-no-wa_8fedbc15-cb4f-472d-954a-90faef1babeb/renders/pair_04_frame_15.jpg",
+   "delta": 9,
+   "n_chunks": 2,
+   "sector": "right",
+   "bearing": 98.0,
+   "d_start": 0.28489900284724573
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Car-Mechanic-Character_e64df45e:p00:s03:g15",
+   "placement": "office-buildingwarehouse-creative-headquarters__Car-Mechanic-Character_e64df45e",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Car-Mechanic-Character_e64df45e",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Car-Mechanic-Character_e64df45e/data.json",
+   "pair_idx": 0,
+   "start_frame_idx": 3,
+   "goal_frame_idx": 15,
+   "start_pose": {
+    "position": [
+     7.199942322216833,
+     2.302014749337438,
+     2.696754554912679
+    ],
+    "forward": [
+     -0.0825440057443863,
+     -0.9596171860947421,
+     -0.26892627849892203
+    ],
+    "up": [
+     -0.023047297101200296,
+     -0.2679368682425186,
+     0.9631607637008062
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     3.431368227326551,
+     -2.1346987297498057,
+     3.1608142115973545
+    ],
+    "forward": [
+     0.625782165796026,
+     -0.42680518864218264,
+     -0.652865998440527
+    ],
+    "up": [
+     0.5393613630908377,
+     -0.36786319729559747,
+     0.7574734240092217
+    ]
+   },
+   "subject_center": [
+    5.755574941635132,
+    -4.342887043952942,
+    0.5538593009114265
+   ],
+   "subject_height": 1.4254883378744125,
+   "goal_raw": {
+    "pitch_deg": -5.689001348208061,
+    "yaw_deg": 9.238339080796512,
+    "occupancy": 42.0,
+    "body_in_frame_ratio": 92.0,
+    "cam_to_obj_azimuth_deg": 316.0,
+    "cam_to_obj_elevation_deg": -39.0,
+    "object_center_x": 760.0,
+    "object_center_y": 362.0,
+    "bbox_x_offset": 264.0,
+    "bbox_y_offset": 311.0,
+    "frame_idx": 15.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.4182952097635891,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    42.0,
+    92.0,
+    134.0,
+    -39.0,
+    760.0,
+    362.0,
+    264.0,
+    311.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Car-Mechanic-Character_e64df45e/renders/pair_00_frame_03.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Car-Mechanic-Character_e64df45e/renders/pair_00_frame_15.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "back-right",
+   "bearing": 134.0,
+   "d_start": 0.9641005594960315
+  },
+  {
+   "key": "Chill-Camping_150d7263__Moon-Girl_518cddf2:p03:s27:g12",
+   "placement": "Chill-Camping_150d7263__Moon-Girl_518cddf2",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Moon-Girl_518cddf2",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Moon-Girl_518cddf2/data.json",
+   "pair_idx": 3,
+   "start_frame_idx": 27,
+   "goal_frame_idx": 12,
+   "start_pose": {
+    "position": [
+     -0.3612984061075557,
+     3.0920280888311873,
+     2.2447471286162672
+    ],
+    "forward": [
+     0.33146624295101107,
+     -0.9416935692053621,
+     -0.0578217217073948
+    ],
+    "up": [
+     0.019198068670599606,
+     -0.054541595691053574,
+     0.9983269246588479
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     0.5602128821535197,
+     5.285416852017554,
+     1.4919983712411726
+    ],
+    "forward": [
+     0.06554050350333575,
+     -0.9952428258382683,
+     -0.07208439510731803
+    ],
+    "up": [
+     0.004736770086050526,
+     -0.07192859672716986,
+     0.9973985361840132
+    ]
+   },
+   "subject_center": [
+    1.7205374240875244,
+    -0.6726280748844147,
+    0.768806429579854
+   ],
+   "subject_height": 1.6369000039994717,
+   "goal_raw": {
+    "pitch_deg": -1.1727573363196253,
+    "yaw_deg": -7.252661978077317,
+    "occupancy": 12.0,
+    "body_in_frame_ratio": 100.0,
+    "cam_to_obj_azimuth_deg": 281.0,
+    "cam_to_obj_elevation_deg": -7.0,
+    "object_center_x": 271.0,
+    "object_center_y": 475.0,
+    "bbox_x_offset": 94.0,
+    "bbox_y_offset": 260.0,
+    "frame_idx": 12.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.12415708934015003,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 1.0
+   },
+   "goal_vec": [
+    12.0,
+    100.0,
+    169.0,
+    -7.0,
+    271.0,
+    475.0,
+    94.0,
+    260.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Moon-Girl_518cddf2/renders/pair_03_frame_27.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Moon-Girl_518cddf2/renders/pair_03_frame_12.jpg",
+   "delta": 15,
+   "n_chunks": 2,
+   "sector": "back",
+   "bearing": 169.0,
+   "d_start": 0.44002422336393726
+  },
+  {
+   "key": "Modern-Office-Full-set-01_d2deb1e1__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797:p05:s25:g02",
+   "placement": "Modern-Office-Full-set-01_d2deb1e1__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797",
+   "scene": "Modern-Office-Full-set-01_d2deb1e1",
+   "object": "young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/data.json",
+   "pair_idx": 5,
+   "start_frame_idx": 25,
+   "goal_frame_idx": 2,
+   "start_pose": {
+    "position": [
+     -3.341563018052987,
+     0.29633659808167145,
+     0.8411596858727655
+    ],
+    "forward": [
+     0.6705556827643245,
+     0.6736879451475031,
+     0.31064389399343684
+    ],
+    "up": [
+     -0.219145976417252,
+     -0.2201696389049472,
+     0.9505263652969309
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.364801684752028,
+     6.744501525367117,
+     1.2047811731659657
+    ],
+    "forward": [
+     0.7891877342813796,
+     -0.6100633489597692,
+     0.07074906582997188
+    ],
+    "up": [
+     -0.05597455908311195,
+     0.04326983997272124,
+     0.9974941451879236
+    ]
+   },
+   "subject_center": [
+    0.22151151299476624,
+    3.42496657371521,
+    0.8905466175638139
+   ],
+   "subject_height": 1.7800999926403165,
+   "goal_raw": {
+    "pitch_deg": 2.523916962758982,
+    "yaw_deg": 5.082731842396115,
+    "occupancy": 11.0,
+    "body_in_frame_ratio": 66.0,
+    "cam_to_obj_azimuth_deg": 317.0,
+    "cam_to_obj_elevation_deg": -4.0,
+    "object_center_x": 680.0,
+    "object_center_y": 530.0,
+    "bbox_x_offset": 93.0,
+    "bbox_y_offset": 238.0,
+    "frame_idx": 2.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.11193148142101662,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.3449201322968312,
+    "visible_frac": 0.6550798677031687
+   },
+   "goal_vec": [
+    11.0,
+    66.0,
+    133.0,
+    -4.0,
+    680.0,
+    530.0,
+    93.0,
+    238.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/renders/pair_05_frame_25.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Modern-Office-Full-set-01_d2deb1e1__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/renders/pair_05_frame_02.jpg",
+   "delta": 23,
+   "n_chunks": 3,
+   "sector": "back-right",
+   "bearing": 133.0,
+   "d_start": 1.4782036818210398
+  },
+  {
+   "key": "office-buildingwarehouse-creative-headquarters__Knit-and-Denim_82dd220b:p02:s05:g15",
+   "placement": "office-buildingwarehouse-creative-headquarters__Knit-and-Denim_82dd220b",
+   "scene": "office-buildingwarehouse-creative-headquarters",
+   "object": "Knit-and-Denim_82dd220b",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Knit-and-Denim_82dd220b/data.json",
+   "pair_idx": 2,
+   "start_frame_idx": 5,
+   "goal_frame_idx": 15,
+   "start_pose": {
+    "position": [
+     -1.3716386400880403,
+     7.803052418266542,
+     0.9608125988957774
+    ],
+    "forward": [
+     -0.05809731729103244,
+     -0.9946840185324826,
+     -0.0850200270504373
+    ],
+    "up": [
+     -0.004957384976187081,
+     -0.08487537530906691,
+     0.9963792425579444
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -2.453299348282831,
+     6.485462386075505,
+     1.7570709763212373
+    ],
+    "forward": [
+     0.11753558292027469,
+     -0.989714604632652,
+     -0.0815499118603122
+    ],
+    "up": [
+     0.009617048324559587,
+     -0.08098086506050534,
+     0.99666925902005
+    ]
+   },
+   "subject_center": [
+    -1.034039467573166,
+    0.991601437330246,
+    0.7821502323495224
+   ],
+   "subject_height": 1.569500041892752,
+   "goal_raw": {
+    "pitch_deg": 1.1840903351103425,
+    "yaw_deg": -7.71229740091152,
+    "occupancy": 14.0,
+    "body_in_frame_ratio": 84.0,
+    "cam_to_obj_azimuth_deg": 284.0,
+    "cam_to_obj_elevation_deg": -10.0,
+    "object_center_x": 233.0,
+    "object_center_y": 530.0,
+    "bbox_x_offset": 112.0,
+    "bbox_y_offset": 238.0,
+    "frame_idx": 15.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.13572882557222476,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.1629555542653441,
+    "visible_frac": 0.8370444457346559
+   },
+   "goal_vec": [
+    14.0,
+    84.0,
+    166.0,
+    -10.0,
+    233.0,
+    530.0,
+    112.0,
+    238.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Knit-and-Denim_82dd220b/renders/pair_02_frame_05.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/office-buildingwarehouse-creative-headquarters__Knit-and-Denim_82dd220b/renders/pair_02_frame_15.jpg",
+   "delta": 10,
+   "n_chunks": 2,
+   "sector": "back",
+   "bearing": 166.0,
+   "d_start": 0.2911994145141279
+  },
+  {
+   "key": "Parking_70ae1f27__All-People-Are-Sisters_1795d425:p03:s04:g16",
+   "placement": "Parking_70ae1f27__All-People-Are-Sisters_1795d425",
+   "scene": "Parking_70ae1f27",
+   "object": "All-People-Are-Sisters_1795d425",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__All-People-Are-Sisters_1795d425/data.json",
+   "pair_idx": 3,
+   "start_frame_idx": 4,
+   "goal_frame_idx": 16,
+   "start_pose": {
+    "position": [
+     12.866838848677974,
+     17.56079026034083,
+     0.8520206389781901
+    ],
+    "forward": [
+     -0.07498550013880592,
+     -0.9950723885635826,
+     -0.06486999527747647
+    ],
+    "up": [
+     -0.004874576244512774,
+     -0.06468658897898584,
+     0.9978937236563322
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     11.5614831541998,
+     16.03705837813708,
+     1.796703092409567
+    ],
+    "forward": [
+     0.13733064583834914,
+     -0.989029842770198,
+     -0.054408306567832625
+    ],
+    "up": [
+     0.0074830119337012824,
+     -0.05389126418984197,
+     0.9985187710686368
+    ]
+   },
+   "subject_center": [
+    13.073007583618164,
+    10.685000896453857,
+    0.868750030756928
+   ],
+   "subject_height": 1.7308999400120229,
+   "goal_raw": {
+    "pitch_deg": 1.9697062255869984,
+    "yaw_deg": -7.865509208522921,
+    "occupancy": 11.0,
+    "body_in_frame_ratio": 77.0,
+    "cam_to_obj_azimuth_deg": 286.0,
+    "cam_to_obj_elevation_deg": -9.0,
+    "object_center_x": 253.0,
+    "object_center_y": 534.0,
+    "bbox_x_offset": 92.0,
+    "bbox_y_offset": 234.0,
+    "frame_idx": 16.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.10979408754486146,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.2285039312283929,
+    "visible_frac": 0.7714960687716071
+   },
+   "goal_vec": [
+    11.0,
+    77.0,
+    164.0,
+    -9.0,
+    253.0,
+    534.0,
+    92.0,
+    234.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__All-People-Are-Sisters_1795d425/renders/pair_03_frame_04.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__All-People-Are-Sisters_1795d425/renders/pair_03_frame_16.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "back",
+   "bearing": 164.0,
+   "d_start": 0.34896476145202565
+  },
+  {
+   "key": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Modern-Texter_88ef14bd:p01:s01:g13",
+   "placement": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Modern-Texter_88ef14bd",
+   "scene": "basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8",
+   "object": "Modern-Texter_88ef14bd",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Modern-Texter_88ef14bd/data.json",
+   "pair_idx": 1,
+   "start_frame_idx": 1,
+   "goal_frame_idx": 13,
+   "start_pose": {
+    "position": [
+     -28.821634375763225,
+     1.677163354533775,
+     -23.144919102897006
+    ],
+    "forward": [
+     -0.12818812568051302,
+     -0.9884392229063601,
+     -0.0809673209065732
+    ],
+    "up": [
+     -0.010413238304017608,
+     -0.08029490346722976,
+     0.9967167566290898
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -30.296407817823198,
+     0.4999603065125138,
+     -22.106381480484064
+    ],
+    "forward": [
+     0.08289934370583885,
+     -0.9937325770749431,
+     -0.07498842626121463
+    ],
+    "up": [
+     0.0062340438704923335,
+     -0.07472884831277946,
+     0.9971844041735042
+    ]
+   },
+   "subject_center": [
+    -29.043774604797363,
+    -5.306172132492065,
+    -22.916808128356934
+   ],
+   "subject_height": 1.6163997650146484,
+   "goal_raw": {
+    "pitch_deg": -0.3871414458429676,
+    "yaw_deg": -7.405873785688717,
+    "occupancy": 12.0,
+    "body_in_frame_ratio": 95.0,
+    "cam_to_obj_azimuth_deg": 282.0,
+    "cam_to_obj_elevation_deg": -8.0,
+    "object_center_x": 272.0,
+    "object_center_y": 506.0,
+    "bbox_x_offset": 90.0,
+    "bbox_y_offset": 262.0,
+    "frame_idx": 13.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.11946383428422326,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.04535400491622522,
+    "visible_frac": 0.9546459950837748
+   },
+   "goal_vec": [
+    12.0,
+    95.0,
+    198.0,
+    -8.0,
+    272.0,
+    506.0,
+    90.0,
+    262.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Modern-Texter_88ef14bd/renders/pair_01_frame_01.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/basement_8f9ffd5b-654b-4efe-9f09-7df7e49d2ab8__Modern-Texter_88ef14bd/renders/pair_01_frame_13.jpg",
+   "delta": 12,
+   "n_chunks": 2,
+   "sector": "back",
+   "bearing": 198.0,
+   "d_start": 0.3460907531263586
+  },
+  {
+   "key": "Chill-Camping_150d7263__Urban-contemplation-Man-in-a-beige_a68aef15:p06:s10:g18",
+   "placement": "Chill-Camping_150d7263__Urban-contemplation-Man-in-a-beige_a68aef15",
+   "scene": "Chill-Camping_150d7263",
+   "object": "Urban-contemplation-Man-in-a-beige_a68aef15",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Urban-contemplation-Man-in-a-beige_a68aef15/data.json",
+   "pair_idx": 6,
+   "start_frame_idx": 10,
+   "goal_frame_idx": 18,
+   "start_pose": {
+    "position": [
+     -2.6850954930274096,
+     -1.8362004877404647,
+     1.3268769396837183
+    ],
+    "forward": [
+     0.03109179285051817,
+     -0.9976255819652758,
+     -0.061453223070766054
+    ],
+    "up": [
+     0.0019143089935344134,
+     -0.06142339983151865,
+     0.9981099645701443
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -3.37678030333121,
+     -3.0392114423628716,
+     1.860568997864845
+    ],
+    "forward": [
+     0.17257898432359328,
+     -0.98349278970676,
+     -0.054391421792888105
+    ],
+    "up": [
+     0.00940073231796336,
+     -0.05357287556719223,
+     0.9985196909602476
+    ]
+   },
+   "subject_center": [
+    -1.7256054878234863,
+    -8.083647012710571,
+    0.8110581003129482
+   ],
+   "subject_height": 1.719400055706501,
+   "goal_raw": {
+    "pitch_deg": 3.540938006540311,
+    "yaw_deg": -8.171932823745724,
+    "occupancy": 13.0,
+    "body_in_frame_ratio": 65.0,
+    "cam_to_obj_azimuth_deg": 288.0,
+    "cam_to_obj_elevation_deg": -11.0,
+    "object_center_x": 241.0,
+    "object_center_y": 558.0,
+    "bbox_x_offset": 118.0,
+    "bbox_y_offset": 210.0,
+    "frame_idx": 18.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.1263449520439135,
+    "head_in_frame": 1.0,
+    "top_cut_frac": 0.0,
+    "bot_cut_frac": 0.3540946478225475,
+    "visible_frac": 0.6459053521774525
+   },
+   "goal_vec": [
+    13.0,
+    65.0,
+    162.0,
+    -11.0,
+    241.0,
+    558.0,
+    118.0,
+    210.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Urban-contemplation-Man-in-a-beige_a68aef15/renders/pair_06_frame_10.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Chill-Camping_150d7263__Urban-contemplation-Man-in-a-beige_a68aef15/renders/pair_06_frame_18.jpg",
+   "delta": 8,
+   "n_chunks": 1,
+   "sector": "back",
+   "bearing": 162.0,
+   "d_start": 0.23485672742599273
+  },
+  {
+   "key": "Desert-Roadside-Repair-Garage_a1a2b2ac__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797:p06:s13:g28",
+   "placement": "Desert-Roadside-Repair-Garage_a1a2b2ac__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797",
+   "scene": "Desert-Roadside-Repair-Garage_a1a2b2ac",
+   "object": "young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Desert-Roadside-Repair-Garage_a1a2b2ac__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/data.json",
+   "pair_idx": 6,
+   "start_frame_idx": 13,
+   "goal_frame_idx": 28,
+   "start_pose": {
+    "position": [
+     -10.097473798526831,
+     36.7777509751414,
+     -0.3665808890697384
+    ],
+    "forward": [
+     0.9981196603538545,
+     -0.0264040315979975,
+     0.0553170021826761
+    ],
+    "up": [
+     -0.055297656857207285,
+     0.001462831699392931,
+     0.9984688424129828
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -7.762140694730232,
+     38.830113391028505,
+     0.1632706196055274
+    ],
+    "forward": [
+     0.6210501769369441,
+     -0.7723586814144416,
+     -0.13326194119228385
+    ],
+    "up": [
+     0.08350716492669027,
+     -0.1038522911458494,
+     0.9910808519135381
+    ]
+   },
+   "subject_center": [
+    -6.0207154750823975,
+    36.33565330505371,
+    -0.5045104622840881
+   ],
+   "subject_height": 1.7800999879837036,
+   "goal_raw": {
+    "pitch_deg": -3.4702684285742675,
+    "yaw_deg": 3.883054949748954,
+    "occupancy": 32.0,
+    "body_in_frame_ratio": 68.0,
+    "cam_to_obj_azimuth_deg": 305.0,
+    "cam_to_obj_elevation_deg": -12.0,
+    "object_center_x": 640.0,
+    "object_center_y": 384.0,
+    "bbox_x_offset": 163.0,
+    "bbox_y_offset": 384.0,
+    "frame_idx": 28.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.3178902757751587,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.016399083786657585,
+    "bot_cut_frac": 0.2991126268251827,
+    "visible_frac": 0.6844882893881596
+   },
+   "goal_vec": [
+    32.0,
+    68.0,
+    145.0,
+    -12.0,
+    640.0,
+    384.0,
+    163.0,
+    384.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Desert-Roadside-Repair-Garage_a1a2b2ac__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/renders/pair_06_frame_13.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Desert-Roadside-Repair-Garage_a1a2b2ac__young-guy-keeps-_ad9f69fc-9bc7-461f-95c3-1026c06b6797/renders/pair_06_frame_28.jpg",
+   "delta": 15,
+   "n_chunks": 2,
+   "sector": "back-right",
+   "bearing": 145.0,
+   "d_start": 0.8670474725071989
+  },
+  {
+   "key": "Parking_70ae1f27__Bar-Connoisseur_bd5a51d0:p03:s23:g02",
+   "placement": "Parking_70ae1f27__Bar-Connoisseur_bd5a51d0",
+   "scene": "Parking_70ae1f27",
+   "object": "Bar-Connoisseur_bd5a51d0",
+   "data_json": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Bar-Connoisseur_bd5a51d0/data.json",
+   "pair_idx": 3,
+   "start_frame_idx": 23,
+   "goal_frame_idx": 2,
+   "start_pose": {
+    "position": [
+     -9.701412927219828,
+     13.035205525617137,
+     2.1545685113130713
+    ],
+    "forward": [
+     0.25990982903541887,
+     -0.9632535792137351,
+     -0.06774527956033471
+    ],
+    "up": [
+     0.017648208145832685,
+     -0.06540614383946872,
+     0.9977026496393062
+    ]
+   },
+   "goal_pose": {
+    "position": [
+     -7.705573905536955,
+     15.707235653161916,
+     0.6734783317809331
+    ],
+    "forward": [
+     -0.11060206088662768,
+     -0.9905827144216482,
+     -0.08070359357965462
+    ],
+    "up": [
+     -0.008955194314937175,
+     -0.080205202521107,
+     0.9967381451431113
+    ]
+   },
+   "subject_center": [
+    -7.784684181213379,
+    8.737878799438477,
+    0.8065095245838165
+   ],
+   "subject_height": 1.6130189299583435,
+   "goal_raw": {
+    "pitch_deg": -9.028916241086185,
+    "yaw_deg": -5.720543901963304,
+    "occupancy": 11.0,
+    "body_in_frame_ratio": 92.0,
+    "cam_to_obj_azimuth_deg": 269.0,
+    "cam_to_obj_elevation_deg": 1.0,
+    "object_center_x": 324.0,
+    "object_center_y": 212.0,
+    "bbox_x_offset": 99.0,
+    "bbox_y_offset": 212.0,
+    "frame_idx": 2.0,
+    "placement_yaw_deg": 0.0,
+    "in_frame": 1.0,
+    "occupancy_clipped": 0.10683007080841668,
+    "head_in_frame": 0.0,
+    "top_cut_frac": 0.0833042489579027,
+    "bot_cut_frac": 0.0,
+    "visible_frac": 0.9166957510420973
+   },
+   "goal_vec": [
+    11.0,
+    92.0,
+    151.0,
+    1.0,
+    324.0,
+    212.0,
+    99.0,
+    212.0
+   ],
+   "goal_keys": [
+    "occupancy",
+    "body_in_frame_ratio",
+    "subject_bearing_deg",
+    "cam_to_obj_elevation_deg",
+    "object_center_x",
+    "object_center_y",
+    "bbox_x_offset",
+    "bbox_y_offset"
+   ],
+   "start_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Bar-Connoisseur_bd5a51d0/renders/pair_03_frame_23.jpg",
+   "goal_image": "/home/nas_main/jungwooahn/projects/DronePhotographerV12/data/trajectories/v7_stage2_renders_lookat075/Parking_70ae1f27__Bar-Connoisseur_bd5a51d0/renders/pair_03_frame_02.jpg",
+   "delta": 21,
+   "n_chunks": 3,
+   "sector": "back-right",
+   "bearing": 151.0,
+   "d_start": 0.6115122692430659
+  }
+ ]
+}
