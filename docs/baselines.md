@@ -220,6 +220,44 @@ table). Astra's protocol makes terminating the model's job by construction, and 
 context and a scratchpad that the stateless GPT-5 agent has no equivalent of. If those three
 ingredients are what a prompted pilot was missing, this row is where it shows.
 
+### Partial results (NOT the 64-episode row)
+
+Stopped early for handover, so these are a **subset, not a sample**: the episodes that ran are a
+prefix of each shard. Numbers and per-episode rows in `docs/results/astra_partial.json`.
+
+| goal mode | n | mean imp | median | frac+ | d_end | d_best | stops | @0.10 | @0.20 |
+|---|---|---|---|---|---|---|---|---|---|
+| Astra (goal image) | 21 | +0.356 | +0.491 | 0.76 | 0.649 | 0.437 | 52% | **57%** | 57% |
+| Astra (text goal)  | 28 | +0.315 | +0.132 | 0.71 | 0.682 | 0.587 | 61% | 4% | 11% |
+
+The subset is **harder** than the full manifest, not easier: mean `d_start` is 1.006 (image) and
+0.996 (text) against 0.866 for all 64. Sector coverage is uneven, so treat the means as indicative
+and rerun the full 64 before quoting them anywhere.
+
+Three things the partial run already settles:
+
+1. **Astra terminates.** It emits `status: "Complete"` on 52–61% of episodes, against the GPT-5
+   agent's **0/192**. Giving the model a shutter is not what GPT-5 was missing — Astra has the same
+   stop action *and the accumulating context to know it has arrived*, and only then does it use it.
+2. **Image goals are bimodal, and that is the whole story.** 12 of 21 episodes end at
+   `d_end <= 0.10` (mean **0.043**, i.e. essentially the requested frame) and 9 end past 0.20
+   (mean 1.458). **Nothing lands in between.** The `@0.10` rate of 57% is higher than pi0.5 @300k's
+   30%, while the mean improvement is lower — a prompted pilot with a reference image hits the exact
+   frame more often than the trained policy and misses catastrophically the rest of the time.
+3. **A converged Astra trajectory does not drift off.** In all 12 hits `d_end == d_best` to three
+   decimals: it approaches, arrives, and stops — no overshoot. The overshoot in the aggregate
+   (`d_end - d_best = 0.213`) comes entirely from the failures, which wander and mostly never stop
+   (22% vs 75% among hits).
+
+Occlusion explains only part of the failures: 2 of the 9 misses have a near-black goal render
+(the goal camera is inside or behind geometry), which is expected to fail and is left as is. The
+other 7 had a perfectly legible reference and still diverged, so the open question for the full run
+is what distinguishes those from the 12 that converge.
+
+Text goals are the weak mode: 1 of 28 inside 0.10. An NL brief does not pin down *which* azimuth
+around the subject is wanted, and the benchmark is 77% orbit — so this is the same
+underdetermination that caps every text-conditioned row here, not an Astra-specific flaw.
+
 ## The 5D action conventions (read this before adding a baseline)
 
 Every non-learned baseline here emits the legacy 5D action `(dx, dy, dz, dyaw, dpitch)`.

@@ -2,14 +2,16 @@
 # Final-run config (cf. llm_policy_qwen.yaml which uses the local Qwen placeholder).
 #
 #   client = OpenAI(api_key=..., base_url="https://gw.letsur.ai/v1")
-# Key is inlined below (private repo, per owner). Treat as compromised + rotate if the
-# repo is ever made public/shared. `api_key_env` (GATEWAY_API_KEY) overrides it if set.
+# The key is NOT stored here. Export it instead -- the loader reads `api_key` from this
+# file if present, else the env var named by `api_key_env`:
+#     export GATEWAY_API_KEY=sk-...
+# Do not paste a key back into this file: it is tracked by git and would ship in the diff.
 
 backend: api
 
 api:
   api_base: https://gw.letsur.ai/v1
-  api_key: sk-YHQtS3KgsFvI9wPMuUhdwQ
+  # api_key: (intentionally unset -- use the GATEWAY_API_KEY env var)
   api_key_env: GATEWAY_API_KEY
   model: gemini-2.5-flash       # cheap Flash-tier, vision-capable. Do NOT silently
                                 # swap to a premium/preview model (cost note).

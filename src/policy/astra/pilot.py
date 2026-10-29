@@ -133,12 +133,14 @@ class AstraPilot:
         # The blog resends every frame; context cost grows ~quadratically, so keep a window of
         # the most recent frames and let the scratchpad carry anything older.
         self.max_context_frames = int(max_context_frames)
+        # Cost counters are lifetime, not per-episode: `reset()` clears the conversation between
+        # episodes, and zeroing these there made the harness report only the last episode's calls.
+        self.calls = self.failures = 0
         self.reset()
 
     def reset(self):
         self.history: list[dict] = []
         self.scratchpad = ""
-        self.calls = self.failures = 0
 
     def _messages(self, goal, image_path):
         """Rebuild the accumulated context: goal, then every past (frame, command), then now."""
