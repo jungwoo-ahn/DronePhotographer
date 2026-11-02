@@ -1,0 +1,92 @@
+# Drone control (PX4 SITL, velocity setpoints)
+
+`src/drone_control/` is the laptop-side control chain. It is deliberately separate from
+everything else in `src/`: it imports no Blender, no torch, no Cosmos, and runs on a
+laptop that has none of them. The policy stays on the GPU server behind HTTP.
+
+```
+PX4 SITL  ◄──MAVLink UDP──  laptop: supervisor + offboard driver
+                                      │  HTTP over an SSH tunnel, ~1-2 Hz
+                                      ▼
+                            server: scripts/serve_policy.py (GPU)
+```
+
+The server **never commands the drone**. It answers "given this frame, what velocity?"
+and the laptop decides whether to obey. Authority stays where the failsafe is.
+
+## Two facts that shape the whole design
+
+**PX4 drops out of offboard below 2 Hz.** `COM_OF_LOSS_T` fires and `COM_OBL_ACT`
+takes over, and the setpoint stream has to be running *before* offboard is engaged.
+A remote policy at 0.5-2 Hz cannot drive PX4 directly, so the loop runs at two rates:
+a 20 Hz fast lane that decides and sends, and a slow lane that asks the policy.
+
+**MAVSDK resends the last setpoint at 20 Hz on its own.** That satisfies PX4's
+liveness check for free -- and is exactly why this package needs its own watchdog.
+PX4 cannot distinguish "the operator wants this velocity" from "the laptop died and
+MAVSDK is echoing a corpse". Every command therefore carries a TTL, measured from
+when the *laptop* received it (the two machines do not share a clock), and an expired
+command becomes a hover.
+
+## The chain of order
+
+Highest priority first, in `supervisor.Supervisor.decide`:
+
+| # | Source | Action |
+|---|---|---|
+| 1 | E-stop (latched) | hover, then land |
+| 2 | Safety envelope | clamp speed / altitude / geofence |
+| 3 | Stale command | hover -- the policy link is gone |
+| 4 | Policy command | pass through, clamped |
+| 5 | Nothing yet | hover |
+
+Only the supervisor talks to `offboard`, and `OffboardDriver.send` takes a `Decision`
+rather than a `VelocityCommand` so that routing a raw policy command straight to the
+airframe is awkward to write by accident.
+
+A single failed HTTP call is *not* a stop: `submit(None)` is ignored and the previous
+command keeps flying until its TTL runs out. Repeated failures stop the drone.
+
+## Conventions: three of four axes flip
+
+Ours (`VelocityCommand`, matching `src/policy/astra/pilot.py`) against MAVSDK's
+`VelocityBodyYawspeed`:
+
+| ours | MAVSDK | convert |
+|---|---|---|
+| `vx` forward+ | `forward_m_s` forward+ | — |
+| `vy` **left**+ | `right_m_s` **right**+ | negate |
+| `vz` **up**+ | `down_m_s` **down**+ | negate |
+| `yaw_rate` **left**+ (CCW) | `yawspeed_deg_s` **clockwise**+ | negate |
+
+All of it lives in `conventions.to_mavsdk_body` and nowhere else. This repo has had an
+inverted yaw in three separate places before, so the boundary gets one named function
+and its own tests.
+
+## Running it
+
+```bash
+# terminal 1 -- PX4 SITL
+make px4_sitl gz_x500
+
+# terminal 2 -- laptop, stub source, no policy needed
+pip install mavsdk
+python scripts/run_sitl_pilot.py --source square --duration 40
+
+# with the policy server
+python scripts/serve_policy.py --port 8777            # on the server
+ssh -N -L 8777:localhost:8777 <user>@<server>         # on the laptop
+python scripts/run_sitl_pilot.py --source policy
+```
+
+Ctrl-C is an e-stop: hover, leave offboard, land -- rather than dropping the link and
+letting PX4's failsafe decide.
+
+## Status
+
+- Control chain, safety envelope, watchdog, sources, loop: **done**, 28 tests, no
+  MAVSDK or network needed to run them.
+- `scripts/serve_policy.py` is a **stub** (a slow left orbit). The real path raises
+  rather than silently returning stub values.
+- Not yet done: consolidating the cosmos3 checkpoint (8 FSDP `.distcp` shards, 85 GB)
+  into a loadable state dict, and the camera feed from SITL into the policy request.
