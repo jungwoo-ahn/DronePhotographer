@@ -20,7 +20,8 @@ from .supervisor import Supervisor
 
 
 async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
-              duration_s: float | None = None, log=print, clock=time.monotonic):
+              duration_s: float | None = None, log=print, clock=time.monotonic,
+              ui=None, camera=None, client=None):
     """Fly until `duration_s` elapses, the source is exhausted, or an e-stop lands.
 
     `driver` is an `OffboardDriver` (or anything with the same async surface, which is
@@ -59,6 +60,16 @@ async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
 
         decision = supervisor.decide(state)
         await driver.send(decision)
+
+        if ui is not None:
+            # Publishing is a dict build under a lock -- it must never be able to slow
+            # the loop below PX4's 2 Hz floor, so a UI fault is swallowed, not raised.
+            try:
+                ui.publish(decision=decision, state=state, camera=camera, client=client,
+                           source_name=getattr(source, "name", ""), now=now,
+                           started_at=t0)
+            except Exception as e:
+                log(f"[loop] ui publish failed ({e}); continuing")
 
         # Log transitions, not every tick -- 20 Hz of identical lines hides the event
         # you actually care about.

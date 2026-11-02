@@ -28,6 +28,7 @@ from src.drone_control.policy_client import PolicyClient
 from src.drone_control.safety import SafetyLimits
 from src.drone_control.sources import HoverSource, SquareSource, VisionPolicySource
 from src.drone_control.supervisor import Supervisor
+from src.drone_control.ui import UiServer, UiState
 
 
 def build_source(a):
@@ -62,8 +63,15 @@ async def main_async(a):
     await driver.start()
     print(f"[pilot] offboard engaged; source={a.source}")
     source, cam = build_source(a)
+    ui = uisrv = None
+    if a.ui:
+        ui = UiState(sup.limits)
+        uisrv = UiServer(ui, sup, port=a.ui_port).start()
+        print(f"[pilot] panel at {uisrv.url}")
+    client = getattr(source, "client", None)
     try:
-        stats = await run(driver, sup, source, policy_hz=a.policy_hz, duration_s=a.duration)
+        stats = await run(driver, sup, source, policy_hz=a.policy_hz, duration_s=a.duration,
+                          ui=ui, camera=cam, client=client)
         print(f"[pilot] {stats}")
         if cam is not None:
             print(f"[pilot] camera {cam.stats}")
@@ -75,6 +83,8 @@ async def main_async(a):
         await driver.stop_and_land()
         if cam is not None:
             cam.stop()
+        if uisrv is not None:
+            uisrv.stop()
 
 
 def main():
@@ -96,6 +106,8 @@ def main():
     p.add_argument("--max-frame-age", type=float, default=0.7, dest="max_frame_age",
                    help="older than this and the policy is not asked -> hover")
     p.add_argument("--brief", default="", help="the shot to achieve (text goal)")
+    p.add_argument("--ui", action="store_true", help="serve the ground-station panel on localhost")
+    p.add_argument("--ui-port", type=int, default=8080, dest="ui_port")
     a = p.parse_args()
     try:
         asyncio.run(main_async(a))

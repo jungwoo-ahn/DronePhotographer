@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drone Pilot</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>Drone Pilot <small id="src"></small></h1>
+  <div class="links">
+    <div class="pill off" id="l-mavlink"><i class="dot"></i><b>MAVLINK</b><span></span></div>
+    <div class="pill off" id="l-video"><i class="dot"></i><b>VIDEO</b><span></span></div>
+    <div class="pill off" id="l-policy"><i class="dot"></i><b>POLICY</b><span></span></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="estop" id="estop">E-STOP</button>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Chain of order</h2>
+    <div id="ladder">
+      <div class="rung above"><span class="n">—</span><span>RC transmitter</span><span class="tag">outranks all</span></div>
+      <div class="rung above"><span class="n">—</span><span>QGroundControl mode change</span><span class="tag">leaves offboard</span></div>
+      <div class="rung danger" data-rung="estop"><span class="n">1</span><span>E-stop (latched)</span><span class="tag">hover, then land</span></div>
+      <div class="rung warn" data-rung="envelope"><span class="n">2</span><span>Safety envelope</span><span class="tag">clamp</span></div>
+      <div class="rung warn" data-rung="stale"><span class="n">3</span><span>Command stale</span><span class="tag">link lost → hover</span></div>
+      <div class="rung" data-rung="policy"><span class="n">4</span><span>Policy command</span><span class="tag">pass through</span></div>
+      <div class="rung" data-rung="idle"><span class="n">5</span><span>Hover</span><span class="tag">default</span></div>
+    </div>
+    <div class="reason" id="reason">waiting for the control loop…</div>
+  </section>
+
+  <section class="card">
+    <h2>Camera <span style="color:var(--faint)">— own wireless link</span></h2>
+    <div class="cam">
+      <img id="frame" alt="">
+      <div class="thirds">
+        <div class="v" style="left:33.33%"></div><div class="v" style="left:66.66%"></div>
+        <div class="h" style="top:33.33%"></div><div class="h" style="top:66.66%"></div>
+      </div>
+      <div class="overlay" id="camage"></div>
+      <div class="nosig" id="nosig">NO SIGNAL</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Command</h2>
+    <table class="axes">
+      <thead><tr><th>axis</th><th>ours</th><th></th><th>→ mavsdk</th></tr></thead>
+      <tbody id="axes"></tbody>
+    </table>
+    <div class="reason" id="clamped" hidden></div>
+  </section>
+
+  <section class="card">
+    <h2>Envelope</h2>
+    <div id="gauges"></div>
+    <div class="reason" id="rate"></div>
+  </section>
+
+  <section class="card" style="grid-column:1/-1">
+    <h2>Events</h2>
+    <ul class="log" id="log"></ul>
+  </section>
+</main>
+
+<footer id="foot">localhost only · the panel observes the supervisor; its only command is the e-stop</footer>
+<script src="/app.js"></script>
+</body>
+</html>

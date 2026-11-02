@@ -353,3 +353,144 @@ def test_vision_source_returns_none_when_policy_fails():
         assert src.next_command(None, 0.0) is None
     finally:
         S.encode_jpeg = orig
+
+
+# --- the ground-station panel ----------------------------------------------------
+import json as _json                                              # noqa: E402
+import urllib.request as _url                                     # noqa: E402
+
+from src.drone_control.ui import UiServer, UiState                # noqa: E402
+
+
+def _decide(sup, st):
+    return sup.decide(st)
+
+
+def test_ui_snapshot_shows_both_frames_so_a_sign_flip_is_visible():
+    t = [0.0]
+    sup = Supervisor(clock=lambda: t[0])
+    sup.submit(VelocityCommand(vy=1.0, yaw_rate=12.0))
+    st = VehicleState(altitude=5.0, north=3.0, east=4.0)
+    ui = UiState(SafetyLimits())
+    ui.publish(decision=_decide(sup, st), state=st, now=1.0, started_at=0.0)
+    s = ui.snapshot()
+    assert s["command"]["vy"] == 1.0 and s["sent"]["right"] == -1.0
+    assert s["command"]["yaw_rate"] == 12.0 and s["sent"]["yawspeed"] == -12.0
+    assert s["telemetry"]["radius"] == pytest.approx(5.0)
+
+
+def test_ui_reports_the_active_rung():
+    t = [0.0]
+    st = VehicleState(altitude=5.0)
+    sup = Supervisor(SafetyLimits(max_horizontal_speed=1.0), clock=lambda: t[0])
+    ui = UiState(SafetyLimits(max_horizontal_speed=1.0))
+
+    ui.publish(decision=_decide(sup, st), state=st, now=0.0)
+    assert ui.snapshot()["rung"] == "idle"
+
+    sup.submit(VelocityCommand(vx=9.0, ttl_s=1.0))
+    ui.publish(decision=_decide(sup, st), state=st, now=0.1)
+    assert ui.snapshot()["rung"] == "envelope"
+
+    t[0] = 5.0
+    ui.publish(decision=_decide(sup, st), state=st, now=5.0)
+    assert ui.snapshot()["rung"] == "stale"
+
+    sup.estop()
+    ui.publish(decision=_decide(sup, st), state=st, now=5.1)
+    assert ui.snapshot()["rung"] == "estop"
+
+
+def test_ui_logs_only_transitions_not_every_tick():
+    t = [0.0]
+    sup = Supervisor(clock=lambda: t[0])
+    st = VehicleState(altitude=5.0)
+    ui = UiState(SafetyLimits())
+    for i in range(10):
+        ui.publish(decision=_decide(sup, st), state=st, now=float(i))
+    assert len(ui.snapshot()["events"]) == 1      # ten identical ticks, one event
+
+
+def _serve(sup, ui, port):
+    srv = UiServer(ui, sup, port=port).start()
+    return srv
+
+
+def test_ui_server_serves_assets_and_state():
+    t = [0.0]
+    sup = Supervisor(clock=lambda: t[0])
+    st = VehicleState(altitude=5.0)
+    ui = UiState(SafetyLimits())
+    ui.publish(decision=_decide(sup, st), state=st, now=0.0)
+    srv = _serve(sup, ui, 8123)
+    try:
+        for path, ctype in (("/", "text/html"), ("/style.css", "text/css"),
+                            ("/app.js", "application/javascript")):
+            r = _url.urlopen(f"http://127.0.0.1:8123{path}", timeout=5)
+            assert r.status == 200 and r.headers["Content-Type"] == ctype
+            assert len(r.read()) > 100
+        s = _json.load(_url.urlopen("http://127.0.0.1:8123/api/state", timeout=5))
+        assert s["rung"] == "idle"
+    finally:
+        srv.stop()
+
+
+def test_ui_estop_endpoint_actually_stops_the_supervisor():
+    t = [0.0]
+    sup = Supervisor(clock=lambda: t[0])
+    sup.submit(VelocityCommand(vx=2.0))
+    ui = UiState(SafetyLimits())
+    srv = _serve(sup, ui, 8124)
+    try:
+        _url.urlopen(_url.Request("http://127.0.0.1:8124/api/estop", method="POST"), timeout=5)
+        d = sup.decide(VehicleState(altitude=5.0))
+        assert d.estopped and d.command.is_hover()
+        _url.urlopen(_url.Request("http://127.0.0.1:8124/api/clear_estop", method="POST"),
+                     timeout=5)
+        assert not sup.decide(VehicleState(altitude=5.0)).estopped
+    finally:
+        srv.stop()
+
+
+def test_ui_offers_no_way_to_command_the_drone():
+    """The panel observes the chain of order; it must not become another rung in it."""
+    t = [0.0]
+    sup = Supervisor(clock=lambda: t[0])
+    ui = UiState(SafetyLimits())
+    srv = _serve(sup, ui, 8125)
+    try:
+        req = _url.Request("http://127.0.0.1:8125/api/velocity", method="POST", data=b"{}")
+        with pytest.raises(Exception) as e:
+            _url.urlopen(req, timeout=5)
+        assert "404" in str(e.value)
+    finally:
+        srv.stop()
+
+
+def test_ui_frame_endpoint_returns_204_without_a_camera():
+    t = [0.0]
+    sup = Supervisor(clock=lambda: t[0])
+    ui = UiState(SafetyLimits())
+    srv = _serve(sup, ui, 8126)
+    try:
+        r = _url.urlopen("http://127.0.0.1:8126/api/frame.jpg", timeout=5)
+        assert r.status == 204
+    finally:
+        srv.stop()
+
+
+def test_ui_failure_cannot_stop_the_control_loop():
+    """A broken panel must never be able to ground the aircraft."""
+    class Exploding:
+        def publish(self, **kw):
+            raise RuntimeError("ui blew up")
+    drv = FakeDriver()
+    t = [0.0]
+    def clock():
+        t[0] += 0.05
+        return t[0]
+    sup = Supervisor(clock=lambda: t[0])
+    asyncio.run(run(drv, sup, ScriptedSource([(10.0, VelocityCommand(vx=1.0))]),
+                    policy_hz=5.0, duration_s=0.5, log=lambda *a: None,
+                    clock=clock, ui=Exploding()))
+    assert drv.sent and any(s[0] > 0 for s in drv.sent)   # still flew

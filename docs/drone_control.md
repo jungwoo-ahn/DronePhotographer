@@ -143,6 +143,43 @@ QGroundControl can stay open throughout; it uses a different port.
 Ctrl-C is an e-stop: hover, leave offboard, land -- rather than dropping the link and
 letting PX4's failsafe decide.
 
+## The panel
+
+`python scripts/run_sitl_pilot.py --source square --ui` serves a ground station on
+`http://127.0.0.1:8080`. It is stdlib-only (no Flask, no node) and binds to loopback,
+because the page can stop the aircraft and should not be reachable from the drone's
+own wireless network.
+
+It **observes the supervisor and is not another rung in the chain of order**: the only
+state-changing routes are `/api/estop` and `/api/clear_estop`, both of which can only
+make the aircraft safer. There is deliberately no "set velocity" endpoint, and a test
+asserts that asking for one 404s.
+
+What it shows, and why each panel earns its place:
+
+- **Three link pills** — MAVLINK / VIDEO / POLICY, the three independent failure
+  domains. Video shows frame age in ms; policy shows calls and failures. This is the
+  one view where "which link died?" is answerable at a glance.
+- **Chain of order** — the live ladder with the active rung lit, including the two
+  rungs *above* this software (RC, QGC) greyed out, so the panel never implies it has
+  more authority than it does.
+- **Command, in both frames** — ours beside what MAVSDK was handed, with ⇄ on the
+  three axes that invert. The bars grow from the centre, so a sign error appears as a
+  bar on the wrong side rather than as a crash.
+- **Envelope gauges** — speed, altitude, distance from home against their limits,
+  amber at 80%.
+- **Camera** with a rule-of-thirds reticle (the policy is scored on where the subject
+  sits in frame) and a frame-age badge; it says NO SIGNAL and names the consequence
+  ("policy not asked") rather than freezing on a stale picture.
+- **Event log** — reason transitions only, not 20 Hz of identical lines.
+
+Space bar is the keyboard e-stop; the mouse is the slow path when something is going
+wrong. If the pilot process dies the footer says so, because a panel that silently
+freezes looks identical to a drone that is holding position.
+
+A UI fault cannot ground the aircraft: `publish()` is wrapped, and a test runs the loop
+with a panel that raises on every tick and asserts the drone still flies.
+
 ## Status
 
 - Control chain, safety envelope, watchdog, sources, loop: **done**, 28 tests, no
@@ -151,5 +188,7 @@ letting PX4's failsafe decide.
   rather than silently returning stub values.
 - Camera ingest on its own link, latest-frame-only, with a staleness gate: **done**,
   tested against a fake capture (no OpenCV or camera needed).
+- Ground-station panel (`--ui`): **done**, stdlib-only, 8 tests including "the UI
+  offers no way to command the drone" and "a broken UI cannot stop the loop".
 - Not yet done: consolidating the cosmos3 checkpoint (8 FSDP `.distcp` shards, 85 GB)
   into a loadable state dict; and flying it, which needs PX4 on the laptop.
