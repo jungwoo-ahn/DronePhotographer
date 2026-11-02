@@ -252,3 +252,104 @@ def test_loop_treats_telemetry_failure_as_unsafe():
     asyncio.run(run(drv, sup, ScriptedSource([(10.0, VelocityCommand(vx=5.0))]),
                     policy_hz=5.0, duration_s=0.5, log=lambda *a: None, clock=clock))
     assert all(s[0] == 0.0 for s in drv.sent)
+
+
+# --- the camera channel (second, independent link) -------------------------------
+from src.drone_control.camera import CameraStream, Frame          # noqa: E402
+from src.drone_control.sources import VisionPolicySource          # noqa: E402
+
+
+class FakeCapture:
+    """Minimal cv2.VideoCapture stand-in."""
+    def __init__(self, frames, fail_after=None):
+        self.frames, self.i, self.fail_after = frames, 0, fail_after
+        self.released = False
+
+    def isOpened(self): return True
+
+    def read(self):
+        if self.fail_after is not None and self.i >= self.fail_after:
+            return False, None
+        if self.i >= len(self.frames):
+            time.sleep(0.01)
+            return True, self.frames[-1]
+        f = self.frames[self.i]; self.i += 1
+        return True, f
+
+    def release(self): self.released = True
+
+
+def test_camera_keeps_only_the_newest_frame():
+    import time as _t
+    cam = CameraStream("x", open_capture=lambda u: FakeCapture(["a", "b", "c"]))
+    cam.start()
+    deadline = _t.time() + 2.0
+    while _t.time() < deadline and cam.frames_read < 3:
+        _t.sleep(0.01)
+    cam.stop()
+    assert cam.latest().image == "c"          # not "a" -- no backlog
+    assert cam.frames_read >= 3
+
+
+def test_stale_frame_is_withheld():
+    cam = CameraStream("x", max_age_s=0.5, open_capture=lambda u: FakeCapture(["a"]))
+    cam._frame = Frame(image="a", seq=1, received_at=100.0)
+    assert cam.fresh_frame(now=100.2) is not None
+    assert cam.fresh_frame(now=101.0) is None
+
+
+def test_camera_reconnects_when_the_stream_drops():
+    import time as _t
+    cam = CameraStream("x", reconnect_delay_s=0.01,
+                       open_capture=lambda u: FakeCapture(["a"], fail_after=1))
+    cam.start()
+    deadline = _t.time() + 2.0
+    while _t.time() < deadline and cam.reconnects < 2:
+        _t.sleep(0.01)
+    cam.stop()
+    assert cam.reconnects >= 2
+
+
+class _FixedCam:
+    def __init__(self, frame): self._f = frame
+    def fresh_frame(self, now=None): return self._f
+
+
+def test_vision_source_withholds_command_when_video_is_stale():
+    """A dead camera must stop the drone, not feed the policy a photo of the past."""
+    class Client:
+        def request_command(self, *a, **k):
+            raise AssertionError("must not call the policy without a fresh frame")
+    src = VisionPolicySource(_FixedCam(None), Client())
+    assert src.next_command(None, 0.0) is None
+    assert src.skipped_stale_frame == 1
+
+
+def test_vision_source_passes_frame_through_to_policy(monkeypatch):
+    import src.drone_control.sources as S
+    monkeypatch.setattr(S, "encode_jpeg", lambda img, q=80: b"jpegbytes")
+    seen = {}
+
+    class Client:
+        def request_command(self, jpeg, state, goal):
+            seen["jpeg"], seen["goal"] = jpeg, goal
+            return VelocityCommand(vx=1.0, yaw_rate=5.0, note="ok")
+
+    src = VisionPolicySource(_FixedCam(Frame(image="img", seq=42)), Client(),
+                             goal={"brief": "orbit"})
+    cmd = src.next_command(None, 0.0)
+    assert seen["jpeg"] == b"jpegbytes" and seen["goal"] == {"brief": "orbit"}
+    assert cmd.vx == 1.0 and cmd.seq == 42 and cmd.source == "vision-policy"
+
+
+def test_vision_source_returns_none_when_policy_fails():
+    class Dead:
+        def request_command(self, *a, **k): return None
+    import src.drone_control.sources as S
+    orig = S.encode_jpeg
+    S.encode_jpeg = lambda img, q=80: b"x"
+    try:
+        src = VisionPolicySource(_FixedCam(Frame(image="i", seq=1)), Dead())
+        assert src.next_command(None, 0.0) is None
+    finally:
+        S.encode_jpeg = orig

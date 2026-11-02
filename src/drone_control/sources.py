@@ -11,6 +11,7 @@ import math
 import time
 from typing import Protocol
 
+from .camera import CameraStream, encode_jpeg
 from .commands import VelocityCommand
 
 
@@ -75,3 +76,44 @@ class ScriptedSource:
                 return cmd
             t -= dur
         return None     # exhausted -> let it expire into hover
+
+
+class VisionPolicySource:
+    """Camera frame + goal -> the policy server -> a velocity command.
+
+    This is where the two remote links meet, and it enforces the rule that neither may
+    be trusted on its own:
+
+    * **No fresh frame -> no command.** Returning `None` lets the previous command age
+      out through the supervisor's TTL and the drone hovers. The alternative -- sending
+      the policy a stale image -- gets back a confident command computed from a view the
+      drone has already flown past, which is far more dangerous than stopping.
+    * **No reply -> no command.** `PolicyClient` already returns `None` on any failure.
+
+    So one TTL mechanism covers both failure domains, rather than two half-watchdogs.
+    """
+    name = "vision-policy"
+
+    def __init__(self, camera: CameraStream, client, goal: dict | None = None,
+                 jpeg_quality: int = 80):
+        self.camera = camera
+        self.client = client
+        self.goal = goal or {}
+        self.jpeg_quality = jpeg_quality
+        self.skipped_stale_frame = 0
+
+    def next_command(self, state, now: float) -> VelocityCommand | None:
+        frame = self.camera.fresh_frame(now)
+        if frame is None:
+            self.skipped_stale_frame += 1
+            return None
+        jpeg = encode_jpeg(frame.image, self.jpeg_quality)
+        if jpeg is None:
+            self.skipped_stale_frame += 1
+            return None
+        cmd = self.client.request_command(jpeg, state, self.goal)
+        if cmd is None:
+            return None
+        return VelocityCommand(vx=cmd.vx, vy=cmd.vy, vz=cmd.vz, yaw_rate=cmd.yaw_rate,
+                               ttl_s=cmd.ttl_s, source=self.name, seq=frame.seq,
+                               note=cmd.note)

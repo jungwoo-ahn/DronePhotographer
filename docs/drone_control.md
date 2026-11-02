@@ -63,6 +63,63 @@ All of it lives in `conventions.to_mavsdk_body` and nowhere else. This repo has 
 inverted yaw in three separate places before, so the boundary gets one named function
 and its own tests.
 
+## The camera is a separate link
+
+The image does **not** come down the MAVLink channel. The camera sits behind its own
+wireless router and streams RTSP/UDP straight to the laptop, so there are now three
+links that fail independently:
+
+```
+PX4   ──MAVLink UDP 14540──►  laptop  ◄──RTSP/UDP──  camera (own wireless router)
+                                 │
+                                 └──HTTP over SSH──►  policy server
+```
+
+None of them can detect another's failure, and the video link is the nastiest,
+because its failure is **invisible**: frames simply stop arriving while the last
+decoded image sits in memory looking perfectly valid. Acting on it means flying by a
+photograph of where the drone used to be — at 3 m/s, a 2 s-stale frame is 6 m of lie.
+
+So `Frame` carries a receive time and `--max-frame-age` (default 0.7 s) gates it, and
+`VisionPolicySource` **refuses to call the policy at all without a fresh frame**. It
+returns `None`, the last command ages out through the TTL, and the drone hovers. One
+watchdog mechanism covers both remote links instead of two half-watchdogs.
+
+**Latest-frame-only.** OpenCV queues frames internally, so reading sequentially from a
+~2 Hz loop hands you an ever-growing backlog — the stream plays in slow motion and
+latency climbs without bound. `CameraStream` runs a reader thread flat out and keeps
+only the newest frame, deliberately discarding everything in between; the GStreamer
+path pushes the same idea down into the pipeline with `drop=true max-buffers=1`.
+JPEG encoding happens on demand at policy rate, not at video rate.
+
+## Relationship with QGroundControl
+
+**They coexist — different UDP ports, by design.** PX4 SITL publishes to both:
+
+| Port | Who |
+|---|---|
+| 14550 | QGroundControl |
+| 14540 | offboard APIs (MAVSDK — us) |
+| 4560 (TCP) | the simulator itself |
+
+Run QGC and `run_sitl_pilot.py` at the same time; neither needs to know about the
+other. On a **real** airframe with a single telemetry radio there is only one link,
+and you need `mavlink-router` (or MAVSDK's passthrough) to fan it out to both — that
+is a real deployment difference from SITL, not a detail.
+
+QGC is not a passive viewer. It sits **above** this package in the chain of order:
+
+- Switching flight mode in QGC (Hold, Position, RTL) **takes the aircraft out of
+  offboard**, and our setpoints stop having any effect. That is the intended
+  human override and the real top of the chain — above the software e-stop, which
+  can only act if our process is still alive.
+- An RC transmitter, where present, outranks QGC in turn.
+
+So the full order is: **RC → QGC → safety envelope → our e-stop → staleness → policy.**
+This package's authority begins only after everything above it has declined to
+intervene. Use QGC as the safety pilot while bringing the loop up: watch the mode
+chip, and if anything looks wrong switch to Hold rather than trying to Ctrl-C in time.
+
 ## Running it
 
 ```bash
@@ -73,11 +130,15 @@ make px4_sitl gz_x500
 pip install mavsdk
 python scripts/run_sitl_pilot.py --source square --duration 40
 
-# with the policy server
+# with the policy server and the camera
 python scripts/serve_policy.py --port 8777            # on the server
 ssh -N -L 8777:localhost:8777 <user>@<server>         # on the laptop
-python scripts/run_sitl_pilot.py --source policy
+python scripts/run_sitl_pilot.py --source policy \
+    --camera-url rtsp://192.168.1.50:554/live --brief "orbit left, subject centred"
 ```
+
+`--source policy` without `--camera-url` is refused rather than flown blind.
+QGroundControl can stay open throughout; it uses a different port.
 
 Ctrl-C is an e-stop: hover, leave offboard, land -- rather than dropping the link and
 letting PX4's failsafe decide.
@@ -88,5 +149,7 @@ letting PX4's failsafe decide.
   MAVSDK or network needed to run them.
 - `scripts/serve_policy.py` is a **stub** (a slow left orbit). The real path raises
   rather than silently returning stub values.
+- Camera ingest on its own link, latest-frame-only, with a staleness gate: **done**,
+  tested against a fake capture (no OpenCV or camera needed).
 - Not yet done: consolidating the cosmos3 checkpoint (8 FSDP `.distcp` shards, 85 GB)
-  into a loadable state dict, and the camera feed from SITL into the policy request.
+  into a loadable state dict; and flying it, which needs PX4 on the laptop.

@@ -21,20 +21,29 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from src.drone_control.camera import CameraStream
 from src.drone_control.loop import run
 from src.drone_control.offboard import OffboardDriver
 from src.drone_control.policy_client import PolicyClient
 from src.drone_control.safety import SafetyLimits
-from src.drone_control.sources import HoverSource, SquareSource
+from src.drone_control.sources import HoverSource, SquareSource, VisionPolicySource
 from src.drone_control.supervisor import Supervisor
 
 
 def build_source(a):
+    """Returns (source, camera-or-None). The camera is a separate link from MAVLink."""
     if a.source == "square":
-        return SquareSource(speed=a.speed)
+        return SquareSource(speed=a.speed), None
     if a.source == "hover":
-        return HoverSource()
-    return PolicyClient(url=a.policy_url, timeout_s=a.policy_timeout)
+        return HoverSource(), None
+    client = PolicyClient(url=a.policy_url, timeout_s=a.policy_timeout)
+    if not a.camera_url:
+        # Without a camera the policy has nothing to look at. Refuse rather than fly
+        # a vision policy blind.
+        raise SystemExit("--source policy needs --camera-url (the camera is on its own "
+                         "wireless link, not the MAVLink channel)")
+    cam = CameraStream(a.camera_url, max_age_s=a.max_frame_age).start()
+    return VisionPolicySource(cam, client, goal={"brief": a.brief}), cam
 
 
 async def main_async(a):
@@ -52,16 +61,20 @@ async def main_async(a):
                                   max_radius=a.max_radius))
     await driver.start()
     print(f"[pilot] offboard engaged; source={a.source}")
+    source, cam = build_source(a)
     try:
-        stats = await run(driver, sup, build_source(a),
-                          policy_hz=a.policy_hz, duration_s=a.duration)
+        stats = await run(driver, sup, source, policy_hz=a.policy_hz, duration_s=a.duration)
         print(f"[pilot] {stats}")
+        if cam is not None:
+            print(f"[pilot] camera {cam.stats}")
     except KeyboardInterrupt:
         print("\n[pilot] Ctrl-C -> e-stop")
         sup.estop()
     finally:
         print("[pilot] landing")
         await driver.stop_and_land()
+        if cam is not None:
+            cam.stop()
 
 
 def main():
@@ -77,6 +90,12 @@ def main():
     p.add_argument("--max-altitude", type=float, default=30.0, dest="max_altitude")
     p.add_argument("--max-radius", type=float, default=50.0, dest="max_radius")
     p.add_argument("--duration", type=float, default=40.0)
+    p.add_argument("--camera-url", default=None, dest="camera_url",
+                   help="RTSP/UDP URL of the camera on its own wireless link, "
+                        "e.g. rtsp://192.168.1.50:554/live")
+    p.add_argument("--max-frame-age", type=float, default=0.7, dest="max_frame_age",
+                   help="older than this and the policy is not asked -> hover")
+    p.add_argument("--brief", default="", help="the shot to achieve (text goal)")
     a = p.parse_args()
     try:
         asyncio.run(main_async(a))
