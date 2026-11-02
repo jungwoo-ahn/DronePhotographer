@@ -15,6 +15,41 @@ from pathlib import Path
 
 from src.common.goal_space import RENDER_HEIGHT, RENDER_WIDTH
 
+# How a rollout frame is rendered, as `options` merged into the run_info.
+#
+# "legacy" is what every closed-loop number before 2026-10-03 was measured with: BlenderDrone's
+# defaults over the scene's OWN world and camera -- 64 samples, no denoise, transparent bounces
+# forced to 4, the .blend camera's depth of field. It is NOT the look the policies trained on.
+# The v7 training frames came from `scripts/v7_reference/v7_sample_pairs_smoke.
+# configure_renderer`: a new camera, 32 samples, denoised, the scene's world replaced by a Nishita
+# sky at 0.1. Rendering the same pose both ways differed by a mean 24-101 /255 per held-out scene
+# (Snowy-Mountain blown out white, basement walls black, Modern-Office 62x the pixel noise).
+#
+# "v7" reproduces the training frame to MAE 0.6-4.6 in four of the six scenes checked
+# (`scripts/check_render_parity.py`). Not all: Modern-Warehouse stays ~31 off with no sky
+# strength explaining it (0 / 0.1 / 0.3 give 85 / 31 / 65), and Parking_70ae1f27 segfaults
+# Cycles either way. So check parity for the poses you render rather than assuming it.
+#
+# `v7_renderer` is not a BlenderDrone option; it takes effect only through
+# `scripts/blender_render_v7.py`, which `renderer_kwargs` selects. Kept as a profile rather than
+# a new default so the legacy numbers stay reproducible until they are re-measured.
+RENDER_PROFILES: dict[str, dict] = {
+    "legacy": {},
+    "v7": {"samples": 32, "sky_strength": 0.1, "v7_renderer": True},
+}
+
+
+def renderer_kwargs(profile: str, *, persistent: bool) -> dict:
+    """Constructor kwargs that make a `src.common.blender_env` renderer honour `profile`.
+
+    The legacy profile needs nothing. The v7 one needs the V12 wrapper in place of the shared
+    repo's script, or BlenderDrone silently ignores the option and renders legacy-with-a-sky.
+    """
+    if not RENDER_PROFILES[profile].get("v7_renderer"):
+        return {}
+    script = str(Path(__file__).resolve().parents[2] / "scripts" / "blender_render_v7.py")
+    return {"server_script": script} if persistent else {"render_script": script}
+
 
 def _reduced_aspect() -> tuple[int, int]:
     """The training render aspect in lowest terms (1024x768 -> 4:3)."""
@@ -127,4 +162,5 @@ def write_run_info(
     return str(path)
 
 
-__all__ = ["write_run_info", "render_resolution", "to_policy_frame"]
+__all__ = ["write_run_info", "render_resolution", "to_policy_frame", "RENDER_PROFILES",
+           "renderer_kwargs"]

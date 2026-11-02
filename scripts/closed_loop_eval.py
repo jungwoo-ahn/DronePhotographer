@@ -146,11 +146,33 @@ ap.add_argument("--limit", type=int, default=0,
                      "otherwise silently truncate a 64-episode manifest.")
 ap.add_argument("--policy-config", default="",
                 help="DP: the training run's config.yaml. autophoto: the aesthetic ResNet .pt")
+ap.add_argument("--goal-channel", default="prompt", choices=["prompt", "panel", "caption"],
+                help="how the goal reaches a `--policy cosmos` checkpoint, and it MUST match "
+                     "what that checkpoint was trained on. 'prompt' is the structured sentence "
+                     "(v5, v6, the no-vision ablation); 'panel' concatenates the goal frame to "
+                     "the right of the observation (camera_policy_nano_v6_goalimg); 'caption' "
+                     "feeds the VLM caption of the goal frame as the text "
+                     "(camera_policy_nano_v6_caption). A mismatch does not raise -- it quietly "
+                     "scores a policy on a goal it was never taught to read.")
+ap.add_argument("--captions", default="",
+                help="with --goal-channel caption: JSON from scripts/caption_goal_frames.py "
+                     "covering every goal frame in the manifest.")
 ap.add_argument("--render-res", type=int, nargs=2, default=None, metavar=("W", "H"),
                 help="Blender render size. Default: the smallest 4:3 multiple that squashes to "
                      "--image-size (344x258 for 256). For a cross-policy comparison use 1024 768, "
                      "the training-native render every policy here was exported from, so each "
                      "adapter's squash reproduces its own training frames exactly.")
+ap.add_argument("--goal-override", default="",
+                help="JSON {goals: {episode_key: {goal_vec, goal_crop}}} (scripts/build_module2_goals.py): "
+                     "the goal the POLICY is told, replacing the target's ground-truth profile, while "
+                     "scoring stays against the true target. How a goal read from the target photograph "
+                     "(Module 2) is measured against the ground-truth row.")
+ap.add_argument("--render-profile", default="legacy", choices=("legacy", "v7"),
+                help="'v7' renders the way the training frames were rendered (32 samples, "
+                     "denoised, Nishita sky 0.1). 'legacy' keeps each scene's own world and "
+                     "denoise setting, which is what every number before 2026-10-03 used and "
+                     "differs from the training frame of the same pose by 24-101 /255 per "
+                     "held-out scene. See src.common.run_info.RENDER_PROFILES.")
 args = ap.parse_args()
 
 
@@ -172,7 +194,7 @@ def _repo_path(p: str) -> str:
 
 
 for _flag in ("out", "root", "val_scenes", "episodes_from", "write_episodes", "checkpoint",
-              "policy_config"):
+              "policy_config", "goal_override"):
     setattr(args, _flag, _repo_path(getattr(args, _flag)))
 
 # ---------------------------------------------------------------- policy
@@ -193,6 +215,7 @@ from src.common.goal_space import (  # noqa: E402
 )
 from src.common.dataset_base import arrival_step  # noqa: E402
 from src.common.reward import CameraIntrinsics, pose_to_geometry, _geometry_distance  # noqa: E402
+from src.common.run_info import RENDER_PROFILES, renderer_kwargs  # noqa: E402
 from src.common.run_info import write_run_info as _write_run_info  # noqa: E402
 
 # Mirrors src/data/cosmos_camera_dataset.CAMERA_ACTION_DIM (see DEFAULT_VAL_SCENES above).
@@ -228,7 +251,8 @@ def write_run_info(placement: str, data_path: str, out_dir: Path) -> str:
     # (render_v5_from_placements.py --samples default 64), so the picture is unchanged.
     # persistent_data keeps the BVH between frames, which is the whole point of the
     # persistent server.
-    opts = {"render_device": "GPU", "blender_threads": 8, "persistent_data": True}
+    opts = {"render_device": "GPU", "blender_threads": 8, "persistent_data": True,
+            **RENDER_PROFILES[args.render_profile]}
     return _write_run_info(placement, data_path, out_dir, shared_root=SHARED, resolution=res,
                            extra_options=opts)
 
@@ -419,6 +443,8 @@ def episodes_from_manifest(path: str) -> list:
     if chunk != args.chunk_size:
         raise SystemExit(f"manifest was built with chunk_size={chunk} but --chunk-size is "
                          f"{args.chunk_size}; the window pool itself would differ")
+    if doc.get("kind") in ("gs", "posed_blender"):
+        return _gs_episodes(doc, path)
     picked, worst = [], 0.0
     for ep in doc["episodes"]:
         path_j = Path(ep["data_json"])
@@ -448,6 +474,57 @@ def episodes_from_manifest(path: str) -> list:
                          "not the same episodes; refusing to spend GPU on an incomparable run")
     print(f"[eval] manifest {path}: {len(picked)} episodes replayed, "
           f"d_start matches to {worst:.1e}", flush=True)
+    return picked
+
+
+def manifest_kind() -> str | None:
+    """None for a window-lookup manifest; "gs" (3DGS placements) or "posed_blender" (Blender scenes
+    with the episode's own poses and a pre-written run_info, e.g. scripts/build_spin_episodes.py)."""
+    return json.loads(Path(args.episodes_from).read_text()).get("kind") if args.episodes_from else None
+
+
+def _gs_episodes(doc: dict, path: str) -> list:
+    """A posed manifest: each episode carries its own poses (3DGS `scripts/gs_select_episodes.py`,
+    or Blender `scripts/build_spin_episodes.py`, which also carries a pre-written run_info).
+
+    There is no data.json to look a window up in -- the builder sampled the camera path itself
+    rather than reading a rendered trajectory -- so the window is rebuilt from the manifest
+    into the attributes this loop reads, and the placement spec stands where the data.json
+    path would: it is what the 3DGS renderer takes as its run_info. Poses are in the
+    placement's local metric frame (feet at the origin, z up). The goal vector and d_start
+    are recomputed from the stored label and poses and must match, as for a Blender manifest.
+    """
+    from types import SimpleNamespace as NS
+
+    def pose(p):
+        return tuple(np.asarray(p[k], dtype=np.float64) for k in ("position", "forward", "up"))
+
+    picked, worst_d, worst_g = [], 0.0, 0.0
+    for ep in doc["episodes"]:
+        if list(ep["goal_keys"]) != list(DEFAULT_GOAL_KEYS):
+            raise SystemExit(f"{ep['key']}: goal keys differ from this checkout's")
+        center = np.asarray(ep["subject_center"], dtype=np.float64)
+        gp, gf, gu = pose(ep["goal_pose"])
+        sp, sf, su = pose(ep["start_pose"])
+        goal = NS(frame_idx=ep["goal_frame_idx"], image=ep["goal_image"], raw=ep["goal_raw"],
+                  camera_position=gp, camera_forward=gf, camera_up=gu,
+                  subject_center=center, subject_height=float(ep["subject_height"]))
+        start = NS(camera_position=sp, camera_forward=sf, camera_up=su, image=ep["start_image"],
+                   object_position=[float(center[0]), float(center[1]), 0.0])
+        w = NS(pair_idx=ep["traj"], start_frame_idx=ep["start_frame_idx"], goal_frame=goal,
+               start=start, object=ep["object"])
+        g = goal_vector(goal.raw, DEFAULT_GOAL_KEYS, object_key=ep["object"])
+        if not np.isfinite(g).all():
+            raise SystemExit(f"{ep['key']}: goal vector is not finite here")
+        worst_g = max(worst_g, float(np.abs(g - np.asarray(ep["goal_vec"], dtype=np.float32)).max()))
+        worst_d = max(worst_d, abs(geometry_distance(sp, sf, su, goal, None) - float(ep["d_start"])))
+        picked.append((ep["placement"], ep.get("spec") or ep["run_info"], w, g, float(ep["bearing"]),
+                       ep["sector"]))
+    if worst_d > 1e-6 or worst_g > 1e-3:
+        raise SystemExit(f"manifest disagrees with this checkout (d_start {worst_d:.2e}, goal "
+                         f"vector {worst_g:.2e}); refusing to spend GPU on an incomparable run")
+    print(f"[eval] {doc.get('kind')} manifest {path}: {len(picked)} episodes, d_start matches to "
+          f"{worst_d:.1e}, goal vectors to {worst_g:.1e}", flush=True)
     return picked
 
 
@@ -522,6 +599,16 @@ def main() -> int:
     _renderer_fallback: set[str] = set()
     frames_dir = Path(args.out).parent / f"frames_{Path(args.out).stem}"
     frames_dir.mkdir(parents=True, exist_ok=True)
+    # A 3DGS manifest renders through ONE server for the whole run instead of one Blender per
+    # episode: loading a splat costs ~a minute and its subject's Blender ~half that, and the
+    # manifest is sorted by placement, so each is paid once per placement, not per episode.
+    kind = manifest_kind()
+    gs, posed = kind == "gs", kind == "posed_blender"
+    gs_renderer = None
+    if gs:
+        from src.common.gs_render import GaussianCompositeRenderer
+
+    overrides = json.loads(Path(args.goal_override).read_text())["goals"] if args.goal_override else None
 
     _failed = 0
     for i, (name, path, window, goal_vec, bearing, sec) in enumerate(episodes):
@@ -529,6 +616,13 @@ def main() -> int:
                 f":g{window.goal_frame.frame_idx:02d}")
         if _key in done_keys or (name, window.start.image, window.goal_frame.image) in done_keys:
             continue
+        # What the policy is TOLD. Scoring below still uses `window.goal_frame` (the true target).
+        told_vec, told_raw = goal_vec, window.goal_frame.raw
+        if overrides is not None:
+            if _key not in overrides:
+                raise SystemExit(f"--goal-override has no goal for {_key}")
+            told_vec = np.asarray(overrides[_key]["goal_vec"], dtype=np.float32)
+            told_raw = {**dict(window.goal_frame.raw), **overrides[_key]["goal_crop"]}
         renderer = None
         try:
             delta = abs(window.goal_frame.frame_idx - window.start_frame_idx)
@@ -547,14 +641,34 @@ def main() -> int:
             # A scene that kills the SERVER falls back to one-process-per-frame rather than
             # losing the episode: Parking_70ae1f27 does exactly that (rc=-11), reproducibly,
             # while loading fine through the same BlenderDrone for a geometry dump.
-            run_info = write_run_info(name, path, Path(args.out).parent / "_run_info")
-            renderer = (SubprocessBlenderRenderer(repo_root=SHARED)
-                        if name.split("__")[0] in _renderer_fallback
-                        else PersistentBlenderRenderer(repo_root=SHARED))
+            if gs:
+                if gs_renderer is None:
+                    gs_renderer = GaussianCompositeRenderer()
+                run_info, renderer = path, gs_renderer
+            else:
+                # A posed Blender manifest brings its own run_info (e.g. the subject turned).
+                run_info = path if posed else write_run_info(name, path, Path(args.out).parent / "_run_info")
+                renderer = (SubprocessBlenderRenderer(
+                                repo_root=SHARED, **renderer_kwargs(args.render_profile, persistent=False))
+                            if name.split("__")[0] in _renderer_fallback
+                            else PersistentBlenderRenderer(
+                                repo_root=SHARED, **renderer_kwargs(args.render_profile, persistent=True)))
             env = BlenderRolloutEnv(run_info_path=run_info, renderer=renderer,
                                     object_position=window.start.object_position)
             start = window.start
             obs = env.reset(start.camera_position, start.camera_forward, start.camera_up)
+            # Render parity for free: the start pose's training frame is on disk, so the distance
+            # between it and this render says whether the policy is being shown the picture it
+            # trained on (src/common/run_info.RENDER_PROFILES). None when the sizes differ.
+            start_render_mae = None
+            try:
+                from PIL import Image
+                ref = np.asarray(Image.open(start.image).convert("RGB"), dtype=np.float32)
+                got = np.asarray(obs["image"], dtype=np.float32)
+                if ref.shape == got.shape:
+                    start_render_mae = float(np.abs(ref - got).mean())
+            except Exception:  # noqa: BLE001
+                pass
 
             d0 = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
             trace = [d0]
@@ -567,6 +681,13 @@ def main() -> int:
                         "forward": [float(v) for v in env.forward],
                         "up": [float(v) for v in env.up]}
             pose_trace = [_pose_now()]
+            # Every executed STEP as well, start included. Only chunk ends are rendered and
+            # scored -- 2-3 poses an episode -- which is too coarse to show the path the policy
+            # flew; the trajectory GIFs re-render from this. `chunk_steps[c]` is how many steps
+            # chunk c executed, so a chunk end is a prefix sum into `step_poses`.
+            step_poses = [_pose_now()]
+            chunk_steps: list[int] = []
+            goal_text = None                # what the policy was actually told, if it says
             shots = []
 
             def save(tag: str, image) -> str | None:
@@ -587,8 +708,14 @@ def main() -> int:
                 frame = np.asarray(obs["image"])
                 # `pose` matters only to adapters whose action is defined against world axes
                 # (AutoPhoto's yaw); the trained policies emit a relative chunk and ignore it.
-                chunk = adapter.act(frame, goal_vec, window.goal_frame.raw,
-                                    seed=args.seed + i * 100 + c, pose=_pose_now())
+                # goal_image: the rendered goal frame. Only the goal-channel arms read it --
+                # one shows it to the policy as a second panel, the other feeds the VLM
+                # caption of it -- and every other adapter ignores the kwarg.
+                chunk = adapter.act(frame, told_vec, told_raw,
+                                    seed=args.seed + i * 100 + c, pose=_pose_now(),
+                                    goal_image=window.goal_frame.image)
+                if goal_text is None:
+                    goal_text = getattr(adapter, "last_prompt", None)
                 # dim 9 is the shoot channel: a latched [0,1] state, thresholded the way
                 # NVIDIA's own reference client thresholds the gripper
                 # (docs/action_policy_libero_posttrain.md: "model emits [0,1]"). This is
@@ -617,7 +744,9 @@ def main() -> int:
                     # data was encoded with.
                     for step in steps:
                         obs, _ = env.step(step, render=False)
+                        step_poses.append(_pose_now())
                     executed_steps += len(steps)
+                    chunk_steps.append(len(steps))
                     obs = env.reset(env.position, env.forward, env.up)   # render the new view
                     d = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
                     trace.append(d)
@@ -642,6 +771,8 @@ def main() -> int:
                 "d_start": d0, "d_end": d1, "d_best": d_best,
                 "improvement": d0 - d1, "best_improvement": d0 - d_best,
                 "trace": trace, "pose_trace": pose_trace, "shots": shots,
+                "step_poses": step_poses, "chunk_steps": chunk_steps, "goal_text": goal_text,
+                "start_render_mae": start_render_mae,
                 # The goal this was scored against, so the units breakdown needs nothing else.
                 "goal_pose": {"position": [float(v) for v in window.goal_frame.camera_position],
                               "forward": [float(v) for v in window.goal_frame.camera_forward],
@@ -677,6 +808,11 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001
             print(f"[eval] {i+1} FAILED {name[:40]}: {type(exc).__name__}: {exc}", flush=True)
             _failed += 1
+            # A 3DGS server that died or hung is replaced before the next episode; the retry
+            # below then runs on the fresh one (its fallback set is never read for 3DGS).
+            if gs and gs_renderer is not None and "3DGS" in str(exc):
+                gs_renderer.close()
+                gs_renderer = None
             # A render server that dies takes the episode with it, but the scene is usually
             # fine through one-process-per-frame (Parking_70ae1f27 is the known case). Mark
             # it so the retry, and any later window from the same placement, uses the slow
@@ -702,12 +838,14 @@ def main() -> int:
         finally:
             # One Blender per EPISODE. Without this the persistent servers accumulate -- 64
             # of them, each holding a loaded scene and a GPU context.
-            if renderer is not None:
+            if renderer is not None and renderer is not gs_renderer:
                 try:
                     renderer.close()
                 except Exception:  # noqa: BLE001
                     pass
                 renderer = None
+    if gs_renderer is not None:
+        gs_renderer.close()
 
     if not results:
         print("[eval] every episode failed", flush=True)
@@ -764,6 +902,7 @@ def main() -> int:
         "guidance": args.guidance, "num_steps": args.num_steps,
         "policy": adapter.name, "policy_config": args.policy_config or None,
         "render_res": list(args.render_res) if args.render_res else None,
+        "render_profile": args.render_profile, "goal_override": args.goal_override or None,
         "chunks": args.chunks, "ema": not args.no_ema,
         "elapsed_s": time.time() - t0,
     }

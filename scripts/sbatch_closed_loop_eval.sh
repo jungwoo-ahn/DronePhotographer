@@ -26,6 +26,7 @@
 # Inference is single-GPU regardless of the training sharding: DCP reshards on load,
 # so a 2-GPU-sharded checkpoint loads onto one device with no conversion step.
 set -euo pipefail
+umask 002          # often submitted from jooyeolyun; keep outputs editable by jungwooahn
 V12=/home/nas_main/jungwooahn/projects/DronePhotographerV12
 SHARED=/home/nas_main/jungwooahn/projects/DronePhotographer
 CF="$V12/repos/cosmos-framework"

@@ -45,4 +45,29 @@ else
     echo "[setup] action_policy_camera_nano already registered"
 fi
 
+# 3. A 2:1 aspect ratio in the "256" resolution tier, for the goal-image arm.
+#
+#    That arm shows the policy [observation | goal] side by side: a 512x256 frame. VideoResize
+#    snaps every sample to the closest aspect ratio in VIDEO_RES_SIZE_INFO, and 2:1 is not in
+#    the shipped table -- the closest is 16:9, target 320x192, so the frame is resized to
+#    320x160 and reflection-padded. That leaves each PANEL at 160x160 against the 256x256 a
+#    single-view run gets (measured, not guessed), and the arm would be comparing "goal image"
+#    against "goal image at 40% of the pixels".
+#
+#    One entry fixes it: 512x256 becomes an exact fit, both panels stay 256x256, no padding.
+#    Existing ratios are untouched, so single-view runs resolve exactly as before.
+#    Guarded in BASH and run with the VENV's python, not an ambient `python3`. Both matter,
+#    and the second one cost a job: `--export=ALL` carries the SUBMITTER's PATH onto the
+#    worker, and the two accounts that submit here do not have the same one -- jungwooahn has
+#    a python3, jooyeolyun does not. The same script therefore passed every smoke and then
+#    died with "python3: command not found" the first time training was submitted from the
+#    other account. The venv lives on NAS and is the interpreter everything else here uses.
+#    The bash guard means the normal case never needs an interpreter at all.
+if ! grep -qF '"2,1": (512, 256)' "$CF/cosmos_framework/data/generator/utils.py"; then
+    "$CF/.venv/bin/python" "$V12/scripts/_patch_aspect_tier.py" \
+        "$CF/cosmos_framework/data/generator/utils.py"
+else
+    echo "[setup] 2:1 aspect ratio already present"
+fi
+
 echo "[setup] done"

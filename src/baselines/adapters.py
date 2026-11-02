@@ -83,7 +83,8 @@ class CosmosAdapter:
     def __init__(self, checkpoint: str, out_dir: Path, *, image_size: int = 256,
                  chunk_size: int = 8, fps: int = 30, num_steps: int = 30,
                  guidance: float = 1.0, samples: int = 1, use_ema: bool = True,
-                 idle_frames: int | None = 0):
+                 idle_frames: int | None = 0, goal_channel: str = "prompt",
+                 captions: str | None = None):
         # `init_script` must run before any other cosmos import; it only insists that
         # nothing from `imaginaire` is loaded yet, so torch and our own modules are fine.
         from cosmos_framework.inference.common.init import init_script
@@ -108,6 +109,39 @@ class CosmosAdapter:
         # cosmos in at import time); tests/test_policy_adapters.py pins the two together.
         self.domain_name = "camera_pose_shoot"
 
+        # HOW THE GOAL REACHES THE POLICY. Three trained answers, and inference has to hand
+        # each checkpoint the same one it was trained on -- a mismatch here does not raise,
+        # it just scores a policy on a goal it was never taught to read.
+        #   "prompt"  the structured sentence built from the goal vector (v5, v6, the ablation)
+        #   "panel"   the goal FRAME concatenated to the right of the observation, 256x512,
+        #             with the text held to the one constant sentence the arm trained on
+        #   "caption" the VLM caption of that same goal frame, as the text, single view
+        if goal_channel not in ("prompt", "panel", "caption"):
+            raise SystemExit(f"unknown goal_channel {goal_channel!r}")
+        self.goal_channel = goal_channel
+        # Verbatim from configs/policy/camera_policy_nano_goalimg.toml's --task-text. It has to
+        # match the training string exactly: it is the ONLY text those 148,666 episodes carried,
+        # so any paraphrase is a prompt the policy has never seen.
+        self.panel_prompt = ("Move the camera to achieve the shot shown in the right half of "
+                             "the frame. The left half is the current view from the camera.")
+        self._captions: dict[str, str] = {}
+        if goal_channel == "caption":
+            if not captions:
+                raise SystemExit("goal_channel='caption' needs --captions <json> holding a "
+                                 "caption for every eval goal frame")
+            # Anchored to the REPO, not the cwd. `init_script()` chdirs into the
+            # cosmos-framework checkout before this runs, so a relative --captions resolves
+            # somewhere else and dies with FileNotFoundError on a file that plainly exists.
+            # Same trap `src/goal_authoring/from_reference.py` documents for its model paths.
+            cap_path = Path(captions)
+            if not cap_path.is_absolute():
+                cap_path = Path(__file__).resolve().parents[2] / cap_path
+            doc = json.loads(cap_path.read_text())
+            for smp in doc["samples"]:
+                c = smp.get("captions") or {}
+                self._captions[smp["image"]] = (next(iter(c.values())) if c else smp.get("caption", ""))
+            print(f"[cosmos] {len(self._captions)} eval captions loaded from {cap_path}")
+
         maybe_init_distributed()
         wan = os.environ.get("WAN_VAE_PATH",
                              "/home/nas_main/jungwooahn/projects/DronePhotographerV12/repos/"
@@ -115,6 +149,12 @@ class CosmosAdapter:
         overrides = OmniSetupOverrides.model_validate({
             "checkpoint_path": checkpoint,
             "config_file": "cosmos_framework/configs/base/config.py",
+            # Right for the no-vision ablation too, and deliberately so. That run is the same
+            # recipe with `rectified_flow_training_config.loss_scale` at 0.0 instead of 10.0 --
+            # a TRAINING weight, absent from the forward pass. Architecture, tokenizer, action
+            # head and state-dict keys are identical, so its checkpoints load here unchanged.
+            # Selecting `action_policy_camera_nano_novision` instead would build the same model
+            # and only obscure that the two are evaluated by identical inference code.
             "experiment": "action_policy_camera_nano",
             "experiment_overrides": [f"model.config.tokenizer.vae_path={wan}"],
             "output_dir": str(Path(out_dir) / "_infer"),
@@ -155,10 +195,45 @@ class CosmosAdapter:
         out = self._fmt(sample)["ai_caption"]
         return out if isinstance(out, str) else json.dumps(out)
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
+    def _goal_panel(self, frame_square, goal_image: str):
+        """[observation | goal], the layout the goal-image arm trained on.
+
+        Each panel is squared on its own and then concatenated, which is what the dataset does
+        (`cosmos_camera_dataset._decode_video` interpolates per stream, then `torch.cat(dim=-1)`).
+        Squaring the PAIR instead would put the subject at a different size than training.
+        """
+        from PIL import Image
+
+        goal = np.asarray(Image.open(goal_image).convert("RGB"))
+        goal = self._to_policy_frame(goal, self.image_size)
+        return np.concatenate([frame_square, goal], axis=1)          # (H, 2W, 3)
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
         torch = self._torch
-        prompt = self.make_prompt(goal_vec, crop=goal_raw)
         frame = self._to_policy_frame(frame_uint8, self.image_size)          # 4:3 -> square
+        if self.goal_channel == "prompt":
+            prompt = self.make_prompt(goal_vec, crop=goal_raw)
+        else:
+            if not goal_image:
+                raise SystemExit(f"goal_channel={self.goal_channel!r} needs the episode's goal "
+                                 f"frame; the eval loop did not pass goal_image")
+            if self.goal_channel == "panel":
+                frame = self._goal_panel(frame, goal_image)
+                prompt = self.panel_prompt
+                # Logged once, because "the flag was passed" and "the two-panel frame reached
+                # the model" are different claims and only the second one matters. Without a
+                # line in the log the shape can only be inferred after the fact.
+                if not getattr(self, "_panel_logged", False):
+                    print(f"[cosmos] goal_channel=panel: frame {frame.shape} "
+                          f"(observation | goal), constant prompt {self.panel_prompt[:48]!r}...",
+                          flush=True)
+                    self._panel_logged = True
+            else:                                    # caption
+                prompt = self._captions.get(str(goal_image), "")
+                if not prompt:
+                    raise SystemExit(f"no caption for {goal_image}; caption every eval goal "
+                                     f"frame before running this arm")
+        self.last_prompt = prompt           # the eval logs what the model was actually told
         video = torch.from_numpy(np.ascontiguousarray(frame)).permute(2, 0, 1).contiguous()
         video = video.unsqueeze(1).repeat(1, self.chunk_size + 1, 1, 1)      # [C,T,H,W]
         # Rebuilt every call: the model normalizes video in place and stamps
@@ -223,7 +298,20 @@ class LeRobotAdapter:
         self.resize = int(resize)
         self.state = torch.zeros(state_dim, dtype=torch.float32)
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
+    def _goal_panel(self, frame_square, goal_image: str):
+        """[observation | goal], the layout the goal-image arm trained on.
+
+        Each panel is squared on its own and then concatenated, which is what the dataset does
+        (`cosmos_camera_dataset._decode_video` interpolates per stream, then `torch.cat(dim=-1)`).
+        Squaring the PAIR instead would put the subject at a different size than training.
+        """
+        from PIL import Image
+
+        goal = np.asarray(Image.open(goal_image).convert("RGB"))
+        goal = self._to_policy_frame(goal, self.image_size)
+        return np.concatenate([frame_square, goal], axis=1)          # (H, 2W, 3)
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
         torch = self._torch
         task = self._goal_prompt(np.asarray(goal_vec, dtype=np.float32), self._keys, crop=goal_raw)
         a = _squash(frame_uint8, (self.resize, self.resize)).astype(np.float32) / 255.0
@@ -281,7 +369,20 @@ class DPAdapter:
         if bad:
             raise RuntimeError(f"DP checkpoint/model MISMATCH: {bad[:5]} -- wrong --policy-config?")
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
+    def _goal_panel(self, frame_square, goal_image: str):
+        """[observation | goal], the layout the goal-image arm trained on.
+
+        Each panel is squared on its own and then concatenated, which is what the dataset does
+        (`cosmos_camera_dataset._decode_video` interpolates per stream, then `torch.cat(dim=-1)`).
+        Squaring the PAIR instead would put the subject at a different size than training.
+        """
+        from PIL import Image
+
+        goal = np.asarray(Image.open(goal_image).convert("RGB"))
+        goal = self._to_policy_frame(goal, self.image_size)
+        return np.concatenate([frame_square, goal], axis=1)          # (H, 2W, 3)
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
         torch = self._torch
         # EXACTLY what `_load_image_as_tensor` did to the training frames: LANCZOS to (W, H),
         # then [-1, 1] via /127.5 - 1. Not interchangeable with a BILINEAR [0, 1] tensor --
@@ -354,7 +455,20 @@ class AutoPhotoAdapter:
             (0, 0, 0, -_T90, 0), (0, 0, 0, _T90, 0),
         ]
 
-    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None):
+    def _goal_panel(self, frame_square, goal_image: str):
+        """[observation | goal], the layout the goal-image arm trained on.
+
+        Each panel is squared on its own and then concatenated, which is what the dataset does
+        (`cosmos_camera_dataset._decode_video` interpolates per stream, then `torch.cat(dim=-1)`).
+        Squaring the PAIR instead would put the subject at a different size than training.
+        """
+        from PIL import Image
+
+        goal = np.asarray(Image.open(goal_image).convert("RGB"))
+        goal = self._to_policy_frame(goal, self.image_size)
+        return np.concatenate([frame_square, goal], axis=1)          # (H, 2W, 3)
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
         """Eight discrete moves from one observation, as 9-D pose actions + a shoot channel.
 
         `goal_vec` and `goal_raw` are accepted and ignored — deliberately, and it is the whole
@@ -404,7 +518,9 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
         return CosmosAdapter(args.checkpoint, out_dir, image_size=args.image_size,
                              chunk_size=args.chunk_size, fps=args.fps, num_steps=args.num_steps,
                              guidance=args.guidance, samples=args.samples,
-                             use_ema=not args.no_ema, idle_frames=getattr(args, "idle_frames", 0))
+                             use_ema=not args.no_ema, idle_frames=getattr(args, "idle_frames", 0),
+                             goal_channel=getattr(args, "goal_channel", "prompt"),
+                             captions=getattr(args, "captions", None))
     if args.policy in ("pi05", "groot"):
         return LeRobotAdapter(args.policy, args.checkpoint)
     if args.policy == "autophoto":
