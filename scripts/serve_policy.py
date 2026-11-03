@@ -5,9 +5,11 @@
     ssh -N -L 8777:localhost:8777 <user>@<server>
 
 Right now this is a STUB: it returns a slow left orbit so the laptop's control chain,
-the SSH tunnel and the JSON contract can all be exercised before the cosmos3
-checkpoint is consolidated. `--stub` is the default and the real path raises, so
-nobody can mistake a stub reply for a model prediction.
+the SSH tunnel and the JSON contract can all be exercised before the real policy is
+wired in. `--stub` is the default and the real path raises, so nobody can mistake a
+stub reply for a model prediction. The cosmos3 checkpoint itself is consolidated (see
+scripts/consolidate_cosmos_ckpt.py); what is still missing is the model code it loads
+into, which is why CosmosPolicy raises rather than serving.
 
 Wiring the real policy in later means implementing `act()` only; the contract stays
 `{vx, vy, vz, yaw_rate, ttl_s, note}` in OUR conventions (vy left+, vz up+, yaw_rate
@@ -31,11 +33,31 @@ class StubPolicy:
 
 
 class CosmosPolicy:
+    """Not servable yet -- but the blocker has moved, so the error says where it went.
+
+    The checkpoint is no longer the obstacle: `scripts/consolidate_cosmos_ckpt.py`
+    turns the 8 FSDP `.distcp` shards into one `.safetensors` of plain tensors, and
+    this constructor will happily read it. What is missing is the *model* those weights
+    belong to -- a ~15.2 B cosmos3 action-SFT net (Qwen-style backbone, `mlp_moe_gen`
+    branches, the action adapters) whose code lives in `cosmos_framework`, which is not
+    vendored in this repo and whose training tree no longer exists.
+
+    So wiring this up needs three things that consolidation does not supply: that
+    dependency, the VAE the action adapters were trained against, and a GPU with room
+    for 28 GiB of bf16 weights (an A6000 fits; anything 24 GB does not).
+    """
+    name = "cosmos3-camera-policy"
+
     def __init__(self, ckpt):
+        import os
+
+        have = ckpt and os.path.exists(ckpt)
         raise NotImplementedError(
-            "The cosmos3 checkpoint is 8 FSDP .distcp shards and needs consolidating "
-            "into a single state dict before it can be served. Run with --stub until "
-            "that exists."
+            f"{'Found' if have else 'Did not find'} a consolidated checkpoint at {ckpt!r}, "
+            "but the cosmos3 model code (`cosmos_framework`) is not in this repo, so "
+            "there is nothing to load it into. Consolidate with "
+            "scripts/consolidate_cosmos_ckpt.py; serve with --stub until the model is "
+            "vendored."
         )
 
 

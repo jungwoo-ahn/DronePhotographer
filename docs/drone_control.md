@@ -225,5 +225,9 @@ with a panel that raises on every tick and asserts the drone still flies.
   run and skip but still cannot author a command".
 - Flying move by move (`--approve`): **done**, 10 tests covering the click, the clock,
   the withdrawal of a stale offer and a latched stop beating the run button.
-- Not yet done: consolidating the cosmos3 checkpoint (8 FSDP `.distcp` shards, 85 GB)
-  into a loadable state dict; and flying it, which needs PX4 on the laptop.
+- Consolidating the cosmos3 checkpoint: **done**. `scripts/consolidate_cosmos_ckpt.py`
+  turns the 8 FSDP `.distcp` shards into one `.safetensors` of plain tensors and checks
+  the result against the shards bitwise. See `docs/cosmos_checkpoint.md`.
+- Not yet done: serving it, which needs the `cosmos_framework` model code (not in this
+  repo) and the matching VAE, not the checkpoint; and flying it, which needs PX4 on the
+  laptop.

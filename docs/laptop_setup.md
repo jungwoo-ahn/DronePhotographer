@@ -103,10 +103,11 @@ if it turns out to be the easiest camera to test with.
 
 ## What is not done yet
 
-- The cosmos3 checkpoint is on the server at
-  `checkpoints/camera_policy_nano_v6/iter_000045000/`, verified byte-exact, 91.06 GB.
-  It is 8 FSDP `.distcp` shards and still needs consolidating into a loadable state
-  dict before `serve_policy.py --checkpoint` can do anything but raise.
+- The cosmos3 checkpoint is consolidated on the server: one 28 GiB `.safetensors` of
+  plain tensors beside the shards it came from, EMA weights in bf16
+  (`docs/cosmos_checkpoint.md`). `serve_policy.py --checkpoint` still raises, but for a
+  different reason now — the ~15.2 B model's code lives in `cosmos_framework`, which is
+  not in this repo. Until that is vendored, `--stub` is the policy.
 - Nothing in this package has ever touched a real aircraft, or PX4 at all. Every test
   runs against fakes. Step 1 above is the first contact with reality, and it should be
   treated that way.
