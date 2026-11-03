@@ -8,7 +8,7 @@ from src.assets.discovery import (
     find_scene_blend,
     pick_first_file,
 )
-from src.assets.naming import object_name, scene_name
+from src.assets.naming import object_name, path_safe, scene_name
 
 __all__ = [
     "SCENE_EXTS",
@@ -21,4 +21,5 @@ __all__ = [
     "filter_scenes_by_texture",
     "scene_name",
     "object_name",
+    "path_safe",
 ]
