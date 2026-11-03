@@ -127,7 +127,7 @@ chip, and if anything looks wrong switch to Hold rather than trying to Ctrl-C in
 make px4_sitl gz_x500
 
 # terminal 2 -- laptop, stub source, no policy needed
-pip install mavsdk
+pip install "mavsdk<4"     # v4 is a different API
 python scripts/run_sitl_pilot.py --source square --duration 40
 
 # with the policy server and the camera

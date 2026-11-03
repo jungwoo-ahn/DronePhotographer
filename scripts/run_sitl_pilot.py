@@ -1,4 +1,4 @@
-"""Fly PX4 SITL from the laptop. Milestone 1 uses a stub source, no policy needed.
+"""Fly PX4 from the laptop. Milestone 1 uses a stub source, no policy needed.
 
     # terminal 1 -- PX4 SITL
     make px4_sitl gz_x500
@@ -12,11 +12,20 @@
 
 Ctrl-C is an e-stop: it hovers, leaves offboard and lands, rather than dropping the
 link and letting PX4's own failsafe decide.
+
+Without flying at all:
+
+    python scripts/run_sitl_pilot.py --dry-run --approve --ui --duration 600   # no hardware
+    python scripts/run_sitl_pilot.py --bench --url ... --ui --duration 600     # props off
+
+Everything that can refuse does so on the ground: nothing below arms the aircraft until
+the panel is up, the camera has delivered a frame and the policy has answered.
 """
 
 import argparse
 import asyncio
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -24,9 +33,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.drone_control.approval import ApprovalGate
 from src.drone_control.camera import CameraStream
 from src.drone_control.loop import run
-from src.drone_control.offboard import OffboardDriver
+from src.drone_control.offboard import BenchDriver, DryRunDriver, OffboardDriver
 from src.drone_control.policy_client import PolicyClient
-from src.drone_control.safety import SafetyLimits
+from src.drone_control.safety import SafetyLimits, VehicleState
 from src.drone_control.sources import HoverSource, SquareSource, VisionPolicySource
 from src.drone_control.supervisor import Supervisor
 from src.drone_control.ui import UiServer, UiState
@@ -48,21 +57,29 @@ def build_source(a):
     return VisionPolicySource(cam, client, goal={"brief": a.brief}), cam
 
 
-async def main_async(a):
-    driver = OffboardDriver(a.url)
-    print(f"[pilot] connecting to {a.url} ...")
-    await driver.connect()
-    print("[pilot] waiting for a usable position estimate ...")
-    await driver.wait_until_ready()
-    print(f"[pilot] arming, taking off to {a.altitude} m")
-    await driver.arm_and_takeoff(a.altitude)
-    await asyncio.sleep(a.takeoff_settle)
+def build_driver(a):
+    if a.dry_run:
+        return DryRunDriver()
+    return BenchDriver(a.url) if a.bench else OffboardDriver(a.url)
 
+
+async def wait_for_frame(cam, timeout_s):
+    deadline = time.monotonic() + timeout_s
+    while time.monotonic() < deadline:
+        if cam.fresh_frame() is not None:
+            return True
+        await asyncio.sleep(0.1)
+    return False
+
+
+async def main_async(a):
     sup = Supervisor(SafetyLimits(max_horizontal_speed=a.speed,
+                                  max_vertical_speed=a.max_vertical_speed,
+                                  max_yaw_rate=a.max_yaw_rate,
                                   max_altitude=a.max_altitude,
                                   max_radius=a.max_radius))
-    await driver.start()
-    print(f"[pilot] offboard engaged; source={a.source}")
+    grounded = a.bench or a.dry_run
+    driver = build_driver(a)
     source, cam = build_source(a)
     client = getattr(source, "client", None)
     gate = None
@@ -73,10 +90,45 @@ async def main_async(a):
         source = gate
     ui = uisrv = None
     if a.ui:
-        ui = UiState(sup.limits)
+        ui = UiState(sup.limits, mode="BENCH" if a.bench else "DRY RUN" if a.dry_run else "")
+        ui.attach_camera(cam)
         uisrv = UiServer(ui, sup, port=a.ui_port, gate=gate).start()
         print(f"[pilot] panel at {uisrv.url}")
+
+    def phase(text):
+        print(f"[pilot] {text}")
+        if ui is not None:
+            ui.preflight(text)
+
+    airborne = False
     try:
+        if cam is not None:
+            phase(f"Waiting for the first camera frame, up to {a.camera_wait:.0f} s.")
+            if not await wait_for_frame(cam, a.camera_wait):
+                if not grounded:
+                    raise SystemExit(f"no frame from {a.camera_url}; refusing to take off")
+                print(f"[pilot] no frame from {a.camera_url}; carrying on, this will not fly")
+        if client is not None:
+            phase("Asking the policy once.")
+            if await asyncio.to_thread(client.request_command, None, VehicleState(), {}) is None:
+                if not grounded:
+                    raise SystemExit(f"no answer from {a.policy_url}; refusing to take off")
+                print(f"[pilot] no answer from {a.policy_url}; carrying on, this will not fly")
+        phase(f"Connecting to {a.url}.")
+        await driver.connect()
+        phase("Waiting for a usable position estimate.")
+        await driver.wait_until_ready()
+        if sup.stats["estopped"]:
+            raise SystemExit("the stop was pressed on the ground; refusing to take off")
+
+        airborne = not grounded
+        phase(f"Arming, taking off to {a.altitude} m." if airborne else "Not arming.")
+        await driver.arm_and_takeoff(a.altitude)
+        if airborne:
+            await asyncio.sleep(a.takeoff_settle)
+        await driver.start()
+        print(f"[pilot] offboard engaged; source={a.source}" if airborne
+              else f"[pilot] grounded; source={a.source}")
         stats = await run(driver, sup, source, policy_hz=a.policy_hz, duration_s=a.duration,
                           ui=ui, camera=cam, client=client, gate=gate)
         print(f"[pilot] {stats}")
@@ -86,7 +138,8 @@ async def main_async(a):
         print("\n[pilot] Ctrl-C -> e-stop")
         sup.estop()
     finally:
-        print("[pilot] landing")
+        if airborne:
+            print("[pilot] landing")
         await driver.stop_and_land()
         if cam is not None:
             cam.stop()
@@ -96,7 +149,13 @@ async def main_async(a):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--url", default="udp://:14540", help="PX4 connection (SITL default)")
+    p.add_argument("--url", default="udpin://0.0.0.0:14540",
+                   help="PX4 connection (SITL default). A radio without a router: "
+                        "serial://COM5:57600")
+    p.add_argument("--dry-run", action="store_true", dest="dry_run",
+                   help="no aircraft and no MAVSDK; try the panel anywhere")
+    p.add_argument("--bench", action="store_true",
+                   help="real telemetry, never arms and sends nothing; for props-off tests")
     p.add_argument("--source", default="square", choices=["square", "hover", "policy"])
     p.add_argument("--policy-url", default="http://127.0.0.1:8777/act", dest="policy_url")
     p.add_argument("--policy-timeout", type=float, default=0.8, dest="policy_timeout")
@@ -106,7 +165,11 @@ def main():
     p.add_argument("--speed", type=float, default=1.0)
     p.add_argument("--max-altitude", type=float, default=30.0, dest="max_altitude")
     p.add_argument("--max-radius", type=float, default=50.0, dest="max_radius")
+    p.add_argument("--max-vertical-speed", type=float, default=1.0, dest="max_vertical_speed")
+    p.add_argument("--max-yaw-rate", type=float, default=60.0, dest="max_yaw_rate")
     p.add_argument("--duration", type=float, default=40.0)
+    p.add_argument("--camera-wait", type=float, default=15.0, dest="camera_wait",
+                   help="how long to wait for a first frame before refusing to take off")
     p.add_argument("--camera-url", default=None, dest="camera_url",
                    help="RTSP/UDP URL of the camera on its own wireless link, "
                         "e.g. rtsp://192.168.1.50:554/live")
@@ -120,10 +183,12 @@ def main():
     p.add_argument("--ui", action="store_true", help="serve the ground-station panel on localhost")
     p.add_argument("--ui-port", type=int, default=8080, dest="ui_port")
     a = p.parse_args()
+    if a.bench and a.dry_run:
+        p.error("--bench and --dry-run are different tests; pick one")
     try:
         asyncio.run(main_async(a))
     except KeyboardInterrupt:
-        print("\n[pilot] interrupted before offboard; nothing to land")
+        print("\n[pilot] interrupted")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,8 @@
 # Setting the laptop up to fly (Windows)
 
+This page is the simulator. For the real drone, radio and camera, see
+`docs/hardware_setup.md`.
+
 The laptop is the ground station. It runs PX4 SITL, QGroundControl, the control chain
 and the panel. The GPU server runs the policy, and the two meet over one SSH tunnel.
 
@@ -76,9 +79,9 @@ simulation and all of MAVLink carry on exactly the same.
 
 ```bash
 git clone https://github.com/jungwoo-ahn/DronePhotographer.git
-cd DronePhotographer && git checkout 009-mavsdk-drone-control
+cd DronePhotographer
 python3 -m venv .venv && source .venv/bin/activate
-pip install mavsdk
+pip install "mavsdk<4"
 
 # PX4 from step 1 is still running in its own terminal; in a second Ubuntu terminal:
 python scripts/run_sitl_pilot.py --source square --duration 40 --ui

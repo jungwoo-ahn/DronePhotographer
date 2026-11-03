@@ -18,6 +18,10 @@ from .offboard import CONTROL_HZ
 from .safety import VehicleState
 from .supervisor import Supervisor
 
+#: Nothing on the link may hold up a tick for longer than this, because the e-stop and
+#: the TTL can only act when the loop comes round.
+LINK_TIMEOUT_S = 0.5
+
 
 async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
               duration_s: float | None = None, log=print, clock=time.monotonic,
@@ -41,9 +45,9 @@ async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
             break
 
         try:
-            state = await driver.state()
+            state = await asyncio.wait_for(driver.state(), LINK_TIMEOUT_S)
         except Exception as e:                      # telemetry hiccup != crash
-            log(f"[loop] telemetry failed ({e}); treating as unsafe")
+            log(f"[loop] telemetry failed ({e!r}); treating as unsafe")
             state = VehicleState(ok=False)
 
         # Slow lane: kick off a source query without blocking the fast lane.
@@ -59,7 +63,10 @@ async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
             pending = None
 
         decision = supervisor.decide(state)
-        await driver.send(decision)
+        try:
+            await asyncio.wait_for(driver.send(decision), LINK_TIMEOUT_S)
+        except Exception as e:                      # keep going: the next tick may be a stop
+            log(f"[loop] send failed ({e!r})")
 
         if ui is not None:
             # Publishing is a dict build under a lock -- it must never be able to slow

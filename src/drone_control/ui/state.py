@@ -11,18 +11,30 @@ import threading
 import time
 from collections import deque
 
+from ..camera import encode_jpeg
 from ..conventions import to_mavsdk_body
 
 
 class UiState:
-    def __init__(self, limits=None, max_events: int = 120):
+    def __init__(self, limits=None, max_events: int = 120, mode: str = ""):
         self._lock = threading.Lock()
         self._snap: dict = {"status": "starting"}
         self._events: deque = deque(maxlen=max_events)
         self._limits = limits
+        self._mode = mode               # "BENCH" or "DRY RUN": the aircraft will not fly
+        self._camera = None
         self._frame_jpeg: bytes | None = None
+        self._frame_seq: int | None = None
         self._last_reason: str | None = None
         self._cmd_times: deque = deque(maxlen=30)
+
+    def attach_camera(self, camera):
+        self._camera = camera
+
+    def preflight(self, phase: str):
+        """What the pilot is doing on the ground, before the loop has anything to publish."""
+        with self._lock:
+            self._snap = {"status": "starting", "phase": phase, "mode": self._mode}
 
     # -- written by the control loop -----------------------------------------
     def publish(self, *, decision, state, camera=None, client=None, source_name="",
@@ -44,6 +56,7 @@ class UiState:
 
         snap = {
             "status": "flying",
+            "mode": self._mode,
             "t": now,
             "wall": time.time(),
             "elapsed": None if started_at is None else now - started_at,
@@ -88,10 +101,6 @@ class UiState:
         with self._lock:
             self._snap = snap
 
-    def publish_frame(self, jpeg: bytes | None):
-        with self._lock:
-            self._frame_jpeg = jpeg
-
     def _rate(self, now):
         if len(self._cmd_times) < 2:
             return None
@@ -114,5 +123,18 @@ class UiState:
             return dict(self._snap)
 
     def frame(self) -> bytes | None:
+        """The newest frame as JPEG, encoded here on the HTTP thread.
+
+        Encoding is the slow part, and only a browser asking for a picture should pay for
+        it: it must not happen in the control loop.
+        """
+        latest = self._camera.latest() if self._camera is not None else None
+        if latest is None:
+            return None
         with self._lock:
-            return self._frame_jpeg
+            if latest.seq == self._frame_seq:
+                return self._frame_jpeg
+        jpeg = encode_jpeg(latest.image)
+        with self._lock:
+            self._frame_jpeg, self._frame_seq = jpeg, latest.seq
+        return jpeg

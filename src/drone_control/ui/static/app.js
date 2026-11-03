@@ -119,7 +119,7 @@ function renderBand(s) {
     if (s.reason && s.rung === 'envelope') say = `Holding. ${s.reason}.`;
   }
   band.dataset.tone = tone;
-  $('#band-say').textContent = say;
+  $('#band-say').textContent = (s.mode ? s.mode + ': ' : '') + say;
   $('#band-num').textContent = fig;
 }
 
@@ -132,7 +132,11 @@ function renderRecord(s) {
 }
 
 function renderPanel(s) {
-  if (!s || s.status === 'starting') return;
+  if (!s) return;
+  if (s.status === 'starting') {
+    $('#band-say').textContent = (s.mode ? s.mode + ': ' : '') + (s.phase || 'Starting.');
+    return;
+  }
   renderLinks(s); renderCamera(s); renderBand(s); renderEntry(s); renderRecord(s);
   const latched = s.rung === 'estop';
   $('#estop').dataset.latched = latched ? '1' : '0';

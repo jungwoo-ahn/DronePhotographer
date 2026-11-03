@@ -2,6 +2,7 @@
 
 import asyncio
 import math
+from pathlib import Path
 
 import pytest
 
@@ -10,7 +11,7 @@ from src.drone_control.conventions import from_mavsdk_body, to_mavsdk_body
 from src.drone_control.loop import run
 from src.drone_control.policy_client import PolicyClient
 from src.drone_control.safety import SafetyLimits, VehicleState, clamp
-from src.drone_control.sources import ScriptedSource, SquareSource
+from src.drone_control.sources import HoverSource, ScriptedSource, SquareSource
 from src.drone_control.supervisor import Supervisor
 
 
@@ -641,3 +642,270 @@ def test_a_latched_stop_outranks_the_run_button():
         assert gate.snapshot(0.0)["running"] is None
     finally:
         srv.stop()
+
+
+# --- real hardware: a slow or silent link, and refusing on the ground ------------
+def test_silent_telemetry_cannot_freeze_the_estop():
+    """One silent radio used to hang the loop, with the stop and the TTL behind it."""
+    class Silent(FakeDriver):
+        async def state(self):
+            await asyncio.Event().wait()
+
+    async def go():
+        drv, sup = Silent(), Supervisor()
+        task = asyncio.ensure_future(run(drv, sup, ScriptedSource([(60.0, VelocityCommand(vx=1.0))]),
+                                         duration_s=30.0, log=lambda *a: None))
+        await asyncio.sleep(0.1)
+        sup.estop()
+        await asyncio.wait_for(task, 2.0)       # raises if the loop never comes round
+        assert drv.sent[-1] == (0.0, 0.0, 0.0, 0.0)
+    asyncio.run(go())
+
+
+def test_a_hung_send_cannot_freeze_the_estop():
+    class Hung(FakeDriver):
+        async def send(self, decision):
+            await asyncio.Event().wait()
+
+    async def go():
+        sup = Supervisor()
+        task = asyncio.ensure_future(run(Hung(), sup, HoverSource(), duration_s=30.0,
+                                         log=lambda *a: None))
+        await asyncio.sleep(0.1)
+        sup.estop()
+        await asyncio.wait_for(task, 2.0)
+    asyncio.run(go())
+
+
+class _Position:
+    def __init__(self, down):
+        self.position = type("P", (), {"down_m": down, "north_m": 1.0, "east_m": 2.0})
+
+
+def _driver_with_one_fix(t):
+    from src.drone_control.offboard import OffboardDriver
+
+    async def stream():
+        yield _Position(-5.0)
+        await asyncio.Event().wait()            # then the radio goes quiet
+
+    drv = OffboardDriver(clock=lambda: t[0])
+    drv._drone = type("D", (), {"telemetry": type("T", (), {
+        "position_velocity_ned": staticmethod(stream)})})
+    return drv
+
+
+def test_driver_state_never_waits_and_goes_unsafe_when_old():
+    from src.drone_control.offboard import TELEMETRY_MAX_AGE_S
+
+    async def go():
+        t = [100.0]
+        drv = _driver_with_one_fix(t)
+        assert (await drv.state()).ok is False          # nothing has arrived yet
+        await asyncio.sleep(0)
+        fresh = await drv.state()
+        assert fresh.ok and fresh.altitude == 5.0 and fresh.east == 2.0
+        t[0] += TELEMETRY_MAX_AGE_S + 0.1
+        stale = await asyncio.wait_for(drv.state(), 0.1)
+        assert stale.ok is False and stale.altitude == 5.0
+        drv._watcher.cancel()
+    asyncio.run(go())
+
+
+def test_landing_is_still_sent_when_leaving_offboard_hangs(monkeypatch):
+    from src.drone_control import offboard as ob
+    monkeypatch.setattr(ob, "LAND_STEP_TIMEOUT_S", 0.05)
+    landed = []
+
+    class Plugin:
+        async def stop(self):
+            await asyncio.Event().wait()
+
+        async def set_velocity_body(self, v):
+            pass
+
+        async def land(self):
+            landed.append(True)
+
+    drv = ob.OffboardDriver()
+    drv._VBY = lambda *a: a
+    drv.started = True
+    drv._drone = type("D", (), {"offboard": Plugin(), "action": Plugin()})
+    asyncio.run(drv.stop_and_land())
+    assert landed == [True]
+
+
+def test_bench_driver_cannot_reach_the_airframe():
+    from src.drone_control.offboard import BenchDriver
+
+    class Explodes:
+        def __getattr__(self, name):
+            raise AssertionError(f"the bench touched the airframe: {name}")
+
+    async def go():
+        drv = BenchDriver()
+        drv._drone = Explodes()
+        await drv.arm_and_takeoff(5.0)
+        await drv.start()
+        await drv.send(None)
+        await drv.hover()
+        await drv.stop_and_land()
+    asyncio.run(go())
+
+
+def test_dry_run_flies_in_the_direction_it_was_told():
+    from src.drone_control.offboard import DryRunDriver
+    from src.drone_control.supervisor import Decision
+
+    async def go():
+        t = [0.0]
+        drv = DryRunDriver(clock=lambda: t[0])
+        await drv.arm_and_takeoff(5.0)
+        await drv.start()
+        t[0] = 1.0
+        await drv.send(Decision(VelocityCommand(vx=2.0), "forward"))
+        s = await drv.state()
+        assert s.altitude == 5.0 and abs(s.north - 2.0) < 1e-9 and abs(s.east) < 1e-9
+    asyncio.run(go())
+
+
+def test_panel_shows_the_camera_and_encodes_each_frame_once(monkeypatch):
+    from src.drone_control.ui import state as ui_state
+    encoded = []
+    monkeypatch.setattr(ui_state, "encode_jpeg", lambda img: encoded.append(img) or b"jpeg")
+
+    class Cam:
+        def __init__(self):
+            self.f = None
+
+        def latest(self):
+            return self.f
+
+    cam, ui = Cam(), UiState()
+    ui.attach_camera(cam)
+    assert ui.frame() is None                   # no frame yet: the server answers 204
+    cam.f = Frame(image="a", seq=1)
+    assert ui.frame() == b"jpeg" and ui.frame() == b"jpeg"
+    assert encoded == ["a"]
+
+
+def _load_pilot():
+    import importlib.util
+    root = Path(__file__).resolve().parents[2]
+    spec = importlib.util.spec_from_file_location("run_sitl_pilot",
+                                                  root / "scripts" / "run_sitl_pilot.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _pilot_args(**kw):
+    base = dict(url="x", source="square", policy_url="http://127.0.0.1:1/act", policy_timeout=0.1,
+                policy_hz=2.0, altitude=5.0, takeoff_settle=0.0, speed=1.0, max_vertical_speed=1.0,
+                max_yaw_rate=60.0, max_altitude=30.0, max_radius=50.0, duration=0.2,
+                camera_url=None, camera_wait=0.2, max_frame_age=0.7, brief="", approve=False,
+                move_seconds=1.5, ui=False, ui_port=0, bench=False, dry_run=False)
+    base.update(kw)
+    return type("A", (), base)
+
+
+def _recording_driver(calls, connect_error=None):
+    class Rec:
+        def __init__(self, url=None):
+            pass
+
+        async def connect(self):
+            calls.append("connect")
+            if connect_error:
+                raise connect_error
+
+        async def wait_until_ready(self):
+            pass
+
+        async def arm_and_takeoff(self, a):
+            calls.append("takeoff")
+
+        async def start(self):
+            pass
+
+        async def send(self, d):
+            pass
+
+        async def state(self):
+            return VehicleState(altitude=5.0)
+
+        async def stop_and_land(self):
+            calls.append("land")
+    return Rec
+
+
+def test_missing_camera_url_is_refused_before_anything_connects(monkeypatch):
+    pilot = _load_pilot()
+    calls = []
+    monkeypatch.setattr(pilot, "OffboardDriver", _recording_driver(calls))
+    with pytest.raises(SystemExit):
+        asyncio.run(pilot.main_async(_pilot_args(source="policy")))
+    assert calls == []
+
+
+def test_no_camera_frame_means_no_takeoff(monkeypatch):
+    pilot = _load_pilot()
+    calls = []
+    monkeypatch.setattr(pilot, "OffboardDriver", _recording_driver(calls))
+
+    class Dark:
+        max_age_s = 0.7
+
+        def __init__(self, *a, **k):
+            pass
+
+        def start(self):
+            return self
+
+        def stop(self):
+            pass
+
+        def fresh_frame(self):
+            return None
+
+    monkeypatch.setattr(pilot, "CameraStream", Dark)
+    with pytest.raises(SystemExit):
+        asyncio.run(pilot.main_async(_pilot_args(source="policy", camera_url="rtsp://nobody")))
+    assert "takeoff" not in calls
+
+
+def test_stop_pressed_on_the_ground_means_no_takeoff(monkeypatch):
+    pilot = _load_pilot()
+    calls = []
+    monkeypatch.setattr(pilot, "OffboardDriver", _recording_driver(calls))
+
+    class Stopped(pilot.Supervisor):
+        def __init__(self, *a, **k):
+            super().__init__(*a, **k)
+            self.estop()
+
+    monkeypatch.setattr(pilot, "Supervisor", Stopped)
+    with pytest.raises(SystemExit):
+        asyncio.run(pilot.main_async(_pilot_args()))
+    assert "takeoff" not in calls
+
+
+def test_normal_run_lands_and_a_failed_connection_does_not_pretend_to(monkeypatch, capsys):
+    pilot = _load_pilot()
+    calls = []
+    monkeypatch.setattr(pilot, "OffboardDriver", _recording_driver(calls))
+    asyncio.run(pilot.main_async(_pilot_args()))
+    assert calls == ["connect", "takeoff", "land"]
+
+    capsys.readouterr()
+    monkeypatch.setattr(pilot, "OffboardDriver",
+                        _recording_driver([], connect_error=RuntimeError("no vehicle")))
+    with pytest.raises(RuntimeError):
+        asyncio.run(pilot.main_async(_pilot_args()))
+    assert "landing" not in capsys.readouterr().out
+
+
+def test_dry_run_runs_the_whole_pilot_with_the_panel():
+    pilot = _load_pilot()
+    asyncio.run(pilot.main_async(_pilot_args(dry_run=True, approve=True, ui=True, ui_port=8131,
+                                             duration=0.3)))
