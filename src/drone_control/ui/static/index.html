@@ -2,72 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Drone Pilot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drone pilot</title>
+<meta name="description" content="Ground station for a PX4 drone flown from this laptop on velocity setpoints.">
+<!-- Loaded without blocking: on a field laptop with no internet the stack falls back to the system sans. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<header>
-  <h1>Drone Pilot <small id="src"></small></h1>
-  <div class="links">
-    <div class="pill off" id="l-mavlink"><i class="dot"></i><b>MAVLINK</b><span></span></div>
-    <div class="pill off" id="l-video"><i class="dot"></i><b>VIDEO</b><span></span></div>
-    <div class="pill off" id="l-policy"><i class="dot"></i><b>POLICY</b><span></span></div>
+
+<header class="bar">
+  <div class="bar__in container">
+    <div class="mast">
+      <h1>Drone pilot</h1>
+      <span class="src" id="src">starting</span>
+    </div>
+
+    <div class="links">
+      <div class="link" id="l-mavlink" data-state="off">
+        <span class="link__n">MAVLink</span>
+        <span class="link__v measure" id="v-mavlink">no telemetry</span>
+      </div>
+      <div class="link" id="l-video" data-state="off">
+        <span class="link__n">Video</span>
+        <span class="link__v measure" id="v-video">not in use</span>
+      </div>
+      <div class="link" id="l-policy" data-state="off">
+        <span class="link__n">Policy</span>
+        <span class="link__v measure" id="v-policy">not in use</span>
+      </div>
+    </div>
+
+    <button class="stop" id="estop" type="button" data-latched="0">E-STOP</button>
   </div>
-  <div class="spacer"></div>
-  <button class="estop" id="estop">E-STOP</button>
 </header>
 
-<main>
-  <section class="card">
+<main class="container">
+
+  <section class="span-all">
+    <h2>Commanded now, and what MAVSDK was handed</h2>
+    <ol class="axes" id="axes"></ol>
+  </section>
+
+  <section class="span-chain">
     <h2>Chain of order</h2>
-    <div id="ladder">
-      <div class="rung above"><span class="n">—</span><span>RC transmitter</span><span class="tag">outranks all</span></div>
-      <div class="rung above"><span class="n">—</span><span>QGroundControl mode change</span><span class="tag">leaves offboard</span></div>
-      <div class="rung danger" data-rung="estop"><span class="n">1</span><span>E-stop (latched)</span><span class="tag">hover, then land</span></div>
-      <div class="rung warn" data-rung="envelope"><span class="n">2</span><span>Safety envelope</span><span class="tag">clamp</span></div>
-      <div class="rung warn" data-rung="stale"><span class="n">3</span><span>Command stale</span><span class="tag">link lost → hover</span></div>
-      <div class="rung" data-rung="policy"><span class="n">4</span><span>Policy command</span><span class="tag">pass through</span></div>
-      <div class="rung" data-rung="idle"><span class="n">5</span><span>Hover</span><span class="tag">default</span></div>
-    </div>
-    <div class="reason" id="reason">waiting for the control loop…</div>
+    <ol class="rungs" id="rungs">
+      <li class="rung rung--above"><span class="rung__i">RC</span><span>The pilot's transmitter</span><span class="rung__t">outranks everything below</span></li>
+      <li class="rung rung--above"><span class="rung__i">QGC</span><span>A mode change in QGroundControl</span><span class="rung__t">drops us out of offboard</span></li>
+      <li class="rung" data-rung="estop"><span class="rung__i">1</span><span>Stop, latched</span><span class="rung__t">hover, then land</span></li>
+      <li class="rung" data-rung="envelope"><span class="rung__i">2</span><span>Safety envelope</span><span class="rung__t">clamp</span></li>
+      <li class="rung" data-rung="stale"><span class="rung__i">3</span><span>Command older than its ttl</span><span class="rung__t">link lost, hover</span></li>
+      <li class="rung" data-rung="policy"><span class="rung__i">4</span><span>Policy command</span><span class="rung__t">passed through</span></li>
+      <li class="rung" data-rung="idle"><span class="rung__i">5</span><span>Hover</span><span class="rung__t">the default</span></li>
+    </ol>
+    <p class="reason" id="reason" role="status">Waiting for the first command from the control loop.</p>
   </section>
 
-  <section class="card">
-    <h2>Camera <span style="color:var(--faint)">— own wireless link</span></h2>
-    <div class="cam">
-      <img id="frame" alt="">
-      <div class="thirds">
-        <div class="v" style="left:33.33%"></div><div class="v" style="left:66.66%"></div>
-        <div class="h" style="top:33.33%"></div><div class="h" style="top:66.66%"></div>
+  <section class="span-cam">
+    <h2>Camera, on its own link</h2>
+    <figure class="cam" id="cam" data-state="off">
+      <div class="cam__frame ticks">
+        <img id="frame" alt="" width="640" height="480">
+        <div class="reticle" aria-hidden="true">
+          <span class="v" style="left:33.33%"></span><span class="v" style="left:66.66%"></span>
+          <span class="h" style="top:33.33%"></span><span class="h" style="top:66.66%"></span>
+        </div>
+        <div class="cam__over" id="camover">No camera on this run.</div>
       </div>
-      <div class="overlay" id="camage"></div>
-      <div class="nosig" id="nosig">NO SIGNAL</div>
+      <figcaption class="cam__strip">
+        <div><span class="k">Frame age</span><span class="v measure" id="c-age">no frames</span></div>
+        <div><span class="k">Frames read</span><span class="v measure" id="c-frames">0</span></div>
+        <div><span class="k">Reconnects</span><span class="v measure" id="c-recon">0</span></div>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="span-env">
+    <h2>Safety envelope</h2>
+    <table class="env">
+      <thead>
+        <tr><th>Limit</th><th class="num">Now</th><th class="num">Bound</th><th>Margin</th></tr>
+      </thead>
+      <tbody id="env"></tbody>
+    </table>
+  </section>
+
+  <section class="span-log">
+    <h2>Flight log</h2>
+    <div class="log__wrap">
+      <table class="log">
+        <thead>
+          <tr><th>Time, UTC</th><th>Rung</th><th>What changed</th></tr>
+        </thead>
+        <tbody id="log"><tr><td class="t measure">waiting</td><td class="dim">none</td><td class="r">Nothing has happened yet.</td></tr></tbody>
+      </table>
     </div>
   </section>
 
-  <section class="card">
-    <h2>Command</h2>
-    <table class="axes">
-      <thead><tr><th>axis</th><th>ours</th><th></th><th>→ mavsdk</th></tr></thead>
-      <tbody id="axes"></tbody>
-    </table>
-    <div class="reason" id="clamped" hidden></div>
-  </section>
-
-  <section class="card">
-    <h2>Envelope</h2>
-    <div id="gauges"></div>
-    <div class="reason" id="rate"></div>
-  </section>
-
-  <section class="card" style="grid-column:1/-1">
-    <h2>Events</h2>
-    <ul class="log" id="log"></ul>
-  </section>
 </main>
 
-<footer id="foot">localhost only · the panel observes the supervisor; its only command is the e-stop</footer>
+<div class="container">
+  <div class="foot" id="foot">
+    <p>Runs on this laptop only. The panel watches the chain of order; the one order it can give is the stop, on this button or the space bar.</p>
+    <p><span class="label">Control loop</span> <span class="measure" id="f-hz">waiting</span></p>
+    <p><span class="label">Elapsed</span> <span class="measure" id="f-elapsed">0 s</span></p>
+  </div>
+</div>
+
 <script src="/app.js"></script>
 </body>
 </html>

@@ -74,7 +74,10 @@ class UiState:
             "hz": self._rate(now),
         }
         if decision.reason != self._last_reason:
-            self._events.appendleft({"t": now, "text": decision.reason, "rung": rung})
+            # `now` is monotonic, which is right for ages and wrong for a log: the panel
+            # prints a UTC clock time beside every transition, so carry a wall clock too.
+            self._events.appendleft({"t": now, "wall": time.time(),
+                                     "text": decision.reason, "rung": rung})
             self._last_reason = decision.reason
         snap["events"] = list(self._events)[:40]
 
