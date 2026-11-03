@@ -216,8 +216,8 @@ with a panel that raises on every tick and asserts the drone still flies.
 
 - Control chain, safety envelope, watchdog, sources, loop: **done**, 28 tests, no
   MAVSDK or network needed to run them.
-- `scripts/serve_policy.py` is a **stub** (a slow left orbit). The real path raises
-  rather than silently returning stub values.
+- `scripts/serve_policy.py` is a **stub** (a slow left orbit) unless it is given a
+  `--checkpoint`.
 - Camera ingest on its own link, latest-frame-only, with a staleness gate: **done**,
   tested against a fake capture (no OpenCV or camera needed).
 - Ground-station panel (`--ui`): **done**, stdlib-only, designed on Hallmark's Furrow
@@ -228,6 +228,6 @@ with a panel that raises on every tick and asserts the drone still flies.
 - Consolidating the cosmos3 checkpoint: **done**. `scripts/consolidate_cosmos_ckpt.py`
   turns the 8 FSDP `.distcp` shards into one `.safetensors` of plain tensors and checks
   the result against the shards bitwise. See `docs/cosmos_checkpoint.md`.
-- Not yet done: serving it, which needs the `cosmos_framework` model code (not in this
-  repo) and the matching VAE, not the checkpoint; and flying it, which needs PX4 on the
-  laptop.
+- Serving it: `scripts/serve_cosmos_policy.sh`, see `docs/cosmos_checkpoint.md`. Flying
+  it still needs the laptop to send the gimbal's tilt and a shot profile, and to act on the
+  reply's tilt.

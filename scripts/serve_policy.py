@@ -4,21 +4,19 @@
     # laptop:
     ssh -N -L 8777:localhost:8777 <user>@<server>
 
-Right now this is a STUB: it returns a slow left orbit so the laptop's control chain,
-the SSH tunnel and the JSON contract can all be exercised before the real policy is
-wired in. `--stub` is the default and the real path raises, so nobody can mistake a
-stub reply for a model prediction. The cosmos3 checkpoint itself is consolidated (see
-scripts/consolidate_cosmos_ckpt.py); what is still missing is the model code it loads
-into, which is why CosmosPolicy raises rather than serving.
+Without `--checkpoint` this is a STUB: a slow left orbit, so the laptop's control chain,
+the SSH tunnel and the JSON contract can all be exercised on any machine. The real policy
+starts through scripts/serve_cosmos_policy.sh, which sets up what it needs.
 
-Wiring the real policy in later means implementing `act()` only; the contract stays
-`{vx, vy, vz, yaw_rate, ttl_s, note}` in OUR conventions (vy left+, vz up+, yaw_rate
-left+ / counter-clockwise). The laptop converts to MAVSDK's frame -- the server must
-never do that conversion itself, or it gets applied twice.
+The contract is `{vx, vy, vz, yaw_rate, ttl_s, note}` in OUR conventions (vy left+, vz up+,
+yaw_rate left+ / counter-clockwise), and the real policy adds tilt, shoot and its chunk. The
+laptop converts to MAVSDK's frame -- the server must never do that conversion itself, or it
+gets applied twice.
 """
 
 import argparse
 import base64
+import io
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
@@ -33,32 +31,41 @@ class StubPolicy:
 
 
 class CosmosPolicy:
-    """Not servable yet -- but the blocker has moved, so the error says where it went.
+    """The cosmos3 camera policy. Start it with scripts/serve_cosmos_policy.sh.
 
-    The checkpoint is no longer the obstacle: `scripts/consolidate_cosmos_ckpt.py`
-    turns the 8 FSDP `.distcp` shards into one `.safetensors` of plain tensors, and
-    this constructor will happily read it. What is missing is the *model* those weights
-    belong to -- a ~15.2 B cosmos3 action-SFT net (Qwen-style backbone, `mlp_moe_gen`
-    branches, the action adapters) whose code lives in `cosmos_framework`, which is not
-    vendored in this repo and whose training tree no longer exists.
-
-    So wiring this up needs three things that consolidation does not supply: that
-    dependency, the VAE the action adapters were trained against, and a GPU with room
-    for 28 GiB of bf16 weights (an A6000 fits; anything 24 GB does not).
+    Each request needs the frame, `state.tilt_deg` and a complete `goal.profile`. Anything
+    missing raises, which the handler turns into an explicit hover: a free-text brief or an
+    unknown tilt would produce a confident answer to the wrong question.
     """
     name = "cosmos3-camera-policy"
 
-    def __init__(self, ckpt):
-        import os
+    def __init__(self, ckpt, *, vae, output_dir, move_s, samples, num_steps):
+        from cosmos_framework.inference.common.init import init_script
 
-        have = ckpt and os.path.exists(ckpt)
-        raise NotImplementedError(
-            f"{'Found' if have else 'Did not find'} a consolidated checkpoint at {ckpt!r}, "
-            "but the cosmos3 model code (`cosmos_framework`) is not in this repo, so "
-            "there is nothing to load it into. Consolidate with "
-            "scripts/consolidate_cosmos_ckpt.py; serve with --stub until the model is "
-            "vendored."
-        )
+        init_script()
+        from src.policy.common.action_to_drone import action_to_move
+        from src.policy.cosmos3.policy import Cosmos3CameraPolicy
+
+        self._to_move = action_to_move
+        self.move_s = float(move_s)
+        self.policy = Cosmos3CameraPolicy(ckpt, vae_path=vae, output_dir=output_dir,
+                                          samples=samples, num_steps=num_steps)
+
+    def act(self, image_bytes, state, goal):
+        import numpy as np
+        from PIL import Image
+
+        if not image_bytes:
+            raise ValueError("no camera frame")
+        tilt = float(state["tilt_deg"])
+        image = np.asarray(Image.open(io.BytesIO(image_bytes)).convert("RGB"))
+        chunk = self.policy.predict_chunk(image, goal["profile"])
+        # Only the first action: the view has moved by the time the rest would fly.
+        m = self._to_move(chunk[0], tilt, self.move_s)
+        return {"vx": m.vx, "vy": m.vy, "vz": m.vz, "yaw_rate": m.yaw_rate,
+                "tilt_rate": m.tilt_rate, "tilt_target": m.tilt_target,
+                "tilt_limited": m.tilt_limited, "shoot": m.shoot, "ttl_s": self.move_s,
+                "chunk": chunk.tolist(), "note": self.name}
 
 
 def make_handler(policy):
@@ -96,12 +103,24 @@ def main():
     p.add_argument("--port", type=int, default=8777)
     p.add_argument("--host", default="127.0.0.1", help="loopback: reach it over an SSH tunnel")
     p.add_argument("--stub", action="store_true", default=True)
-    p.add_argument("--checkpoint", default=None, help="implies the real policy (not yet wired)")
+    p.add_argument("--checkpoint", default=None, help="implies the real policy")
+    p.add_argument("--vae", default=None, help="Wan2.2_VAE.pth the checkpoint trained with")
+    p.add_argument("--output-dir", default="runs/serve_policy", dest="output_dir")
+    p.add_argument("--move-seconds", type=float, default=1.5, dest="move_seconds",
+                   help="how long one action flies; the renders have no clock, so this sets speed")
+    p.add_argument("--samples", type=int, default=4, help="draws averaged per reply")
+    p.add_argument("--num-steps", type=int, default=30, dest="num_steps", help="sampler steps")
     a = p.parse_args()
-    policy = CosmosPolicy(a.checkpoint) if a.checkpoint else StubPolicy()
+    if a.checkpoint:
+        policy = CosmosPolicy(a.checkpoint, vae=a.vae, output_dir=a.output_dir,
+                              move_s=a.move_seconds, samples=a.samples, num_steps=a.num_steps)
+    else:
+        policy = StubPolicy()
     srv = HTTPServer((a.host, a.port), make_handler(policy))
-    print(f"[serve] {policy.name} on http://{a.host}:{a.port}/act")
-    print(f"[serve] tunnel from the laptop:  ssh -N -L {a.port}:localhost:{a.port} <user>@<server>")
+    # Flushed: under a log file these are the only sign that the model has finished loading.
+    print(f"[serve] {policy.name} on http://{a.host}:{a.port}/act", flush=True)
+    print(f"[serve] tunnel from the laptop:  ssh -N -L {a.port}:localhost:{a.port} <user>@<server>",
+          flush=True)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

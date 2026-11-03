@@ -19,7 +19,7 @@ the vendor documents; the commands were written without the devices attached.
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-pip install "mavsdk<4" opencv-python
+pip install "mavsdk<4" opencv-python requests
 python scripts/run_sitl_pilot.py --dry-run --approve --ui --duration 600 --takeoff-settle 0
 ```
 

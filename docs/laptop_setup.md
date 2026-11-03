@@ -186,12 +186,8 @@ get there sooner.
 
 ## What is not done yet
 
-- The cosmos3 checkpoint is consolidated on the server: one 28 GiB `.safetensors` of
-  plain tensors, EMA weights in bf16 (`docs/cosmos_checkpoint.md`). It is **not**
-  committed and never will be; `scripts/fetch_cosmos_ckpt.py` fetches it instead.
-  `serve_policy.py --checkpoint` still raises, but for a different reason now -- the
-  ~15.2 B model's code lives in `cosmos_framework`, which is not in this repo. Until
-  that is vendored, `--stub` is the policy.
+- The real policy is served by `scripts/serve_cosmos_policy.sh` on the server; see
+  `docs/cosmos_checkpoint.md`. The checkpoint is **not** committed and never will be.
 - Nothing in this package has ever touched a real aircraft, or PX4 at all. Every test
   runs against fakes. Step 2 above is the first contact with reality, and it should be
   treated that way.

@@ -114,19 +114,32 @@ Python 3.13. Read it under 3.12 and the unpickle dies with
 touched. The script aliases the module to `pathlib` up front; nothing else is needed,
 because the classes are the same ones.
 
-## What still blocks serving it
+## Serving it
 
-Consolidation is **not** what stood between this checkpoint and
-`scripts/serve_policy.py`. Three other things do:
+`scripts/serve_cosmos_policy.sh` serves it from this repo. The code here is
+`src/policy/cosmos3/`; the checkpoint and VAE are read from where training left them, in
+`DronePhotographerV12` on the cluster, and nothing writes to them.
 
-1. **The model code.** The net is defined in `cosmos_framework`, which is not vendored
-   here and is not on this machine; the tree it trained from
-   (`.../DronePhotographerV12`) no longer exists. Weights without the module they load
-   into are inert.
-2. **The VAE.** The action adapters were trained against specific 192-dim latents, so
-   the matching encoder has to come with it.
-3. **Nothing else.** 28.26 GiB of bf16 fits on one A6000 (48 GB) with room for
-   activations — but not on a 24 GB card, which rules out the 3090 boxes.
+It needs `repos/cosmos-framework` (gitignored) at the commit the checkpoint trained on:
 
-`CosmosPolicy.__init__` raises with this list rather than a stale complaint about
-shards, so the next person to try reads the real reason.
+```bash
+git clone https://github.com/NVIDIA/cosmos-framework.git repos/cosmos-framework
+git -C repos/cosmos-framework checkout 2190a72a5799ab1bc8e4ddc19ae09cd1f14d7cbc
+cd repos/cosmos-framework && uv sync --frozen --all-extras --group=cu128-train
+```
+
+The framework stays unpatched: `src/policy/cosmos3/recipe.py` registers the 10D action type
+and the experiment from outside it.
+
+Measured on one B200 with `iter_000045000`, 4 draws of 30 sampler steps per reply (2026-11-03):
+
+- Loading the weights takes 91 s. The first reply takes 35 s, and later ones about 3.1 s
+  (p90 3.4 s). One draw is about 0.7 s of that. The laptop's default `--policy-timeout 0.8`
+  is too short for 4 draws.
+- Over 32 of the eval episodes, on their rendered start frames, the first chunk's motion
+  points toward the requested goal: cosine with the start-to-goal direction has median
+  +0.94 and is positive in 31 of 32. With goals shuffled between episodes the median is
+  +0.77 and 75% are positive, so the goal does change the answer, but many episodes in this
+  set share a direction.
+
+None of this has seen a real camera image.
