@@ -143,6 +143,37 @@ QGroundControl can stay open throughout; it uses a different port.
 Ctrl-C is an e-stop: hover, leave offboard, land -- rather than dropping the link and
 letting PX4's failsafe decide.
 
+## Flying move by move
+
+`--approve` puts a human between the policy and the aircraft. The policy proposes one
+move, the panel shows it in words with its numbers, and nothing reaches the supervisor
+until someone clicks **Run this move**. Until then the aircraft holds.
+
+```bash
+python scripts/run_sitl_pilot.py --source policy --camera-url rtsp://... \
+    --approve --move-seconds 1.5 --ui
+```
+
+`ApprovalGate` (`src/drone_control/approval.py`) wraps any `CommandSource` and is
+itself one, so the loop needed no changes: it is just a source that usually says
+"hold". Three properties matter more than the feature:
+
+- **A click starts a move, the clock ends it.** `accept()` makes the proposal live for
+  `--move-seconds` and no longer, and the gate keeps handing the supervisor that one
+  command while it is live, so the supervisor's TTL still ends the move if the laptop
+  dies mid-flight. No path leaves a velocity running because a browser tab froze.
+- **The panel can refuse a move; it cannot write one.** `accept()` releases exactly
+  what the policy proposed, and the gate exposes no way to supply a command. A UI bug
+  can decline to fly, or fly the policy's own suggestion early. It cannot invent a
+  velocity. A latched stop outranks the click: the server refuses to accept while the
+  supervisor is e-stopped, rather than consuming the move and recording it as flown.
+- **A proposal goes stale too.** The view the policy answered about is seconds old by
+  the time a human reads it, so an offer nobody acts on is withdrawn after
+  `offer_s` (6 s by default) and the next one is computed from a newer frame.
+
+Between moves the gate returns an explicit hover rather than nothing, because holding
+here is a decision rather than an absence; the TTL remains the backstop underneath it.
+
 ## The panel
 
 `python scripts/run_sitl_pilot.py --source square --ui` serves a ground station on
@@ -150,32 +181,33 @@ letting PX4's failsafe decide.
 because the page can stop the aircraft and should not be reachable from the drone's
 own wireless network.
 
-It **observes the supervisor and is not another rung in the chain of order**: the only
-state-changing routes are `/api/estop` and `/api/clear_estop`, both of which can only
-make the aircraft safer. There is deliberately no "set velocity" endpoint, and a test
-asserts that asking for one 404s.
+It can give the aircraft **two orders and no others**: run the move the policy has
+already proposed, or stop. `/api/accept`, `/api/skip`, `/api/estop` and
+`/api/clear_estop` are the only state-changing routes; there is deliberately no "set
+velocity" endpoint, and a test asserts that asking for one 404s.
 
-What it shows, and why each panel earns its place:
+The screen is designed on Hallmark's Furrow theme (a working-records voice: warm
+manila paper, moulded keys, figures in mono) and carries five things:
 
-- **Three link pills** — MAVLINK / VIDEO / POLICY, the three independent failure
-  domains. Video shows frame age in ms; policy shows calls and failures. This is the
-  one view where "which link died?" is answerable at a glance.
-- **Chain of order** — the live ladder with the active rung lit, including the two
-  rungs *above* this software (RC, QGC) greyed out, so the panel never implies it has
-  more authority than it does.
-- **Command, in both frames** — ours beside what MAVSDK was handed, with ⇄ on the
-  three axes that invert. The bars grow from the centre, so a sign error appears as a
-  bar on the wrong side rather than as a crash.
-- **Envelope gauges** — speed, altitude, distance from home against their limits,
-  amber at 80%.
-- **Camera** with a rule-of-thirds reticle (the policy is scored on where the subject
-  sits in frame) and a frame-age badge; it says NO SIGNAL and names the consequence
-  ("policy not asked") rather than freezing on a stale picture.
-- **Event log** — reason transitions only, not 20 Hz of identical lines.
+- **The move**, as a notebook entry: what it will do in one sentence, the four axis
+  values, how long it will fly, what the envelope will do to it *before* you click,
+  one line of fine print with the numbers MAVSDK will be handed, and two keys. It
+  draws four states: on offer, running (with the countdown), waiting for the policy,
+  and stopped.
+- **A one-line status band** that replaces the old seven-rung ladder: holding, flying
+  a named move with its countdown, or stopped. The ladder is still the design; it is
+  simply not something an operator needs to read at 20 Hz.
+- **The record**: every move with its UTC time and what became of it (flown, skipped,
+  expired, stopped).
+- **The camera** with a rule-of-thirds reticle, because the policy is scored on where
+  the subject sits in frame, plus altitude, distance from home and frame age.
+- **Three link states** in the bar: MAVLink, video, policy, the three independent
+  failure domains.
 
-Space bar is the keyboard e-stop; the mouse is the slow path when something is going
-wrong. If the pilot process dies the footer says so, because a panel that silently
-freezes looks identical to a drone that is holding position.
+Enter runs the move on offer, Esc skips it, the space bar stops the aircraft; the
+mouse is the slow path when something is going wrong. If the pilot process dies the
+footer says so, because a panel that silently freezes looks identical to a drone that
+is holding position.
 
 A UI fault cannot ground the aircraft: `publish()` is wrapped, and a test runs the loop
 with a panel that raises on every tick and asserts the drone still flies.
@@ -188,7 +220,10 @@ with a panel that raises on every tick and asserts the drone still flies.
   rather than silently returning stub values.
 - Camera ingest on its own link, latest-frame-only, with a staleness gate: **done**,
   tested against a fake capture (no OpenCV or camera needed).
-- Ground-station panel (`--ui`): **done**, stdlib-only, 8 tests including "the UI
-  offers no way to command the drone" and "a broken UI cannot stop the loop".
+- Ground-station panel (`--ui`): **done**, stdlib-only, designed on Hallmark's Furrow
+  theme, with tests including "a broken UI cannot stop the loop" and "the panel can
+  run and skip but still cannot author a command".
+- Flying move by move (`--approve`): **done**, 10 tests covering the click, the clock,
+  the withdrawal of a stale offer and a latched stop beating the run button.
 - Not yet done: consolidating the cosmos3 checkpoint (8 FSDP `.distcp` shards, 85 GB)
   into a loadable state dict; and flying it, which needs PX4 on the laptop.

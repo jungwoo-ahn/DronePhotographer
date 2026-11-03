@@ -26,7 +26,7 @@ class UiState:
 
     # -- written by the control loop -----------------------------------------
     def publish(self, *, decision, state, camera=None, client=None, source_name="",
-                now: float | None = None, started_at: float | None = None):
+                gate=None, now: float | None = None, started_at: float | None = None):
         now = time.monotonic() if now is None else now
         cmd = decision.command
         f, r, d, y = to_mavsdk_body(cmd)
@@ -45,6 +45,7 @@ class UiState:
         snap = {
             "status": "flying",
             "t": now,
+            "wall": time.time(),
             "elapsed": None if started_at is None else now - started_at,
             "rung": rung,
             "reason": decision.reason,
@@ -72,6 +73,9 @@ class UiState:
                           "radius": (state.north ** 2 + state.east ** 2) ** 0.5},
             "limits": self._limits_dict(),
             "hz": self._rate(now),
+            # The move on offer, when the pilot is flying under approval. None means
+            # the policy is driving directly and the panel has nothing to click.
+            "move": None if gate is None else gate.snapshot(now),
         }
         if decision.reason != self._last_reason:
             # `now` is monotonic, which is right for ages and wrong for a log: the panel

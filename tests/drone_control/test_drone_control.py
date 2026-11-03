@@ -494,3 +494,150 @@ def test_ui_failure_cannot_stop_the_control_loop():
                     policy_hz=5.0, duration_s=0.5, log=lambda *a: None,
                     clock=clock, ui=Exploding()))
     assert drv.sent and any(s[0] > 0 for s in drv.sent)   # still flew
+
+
+# --- flying move by move: the policy proposes, the operator runs it ---------------
+from src.drone_control.approval import ApprovalGate, describe_move       # noqa: E402
+
+
+class _OneShot:
+    """A source that keeps proposing the same move."""
+    name = "oneshot"
+
+    def __init__(self, cmd):
+        self.cmd = cmd
+        self.asks = 0
+
+    def next_command(self, state, now):
+        self.asks += 1
+        return self.cmd
+
+
+def _gate(cmd=None, **kw):
+    t = [0.0]
+    src = _OneShot(cmd or VelocityCommand(vy=0.9, yaw_rate=8.0))
+    return ApprovalGate(src, clock=lambda: t[0], **kw), src, t
+
+
+def test_nothing_flies_until_someone_accepts():
+    gate, src, t = _gate()
+    st = VehicleState(altitude=5.0, ok=True)
+    assert gate.next_command(st, 0.0).is_hover()     # proposes, commands a hover
+    assert gate.snapshot(0.0)["offer"] is not None
+    assert gate.next_command(st, 0.1).is_hover()     # still holding, offer still up
+    gate.accept(now=0.2)
+    assert not gate.next_command(st, 0.3).is_hover()  # now it flies
+
+
+def test_an_accepted_move_ends_on_the_clock_not_on_a_second_click():
+    gate, src, t = _gate(hold_s=1.0)
+    st = VehicleState(altitude=5.0, ok=True)
+    gate.next_command(st, 0.0)
+    gate.accept(now=0.0)
+    assert not gate.next_command(st, 0.9).is_hover()
+    assert gate.next_command(st, 1.1).is_hover()     # the clock ended it
+    assert gate.snapshot(1.1)["record"][0]["outcome"] == "flown"
+
+
+def test_accepting_releases_exactly_what_the_policy_proposed():
+    proposed = VelocityCommand(vx=0.4, vy=0.9, vz=0.0, yaw_rate=8.0)
+    gate, src, t = _gate(proposed)
+    st = VehicleState(altitude=5.0, ok=True)
+    gate.next_command(st, 0.0)
+    gate.accept(now=0.0)
+    out = gate.next_command(st, 0.1)
+    assert (out.vx, out.vy, out.vz, out.yaw_rate) == (0.4, 0.9, 0.0, 8.0)
+
+
+def test_accepting_nothing_does_nothing():
+    gate, src, t = _gate()
+    assert gate.accept(now=0.0) is False
+    assert gate.next_command(VehicleState(ok=True), 0.0).is_hover()
+    assert gate.snapshot(0.0)["running"] is None
+
+
+def test_a_move_nobody_runs_is_withdrawn_rather_than_left_on_offer():
+    gate, src, t = _gate(offer_s=2.0)
+    st = VehicleState(altitude=5.0, ok=True)
+    gate.next_command(st, 0.0)
+    assert gate.snapshot(0.0)["offer"] is not None
+    gate.next_command(st, 3.0)                       # past the offer window
+    assert gate.expired == 1
+    assert gate.snapshot(3.0)["record"][0]["outcome"] == "expired"
+
+
+def test_skipping_asks_the_policy_again_from_a_newer_view():
+    gate, src, t = _gate()
+    st = VehicleState(altitude=5.0, ok=True)
+    gate.next_command(st, 0.0)
+    asks = src.asks
+    assert gate.skip() is True
+    gate.next_command(st, 0.5)
+    assert src.asks == asks + 1
+
+
+def test_the_offer_shows_what_the_envelope_will_do_to_it_before_you_click():
+    gate, src, t = _gate(VelocityCommand(vy=9.0),
+                         limits=SafetyLimits(max_horizontal_speed=1.0))
+    st = VehicleState(altitude=5.0, ok=True)
+    gate.next_command(st, 0.0)
+    offer = gate.snapshot(0.0)["offer"]
+    assert offer["asked"]["vy"] == 9.0
+    assert offer["command"]["vy"] == 1.0             # what will actually fly
+    assert offer["clamped"]                          # and it says so
+    assert offer["sent"]["right"] == -1.0            # still converted for MAVSDK
+
+
+def test_a_dead_panel_cannot_leave_a_move_running():
+    """The click starts it; only the clock stops it. No second request is needed."""
+    gate, src, t = _gate(hold_s=0.5)
+    st = VehicleState(altitude=5.0, ok=True)
+    gate.next_command(st, 0.0)
+    gate.accept(now=0.0)
+    # the browser now vanishes: no further accept, no skip, no poll
+    assert gate.next_command(st, 0.6).is_hover()
+
+
+def test_the_move_is_described_in_words_an_operator_can_check():
+    assert describe_move(VelocityCommand(vy=0.9, yaw_rate=8.0)) == "Arc left around the subject"
+    assert describe_move(VelocityCommand(vx=0.4, vy=0.9, yaw_rate=8.0)) == \
+        "Arc left around the subject, moving closer"
+    assert describe_move(VelocityCommand(vy=-0.9, yaw_rate=-8.0)) == "Arc right around the subject"
+    assert describe_move(VelocityCommand(vz=0.5)) == "Climb"
+    assert describe_move(VelocityCommand()) == "Hold still"
+    assert "closer" in describe_move(VelocityCommand(vx=0.4))
+
+
+def test_the_panel_can_run_and_skip_but_still_cannot_author_a_command():
+    gate, src, t = _gate()
+    sup = Supervisor(clock=lambda: 0.0)
+    ui = UiState(SafetyLimits())
+    gate.next_command(VehicleState(altitude=5.0, ok=True), 0.0)
+    srv = UiServer(ui, sup, port=8127, gate=gate).start()
+    try:
+        base = "http://127.0.0.1:8127"
+        r = _json.load(_url.urlopen(_url.Request(base + "/api/accept", method="POST"), timeout=5))
+        assert r["ran"] is True
+        with pytest.raises(Exception):
+            _url.urlopen(_url.Request(base + "/api/velocity", method="POST", data=b"{}"),
+                         timeout=5)
+    finally:
+        srv.stop()
+
+
+def test_a_latched_stop_outranks_the_run_button():
+    """Clicking Run while stopped must not consume the move or write a false record."""
+    gate, src, t = _gate()
+    sup = Supervisor(clock=lambda: 0.0)
+    sup.estop()
+    ui = UiState(SafetyLimits())
+    gate.next_command(VehicleState(altitude=5.0, ok=True), 0.0)
+    srv = UiServer(ui, sup, port=8128, gate=gate).start()
+    try:
+        r = _json.load(_url.urlopen(
+            _url.Request("http://127.0.0.1:8128/api/accept", method="POST"), timeout=5))
+        assert r["ran"] is False
+        assert gate.snapshot(0.0)["offer"] is not None      # still on offer
+        assert gate.snapshot(0.0)["running"] is None
+    finally:
+        srv.stop()

@@ -4,9 +4,10 @@ Stdlib only -- the laptop should need `pip install mavsdk opencv-python` and not
 more to fly. Binds to 127.0.0.1 by default: this page can stop the aircraft, so it is
 not something to expose on the drone's own wireless network by accident.
 
-The only state-changing endpoints are the e-stop and its explicit release. There is
-deliberately no "set velocity" route -- the UI observes the chain of order, it is not
-another rung in it.
+The state-changing endpoints are the e-stop, its explicit release, and (when the
+pilot is flying under approval) accepting or skipping the move the policy has
+proposed. There is deliberately no "set velocity" route: the panel can refuse a move
+or run the one on offer, but it cannot author one. See `approval.ApprovalGate`.
 """
 
 from __future__ import annotations
@@ -19,7 +20,7 @@ from pathlib import Path
 STATIC = Path(__file__).parent / "static"
 
 
-def _handler(state, supervisor):
+def _handler(state, supervisor, gate=None):
     class H(BaseHTTPRequestHandler):
         protocol_version = "HTTP/1.1"
 
@@ -63,6 +64,17 @@ def _handler(state, supervisor):
             if path == "/api/clear_estop":
                 supervisor.clear_estop()
                 return self._send(b'{"estop":false}', "application/json")
+            # Accept and skip act on the gate, never on the drone: the most either can
+            # do is release the move the policy already proposed, or refuse it.
+            if path == "/api/accept" and gate is not None:
+                # A latched stop outranks the operator's click: accepting here would
+                # consume the move and write "flown" in the record for a move the
+                # supervisor was never going to let out.
+                ran = False if supervisor.stats.get("estopped") else gate.accept()
+                return self._send(json.dumps({"ran": ran}).encode(), "application/json")
+            if path == "/api/skip" and gate is not None:
+                return self._send(json.dumps({"skipped": gate.skip()}).encode(),
+                                  "application/json")
             self._send(b"not found", "text/plain", code=404)
     return H
 
@@ -70,8 +82,9 @@ def _handler(state, supervisor):
 class UiServer:
     """Serves the panel on a daemon thread; never blocks the control loop."""
 
-    def __init__(self, state, supervisor, host: str = "127.0.0.1", port: int = 8080):
-        self.state, self.supervisor = state, supervisor
+    def __init__(self, state, supervisor, host: str = "127.0.0.1", port: int = 8080,
+                 gate=None):
+        self.state, self.supervisor, self.gate = state, supervisor, gate
         self.host, self.port = host, port
         self._srv = None
         self._thread = None
@@ -82,7 +95,7 @@ class UiServer:
 
     def start(self) -> "UiServer":
         self._srv = ThreadingHTTPServer((self.host, self.port),
-                                        _handler(self.state, self.supervisor))
+                                        _handler(self.state, self.supervisor, self.gate))
         self._srv.daemon_threads = True
         self._thread = threading.Thread(target=self._srv.serve_forever, name="ui",
                                         daemon=True)

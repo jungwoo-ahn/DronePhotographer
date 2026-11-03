@@ -21,7 +21,7 @@ from .supervisor import Supervisor
 
 async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
               duration_s: float | None = None, log=print, clock=time.monotonic,
-              ui=None, camera=None, client=None):
+              ui=None, camera=None, client=None, gate=None):
     """Fly until `duration_s` elapses, the source is exhausted, or an e-stop lands.
 
     `driver` is an `OffboardDriver` (or anything with the same async surface, which is
@@ -66,7 +66,7 @@ async def run(driver, supervisor: Supervisor, source, *, policy_hz: float = 2.0,
             # the loop below PX4's 2 Hz floor, so a UI fault is swallowed, not raised.
             try:
                 ui.publish(decision=decision, state=state, camera=camera, client=client,
-                           source_name=getattr(source, "name", ""), now=now,
+                           gate=gate, source_name=getattr(source, "name", ""), now=now,
                            started_at=t0)
             except Exception as e:
                 log(f"[loop] ui publish failed ({e}); continuing")

@@ -4,100 +4,98 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Drone pilot</title>
-<meta name="description" content="Ground station for a PX4 drone flown from this laptop on velocity setpoints.">
+<meta name="description" content="Ground station for a PX4 drone flown move by move: the policy proposes, you run it.">
 <!-- Loaded without blocking: on a field laptop with no internet the stack falls back to the system sans. -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@600&family=Red+Hat+Text:wght@400;500&family=Red+Hat+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="bar">
   <div class="bar__in container">
-    <div class="mast">
-      <h1>Drone pilot</h1>
-      <span class="src" id="src">starting</span>
-    </div>
-
+    <h1>Drone pilot</h1>
     <div class="links">
       <div class="link" id="l-mavlink" data-state="off">
-        <span class="link__n">MAVLink</span>
-        <span class="link__v measure" id="v-mavlink">no telemetry</span>
+        <span class="link__n">MAVLink</span><span class="link__v num" id="v-mavlink">no telemetry</span>
       </div>
       <div class="link" id="l-video" data-state="off">
-        <span class="link__n">Video</span>
-        <span class="link__v measure" id="v-video">not in use</span>
+        <span class="link__n">Video</span><span class="link__v num" id="v-video">not in use</span>
       </div>
       <div class="link" id="l-policy" data-state="off">
-        <span class="link__n">Policy</span>
-        <span class="link__v measure" id="v-policy">not in use</span>
+        <span class="link__n">Policy</span><span class="link__v num" id="v-policy">not in use</span>
       </div>
     </div>
-
-    <button class="stop" id="estop" type="button" data-latched="0">E-STOP</button>
+    <button class="btn btn--stop" id="estop" type="button" data-latched="0">E-STOP</button>
   </div>
 </header>
 
+<div class="band" id="band" data-tone="holding">
+  <div class="band__in container">
+    <b id="band-say">Waiting for the control loop.</b>
+    <span class="num" id="band-num"></span>
+  </div>
+</div>
+
 <main class="container">
 
-  <section class="span-all">
-    <h2>Commanded now, and what MAVSDK was handed</h2>
-    <ol class="axes" id="axes"></ol>
-  </section>
-
-  <section class="span-chain">
-    <h2>Chain of order</h2>
-    <ol class="rungs" id="rungs">
-      <li class="rung rung--above"><span class="rung__i">RC</span><span>The pilot's transmitter</span><span class="rung__t">outranks everything below</span></li>
-      <li class="rung rung--above"><span class="rung__i">QGC</span><span>A mode change in QGroundControl</span><span class="rung__t">drops us out of offboard</span></li>
-      <li class="rung" data-rung="estop"><span class="rung__i">1</span><span>Stop, latched</span><span class="rung__t">hover, then land</span></li>
-      <li class="rung" data-rung="envelope"><span class="rung__i">2</span><span>Safety envelope</span><span class="rung__t">clamp</span></li>
-      <li class="rung" data-rung="stale"><span class="rung__i">3</span><span>Command older than its ttl</span><span class="rung__t">link lost, hover</span></li>
-      <li class="rung" data-rung="policy"><span class="rung__i">4</span><span>Policy command</span><span class="rung__t">passed through</span></li>
-      <li class="rung" data-rung="idle"><span class="rung__i">5</span><span>Hover</span><span class="rung__t">the default</span></li>
-    </ol>
-    <p class="reason" id="reason" role="status">Waiting for the first command from the control loop.</p>
-  </section>
-
-  <section class="span-cam">
-    <h2>Camera, on its own link</h2>
-    <figure class="cam" id="cam" data-state="off">
-      <div class="cam__frame ticks">
-        <img id="frame" alt="" width="640" height="480">
-        <div class="reticle" aria-hidden="true">
-          <span class="v" style="left:33.33%"></span><span class="v" style="left:66.66%"></span>
-          <span class="h" style="top:33.33%"></span><span class="h" style="top:66.66%"></span>
+  <section class="col-move">
+    <div>
+      <h2 class="visually-hidden">The move on offer</h2>
+      <article class="entry" id="entry">
+        <div class="entry__head">
+          <div class="entry__kind">
+            <i class="mark" aria-hidden="true"></i><span id="e-kind">Next move</span>
+            <span class="when" id="e-when">—</span>
+          </div>
+          <div class="entry__figure"><span id="e-big">—</span><span class="u" id="e-bigu"></span></div>
         </div>
-        <div class="cam__over" id="camover">No camera on this run.</div>
+        <div class="entry__body" id="e-body">
+          <p class="entry__say" id="e-say">Waiting for the policy to suggest a move.</p>
+          <div class="cells" id="e-cells" hidden></div>
+          <div class="entry__foot" id="e-foot" hidden>
+            <span class="chip" id="e-chip">Inside the envelope</span>
+            <span class="fine" id="e-fine"></span>
+            <div class="keys">
+              <button class="btn btn--primary" id="run" type="button">Run this move</button>
+              <button class="btn" id="skip" type="button">Skip it</button>
+            </div>
+          </div>
+          <p class="entry__wait" id="e-wait" hidden></p>
+        </div>
+      </article>
+    </div>
+
+    <div>
+      <h2>The record</h2>
+      <div class="record__wrap">
+        <table class="record">
+          <thead><tr><th>Time, UTC</th><th>Move</th><th>Outcome</th></tr></thead>
+          <tbody id="record"><tr><td class="t">—</td><td>Nothing has been run yet.</td><td class="o">—</td></tr></tbody>
+        </table>
       </div>
-      <figcaption class="cam__strip">
-        <div><span class="k">Frame age</span><span class="v measure" id="c-age">no frames</span></div>
-        <div><span class="k">Frames read</span><span class="v measure" id="c-frames">0</span></div>
-        <div><span class="k">Reconnects</span><span class="v measure" id="c-recon">0</span></div>
-      </figcaption>
-    </figure>
+    </div>
   </section>
 
-  <section class="span-env">
-    <h2>Safety envelope</h2>
-    <table class="env">
-      <thead>
-        <tr><th>Limit</th><th class="num">Now</th><th class="num">Bound</th><th>Margin</th></tr>
-      </thead>
-      <tbody id="env"></tbody>
-    </table>
-  </section>
-
-  <section class="span-log">
-    <h2>Flight log</h2>
-    <div class="log__wrap">
-      <table class="log">
-        <thead>
-          <tr><th>Time, UTC</th><th>Rung</th><th>What changed</th></tr>
-        </thead>
-        <tbody id="log"><tr><td class="t measure">waiting</td><td class="dim">none</td><td class="r">Nothing has happened yet.</td></tr></tbody>
-      </table>
+  <section class="col-side">
+    <div>
+      <h2>Camera</h2>
+      <figure class="cam" id="cam" data-state="off">
+        <div class="cam__frame">
+          <img id="frame" alt="" width="640" height="480">
+          <div class="reticle" aria-hidden="true">
+            <span class="v" style="left:33.33%"></span><span class="v" style="left:66.66%"></span>
+            <span class="h" style="top:33.33%"></span><span class="h" style="top:66.66%"></span>
+          </div>
+          <div class="cam__over" id="camover">No camera on this run.</div>
+        </div>
+        <figcaption class="figs">
+          <div><span class="k">Altitude</span><span class="v" id="f-alt">—</span></div>
+          <div><span class="k">From home</span><span class="v" id="f-home">—</span></div>
+          <div><span class="k">Frame age</span><span class="v" id="f-age">—</span></div>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -105,9 +103,7 @@
 
 <div class="container">
   <div class="foot" id="foot">
-    <p>Runs on this laptop only. The panel watches the chain of order; the one order it can give is the stop, on this button or the space bar.</p>
-    <p><span class="label">Control loop</span> <span class="measure" id="f-hz">waiting</span></p>
-    <p><span class="label">Elapsed</span> <span class="measure" id="f-elapsed">0 s</span></p>
+    <p id="foot-say">The aircraft holds unless you run a move. Enter runs the one on offer, Esc skips it, the space bar stops the aircraft.</p>
   </div>
 </div>
 
