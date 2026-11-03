@@ -41,6 +41,7 @@ from src.assets import (
     filter_scenes_by_texture,
     find_scene_blend,
     object_name as _object_name,
+    path_safe,
     scene_name as _scene_name,
 )
 from src.vlm.api import (
@@ -396,7 +397,7 @@ def process_candidate(
     attempts = []
 
     for iteration in range(max_iter):
-        img_name = f"{scene_name}_{object_name}_c{candidate_idx}_iter{iteration}.png"
+        img_name = path_safe(f"{scene_name}_{object_name}_c{candidate_idx}_iter{iteration}") + ".png"
         img_path = str(output_dir / "previews" / img_name)
         os.makedirs(os.path.dirname(img_path), exist_ok=True)
 
@@ -815,7 +816,7 @@ def process_candidate(
                     good_views = [(best_quality, best_azim, best_elev)]
 
             for vi, (vq, va, ve) in enumerate(good_views):
-                final_name = f"{scene_name}_{object_name}_c{candidate_idx}_v{vi}.png"
+                final_name = path_safe(f"{scene_name}_{object_name}_c{candidate_idx}_v{vi}") + ".png"
                 final_path = str(output_dir / "images" / final_name)
 
                 final_placement_cfg = dict(placement_cfg)
@@ -1305,7 +1306,10 @@ def process_pair(
     }
 
     # Save per-pair JSON
-    pair_json_name = f"{scene_name}__{object_name}.json"
+    # path_safe, not the raw name: an asset called "Retro-Chic: Urban Stroll" is
+    # fine as an identity but cannot be a filename on Windows. The identity above
+    # keeps the colon so it still matches data/objects/.
+    pair_json_name = path_safe(f"{scene_name}__{object_name}") + ".json"
     pair_json_path = output_dir / pair_json_name
     with open(pair_json_path, "w") as f:
         json.dump(pair_result, f, indent=2, default=str)
@@ -1447,7 +1451,7 @@ def main():
         for obj_path in object_files:
             obj_name = _object_name(obj_path)
             if args.resume:
-                existing = output_dir / f"{sname}__{obj_name}.json"
+                existing = output_dir / (path_safe(f"{sname}__{obj_name}") + ".json")
                 if existing.exists():
                     try:
                         prev = json.load(open(existing))
