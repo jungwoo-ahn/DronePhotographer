@@ -42,6 +42,9 @@ data/trajectories_full
 # downloaded baseline checkpoints (UNIC etc.) — fetch at setup, never commit
 weights/
 
+# fetched policy checkpoints (cosmos3 camera policy etc.) — large, never commit
+checkpoints/
+
 # these two are symlinks on some checkouts; the trailing-slash rules above miss them
 blender
 data/trajectories
