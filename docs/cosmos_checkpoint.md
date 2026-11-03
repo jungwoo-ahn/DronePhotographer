@@ -41,6 +41,42 @@ it to bf16 and the servable checkpoint is 28.26 GiB, not 91 GB.
 `optim/` (55.9 GB) was deliberately not fetched — weights only, since nothing here
 resumes training. `scheduler/` and `trainer/` came along and are small.
 
+## Getting it
+
+**Checkpoints are never committed.** `checkpoints/` is in `.gitignore`, one iteration is
+~91 GB, and the consolidated file is another 28 GiB. What the repo carries is the
+recipe:
+
+```bash
+pip install paramiko
+export CKPT_SSH_PASSWORD=...          # or --key for a private key
+python scripts/fetch_cosmos_ckpt.py \
+    --host <cluster> --port <port> --user <you> \
+    --run  /home/.../action_sft/camera_policy_nano_v6 \
+    --iter iter_000045000 \
+    --dest checkpoints/camera_policy_nano_v6/iter_000045000
+
+# what is already on disk, checked against the cluster file by file
+python scripts/fetch_cosmos_ckpt.py ... --verify
+```
+
+It is resumable (a partial shard is appended to, not restarted), fetches the big shards
+`--jobs` at a time, and skips `optim/` -- 56 GB of Adam state that only a resumed
+training run wants, not an inference one. `--dry-run` prints the manifest first.
+
+Two things in it are scar tissue from doing this by hand, and are worth not
+re-learning:
+
+- **A zero-byte remote file is not an already-fetched file.** The natural way to test
+  "do I have this?" is `getsize(local) == size` with a missing file counting as 0 --
+  which for an empty remote file is `0 == 0`, true before the file exists. That silently
+  skipped seven empty `scheduler/__N_0.distcp` files here. The check tests existence
+  first.
+- **Summing bytes is not a completion test.** The byte total still matched after those
+  seven were skipped, because the total only summed files that existed, so the fetch
+  reported success. Completion is now "every file present at exactly the remote size",
+  reported per file.
+
 ## Consolidating it
 
 ```bash
