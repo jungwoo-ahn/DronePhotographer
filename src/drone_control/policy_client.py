@@ -18,23 +18,19 @@ from __future__ import annotations
 import base64
 import time
 
-from .commands import VelocityCommand
-
 
 class PolicyClient:
     name = "policy"
 
-    def __init__(self, url: str = "http://127.0.0.1:8777/act", timeout_s: float = 0.8,
+    def __init__(self, url: str = "http://127.0.0.1:8777/act", timeout_s: float = 10.0,
                  session=None):
         self.url = url
-        #: Shorter than the command TTL on purpose: a request that outlives the command
-        #: it would produce is worse than no request, because it occupies the slot where
-        #: a fresh one could have gone.
         self.timeout_s = float(timeout_s)
         self._session = session
         self._seq = 0
         self.failures = 0
         self.calls = 0
+        self.last_error = None
 
     def _sess(self):
         if self._session is None:
@@ -42,27 +38,30 @@ class PolicyClient:
             self._session = requests.Session()
         return self._session
 
-    def request_command(self, frame_jpeg: bytes | None, state, goal: dict
-                        ) -> VelocityCommand | None:
-        """One round trip. Returns `None` on any failure -- never raises."""
+    def request_actions(self, frame_jpeg: bytes | None, goal: dict,
+                        timeout_s: float | None = None) -> list | None:
+        """One forward pass. The sequence of raw actions, or `None` -- never raises.
+
+        An empty sequence is a failure too: that is the server saying it could not answer,
+        and `last_error` keeps what it said.
+        """
         self._seq += 1
         payload = {
             "seq": self._seq,
             "goal": goal,
-            "state": {"altitude": getattr(state, "altitude", 0.0),
-                      "north": getattr(state, "north", 0.0),
-                      "east": getattr(state, "east", 0.0)},
             "image_b64": base64.b64encode(frame_jpeg).decode() if frame_jpeg else None,
         }
         self.calls += 1
         try:
-            r = self._sess().post(self.url, json=payload, timeout=self.timeout_s)
+            r = self._sess().post(self.url, json=payload, timeout=timeout_s or self.timeout_s)
             r.raise_for_status()
-            return VelocityCommand.from_json(r.json(), source=self.name)
-        except Exception:
+            reply = r.json()
+            actions = reply.get("actions")
+            if not actions:
+                raise ValueError(reply.get("error") or "the server returned no actions")
+            self.last_error = None
+            return actions
+        except Exception as e:
             self.failures += 1
+            self.last_error = f"{type(e).__name__}: {e}"
             return None
-
-    def next_command(self, state, now: float) -> VelocityCommand | None:
-        """`CommandSource` interface, for sources that carry their own frame/goal."""
-        return self.request_command(None, state, {})

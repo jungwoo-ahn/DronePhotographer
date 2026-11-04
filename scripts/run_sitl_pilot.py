@@ -24,19 +24,20 @@ the panel is up, the camera has delivered a frame and the policy has answered.
 
 import argparse
 import asyncio
+import json
 import sys
 import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.drone_control.approval import ApprovalGate
+from src.drone_control.approval import DEFAULT_OFFER_S, ApprovalGate
 from src.drone_control.camera import CameraStream
 from src.drone_control.loop import run
 from src.drone_control.offboard import BenchDriver, DryRunDriver, OffboardDriver
 from src.drone_control.policy_client import PolicyClient
-from src.drone_control.safety import SafetyLimits, VehicleState
-from src.drone_control.sources import HoverSource, SquareSource, VisionPolicySource
+from src.drone_control.safety import SafetyLimits
+from src.drone_control.sources import ActionSequenceSource, HoverSource, SquareSource
 from src.drone_control.supervisor import Supervisor
 from src.drone_control.ui import UiServer, UiState
 
@@ -53,8 +54,12 @@ def build_source(a):
         # a vision policy blind.
         raise SystemExit("--source policy needs --camera-url (the camera is on its own "
                          "wireless link, not the MAVLink channel)")
+    if not a.goal_file:
+        raise SystemExit("--source policy needs --goal-file: the shot profile to ask for")
+    with open(a.goal_file, encoding="utf-8") as f:
+        goal = json.load(f)
     cam = CameraStream(a.camera_url, max_age_s=a.max_frame_age).start()
-    return VisionPolicySource(cam, client, goal={"brief": a.brief}), cam
+    return ActionSequenceSource(cam, client, goal, move_s=a.move_seconds, tilt_deg=a.tilt_deg), cam
 
 
 def build_driver(a):
@@ -81,15 +86,19 @@ async def main_async(a):
     grounded = a.bench or a.dry_run
     driver = build_driver(a)
     source, cam = build_source(a)
+    sequence = source if isinstance(source, ActionSequenceSource) else None
     client = getattr(source, "client", None)
     gate = None
-    if a.approve:
+    if a.approve or sequence is not None:
         # Nothing the policy proposes reaches the aircraft until someone clicks Run,
         # so this only makes sense with the panel open.
-        gate = ApprovalGate(source, limits=sup.limits, hold_s=a.move_seconds)
+        # An action waits for its answer: the aircraft is holding still, so the view it was
+        # computed from does not go stale the way it does in flight.
+        offer_s = float("inf") if sequence is not None else DEFAULT_OFFER_S
+        gate = ApprovalGate(source, limits=sup.limits, hold_s=a.move_seconds, offer_s=offer_s)
         source = gate
     ui = uisrv = None
-    if a.ui:
+    if a.ui or sequence is not None:
         ui = UiState(sup.limits, mode="BENCH" if a.bench else "DRY RUN" if a.dry_run else "")
         ui.attach_camera(cam)
         uisrv = UiServer(ui, sup, port=a.ui_port, gate=gate).start()
@@ -108,12 +117,13 @@ async def main_async(a):
                 if not grounded:
                     raise SystemExit(f"no frame from {a.camera_url}; refusing to take off")
                 print(f"[pilot] no frame from {a.camera_url}; carrying on, this will not fly")
-        if client is not None:
-            phase("Asking the policy once.")
-            if await asyncio.to_thread(client.request_command, None, VehicleState(), {}) is None:
+        if sequence is not None:
+            phase("Asking the server for one forward pass. The first one is slow.")
+            if not await asyncio.to_thread(sequence.check, a.policy_warmup):
+                why = f"no actions from {a.policy_url}: {client.last_error}"
                 if not grounded:
-                    raise SystemExit(f"no answer from {a.policy_url}; refusing to take off")
-                print(f"[pilot] no answer from {a.policy_url}; carrying on, this will not fly")
+                    raise SystemExit(f"{why}; refusing to take off")
+                print(f"[pilot] {why}; carrying on, this will not fly")
         phase(f"Connecting to {a.url}.")
         await driver.connect()
         phase("Waiting for a usable position estimate.")
@@ -158,7 +168,9 @@ def main():
                    help="real telemetry, never arms and sends nothing; for props-off tests")
     p.add_argument("--source", default="square", choices=["square", "hover", "policy"])
     p.add_argument("--policy-url", default="http://127.0.0.1:8777/act", dest="policy_url")
-    p.add_argument("--policy-timeout", type=float, default=0.8, dest="policy_timeout")
+    p.add_argument("--policy-timeout", type=float, default=10.0, dest="policy_timeout")
+    p.add_argument("--policy-warmup", type=float, default=120.0, dest="policy_warmup",
+                   help="timeout for the forward pass on the ground; the first one is slow")
     p.add_argument("--policy-hz", type=float, default=2.0, dest="policy_hz")
     p.add_argument("--altitude", type=float, default=5.0)
     p.add_argument("--takeoff-settle", type=float, default=8.0, dest="takeoff_settle")
@@ -175,9 +187,12 @@ def main():
                         "e.g. rtsp://192.168.1.50:554/live")
     p.add_argument("--max-frame-age", type=float, default=0.7, dest="max_frame_age",
                    help="older than this and the policy is not asked -> hover")
-    p.add_argument("--brief", default="", help="the shot to achieve (text goal)")
+    p.add_argument("--goal-file", default=None, dest="goal_file",
+                   help="the shot to ask for: see configs/drone_goal_example.json")
+    p.add_argument("--tilt-deg", type=float, default=0.0, dest="tilt_deg",
+                   help="where the camera is set, from level, up+; the actions depend on it")
     p.add_argument("--approve", action="store_true",
-                   help="fly move by move: the policy proposes, you click Run in the panel")
+                   help="fly move by move, you click Run in the panel; --source policy always does")
     p.add_argument("--move-seconds", type=float, default=1.5, dest="move_seconds",
                    help="how long one accepted move flies before the aircraft holds")
     p.add_argument("--ui", action="store_true", help="serve the ground-station panel on localhost")

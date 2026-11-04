@@ -134,8 +134,7 @@ and the experiment from outside it.
 Measured on one B200 with `iter_000045000`, 4 draws of 30 sampler steps per reply (2026-11-03):
 
 - Loading the weights takes 91 s. The first reply takes 35 s, and later ones about 3.1 s
-  (p90 3.4 s). One draw is about 0.7 s of that. The laptop's default `--policy-timeout 0.8`
-  is too short for 4 draws.
+  (p90 3.4 s). One draw is about 0.7 s of that.
 - Over 32 of the eval episodes, on their rendered start frames, the first chunk's motion
   points toward the requested goal: cosine with the start-to-goal direction has median
   +0.94 and is positive in 31 of 32. With goals shuffled between episodes the median is

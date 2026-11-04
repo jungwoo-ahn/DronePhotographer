@@ -55,11 +55,6 @@ def test_command_expires_after_its_ttl():
     assert not c.is_fresh(101.5)
 
 
-def test_malformed_server_reply_degrades_to_hover_not_to_garbage():
-    c = VelocityCommand.from_json({"vx": "banana", "yaw_rate": None})
-    assert c.is_hover()
-
-
 def test_stamp_uses_the_supplied_clock_not_wall_time():
     # Regression: stamping with time.monotonic() while the supervisor judged freshness
     # with an injected clock silently disabled the stale-link watchdog.
@@ -176,27 +171,6 @@ def test_scripted_source_returns_none_when_exhausted():
     assert s.next_command(None, 2.0) is None
 
 
-def test_policy_client_never_raises_into_the_loop():
-    class Dead:
-        def post(self, *a, **k):
-            raise ConnectionError("tunnel down")
-    c = PolicyClient(session=Dead())
-    assert c.request_command(b"x", VehicleState(), {}) is None
-    assert c.failures == 1
-
-
-def test_policy_client_parses_a_good_reply():
-    class Ok:
-        def post(self, *a, **k):
-            class R:
-                def raise_for_status(self): pass
-                def json(self): return {"vx": 1.0, "yaw_rate": -10.0, "note": "hi"}
-            return R()
-    c = PolicyClient(session=Ok())
-    cmd = c.request_command(None, VehicleState(), {})
-    assert cmd.vx == 1.0 and cmd.yaw_rate == -10.0 and cmd.source == "policy"
-
-
 # --- the loop end to end ---------------------------------------------------------
 class FakeDriver:
     """Records what the airframe would have received."""
@@ -257,7 +231,6 @@ def test_loop_treats_telemetry_failure_as_unsafe():
 
 # --- the camera channel (second, independent link) -------------------------------
 from src.drone_control.camera import CameraStream, Frame          # noqa: E402
-from src.drone_control.sources import VisionPolicySource          # noqa: E402
 
 
 class FakeCapture:
@@ -314,46 +287,6 @@ def test_camera_reconnects_when_the_stream_drops():
 class _FixedCam:
     def __init__(self, frame): self._f = frame
     def fresh_frame(self, now=None): return self._f
-
-
-def test_vision_source_withholds_command_when_video_is_stale():
-    """A dead camera must stop the drone, not feed the policy a photo of the past."""
-    class Client:
-        def request_command(self, *a, **k):
-            raise AssertionError("must not call the policy without a fresh frame")
-    src = VisionPolicySource(_FixedCam(None), Client())
-    assert src.next_command(None, 0.0) is None
-    assert src.skipped_stale_frame == 1
-
-
-def test_vision_source_passes_frame_through_to_policy(monkeypatch):
-    import src.drone_control.sources as S
-    monkeypatch.setattr(S, "encode_jpeg", lambda img, q=80: b"jpegbytes")
-    seen = {}
-
-    class Client:
-        def request_command(self, jpeg, state, goal):
-            seen["jpeg"], seen["goal"] = jpeg, goal
-            return VelocityCommand(vx=1.0, yaw_rate=5.0, note="ok")
-
-    src = VisionPolicySource(_FixedCam(Frame(image="img", seq=42)), Client(),
-                             goal={"brief": "orbit"})
-    cmd = src.next_command(None, 0.0)
-    assert seen["jpeg"] == b"jpegbytes" and seen["goal"] == {"brief": "orbit"}
-    assert cmd.vx == 1.0 and cmd.seq == 42 and cmd.source == "vision-policy"
-
-
-def test_vision_source_returns_none_when_policy_fails():
-    class Dead:
-        def request_command(self, *a, **k): return None
-    import src.drone_control.sources as S
-    orig = S.encode_jpeg
-    S.encode_jpeg = lambda img, q=80: b"x"
-    try:
-        src = VisionPolicySource(_FixedCam(Frame(image="i", seq=1)), Dead())
-        assert src.next_command(None, 0.0) is None
-    finally:
-        S.encode_jpeg = orig
 
 
 # --- the ground-station panel ----------------------------------------------------
@@ -803,7 +736,8 @@ def _pilot_args(**kw):
     base = dict(url="x", source="square", policy_url="http://127.0.0.1:1/act", policy_timeout=0.1,
                 policy_hz=2.0, altitude=5.0, takeoff_settle=0.0, speed=1.0, max_vertical_speed=1.0,
                 max_yaw_rate=60.0, max_altitude=30.0, max_radius=50.0, duration=0.2,
-                camera_url=None, camera_wait=0.2, max_frame_age=0.7, brief="", approve=False,
+                camera_url=None, camera_wait=0.2, max_frame_age=0.7, goal_file=None, tilt_deg=0.0,
+                policy_warmup=1.0, approve=False,
                 move_seconds=1.5, ui=False, ui_port=0, bench=False, dry_run=False)
     base.update(kw)
     return type("A", (), base)
@@ -848,7 +782,13 @@ def test_missing_camera_url_is_refused_before_anything_connects(monkeypatch):
     assert calls == []
 
 
-def test_no_camera_frame_means_no_takeoff(monkeypatch):
+def _goal_file(tmp_path):
+    p = tmp_path / "goal.json"
+    p.write_text('{"profile": {}}')
+    return p
+
+
+def test_no_camera_frame_means_no_takeoff(monkeypatch, tmp_path):
     pilot = _load_pilot()
     calls = []
     monkeypatch.setattr(pilot, "OffboardDriver", _recording_driver(calls))
@@ -870,7 +810,8 @@ def test_no_camera_frame_means_no_takeoff(monkeypatch):
 
     monkeypatch.setattr(pilot, "CameraStream", Dark)
     with pytest.raises(SystemExit):
-        asyncio.run(pilot.main_async(_pilot_args(source="policy", camera_url="rtsp://nobody")))
+        asyncio.run(pilot.main_async(_pilot_args(source="policy", camera_url="rtsp://nobody",
+                                                 goal_file=str(_goal_file(tmp_path)))))
     assert "takeoff" not in calls
 
 
@@ -909,3 +850,185 @@ def test_dry_run_runs_the_whole_pilot_with_the_panel():
     pilot = _load_pilot()
     asyncio.run(pilot.main_async(_pilot_args(dry_run=True, approve=True, ui=True, ui_port=8131,
                                              duration=0.3)))
+
+
+# --- the interface: the server sends a sequence, the operator approves each action ---
+_AHEAD = [0.0, 0.0, 0.3, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+
+
+class _Client:
+    def __init__(self, n=3):
+        self.n, self.asked, self.last_error = n, [], None
+
+    def request_actions(self, jpeg, goal, timeout_s=None):
+        self.asked.append((jpeg, goal, timeout_s))
+        return [list(_AHEAD) for _ in range(self.n)] if self.n else None
+
+
+class _Cam:
+    def __init__(self, frame=True):
+        self.frame = Frame(image="img", seq=1) if frame else None
+
+    def fresh_frame(self, now=None):
+        return self.frame
+
+
+def _sequence(monkeypatch, client, cam=None, **kw):
+    from src.drone_control import sources
+    from src.drone_control.sources import ActionSequenceSource
+    monkeypatch.setattr(sources, "encode_jpeg", lambda img, q: b"jpeg")
+    return ActionSequenceSource(cam or _Cam(), client, {"profile": {}}, move_s=1.5, **kw)
+
+
+def _next(src):
+    """The next action, allowing for the forward pass on its own thread."""
+    import time
+    for _ in range(200):
+        cmd = src.next_command(None, 0.0)
+        if cmd is not None:
+            return cmd
+        time.sleep(0.01)
+    return None
+
+
+def _offer(gate, state, now):
+    """Turn the gate over until something is on offer, as the slow lane does."""
+    import time
+    for _ in range(200):
+        gate.next_command(state, now)
+        offer = gate.snapshot(now)["offer"]
+        if offer is not None:
+            return offer["note"].split(".")[0]
+        time.sleep(0.01)
+    return None
+
+
+def test_a_forward_pass_does_not_hold_up_the_loop(monkeypatch):
+    import threading
+    release = threading.Event()
+
+    class Slow(_Client):
+        def request_actions(self, jpeg, goal, timeout_s=None):
+            release.wait(5.0)
+            return super().request_actions(jpeg, goal, timeout_s)
+
+    src = _sequence(monkeypatch, Slow())
+    assert src.next_command(None, 0.0) is None      # returned at once, not after the pass
+    release.set()
+    assert _next(src) is not None
+
+
+def test_one_forward_pass_gives_each_action_its_own_turn(monkeypatch):
+    client = _Client()
+    src = _sequence(monkeypatch, client)
+    notes = [_next(src).note for _ in range(3)]
+    assert len(client.asked) == 1
+    assert [n.split(".")[0] for n in notes] == ["Action 1 of 3", "Action 2 of 3", "Action 3 of 3"]
+    _next(src)
+    assert len(client.asked) == 2           # asked again only once the sequence ran out
+
+
+def test_the_action_is_flown_as_the_laptop_works_it_out(monkeypatch):
+    cmd = _next(_sequence(monkeypatch, _Client()))
+    assert abs(cmd.vx - 0.3 / 1.5) < 1e-9 and cmd.vy == 0.0 and cmd.yaw_rate == 0.0
+
+
+def test_no_frame_means_the_server_is_not_asked(monkeypatch):
+    client = _Client()
+    assert _next(_sequence(monkeypatch, client, _Cam(frame=False))) is None
+    assert client.asked == []
+
+
+def test_no_answer_means_no_command(monkeypatch):
+    assert _next(_sequence(monkeypatch, _Client(n=0))) is None
+
+
+def test_each_action_waits_for_its_own_approval(monkeypatch):
+    client = _Client()
+    t = [0.0]
+    gate = ApprovalGate(_sequence(monkeypatch, client), clock=lambda: t[0], hold_s=1.0,
+                        offer_s=float("inf"))
+    state = VehicleState(altitude=5.0)
+
+    assert _offer(gate, state, t[0]) == "Action 1 of 3"
+    t[0] = 1000.0                           # however long the operator takes
+    assert gate.next_command(state, t[0]).is_hover()
+    assert _offer(gate, state, t[0]) == "Action 1 of 3"
+    assert gate.accept()
+    assert gate.next_command(state, t[0]).vx > 0
+    t[0] += 2.0
+    assert gate.next_command(state, t[0]).is_hover()
+    assert _offer(gate, state, t[0]) == "Action 2 of 3"     # and nothing moves until approved
+    assert len(client.asked) == 1
+
+
+def test_skipping_drops_the_rest_of_the_sequence(monkeypatch):
+    client = _Client()
+    t = [0.0]
+    gate = ApprovalGate(_sequence(monkeypatch, client), clock=lambda: t[0],
+                        offer_s=float("inf"))
+    state = VehicleState(altitude=5.0)
+    _offer(gate, state, t[0])
+    assert gate.skip()
+    assert _offer(gate, state, t[0]) == "Action 1 of 3"
+    assert len(client.asked) == 2
+
+
+def test_client_never_raises_and_keeps_what_went_wrong():
+    class Dead:
+        def post(self, *a, **k):
+            raise ConnectionError("tunnel down")
+    c = PolicyClient(session=Dead())
+    assert c.request_actions(b"x", {}) is None
+    assert c.failures == 1 and "tunnel down" in c.last_error
+
+
+def test_client_treats_a_server_error_as_a_failure():
+    class Refusing:
+        def post(self, *a, **k):
+            class R:
+                def raise_for_status(self): pass
+                def json(self): return {"actions": [], "error": "KeyError: 'profile'"}
+            return R()
+    c = PolicyClient(session=Refusing())
+    assert c.request_actions(b"x", {}) is None and "profile" in c.last_error
+
+
+def test_the_stub_server_speaks_the_same_interface():
+    """Real HTTP, real handler, through the laptop's client and its conversion."""
+    import importlib.util
+    import json
+    import threading
+    import urllib.request
+    from http.server import HTTPServer
+
+    from src.drone_control.actions import action_to_move
+
+    root = Path(__file__).resolve().parents[2]
+    spec = importlib.util.spec_from_file_location("serve_policy", root / "scripts" / "serve_policy.py")
+    serve = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(serve)
+    srv = HTTPServer(("127.0.0.1", 0), serve.make_handler(serve.StubPolicy()))
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+
+    class Session:
+        def post(self, url, json=None, timeout=None):
+            req = urllib.request.Request(url, data=_json.dumps(json).encode(), method="POST")
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                body = _json.loads(r.read())
+
+            class R:
+                def raise_for_status(self): pass
+                def json(self): return body
+            return R()
+
+    _json = json
+    try:
+        c = PolicyClient(url=f"http://127.0.0.1:{srv.server_port}/act", session=Session())
+        actions = c.request_actions(b"x", {})
+        assert c.last_error is None and len(actions) == 8 and len(actions[0]) == 10
+        m = action_to_move(actions[0], tilt_deg=0.0, dt=1.0)
+        assert m.vx > 0 and m.yaw_rate > 0      # forward, and LEFT
+    finally:
+        srv.shutdown()
+        srv.server_close()

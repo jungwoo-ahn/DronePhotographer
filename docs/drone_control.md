@@ -2,17 +2,29 @@
 
 `src/drone_control/` is the laptop-side control chain. It is deliberately separate from
 everything else in `src/`: it imports no Blender, no torch, no Cosmos, and runs on a
-laptop that has none of them. The policy stays on the GPU server behind HTTP.
+laptop that has none of them.
+
+## The interface between the machines
 
 ```
-PX4 SITL  ◄──MAVLink UDP──  laptop: supervisor + offboard driver
-                                      │  HTTP over an SSH tunnel, ~1-2 Hz
-                                      ▼
-                            server: scripts/serve_policy.py (GPU)
+laptop                                          server (GPU)
+  POST /act  {image_b64, goal: {profile}}  --->   one forward pass
+  holds the sequence                       <---   {actions: [[10 floats] x 8]}
+  flies it one action at a time,                  or {actions: [], error}
+  the operator approving each
 ```
 
-The server **never commands the drone**. It answers "given this frame, what velocity?"
-and the laptop decides whether to obey. Authority stays where the failsafe is.
+The server has the world model ready and runs a forward pass when asked. That is all it
+does, and it knows nothing about the aircraft. An action is the policy's raw
+`[Δtranslation_cam(3), rot6d(6), shoot]`. Everything to do with flying one lives on the
+laptop: `actions.action_to_move` turns it into rates, `ActionSequenceSource` holds the
+sequence and `ApprovalGate` waits for the operator. A new forward pass is asked for when the
+sequence runs out. Skipping an action drops the rest, because each one is relative to the
+pose the one before it would have reached.
+
+`--move-seconds` is how long one action flies, and so sets the speed: the renders have no
+clock. `--tilt-deg` is where the camera is set, because an action's translation is in the
+tilted camera's frame. The gimbal is not driven yet, so the policy's tilt is only shown.
 
 ## Two facts that shape the whole design
 
@@ -81,7 +93,7 @@ decoded image sits in memory looking perfectly valid. Acting on it means flying 
 photograph of where the drone used to be — at 3 m/s, a 2 s-stale frame is 6 m of lie.
 
 So `Frame` carries a receive time and `--max-frame-age` (default 0.7 s) gates it, and
-`VisionPolicySource` **refuses to call the policy at all without a fresh frame**. It
+`ActionSequenceSource` **refuses to ask the server at all without a fresh frame**. It
 returns `None`, the last command ages out through the TTL, and the drone hovers. One
 watchdog mechanism covers both remote links instead of two half-watchdogs.
 
@@ -130,14 +142,16 @@ make px4_sitl gz_x500
 pip install "mavsdk<4"     # v4 is a different API
 python scripts/run_sitl_pilot.py --source square --duration 40
 
-# with the policy server and the camera
-python scripts/serve_policy.py --port 8777            # on the server
+# with the server and the camera
+python scripts/serve_policy.py --port 8777            # on the server: a stub
 ssh -N -L 8777:localhost:8777 <user>@<server>         # on the laptop
-python scripts/run_sitl_pilot.py --source policy \
-    --camera-url rtsp://192.168.1.50:554/live --brief "orbit left, subject centred"
+python scripts/run_sitl_pilot.py --source policy --duration 600 \
+    --camera-url rtsp://192.168.144.25:8554/main.264 --goal-file configs/drone_goal_example.json
 ```
 
-`--source policy` without `--camera-url` is refused rather than flown blind.
+`--source policy` is refused without `--camera-url` and `--goal-file`, always flies action by
+action, and always opens the panel. Before arming it asks for one forward pass with a real
+frame, and refuses to take off unless actions come back.
 QGroundControl can stay open throughout; it uses a different port.
 
 Ctrl-C is an e-stop: hover, leave offboard, land -- rather than dropping the link and
@@ -151,7 +165,7 @@ until someone clicks **Run this move**. Until then the aircraft holds.
 
 ```bash
 python scripts/run_sitl_pilot.py --source policy --camera-url rtsp://... \
-    --approve --move-seconds 1.5 --ui
+    --goal-file configs/drone_goal_example.json --move-seconds 1.5
 ```
 
 `ApprovalGate` (`src/drone_control/approval.py`) wraps any `CommandSource` and is
@@ -228,6 +242,5 @@ with a panel that raises on every tick and asserts the drone still flies.
 - Consolidating the cosmos3 checkpoint: **done**. `scripts/consolidate_cosmos_ckpt.py`
   turns the 8 FSDP `.distcp` shards into one `.safetensors` of plain tensors and checks
   the result against the shards bitwise. See `docs/cosmos_checkpoint.md`.
-- Serving it: `scripts/serve_cosmos_policy.sh`, see `docs/cosmos_checkpoint.md`. Flying
-  it still needs the laptop to send the gimbal's tilt and a shot profile, and to act on the
-  reply's tilt.
+- Serving it: `scripts/serve_cosmos_policy.sh`, see `docs/cosmos_checkpoint.md`. The gimbal
+  is not driven yet, so the camera stays at `--tilt-deg`.

@@ -7,10 +7,11 @@ command until its TTL runs out, then hovers.
 
 from __future__ import annotations
 
-import math
-import time
+import threading
+from collections import deque
 from typing import Protocol
 
+from .actions import action_to_move
 from .camera import CameraStream, encode_jpeg
 from .commands import VelocityCommand
 
@@ -78,42 +79,71 @@ class ScriptedSource:
         return None     # exhausted -> let it expire into hover
 
 
-class VisionPolicySource:
-    """Camera frame + goal -> the policy server -> a velocity command.
+class ActionSequenceSource:
+    """Holds the server's sequence of actions and hands them over one at a time.
 
-    This is where the two remote links meet, and it enforces the rule that neither may
-    be trusted on its own:
+    Each call is one action. `ApprovalGate` asks for the next only once the last has flown,
+    so this is what makes the operator approve every action in turn. The server is asked
+    for a new forward pass only when the sequence has run out, and only with a fresh frame.
+    That takes seconds, so it runs on its own thread: returning `None` meanwhile leaves the
+    gate saying "hold", where blocking here would look to the supervisor like a lost link.
 
-    * **No fresh frame -> no command.** Returning `None` lets the previous command age
-      out through the supervisor's TTL and the drone hovers. The alternative -- sending
-      the policy a stale image -- gets back a confident command computed from a view the
-      drone has already flown past, which is far more dangerous than stopping.
-    * **No reply -> no command.** `PolicyClient` already returns `None` on any failure.
-
-    So one TTL mechanism covers both failure domains, rather than two half-watchdogs.
+    The actions are relative to each other, so they only mean anything flown in order:
+    `drop_sequence` throws away what is left rather than carrying on from a pose the
+    aircraft never reached.
     """
-    name = "vision-policy"
+    name = "action-sequence"
 
-    def __init__(self, camera: CameraStream, client, goal: dict | None = None,
-                 jpeg_quality: int = 80):
+    def __init__(self, camera: CameraStream, client, goal: dict, *, move_s: float,
+                 tilt_deg: float = 0.0, jpeg_quality: int = 80):
         self.camera = camera
         self.client = client
-        self.goal = goal or {}
+        self.goal = goal
+        self.move_s = float(move_s)
+        self.tilt_deg = float(tilt_deg)
         self.jpeg_quality = jpeg_quality
-        self.skipped_stale_frame = 0
+        self.forward_passes = 0
+        self._lock = threading.Lock()
+        self._actions: deque = deque()
+        self._total = 0
+        self._asking = False
+
+    def _ask(self, timeout_s: float | None = None) -> list | None:
+        frame = self.camera.fresh_frame()
+        jpeg = encode_jpeg(frame.image, self.jpeg_quality) if frame is not None else None
+        if jpeg is None:
+            return None
+        self.forward_passes += 1
+        return self.client.request_actions(jpeg, self.goal, timeout_s=timeout_s)
+
+    def check(self, timeout_s: float) -> bool:
+        """One forward pass on the ground, discarded: proves the whole path and warms up."""
+        return self._ask(timeout_s) is not None
+
+    def drop_sequence(self) -> None:
+        with self._lock:
+            self._actions.clear()
+
+    def _fetch(self) -> None:
+        actions = self._ask()
+        with self._lock:
+            if actions:
+                self._actions.extend(actions)
+                self._total = len(actions)
+            self._asking = False
 
     def next_command(self, state, now: float) -> VelocityCommand | None:
-        frame = self.camera.fresh_frame(now)
-        if frame is None:
-            self.skipped_stale_frame += 1
-            return None
-        jpeg = encode_jpeg(frame.image, self.jpeg_quality)
-        if jpeg is None:
-            self.skipped_stale_frame += 1
-            return None
-        cmd = self.client.request_command(jpeg, state, self.goal)
-        if cmd is None:
-            return None
-        return VelocityCommand(vx=cmd.vx, vy=cmd.vy, vz=cmd.vz, yaw_rate=cmd.yaw_rate,
-                               ttl_s=cmd.ttl_s, source=self.name, seq=frame.seq,
-                               note=cmd.note)
+        with self._lock:
+            if not self._actions:
+                if not self._asking:
+                    self._asking = True
+                    threading.Thread(target=self._fetch, name="forward-pass", daemon=True).start()
+                return None
+            step = self._total - len(self._actions) + 1
+            action = self._actions.popleft()
+        m = action_to_move(action, self.tilt_deg, self.move_s)
+        note = f"Action {step} of {self._total}. The policy would tilt to {m.tilt_target:.0f}°."
+        if m.shoot:
+            note += " It says it has arrived."
+        return VelocityCommand(vx=m.vx, vy=m.vy, vz=m.vz, yaw_rate=m.yaw_rate,
+                               source=self.name, seq=step, note=note)

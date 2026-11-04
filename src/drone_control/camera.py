@@ -12,7 +12,7 @@ A dead video feed is the nastiest of the three, because it is invisible: frames 
 arriving, but the last decoded image is still sitting in memory and looks perfectly
 valid. Acting on it means flying by a photograph of where the drone used to be --
 at 3 m/s a 2 s-stale frame is 6 m of lie. Hence `Frame.age_s` and `max_age_s`, and
-`VisionPolicySource` refusing to produce a command when the picture is stale.
+`ActionSequenceSource` refusing to ask the server when the picture is stale.
 
 **Latest-frame-only.** OpenCV queues frames internally, so reading sequentially in a
 ~2 Hz loop hands you an ever-growing backlog: the stream plays in slow motion and

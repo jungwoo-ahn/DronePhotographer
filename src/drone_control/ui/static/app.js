@@ -75,7 +75,7 @@ function renderEntry(s) {
   } else if (offer) {
     set('#e-kind', 'Next move'); set('#e-when', utc(offer.wall));
     set('#e-big', num(offer.hold_s, 1)); set('#e-bigu', 's');
-    set('#e-say', offer.text + '.');
+    set('#e-say', offer.text + '.' + (offer.note ? ' ' + offer.note : ''));
     $('#e-cells').innerHTML = cells(offer.command);
     const chip = $('#e-chip');
     chip.dataset.tone = offer.clamped.length ? 'clamped' : 'ok';

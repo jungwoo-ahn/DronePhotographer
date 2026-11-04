@@ -5,8 +5,8 @@ import math
 import numpy as np
 import pytest
 
-from src.policy.common.action_to_drone import TILT_MAX_DEG, TILT_MIN_DEG, action_to_move
-from src.policy.common.action_repr import encode_action_9d
+from src.drone_control.actions import TILT_MAX_DEG, TILT_MIN_DEG, action_to_move
+from src.policy.common.action_repr import apply_action_9d, encode_action_9d
 
 
 def _aim(az_deg, el_deg):
@@ -80,3 +80,18 @@ def test_shoot_channel_and_a_bad_dt():
     assert action_to_move(a, tilt_deg=0, dt=1.0).shoot
     with pytest.raises(ValueError):
         action_to_move(a, tilt_deg=0, dt=0.0)
+
+
+def test_real_model_output_matches_the_rollouts_function():
+    """The model's rot6d is not quite orthonormal, and the laptop has no numpy to tidy it."""
+    actions = [[0.1396, 0.0249, 0.0441, 0.9987, 0.0005, 0.01, 0.0003, 0.9992, 0.0067, -0.0006],
+               [-0.4562, -0.1702, 0.2387, 1.002, 0.0034, -0.0567, -0.0037, 1.0013, -0.0283, -0.0006],
+               [-0.2207, -0.1054, 0.2989, 0.9977, 0.015, -0.0581, -0.0163, 0.9982, -0.0243, 0.0014]]
+    for a in actions:
+        for tilt in (-30.0, -4.2, 10.0):
+            f, u = _aim(0, tilt)
+            p, nf, _ = apply_action_9d(np.zeros(3, dtype=np.float32), f, u, np.array(a[:9], np.float32))
+            m = action_to_move(a, tilt, 1.0)
+            assert (m.vx, m.vy, m.vz) == pytest.approx(tuple(float(x) for x in p), abs=1e-4)
+            assert m.yaw_rate == pytest.approx(math.degrees(math.atan2(nf[1], nf[0])), abs=0.05)
+            assert m.tilt_target == pytest.approx(math.degrees(math.asin(nf[2])), abs=0.05)

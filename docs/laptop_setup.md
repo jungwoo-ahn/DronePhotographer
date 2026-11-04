@@ -145,15 +145,12 @@ python scripts/serve_policy.py --port 8777
 ssh -N -L 8777:localhost:8777 <user>@<server>
 python scripts/run_sitl_pilot.py --source policy \
     --policy-url http://127.0.0.1:8777/act \
-    --camera-url <see below> --approve --ui
+    --camera-url <see below> --goal-file configs/drone_goal_example.json --duration 600
 ```
 
-`serve_policy.py` is still a stub (a slow left orbit) and says so; the real path raises
-rather than returning stub values quietly. It is enough to prove the tunnel, the JSON
-contract and the approval flow.
-
-With `--approve`, nothing reaches the aircraft until you click **Run this move** in the
-panel. That is the right way to fly a learned policy the first time.
+`serve_policy.py` on its own is a stub (a slow left orbit), which is enough to prove the
+tunnel and the approval flow. Every action waits in the panel until you click
+**Run this move**.
 
 ## The camera, which SITL does not give you
 

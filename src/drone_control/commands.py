@@ -1,16 +1,12 @@
-"""The command schema shared by the policy server and the laptop.
+"""The velocity command the laptop's control chain works in.
 
-One rule drives the design: a command is only valid for a short while. The policy runs
-on a remote GPU over a network link that can stall, and MAVSDK keeps resending the last
-setpoint at 20 Hz regardless (see `offboard`), so a dropped link does NOT stop the
-drone -- it flies the stale command forever. Every command therefore carries a TTL and
-the supervisor refuses to use an expired one.
+One rule drives the design: a command is only valid for a short while. MAVSDK keeps
+resending the last setpoint at 20 Hz regardless (see `offboard`), so if this process stalls
+the drone does NOT stop -- it flies the stale command forever. Every command therefore
+carries a TTL and the supervisor refuses to use an expired one.
 
-Freshness is measured from when the LAPTOP received the command, never from the
-server's own timestamp: the two machines do not share a clock, and a few seconds of
-skew would either expire every command instantly or never expire any. `received_at`
-is stamped locally on arrival, with `time.monotonic` so a wall-clock adjustment
-(NTP step, DST) cannot make a stale command look fresh.
+`received_at` is stamped when the supervisor takes the command, with `time.monotonic` so a
+wall-clock adjustment (NTP step, DST) cannot make a stale command look fresh.
 """
 
 from __future__ import annotations
@@ -18,8 +14,8 @@ from __future__ import annotations
 import time
 from dataclasses import dataclass, field, replace
 
-# How long a policy command stays valid. The policy answers at roughly 0.5-2 Hz, so
-# 1.0 s tolerates one missed round trip and stops the drone on the second.
+# How long a command stays valid. Sources are asked at roughly 2 Hz, so 1.0 s tolerates
+# one missed turn and stops the drone on the second.
 DEFAULT_TTL_S = 1.0
 
 
@@ -61,27 +57,6 @@ class VelocityCommand:
 
     def is_hover(self) -> bool:
         return self.vx == self.vy == self.vz == self.yaw_rate == 0.0
-
-    def to_json(self) -> dict:
-        return {"vx": self.vx, "vy": self.vy, "vz": self.vz, "yaw_rate": self.yaw_rate,
-                "ttl_s": self.ttl_s, "source": self.source, "seq": self.seq, "note": self.note}
-
-    @classmethod
-    def from_json(cls, d: dict, source: str | None = None) -> "VelocityCommand":
-        """Build from a server reply. Unknown keys are ignored; missing ones hover.
-
-        Anything the server omits defaults to zero, so a malformed or truncated reply
-        degrades to hover rather than to an arbitrary velocity.
-        """
-        def num(k):
-            try:
-                return float(d.get(k, 0.0) or 0.0)
-            except (TypeError, ValueError):
-                return 0.0
-        return cls(vx=num("vx"), vy=num("vy"), vz=num("vz"), yaw_rate=num("yaw_rate"),
-                   ttl_s=float(d.get("ttl_s") or DEFAULT_TTL_S),
-                   source=source or str(d.get("source") or "policy"),
-                   seq=int(d.get("seq") or 0), note=str(d.get("note") or ""))
 
 
 #: The command every failure path falls back to.

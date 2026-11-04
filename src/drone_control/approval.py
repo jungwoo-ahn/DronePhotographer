@@ -141,7 +141,7 @@ class ApprovalGate:
             return True
 
     def skip(self) -> bool:
-        """Refuse the move on offer, so the next one can be computed from a newer view."""
+        """Refuse the move on offer, and what depended on it, so the next comes from a newer view."""
         now = self._clock()
         with self._lock:
             if self._pending is None:
@@ -149,7 +149,10 @@ class ApprovalGate:
             self._close(self._pending, "skipped", now)
             self._pending = None
             self.skipped += 1
-            return True
+        drop = getattr(self.source, "drop_sequence", None)
+        if drop is not None:
+            drop()
+        return True
 
     # -- what the panel draws --------------------------------------------------
     def snapshot(self, now: float | None = None) -> dict:

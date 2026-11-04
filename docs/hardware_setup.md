@@ -98,8 +98,9 @@ ssh -p 32603 <user>@ssh-nipagpu.kakaocloud.com python3 serve_policy.py --port 87
 ssh -p 32603 -N -L 8777:localhost:8777 <user>@ssh-nipagpu.kakaocloud.com
 ```
 
-That serves the **stub**, which flies a slow left orbit whatever the camera shows. It tests
-the connection and the panel, not the model.
+That serves the **stub**, which sends a slow left orbit whatever the camera shows. It tests
+the connection and the panel, not the model. The real one is
+`scripts/serve_cosmos_policy.sh`, from a checkout set up as in `docs/cosmos_checkpoint.md`.
 
 ## 5. Bench test, propellers off
 
@@ -107,7 +108,8 @@ the connection and the panel, not the model.
 
 ```powershell
 python scripts/run_sitl_pilot.py --bench --source policy `
-    --camera-url rtsp://192.168.144.25:8554/main.264 --approve --ui --duration 600
+    --camera-url rtsp://192.168.144.25:8554/main.264 `
+    --goal-file configs/drone_goal_example.json --tilt-deg -10 --duration 600
 ```
 
 - [ ] The panel's MAVLink, video and policy lights are all up.
@@ -137,20 +139,16 @@ only after this one is clean.
 
 ## Not built yet
 
-**Tilt.** The policy does output it. Its 10D action is `[Δtranslation_cam(3), rot6d(6),
-shoot]`, and with roll removed the rotation splits into airframe yaw and gimbal tilt.
-`src/policy/common/action_to_drone.py` does that conversion, and needs the current tilt,
-because the translation is in the tilted camera's frame. Measured over 63,008 training
-frames, roll is exactly 0 and 1.56% of frames aim above the A2 mini's +25° limit.
+**Tilt.** The policy does output it: with roll removed, the rotation in its action splits
+into airframe yaw and gimbal tilt, and `src/drone_control/actions.py` does that split. For
+now the panel only shows the tilt it wants, and the camera stays at `--tilt-deg`. Measured
+over 63,008 training frames, roll is exactly 0 and 1.56% of frames aim above the A2 mini's
++25° limit.
 
-Still to build:
-
-- Carry `tilt_rate` through the server reply, `VelocityCommand` and the approval panel.
-- A gimbal driver on the SIYI SDK (`192.168.144.25`, port 37260) that sets the tilt and
-  reads it back. Check on the hardware whether its angle is relative to the airframe or
-  the horizon. The conversion needs the horizon.
-- A real duration for one action. The renders have no clock: `dt` sets the speed.
-- The real model on the server. `serve_policy.py` is still the stub.
+Still to build: a gimbal driver on the SIYI SDK (`192.168.144.25`, port 37260) that sets the
+tilt and reads it back, and taking the photo when the policy says it has arrived. Check on
+the hardware whether the gimbal's angle is relative to the airframe or the horizon. The
+conversion needs the horizon.
 
 The A2 mini only stabilises tilt, so the picture rolls with the airframe when it banks, and
 the training data has no roll at all. Keep sideways moves gentle.
