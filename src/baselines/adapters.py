@@ -511,6 +511,110 @@ class AutoPhotoAdapter:
         return _check_chunk(chunk, self.name)
 
 
+# ---------------------------------------------------------------------------- Astra (VLM pilot)
+class AstraAdapter:
+    """gpt-6-astra flying the drone by velocity commands (src/baselines/astra.py).
+
+    Fitted to the shared contract as ONE query = ONE chunk of ONE step: the pilot sees the
+    current render, replies with a velocity held for dt = 0.5 s, and that motion is returned as a
+    single 9-D pose action, so the loop renders and scores after every query exactly as the source
+    harness did. The query budget is the loop's chunk count (run with `--chunks 16`, the source's
+    `--astra-steps` default). `status: "Complete"` is returned as a shoot-only step (shoot = 1, no
+    motion), which `arrival_step` reads as k = 0: the loop halts without executing anything,
+    matching the source's "Complete ends the run before moving again".
+
+    The frame and goal image go to the model at `send_wh` (296x222 default: our policy's 256^2
+    pixel budget at the render's 4:3 aspect). Everything the paper may want about cost and speed
+    is kept per call -- see `episode_record`.
+    """
+
+    name = "astra"
+
+    def __init__(self, model: str, goal_mode: str, out_dir: Path, *, send_wh=(296, 222),
+                 reasoning: str = "low", max_context_frames: int = 12, vlm=None):
+        from src.baselines.astra import DT, AstraPilot, GatewayVLM
+        from src.baselines.goal_text import NL_GOAL_KEYS, goal_prompt
+        from src.common.action_repr import encode_action_9d
+
+        assert goal_mode in ("text", "image"), goal_mode
+        assert tuple(NL_GOAL_KEYS) == tuple(DEFAULT_GOAL_KEYS), "goal key order differs"
+        self.model, self.goal_mode, self.send_wh = model, goal_mode, tuple(int(v) for v in send_wh)
+        self.reasoning, self.dt = reasoning, DT
+        self.vlm = vlm or GatewayVLM(model, reasoning=reasoning)
+        self.pilot = AstraPilot(self.vlm, dt=DT, max_context_frames=max_context_frames)
+        self._keys, self._goal_prompt, self._encode9d = NL_GOAL_KEYS, goal_prompt, encode_action_9d
+        self.inputs_dir = Path(out_dir)
+        self.inputs_dir.mkdir(parents=True, exist_ok=True)
+        self._ep = None
+        self.last_prompt = None
+
+    # -- harness hooks
+    def begin_episode(self, key: str):
+        self.pilot.reset()
+        self._ep = {"key": key, "dir": self.inputs_dir / key.replace(":", "_"), "goal": None,
+                    "steps": [], "first_call": len(self.vlm.calls)}
+        self._ep["dir"].mkdir(parents=True, exist_ok=True)
+        self.last_prompt = None
+
+    def episode_record(self) -> dict:
+        calls = self.vlm.calls[self._ep["first_call"]:]
+        lat = [c["latency_s"] for c in calls]
+        return {
+            "model": self.model, "reasoning": self.reasoning, "goal_mode": self.goal_mode,
+            "send_wh": list(self.send_wh), "dt_s": self.dt,
+            "n_calls": len(calls), "n_parse_failed": sum(not c["parsed"] for c in calls),
+            "n_retries": sum(max(0, len(c["attempts"]) - 1) for c in calls),
+            "latency_s_total": round(sum(lat), 3),
+            "prompt_tokens": sum(c["prompt_tokens"] for c in calls),
+            "completion_tokens": sum(c["completion_tokens"] for c in calls),
+            "reasoning_tokens": sum(c["reasoning_tokens"] for c in calls),
+            "cost_usd": round(sum(c["cost_usd"] for c in calls), 5),
+            "commands": self._ep["steps"], "calls": calls,
+        }
+
+    # -- inputs
+    def _save(self, img: np.ndarray, name: str) -> str:
+        from PIL import Image
+        p = self._ep["dir"] / name
+        Image.fromarray(np.asarray(img)).convert("RGB").resize(self.send_wh, Image.BILINEAR).save(p, quality=90)
+        return str(p)
+
+    def _goal(self, goal_vec, goal_raw, goal_image):
+        if self.goal_mode == "image":
+            from PIL import Image
+            if not goal_image:
+                raise RuntimeError("astra image goal mode needs the goal frame")
+            path = self._save(np.asarray(Image.open(goal_image).convert("RGB")), "goal.jpg")
+            self.last_prompt = f"[goal image] {goal_image}"
+            return {"mode": "image", "image": path}
+        text = self._goal_prompt(np.asarray(goal_vec, dtype=np.float32), self._keys, crop=goal_raw)
+        self.last_prompt = text
+        return {"mode": "text", "text": text}
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
+        from src.baselines.astra import apply_velocity
+        if self._ep is None:
+            raise RuntimeError("AstraAdapter.begin_episode was not called")
+        if pose is None:
+            raise RuntimeError("AstraAdapter needs the current pose (velocity is in world axes)")
+        if self._ep["goal"] is None:
+            self._ep["goal"] = self._goal(goal_vec, goal_raw, goal_image)
+        t = len(self._ep["steps"])
+        img = self._save(frame_uint8, f"t{t:02d}.jpg")
+        cmd, done = self.pilot.act(img, self._ep["goal"])
+        self._ep["steps"].append({k: (round(v, 4) if isinstance(v, float) else v) for k, v in cmd.items()})
+        chunk = np.zeros((1, CHUNK_DIM), np.float32)
+        if done:
+            chunk[0, 9] = 1.0                    # shoot, no motion: the loop halts at k = 0
+            return _check_chunk(chunk, self.name)
+        pos = np.asarray(pose["position"], np.float32)
+        fwd = np.asarray(pose["forward"], np.float32)
+        up = np.asarray(pose["up"], np.float32)
+        np_, fwd_, up_ = apply_velocity(pos, fwd, up, cmd, self.dt)
+        chunk[0, :9] = self._encode9d(pos, fwd, up, np_, fwd_, up_)
+        return _check_chunk(chunk, self.name)
+
+
 # ---------------------------------------------------------------------------- factory
 def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
     """Build the adapter `--policy` names from the eval script's parsed args."""
@@ -527,6 +631,12 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
         if not args.policy_config:
             raise SystemExit("--policy autophoto needs --policy-config <aesthetic resnet .pt>")
         return AutoPhotoAdapter(args.checkpoint, args.policy_config, chunk_size=args.chunk_size)
+    if args.policy == "astra":
+        if not args.chunks:
+            raise SystemExit("--policy astra needs --chunks N (the query budget; the source used 16)")
+        return AstraAdapter(args.checkpoint, args.astra_goal_mode,
+                            out_dir / f"astra_inputs_{Path(args.out).stem}",
+                            send_wh=tuple(args.astra_send_res), reasoning=args.astra_reasoning)
     if args.policy == "dp":
         if not args.policy_config:
             raise SystemExit("--policy dp needs --policy-config <config.yaml> from the training run")
@@ -534,4 +644,5 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
     raise SystemExit(f"unknown --policy {args.policy!r}")
 
 
-__all__ = ["PolicyAdapter", "CosmosAdapter", "LeRobotAdapter", "DPAdapter", "AutoPhotoAdapter", "make_adapter", "CHUNK_DIM"]
+__all__ = ["PolicyAdapter", "CosmosAdapter", "LeRobotAdapter", "DPAdapter", "AutoPhotoAdapter", "AstraAdapter",
+           "make_adapter", "CHUNK_DIM"]

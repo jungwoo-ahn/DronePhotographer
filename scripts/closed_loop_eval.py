@@ -45,6 +45,9 @@ from pathlib import Path
 V12 = "/home/nas_main/jungwooahn/projects/DronePhotographerV12"
 SHARED = "/home/nas_main/jungwooahn/projects/DronePhotographer"
 sys.path.insert(0, V12)
+# Code comes from the checkout this script lives in (a worktree, say); data paths stay on V12.
+# From the main checkout the two are the same directory.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 # Run from the framework root: it resolves several assets by RELATIVE path
 # (e.g. model/generator/reasoner/qwen3_vl/configs/Qwen3-VL-8B-Instruct.json), so
 # chdir-ing anywhere else makes model construction fail with FileNotFoundError.
@@ -136,10 +139,20 @@ ap.add_argument("--stop-on-shoot", type=int, default=1,
 ap.add_argument("--shoot-threshold", type=float, default=0.5)
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--no-ema", action="store_true", help="load raw weights instead of EMA")
-ap.add_argument("--policy", default="cosmos", choices=("cosmos", "pi05", "groot", "dp", "autophoto"),
+ap.add_argument("--policy", default="cosmos",
+                choices=("cosmos", "pi05", "groot", "dp", "autophoto", "astra"),
                 help="which policy answers act(frame, goal). Everything else in this script -- "
                      "renderer, episodes, stop rule, metric -- is shared, which is what makes "
-                     "the numbers comparable. See src/baselines/adapters.py.")
+                     "the numbers comparable. See src/baselines/adapters.py. For `astra`, "
+                     "--checkpoint is the gateway model id (gpt-6-astra) and --chunks the query budget.")
+ap.add_argument("--astra-goal-mode", default="text", choices=("text", "image"), dest="astra_goal_mode",
+                help="astra: the goal as the NL shot brief or as the goal frame")
+ap.add_argument("--astra-send-res", type=int, nargs=2, default=(296, 222), metavar=("W", "H"),
+                dest="astra_send_res",
+                help="astra: size frames and goal image are sent at. 296x222 = our 256^2 pixel "
+                     "budget at the render's 4:3 aspect")
+ap.add_argument("--astra-reasoning", default="low", dest="astra_reasoning",
+                help="astra: reasoning_effort per query (the source blog runs every query at low)")
 ap.add_argument("--limit", type=int, default=0,
                 help="run only the first N episodes of whatever was selected (0 = all). For "
                      "smokes. Deliberately separate from --episodes, whose default of 24 would "
@@ -195,6 +208,8 @@ def _repo_path(p: str) -> str:
 
 for _flag in ("out", "root", "val_scenes", "episodes_from", "write_episodes", "checkpoint",
               "policy_config", "goal_override"):
+    if _flag == "checkpoint" and args.policy == "astra":
+        continue                    # a gateway model id, not a path
     setattr(args, _flag, _repo_path(getattr(args, _flag)))
 
 # ---------------------------------------------------------------- policy
@@ -547,6 +562,49 @@ def write_manifest(episodes: list, path: str) -> None:
     print(f"[eval] wrote {dest} ({len(out)} episodes)")
 
 
+def timing_summary(results: list[dict]) -> dict:
+    """Speed and cost over the run: policy calls, renders, episodes, and (API policies) tokens/$.
+
+    Episodes from a partial written before timing existed have no act_s and are skipped, so the
+    counts here say how many episodes the timing covers.
+    """
+    def stats(v):
+        v = np.asarray(v, dtype=np.float64)
+        if not len(v):
+            return None
+        return {"n": int(len(v)), "mean": float(v.mean()), "median": float(np.median(v)),
+                "p90": float(np.percentile(v, 90)), "min": float(v.min()), "max": float(v.max())}
+    timed = [r for r in results if r.get("act_s")]
+    out = {"episodes_timed": len(timed),
+           "act_s_per_call": stats([x for r in timed for x in r["act_s"]]),
+           "render_s_per_frame": stats([x for r in timed for x in r.get("render_s", [])]),
+           "calls_per_episode": stats([len(r["act_s"]) for r in timed]),
+           "episode_wall_s": stats([r["episode_wall_s"] for r in timed if r.get("episode_wall_s")]),
+           "device": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"}
+    recs = [r["policy_record"] for r in results if r.get("policy_record")]
+    if recs:
+        calls = [c for p in recs for c in p["calls"]]
+        api = [c["api_latency_s"] for c in calls if c["api_latency_s"]]
+        out["api"] = {
+            "model": recs[0]["model"], "reasoning": recs[0]["reasoning"],
+            "goal_mode": recs[0]["goal_mode"], "send_wh": recs[0]["send_wh"],
+            "n_calls": len(calls), "n_parse_failed": sum(not c["parsed"] for c in calls),
+            "n_retries": sum(max(0, len(c["attempts"]) - 1) for c in calls),
+            "latency_s_per_call": stats([c["latency_s"] for c in calls]),
+            "api_latency_s_per_call": stats(api),
+            "prompt_tokens_per_call": stats([c["prompt_tokens"] for c in calls]),
+            "completion_tokens_per_call": stats([c["completion_tokens"] for c in calls]),
+            "reasoning_tokens_per_call": stats([c["reasoning_tokens"] for c in calls]),
+            "images_per_call": stats([c["n_images"] for c in calls]),
+            "cost_usd_total": float(sum(c["cost_usd"] for c in calls)),
+            "cost_usd_per_episode": stats([p["cost_usd"] for p in recs]),
+            # Astra commands a velocity for dt; if a call takes longer than dt the 2 Hz control
+            # loop the method assumes is not real-time -- the simulator waits for the model.
+            "frac_calls_slower_than_dt": float(np.mean([c["latency_s"] > recs[0]["dt_s"] for c in calls])),
+        }
+    return out
+
+
 def main() -> int:
     t0 = time.time()
     episodes = (episodes_from_manifest(args.episodes_from) if args.episodes_from
@@ -624,6 +682,7 @@ def main() -> int:
             told_vec = np.asarray(overrides[_key]["goal_vec"], dtype=np.float32)
             told_raw = {**dict(window.goal_frame.raw), **overrides[_key]["goal_crop"]}
         renderer = None
+        t_ep = time.perf_counter()
         try:
             delta = abs(window.goal_frame.frame_idx - window.start_frame_idx)
             # However many chunks the goal actually is away — a fixed count would make
@@ -704,6 +763,13 @@ def main() -> int:
             stop_step = None                # step WITHIN that chunk where it crossed
             shoot_log: list[list[float]] = []
             executed_steps = 0
+            # Wall time of every policy call and every render, for every policy -- the paper's
+            # inference-cost table needs them and no earlier rollout recorded any. act_s is the
+            # whole adapter.act (preprocessing + inference; for an API policy, the round trip).
+            act_s: list[float] = []
+            render_s: list[float] = []
+            if hasattr(adapter, "begin_episode"):
+                adapter.begin_episode(_key)
             for c in range(n_chunks):
                 frame = np.asarray(obs["image"])
                 # `pose` matters only to adapters whose action is defined against world axes
@@ -711,9 +777,15 @@ def main() -> int:
                 # goal_image: the rendered goal frame. Only the goal-channel arms read it --
                 # one shows it to the policy as a second panel, the other feeds the VLM
                 # caption of it -- and every other adapter ignores the kwarg.
+                if torch.cuda.is_available():
+                    torch.cuda.synchronize()
+                _t_act = time.perf_counter()
                 chunk = adapter.act(frame, told_vec, told_raw,
                                     seed=args.seed + i * 100 + c, pose=_pose_now(),
                                     goal_image=window.goal_frame.image)
+                if torch.cuda.is_available():
+                    torch.cuda.synchronize()
+                act_s.append(round(time.perf_counter() - _t_act, 4))
                 if goal_text is None:
                     goal_text = getattr(adapter, "last_prompt", None)
                 # dim 9 is the shoot channel: a latched [0,1] state, thresholded the way
@@ -747,7 +819,9 @@ def main() -> int:
                         step_poses.append(_pose_now())
                     executed_steps += len(steps)
                     chunk_steps.append(len(steps))
+                    _t_r = time.perf_counter()
                     obs = env.reset(env.position, env.forward, env.up)   # render the new view
+                    render_s.append(round(time.perf_counter() - _t_r, 4))
                     d = geometry_distance(env.position, env.forward, env.up, window.goal_frame, intr)
                     trace.append(d)
                     pose_trace.append(_pose_now())
@@ -781,6 +855,10 @@ def main() -> int:
                 "subject_height": float(window.goal_frame.subject_height),
                 "goal_frame_image": window.goal_frame.image,
                 "start_frame_image": start.image,
+                "act_s": act_s, "render_s": render_s,
+                "episode_wall_s": round(time.perf_counter() - t_ep, 3),
+                # Per-call API log (latency, tokens, cost, request ids, replies) for API policies.
+                "policy_record": adapter.episode_record() if hasattr(adapter, "episode_record") else None,
             })
             print(f"[eval] {i+1}/{len(episodes)} {sec:11s} delta={delta:2d} x{n_chunks} "
                   f"{name[:34]:34s} d {d0:.4f} -> {d1:.4f} (best {d_best:.4f}) "
@@ -905,6 +983,7 @@ def main() -> int:
         "render_profile": args.render_profile, "goal_override": args.goal_override or None,
         "chunks": args.chunks, "ema": not args.no_ema,
         "elapsed_s": time.time() - t0,
+        "timing": timing_summary(results),
     }
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     json.dump({"summary": summary, "episodes": results}, open(args.out, "w"), indent=1)

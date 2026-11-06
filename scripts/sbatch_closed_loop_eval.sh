@@ -31,6 +31,8 @@ V12=/home/nas_main/jungwooahn/projects/DronePhotographerV12
 SHARED=/home/nas_main/jungwooahn/projects/DronePhotographer
 CF="$V12/repos/cosmos-framework"
 cd "$V12"
+# Which checkout's code runs (a worktree, say). Data and outputs stay under $V12.
+CODE_ROOT="${CODE_ROOT:-$V12}"
 
 # ONE script, TWO venvs. `--policy cosmos` (the default) needs the cosmos-framework venv;
 # the baselines (`pi05`, `groot`, `dp`) need lerobot + transformers 5, which cannot coexist
@@ -51,7 +53,7 @@ if [ "$_POLICY" = cosmos ]; then
 else
     PY="$V12/.venv-vla/bin/python"
     SP="$V12/.venv-vla/lib/python3.12/site-packages"
-    export PYTHONPATH="$V12:${PYTHONPATH:-}"
+    export PYTHONPATH="$CODE_ROOT:$V12:${PYTHONPATH:-}"
     # Everything the baselines pull from the Hub is in the shared cache; a worker has no
     # business going online, and a gated backbone would 403 anyway.
     export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
@@ -98,5 +100,5 @@ _handle_term() {
 }
 trap _handle_term SIGTERM
 
-"$PY" scripts/closed_loop_eval.py "$@" &
+"$PY" "$CODE_ROOT/scripts/closed_loop_eval.py" "$@" &
 wait $!
