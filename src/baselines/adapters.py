@@ -531,7 +531,8 @@ class AstraAdapter:
     name = "astra"
 
     def __init__(self, model: str, goal_mode: str, out_dir: Path, *, send_wh=(296, 222),
-                 reasoning: str = "low", max_context_frames: int = 12, vlm=None):
+                 reasoning: str = "low", max_context_frames: int = 12, vlm=None,
+                 goal_framing: str = "same_view"):
         from src.baselines.astra import DT, AstraPilot, GatewayVLM
         from src.baselines.goal_text import NL_GOAL_KEYS, goal_prompt
         from src.common.action_repr import encode_action_9d
@@ -541,7 +542,9 @@ class AstraAdapter:
         self.model, self.goal_mode, self.send_wh = model, goal_mode, tuple(int(v) for v in send_wh)
         self.reasoning, self.dt = reasoning, DT
         self.vlm = vlm or GatewayVLM(model, reasoning=reasoning)
-        self.pilot = AstraPilot(self.vlm, dt=DT, max_context_frames=max_context_frames)
+        self.goal_framing = goal_framing
+        self.pilot = AstraPilot(self.vlm, dt=DT, max_context_frames=max_context_frames,
+                                goal_framing=goal_framing)
         self._keys, self._goal_prompt, self._encode9d = NL_GOAL_KEYS, goal_prompt, encode_action_9d
         self.inputs_dir = Path(out_dir)
         self.inputs_dir.mkdir(parents=True, exist_ok=True)
@@ -561,6 +564,7 @@ class AstraAdapter:
         lat = [c["latency_s"] for c in calls]
         return {
             "model": self.model, "reasoning": self.reasoning, "goal_mode": self.goal_mode,
+            "goal_framing": self.goal_framing,
             "send_wh": list(self.send_wh), "dt_s": self.dt,
             "n_calls": len(calls), "n_parse_failed": sum(not c["parsed"] for c in calls),
             "n_retries": sum(max(0, len(c["attempts"]) - 1) for c in calls),
@@ -636,7 +640,8 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
             raise SystemExit("--policy astra needs --chunks N (the query budget; the source used 16)")
         return AstraAdapter(args.checkpoint, args.astra_goal_mode,
                             out_dir / f"astra_inputs_{Path(args.out).stem}",
-                            send_wh=tuple(args.astra_send_res), reasoning=args.astra_reasoning)
+                            send_wh=tuple(args.astra_send_res), reasoning=args.astra_reasoning,
+                            goal_framing=args.astra_goal_framing)
     if args.policy == "dp":
         if not args.policy_config:
             raise SystemExit("--policy dp needs --policy-config <config.yaml> from the training run")

@@ -180,6 +180,17 @@ ap.add_argument("--goal-override", default="",
                      "the goal the POLICY is told, replacing the target's ground-truth profile, while "
                      "scoring stays against the true target. How a goal read from the target photograph "
                      "(Module 2) is measured against the ground-truth row.")
+ap.add_argument("--goal-image-override", default="",
+                help="JSON {goals: {episode_key: {image: path}}} (scripts/build_crossref_goals.py): the "
+                     "goal PICTURE the policy is shown, replacing the episode's own goal frame, while "
+                     "scoring stays against the true target. How an image goal of the same shot from "
+                     "another scene and subject is measured on the same episodes.")
+ap.add_argument("--astra-goal-framing", default="same_view", choices=("same_view", "cross_reference"),
+                dest="astra_goal_framing",
+                help="astra image goals: 'same_view' tells the model to reproduce the picture (the goal "
+                     "frame of this very scene); 'cross_reference' tells it the picture is from another "
+                     "place and person and to compose its own subject the same way. Use the latter with "
+                     "--goal-image-override: the picture can never match, so 'reproduce' is impossible.")
 ap.add_argument("--render-profile", default="legacy", choices=("legacy", "v7"),
                 help="'v7' renders the way the training frames were rendered (32 samples, "
                      "denoised, Nishita sky 0.1). 'legacy' keeps each scene's own world and "
@@ -207,7 +218,7 @@ def _repo_path(p: str) -> str:
 
 
 for _flag in ("out", "root", "val_scenes", "episodes_from", "write_episodes", "checkpoint",
-              "policy_config", "goal_override"):
+              "policy_config", "goal_override", "goal_image_override"):
     if _flag == "checkpoint" and args.policy == "astra":
         continue                    # a gateway model id, not a path
     setattr(args, _flag, _repo_path(getattr(args, _flag)))
@@ -587,7 +598,8 @@ def timing_summary(results: list[dict]) -> dict:
         api = [c["api_latency_s"] for c in calls if c["api_latency_s"]]
         out["api"] = {
             "model": recs[0]["model"], "reasoning": recs[0]["reasoning"],
-            "goal_mode": recs[0]["goal_mode"], "send_wh": recs[0]["send_wh"],
+            "goal_mode": recs[0]["goal_mode"], "goal_framing": recs[0]["goal_framing"],
+            "send_wh": recs[0]["send_wh"],
             "n_calls": len(calls), "n_parse_failed": sum(not c["parsed"] for c in calls),
             "n_retries": sum(max(0, len(c["attempts"]) - 1) for c in calls),
             "latency_s_per_call": stats([c["latency_s"] for c in calls]),
@@ -667,6 +679,8 @@ def main() -> int:
         from src.common.gs_render import GaussianCompositeRenderer
 
     overrides = json.loads(Path(args.goal_override).read_text())["goals"] if args.goal_override else None
+    image_overrides = (json.loads(Path(args.goal_image_override).read_text())["goals"]
+                       if args.goal_image_override else None)
 
     _failed = 0
     for i, (name, path, window, goal_vec, bearing, sec) in enumerate(episodes):
@@ -681,6 +695,13 @@ def main() -> int:
                 raise SystemExit(f"--goal-override has no goal for {_key}")
             told_vec = np.asarray(overrides[_key]["goal_vec"], dtype=np.float32)
             told_raw = {**dict(window.goal_frame.raw), **overrides[_key]["goal_crop"]}
+        told_image = window.goal_frame.image
+        if image_overrides is not None:
+            if _key not in image_overrides:
+                raise SystemExit(f"--goal-image-override has no image for {_key}")
+            told_image = _repo_path(image_overrides[_key]["image"])   # the eval chdirs into the framework
+            if not Path(told_image).exists():
+                raise SystemExit(f"--goal-image-override image missing: {told_image}")
         renderer = None
         t_ep = time.perf_counter()
         try:
@@ -782,7 +803,7 @@ def main() -> int:
                 _t_act = time.perf_counter()
                 chunk = adapter.act(frame, told_vec, told_raw,
                                     seed=args.seed + i * 100 + c, pose=_pose_now(),
-                                    goal_image=window.goal_frame.image)
+                                    goal_image=told_image)
                 if torch.cuda.is_available():
                     torch.cuda.synchronize()
                 act_s.append(round(time.perf_counter() - _t_act, 4))
@@ -854,6 +875,7 @@ def main() -> int:
                 "subject_center": [float(v) for v in window.goal_frame.subject_center],
                 "subject_height": float(window.goal_frame.subject_height),
                 "goal_frame_image": window.goal_frame.image,
+                "told_goal_image": told_image,
                 "start_frame_image": start.image,
                 "act_s": act_s, "render_s": render_s,
                 "episode_wall_s": round(time.perf_counter() - t_ep, 3),
@@ -981,6 +1003,7 @@ def main() -> int:
         "policy": adapter.name, "policy_config": args.policy_config or None,
         "render_res": list(args.render_res) if args.render_res else None,
         "render_profile": args.render_profile, "goal_override": args.goal_override or None,
+        "goal_image_override": args.goal_image_override or None,
         "chunks": args.chunks, "ema": not args.no_ema,
         "elapsed_s": time.time() - t0,
         "timing": timing_summary(results),

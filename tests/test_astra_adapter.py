@@ -103,3 +103,40 @@ def test_unparseable_reply_hovers(tmp_path):
     assert a.episode_record()["n_parse_failed"] == 1
     np.testing.assert_allclose(chunk[0, :3], 0, atol=1e-6)       # no translation
     assert chunk[0, 9] == 0.0                                       # and keeps flying
+
+
+def _captured_messages(tmp_path, framing):
+    from PIL import Image
+    g = tmp_path / "goal_src.jpg"
+    Image.fromarray(FRAME).save(g)
+    seen = []
+    stub = _stub_post([CMD])
+
+    def post(body):
+        seen.append(body)
+        return stub(body)
+    a = AstraAdapter("gpt-6-astra", "image", tmp_path, vlm=GatewayVLM("gpt-6-astra", post=post),
+                     goal_framing=framing)
+    a.begin_episode("Scene__obj:p00:s01:g02")
+    a.act(FRAME, GOAL_VEC, {}, seed=0, pose=POSE, goal_image=str(g))
+    return seen[0]["messages"], a.episode_record()
+
+
+def test_same_view_prompt_is_the_source_prompt(tmp_path):
+    from src.baselines.astra import SYSTEM
+    msgs, rec = _captured_messages(tmp_path, "same_view")
+    assert msgs[0]["content"] == SYSTEM and rec["goal_framing"] == "same_view"
+    assert msgs[1]["content"][0]["text"] == "REQUESTED PHOTOGRAPH (reproduce this view):"
+
+
+def test_cross_reference_prompt_says_the_picture_is_elsewhere(tmp_path):
+    from src.baselines.astra import SYSTEM
+    msgs, rec = _captured_messages(tmp_path, "cross_reference")
+    assert rec["goal_framing"] == "cross_reference"
+    assert "different place with a different person" in msgs[1]["content"][0]["text"]
+    assert msgs[1]["content"][1]["type"] == "image_url"
+    system = msgs[0]["content"]
+    assert "matches the requested photograph" not in system and "reference frames its subject" in system
+    # Everything except the two reworded sentences is untouched.
+    assert system.split("Each reply is strict JSON")[1].split("status is")[0] == \
+        SYSTEM.split("Each reply is strict JSON")[1].split("status is")[0]

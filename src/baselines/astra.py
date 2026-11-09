@@ -21,6 +21,9 @@ What differs, and why:
     (measured 2026-11-06: 1024x768 -> 769 tok, 296x222 -> 71, 256x256 -> 65), so this is the
     same visual budget our model gets, at ~1/11 the image tokens of the full render. The aspect
     is kept rather than squashed because the prompt states the FOV (29.9 x 22.6 deg);
+  * with `goal_framing="cross_reference"` (image goals from another scene and person) the goal
+    intro and the two system-prompt sentences that say "reproduce / matches this picture" are
+    reworded, since that picture can never be matched; the source never ran this condition;
   * transport errors (429 / 5xx / timeouts) are retried with backoff before being treated as a
     dropped reply. The source turned every exception into an immediate hover, which scores
     gateway trouble as policy failure. Every attempt is logged, so the difference is auditable;
@@ -128,6 +131,26 @@ SYSTEM = (
     "view matches the requested photograph — that ends the run and takes the picture, so say it "
     "when the shot is right, and not before."
 )
+
+
+# Cross-reference goals: the picture is the same SHOT from another scene with another person, so it
+# can never be matched. Only the sentences that say what the picture is and when to stop change.
+_XREF_REPLACEMENTS = (
+    ("taking the REQUESTED PHOTOGRAPH of the subject.",
+     "taking a photograph of your subject composed like the REFERENCE PHOTOGRAPH."),
+    ('"Complete" the moment the current view matches the requested photograph',
+     '"Complete" the moment your subject is framed the way the reference frames its subject'),
+)
+SYSTEM_CROSS_REFERENCE = SYSTEM
+for _old, _new in _XREF_REPLACEMENTS:
+    assert _old in SYSTEM_CROSS_REFERENCE, _old
+    SYSTEM_CROSS_REFERENCE = SYSTEM_CROSS_REFERENCE.replace(_old, _new)
+GOAL_INTRO = {
+    "same_view": "REQUESTED PHOTOGRAPH (reproduce this view):",
+    "cross_reference": ("REFERENCE PHOTOGRAPH, taken in a different place with a different person. "
+                        "Frame YOUR subject the same way: same viewing side and angle, same size and "
+                        "position in the frame:"),
+}
 
 
 def parse_json_obj(text):
@@ -245,8 +268,10 @@ class GatewayVLM:
 class AstraPilot:
     """Accumulating-context velocity pilot. One query per rendered frame. Same as the source."""
 
-    def __init__(self, vlm, dt=DT, max_context_frames=12):
+    def __init__(self, vlm, dt=DT, max_context_frames=12, goal_framing="same_view"):
         self.vlm, self.dt, self.max_context_frames = vlm, float(dt), int(max_context_frames)
+        self.goal_intro = GOAL_INTRO[goal_framing]
+        self.system = SYSTEM_CROSS_REFERENCE if goal_framing == "cross_reference" else SYSTEM
         self.calls = self.failures = 0
         self.reset()
 
@@ -257,7 +282,7 @@ class AstraPilot:
     def _messages(self, goal, image_path):
         content = []
         if goal.get("mode") == "image":
-            content += [{"type": "text", "text": "REQUESTED PHOTOGRAPH (reproduce this view):"},
+            content += [{"type": "text", "text": self.goal_intro},
                         {"type": "image", "path": goal["image"]}]
         else:
             content.append({"type": "text", "text": f"REQUESTED PHOTOGRAPH: {goal['text']}"})
@@ -281,7 +306,7 @@ class AstraPilot:
 
     def act(self, image_path, goal):
         self.calls += 1
-        d = self.vlm.ask_json(system=SYSTEM, content=self._messages(goal, image_path))
+        d = self.vlm.ask_json(system=self.system, content=self._messages(goal, image_path))
         if not isinstance(d, dict):
             self.failures += 1
             cmd = clamp_command({})
