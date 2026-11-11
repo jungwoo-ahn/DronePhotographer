@@ -23,13 +23,37 @@ class UiState:
         self._limits = limits
         self._mode = mode               # "BENCH" or "DRY RUN": the aircraft will not fly
         self._camera = None
-        self._frame_jpeg: bytes | None = None
-        self._frame_seq: int | None = None
+        self._views: dict = {}
+        self._frames: dict = {}         # which picture -> (frame seq, its JPEG)
         self._last_reason: str | None = None
         self._cmd_times: deque = deque(maxlen=30)
+        self._sequence = None
+        self._shots: list[dict] = []
+        self._shot_id: str | None = None
 
-    def attach_camera(self, camera):
+    def attach_camera(self, camera, wide=None, model=None):
+        """`wide` is what the operator looks at, `model` what the server is sent."""
         self._camera = camera
+        self._views = {"wide": wide, "model": model}
+
+    def attach_model(self, sequence, shots: list[dict], shot_id: str | None = None):
+        """The policy's source, and the shots the operator can choose between."""
+        self._sequence = sequence
+        self._shots = list(shots)
+        self._shot_id = shot_id if shot_id is not None else (shots[0]["id"] if shots else None)
+
+    def shots(self) -> list[dict]:
+        return list(self._shots)
+
+    def select_shot(self, shot_id: str) -> bool:
+        """Point the policy at another shot. Only the goal changes: it still only proposes."""
+        shot = next((s for s in self._shots if s["id"] == shot_id), None)
+        if shot is None or self._sequence is None:
+            return False
+        self._sequence.set_goal({"profile": dict(shot["profile"])})
+        with self._lock:
+            self._shot_id = shot_id
+        return True
 
     def preflight(self, phase: str):
         """What the pilot is doing on the ground, before the loop has anything to publish."""
@@ -89,6 +113,8 @@ class UiState:
             # The move on offer, when the pilot is flying under approval. None means
             # the policy is driving directly and the panel has nothing to click.
             "move": None if gate is None else gate.snapshot(now),
+            "model": None if self._sequence is None else self._sequence.status(),
+            "shot": self._shot_id,
         }
         if decision.reason != self._last_reason:
             # `now` is monotonic, which is right for ages and wrong for a log: the panel
@@ -122,19 +148,21 @@ class UiState:
         with self._lock:
             return dict(self._snap)
 
-    def frame(self) -> bytes | None:
-        """The newest frame as JPEG, encoded here on the HTTP thread.
+    def frame(self, which: str = "wide") -> bytes | None:
+        """The newest frame as JPEG, corrected and encoded here on the HTTP thread.
 
-        Encoding is the slow part, and only a browser asking for a picture should pay for
-        it: it must not happen in the control loop.
+        These are the slow parts, and only a browser asking for a picture should pay for
+        them: they must not happen in the control loop.
         """
         latest = self._camera.latest() if self._camera is not None else None
         if latest is None:
             return None
         with self._lock:
-            if latest.seq == self._frame_seq:
-                return self._frame_jpeg
-        jpeg = encode_jpeg(latest.image)
+            seq, jpeg = self._frames.get(which, (None, None))
+            if latest.seq == seq:
+                return jpeg
+        view = self._views.get(which)
+        jpeg = encode_jpeg(view(latest.image) if view is not None else latest.image)
         with self._lock:
-            self._frame_jpeg, self._frame_seq = jpeg, latest.seq
+            self._frames[which] = (latest.seq, jpeg)
         return jpeg

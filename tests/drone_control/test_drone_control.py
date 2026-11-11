@@ -2,6 +2,7 @@
 
 import asyncio
 import math
+import time
 from pathlib import Path
 
 import pytest
@@ -255,7 +256,7 @@ class FakeCapture:
 
 def test_camera_keeps_only_the_newest_frame():
     import time as _t
-    cam = CameraStream("x", open_capture=lambda u: FakeCapture(["a", "b", "c"]))
+    cam = CameraStream("x", open_capture=lambda u: FakeCapture(["a", "b", "c"]), settle_s=0.0)
     cam.start()
     deadline = _t.time() + 2.0
     while _t.time() < deadline and cam.frames_read < 3:
@@ -263,6 +264,28 @@ def test_camera_keeps_only_the_newest_frame():
     cam.stop()
     assert cam.latest().image == "c"          # not "a" -- no backlog
     assert cam.frames_read >= 3
+
+
+def test_frames_right_after_connecting_are_dropped():
+    now = [0.0]
+    seen = {}
+    capture = FakeCapture(["frame"])
+    read = capture.read
+
+    def read_one_second_later():
+        seen[now[0]] = cam.latest()
+        now[0] += 1.0
+        return read()
+
+    capture.read = read_one_second_later
+    cam = CameraStream("x", open_capture=lambda u: capture, clock=lambda: now[0], settle_s=3.0)
+    cam.start()
+    deadline = time.time() + 2.0
+    while time.time() < deadline and now[0] < 6.0:
+        time.sleep(0.01)
+    cam.stop()
+    assert all(seen[t] is None for t in (0.0, 1.0, 2.0))    # the read that returns at 3 s is kept
+    assert seen[3.0] is not None
 
 
 def test_stale_frame_is_withheld():
@@ -542,6 +565,15 @@ def test_the_move_is_described_in_words_an_operator_can_check():
     assert "closer" in describe_move(VelocityCommand(vx=0.4))
 
 
+def test_the_real_policys_small_steps_are_still_called_moves():
+    # A step the real model gave: about 5 cm over 1.5 s, which once read "Hold still".
+    assert describe_move(VelocityCommand(vx=-0.05, vy=0.03, vz=-0.02)) == \
+        "Slide left, moving back and descending"
+    # A small part next to a big one goes unnamed, so the sentence says what matters.
+    assert describe_move(VelocityCommand(vx=0.4, vz=0.02)) == "Move closer"
+    assert describe_move(VelocityCommand(vx=0.004, yaw_rate=0.2)) == "Hold still"
+
+
 def test_the_panel_can_run_and_skip_but_still_cannot_author_a_command():
     gate, src, t = _gate()
     sup = Supervisor(clock=lambda: 0.0)
@@ -737,7 +769,8 @@ def _pilot_args(**kw):
                 policy_hz=2.0, altitude=5.0, takeoff_settle=0.0, speed=1.0, max_vertical_speed=1.0,
                 max_yaw_rate=60.0, max_altitude=30.0, max_radius=50.0, duration=0.2,
                 camera_url=None, camera_wait=0.2, max_frame_age=0.7, goal_file=None, tilt_deg=0.0,
-                policy_warmup=1.0, approve=False,
+                lens_hfov=0.0, policy_warmup=1.0, approve=False, server_tunnel=False, gimbal=False, full_hd=False,
+                stream_kbps=4096,
                 move_seconds=1.5, ui=False, ui_port=0, bench=False, dry_run=False)
     base.update(kw)
     return type("A", (), base)

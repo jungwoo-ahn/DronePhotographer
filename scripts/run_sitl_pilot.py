@@ -28,17 +28,22 @@ import json
 import sys
 import time
 from pathlib import Path
+from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src.drone_control.approval import DEFAULT_OFFER_S, ApprovalGate
 from src.drone_control.camera import CameraStream
+from src.drone_control.gimbal import SiyiGimbal, TiltHold
+from src.drone_control.lens import A2_MINI_HFOV_DEG, TRAINING_HFOV_DEG, VIEW_SIZE, LensView
 from src.drone_control.loop import run
 from src.drone_control.offboard import BenchDriver, DryRunDriver, OffboardDriver
 from src.drone_control.policy_client import PolicyClient
 from src.drone_control.safety import SafetyLimits
+from src.drone_control.shots import load_shots
 from src.drone_control.sources import ActionSequenceSource, HoverSource, SquareSource
 from src.drone_control.supervisor import Supervisor
+from src.drone_control.tunnel import ServerTunnel, load_server
 from src.drone_control.ui import UiServer, UiState
 
 
@@ -58,8 +63,64 @@ def build_source(a):
         raise SystemExit("--source policy needs --goal-file: the shot profile to ask for")
     with open(a.goal_file, encoding="utf-8") as f:
         goal = json.load(f)
+    host = urlparse(a.camera_url).hostname
+    gimbal = SiyiGimbal(host) if host and (a.gimbal or a.full_hd) else None
+    if gimbal is not None and a.full_hd and use_full_hd(gimbal, a.stream_kbps):
+        a.camera_wait = max(a.camera_wait, CAMERA_REBOOT_S)
     cam = CameraStream(a.camera_url, max_age_s=a.max_frame_age).start()
-    return ActionSequenceSource(cam, client, goal, move_s=a.move_seconds, tilt_deg=a.tilt_deg), cam
+    view = (LensView(a.lens_hfov, size=VIEW_SIZE, view_hfov_deg=TRAINING_HFOV_DEG)
+            if a.lens_hfov else None)
+    hold = TiltHold(gimbal, a.tilt_deg).start() if gimbal is not None and a.gimbal else None
+    return ActionSequenceSource(cam, client, goal, move_s=a.move_seconds, tilt_deg=a.tilt_deg,
+                                view=view, hold=hold), cam
+
+
+CAMERA_REBOOT_S = 120.0     # the stream came back 56 s after a camera restart on the bench
+
+
+def use_full_hd(gimbal, kbps) -> bool:
+    """Ask for 1080p unless it is already set. Returns True if the camera is restarting.
+
+    The camera only serves the new size after a restart: before one, the stream answered
+    with no picture at all.
+    """
+    stream = gimbal.main_stream()
+    if stream is None or stream["width"] == 1920:
+        print(f"[pilot] camera stream: {stream}")
+        return False
+    if not gimbal.set_main_stream(1920, 1080, kbps):
+        print(f"[pilot] the camera refused 1080p; staying at {stream['width']}x{stream['height']}")
+        return False
+    restarting = gimbal.reboot_camera()
+    print(f"[pilot] camera set to 1080p; restarting it for that to take effect: {restarting}")
+    return restarting
+
+
+async def wait_for_camera_aim(hold, timeout_s):
+    deadline = time.monotonic() + timeout_s
+    while time.monotonic() < deadline:
+        if hold.settled():
+            return True
+        await asyncio.sleep(0.1)
+    return False
+
+
+def open_tunnel(a):
+    """Reach the server by itself, if its login is saved and the URL points at this machine."""
+    url = urlparse(a.policy_url)
+    if not a.server_tunnel or url.hostname not in ("127.0.0.1", "localhost"):
+        return None
+    server = load_server()
+    if server is None:
+        print("[pilot] no saved server login; expecting an ssh tunnel of your own")
+        return None
+    try:
+        tunnel = ServerTunnel(server, url.port).start()
+    except OSError:
+        print(f"[pilot] port {url.port} is taken; assuming that is your own ssh tunnel")
+        return None
+    print(f"[pilot] connecting port {url.port} to {server['host']} as requests come")
+    return tunnel
 
 
 def build_driver(a):
@@ -88,6 +149,7 @@ async def main_async(a):
     source, cam = build_source(a)
     sequence = source if isinstance(source, ActionSequenceSource) else None
     client = getattr(source, "client", None)
+    tunnel = open_tunnel(a) if sequence is not None else None
     gate = None
     if a.approve or sequence is not None:
         # Nothing the policy proposes reaches the aircraft until someone clicks Run,
@@ -100,7 +162,10 @@ async def main_async(a):
     ui = uisrv = None
     if a.ui or sequence is not None:
         ui = UiState(sup.limits, mode="BENCH" if a.bench else "DRY RUN" if a.dry_run else "")
-        ui.attach_camera(cam)
+        wide = LensView(a.lens_hfov) if cam is not None and a.lens_hfov else None
+        ui.attach_camera(cam, wide=wide, model=sequence.view if sequence is not None else None)
+        if sequence is not None:
+            ui.attach_model(sequence, load_shots(sequence.goal))
         uisrv = UiServer(ui, sup, port=a.ui_port, gate=gate).start()
         print(f"[pilot] panel at {uisrv.url}")
 
@@ -117,10 +182,20 @@ async def main_async(a):
                 if not grounded:
                     raise SystemExit(f"no frame from {a.camera_url}; refusing to take off")
                 print(f"[pilot] no frame from {a.camera_url}; carrying on, this will not fly")
+        if sequence is not None and sequence.hold is not None:
+            phase(f"Aiming the camera at {sequence.hold.target:.0f}° from the horizon.")
+            if not await wait_for_camera_aim(sequence.hold, a.camera_wait):
+                why = (f"the camera reports {sequence.hold.tilt} and should be at "
+                       f"{sequence.hold.target:.0f}°")
+                if not grounded:
+                    raise SystemExit(f"{why}; refusing to take off")
+                print(f"[pilot] {why}; carrying on, this will not fly")
         if sequence is not None:
             phase("Asking the server for one forward pass. The first one is slow.")
             if not await asyncio.to_thread(sequence.check, a.policy_warmup):
                 why = f"no actions from {a.policy_url}: {client.last_error}"
+                if tunnel is not None and tunnel.last_error:
+                    why += f" (server connection: {tunnel.last_error})"
                 if not grounded:
                     raise SystemExit(f"{why}; refusing to take off")
                 print(f"[pilot] {why}; carrying on, this will not fly")
@@ -153,8 +228,12 @@ async def main_async(a):
         await driver.stop_and_land()
         if cam is not None:
             cam.stop()
+        if sequence is not None and sequence.hold is not None:
+            sequence.hold.stop()
         if uisrv is not None:
             uisrv.stop()
+        if tunnel is not None:
+            tunnel.stop()
 
 
 def main():
@@ -168,6 +247,9 @@ def main():
                    help="real telemetry, never arms and sends nothing; for props-off tests")
     p.add_argument("--source", default="square", choices=["square", "hover", "policy"])
     p.add_argument("--policy-url", default="http://127.0.0.1:8777/act", dest="policy_url")
+    p.add_argument("--no-server-tunnel", action="store_false", dest="server_tunnel",
+                   help="do not connect to the server with the login saved by "
+                        "scripts/save_server_login.py")
     p.add_argument("--policy-timeout", type=float, default=10.0, dest="policy_timeout")
     p.add_argument("--policy-warmup", type=float, default=120.0, dest="policy_warmup",
                    help="timeout for the forward pass on the ground; the first one is slow")
@@ -189,8 +271,18 @@ def main():
                    help="older than this and the policy is not asked -> hover")
     p.add_argument("--goal-file", default=None, dest="goal_file",
                    help="the shot to ask for: see configs/drone_goal_example.json")
+    p.add_argument("--lens-hfov", type=float, default=A2_MINI_HFOV_DEG, dest="lens_hfov",
+                   help="how wide the camera sees, in degrees; scripts/check_lens.py measures it. "
+                        "0 sends frames as they are, for a source that is already narrow")
     p.add_argument("--tilt-deg", type=float, default=0.0, dest="tilt_deg",
-                   help="where the camera is set, from level, up+; the actions depend on it")
+                   help="where the camera is set, from level, up+; the actions depend on it. "
+                        "With --gimbal, where it starts")
+    p.add_argument("--gimbal", action="store_true",
+                   help="aim the camera as each action is run, and hold that angle from the "
+                        "horizon as the aircraft tips. The camera will move")
+    p.add_argument("--no-full-hd", action="store_false", dest="full_hd",
+                   help="do not ask the camera for a 1080p stream")
+    p.add_argument("--stream-kbps", type=int, default=4096, dest="stream_kbps")
     p.add_argument("--approve", action="store_true",
                    help="fly move by move, you click Run in the panel; --source policy always does")
     p.add_argument("--move-seconds", type=float, default=1.5, dest="move_seconds",

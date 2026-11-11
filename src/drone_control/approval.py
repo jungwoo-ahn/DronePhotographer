@@ -36,11 +36,22 @@ DEFAULT_HOLD_S = 1.5        # how long one accepted move flies before the aircra
 DEFAULT_OFFER_S = 6.0       # how long a proposal stays on offer before it is withdrawn
 
 
+MIN_SPEED = 0.01        # m/s: 1.5 cm over a 1.5 s move. The real policy steps a few cm at a time
+MIN_YAW_RATE = 0.5      # deg/s
+SHARE = 0.3             # a smaller part of the move than this, next to the rest, goes unnamed
+
+
 def describe_move(cmd: VelocityCommand) -> str:
-    """One plain sentence for a velocity, so the operator reads intent, not axes."""
+    """One plain sentence for a velocity, so the operator reads intent, not axes.
+
+    "Hold still" only when nothing moves: the real policy's steps are a few centimetres, and
+    calling eight of them "hold still" once hid 30 cm of travel.
+    """
     fwd, left, up, yaw = cmd.vx, cmd.vy, cmd.vz, cmd.yaw_rate
-    turning = abs(yaw) > 1.0
-    sliding = abs(left) > 0.05
+    peak = max(abs(fwd), abs(left), abs(up))
+    named = lambda v: abs(v) >= MIN_SPEED and abs(v) >= SHARE * peak    # noqa: E731
+    turning = abs(yaw) >= MIN_YAW_RATE
+    sliding = named(left)
     parts: list[str] = []
 
     # A slide and a turn the same way round is an orbit, which is what the shot is
@@ -52,10 +63,10 @@ def describe_move(cmd: VelocityCommand) -> str:
             parts.append("Slide " + ("left" if left > 0 else "right"))
         if turning:
             parts.append(("Turn " if not parts else "turning ") + ("left" if yaw > 0 else "right"))
-    if abs(fwd) > 0.05:
+    if named(fwd):
         word = "closer" if fwd > 0 else "back"
         parts.append(("Move " if not parts else "moving ") + word)
-    if abs(up) > 0.05:
+    if named(up):
         parts.append(("Climb" if up > 0 else "Descend") if not parts
                      else ("climbing" if up > 0 else "descending"))
     if not parts:
@@ -120,8 +131,13 @@ class ApprovalGate:
         # Outside the lock: this blocks on the camera and on the policy server, and the
         # UI thread must never wait behind it.
         cmd = self.source.next_command(state, self._clock() if now is None else now)
+        current = getattr(self.source, "still_current", None)
         if cmd is not None:
             with self._lock:
+                # Checked under this lock so that a shot picked meanwhile, which takes the
+                # offer back under it too, cannot leave a move for the old shot on offer.
+                if current is not None and not current(cmd):
+                    return self.hold()
                 if self._pending is None and self._live is None:
                     self._pending = {"cmd": cmd, "at": now, "wall": time.time()}
         return self.hold()
@@ -130,15 +146,22 @@ class ApprovalGate:
     def accept(self, now: float | None = None) -> bool:
         """Run the move that is on offer. Returns False if there was nothing to run."""
         now = self._clock() if now is None else now
+        ready = getattr(self.source, "ready_to_run", None)
+        if ready is not None and not ready():
+            return False
         with self._lock:
             if self._pending is None:
                 return False
             self._live = {"cmd": self._pending["cmd"], "at": self._pending["at"],
                           "wall": self._pending["wall"], "until": now + self.hold_s,
                           "ran_at": now}
+            cmd = self._live["cmd"]
             self._pending = None
             self.accepted += 1
-            return True
+        started = getattr(self.source, "move_started", None)
+        if started is not None:
+            started(cmd)
+        return True
 
     def skip(self) -> bool:
         """Refuse the move on offer, and what depended on it, so the next comes from a newer view."""
@@ -152,6 +175,19 @@ class ApprovalGate:
         drop = getattr(self.source, "drop_sequence", None)
         if drop is not None:
             drop()
+        return True
+
+    def withdraw(self, outcome: str = "withdrawn") -> bool:
+        """Take back the move on offer, because what it was for has changed (a new shot).
+
+        Not a skip: the operator did not refuse the move, it stopped applying.
+        """
+        now = self._clock()
+        with self._lock:
+            if self._pending is None:
+                return False
+            self._close(self._pending, outcome, now)
+            self._pending = None
         return True
 
     # -- what the panel draws --------------------------------------------------

@@ -30,6 +30,10 @@ from dataclasses import dataclass, field
 #: A frame older than this is not worth acting on.
 DEFAULT_MAX_AGE_S = 0.7
 
+#: After connecting, the decoder delivers flat grey until its first keyframe: up to 1.2 s on the
+#: A2 mini. Those frames look valid and fresh, so they are dropped here, with some margin.
+DEFAULT_SETTLE_S = 3.0
+
 
 @dataclass
 class Frame:
@@ -63,10 +67,12 @@ class CameraStream:
     """
 
     def __init__(self, url: str, *, max_age_s: float = DEFAULT_MAX_AGE_S,
-                 open_capture=None, reconnect_delay_s: float = 1.0, clock=time.monotonic):
+                 open_capture=None, reconnect_delay_s: float = 1.0, clock=time.monotonic,
+                 settle_s: float = DEFAULT_SETTLE_S):
         self.url = url
         self.max_age_s = float(max_age_s)
         self.reconnect_delay_s = float(reconnect_delay_s)
+        self.settle_s = float(settle_s)
         self._open = open_capture or self._default_open
         self._clock = clock
         self._lock = threading.Lock()
@@ -117,6 +123,7 @@ class CameraStream:
                         self.reconnects += 1
                         self._stop.wait(self.reconnect_delay_s)
                         continue
+                    settled_at = self._clock() + self.settle_s
                 ok, img = cap.read()
                 if not ok:
                     # Stream dropped. Release and retry; the old frame keeps ageing
@@ -128,6 +135,8 @@ class CameraStream:
                     cap = None
                     self.reconnects += 1
                     self._stop.wait(self.reconnect_delay_s)
+                    continue
+                if self._clock() < settled_at:
                     continue
                 self._seq += 1
                 self.frames_read += 1

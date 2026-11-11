@@ -213,6 +213,77 @@ main {
 .figs .k { display: block; font-size: var(--text-xs); font-weight: 500; color: var(--color-muted); }
 .figs .v { display: block; font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
 
+/* the shot: what the model is asked for -------------------------------------- */
+.shotwrap, .planwrap { display: grid; gap: var(--space-md); }
+.shot, .plan {
+  border-radius: var(--radius-card); background: var(--color-paper-2);
+  box-shadow: 0 0 0 1px var(--color-rule); padding: var(--space-md) var(--space-lg) var(--space-lg);
+  display: grid; gap: var(--space-sm); min-width: 0;
+}
+.shot__pick { display: grid; gap: var(--space-2xs); }
+.shot__pick select {
+  min-height: 44px; width: 100%; padding: 0 var(--space-sm); font: inherit; color: var(--color-ink);
+  border: var(--rule-hair) solid var(--color-ink); border-radius: var(--radius-pill);
+  background: var(--color-paper-2); cursor: pointer;
+}
+.shot__say { font-size: var(--text-lg); font-weight: 500; }
+.shot__figs { display: grid; grid-template-columns: 120px 120px minmax(0, 1fr); gap: var(--space-md); align-items: center; }
+.shot__cells { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-ink); }
+.shot__cells .cell { border-left: 0; padding-left: 0; }
+.shot__cells .v { white-space: normal; font-size: var(--text-sm); }
+.dia { margin: 0; text-align: center; font-size: var(--text-xs); color: var(--color-muted); }
+.dia svg { width: 100%; height: auto; display: block; overflow: visible; }
+.dia__ring { fill: none; stroke: var(--color-rule); stroke-dasharray: 3 3; }
+.dia__ground { stroke: var(--color-muted); stroke-width: 1.5; }
+.dia__level { stroke: var(--color-rule); stroke-dasharray: 3 3; }
+.dia__sight { stroke: var(--color-ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.dia__subject { fill: var(--color-ink); }
+.dia__cam { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.5; }
+.dia__t { font-family: var(--font-outlier); font-size: 9px; fill: var(--color-muted); }
+
+/* the target box over what the model sees */
+.target {
+  position: absolute; border: 2px dashed var(--color-accent); border-radius: 3px;
+  box-shadow: 0 0 0 1px oklch(18% 0.006 60 / 0.5); pointer-events: none;
+}
+.target span {
+  position: absolute; top: -1px; left: -1px; padding: 0 var(--space-2xs);
+  background: var(--color-accent); color: var(--color-accent-ink);
+  font-size: var(--text-xs); font-weight: 500;
+}
+.cam__note { margin-top: var(--space-xs); }
+
+/* where it is going ----------------------------------------------------------- */
+.plan__model { display: flex; gap: var(--space-xs); align-items: baseline; font-weight: 500; }
+.plan__model[data-state="error"] { color: var(--color-accent-ink); background: var(--color-accent-soft); padding: var(--space-2xs) var(--space-xs); border-radius: var(--radius-pill); }
+.pulse { width: 9px; height: 9px; flex: none; border-radius: 50%; background: var(--color-rule); align-self: center; }
+.plan__model[data-state="thinking"] .pulse { background: var(--color-accent); animation: pulse 1s var(--ease-out) infinite alternate; }
+@keyframes pulse { from { opacity: 1; } to { opacity: 0.25; } }
+.plan__body { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--space-lg); align-items: start; }
+#plan-map {
+  width: 100%; max-width: 240px; aspect-ratio: 1; border-radius: var(--radius-card);
+  background: var(--color-sheet); box-shadow: 0 0 0 1px var(--color-rule);
+}
+.plan__grid { stroke: var(--color-grid); }
+.plan__path { fill: none; stroke: var(--color-ink); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.plan__drone { fill: var(--color-ink); }
+.plan__head { stroke: var(--color-muted); stroke-width: 1.5; }
+.plan__dot { stroke: var(--color-ink); stroke-width: 1.5; fill: var(--color-paper-2); }
+.plan__dot--done { fill: var(--color-green-soft); stroke: var(--color-green); }
+.plan__dot--now { fill: var(--color-accent); }
+.plan__dot--dropped { fill: var(--color-paper-3); stroke: var(--color-rule); }
+.plan__n { font-family: var(--font-outlier); font-size: 9px; fill: var(--color-ink); pointer-events: none; }
+.steps { list-style: none; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-ink); }
+.steps li {
+  display: grid; grid-template-columns: 2ch minmax(0, 1fr) auto; gap: var(--space-sm);
+  padding: var(--space-2xs) 0; border-bottom: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm);
+}
+.steps__n, .steps__v { color: var(--color-muted); }
+.steps li[data-state="done"] { color: var(--color-muted); }
+.steps li[data-state="now"] { font-weight: 500; background: var(--color-accent-soft); }
+.steps li[data-state="dropped"] { color: var(--color-muted); text-decoration: line-through; }
+.plan__fine { max-width: 68ch; }
+
 /* foot --------------------------------------------------------------------- */
 .foot {
   border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-md) var(--space-2xl);
@@ -231,6 +302,10 @@ main {
 }
 @media (max-width: 40rem) {
   :root { --gutter: 16px; }
+  .shot__figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shot__cells { grid-column: 1 / -1; }
+  .plan__body { grid-template-columns: minmax(0, 1fr); }
+  #plan-map { max-width: none; }
   .cells { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cell:nth-child(3) { border-left: 0; }
   .cell:nth-child(n+3) { border-top: var(--rule-hair) solid var(--color-ink); }
