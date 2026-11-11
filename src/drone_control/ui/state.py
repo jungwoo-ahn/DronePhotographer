@@ -30,6 +30,7 @@ class UiState:
         self._sequence = None
         self._shots: list[dict] = []
         self._shot_id: str | None = None
+        self._photos = None
 
     def attach_camera(self, camera, wide=None, model=None):
         """`wide` is what the operator looks at, `model` what the server is sent."""
@@ -44,6 +45,30 @@ class UiState:
 
     def shots(self) -> list[dict]:
         return list(self._shots)
+
+    def attach_photos(self, taker):
+        self._photos = taker
+
+    def take_photo(self) -> dict | None:
+        """Save the frame on screen, with the shot asked for and where everything was."""
+        if self._photos is None:
+            return None
+        with self._lock:
+            snap = dict(self._snap)
+            shot_id = self._shot_id
+        shot = next((s for s in self._shots if s["id"] == shot_id), None)
+        hold = getattr(self._sequence, "hold", None)
+        model = snap.get("model") or {}
+        meta = {"mode": self._mode, "shot": shot_id,
+                "profile": shot["profile"] if shot else None,
+                "telemetry": snap.get("telemetry"),
+                "camera_tilt_deg": hold.tilt if hold is not None else None,
+                "camera_target_deg": hold.target if hold is not None else None,
+                "model_step": model.get("offered"), "model_plan_len": len(model.get("plan") or [])}
+        return self._photos.take(meta)
+
+    def photo_path(self, name: str, which: str = "photo"):
+        return None if self._photos is None else self._photos.path(name, which)
 
     def select_shot(self, shot_id: str) -> bool:
         """Point the policy at another shot. Only the goal changes: it still only proposes."""
@@ -115,6 +140,7 @@ class UiState:
             "move": None if gate is None else gate.snapshot(now),
             "model": None if self._sequence is None else self._sequence.status(),
             "shot": self._shot_id,
+            "photos": None if self._photos is None else self._photos.summary(),
         }
         if decision.reason != self._last_reason:
             # `now` is monotonic, which is right for ages and wrong for a log: the panel

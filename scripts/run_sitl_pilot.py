@@ -38,6 +38,7 @@ from src.drone_control.gimbal import SiyiGimbal, TiltHold
 from src.drone_control.lens import A2_MINI_HFOV_DEG, TRAINING_HFOV_DEG, VIEW_SIZE, LensView
 from src.drone_control.loop import run
 from src.drone_control.offboard import BenchDriver, DryRunDriver, OffboardDriver
+from src.drone_control.photos import PhotoTaker
 from src.drone_control.policy_client import PolicyClient
 from src.drone_control.safety import SafetyLimits
 from src.drone_control.shots import load_shots
@@ -166,6 +167,9 @@ async def main_async(a):
         ui.attach_camera(cam, wide=wide, model=sequence.view if sequence is not None else None)
         if sequence is not None:
             ui.attach_model(sequence, load_shots(sequence.goal))
+        if cam is not None:
+            ui.attach_photos(PhotoTaker(cam, a.photo_dir, views={
+                "wide": wide, "model": sequence.view if sequence is not None else None}))
         uisrv = UiServer(ui, sup, port=a.ui_port, gate=gate).start()
         print(f"[pilot] panel at {uisrv.url}")
 
@@ -287,6 +291,8 @@ def main():
                    help="fly move by move, you click Run in the panel; --source policy always does")
     p.add_argument("--move-seconds", type=float, default=1.5, dest="move_seconds",
                    help="how long one accepted move flies before the aircraft holds")
+    p.add_argument("--photo-dir", default="outputs/photos", dest="photo_dir",
+                   help="where the panel's Take a photo button saves the camera's frame")
     p.add_argument("--ui", action="store_true", help="serve the ground-station panel on localhost")
     p.add_argument("--ui-port", type=int, default=8080, dest="ui_port")
     a = p.parse_args()

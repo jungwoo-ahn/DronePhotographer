@@ -166,6 +166,13 @@ With `--source policy` the panel at `http://127.0.0.1:8080` also shows:
   server), and its 8 moves drawn from above from where it was asked, with the camera angle after
   each. The moves are only offered one at a time, as before.
 
+- **Take a photo** (or the P key): saves the camera's frame at full size (1920x1080 at Full
+  HD), the wide and model views beside it, and a note of the shot, position and camera angle,
+  in `--photo-dir` (`outputs/photos`). The A2 mini's own photo command is unsupported, so it is a
+  frame from the stream. The policy also has an "arrived" channel, shown in the move's note, but
+  it fired in only 1 of 6 evaluation episodes that ended within the 8 moves, so the operator
+  takes the photo.
+
 Indoors, with no GPS, try it with `--dry-run`: the real camera, gimbal and model, with the
 aircraft simulated on the laptop.
 

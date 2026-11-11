@@ -301,6 +301,21 @@ function renderPlan(s) {
     : '';
 }
 
+// --- photos: frames saved on the laptop --------------------------------------------
+function renderPhotos(s) {
+  const p = s.photos;
+  $('#photo').hidden = !p;
+  const last = p && p.last, box = $('#shotlast');
+  box.hidden = !last;
+  if (!last || box.dataset.name === last.name) return;
+  box.dataset.name = last.name;
+  $('#lastphoto').src = '/api/photo.jpg?name=' + encodeURIComponent(last.name);
+  const size = last.size ? ` at ${last.size[0]}x${last.size[1]}` : '';
+  $('#lastphoto-say').textContent = `${p.count} photo${p.count === 1 ? '' : 's'} taken. `
+    + `The last at ${utc(last.wall)} UTC${size}.`;
+  $('#lastphoto-where').textContent = `${last.dir}\\${last.files.photo}`;
+}
+
 function renderPanel(s) {
   if (!s) return;
   if (s.status === 'starting') {
@@ -308,7 +323,7 @@ function renderPanel(s) {
     return;
   }
   renderLinks(s); renderCamera(s); renderBand(s); renderEntry(s); renderRecord(s);
-  renderShot(s); renderModel(s); renderPlan(s);
+  renderShot(s); renderModel(s); renderPlan(s); renderPhotos(s);
   const latched = s.rung === 'estop';
   $('#estop').dataset.latched = latched ? '1' : '0';
   $('#estop').textContent = latched ? 'Clear the stop' : 'E-STOP';
@@ -341,6 +356,19 @@ if (typeof HALLMARK_DEMO === 'undefined') {
 
   $('#run').addEventListener('click', () => post('/api/accept'));
   $('#skip').addEventListener('click', () => post('/api/skip'));
+  const LABEL = $('#photo').innerHTML;
+  const takePhoto = () => {
+    const btn = $('#photo');
+    const say = (t) => { btn.textContent = t; setTimeout(() => { btn.innerHTML = LABEL; }, 1200); };
+    fetch('/api/photo', { method: 'POST' }).then((r) => r.json())
+      .then((r) => { say(r.taken ? 'Saved' : 'No frame to save'); poll(); }, () => say('Not saved'));
+  };
+  $('#photo').addEventListener('click', takePhoto);
+  addEventListener('keydown', (e) => {
+    if (e.target === document.body && e.code === 'KeyP' && !$('#photo').hidden) {
+      e.preventDefault(); takePhoto();
+    }
+  });
   $('#shot-pick').addEventListener('change', (e) => {
     post('/api/shot?id=' + encodeURIComponent(e.target.value));
     e.target.blur();        // hand the keys back: Enter, Esc and the space bar work on the page

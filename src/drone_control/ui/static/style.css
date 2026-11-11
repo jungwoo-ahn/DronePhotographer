@@ -241,6 +241,21 @@ main {
 .dia__cam { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.5; }
 .dia__t { font-family: var(--font-outlier); font-size: 9px; fill: var(--color-muted); }
 
+.col-side > div > h2:not(:first-child) { margin-top: var(--space-lg); margin-bottom: var(--space-sm); }
+
+/* taking a photo */
+.camhead { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); margin-bottom: var(--space-sm); }
+.btn--photo { min-height: 40px; padding: 0 var(--space-md); }
+.btn--photo kbd {
+  font-family: var(--font-outlier); font-size: var(--text-xs); margin-left: var(--space-2xs);
+  padding: 0 var(--space-2xs); border: var(--rule-hair) solid var(--color-rule); border-radius: 4px;
+  color: var(--color-muted);
+}
+.shotlast { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: var(--space-sm); align-items: start; margin-top: var(--space-md); }
+.shotlast img { width: 160px; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-pill); box-shadow: 0 0 0 1px var(--color-rule); }
+.shotlast__say { font-size: var(--text-sm); font-weight: 500; }
+.shotlast .fine { overflow-wrap: anywhere; }
+
 /* the target box over what the model sees */
 .target {
   position: absolute; border: 2px dashed var(--color-accent); border-radius: 3px;

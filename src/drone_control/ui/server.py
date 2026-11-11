@@ -5,8 +5,8 @@ more to fly. Binds to 127.0.0.1 by default: this page can stop the aircraft, so 
 not something to expose on the drone's own wireless network by accident.
 
 The state-changing endpoints are the e-stop, its explicit release, (when the pilot is
-flying under approval) accepting or skipping the move the policy has proposed, and
-picking the shot the policy is asked for. There is deliberately no "set velocity" route: the panel can refuse a move
+flying under approval) accepting or skipping the move the policy has proposed,
+picking the shot the policy is asked for, and taking a photo (saved on the laptop). There is deliberately no "set velocity" route: the panel can refuse a move
 or run the one on offer, but it cannot author one. See `approval.ApprovalGate`.
 """
 
@@ -67,6 +67,12 @@ def _handler(state, supervisor, gate=None):
                 return self._send(_json(state.snapshot()), "application/json")
             if path == "/api/shots":
                 return self._send(_json(state.shots()), "application/json")
+            if path == "/api/photo.jpg":
+                query = parse_qs(self.path.partition("?")[2])
+                saved = state.photo_path((query.get("name") or [""])[0])
+                if saved is None or not saved.exists():
+                    return self._send(b"not found", "text/plain", code=404)
+                return self._send(saved.read_bytes(), "image/jpeg", cache=True)
             if path in ("/api/frame.jpg", "/api/model_frame.jpg"):
                 jpeg = state.frame("model" if "model" in path else "wide")
                 if not jpeg:
@@ -93,6 +99,9 @@ def _handler(state, supervisor, gate=None):
             if path == "/api/skip" and gate is not None:
                 return self._send(json.dumps({"skipped": gate.skip()}).encode(),
                                   "application/json")
+            # Saves a frame on the laptop; nothing reaches the aircraft or the camera.
+            if path == "/api/photo":
+                return self._send(_json({"taken": state.take_photo()}), "application/json")
             # A new shot changes the goal the policy is asked with, nothing else. The move on
             # offer was for the old one, so it is taken back; the operator still runs each move.
             if path == "/api/shot":

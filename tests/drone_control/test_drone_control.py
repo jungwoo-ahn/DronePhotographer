@@ -770,7 +770,7 @@ def _pilot_args(**kw):
                 max_yaw_rate=60.0, max_altitude=30.0, max_radius=50.0, duration=0.2,
                 camera_url=None, camera_wait=0.2, max_frame_age=0.7, goal_file=None, tilt_deg=0.0,
                 lens_hfov=0.0, policy_warmup=1.0, approve=False, server_tunnel=False, gimbal=False, full_hd=False,
-                stream_kbps=4096,
+                stream_kbps=4096, photo_dir="outputs/photos",
                 move_seconds=1.5, ui=False, ui_port=0, bench=False, dry_run=False)
     base.update(kw)
     return type("A", (), base)

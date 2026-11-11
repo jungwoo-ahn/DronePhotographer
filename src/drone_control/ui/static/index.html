@@ -120,7 +120,10 @@
 
   <section class="col-side">
     <div>
-      <h2>Camera</h2>
+      <div class="camhead">
+        <h2>Camera</h2>
+        <button class="btn btn--photo" id="photo" type="button" hidden>Take a photo <kbd>P</kbd></button>
+      </div>
       <figure class="cam" id="cam" data-state="off">
         <div class="cam__frame">
           <img id="frame" alt="" width="640" height="480">
@@ -136,6 +139,13 @@
           <div><span class="k">Frame age</span><span class="v" id="f-age">—</span></div>
         </figcaption>
       </figure>
+      <div class="shotlast" id="shotlast" hidden>
+        <img id="lastphoto" alt="The last photo taken" width="160" height="90">
+        <div>
+          <p class="shotlast__say" id="lastphoto-say"></p>
+          <p class="fine" id="lastphoto-where"></p>
+        </div>
+      </div>
       <h2>What the model sees</h2>
       <figure class="cam">
         <div class="cam__frame"><img id="modelframe" alt="" width="512" height="384">
