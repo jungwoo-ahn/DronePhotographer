@@ -58,7 +58,8 @@ FIELDS = ("vx", "vy", "vz", "yaw_rate_deg_s", "pitch_rate_deg_s")
 
 GATEWAY = "https://gw.letsur.ai/v1"
 # Gateway price list (GET /v1/models, 2026-11-06), USD per token.
-PRICES = {"gpt-6-astra": (10e-6, 50e-6)}
+PRICES = {"gpt-6-astra": (10e-6, 50e-6), "gpt-5": (1.25e-6, 10e-6)}
+KEY_FILE = os.path.expanduser("~/.config/letsur/key")   # a bare key, mode 600
 ENV_FILE = "/home/nas_main/jungwooahn/projects/DronePhotographerV12/.env"
 
 
@@ -170,11 +171,13 @@ def parse_json_obj(text):
 
 def load_key() -> str:
     key = os.environ.get("LETSUR_API_KEY") or os.environ.get("GATEWAY_API_KEY")
-    if not key and Path(ENV_FILE).exists():
+    if not key and os.access(ENV_FILE, os.R_OK):
         m = re.search(r"(?:LETSUR|GATEWAY)_API_KEY\s*=\s*['\"]?([^'\"\s]+)", Path(ENV_FILE).read_text())
         key = m.group(1) if m else None
+    if not key and Path(KEY_FILE).exists():
+        key = Path(KEY_FILE).read_text().strip() or None
     if not key:
-        raise SystemExit(f"no LETSUR_API_KEY in env or {ENV_FILE}")
+        raise SystemExit(f"no LETSUR_API_KEY in env, {KEY_FILE} or {ENV_FILE}")
     return key
 
 

@@ -92,7 +92,8 @@ _handle_term() {
     case "$state" in
         PREEMPTED*|*CANCELLED*by\ 0*)
             echo "[requeue] preempted (state=$state) — resubmitting to finish the rest" >&2
-            sbatch -A share --qos=share "$0" "${_args[@]}" >&2
+            # shellcheck disable=SC2086
+            sbatch ${CLEVAL_REQUEUE_FLAGS:--A share --qos=share} "$0" "${_args[@]}" >&2
             ;;
         *) echo "[requeue] state=$state — not a preemption, exiting" >&2 ;;
     esac

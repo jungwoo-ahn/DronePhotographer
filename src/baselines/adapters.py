@@ -619,6 +619,264 @@ class AstraAdapter:
         return _check_chunk(chunk, self.name)
 
 
+# ---------------------------------------------------------------------------- UNIC
+class UNICAdapter:
+    """UNIC (Zhang et al., ICCV 2023) as a reactive, goal-agnostic camera policy.
+
+    Port of `src/policy/unic/policy.py` + `UNICComposition` from jooyeol's repo. The released
+    model recommends a well-composed crop box for the current frame; the box centre's offset
+    from the frame centre becomes a pan (yaw / pitch through the render camera's field of
+    view) and its width a dolly (a crop tighter than the frame means move in). No goal, no
+    lateral translation, no stop: the shoot channel stays 0.
+
+    Fitted to the shared contract as ONE observation = ONE move, returned as a one-step chunk,
+    so it gets the manifest's `n_chunks` decisions -- as many observations as the learned
+    policies see at chunk boundaries (the same convention the source harness used).
+    """
+
+    name = "unic"
+    # 24 mm lens on a 12.8 x 9.6 mm sensor (src.common.reward.CameraIntrinsics), 4:3 frame
+    HFOV_DEG = float(np.degrees(2.0 * np.arctan(12.8 / (2.0 * 24.0))))
+    VFOV_DEG = float(np.degrees(2.0 * np.arctan(9.6 / (2.0 * 24.0))))
+
+    def __init__(self, checkpoint: str, *, dolly_gain: float = 1.5, max_translation_m: float = 3.0,
+                 max_angle_deg: float = 60.0, device: str = "cuda"):
+        from src.baselines.unic_model import UNICModel
+        from src.common.action_repr import apply_action_5d, encode_action_9d
+
+        self.model = UNICModel.load(checkpoint, device=device)
+        self._apply5d, self._encode9d = apply_action_5d, encode_action_9d
+        self.dolly_gain, self.max_t, self.max_ang = dolly_gain, max_translation_m, np.radians(max_angle_deg)
+        self.last_prompt = "[no goal: UNIC is goal-agnostic]"
+        self._steps: list[dict] = []
+
+    def begin_episode(self, key: str):
+        self._steps = []
+
+    def episode_record(self) -> dict:
+        return {"recommendations": self._steps}
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
+        from PIL import Image
+        if pose is None:
+            raise RuntimeError("UNICAdapter needs the current pose (5D yaw is about world up)")
+        rec = self.model.recommend(Image.fromarray(np.asarray(frame_uint8)).convert("RGB"))
+        # A box right of centre means turn RIGHT, which is NEGATIVE dyaw in the 5D repr
+        # (dyaw rotates forward about world up; positive turns left). Below centre: pitch down.
+        yaw = -np.radians((rec.center_x - 0.5) * self.HFOV_DEG)
+        pitch = -np.radians((rec.center_y - 0.5) * self.VFOV_DEG)
+        dz = self.dolly_gain * (1.0 - rec.width)
+        a5 = np.array([0.0, 0.0, np.clip(dz, -self.max_t, self.max_t),
+                       np.clip(yaw, -self.max_ang, self.max_ang),
+                       np.clip(pitch, -self.max_ang, self.max_ang)], np.float32)
+        self._steps.append({**{k: round(float(v), 4) for k, v in vars(rec).items()},
+                            "action5d": [round(float(v), 4) for v in a5]})
+        pos = np.asarray(pose["position"], np.float32)
+        fwd = np.asarray(pose["forward"], np.float32)
+        up = np.asarray(pose["up"], np.float32)
+        np_, fwd_, up_ = self._apply5d(pos, fwd, up, a5)
+        chunk = np.zeros((1, CHUNK_DIM), np.float32)
+        chunk[0, :9] = self._encode9d(pos, fwd, up, np_, fwd_, up_)
+        return _check_chunk(chunk, self.name)
+
+
+# ---------------------------------------------------------------------------- PhotoFlow
+class _PhotoFlowVLM:
+    """The `ask_json(system, user, image, images)` the PhotoFlow agent calls, over GatewayVLM."""
+
+    def __init__(self, gw):
+        self.gw = gw
+
+    def ask_json(self, system, user=None, image=None, images=(), content=None):
+        blocks = [{"type": "text", "text": user}]
+        for item in images or ():
+            path, label = item if isinstance(item, (tuple, list)) else (item, None)
+            if label:
+                blocks.append({"type": "text", "text": label})
+            blocks.append({"type": "image", "path": path})
+        if image:
+            blocks.append({"type": "image", "path": image})
+        return self.gw.ask_json(system, blocks)
+
+
+class PhotoFlowAdapter:
+    """PhotoFlow-style Director/Reviewer search (arXiv:2605.23771), gpt-5 over the gateway.
+
+    Port of `src/policy/photoflow/` + `PhotoFlowPolicy` from jooyeol's repo; constants are the
+    paper's (6 rounds x 4 candidates = 24 previews, J's weights, region memory), prompts are ours.
+    Label the row "PhotoFlow-style".
+
+    It is a GLOBAL SEARCH, not an incremental policy: it renders previews at absolute camera
+    states anywhere in the scene and keeps the best. Fitted to the shared contract by doing the
+    whole search inside the FIRST `act` (through the episode's own renderer, bound by the loop),
+    then returning one step that moves the camera from the start pose to the chosen pose; the
+    loop renders and scores that. The second call returns shoot = 1 with no motion. A search
+    that finds nothing returns shoot = 1 at once, so it scores exactly 0 like a no-op.
+
+    Each preview's measured subject position (the Reviewer's rule scores m1, m2) comes from the
+    placement's dumped mesh (`<bench>/_geom/<placement>.npz`), the same projection that scores
+    the benchmark. The scene summary comes from the render server (blender_render_v7.py) plus
+    the placement's data.json; the subject's front direction is recovered from the goal's
+    bearing, the same information every NL-goal policy's prompt already carries.
+    """
+
+    name = "photoflow"
+
+    def __init__(self, model: str, out_dir: Path, geom_dir: Path, *, render_budget=None,
+                 scene_scale_dir: str | None = None):
+        from src.baselines.astra import GatewayVLM
+        from src.baselines.goal_text import NL_GOAL_KEYS, goal_prompt
+        from src.baselines.photoflow.agent import PhotoFlowAgent, pose_from_look_at
+        from src.common.action_repr import encode_action_9d
+
+        assert tuple(NL_GOAL_KEYS) == tuple(DEFAULT_GOAL_KEYS), "goal key order differs"
+        self.model = model
+        self.gw = GatewayVLM(model, reasoning=None)
+        self.agent = PhotoFlowAgent(_PhotoFlowVLM(self.gw), render_budget=render_budget)
+        self._pose, self._encode9d = pose_from_look_at, encode_action_9d
+        self._keys, self._goal_prompt = NL_GOAL_KEYS, goal_prompt
+        self.inputs_dir, self.geom_dir = Path(out_dir), Path(geom_dir)
+        if not self.geom_dir.is_dir() and (self.geom_dir.parents[1] / "_geom").is_dir():
+            self.geom_dir = self.geom_dir.parents[1] / "_geom"      # a smoke run in a subfolder
+        self.scene_scale_dir = scene_scale_dir
+        self.inputs_dir.mkdir(parents=True, exist_ok=True)
+        self._ep, self._ctx, self.last_prompt = None, None, None
+
+    # -- harness hooks
+    def begin_episode(self, key: str):
+        self._ep = {"key": key, "dir": self.inputs_dir / key.replace(":", "_"), "searched": False,
+                    "info": None, "first_call": len(self.gw.calls), "chosen": None}
+        self._ep["dir"].mkdir(parents=True, exist_ok=True)
+        self.last_prompt = None
+
+    def bind(self, *, env, renderer, window, name, intr):
+        """The episode's renderer and geometry -- a search has to render where it likes."""
+        self._ctx = {"env": env, "renderer": renderer, "window": window, "name": name, "intr": intr}
+
+    def episode_record(self) -> dict:
+        calls = self.gw.calls[self._ep["first_call"]:]
+        info = self._ep["info"] or {}
+        return {"model": self.model, "n_vlm_calls": len(calls),
+                "n_parse_failed": sum(not c["parsed"] for c in calls),
+                "prompt_tokens": sum(c["prompt_tokens"] for c in calls),
+                "completion_tokens": sum(c["completion_tokens"] for c in calls),
+                "reasoning_tokens": sum(c["reasoning_tokens"] for c in calls),
+                "cost_usd": round(sum(c["cost_usd"] for c in calls), 5),
+                "latency_s_total": round(sum(c["latency_s"] for c in calls), 2),
+                "renders": info.get("renders"), "scout_views": info.get("scout_views"),
+                "chosen": self._ep["chosen"], "error": info.get("error"),
+                "search": {k: v for k, v in info.items() if k not in ("error",)}}
+
+    # -- scene summary
+    def _scout(self) -> dict:
+        import math
+        from src.common.reward import pose_to_geometry
+        c = self._ctx
+        w, name = c["window"], c["name"]
+        scout = {}
+        comm = getattr(c["renderer"], "_comm", None)
+        if comm is not None and (Path(comm) / "scene_scout.json").exists():
+            scout = json.loads((Path(comm) / "scene_scout.json").read_text())
+        gf = w.goal_frame
+        subj = {"names": [], "center": [round(float(v), 3) for v in gf.subject_center],
+                "height": float(gf.subject_height)}
+        scale = 1.0
+        try:
+            placement_dir = Path(gf.image).parents[1]
+            subj["names"] = json.loads((placement_dir / "data.json").read_text()).get("subject_names", [])
+        except Exception:  # noqa: BLE001
+            pass
+        if self.scene_scale_dir:
+            try:
+                scale = float(json.loads((Path(self.scene_scale_dir) / f"{name}.json").read_text())
+                              .get("scene_scale", 1.0))
+            except Exception:  # noqa: BLE001
+                pass
+        b = (gf.raw or {}).get("subject_bearing_deg")
+        if b is None:
+            from src.common.goal_space import goal_vector
+            from src.common.dataset_base import _window_object
+            g = goal_vector(gf.raw, DEFAULT_GOAL_KEYS, object_key=_window_object(w))
+            b = float(g[list(DEFAULT_GOAL_KEYS).index("subject_bearing_deg")])
+        geo = pose_to_geometry(gf.camera_position, gf.camera_forward, gf.camera_up,
+                               gf.subject_center, gf.subject_height)
+        fa = (float(b) + math.degrees(geo["az"])) % 360.0
+        subj["front_azimuth_deg"] = round(fa, 1)
+        subj["front_vector_world"] = [round(math.cos(math.radians(fa)), 3),
+                                      round(math.sin(math.radians(fa)), 3), 0.0]
+        subj["bearing_convention"] = (
+            "bearing B = angle around the subject measured from its front. The subject's front "
+            "points along front_vector_world. IMPORTANT: to shoot at bearing B, place the camera "
+            "on the ray from the subject centre at world azimuth (front_azimuth_deg - B) and look "
+            "back at the subject; B = 0 is head-on from the front, B = 180 from behind.")
+        return {"scene": name, "scene_scale": scale, **scout, "subject": subj,
+                "camera": {"focal_mm": 24.0, "sensor_mm": [12.8, 9.6],
+                           "resolution": [int(c["intr"].width), int(c["intr"].height)],
+                           "hfov_deg": 29.86, "vfov_deg": 22.62}}
+
+    def _search(self, goal_vec, goal_raw):
+        from PIL import Image
+        from src.goal_authoring.pose_solver import PlacementGeometry
+        c = self._ctx
+        env, w, intr = c["env"], c["window"], c["intr"]
+        W, Hh = float(intr.width), float(intr.height)
+        geom = PlacementGeometry.load(self.geom_dir / f"{c['name']}.npz")
+        start = (np.array(env.position), np.array(env.forward), np.array(env.up))
+        brief = self._goal_prompt(np.asarray(goal_vec, dtype=np.float32), self._keys, crop=goal_raw)
+        self.last_prompt = brief
+        cx = float(goal_raw.get("object_center_x", W / 2)) / W
+        cy = float(goal_raw.get("object_center_y", Hh / 2)) / Hh
+        half = "left" if cx < 0.4 else ("right" if cx > 0.6 else None)
+        n = {"i": 0}
+
+        def render(position, look_at):
+            pos, fwd, up = self._pose(position, look_at)
+            obs = env.reset(pos, fwd, up)
+            n["i"] += 1
+            path = self._ep["dir"] / f"p{n['i']:02d}.jpg"
+            Image.fromarray(np.asarray(obs["image"])).convert("RGB").save(path, quality=90)
+            prof = geom.profile_float(pos, fwd, up)
+            achieved = dict(prof) if prof else {}
+            ox, oy = achieved.get("object_center_x"), achieved.get("object_center_y")
+            in_frame = bool(prof) and ox is not None and 0.0 <= ox <= W and 0.0 <= oy <= Hh
+            achieved["in_frame"] = in_frame
+            return str(path), achieved, in_frame
+
+        try:
+            scout = self._scout()
+            (self._ep["dir"] / "scout.json").write_text(json.dumps(scout, indent=1))
+            best, info = self.agent.search(render, scout, brief, requested_half=half,
+                                           target_point=(cx, cy), resolution=(int(W), int(Hh)))
+        except Exception as exc:  # noqa: BLE001
+            best, info = None, {"error": f"{type(exc).__name__}: {exc}"[:300], "renders": n["i"]}
+        finally:
+            env.reset(*start, render=False)          # the loop moves the camera, not the search
+        self._ep["info"] = info
+        (self._ep["dir"] / "photoflow_log.json").write_text(json.dumps(info, indent=1, default=str))
+        return best
+
+    def act(self, frame_uint8, goal_vec, goal_raw, seed, pose=None, goal_image=None):
+        if self._ep is None or self._ctx is None:
+            raise RuntimeError("PhotoFlowAdapter needs begin_episode() and bind() before act()")
+        chunk = np.zeros((1, CHUNK_DIM), np.float32)
+        if self._ep["searched"]:
+            chunk[0, 9] = 1.0                        # the search is over: shoot, no motion
+            return _check_chunk(chunk, self.name)
+        self._ep["searched"] = True
+        best = self._search(goal_vec, goal_raw)
+        if best is None:
+            chunk[0, 9] = 1.0
+            return _check_chunk(chunk, self.name)
+        npos, nfwd, nup = self._pose(best["position"], best["look_at"])
+        self._ep["chosen"] = {"position": [float(v) for v in npos], "forward": [float(v) for v in nfwd],
+                              "up": [float(v) for v in nup], "J": float(best.get("J", float("nan")))}
+        pos = np.asarray(pose["position"], np.float32)
+        fwd = np.asarray(pose["forward"], np.float32)
+        up = np.asarray(pose["up"], np.float32)
+        chunk[0, :9] = self._encode9d(pos, fwd, up, npos, nfwd, nup)
+        return _check_chunk(chunk, self.name)
+
+
 # ---------------------------------------------------------------------------- factory
 def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
     """Build the adapter `--policy` names from the eval script's parsed args."""
@@ -642,6 +900,12 @@ def make_adapter(args: Any, out_dir: Path) -> PolicyAdapter:
                             out_dir / f"astra_inputs_{Path(args.out).stem}",
                             send_wh=tuple(args.astra_send_res), reasoning=args.astra_reasoning,
                             goal_framing=args.astra_goal_framing)
+    if args.policy == "photoflow":
+        return PhotoFlowAdapter(args.checkpoint, out_dir / f"photoflow_inputs_{Path(args.out).stem}",
+                                geom_dir=out_dir / "_geom", render_budget=args.render_budget,
+                                scene_scale_dir=args.scene_scale_dir)
+    if args.policy == "unic":
+        return UNICAdapter(args.checkpoint)
     if args.policy == "dp":
         if not args.policy_config:
             raise SystemExit("--policy dp needs --policy-config <config.yaml> from the training run")

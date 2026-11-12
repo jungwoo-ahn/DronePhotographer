@@ -42,8 +42,10 @@ import time
 from collections import Counter
 from pathlib import Path
 
-V12 = "/home/nas_main/jungwooahn/projects/DronePhotographerV12"
-SHARED = "/home/nas_main/jungwooahn/projects/DronePhotographer"
+# Both roots can be moved with env vars so the harness runs off this cluster (see
+# docs/photoflow_bench_v2_runbook.md). Unset = the cluster paths, as before.
+V12 = os.environ.get("DP_V12_ROOT", "/home/nas_main/jungwooahn/projects/DronePhotographerV12")
+SHARED = os.environ.get("DP_SHARED_ROOT", "/home/nas_main/jungwooahn/projects/DronePhotographer")
 sys.path.insert(0, V12)
 # Code comes from the checkout this script lives in (a worktree, say); data paths stay on V12.
 # From the main checkout the two are the same directory.
@@ -53,7 +55,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 # chdir-ing anywhere else makes model construction fail with FileNotFoundError.
 CF_ROOT = f"{V12}/repos/cosmos-framework"
 sys.path.insert(0, CF_ROOT)
-os.chdir(CF_ROOT)
+if os.path.isdir(CF_ROOT):          # absent off-cluster; only the cosmos policy needs it
+    os.chdir(CF_ROOT)
 
 import numpy as np
 
@@ -140,11 +143,16 @@ ap.add_argument("--shoot-threshold", type=float, default=0.5)
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--no-ema", action="store_true", help="load raw weights instead of EMA")
 ap.add_argument("--policy", default="cosmos",
-                choices=("cosmos", "pi05", "groot", "dp", "autophoto", "astra"),
+                choices=("cosmos", "pi05", "groot", "dp", "autophoto", "astra", "unic", "photoflow"),
                 help="which policy answers act(frame, goal). Everything else in this script -- "
                      "renderer, episodes, stop rule, metric -- is shared, which is what makes "
                      "the numbers comparable. See src/baselines/adapters.py. For `astra`, "
                      "--checkpoint is the gateway model id (gpt-6-astra) and --chunks the query budget.")
+ap.add_argument("--render-budget", type=int, default=None, dest="render_budget",
+                help="photoflow: cap on preview renders per episode (default 24 = 6 rounds x 4)")
+ap.add_argument("--scene-scale-dir", default=f"{SHARED}/data/vlm_object_placing_v6_260428_061326",
+                dest="scene_scale_dir",
+                help="photoflow: dir of <placement>.json carrying scene_scale (region cell size)")
 ap.add_argument("--astra-goal-mode", default="text", choices=("text", "image"), dest="astra_goal_mode",
                 help="astra: the goal as the NL shot brief or as the goal frame")
 ap.add_argument("--astra-send-res", type=int, nargs=2, default=(296, 222), metavar=("W", "H"),
@@ -219,7 +227,7 @@ def _repo_path(p: str) -> str:
 
 for _flag in ("out", "root", "val_scenes", "episodes_from", "write_episodes", "checkpoint",
               "policy_config", "goal_override", "goal_image_override"):
-    if _flag == "checkpoint" and args.policy == "astra":
+    if _flag == "checkpoint" and args.policy in ("astra", "photoflow"):
         continue                    # a gateway model id, not a path
     setattr(args, _flag, _repo_path(getattr(args, _flag)))
 
@@ -474,7 +482,8 @@ def episodes_from_manifest(path: str) -> list:
     picked, worst = [], 0.0
     for ep in doc["episodes"]:
         path_j = Path(ep["data_json"])
-        if not path_j.exists():                     # another repo may hold the tree elsewhere
+        # another repo may hold the tree elsewhere; with DP_V12_ROOT set, always use that copy
+        if "DP_V12_ROOT" in os.environ or not path_j.exists():
             path_j = Path(args.root) / ep["placement"] / "data.json"
         want = (ep["pair_idx"], ep["start_frame_idx"], ep["goal_frame_idx"])
         found = None
@@ -592,7 +601,8 @@ def timing_summary(results: list[dict]) -> dict:
            "calls_per_episode": stats([len(r["act_s"]) for r in timed]),
            "episode_wall_s": stats([r["episode_wall_s"] for r in timed if r.get("episode_wall_s")]),
            "device": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"}
-    recs = [r["policy_record"] for r in results if r.get("policy_record")]
+    recs = [r["policy_record"] for r in results
+            if r.get("policy_record") and "calls" in r["policy_record"]]   # API policies only
     if recs:
         calls = [c for p in recs for c in p["calls"]]
         api = [c["api_latency_s"] for c in calls if c["api_latency_s"]]
@@ -791,6 +801,8 @@ def main() -> int:
             render_s: list[float] = []
             if hasattr(adapter, "begin_episode"):
                 adapter.begin_episode(_key)
+            if hasattr(adapter, "bind"):
+                adapter.bind(env=env, renderer=renderer, window=window, name=name, intr=intr)
             for c in range(n_chunks):
                 frame = np.asarray(obs["image"])
                 # `pose` matters only to adapters whose action is defined against world axes

@@ -32,10 +32,11 @@ take disjoint flags (`--comm_dir` for the server, `--output_image` for the per-f
 """
 from __future__ import annotations
 
+import os
 import runpy
 import sys
 
-SHARED = "/home/nas_main/jungwooahn/projects/DronePhotographer"
+SHARED = os.environ.get("DP_SHARED_ROOT", "/home/nas_main/jungwooahn/projects/DronePhotographer")
 SERVER = f"{SHARED}/scripts/blender_render_server.py"
 POSE = f"{SHARED}/scripts/blender_render_pose.py"
 
@@ -60,6 +61,46 @@ def main() -> None:
 
     sys.path.insert(0, SHARED)
     import src.drones.blender_drone as drone
+
+    # Scene scout for the PhotoFlow adapter (paper 4.1: object names, bboxes, centres, extents).
+    # Written into the server's comm dir once the scene is loaded, before `ready`; nothing else
+    # reads it and a failure here must not take the renderer down.
+    _tail = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
+    if "--comm_dir" in _tail:
+        _comm = _tail[_tail.index("--comm_dir") + 1]
+        _load = drone.BlenderDrone.from_run_info.__func__
+
+        def _from_run_info(cls, *a, **k):
+            d = _load(cls, *a, **k)
+            try:
+                import json
+                import numpy as np
+                from mathutils import Vector
+                objs, lo, hi = [], None, None
+                for ob in bpy.data.objects:
+                    if ob.type != "MESH" or not len(ob.data.vertices):
+                        continue
+                    c = np.array([list(ob.matrix_world @ Vector(v)) for v in ob.bound_box], dtype=np.float64)
+                    bmin, bmax = c.min(0), c.max(0)
+                    lo = bmin if lo is None else np.minimum(lo, bmin)
+                    hi = bmax if hi is None else np.maximum(hi, bmax)
+                    dims = bmax - bmin
+                    objs.append({"name": ob.name,
+                                 "center": [round(float(v), 2) for v in (bmin + bmax) / 2.0],
+                                 "size": [round(float(v), 2) for v in dims],
+                                 "volume": float(dims[0] * dims[1] * dims[2])})
+                objs.sort(key=lambda o: -o["volume"])
+                for o in objs:
+                    o.pop("volume")
+                ext = ({"min": [round(float(v), 2) for v in lo], "max": [round(float(v), 2) for v in hi]}
+                       if lo is not None else {})
+                with open(_comm + "/scene_scout.json", "w") as fh:
+                    json.dump({"extents": ext, "objects": objs[:24], "n_objects": len(objs)}, fh)
+            except Exception as exc:  # noqa: BLE001
+                print(f"scene_scout failed: {exc!r}", flush=True)
+            return d
+
+        drone.BlenderDrone.from_run_info = classmethod(_from_run_info)
 
     base = drone._set_render_settings
 
