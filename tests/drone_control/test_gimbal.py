@@ -191,6 +191,9 @@ def test_the_pilot_restarts_the_camera_only_when_it_changed_the_stream(fake, cap
     assert [cmd for cmd, _ in fake.got[-2:]] == [CMD_SET_ENCODING, CMD_REBOOT]
     assert pilot.use_full_hd(g, 4096) is False          # already 1080p: left alone
     assert fake.got[-1][0] == CMD_GET_ENCODING
+    fake.stream = (1920, 1080, 4194)                    # 1080p, but at the old bitrate
+    assert pilot.use_full_hd(g, 2048) is True           # so it is set again, and restarted
+    assert [cmd for cmd, _ in fake.got[-2:]] == [CMD_SET_ENCODING, CMD_REBOOT]
     fake.stream, fake.encoding_ok = (1280, 720, 1607), 0
     assert pilot.use_full_hd(g, 4096) is False          # refused: no restart
     assert CMD_REBOOT not in [cmd for cmd, _ in fake.got[-2:]]

@@ -770,7 +770,8 @@ def _pilot_args(**kw):
                 max_yaw_rate=60.0, max_altitude=30.0, max_radius=50.0, duration=0.2,
                 camera_url=None, camera_wait=0.2, max_frame_age=0.7, goal_file=None, tilt_deg=0.0,
                 lens_hfov=0.0, policy_warmup=1.0, approve=False, server_tunnel=False, gimbal=False, full_hd=False,
-                stream_kbps=4096, photo_dir="outputs/photos",
+                stream_kbps=2048, photo_dir=None, shot_previews="outputs/shot_previews",
+                shots=None, flight_dir=None, record=False, rtsp_transport="tcp",
                 move_seconds=1.5, ui=False, ui_port=0, bench=False, dry_run=False)
     base.update(kw)
     return type("A", (), base)
@@ -844,8 +845,12 @@ def test_no_camera_frame_means_no_takeoff(monkeypatch, tmp_path):
     monkeypatch.setattr(pilot, "CameraStream", Dark)
     with pytest.raises(SystemExit):
         asyncio.run(pilot.main_async(_pilot_args(source="policy", camera_url="rtsp://nobody",
-                                                 goal_file=str(_goal_file(tmp_path)))))
+                                                 goal_file=str(_goal_file(tmp_path)),
+                                                 flight_dir=str(tmp_path / "flight"))))
     assert "takeoff" not in calls
+    # the flight log was still written, and says how it ended
+    kinds = [_json.loads(line)["kind"] for line in (tmp_path / "flight" / "flight.jsonl").open()]
+    assert kinds[0] == "start" and kinds[-1] == "end"
 
 
 def test_stop_pressed_on_the_ground_means_no_takeoff(monkeypatch):

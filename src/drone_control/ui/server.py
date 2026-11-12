@@ -67,6 +67,12 @@ def _handler(state, supervisor, gate=None):
                 return self._send(_json(state.snapshot()), "application/json")
             if path == "/api/shots":
                 return self._send(_json(state.shots()), "application/json")
+            if path == "/api/shot.jpg":
+                query = parse_qs(self.path.partition("?")[2])
+                saved = state.shot_image((query.get("id") or [""])[0])
+                if saved is None or not saved.exists():
+                    return self._send(b"not found", "text/plain", code=404)
+                return self._send(saved.read_bytes(), "image/jpeg", cache=True)
             if path == "/api/photo.jpg":
                 query = parse_qs(self.path.partition("?")[2])
                 saved = state.photo_path((query.get("name") or [""])[0])

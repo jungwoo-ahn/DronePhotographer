@@ -26,6 +26,9 @@
       <div class="link" id="l-policy" data-state="off">
         <span class="link__n">Policy</span><span class="link__v num" id="v-policy">not in use</span>
       </div>
+      <div class="link" id="l-rec" data-state="off" hidden>
+        <span class="link__n">Recording</span><span class="link__v num" id="v-rec">off</span>
+      </div>
     </div>
     <button class="btn btn--stop" id="estop" type="button" data-latched="0">E-STOP</button>
   </div>
@@ -44,25 +47,25 @@
     <div class="shotwrap" id="shotwrap" hidden>
       <h2>The shot</h2>
       <div class="shot">
-        <label class="shot__pick">
-          <span class="label">Ask the model for</span>
-          <select id="shot-pick"><option>Loading the shots…</option></select>
-        </label>
-        <p class="shot__say" id="shot-say">—</p>
-        <p class="fine" id="shot-nums"></p>
-        <div class="shot__figs">
-          <figure class="dia">
-            <svg id="dia-top" viewBox="-60 -60 120 120" role="img"
-                 aria-label="From above: which side of the subject the camera is on"></svg>
-            <figcaption>From above</figcaption>
+        <div class="shot__top">
+          <figure class="goal">
+            <div class="goal__frame">
+              <img id="goal-img" alt="" width="512" height="384" hidden>
+              <p class="goal__none" id="goal-none">No photo for this shot. <code>python scripts/fetch_shot_previews.py</code> copies them from the server.</p>
+            </div>
+            <figcaption class="fine">The photo this shot asks for, in its training scene.</figcaption>
           </figure>
-          <figure class="dia">
-            <svg id="dia-side" viewBox="-60 -60 120 120" role="img"
-                 aria-label="From the side: how high the camera is"></svg>
-            <figcaption>From the side</figcaption>
-          </figure>
-          <div class="shot__cells" id="shot-cells"></div>
+          <div class="shot__text">
+            <p class="label" id="shot-name">—</p>
+            <p class="shot__say" id="shot-say">—</p>
+            <div class="shot__cells" id="shot-cells"></div>
+          </div>
         </div>
+        <p class="fine" id="shot-nums"></p>
+        <details class="pick" id="pick" open>
+          <summary>Choose another shot <span class="fine" id="pick-n"></span></summary>
+          <div class="pick__groups" id="pick-groups"></div>
+        </details>
       </div>
     </div>
 

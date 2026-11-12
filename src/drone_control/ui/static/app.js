@@ -31,6 +31,16 @@ function renderLinks(s) {
   $('#l-policy').dataset.state = !p.present ? 'off' : (p.ok ? 'up' : 'down');
   $('#v-policy').textContent = !p.present ? 'not in use'
     : (s.model && s.model.asking) ? 'thinking' : `${p.calls} asked`;
+  const rec = s.recording;
+  $('#l-rec').hidden = !rec;
+  if (rec) {
+    const t = Math.floor(rec.seconds || 0);
+    $('#l-rec').dataset.state = rec.recording ? 'rec' : 'down';
+    $('#v-rec').textContent = rec.recording
+      ? `● ${String(Math.floor(t / 60)).padStart(2, '0')}:${String(t % 60).padStart(2, '0')}`
+      : (rec.error ? 'stopped' : 'starting');
+    $('#l-rec').title = rec.error || `${rec.dir}\\${rec.file || ''}`;
+  }
 }
 
 function renderCamera(s) {
@@ -150,6 +160,9 @@ const svgEl = (tag, attrs, text) => {
   return text === undefined ? `<${tag} ${a}/>` : `<${tag} ${a}>${text}</${tag}>`;
 };
 
+const shotImage = (s) => '/api/shot.jpg?id=' + encodeURIComponent(s.id);
+
+// The choices, as the photos they lead to: one row per side of the subject.
 function fillShots(shots) {
   SHOTS = shots || [];
   const groups = [];
@@ -158,40 +171,15 @@ function fillShots(shots) {
     if (!g) groups.push(g = { name: s.group, shots: [] });
     g.shots.push(s);
   }
-  $('#shot-pick').innerHTML = groups.map((g) => `<optgroup label="${esc(g.name)}">`
-    + g.shots.map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join('')
-    + '</optgroup>').join('');
-}
-
-// From above, the subject facing up the page: its right is the page's right, so the bearing
-// runs clockwise from the top.
-function drawTop(p) {
-  const b = p.subject_bearing_deg * Math.PI / 180, R = 42;
-  const cx = R * Math.sin(b), cy = -R * Math.cos(b);
-  $('#dia-top').innerHTML = [
-    svgEl('circle', { class: 'dia__ring', cx: 0, cy: 0, r: R }),
-    svgEl('text', { class: 'dia__t', x: 0, y: -50, 'text-anchor': 'middle' }, 'front'),
-    svgEl('text', { class: 'dia__t', x: 0, y: 58, 'text-anchor': 'middle' }, 'back'),
-    svgEl('line', { class: 'dia__sight', x1: cx, y1: cy, x2: 0, y2: 0 }),
-    svgEl('circle', { class: 'dia__subject', cx: 0, cy: 0, r: 8 }),
-    svgEl('path', { class: 'dia__subject', d: 'M-5 -6 L0 -15 L5 -6 Z' }),
-    svgEl('circle', { class: 'dia__cam', cx, cy, r: 6 }),
-  ].join('');
-}
-
-// From the side: negative elevation is the camera above the subject, looking down.
-function drawSide(p) {
-  const up = -p.cam_to_obj_elevation_deg * Math.PI / 180, R = 52;
-  const sx = 28, sy = 4, cx = sx - R * Math.cos(up), cy = sy - R * Math.sin(up);
-  $('#dia-side').innerHTML = [
-    svgEl('line', { class: 'dia__ground', x1: -58, y1: 26, x2: 58, y2: 26 }),
-    svgEl('line', { class: 'dia__level', x1: cx, y1: sy, x2: sx, y2: sy }),
-    svgEl('line', { class: 'dia__sight', x1: cx, y1: cy, x2: sx, y2: sy }),
-    svgEl('rect', { class: 'dia__subject', x: sx - 5, y: -18, width: 10, height: 44, rx: 4 }),
-    svgEl('circle', { class: 'dia__cam', cx, cy, r: 6 }),
-    svgEl('text', { class: 'dia__t', x: 0, y: 44, 'text-anchor': 'middle' },
-          `${num(p.cam_to_obj_elevation_deg, 0)}°`),
-  ].join('');
+  $('#pick-n').textContent = `(${SHOTS.length})`;
+  $('#pick-groups').innerHTML = groups.map((g) => `<div class="pick__row">
+      <span class="pick__side">${esc(g.name.replace(/^From the /, ''))}</span>
+      <div class="pick__shots">${g.shots.map((s) => `<button class="pick__shot" type="button"
+          data-id="${esc(s.id)}" title="${esc(s.name)}" aria-pressed="false">${s.image
+            ? `<img src="${shotImage(s)}" alt="" loading="lazy" width="128" height="96">`
+            : `<span class="pick__text">${esc(s.name)}</span>`}
+          <span class="pick__occ num">${num(s.profile.occupancy, 0)}%</span></button>`).join('')}
+      </div></div>`).join('');
 }
 
 function renderShot(s) {
@@ -200,16 +188,19 @@ function renderShot(s) {
   if (wrap.hidden) return;
   const shot = SHOTS.find((x) => x.id === s.shot);
   if (!shot) return;
-  const pick = $('#shot-pick');
-  if (document.activeElement !== pick && pick.value !== shot.id) pick.value = shot.id;
   if (wrap.dataset.shown === shot.id) return;           // drawn already
   wrap.dataset.shown = shot.id;
+  for (const b of document.querySelectorAll('.pick__shot'))
+    b.setAttribute('aria-pressed', String(b.dataset.id === shot.id));
 
   const p = shot.profile;
+  const img = $('#goal-img');
+  img.hidden = !shot.image; $('#goal-none').hidden = !!shot.image;
+  if (shot.image) { img.src = shotImage(shot); img.alt = `The goal photo: ${shot.name}`; }
+  $('#shot-name').textContent = shot.name;
   const [words, nums] = shot.sentence.replace('Move the camera to achieve this shot: ', '').split(' (');
   $('#shot-say').textContent = words.charAt(0).toUpperCase() + words.slice(1);
   $('#shot-nums').textContent = nums ? 'The model reads: ' + nums.replace(/\)$/, '') : '';
-  drawTop(p); drawSide(p);
   const cell = (k, v) => `<div class="cell"><span class="k">${k}</span><span class="v">${v}</span></div>`;
   $('#shot-cells').innerHTML = [
     cell('Subject fills', `${num(p.occupancy, 0)}% of the frame`),
@@ -369,9 +360,16 @@ if (typeof HALLMARK_DEMO === 'undefined') {
       e.preventDefault(); takePhoto();
     }
   });
-  $('#shot-pick').addEventListener('change', (e) => {
-    post('/api/shot?id=' + encodeURIComponent(e.target.value));
-    e.target.blur();        // hand the keys back: Enter, Esc and the space bar work on the page
+  // Open unless this browser closed it last time.
+  try { if (localStorage.getItem('pick-open') === '0') $('#pick').open = false; } catch (e) { /* none */ }
+  $('#pick').addEventListener('toggle', () => {
+    try { localStorage.setItem('pick-open', $('#pick').open ? '1' : '0'); } catch (e) { /* none */ }
+  });
+  $('#pick-groups').addEventListener('click', (e) => {
+    const b = e.target.closest('.pick__shot');
+    if (!b) return;
+    post('/api/shot?id=' + encodeURIComponent(b.dataset.id));
+    b.blur();               // hand the keys back: Enter, Esc and the space bar work on the page
   });
   const loadShots = () => fetch('/api/shots', { cache: 'no-store' })
     .then((r) => r.json()).then(fillShots, () => setTimeout(loadShots, 2000));

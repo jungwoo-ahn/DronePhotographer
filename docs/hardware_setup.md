@@ -19,7 +19,7 @@ the vendor documents; the commands were written without the devices attached.
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-pip install "mavsdk<4" opencv-python requests
+pip install "mavsdk<4" opencv-python requests imageio-ffmpeg
 python scripts/run_sitl_pilot.py --dry-run --approve --ui --duration 600 --takeoff-settle 0
 ```
 
@@ -156,30 +156,77 @@ changes, it refuses to send the password, and saving the login again is how to a
 
 With `--source policy` the panel at `http://127.0.0.1:8080` also shows:
 
-- **The shot:** pick what the model is asked for. The list holds the goal file, then the 64
-  evaluation goals, eight from each side of the subject. Picking one takes back the move on offer
-  and asks the model again from the current view. Only the goal changes, sent with each request
-  as before; nothing changes on the server. Below the picker are the sentence the model gets, a
-  sketch of the side and height to shoot from, and a dashed box over "what the model sees" where
-  the shot wants the subject.
+- **The shot:** the photo the shot asks for, large, with the sentence the model gets, and below
+  it every shot to choose from as its photo, a row for each side of the subject. The photos are
+  the evaluation episodes' goal renders, the frames each profile was measured from. Copy them to
+  the laptop once with `python scripts/fetch_shot_previews.py` (into `outputs/shot_previews`,
+  about 2 MB). Picking one takes back the move on offer and asks the model again from the current
+  view. Only the goal changes, sent with each request as before; nothing changes on the server.
+  A dashed box over "what the model sees" marks where the shot wants the subject.
+
+  11 of the 64 goal photos show no subject at all, only a wall, a door or darkness: episodes 0,
+  13, 15, 23, 27, 28, 32, 43, 46, 47 and 60. Episodes 3, 5, 11 and 34 show only a sliver. The data
+  generator checked the subject was visible only at each path's two ends, and these goals are
+  frames from the middle. Episode 0 is `configs/drone_goal_example.json`, so pick another.
 - **Where it is going:** whether the model is thinking (a forward pass took about 3 s on the
   server), and its 8 moves drawn from above from where it was asked, with the camera angle after
   each. The moves are only offered one at a time, as before.
 
 - **Take a photo** (or the P key): saves the camera's frame at full size (1920x1080 at Full
   HD), the wide and model views beside it, and a note of the shot, position and camera angle,
-  in `--photo-dir` (`outputs/photos`). The A2 mini's own photo command is unsupported, so it is a
+  in the flight's `photos/` folder (or `--photo-dir`). The A2 mini's own photo command is unsupported, so it is a
   frame from the stream. The policy also has an "arrived" channel, shown in the move's note, but
   it fired in only 1 of 6 evaluation episodes that ended within the 8 moves, so the operator
   takes the photo.
 
-Indoors, with no GPS, try it with `--dry-run`: the real camera, gimbal and model, with the
-aircraft simulated on the laptop.
+**A shot list** keeps the panel to the shots that suit the subject in front of you.
+`configs/shot_lists/female_student.json` holds the 10 evaluation shots whose training subject is a
+woman, visible, with her face in frame: 6 standing, 3 sitting, 1 walking away. Each is named with
+the pose. Given `--shots` and no `--goal-file`, the pilot starts from the list's `start` shot.
+
+**Every run is recorded** in its own folder, `outputs/flights/<date-time>/` (or `--flight-dir`):
+
+- `video.mkv`: the camera's stream exactly as it sent it (H.265, 1920x1080, about 4 Mbps,
+  30 MB a minute), copied by ffmpeg with nothing re-encoded. A file cut short by a crash still
+  plays. If the stream drops, the recording carries on in `video-2.mkv` and so on. For an editor
+  that wants MP4: `ffmpeg -i video.mkv -c copy -tag:v hvc1 video.mp4`. `--no-record` turns this off.
+- `flight.jsonl`: one line per event on the laptop's clock: the shot asked for, each plan, each
+  move offered, run, skipped or withdrawn, each photo, the stop, and twice a second the position,
+  command and camera angle. `video_time` lines give the video's own time at a laptop time, so
+  any moment of the video can be matched to the move that was flying.
+- `photos/`: Take a photo's frames and notes.
+
+- `flight.mp4`: made when the session ends, all the parts joined into one file players can seek
+  in (a recording cut short has no index, so VLC plays it but cannot jump). Copied, not
+  re-encoded. `make_mp4` in `src/drone_control/recorder.py` does the same for any flight folder.
+
+The recording and the pilot share **one** connection to the camera: the ffmpeg that writes the
+file also decodes the pilot's frames. On 2026-11-12 a second connection hung the camera's video
+server after 25 s, for both, until the camera restarted. Recordings stay in `outputs/`, which
+git ignores.
+
+**Outdoors (2026-11-12), the drone's Wi-Fi was the weak link:**
+
+- Over RTSP/UDP, lost packets broke frames every 10 to 20 s ("Error constructing the frame RPS")
+  and the picture froze until the next keyframe, so the panel flickered "signal lost". The
+  recording now reads over TCP (`--rtsp-transport`), and the camera is set to 2 Mbps
+  (`--stream-kbps 2048`, which restarts the camera once when it changes).
+- Windows had the camera network on "Connect manually", so after a drop the laptop stayed off it
+  for minutes. Set it once: `netsh wlan set profileparameter name=TP-Link_840C connectionmode=auto`.
+- Video and QGroundControl's link dropped together further out. The TL-WR802N's antenna sits by
+  the motors; mounting it clear of them, or a router with external antennas, is the real fix.
+- Each dropout starts a new part; parts that never got a picture are deleted.
+- QGroundControl only keeps its flight log (`Documents/QGroundControl Daily/Telemetry`) if it
+  closes normally or the drone disarms. Set to save even when not armed.
+
+`configs/shot_lists/male_subject.json` is the same for a man: 13 shots, 8 standing, 5 sitting.
+
+To photograph a woman, indoors with no GPS:
 
 ```powershell
 python scripts/run_sitl_pilot.py --dry-run --source policy --gimbal `
     --camera-url rtsp://192.168.144.25:8554/main.264 `
-    --goal-file configs/drone_goal_example.json --duration 1800
+    --shots configs/shot_lists/female_student.json --duration 1800
 ```
 
 ## 5. Bench test, propellers off

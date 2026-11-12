@@ -30,24 +30,42 @@ class UiState:
         self._sequence = None
         self._shots: list[dict] = []
         self._shot_id: str | None = None
+        self._previews = None
         self._photos = None
+        self._log = None
+        self._recorder = None
 
     def attach_camera(self, camera, wide=None, model=None):
         """`wide` is what the operator looks at, `model` what the server is sent."""
         self._camera = camera
         self._views = {"wide": wide, "model": model}
 
-    def attach_model(self, sequence, shots: list[dict], shot_id: str | None = None):
-        """The policy's source, and the shots the operator can choose between."""
+    def attach_model(self, sequence, shots: list[dict], shot_id: str | None = None,
+                     previews=None):
+        """The policy's source, the shots the operator can choose between, and where their
+        goal photos are (`scripts/fetch_shot_previews.py`)."""
         self._sequence = sequence
         self._shots = list(shots)
         self._shot_id = shot_id if shot_id is not None else (shots[0]["id"] if shots else None)
+        self._previews = previews
+
+    def shot_image(self, shot_id: str):
+        """A shot's goal photo: only ever a file the shot list named, inside the previews."""
+        shot = next((s for s in self._shots if s["id"] == shot_id), None)
+        if shot is None or not shot.get("image") or self._previews is None:
+            return None
+        from pathlib import Path
+        return Path(self._previews) / shot["image"]
 
     def shots(self) -> list[dict]:
         return list(self._shots)
 
     def attach_photos(self, taker):
         self._photos = taker
+
+    def attach_flight(self, log=None, recorder=None):
+        """The flight log every snapshot is written to, and the video recorder to report on."""
+        self._log, self._recorder = log, recorder
 
     def take_photo(self) -> dict | None:
         """Save the frame on screen, with the shot asked for and where everything was."""
@@ -65,7 +83,10 @@ class UiState:
                 "camera_tilt_deg": hold.tilt if hold is not None else None,
                 "camera_target_deg": hold.target if hold is not None else None,
                 "model_step": model.get("offered"), "model_plan_len": len(model.get("plan") or [])}
-        return self._photos.take(meta)
+        taken = self._photos.take(meta)
+        if taken is not None and self._log is not None:
+            self._log.event("photo", name=taken["name"], files=taken["files"])
+        return taken
 
     def photo_path(self, name: str, which: str = "photo"):
         return None if self._photos is None else self._photos.path(name, which)
@@ -141,6 +162,8 @@ class UiState:
             "model": None if self._sequence is None else self._sequence.status(),
             "shot": self._shot_id,
             "photos": None if self._photos is None else self._photos.summary(),
+            "camera": self._camera_angle(),
+            "recording": None if self._recorder is None else self._recorder.status(),
         }
         if decision.reason != self._last_reason:
             # `now` is monotonic, which is right for ages and wrong for a log: the panel
@@ -152,6 +175,15 @@ class UiState:
 
         with self._lock:
             self._snap = snap
+        if self._log is not None:
+            try:
+                self._log.tick(snap)
+            except Exception:
+                pass                    # a full disk must not take the panel with it
+
+    def _camera_angle(self) -> dict | None:
+        hold = getattr(self._sequence, "hold", None)
+        return None if hold is None else {"tilt": hold.tilt, "target": hold.target}
 
     def _rate(self, now):
         if len(self._cmd_times) < 2:

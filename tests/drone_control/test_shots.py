@@ -56,6 +56,40 @@ def test_a_shot_is_described_as_the_model_will_read_it():
     assert "left third and lower in the frame" in text and "occupancy 16%" in text
 
 
+def test_each_shot_names_its_goal_photo_when_it_has_been_fetched(tmp_path):
+    for name in ("eval-00.jpg", "eval-05.jpg"):
+        (tmp_path / name).write_bytes(b"\xff\xd8jpeg")
+    shots = {s["id"]: s for s in load_shots({"profile": EXAMPLE}, previews=tmp_path)}
+    assert shots["eval-05"]["image"] == "eval-05.jpg"
+    assert shots["eval-01"]["image"] is None                  # not fetched
+    # the example goal file is episode 0's goal, so it shows that episode's photo
+    assert shots["start"]["image"] == "eval-00.jpg"
+    assert all(s["image"] is None for s in load_shots({"profile": EXAMPLE}))   # no previews
+
+
+def test_a_goal_file_of_its_own_has_no_photo(tmp_path):
+    (tmp_path / "eval-00.jpg").write_bytes(b"\xff\xd8jpeg")
+    mine = dict(EXAMPLE, occupancy=30.0)
+    assert load_shots({"profile": mine}, previews=tmp_path)[0]["image"] is None
+
+
+def test_the_fetch_script_shrinks_a_render_to_the_panels_size():
+    import importlib.util
+    from pathlib import Path
+
+    import cv2
+    import numpy as np
+    path = Path(__file__).resolve().parents[2] / "scripts" / "fetch_shot_previews.py"
+    spec = importlib.util.spec_from_file_location("fetch_shot_previews", path)
+    fetch = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(fetch)
+    ok, big = cv2.imencode(".jpg", np.full((768, 1024, 3), 90, np.uint8))
+    small = cv2.imdecode(np.frombuffer(fetch.shrink(big.tobytes(), 512), np.uint8), cv2.IMREAD_COLOR)
+    assert small.shape == (384, 512, 3)
+    with pytest.raises(ValueError):
+        fetch.shrink(b"not a jpeg", 512)
+
+
 def test_the_goal_files_shot_is_left_out_when_it_is_incomplete():
     assert all(s["id"] != "start" for s in load_shots({"profile": {"occupancy": 16}}))
 
@@ -237,5 +271,28 @@ def test_the_panel_lists_the_shots_and_a_pick_takes_back_the_offer(monkeypatch):
 
         bad = urllib.request.Request(base + "/api/shot?id=nope", method="POST")
         assert json.loads(urllib.request.urlopen(bad).read()) == {"chosen": False}
+    finally:
+        server.stop()
+
+
+def test_the_panel_serves_a_shots_photo_and_nothing_else(monkeypatch, tmp_path):
+    import urllib.error
+    (tmp_path / "eval-00.jpg").write_bytes(b"\xff\xd8photo")
+    (tmp_path / "secret.txt").write_text("no")
+    ui = UiState()
+    ui.attach_model(_source(monkeypatch, _Client()), load_shots({"profile": EXAMPLE}, previews=tmp_path),
+                    previews=tmp_path)
+
+    class Sup:
+        stats = {}
+
+    server = UiServer(ui, Sup(), port=0).start()
+    base = f"http://127.0.0.1:{server._srv.server_address[1]}"
+    try:
+        assert urllib.request.urlopen(base + "/api/shot.jpg?id=start").read() == b"\xff\xd8photo"
+        for bad in ("eval-01", "secret.txt", "..%2Fsecret.txt", ""):
+            with pytest.raises(urllib.error.HTTPError) as e:
+                urllib.request.urlopen(base + "/api/shot.jpg?id=" + bad)
+            assert e.value.code == 404
     finally:
         server.stop()

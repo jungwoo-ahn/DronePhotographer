@@ -80,6 +80,7 @@ class CameraStream:
         self._stop = threading.Event()
         self._thread: threading.Thread | None = None
         self._seq = 0
+        self._cap = None
         self.frames_read = 0
         self.reconnects = 0
 
@@ -109,6 +110,14 @@ class CameraStream:
 
     def stop(self):
         self._stop.set()
+        # Release here too: the reader may be blocked in `read`, and a recording capture has a
+        # file to finish properly.
+        cap = self._cap
+        if cap is not None:
+            try:
+                cap.release()
+            except Exception:
+                pass
         if self._thread:
             self._thread.join(timeout=2.0)
 
@@ -117,7 +126,7 @@ class CameraStream:
         while not self._stop.is_set():
             try:
                 if cap is None:
-                    cap = self._open(self.url)
+                    cap = self._cap = self._open(self.url)
                     if cap is None or not cap.isOpened():
                         cap = None
                         self.reconnects += 1
