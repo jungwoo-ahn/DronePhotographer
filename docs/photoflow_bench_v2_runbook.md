@@ -1,7 +1,11 @@
 # Running PhotoFlow (gpt-5) on bench_v2 off the cluster
 
-Written 2026-11-12 by jooyeol (with Claude). Branch `photoflow-unic-bench-v2`, on top of
-`astra-baseline`. It adds two baselines to `scripts/closed_loop_eval.py`:
+Written 2026-11-12 by jooyeol (with Claude). This is V12 code: `astra-baseline` plus one commit.
+jooyeol has no push access to the V12 repo, so the branch lives in the other one, as
+**`v12-photoflow-unic-bench-v2` in `jungwoo-ahn/DronePhotographer`** (it shares no history with
+that repo's `main`; jungwoo can pull it into V12 with
+`git fetch https://github.com/jungwoo-ahn/DronePhotographer.git v12-photoflow-unic-bench-v2`).
+It adds two baselines to `scripts/closed_loop_eval.py`:
 
 * `--policy unic` — already run on the cluster, 240/240 (`runs/bench_v2/rollout_unic.json`).
 * `--policy photoflow` — a PhotoFlow-style search driven by gpt-5 over the LetSur gateway.
@@ -41,7 +45,8 @@ the logs fill with HTTP 429 retries, stop and relaunch with a smaller `N`.
 
 ```bash
 # 1. code
-git clone -b photoflow-unic-bench-v2 https://github.com/jungwoo-ahn/DronePhotographerV12.git
+git clone -b v12-photoflow-unic-bench-v2 --single-branch \
+    https://github.com/jungwoo-ahn/DronePhotographer.git DronePhotographerV12
 cd DronePhotographerV12
 
 # 2. data bundle (5.4 GB): Blender, the 6 scenes and 89 subjects bench_v2 uses, per-episode data
